@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Built an App on OpenStack at QCon NY 2015"
+title: "Build an App on OpenStack at QCon NY 2015"
 date: 2015-06-17 14:00
 comments: true
 author: Everett Toews

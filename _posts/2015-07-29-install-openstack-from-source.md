@@ -13,7 +13,7 @@ categories:
 Install OpenStack from source
 =============================
 
-Installing OpenStack has always been challenging, especially for those who need a small but realistic setup, a manual installation using the desired distribution's packages has been the typical solution. Distribution packages simply the process, however they come with compromises. 
+Installing OpenStack has always been challenging. Due to the complexity and varity of design choices involved in setting up OpenStack, automated installers are rare. For those who need a small but realistic setup, to be used either for development or learning, a manual installation using the desired distribution's packages has been the typical solution. Distribution packages simplify the process, however they come with compromises. 
 
 <!-- more -->
 
@@ -21,17 +21,17 @@ First, packages are only updated monthly, so the wait for patches is slow. Addit
 
 For those testing or developing OpenStack, using a package based install would be impossible, since the packagers place files in difference locations and make it impossible to push source files to the OpenStack github based repos.  For this most developer use devstack as their install vehicle. Devstack is a great tool to get a simple OpenStack environment running but It can be cranky and difficult to get multi-machine OpenStack environments running.
 
-The choice is to install OpenStack from source. For most folks, source installs are undesirable and messy, but since OpenStack is completely written in python, source installs eliminate the temperamental and slow compilation step. Additionally since each service also has its own python requirements file, the python installer will use pip to install any python dependencies. This greatly simplifies the installation process and will result in an install that can be used for either development or production. It is worth noting that some newer OpenStack installer projects such as stackforge's os-ansible-deployment have moved to source installs. Currently it is located at:  https://github.com/stackforge/os-ansible-deployment. The ansible installer is now part of the OpenStack big tent efforts and shortly will be located at: https://github.com/openstack/openstack-ansible
+The choice is to install OpenStack from source. For most folks, source installs are undesirable and messy, but since OpenStack is completely written in python, source installs eliminate the temperamental and slow compilation step. Additionally since each service also has its own python requirements file, the python installer uses pip to install any python dependencies. This greatly simplifies the installation process and results in an install that can be used for either development or production. It is worth noting that some newer OpenStack installer projects such as stackforge's os-ansible-deployment have moved to source installs. Currently it is located at:  https://github.com/stackforge/os-ansible-deployment. The ansible installer is now part of the OpenStack big tent efforts and shortly will be located at: https://github.com/openstack/openstack-ansible
 
-This discussion will demonstrate how to install OpenStack from source onto three machines using Ubuntu 14.04 LTS as the base OS. The three nodes will consist of compute, network and controller nodes, using separate control and data planes, an access/API network and one external network connection. Each node will need at least 3 NIC cards (the network node will need 4). Users will be able to create simple legacy routers and an external provider router. The following diagram gives a physical representation of the final OpenStack system.
+This discussion demonstrates how to install OpenStack from source onto three machines using Ubuntu 14.04 LTS as the base OS. The three nodes consist of compute, network and controller nodes, using separate control and data planes, an access/API network and one external network connection. Each node needs at least 3 NIC cards (the network node needs 4). Users are able to create simple legacy routers and an external provider router. The following diagram gives a physical representation of the final OpenStack system.
 
 ![OpenStack Diagram]({% asset_path 2015-07-29-install-openstack-from-source/openstack.png %})
 
-This install will use KVM, running through libvirt, for virtualization, but it can be easily modified to use QEMU for those who have hardware that doesn't fully support virtualization. The compute nodes will need to be tested to verify that the CPU(s) can support KVM by running:
+This install uses KVM, running through libvirt, for virtualization, but it can be easily modified to use QEMU for those who have hardware that doesn't fully support virtualization. The compute nodes needs to be tested to verify that the CPU(s) can support KVM by running:
 
     egrep -c '(vmx|svm)' /proc/cpuinfo
 
-The output should be 1 or higher to be able to use KVM for virtualization. An output of 0 means  you will have to use QEMU for virtualization.
+The output should be 1 or higher to be able to use KVM for virtualization. An output of 0 means you have to use QEMU for virtualization.
 
 The basic source install process for each node is straightforward and similar for each service that runs on a node. To install an OpenStack service we need to complete the following for each: 
 
@@ -53,7 +53,7 @@ Begin by updating all three of your nodes. On all nodes run:
 
     apt-get update; apt-get dist-upgrade -y;reboot
 
-Set some initial shell variables which will be used in the installation to simplify the install process. `MY_IP` and `MY_PRIVATE_IP` should be the IP for the NIC card on the controller to which the the management plane is assigned. Again perform this on all three nodes.
+Set some initial shell variables which are used in the installation to simplify the install process. `MY_IP` and `MY_PRIVATE_IP` should be the IP for the NIC card on the controller to which the the management plane is assigned. Again perform this on all three nodes.
 
     cat >> .bashrc << EOF
     MY_IP=10.0.1.4
@@ -98,7 +98,7 @@ Install additional needed apt dependencies and needed pip packages:
     pip install python-glanceclient python-keystoneclient python-openstackclient
     pip install repoze.lru pbr mysql-python
 
-Create the various users and directories needed for the OpenStack services. The following script will create these for each of the services on the controller node: (We will use a similar script for the network and compute nodes with fewer services)
+Create the various users and directories needed for the OpenStack services. The following script creates these for each of the services on the controller node: (a similar script is available for the network and compute nodes with fewer services). Run the following in a bash shell:
 
     for SERVICE in keystone glance neutron nova cinder
     do
@@ -127,6 +127,7 @@ Create the various users and directories needed for the OpenStack services. The 
         mkdir -p /etc/neutron/rootwrap.d
         chown -R neutron:neutron /etc/neutron/plugins
     fi
+    done
 
 Clone the keystone github repo move into the newly created keystone directory and use the python install process to install keystone: ( this can be changed to point to any release by changing the `kilo` in the next line, or to install from trunk by removing the `-b stable/kilo`)
 
@@ -161,7 +162,7 @@ Set keystone for proper log rotation:
     }
     EOF
 
-OpenStack does not provide any start up scripts for the services. The script needed depends on the distribution and whether an upstart or a systemd script is needed. For Ubuntu 14.04, an upstart script will be needed.  The following is an upstart script that will start the keystone service (this is a slightly modified version from the Ubuntu package install):
+OpenStack does not provide any start up scripts for the services. The script needed depends on the distribution and whether an upstart or a systemd script is needed. For Ubuntu 14.04, an upstart script is needed.  The following is an upstart script that starts the keystone service (this is a slightly modified version from the Ubuntu package install):
 
 Keystone Upstart script
 
@@ -211,7 +212,7 @@ Load the shell variables needed to access keystone and verify that it is respond
     source openrc_admin
     keystone tenant-list
 
-Initialize some shell variables used by the sample_data script that we will use to populate keystone with its initial data:
+Initialize some shell variables used by the sample_data script that populates keystone with its initial data:
 
     export CONTROLLER_PUBLIC_ADDRESS=$MY_IP
     export CONTROLLER_ADMIN_ADDRESS=$MY_IP

@@ -1,4 +1,4 @@
-{% assign data_categories = "MySQL|PostgreSQL|MongoDB|Redis|Hadoop|Oracle|SQLServer|ElasticSearch" | split: "|" %}
+{% assign data_categories = "MySQL|PostgreSQL|MongoDB|Redis|Cassandra|Hadoop|Oracle|SQLServer|ElasticSearch" | split: "|" %}
 
 <div class="database-products">
   <!-- mysql -->
@@ -23,6 +23,12 @@
   {% if selected_tab contains "Redis" %}{% assign class="database-product active" %}{% else %}{% assign class="database-product" %}{% endif %}
   <section role="tabpanel" class="{{class}}" id="Redis">
       {% include databases-redis.html %}
+  </section>
+
+  <!-- Cassandra -->
+  {% if selected_tab contains "Cassandra" %}{% assign class="database-product active" %}{% else %}{% assign class="database-product" %}{% endif %}
+  <section role="tabpanel" class="{{class}}" id="Cassandra">
+      {% include databases-cassandra.html %}
   </section>
 
   <!-- hadoop -->

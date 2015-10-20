@@ -9,6 +9,11 @@ categories:
     - devex
     - utils
 ---
+**Important Update: Oct 17, 2015**
+
+In addition to the dates listed below, this tool will also work for general scheduled reboots, as well as specific maintenance periods including ["IMPORTANT NOTICE – First and Next Gen Server Vulnerability - October 17, 2015"](https://community.rackspace.com/general/f/53/t/6120)
+
+**Original Post**
 
 In the wake of
 [recently announced vulnerabilities](http://xenbits.xen.org/xsa/) to the

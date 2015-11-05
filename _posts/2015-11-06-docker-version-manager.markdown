@@ -18,14 +18,14 @@ This is great but can introduce a new problem when each service may be using a
 different version of Docker. Keeping track and switching between them can become juggling act.
 But not anymore!
 
-Docker Version Manager, dvm, is a cross-platform command-line tool that helps you install and
+Docker Version Manager (dvm) is a cross-platform command-line tool that helps you install and
 switch between Docker clients.
 
 [carina]: http://getcarina.com
 
 <!-- more -->
 
-Let's install dvm and take it for as spin. Copy, paste and run the commands from your
+Let's install dvm and take it for as spin. Copy, paste, and run the commands from your
 installation output to finalize the installation.
 
 ** Mac OS X and Linux **
@@ -36,7 +36,7 @@ $ curl -s http://getcarina.com/download/getcarina/dvm/latest/install.sh | sh
 
 ** Windows **
 
-Open a PowerShell command prompt and execute the following command. PowerShell
+Open a PowerShell command prompt, and execute the following command. PowerShell
 performs the initial installation but you can use dvm with PowerShell or CMD once installed.
 
 ```powershell
@@ -61,8 +61,8 @@ $ docker --version
 Docker version 1.9.0, build 76d6bc9
 ```
 
-Switching between versions is simple, in fact if the requested version is not already
-installed, dvm will install it for you.
+Switching between versions is simple. In fact, if the requested version is not already
+installed, dvm installs it for you.
 
 ```bash
 $ dvm use 1.8.3
@@ -83,7 +83,7 @@ $ docker --version
 Docker version 1.8.1, build d12ea79
 ```
 
-Now let's use dvm with Carina! First I will load my cluster credentials.
+Now, let's use dvm with Carina! First, I will load my cluster credentials.
 Then dvm will use them to automatically detect the right version for my cluster.
 
 ** Mac OS X and Linux **
@@ -103,9 +103,9 @@ Now using Docker 1.8.3
 Now using Docker 1.8.3
 ```
 
-You can also define an alias for a version or use one of the built-in aliases
+You can also define an alias for a version, or use one of the built-in aliases
 `system` and `experimental`. The `system` alias is used to switch to the system
-installation of Docker and `experimental` is an alias for the latest nightly Docker build.
+installation of Docker and `experimental` is an alias for the latest, nightly Docker build.
 
 ```bash
 $ dvm ls
@@ -121,5 +121,5 @@ $ dvm use experimental
 Now using Docker experimental
 ```
 
-So what are you waiting for? Stop juggling and start using dvm today!
+So what are you waiting for? Stop juggling, and start using dvm today!
 For more information on dvm, the project is available at https://github.com/getcarina/dvm.

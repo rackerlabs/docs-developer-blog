@@ -6,7 +6,7 @@ First, thanks for your interest in contributing and helping us craft quality con
 
 1. Fork this repo, then clone your fork.
 
-2. Before you start working, make sure your content is up-to-date and merged with the right branch:
+1. Before you start working, make sure your content is up-to-date and merged with the right branch:
 
   ```bash
   git remote add upstream git@github.com:rackerlabs/docs-developer-blog.git
@@ -16,16 +16,16 @@ First, thanks for your interest in contributing and helping us craft quality con
   git merge upstream/master
   ```
 
-3. Create a file inside `_posts/` with the following naming convention `YYYY-MM-DD-title-of-your-post.md` where `YYYY-MM-DD` is the date you want you entry to be published.
+1. Create a file inside `_posts/` with the following naming convention `YYYY-MM-DD-title-of-your-post.md` where `YYYY-MM-DD` is the date you want you entry to be published. The published URL for your post becomes `https://developer.rackspace.com/blog/title-of-your-post/` when published, whereas the file itself is named `YYYY-MM-DD-title-of-your-post.md`.
 
-4. Add Jekyll front matter (i.e. metadata) to the top of the file you created in the previous step, for example:
+1. Add Jekyll front matter (i.e. metadata) to the top of the file you created in the previous step, for example:
 
   ```yaml
   ---
   layout: post
   title: "Blog Entry Title"
   date: YYYY-MM-DD 23:59
-  comments: true
+  comments: false
   author: Author(s) name(s)
   published: true
   categories:
@@ -37,7 +37,9 @@ First, thanks for your interest in contributing and helping us craft quality con
 
   Make sure that the dates in the file name and front matter match.
 
-5. Format your blog entry using [markdown](http://daringfireball.net/projects/markdown/basics). If you are not comfortable authoring in markdown, send a message to @rgbkrk for other options.
+1. If you're willing to answer comments about your post, set `comments: true`. Be sure to subscribe to your post comments by clicking on the **Subscribe** link at the very bottom of the post once it's published.
+
+1. Format your blog entry using [markdown](http://daringfireball.net/projects/markdown/basics). If you are not comfortable authoring in markdown, send a message to @rgbkrk for other options.
 
 #### Writing your Post
 
@@ -87,3 +89,4 @@ Follow these steps to submit your entry for publication.
  - author(s) social media contact info
  - accept or decline to allow redaction, editing or structure changes by technical writer staff
  - desired date of publishing
+ - whether or not you're willing to answer comments about your post (see step #5 above)

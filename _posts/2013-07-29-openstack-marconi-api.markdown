@@ -5,7 +5,7 @@ date: 2013-07-29 12:10
 comments: true
 author: Oz Akan
 published: true
-categories: 
+categories:
 - Marconi
 - OpenStack
 ---
@@ -13,23 +13,27 @@ categories:
 
 Marconi is an open source message queue implementation that utilizes a RESTful HTTP interface to provide an asynchronous communications protocol, which is one of the main requirements in today’s scalable applications. Using a queue as a communication layer, the sender and receiver of the message do not need to simultaneously interact with the message queue. As a result, these can scale independently and be less prone to individual failures.
 
-Marconi supports publisher-subscriber and producer-consumer patterns. In this post, I will focus on producer-consumer patterns and, under the section "Python Way," I will give an example using the python requests library. <!-- more -->First, terminology and old friend curl samples.
+Marconi supports publisher-subscriber and producer-consumer patterns. In this post, I will focus on producer-consumer patterns, and, under the section "Python Way," I will give an example using the python requests library.
+
+<!-- more -->
+
+Let's begin with terminology and curl samples.
 
 ## Terminology
 
-* Queue is a logical entity that groups messages. Ideally a queue is created per work type. For example, if you want to compress files, you would create a queue dedicated for this job. Any application that reads from this queue would only compress files. 
-* Message is stored in a queue and exists until it is deleted by a recipient or automatically by the system based on a TTL (time-to-live) value.
-* Worker is an application that reads one or many messages from the queue
-* Producer is an application that creates messages in a queue.
-* Claim is a mechanism to mark messages so that other workers will not process the same message.
-* Publisher - Subscriber is a pattern where all worker applications have access to all messages in the queue. Workers cannot delete or update messages. 
-* Producer - Consumer is a pattern where each worker application that reads the queue has to claim the message in order to prevent duplicate processing. Later, when the work is done, the worker is responsible for deleting the message. If message isn't deleted in a predefined time, it can be claimed by other workers.
-* Message TTL is time-to-live value and defines how long a message will be accessible.
-* Claim TTL is time-to-live value and defines how long a message will be in claimed state. A message can be claimed by one worker at a time.
+* `Queue` is a logical entity that groups messages. Ideally, one queue is created per work type. For example, if you want to compress files, you would create a queue dedicated for this job. Any application that reads from this queue would only compress files.
+* `Message` is stored in a queue and exists until it is either manually deleted by a recipient or automatically deleted by the system based on a TTL (time-to-live) value.
+* `Worker` is an application that reads one or many messages from the queue
+* `Producer` is an application that creates messages in a queue.
+* `Claim` is a mechanism to mark messages so that other workers will not process the same message.
+* `Publisher - Subscriber` is a pattern where all worker applications have access to all messages in the queue. Workers cannot delete or update messages.
+* `Producer - Consumer` is a pattern where each worker application that reads the queue has to claim the message in order to prevent duplicate processing. Later, when the work is done, the worker is responsible for deleting the message. If message isn't deleted in a predefined time, it can be claimed by other workers.
+* `Message TTL` is time-to-live value and defines how long a message will be accessible.
+* `Claim TTL` is time-to-live value and defines how long a message will be in claimed state. A message can be claimed by one worker at a time.
 
 ## cURL Way
 
-Since there is nothing abstracted in curl and available on linux servers, I find curl as a good tool to practice RESTful interfaces. I like keeping these commands handy.
+Since there is nothing abstracted in curl and it's available on all linux servers, I find curl is a good tool to experiment with RESTful interfaces. I like keeping these commands handy.
 
 ### Get Authentication Token
 
@@ -116,7 +120,7 @@ So far we have one queue. Let's list our queues:
 
 ### Post a Message
 
-Because we have a queue named `samplequeue`, we cannot post a message to the queue. We will post a message with a TTL value of 300 and it will have a key-value pair in the body as `"event" : "one"`.
+Because we have a queue named `samplequeue`, we can post a message to the queue. We will post a message with a TTL value of 300, and it will have a key-value pair in the body as `"event" : "one"`.
 
 ##### Request
 
@@ -132,10 +136,10 @@ Because we have a queue named `samplequeue`, we cannot post a message to the que
     Location: /v1/queues/samplequeue/51e840b61d10b20570d56ff4
 
     {"partial": false, "resources": ["/v1/queues/samplequeue/messages/51e840b61d10b20570d56ff4"]}
-    
+
 ### Post Messages
 
-Marconi supports posting 10 messages at the same time, so lets try to post two within the same request.
+Marconi supports posting 10 messages at the same time, so let's try to post two within the same request.
 
 ##### Request
 
@@ -173,8 +177,8 @@ We can get 10 messages with a call.
     Content-Location: /v1/queues/samplequeue/messages?echo=true
 
     {"messages": [
-    {"body": {"event": "two"}, "age": 230, "href": "/v1/queues/samplequeue/messages/51e84e8b1d10b2055fd565fd", "ttl": 300}, 
-    {"body": {"event": "two"}, "age": 3, "href": "/v1/queues/samplequeue/messages/51e84f6e1d10b20571d56f0e", "ttl": 300}, 
+    {"body": {"event": "two"}, "age": 230, "href": "/v1/queues/samplequeue/messages/51e84e8b1d10b2055fd565fd", "ttl": 300},
+    {"body": {"event": "two"}, "age": 3, "href": "/v1/queues/samplequeue/messages/51e84f6e1d10b20571d56f0e", "ttl": 300},
     {"body": {"event": "three"}, "age": 3, "href": "/v1/queues/samplequeue/messages/51e84f6e1d10b20571d56f0f", "ttl": 60}], "links": [{"href": "/v1/queues/samplequeue/messages?marker=9&echo=true", "rel": "next"}
     ]}
 
@@ -215,7 +219,7 @@ Claiming a message is similar to marking a message so it will be invisible when 
     Content-Type: application/json; charset=utf-8
     Location: /v1/queues/samplequeue/claims/51e852d01d10b2056dd5703c
 
-    [{"body": {"event": "two"}, "age": 5, "href": "/v1/queues/samplequeue/messages/51e852cb1d10b20571d56f10?claim_id=51e852d01d10b2056dd5703c", "ttl": 300}, 
+    [{"body": {"event": "two"}, "age": 5, "href": "/v1/queues/samplequeue/messages/51e852cb1d10b20571d56f10?claim_id=51e852d01d10b2056dd5703c", "ttl": 300},
     {"body": {"event": "three"}, "age": 5, "href": "/v1/queues/samplequeue/messages/51e852cb1d10b20571d56f11?claim_id=51e852d01d10b2056dd5703c", "ttl": 120}]
 
 
@@ -233,9 +237,9 @@ Claiming a message is similar to marking a message so it will be invisible when 
 
 ## Python Way
 
-Curl provides a convenient way to test Marconi RESTful interface, but it likely does not provide the tool to develop an application. Now, let’s see how these requests would be used in an application written in Python. 
+Curl provides a convenient way to test the Marconi RESTful interface, but it does not provide the tool to develop an application. Now, let’s see how these requests would be used in an application written in Python.
 
-Most of the applications will have a logic similar to this:
+Most applications will have a logic similar to this:
 
 * One or many producers posts messages to a queue
 * Many consumers read the queue, and claim a message when available
@@ -282,11 +286,11 @@ Below, I created 3 classes. ```Queue_Connection``` handles http calls. ```Produc
 
 
     class Producer(Queue_Connection):
-        
+
         def __init__(self, url, username, apikey):
             super(Producer, self).__init__(username, apikey)               
             self.base_url = url
-        
+
         def queue_name():
             def fget(self):
                 return self._queue_name
@@ -343,12 +347,12 @@ Below, I created 3 classes. ```Queue_Connection``` handles http calls. ```Produc
                 print "Message deleted"
 
 
-    """ create a Producer instance """ 
+    """ create a Producer instance """
     pub = Producer(url, username, apikey)
     pub.queue_name = 'testqueue'
 
     if not pub.queue_exists():
-        print "Creating queue", pub.queue_name 
+        print "Creating queue", pub.queue_name
         pub.create_queue({"metadata": "My Queue"})
 
     """ create and post two messages """
@@ -378,6 +382,6 @@ Below, I created 3 classes. ```Queue_Connection``` handles http calls. ```Produc
 
 This is a very primitive example. A real application would require us to handle exceptions but this should give you an idea of how queuing works
 
-I believe the effort to start using queues in an application is well worth the benefits. With Marconi, we are going to have queue as a service. This means someone will manage it for us and we will just enjoy the benefits. In a matter of weeks, there is going to be a Python client ready and it will get just easier to talk to Marconi.
+I believe the effort to start using queues in an application is well worth the benefits. With Marconi, we have queue as a service. This means someone manages it for us, and we just enjoy the benefits. In a matter of weeks, a Python client will be ready, making it even easier to talk to Marconi.
 
 Happy queuing.

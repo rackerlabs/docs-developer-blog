@@ -31,7 +31,7 @@ installation output to finalize the installation.
 ** Mac OS X and Linux **
 
 ```bash
-$ curl -s http://getcarina.com/download/getcarina/dvm/latest/install.sh | sh
+$ curl -sL https://download.getcarina.com/dvm/latest/install.sh | sh
 ```
 
 ** Windows **
@@ -40,7 +40,7 @@ Open a PowerShell command prompt, and execute the following command. PowerShell
 performs the initial installation but you can use dvm with PowerShell or CMD once installed.
 
 ```powershell
-> iex (wget http://getcarina.com/download/getcarina/dvm/latest/install.ps1)
+> iex (wget https://download.getcarina.com/dvm/latest/install.ps1)
 ```
 
 Once installed, we can list all installed versions of the Docker client.

@@ -11,11 +11,11 @@ categories:
     - openstack
 ---
 
-Over the last couple of years, we've seen OpenStack deployments shift from a public cloud model where no one is trusted to a private cloud model where collaboration and shared resources between projects is required. As enterprises adopt OpenStack and integrate it into their infrastructure, new use cases continue to multiply and existing limitations in APIs and data models have been brought to the forefront. One of the more exciting features to come out of Neutron development in the Liberty cycle that addresses a shortcoming is a framework for Role Based Access Control (RBAC). 
+Over the last couple of years, we've seen OpenStack deployments shift from a public cloud model, where no one is trusted, to a private cloud model, where collaboration and shared resources between projects is required. As enterprises adopt OpenStack and integrate it into their infrastructure, new use cases continue to multiply, and existing limitations in APIs and data models have been brought to the forefront. One of the more exciting features to come out of Neutron development in the Liberty cycle that addresses a shortcoming is a framework for Role Based Access Control (RBAC). 
 
 <!-- more -->
 
-RBAC aims to solve the inability to share certain Neutron resources with a subset of projects or tenants. Neutron has supported shared resources in the past, but up until now it's been all-or-nothing. If a network or other resource is marked as `shared`, it is shared with *all* tenants with no ability to specify otherwise. RBAC policies will allow administrators and users to share resources with one or more tenants using a granular, rather than a shotgun, approach.
+RBAC aims to solve the inability to share certain Neutron resources with a subset of projects or tenants. Neutron has supported shared resources in the past, but until now, it's been all-or-nothing. If a network or other resource is marked as `shared`, it is shared with *all* tenants with no ability to specify otherwise. RBAC policies allow administrators and users to share resources with one or more tenants using a granular, rather than a shotgun, approach.
 
 # Introducing the commands
 

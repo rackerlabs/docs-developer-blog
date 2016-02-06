@@ -9,3 +9,79 @@ published: true
 categories:
 - Devops
 ---
+
+I previously made a [blog post](https://developer.rackspace.com/blog/run-sitecore-in-a-docker-container-on-windows-server-2016/) how to manually setup Sitecore running in a Docker container. I would like to take it one more step and build a Docker image using an automated install of Sitecore during the build process. We can then build Sitecore development enviornments on demand using our Docker Sitecore image.
+
+<!-- more -->
+
+Building on top of what we know from my last post, we know that the dockerfile sets up our instructions on building a Docker image. Before we build our dockerfile, we have some prerequisites to make our Docker container successfully run Sitecore:
+- An extracted executable of the Sitecore web installer
+- A Sitecore license.xml file
+- A SQL Server hosting our Sitecore databases
+
+On the Docker host, I created a folder on the root of the C drive called install. I will use this folder to put our required files including our dockerfile we will create. Since I am using a virtual machine as my Docker host, I ran a simple net use command to map a drive from my Docker host to my laptop. I can now copy over our Sitecore web installer and Sitecore license file to our install folder. We now can extract the Sitecore MSI files we need to proceed. The following command will extract the files to the install folder
+
+```sh
+Sitecore 8.1 rev. 151207.exe /q /extractcab
+```
+
+We can now delete the Sitecore executable we copied over since we now have extracted the MSI. Once deleted, open up **notepad.exe** to create our dockerfile. Once open, please paste the following Docker instructions and save the file as dockerfile
+
+```sh
+#We need IIS, but also ASP.Net 4.5. I could create another container image with ASP.NET 4.5 installed
+#but for this example, let's keep it simple and have the Sitecore installer add ASP.NET 4.5 for us
+#
+FROM microsoft/iis 
+
+#Environmental variables holding configuration information for our Sitecore install
+ENV sqllogin jrudley
+ENV sqlpassword MySup3rp@55w0rd
+ENV sqlserver raxsqlserver.database.windows.net
+ENV sclicensename license.xml
+ENV scinstallloc C:\\Inetpub\\wwwroot\\raxsc
+ENV sitename raxsc
+ENV sclogname SCInstaller.log
+
+#Copy over the extracted files from the Sitecore executable 
+COPY . /install
+
+#Set our working directory to the install folder
+WORKDIR /install
+
+#Remove the existing default website
+RUN powershell -executionpolicy bypass -Command "Remove-Website 'Default Web Site'"
+
+#Install sitecore
+RUN msiexec.exe  /i "C:\install\SupportFiles\exe\Sitecore.msi" TRANSFORMS=":InstanceId1;:ComponentGUIDTransform1.mst" MSINEWINSTANCE=1 LOGVERBOSE=1 SC_LANG="en-US" SC_CLIENTONLY="1" SKIPINSTALLSQLDATA="1" SKIPUNINSTALLSQLDATA="1" SC_INSTANCENAME="%sitename%" SC_LICENSE_PATH="c:\install\%sclicensename%" SC_SQL_SERVER="%sqlserver%" SC_DBTYPE="MSSQL" INSTALLLOCATION="%scinstallloc%" SC_DATA_FOLDER="%scinstallloc%\Data" SC_NET_VERSION="4" SC_IISSITE_NAME="%sitename%" SC_INTEGRATED_PIPELINE_MODE="1" SC_IISAPPPOOL_NAME="%sitename%AppPool" SC_IISSITE_HEADER="%sitename%" SC_IISSITE_PORT="80" SC_SQL_SERVER_CONFIG_USER="%sqllogin%" SC_SQL_SERVER_CONFIG_PASSWORD="%sqlpassword%" /l*+v "c:\install\%sclogname%"
+
+#Add a binding to the Sitecore website 
+RUN powershell -executionpolicy bypass -Command "New-WebBinding -Name "%sitename%" -IPAddress "*" -Port 80"
+
+#Cleanup files to reduce image size
+RUN rmdir SupportFiles /s /q
+```
+
+Save the dockerfile and make sure it is in c:\install. Build our docker image by typing
+
+```sh
+docker build -t sitecoredev .
+```
+A firewall rule needs to be open for port 80 on the Docker host.
+
+```sh
+New-NetFirewallRule -Name "TCP80" -DisplayName "HTTP on TCP/80" -Protocol tcp -LocalPort 80 -Action Allow -Enabled True
+```
+
+To launch a new Sitecore container using the Docker image we built, type the following
+
+```sh
+docker run --name dev1 --rm -it -p 80:80 sitecoredev cmd
+```
+
+At this point, a Docker container is running with our Sitecore image. I am able to browse to the admin page, edit content, save and publish. You can also launch Sitecore containers quickly by running the above command or multiple Sitecore containers by changing the port
+
+```sh
+docker run --name dev1 --rm -it -p 80:80 sitecoredev cmd
+docker run --name dev2 --rm -it -p 81:80 sitecoredev cmd
+```
+

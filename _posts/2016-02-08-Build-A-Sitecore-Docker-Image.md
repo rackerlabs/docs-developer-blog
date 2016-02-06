@@ -57,7 +57,7 @@ RUN msiexec.exe  /i "C:\install\SupportFiles\exe\Sitecore.msi" TRANSFORMS=":Inst
 #Add a binding to the Sitecore website 
 RUN powershell -executionpolicy bypass -Command "New-WebBinding -Name "%sitename%" -IPAddress "*" -Port 80"
 
-#Cleanup files to reduce image size
+#Clean up files to reduce image size
 RUN rmdir SupportFiles /s /q
 ```
 
@@ -78,10 +78,7 @@ To launch a new Sitecore container using the Docker image we built, type the fol
 docker run --name dev1 --rm -it -p 80:80 sitecoredev cmd
 ```
 
-At this point, a Docker container is running with our Sitecore image. I am able to browse to the admin page, edit content, save and publish. You can also launch Sitecore containers quickly by running the above command or multiple Sitecore containers by changing the port
+At this point, a Docker container is running with our Sitecore image. I am able to browse to the admin page, edit content, save and publish. 
 
-```sh
-docker run --name dev1 --rm -it -p 80:80 sitecoredev cmd
-docker run --name dev2 --rm -it -p 81:80 sitecoredev cmd
-```
+You may have noticed that I am launching a Docker container by running an interactive sessions each time. You would expect to launch it with the **--detach** option. If you ran it with that option, the container would start then exit. I did some research and found a [thread](https://social.msdn.microsoft.com/Forums/en-US/7e47e19b-3d03-4791-bdac-55d3a54cf094/is-it-possible-to-run-in-daemonized-mode?forum=windowscontainers#2cea28a7-4515-4d26-8982-35b156fa120b) discussing this same issue. Long story short, Docker is expecting a process to stay alive to run in daemon mode. A solution to this is to write a powershell script with a switch parameter. The following is a powershell script with a switch parameter. 
 

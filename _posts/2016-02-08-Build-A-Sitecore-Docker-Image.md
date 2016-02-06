@@ -10,7 +10,7 @@ categories:
 - Devops
 ---
 
-I previously made a [blog post](https://developer.rackspace.com/blog/run-sitecore-in-a-docker-container-on-windows-server-2016/) how to manually setup Sitecore running in a Docker container. I would like to take it one more step and build a Docker image using an automated install of Sitecore during the build process. We can then build Sitecore development enviornments on demand using our Docker Sitecore image.
+I previously made a [blog post](https://developer.rackspace.com/blog/run-sitecore-in-a-docker-container-on-windows-server-2016/) on how to manually setup Sitecore running in a Docker container. I would like to take it one more step and build a Docker image using an automated install of Sitecore during the build process. We can then build Sitecore development enviornments on demand using our Docker Sitecore image.
 
 <!-- more -->
 

@@ -98,11 +98,7 @@ Install additional needed apt dependencies and needed pip packages:
     pip install python-glanceclient python-keystoneclient python-openstackclient
     pip install repoze.lru pbr mysql-python
 
-<<<<<<< HEAD
 Create the various users and directories needed for the OpenStack services. The following script creates these for each of the services on the controller node: (a similar script is available for the network and compute nodes with fewer services). Run the following in a bash shell:
-=======
-Create the various users and directories needed for the OpenStack services. The following script creates these for each of the services on the controller node: (a similar script is available for the network and compute nodes with fewer services)
->>>>>>> d1e04fa84feea79daecfa25f6e4d008859ca3ade
 
     for SERVICE in keystone glance neutron nova cinder
     do

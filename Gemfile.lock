@@ -75,6 +75,7 @@ GEM
       ffi (>= 0.5.0)
     redcarpet (3.2.3)
     ref (1.0.5)
+    rouge (1.9.1)
     safe_yaml (1.0.4)
     sass (3.4.13)
     sprockets (2.12.3)
@@ -105,5 +106,9 @@ DEPENDENCIES
   jekyll
   jekyll-assets
   less
+  rouge
   stringex
   therubyracer
+
+BUNDLED WITH
+   1.10.6

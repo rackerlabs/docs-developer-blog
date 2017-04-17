@@ -4,7 +4,7 @@ url: https://developer.rackspace.com
 markdown: redcarpet
 redcarpet:
   extensions: [ "tables" ]
-highlighter: pygments
+highlighter: rouge
 paginate: 10
 relative_permalinks: true
 permalink: /blog/:title

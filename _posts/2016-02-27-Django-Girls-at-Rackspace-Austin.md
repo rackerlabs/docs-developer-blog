@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Django Girls at Rackspace Austin"
-date: 2016-03-01 10:00
+date: 2016-02-27 10:00
 comments: false
 author: Nina Toscano
 authorIsRacker: true

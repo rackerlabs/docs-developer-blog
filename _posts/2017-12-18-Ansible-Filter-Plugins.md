@@ -23,7 +23,7 @@ Let's look at a very simple example to illustrate the concept.  Suppose that we 
 
 
 ```
-api_key: "{{ api_key | trim }}"
+api_key: "\{\{ api_key | trim \}\}"
 ```
 
 This is obviously a very simple example, but it should illustrate the power of filter plugins.

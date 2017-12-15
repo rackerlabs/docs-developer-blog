@@ -22,9 +22,7 @@ Jinja2 comes with a [significant number](http://jinja.pocoo.org/docs/2.10/templa
 Let's look at a very simple example to illustrate the concept.  Suppose that we have a variable that can be inputted in to one of our playbooks, but this variable may contain leading or trailing whitespace which your playbook needs to account for – perhaps an API key or something that could easily run in to issues if incorrectly copy & pasted when executing the playbook.  We can use the built-in Jinja2 filter `trim` to address this in our template to very quickly strip out all extraneous whitespace:
 
 
-```
-api_key: "\{\{ api_key | trim \}\}"
-```
+`api_key: "{{ api_key | trim }}"`
 
 This is obviously a very simple example, but it should illustrate the power of filter plugins.
 
@@ -69,9 +67,7 @@ If you're unfamiliar with Python, essentially all we're doing here is declaring 
 
 To see our custom filter plugin in action, here is how we utilize it in our playbook.  After making our API call to get all agent versions and storing it in a dictionary, we can simply iterate through the dictionary for each agent to grab the raw output and pass it through this filter just as if we were using a built-in filter:
 
-```
-{{ item.appAgentVersion | appd_version_parse }}
-```
+`{{ item.appAgentVersion | appd_version_parse }}'
 
 ### Final Thoughts
 

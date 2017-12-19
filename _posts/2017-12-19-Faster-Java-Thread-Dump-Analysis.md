@@ -29,6 +29,6 @@ With these thread dumps in hand, we can point your browser to [http://fastthread
 
 ![Thread Dump Analysis Summary]({% asset_path 2017-12-19-Faster-Java-Thread-Dump-Analysis/summary.png %})
 
-![Blocking Threads]({% asset_path 2017-12-19-Faster-Java-Thread-Dump-Analysis/blocked_threads.png %})
+![Blocked Threads]({% asset_path 2017-12-19-Faster-Java-Thread-Dump-Analysis/blocked_threads.png %})
 
 In the above two images, you can see a small representation of some of the visual analysis that fastthread can provide.

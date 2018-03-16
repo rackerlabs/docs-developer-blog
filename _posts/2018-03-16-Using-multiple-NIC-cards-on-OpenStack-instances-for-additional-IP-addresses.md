@@ -7,7 +7,6 @@ author: Phil Hopkins
 published: true
 authorIsRacker: true
 categories:
-    - Networking
     - Openstack
 ---
 

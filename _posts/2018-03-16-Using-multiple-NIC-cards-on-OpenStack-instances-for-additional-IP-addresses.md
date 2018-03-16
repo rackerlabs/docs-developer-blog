@@ -117,6 +117,7 @@ the `10.20.0.0/24` network using this information:
     file name: /etc/network/interface.d/ens4.cfg
 
 After we fill in the information, `/etc/network/interface.d/ens4.cfg` contains:
+
     auto ens4
     iface ens4 inet static
     address 10.20.0.4

@@ -119,14 +119,14 @@ the `10.20.0.0/24` network using this information:
 After we fill in the information, `/etc/network/interface.d/ens4.cfg` contains:
     auto ens4
     iface ens4 inet static
-     address 10.20.0.4
-     network 10.20.0.0
-     netmask 255.255.255.0
-     broadcast 10.20.0.255
-     post-up ip route add 10.20.0.0/24 dev ens4 src 10.20.0.4 table 4
-     post-up ip route add default via 10.20.0.1 dev ens4 table 4
-     post-up ip rule add from 10.20.0.4 table 4
-     post-up ip route add 10.20.0.0/24 dev ens4 src 10.20.0.4
+    address 10.20.0.4
+    network 10.20.0.0
+    netmask 255.255.255.0
+    broadcast 10.20.0.255
+    post-up ip route add 10.20.0.0/24 dev ens4 src 10.20.0.4 table 4
+    post-up ip route add default via 10.20.0.1 dev ens4 table 4
+    post-up ip rule add from 10.20.0.4 table 4
+    post-up ip route add 10.20.0.0/24 dev ens4 src 10.20.0.4
 
 ### Naming or numbering routing tables
 

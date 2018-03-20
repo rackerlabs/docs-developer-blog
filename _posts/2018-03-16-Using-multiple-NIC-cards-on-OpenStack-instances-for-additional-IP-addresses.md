@@ -11,8 +11,8 @@ categories:
 ---
 
 In my [previous series of articles](https://blog.rackspace.com/a-users-look-at-openstack-networking-part-5)
-on OpenStack networking, I mentioned that in the virtual world there are ways
-of doing things that can’t be done in the physical world. Because of that, we
+on OpenStack networking, I mentioned that there are ways of doing things in the
+virtual world that can’t be done in the physical world. Because of that, we
 shouldn’t let the physical server limitations control our thinking in the
 virtual world -- but often we do.
 
@@ -27,10 +27,13 @@ do not exist in the virtual world, where you can add a virtual NIC card for each
 additional IP needed. The limitation for virtual servers isn’t physical slots --
 instead, it’s the number of available PCI bus addresses. This limitation occurs
 when a web server supports multiple domains, some of which have separate public
-IPs. Each public IP needs a separate floating IP address on the public cloud
-network, and the floating-IP-to-server-IP relationship requires a separate IP
-for the server on the server's internal private IP.  In this case, we use a new
-NIC card for each internal IP.
+IPs.
+
+Each public IP is a floating IP address on the public cloud network. This
+floating IP must be mapped to an IP on the server so that traffic to the
+floating IP is directed to the server. The difference in the cloud is that
+the new IP can reside on a new NIC card as opposed to being added to an existing
+NIC card.
 
 ### Routing problem
 
@@ -64,6 +67,7 @@ may need to route packets to interfaces based on different criteria, depending
 not only on the destination addresses but also on other packet fields such as
 source address, IP protocol, transport protocol ports, or even packet payload.
 The kernel’s implementation of this type of routing is called *Policy Routing*.
+
 In this application, we want to route packets based on the packet `source address`
 to ensure that the packets go out of the interface (or NIC card) that uses the
 packet’s `from` IP address. If we don't do this, the system uses the interface

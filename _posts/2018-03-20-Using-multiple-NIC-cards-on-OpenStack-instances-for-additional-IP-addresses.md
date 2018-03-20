@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using multiple NIC cards on OpenStack instances for additional IP addresses"
-date: 2018-03-16 00:00
+date: 2018-03-20 00:00
 comments: false
 author: Phil Hopkins
 published: true

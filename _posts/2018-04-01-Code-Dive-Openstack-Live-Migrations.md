@@ -587,9 +587,11 @@ We finally return to execute, and I've marked what we have already completed wit
     
 ### Chapter 4: Compute and Hypervisor controls
 
+Now we explore the Compute and Hypervisor controls.
+
 #### Exploration 30
 
-Like always with these RPC calls, the action moves into a private method. Some complex code here sets up an eventlet thread to run in the background. Because this process can take a long time, the background processing means that the RPC worker is not locked to this method while the private method runs.
+As always with these RPC calls, the action now moves into a private method. Some complex code here sets up an eventlet thread to run in the background. Because this process can take a long time, the background processing means that the RPC worker is not locked to this method while the private method runs.
 
 *nova.compute.manager.live\_migration* ->
 {% highlight python %}

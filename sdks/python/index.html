@@ -29,13 +29,69 @@ $ pip install rackspacesdk
   {% endhighlight %}
   <p>This will install the RackspaceSDK plugin as well as the OpenstackSDK</p>
   <h2>Getting started with OpenstackSDK</h2>
+<<<<<<< HEAD
   
 {% highlight python %}
+=======
+  {% highlight python %}
+>>>>>>> 3e88da17b265193f10cb8a9c146efe47087b0e02
 from rackspace import connection
 
 conn = connection.Connection(username="user",
                              api_key="b0f75295e3f844c18b678bdf7b6e0681",
                              region="DFW")
+<<<<<<< HEAD
+=======
+
+  {% endhighlight %}
+
+  <p>In addition to using the credentials within your script OpenstackSDK supports the use of the clouds.yaml file.  You will want to create the clouds.yaml file in <strong> ~/.config/openstack/</strong> and the file will need to look like this.</p>
+  {% highlight yaml %}
+  clouds:
+  accountdfw:
+    cloud: badger
+    region_name: DFW
+
+  accountord:
+    cloud: badger
+    region_name: ORD
+
+  accountiad:
+    cloud: badger
+    region_name: IAD
+
+  accountsyd:
+    cloud: badger
+    region_name: SYD
+
+  accounthkg:
+    cloud: badger
+    region_name: HKG
+
+    {% endhighlight %}
+
+  <p>You will also want to have the clouds-public.yaml file setup.  This will allow you to specify different Openstack Providers like Rackspace Public Cloud or a Rackspace Private Cloud environment.  That file will look like the following.</p>
+  
+  {% highlight yaml %}
+  public-clouds:
+  badger:
+    auth_type: rackspace_apikey
+    auth:
+      username: <user>
+      api-key: <api_key>
+      auth_url: https://identity.api.rackspacecloud.com/v2.0/
+    compute_api_version: 2
+    volume_api_version: 1
+    network_api_version: 2
+  {% endhighlight %}
+
+  <p>With these 2 files configured you can then select different cloud endpoints or reagion using the following Python code.</p>
+
+  {% hightlight python %}
+  import rackspace
+
+  conn = connection.from_config(cloud_name='badgerdfw')
+>>>>>>> 3e88da17b265193f10cb8a9c146efe47087b0e02
 
 {% endhighlight %}
 

@@ -416,7 +416,7 @@ The following method makes sure that the destination is ready for use. First, it
 
 In the following code, the *migrate_receive* call issues a warning through XenAPI. It sends XenAPI the *migrate_receive* command including the nw_ref, destination, and options details. These options can be `sr` references. Live migration, block migration, and xen returns a token. This token signifies that the server is ready to accept the connection over the nw_ref that you specified to the host that you specified with the parameters that you specified. This token is stored as the *dest_check_data.migrate_send_data* variable and is returned to Compute services *_do_check_can_live_migrate_destination* method.
     
-*nova.virt.xenapi.vmops.migrate\_receive* ->
+*nova.virt.xenapi.vmops.migrate_receive* ->
 {% highlight python %}
     def migrate_receive():
         destref = self._session.host_ref
@@ -427,6 +427,7 @@ In the following code, the *migrate_receive* call issues a warning through XenAP
             migrate_data = self._session.call_xenapi("host.migrate_receive", destref, nwref, options)
         ...
         return migrate_data
+{% endhighlight %}
 
 #### Exploration 23
 

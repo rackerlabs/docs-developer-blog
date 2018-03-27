@@ -5,29 +5,39 @@ date: 2018-04-01 00:00
 comments: false
 author: Brooks Kaminski
 published: true
+authorIsRacker: true
 categories:
     - Openstack
 ---
 
 #Code-Dive: Openstack Live-Migration
 
-The Openstack live migration process is one of the most vital processes in the compute drivers, but also easily one of the most complex.  This complexity drove my curiosity to better understand what is happening under the hood, and I wanted to share that knowledge with you.  Through the next 700 words, we will dive deep into the Openstack codebase, but first,  this article does assume a few things...
+The OpenStack live migration process is one of the most vital processes in the compute drivers, but it is also easily one of the most complex. This complexity drove my curiosity to better understand what is happening under the hood, and I wanted to share that knowledge with you. In this article, we dive deep into the OpenStack codebase, but first, the article does assume a few things...
 
 <!-- more -->
 
-- Openstack-Nova running version is not completely up to date so is missing a feature such as live-migration Force.
-- Virt Driver in use is XenAPI, so we will spend some time in that code base.  
-- Finally, while we will walk deeply through the entire process, there may be locations where skipping through code is beneficial, such as when code enters into "computeRPC", we will instead just enter computer.manager, where we know this code will finally rest without going through the RPC services. this assumption is that you have a basic understanding of RPC and why we do this.
-- We will skip some basic setting and getting with ellipsis for clarity and not just re-inventing the wheel here.
-- We will start this by using nova-client such as: nova live-migration [--block-migrate] <server> [<host>]
+### Assumptions
 
+- The current OpenStack-Nova version is not completely up to date and is missing the live-migration `Force` feature.
+- The `Virt Driver` in use is XenAPI, so we will spend some time in that code base.  
+- Finally, while I go deep into the entire process, there may be sections where skipping through code is beneficial, such as when code enters into *computeRPC*. In those cases, I instead just enter compute.manager, where this code finally lives, without going through the RPC services. I'm assuming that you have a basic understanding of RPC and what it does.
+- I use ellipses to skip some basic *set* and *get* instructions for clarity (no need to re-invent the wheel here).
 
-### Chapter 1.  The Nova API Layer.
+### Chapter 1: The Nova API layer
 
-- User submits the request for a live-migration without --block-migrate and without a host. The Xenserver host in use does NOT have shared storage as an option.
+Throughout the article, I share some code and explain what's going on or highlight interesting points.
 
-- The request enters the osapi\_compute API drivers following the path for live-migration.  This variable is defined within nova.conf as enabled_apis and then picked up from nova.cmd.api.main as follows:
+#### Exploration 1
 
+Let's examine the nova-client instruction: 
+
+{% highlight python %}
+    nova live-migration [--block-migrate] <server> [<host>]
+{% endhighlight %}
+
+I submitted a request for a live-migration without --block-migrate and without a host. The Xenserver host does not have shared storage as an option. The request enters the *osapi_compute* API drivers following the path for *live-migration*. This variable is defined within *nova.conf* as `enabled_apis` and then picked up from *nova.cmd.api.main* as shown in the following sample.
+
+#### Exploration 2
 
 *nova.cmd.api.main* ->
 {% highlight python %}
@@ -41,9 +51,11 @@ The Openstack live migration process is one of the most vital processes in the c
     ...
 {% endhighlight %}
 
-- The osapi\_compute service is defined in nova.openstack.compute.wsgi.py with a simple init\_application method.  This let's us know that nova.openstack.compute will be the home of our API methods.
+The *osapi_compute* service is defined in *nova.openstack.compute.wsgi.py* with a simple *init_application* method. This tells us that *nova.openstack.compute* is the home of the API methods. The operation then looks for the *live_migration* call in the built-in list of routes within the *nova.openstack.compute.wsgi* service. These routes are defined and tell us where to look for the API method that handles this action.
 
-- The Call then looks for the live\_migration call in the built list of routes by the nova.openstack.compute.wsgi service.  These routes are defined and tell us where to look for the API method that handles this action.
+#### Exploration 3
+
+The following code leads us into *nova.api.openstack.compute.migrate_server.py* and into the *_migrate_live* method because the WSGI action passed from nova-client is `os-migrateLive`.  
 
 *nova.api.openstack.compute.routes* ->
 {% highlight python %}
@@ -58,10 +70,11 @@ The Openstack live migration process is one of the most vital processes in the c
     ...
 {% endhighlight %}
 
+#### Exploration 4
 
-Above we can see that this leads us into nova.api.openstack.compute.migrate\_server.py and into the \_migrate\_live method as the WSGI action passed from nova-client would be "os-migrateLive".  Here the API sets a couple of important variables.  The first it looks at if the --block-migrate flag was included.  The default behavior of block\_migration is to contain the "auto" key unless overridden by including --block-migrate.  If the "auto" key is still included, we set this to None, otherwise set it to a Boolean rather than "True".  We get the instance information since this will be vital for migrating an instance, and pass the Instance, Context, Block\_migration over to the Compute API which we resolve down to nova.compute.API.live\_migrate
+Here the API sets a couple of important variables. It looks at the first if the `--block-migrate` flag was included. The default behavior of *block_migration* is to contain the `auto` key unless overridden by including the `--block-migrate` parameter. If the `auto` key is still included, set this to `None`, otherwise set it to a Boolean rather than `True`. We get the instance information because this is vital for migrating an instance and passing the instance, context, and block_migration over to the Compute API, which is resolved down to *nova.compute.API.live_migrate*.
 
-*nova.api.openstack.compute.migrate\_server.MigrateServerController.\_migrate* ->
+*nova.api.openstack.compute.migrate_server.MigrateServerController._migrate* ->
 {% highlight python %}
 def _migrate():
     from nova import compute 
@@ -84,15 +97,14 @@ def _migrate():
         self.compute_api.live_migrate(context, instance, block_migration,
                                           disk_over_commit, host, force, async)
 {% endhighlight %}
-                         
                                           
-### Chapter 2.  Compute API.
+### Chapter 2. The Compute API
 
-We have made the rounds through the basic Nova API service and set off the asyncronous request to start the Live Migration.  So far we started by issuing this request using nova client which sent a os-migrateLive action, we traced this through the confusing WSGI process which eventually set the block_migration variable, the instance variable, and passed them both to the self.compute_api.live_migrate method.  We know by looking at the imports in the beginning of the last bit of psuedocode that we can resolve this to be nova.compute.api.live_migrate, so let's head there and take a look at our first steps:
+We have made the rounds through the basic Nova API service and kicked off the asynchronous request to start the live migration. I issued this request by using the nova client, which sent a *os-migrateLive* action. We traced this through the confusing WSGI process, which eventually set the *block_migration* variable and the instance variable, passing them both to the *self.compute_api.live_migrate* method. We know (by looking at the imports at the beginning of the previous psuedocode sample) that we can resolve this to be *nova.compute.api.live_migrate*, so let's head there and take a look at our first steps.
 
-The first steps of firing off this live migration.  We set the initial task_state of the server to MIGRATING and we pull the RequestSpec.  This RequestSpec comes from the nova.objects.RequestSpec.get_by_instance_uuid method and is passed into scheduler a little bit later.  The RequestSpec contains details about the instance that scheduler will need to verify if enough room is present.  This information includes NUMANodes, vGPU/CPU, Memory, and Disk information.  Should a host have been specified, there is some additional relevant code in this method, but is not important to our purposes as we will be allowing Scheduler to go wild.  We take the RespectSpec that we gained here, and pass our None host_name, the block_migration/disk_over_commit/async(that we generated in Nova API) to the compute Task_API.  Again we can track this down looking at the imports, and it looks like we are immediately leaving and heading into the Conductor API!
+#### Exploration 5
 
-*nova.compute.api.live\_migrate* ->
+*nova.compute.api.live_migrate* ->
 {% highlight python %}
 def live_migrate():
     from nova import conductor
@@ -109,13 +121,15 @@ def live_migrate():
                 request_spec=request_spec, async=async)
 {% endhighlight %}
 
-### Chapter 3.  Conductor Magic
+These are the first steps for firing off this live migration. I set the initial *task_state* of the server to `MIGRATING` and pull the *RequestSpec*. This *RequestSpec* comes from the *nova.objects.RequestSpec.get_by_instance_uuid* method and is passed into scheduler a little bit later on. The *RequestSpec* contains details about the instance that the scheduler needs to verify to determine whether enough room is present to complete the process. This information includes NUMANodes, vGPU/CPU, Memory, and Disk information. If a host was specified, the method would have included additional relevant code, but this is not important for our purposes - we're allowing the scheduler to go wild. Next, I take the *RespectSpec* from the previous sample and pass the `None` *host_name* and the *block_migration/disk_over_commit/async* (that we generated in Nova API) to the compute *Task_API*. Again, track this down by examining the imports, and we are now heading into the Conductor API!
 
-   Conductor is a strange beast with a general purpose to act as a go-between for compute nodes and the nova database to add a new layer of security.  This prevents these servers from accessing the database directly in theory, however in practice Conductor winds up picking up more weight than some people think it should.  We immediately left the Compute API and were sent into what we now know is nova.condutor.ComputeTaskAPI.live\_migrate_instance.  Let's take a look. The Class "ComputeTaskAPI" is stored in the api.py file.
+### Chapter 3.  Conductor magic
+
+Conductor is a strange beast primarily designed to act as a go-between for compute nodes and the nova database and to add a layer of security. This theoretically prevents the servers from accessing the database directly, however, in practice, Conductor winds up picking up more weight than some people think it should. When we left the Compute API, we were sent into the *nova.condutor.ComputeTaskAPI.live_migrate_instance*. Let's look at the class `ComputeTaskAPI`, which is stored in the *api.py* file.
    
-   A pretty simple chunk of code here that just sets up a new dictionary with the scheduled host name, but we didn't specify this, so a bit unimportant for our needs.  We additionally see that from here it will call one of two locations, depending on whether an async is included for not, this also shows us that essentially "async" is a live\_migration, as this is what calls self.conductor\_compute\_rpcapi.live\_migrate_instance.  I have included the includes for this again to show where it leads.
-  
-   *nova.conductor.api.ComputeTaskAPI.live\_migrate\_instance* ->
+#### Exploration 6
+
+*nova.conductor.api.ComputeTaskAPI.live_migrate_instance* ->
 {% highlight python %}
     def live_migrate_instance():
     ...
@@ -129,11 +143,15 @@ def live_migrate():
             self.conductor_compute_rpcapi.live_migrate_instance(context, instance, scheduler_hint, block_migration,disk_over_commit, request_spec)
         else:
             self.conductor_compute_rpcapi.migrate_server(context, instance, scheduler_hint, True, False, None, block_migration, disk_over_commit, None, request_spec=request_spec)
-{% endhighlight %}            
+{% endhighlight %}  
+
+This simple chunk of code sets up a new dictionary with the scheduled host name, but, because I didn't specify this, it's unimportant for our needs. We see from this code that the process calls one of two locations, depending on whether the async setting is included or not. The code also reveals that "async" is essentially a live_migration, because this code calls *self.conductor_compute_rpcapi.live_migrate_instance*. I kept the includes for this operation to show where it leads.
+  
+#### Exploration 7          
     
-From here we run into the problem mentioned previously of running into the RPC service that enters a land of extreme abstraction.  While my knowledge of how these RPC services work is limited, the basic functions seem to be that it defines a namespace and sends a message to that namespace.  Thus far we have actually remained on the Nova API services, and are now passing a message for the Conductor nodes themselves to pick up and begin work within their Managers.  The RPC call for this looks like the following, with the kw variable here being the payload passed through messenger.
+At this point, we run into the problem mentioned previously regarding the RPC service, which enters a land of extreme abstraction. While my knowledge of how these RPC services work is limited, basically it defines a namespace and sends a message to that namespace. Thus far, I have stayed in the Nova API services, but now I'm passing a message for Conductor nodes themselves to pick up and begin to work within their managers. The RPC call for this looks like the following, with the `kw` variable here being the payload passed through messenger.
     
-*nova.conductor.rpcapi.ComputeTaskAPI.live\_migrate\_instance* ->
+*nova.conductor.rpcapi.ComputeTaskAPI.live_migrate_instance* ->
 {% highlight python %}
     def live_migrate_instance():
     ...
@@ -149,21 +167,24 @@ From here we run into the problem mentioned previously of running into the RPC s
         cctxt.cast(context, 'live_migrate_instance', **kw)
 {% endhighlight %}
 
-The main takeaway from this can be to know that we are now officially running on Conductor nodes, and from here the Conductor Manager will run the code that is called (live\_migrate\_instance).  This code is nova.conductor.manager with the ComputeTaskManager having a @profiler decorator for direction.  From here, Conductor will.. Conduct, and coordinate with various other services to complete this migration process.  This is one of the examples where Conductor handles a larger amount of work than just passing traffic, since so much work is being done during a live migration, it is nice to have a centralized location where information is passed back and forth and an essential "Command Center" for the process.  So now we are in the Conductor Manager.
+The main takeaway from this is that we are now officially running on Conductor nodes, and from here the Conductor Manager runs the code that is called (*live_migrate_instance*). This code is *nova.conductor.manager* with the *ComputeTaskManager* having an `@profiler` decorator for direction. From here, Conductor conducts and coordinates with various other services to complete the migration process. This is an example of Conductor handling a larger amount of work rather than just passing traffic. Since so much work is necessary during a live migration, it is nice to have a centralized location (or "command center") where information is passed back and forth. So, now we are in the Conductor Manager.
     
+#### Exploration 8  
+
+The following method is just a little redirect from the API, received into a private method, to start the work:
     
-This method is just a little redirect from the API received into a private method to start the work
-    
-*nova.conductor.manager.ComputeTaskManager.live\_migrate\_instance* ->
+*nova.conductor.manager.ComputeTaskManager.live_migrate_instance* ->
 {% highlight python %}
         def live_migrate_instance():
         self._live_migrate(context, instance, scheduler_hint, block_migration, disk_over_commit, request_spec)
 {% endhighlight %}
         
-Now we actually enter the the Meat and Serverpotatoes. The main purpose of this method is to build a task object that will keep track of the progress and move things along.  This task also allows for us to issue a cancel to the live-migrate prematurely or a force complete if we desire in later API versions. We also set up some basic variables that will be used later.  Some "Task" work is done here that we will skip over as it is more relevant to learning conductor tasks than the Live Migration process itself. Breaking down the work here, we create a new "migration" object from the nova primitives set "nova.objects.Migration".  This hydrates a basic dictionary set for use with empty values, similar to instaniating a new class, this instaniates an empty python object for us with data that we know we will need.  We fill in some of this data that we have the infroamtion for, such as the instance data and source host and migration type.  We then create this "task" and execute it.  From here, the task execution will handle the work.  We can find this task once it is running in nova.conductor.tasks.live\_migrate.
+#### Exploration 9
+
+Now we actually enter the server meat and potatoes. The main purpose of the following method is to build a task object that keeps track of the progress and moves things along. This task also allows me to cancel to the live-migrate prematurely or, if I want to in later API versions, to issue a force complete. It also sets up some basic variables for later use. Some task work is done here, which I'm skipping over because it is more relevant to learning Conductor tasks than the live migration process itself. Breaking down the work here, I create a new "migration" object from the nova primitives set: *nova.objects.Migration*. This creates a basic dictionary set with empty values. Similar to instantiating a new class, this instantiates an empty python object with data that we expect. I fill in some of this data that I already know, such as the instance data, source host, and migration type. Then I create this task and execute it. From here, the task execution handles the work. Find this task, once it is running, in *nova.conductor.tasks.live_migrate*.
     
     
-*nova.conductor.manager.ComputeTaskManager.\_live_migrate* ->
+*nova.conductor.manager.ComputeTaskManager._live_migrate* ->
 {% highlight python %}
         def _live_migrate():
         destination = scheduler_hint.get("host")
@@ -181,15 +202,17 @@ Now we actually enter the the Meat and Serverpotatoes. The main purpose of this 
         try:
             task.execute()
 {% endhighlight %}
+
+#### Exploration 10
             
-Now we are in the execution phase where all of the heavy lifting begins and the chain to complete the migration will start.  This method will call scheduler to find a suitable destination first.  We will refer back to this method several times, as the code does split off into very important parts before returning.  Before calling scheduler however the method will handle setting up some basic variables within its class definition that will be overwritten by the following methods.  Having the knowledge that these are CLASS variables / objects and not method owned is very important to see how these variables are not passed around, but just overwrite the class data.  Since many of these methods remain within the class, there is no reason for them to return or require much input, and just use those class variables as reference. Since so much is happening here I will also begin placing comments inline so please pay attention to "#*#*#"  We will walk through this as much as possible.
+Now, we enter the execution phase, where all of the heavy lifting begins and the chain to complete the migration starts. The following code first calls the scheduler to find a suitable destination. We will refer back to this method several times, because the code splits off completes several very important tasks before returning. Before calling scheduler, however, the method sets up some basic variables within its class definition that are overwritten by subsequent methods. It is important to understand that these are *class* variables or objects and are not method-owned - these variables are not passed around but instead overwrite the class data. Since many of the variables remain within the class, there is no reason for them to be returned or to require much input, and the methods might use these class variables as reference. Since so much is happening here, I've also placed comments inline in the code. Please pay attention to `#*#*#` lines - I will walk you through this as much as possible.
     
- *nova.conductor.tasks.live\_migrate.LiveMigrationTask(Class.class)* ->
+ *nova.conductor.tasks.live_migrate.LiveMigrationTask(Class.class)* ->
 {% highlight python %}
         class LiveMigrationTask():
         def __init__:
         
-            #*#*# We can see here that the data that we gathered from Nova API and our first little run through conductor is being set, the instance information, the source, the block_migration, the None destination, and some other stub data is created that is very important, such as migrate_data.  This will be a valuable variable later on.
+            #*#*# We can see here that the data (which we gathered from Nova API and our first little run through conductor) is being set. The instance information, the source, the block_migration, the `None` destination, and some other stub data is created that is very important, such as migrate_data. This will be a valuable variable later on.
             
             self.destination = destination
             self.block_migration = block_migration
@@ -209,9 +232,13 @@ Now we are in the execution phase where all of the heavy lifting begins and the 
             self._check_instance_is_active() -->
 {% endhighlight %}            
 
-The absolute first thing done here is just to verify that the instance is in an active state.  A relatively simple code check here that is a private method within the class. The method checks the power state of the instance.  It pulls the data from the clas instance variable that was set up in the INIT which does contain the "power_state" field.  should this not match a running or paused state, it excepts.  Assuming no exception, the execution moves on, and we head back.
+The first thing done here is verification that the instance is in an active state - a relatively simple code check that is a private method within the class. 
+
+#### Exploration 11
+
+Next, the method checks the power state of the instance. It pulls the data from the class instance variable that was set up in the INIT and which contains the *power_state* field. An exception is created if this does not match a *running* or *paused* state. Assuming no exception, the execution moves on.
     
-*nova.conductor.tasks.live_migrate.LiveMigrationTask.\_check\_instance\_is\_active* ->
+*nova.conductor.tasks.live_migrate.LiveMigrationTask._check_instance_is_active* ->
 {% highlight python %}
     def _check_instance_is_active():
         if self.instance.power_state not in (power_state.RUNNING,
@@ -219,18 +246,22 @@ The absolute first thing done here is just to verify that the instance is in an 
         raise exception.InstanceInvalidState
 {% endhighlight %}
 
-We completed the active check (marked with an 'x'), and now the execution wants to ensure the host is up. We head to another private method \_check\_host\_is\_up
+#### Exploration 12
 
-*nova.conductor.tasks.live_migrate_LiveMigrationTask.\_execute* ->
+I completed the active check (marked with an 'X' in the following code), and now the process ensures that the host is up. We head to another private method *_check_host_is_up*.
+
+*nova.conductor.tasks.live_migrate_LiveMigrationTask._execute* ->
 {% highlight python %}
     def _execute():
-        self._check_instance_is_active()  (x)
+        self._check_instance_is_active()  (X)
         self._check_host_is_up(self.source) -->
 {% endhighlight %}
+  
+#### Exploration 13
 
-Another fairly simple check here to verify that the source server is up and online.  To do this it reaches out to the "servicegroup" which is the database driver to run some checks against down time. So long as this returns fine, we move on again. There is not too much to be said directly about this code, as it mostly is regarding to the database drivers.  We verify no exception here and we return to the execution.
-    
-*nova.conductor.tasks.live\_migrate\_LiveMigrationTask.\_check\_host\_is\_up* ->
+Here's another fairly simple check to verify that the source server is up and online. To do this, it reaches out to the    `servicegroup`, which is the database driver, to run some checks against down time. A long as this returns successfully, we move on again. There is not too much to say about this code, because it mostly relates to the database drivers.  If there's no exception here, we return to the execution.
+
+*nova.conductor.tasks.live_migrate_LiveMigrationTask._check_host_is_up* ->
 {% highlight python %}
     def _check_host_is_up():
         service = objects.Service.get_by_compute_host(self.context, host)
@@ -238,9 +269,13 @@ Another fairly simple check here to verify that the source server is up and onli
             raise exception.ComputeServiceUnavailable(host=host)
 {% endhighlight %}
 
-We have completed two basic checks so far, and we are going to skip some migration allocation code which is the new ellipsis you will see.  This doesn't have much to do with our context at the moment.  Now that we verified that the instance is good to go and the source is good to go, it is time to find that destination! This code ensures that a destination was not already given (ours is None, remember) and overrides self.destination and dest\_node with the results of \_find\_destination.
+#### Exploration 14
+
+The following code completes two more basic checks, and I'm going to skip some migration allocation code (noted by the ellipses). This doesn't have much to do with the current discussion.  
+
+Now that the instance and the source are both verified as good to go, it is time to find that destination! This code ensures that a destination was not already given (remember that our destination is `None`) and overrides *self.destination* and *dest_node* with the results of *_find_destination*.
     
-*nova.conductor.tasks.live\_migrate\_LiveMigrationTask.\_execute* ->
+*nova.conductor.tasks.live_migrate_LiveMigrationTask._execute* ->
 {% highlight python %}
     def _execute():
         self._check_instance_is_active()  (x)
@@ -253,10 +288,12 @@ We have completed two basic checks so far, and we are going to skip some migrati
             # filters to run on the specified host, like a scheduler hint.
             self.destination, dest_node = self._find_destination() ->
 {% endhighlight %}            
-            
-This code deals heavily with scheduler to find a destination, and is a section that we will skip over.  In general, we know that we provided a requestSpec to the class with the instance information for what kind of host we need.  This information is piped to Scheduler to find a matching host in a loop.  While we don't care too much about the scheduling parts, we do care about some checks that are run in the loop. This method and the ones it calls are returned to several times before we go back to the \_execute method, but we will eventually go back. Remember that the only thing that \_find\_destination needs to return is the host, and the node (Compute, and Hypervisor)
+   
+#### Exploration 15
+
+The following code works closely with the scheduler to find a destination and is a section that we will move past quickly. In general, we know that we provided a *requestSpec* to the class with the instance information for what kind of host we need.  This information is piped to the scheduler to find a matching host in a loop. While we don't care too much about the scheduling parts, we do care about some checks that are run in the loop. This method (and the ones it calls) are returned to several times before we go back to the *_execute* method, but we will get back to it, eventually. Remember that the only values that *_find_destination* needs to return is the host and the node (*Compute*, and *Hypervisor*).
     
-*nova.conductor.tasks.live\_migrate\_LiveMigrationTask.\_find_destination* ->
+*nova.conductor.tasks.live_migrate_LiveMigrationTask._find_destination* ->
 {% highlight python %}
         def _final_destination():
         ...
@@ -268,15 +305,17 @@ This code deals heavily with scheduler to find a destination, and is a section t
                 self._check_compatible_with_source_hypervisor(host) -->
                 self._call_livem_checks_on_host(host) -->
             except:
-                #*#*# Sets host back to None in the event any of the above checks fail, this continues the loop while we schedule and try again.
+                #*#*# Sets host back to `None` in the event any of the above checks fail, this continues the loop while we schedule and try again.
                 host = None
                 
             return host, node
 {% endhighlight %}
 
-The first method called here is quite short, the \_check\_compatible\_with\_source\_hypervisor.  This takes the host information of source which is stored in the class as self.host and the destination which is just "host" and compares the versions of their platforms to see if there is compatability.  Without compatability, we except which we now know will unset host and continue the loop. Interestingly this method does return data in the form of the source info and destination info, however this information is not stored during the \_find\_destination call and is lost.
+#### Exploration 16
+
+The first method called here (*_check_compatible_with_source_hypervisor*) is quite short. This takes the host information of the source (stored in the class as *self.host*) and the destination (just *host*) and compares the versions of their platforms to see if there is compatability. Without compatability, an exception is triggered, which unsets the host and continues the loop. Interestingly, this method does return data in the form of the source info and destination info, however this information is not stored during the *_find_destination* call and is lost.
     
-*nova.conductor.tasks.live\_migrate\_LiveMigrationTask.\_check\_compatible\_with\_source\_hypervisor* ->
+*nova.conductor.tasks.live_migrate_LiveMigrationTask._check_compatible_with_source_hypervisor* ->
 {% highlight python %}
         def _check_compatible_with_source_hypervisor():
         ...
@@ -286,11 +325,13 @@ The first method called here is quite short, the \_check\_compatible\_with\_sour
         if source_version > destination_version:
             raise exception.DestinationHypervisorTooOld()
         return source_info, destination_info
-{% endhighlight %}        
+{% endhighlight %}    
+
+#### Exploration 17
         
-Now that we completed these simple but important checks, we run into the \_call\_livem\_checks\_on\_host. This one is a beefy call that will lead us into several other methods.  Again here it's worth nothing that anything that returns here is lost, we are just looking for an exception or continue. We do however set the class migrate\_data variable as you may remember was set to None during the class instantiation. This migrate\_data is filled with the returns from compute\_rpcapi.check\_can\_live\_migrate\_destination.  Remember that the RPC services leave a message, and in this case for Compute.  We can trace this all the way through the "compute_rpcapi" but we know now that it's going to end up in the Compute Manager.  We also know that this means the code that runs here is going to run on the destination Compute Node, just like when a message was left for Conductor, a conductor node picked it up, and if we were to look into the scheduler calls, a message would be left for them.  This isn't critical to understanding the code, but it is good to know that during this part, The Code will be run on the Destination Compute Node, and that we can skip some code here and go straight to nova.compute.manager.method\_called.
+Now that I completed these simple but important checks, I execute the *_call_livem_checks_on_host*. This beefy call leads us into several other methods. Again, it's worth noting that anything returned here is lost. We are just looking to find an exception or to continue. We do, however, set the *class migrate_data* variable, which (as you may remember) was set to `None` during the class instantiation. This *migrate_data* is filled with the returned values from *compute_rpcapi.check_can_live_migrate_destination*. Remember that the RPC services left a message, in this case, for *compute*. I could trace this all the way through the *compute_rpcapi*, but we know now that it's going to end up in the Compute Manager. This means the code that runs here is going to run on the destination Compute node. Just like when a message was left for Conductor and a Conductor node picked it up, if we were to look into the scheduler calls, we'd find that a message has been left for them. This isn't critical to understanding the code, but it is good to know that, during this section, the code is run on the destination Compute node. Thus, we can skip some code here and go straight to *nova.compute.manager.method_called*.
     
-*nova.conductor.tasks.live_migrate_LiveMigrationTask.\_call\_livem\_checks\_on\_host* ->
+*nova.conductor.tasks.live_migrate_LiveMigrationTask._call_livem_checks_on_host* ->
 {% highlight python %}
     def _call_livem_checks_on_host():
         try:
@@ -301,7 +342,9 @@ Now that we completed these simple but important checks, we run into the \_call\
             raise exception.MigrationPreCheckError(msg)
 {% endhighlight %}
 
-We arrive now at the compute mananager on the destination to run checks against the chosen destination. From Nova API manager, to Conductor Manager, to Destination Compute. This method is just a redirect as we saw before from the way it is called via RPC, into a private method.
+#### Exploration 18
+   
+The execution is now at the compute manager on the destination, ready to run checks against the chosen destination, moving from Nova API manager to Conductor Manager to Destination Compute. This method is just a redirect (called by using RPC) into a private method.
     
 *nova.compute.manager.check\_can\_live\_migrate\_destination* -> 
 {% highlight python %}
@@ -310,10 +353,12 @@ We arrive now at the compute mananager on the destination to run checks against 
                                                             block_migration,
                                                             disk_over_commit)
 {% endhighlight %}
-                                                            
-We handle some setup here and make a few returns to this code, so let's step through it one at a time.  First we set up some variables for the source and destination by using the host variables that were passed to us from Conductor.  Interestingly if you look at how it pulls the Destination host.. it just pulls it from its own CONF file, since the "destination" is actually where this is running.  Once that is done the code is first passed over to driver.check\_can\_live\_migrate\_destination.  It stores the return of this into dest\_check\_data, and remember that our driver is Xenapi, we head over there for now and will come back here once we fill in the dest\_check\_data.
+         
+#### Exploration 19
+
+Now I need to handle some setup here and to make a few returns to this code, so let's step through it. First, I set up some variables for the source and destination by using the host variables that were passed to us from Conductor. Interestingly, it pulls the Destination host from its own *CONF* file, since this code is actually running on the destination. Once that is done, the code is first passed over to *driver.check_can_live_migrate_destination*. It stores the returned data of this operation in *dest_check_data*. Because the driver is XenAPI, execution shifts there for now, and returns once the *dest_check_data* is filled in.
     
-*nova.compute.manager.\_do\_check\_can\_live\_migrate\_destination* ->
+*nova.compute.manager._do_check_can_live_migrate_destination* ->
 {% highlight python %}
     def _do_check_can_live_migrate_destination():
         src_compute_info = obj_base.obj_to_primitive(self._get_compute_info(ctxt, instance.host))
@@ -322,8 +367,10 @@ We handle some setup here and make a few returns to this code, so let's step thr
                                                     instance, src_compute_info, dst_compute_info,
                                                     block_migration, disk_over_commit)
 {% endhighlight %}
-    
-When looking for data in a driver, such as where that "check\_can\_live\_migrate\_destination" method lives, we look in the "driver.py" file, which will be similar to the Routes for an API, and tell us where to go.  We will go over that just this once to show this, and just assume we looked in the future. We can see here from the imports that our new home will be the nova.virt.xenapi.vmops.check\_can\_live\_migrate\_destination method. Remember this is how you can find all calls to the driver.call methods. From compute is issuing commands directly to the driver it controls using its login credentials in the Nova Conf file.
+
+#### Exploration 20
+
+To find data in a driver, such as where that *check_can_live_migrate_destination* method lives, look in the *driver.py* file, which is similar to the routes for an API and tells us where to go. Let's take a look now, but I won't do this review in future explorations of the code. You can see from the imports that our new home is the *nova.virt.xenapi.vmops.check_can_live_migrate_destination* method. Remember, this is how you can find all calls to the *driver.call* methods. *From compute* is issuing commands directly to the driver that it controls by using its login credentials in the *Nova Conf* file.
     
 *nova.virt.xenapi.driver.check\_can\_live\_migrate\_destination* ->
 {% highlight python %}
@@ -334,15 +381,17 @@ When looking for data in a driver, such as where that "check\_can\_live\_migrate
         ...
         return self._vmops.check_can_live_migrate_destination(context,instance,block_migration,disk_over_commit)
 {% endhighlight %}
-        
-This methods job is to make sure that the destination is ready for use.  First it hydrates a new object from the primitives like we have seen before and the dest_check_data that is returned is born.  It will then handle some specific actions depending on whether or not Block Migration was specified.  In our case, we did not specify block migration, and we said we did not have shared storage.  This lack of shared storage means that the "\_ensure\_host\_in\_aggregate" will fail. This means that the block_migration is turned on for us, and we continue into the "if block_migration" code.  See inline comments for more details.
+
+#### Exploration 21
+
+The following method makes sure that the destination is ready for use. First, it creates a new object from the primitives, like we have seen before, and the returned *dest_check_data* is saved. It then handles some specific actions depending on whether or not `Block Migration` was specified. In this case, I did not specify block migration and said that I did not have shared storage. This lack of shared storage means that the *_ensure_host_in_aggregate* call fails. Thus, the block_migration is turned on and execution continues into the "if block_migration" code. See the inline comments in the following sample for more details.
     
-*nova.virt.xenapi.vmops.check\_can\_live\_migrate\_destination* ->
+*nova.virt.xenapi.vmops.check_can_live_migrate_destination* ->
 {% highlight python %}
     def check_can_live_migrate_destination():
         dest_check_data = objects.XenapiLiveMigrateData()
         
-        #*#*# We currently have our block_migration set to None, so we will hit the if state, fail the try clause, and have our block_migration set to true.
+        #*#*# We currently have our block_migration set to `None`, so we hit the if state, fail the try clause, and have our block_migration set to true.
         
         if block_migration is None:
             try:
@@ -352,7 +401,7 @@ This methods job is to make sure that the destination is ready for use.  First i
             except exception.MigrationPreCheckError:
                 block_migration = True
 
-        #*#*# Note:  Should we have been on shared storage, we could have continued with the above trail, which contginues to set up some of the same data as below, but has been trimmed as it is irrelevant to us. We now have block_migration set, and fill in our dest_check_data with information.  We set up the block_migration, migrate_send_data, destination_sr_ref, and a basic blank VIF mapping that contains the network UUID that xenAPI returns . Most of this is fairly simple to understand as we have been dealing with it for a while. The Network UUID call will query Xenapi for its network, and the migrate_receive call will set up a token and tell the destination to prepare itself to accept a migration, but let's take a closer look at these for our own deep understanding. Once these are all set, the compute method version _do_check_can_live_migrate_destination continues. This gets fairly confusing soon as we realize this method does far more than just checking a destination.
+        #*#*# Note:  If we were on shared storage, we could have followed the above trail, which continues to set up some of the same data as the following, but this has been trimmed because it is irrelevant to us. We now have *block_migration* set, and we have filled in our *dest_check_data* with information. We set up the *block_migration*, *migrate_send_data*, *destination_sr_ref*, and a basic blank VIF mapping that contains the network UUID that XenAPI returns. Most of this is fairly simple to understand because we have been dealing with it for a while. The Network UUID call queries XenAPI for its network, and the *migrate_receive* call sets up a token and tells the destination to prepare itself to accept a migration. Let's take a closer look at these for our own deeper understanding. Once these are all set, the compute method version *_do_check_can_live_migrate_destination* continues. This quickly gets confusing soon after we realize this method does far more than just checking a destination.
         
         if block_migration:
             dest_check_data.block_migration = True
@@ -363,7 +412,9 @@ This methods job is to make sure that the destination is ready for use.  First i
         return dest_check_data
 {% endhighlight %}
 
-migrate\_receive issues a "warning" in some ways through xenapi.  It sends xenapi the "migrate\_receive" command including the nw\_ref (see below), destination, and options) These options can be sr references, live migration, block migration and xen will return a token.  This Token signifies that the server is ready to accept this connection over the nw_ref that you specified to the host that you specified with the parameters that you specified.  This token is stored  as the dest\_check\_data.migrate\_send\_data and returned back to the compute services \_do\_check\_can\_live\_migrate\_destination
+#### Exploration 22
+
+In the following code, the *migrate_receive* call issues a warning through XenAPI. It sends XenAPI the *migrate_receive* command including the nw_ref, destination, and options details. These options can be `sr` references. Live migration, block migration, and xen returns a token. This token signifies that the server is ready to accept the connection over the nw_ref that you specified to the host that you specified with the parameters that you specified. This token is stored as the *dest_check_data.migrate_send_data* variable and is returned to Compute services *_do_check_can_live_migrate_destination* method.
     
 *nova.virt.xenapi.vmops.migrate\_receive* ->
 {% highlight python %}
@@ -376,9 +427,13 @@ migrate\_receive issues a "warning" in some ways through xenapi.  It sends xenap
             migrate_data = self._session.call_xenapi("host.migrate_receive", destref, nwref, options)
         ...
         return migrate_data
+
+#### Exploration 23
+
+The inline comments from the code's author explain the following function pretty well. It just pulls the network reference for the management network. It's not a super important bit of code, but it does become more useful later. Additionally, the previous method uses this method as well, so it is useful to know what is happening.
     
-    The inline comments from the author explain this function pretty well.  It just pulls the network ref for the management network. Not a super important bit of code here, but it does become more useful later.  Additionally the previous method uses this method as well, so it is useful to know what is happening.
-    nova.virt.xenapi.vmops._get_network_ref ->
+*nova.virt.xenapi.vmops._get_network_ref* ->
+{% highlight python %}   
         # Get the network to for migrate.
         # This is the one associated with the pif marked management. From cli:
         # uuid=`xe pif-list --minimal management=true`
@@ -391,10 +446,12 @@ migrate\_receive issues a "warning" in some ways through xenapi.  It sends xenap
         return nwref
         ...
 {% endhighlight %}
-        
-We now return back to \_do\_check\_can\_live\_migrate\_destination with a populated dest\_check\_data which importantly contains the migrate\_send\_data field.  So let's take a look at the method up to where we are now just to remember what is happening. and see that we suddenly are no longer just checking a destination but also are checking a source.  We make an attempt to set migrate\_data to the result of compute.manager.check\_can\_live\_migrate\_source (compute\_rpcapi)!  More data Inline, but note here we are moving through compute\_rpcapi when going to the source, this means tthat code chunk will run on the source compute node.
+
+#### Exploration 24
+
+The execution now returns to the *_do_check_can_live_migrate_destination* call with a populated *dest_check_data* which importantly contains the *migrate_send_data* field. Let's do a quick review to remember what is happening. Notice that the method is suddenly no longer just checking a destination but also is checking a source. I set *migrate_data* to the result of *compute.manager.check_can_live_migrate_source (compute_rpcapi)*! More information is in the inline comments in the following code but notice that we are moving through *compute_rpcapi* when going to the source. This means that the code chunk runs on the source Compute node.
     
-*nova.compute.manager.\_do\_check\_can\_live\_migrate\_destination* ->
+*nova.compute.manager._do_check_can_live_migrate_destination* ->
 {% highlight python %}
     def _do_check_can_live_migrate_destination():
         src_compute_info = obj_base.obj_to_primitive(self._get_compute_info(ctxt, instance.host))
@@ -403,7 +460,7 @@ We now return back to \_do\_check\_can\_live\_migrate\_destination with a popula
                                                     instance, src_compute_info, dst_compute_info,   (x)
                                                     block_migration, disk_over_commit)              (x)
            
-        #*#* Now that we have the populated dest_check_data, we use this to run checks against the source. While this doesn't make a ton of sense within the destination check rather than happening, remember that not a lot of data is returned back to Conductor, so doing this while we still have the data is a little more streamlined.  This method as well runs a couple of methods deep, but once we complete we will return the migrate_data field that is generated here back to conductor.tasks.live_migrate_LiveMigrationTask._call_livem_checks_on_host which stores the returned migrate data is the class variable self.migrate_data.
+        #*#* Now that *dest_check_data* is populated, use this to run checks against the source. While this doesn't make a ton of sense within the destination check rather than happening, remember that not much data is returned to the conductor, so doing this while we still have the data is a little more streamlined. This method also runs a couple of methods deep, but once we complete we will return the migrate_data field that is generated here back to *conductor.tasks.live_migrate_LiveMigrationTask._call_livem_checks_on_host*, which stores the returned migrate data, is the class variable *self.migrate_data*.
         
         try:
             migrate_data = self.compute_rpcapi.check_can_live_migrate_source(ctxt, instance, dest_check_data)
@@ -411,9 +468,11 @@ We now return back to \_do\_check\_can\_live\_migrate\_destination with a popula
         return migrate_data
 {% endhighlight %}
 
-Just like before, we are going to pass this over the XenAPI drivers to handle work, but first computer will set up some basic variables to send with it that it has the ability to get a little easier than Xenapi.  This includes seeing if the server is volume backed, and getting basic Block Device Mapping information.  This information however does not contain Cinder target information (this will be important later for our XenAPI purposes).  Once we have that, we move into the driver. The driver's outcome is stored as "result" which is then returned.  This is a bit interesting as the name changes, where openstack tends to keep these things standard to avoid this kind of confusion. Just know that "result" will be what is stored in migrate\_data.
+#### Exploration 25
+
+Just like before, I'm handing this over the XenAPI drivers to do the work, but first the process sets up some basic variables to send with it so that it gets a little easier for XenAPI.  This includes seeing if the server is volume-backed and getting basic block-device-mapping information. This information, however, does not contain Cinder target information (this will be important later for our XenAPI purposes). Once we have that, we move into the driver. The driver's outcome is stored as *result* and is then returned. This is a bit interesting because the name changes. Usually OpenStack keeps these things standard to avoid this kind of confusion. Just know that *result* is stored in *migrate_data*.
     
-*nova.compute.manager.check\_can\_live\_migrate\_source* ->
+*nova.compute.manager.check_can_live_migrate_source* ->
 {% highlight python %}
     def check_can_live_migrate_source():
         bdms = objects.BlockDeviceMappingList.get_by_instance_uuid(ctxt, instance.uuid)
@@ -425,10 +484,12 @@ Just like before, we are going to pass this over the XenAPI drivers to handle wo
                                                            block_device_info)
         return result
 {% endhighlight %}        
+
+#### Exploration 26
+
+The primary focus of the following method is to run the XenAPI *assert_can_migrate* command. This command accepts mappings that are generated in the *_call_live_migrate_command* method, which is called and then just returns the untouched *dest_check_data*. More information is in inline comments.
     
-The primary focus of this method is to run the xenapi Assert\_can\_migrate command.  This command accepts mappings that are generated in the \_call\_live\_migrate\_command method that is called and then will just return the dest\_check\_data again, although it has been untouched.  More information inline, and we will review the \_call\_live\_migrate\_command method.
-    
-*nova.virt.xenapi.vmops.check\_can\_live\_migrate\_source* ->
+*nova.virt.xenapi.vmops.check_can_live_migrate_source* ->
 {% highlight python %}
     def check_can_live_migrate_source():
         ...
@@ -440,7 +501,7 @@ The primary focus of this method is to run the xenapi Assert\_can\_migrate comma
                 self._call_live_migrate_command("VM.assert_can_migrate", vm_ref, dest_check_data)
             except
                 
-                #*#*# This checks for a VDI NOT IN MAP exception if this assert fails, due to the organization of this code, if the server has volumes attached during this live migration and is running a newer version of XCP, we will fail as the SR is not set up on the destination yet, and we do not have the volume targets available to set them up.  We swallow this exception.
+                #*#*# This checks for a `VDI NOT IN MAP` exception if the assert fails. Due to the organization of this code, if the server has volumes attached during the live migration and is running a newer version of XCP, the call fails because the SR is not set up on the destination yet, and we do not have the volume targets available to set them up. We swallow this exception.
                 
                 if ("VDI_NOT_IN_MAP" in reason and
                         host_sw['platform_name'] == "XCP" and
@@ -450,9 +511,11 @@ The primary focus of this method is to run the xenapi Assert\_can\_migrate comma
         return dest_check_data
 {% endhighlight %}
 
-This method calls the XenAPI driver to run a specified command.  This method is used twice during the live\_migration process, once to run this assert, and again later to actually start the live migration process. The method will generate maps for various resources to their owners, these maps are Source Vif -> Destination Network, Source VDI -> Destination SR.  These maps can be used more intensively by the call including such things as GPU and CPU maps, but we only use these two for our purposes.  We send that data to the call\_xenapi method which calls the "assert\_can\_migrate" that we called this method with and if any of these maps fail the process will Except. Essentially it is looking at these maps to ensure that everything exists properly and is ready to accept the migration. Some extraneous content is trimmed here for simplicity. Note that nothing is returned here, we are inside of the Try block and will just except, or continue and return the dest_check_data.
+#### Exploration 27
+
+The following method calls the XenAPI driver to run the specified command. This method is used twice during the *live_migration* process, once to run this assert, and again later to actually start the live migration process. The method generates maps for various resources to their owners. These maps are *Source Vif -> Destination Network* and *Source VDI -> Destination SR*. These maps could be used more intensively by the call (including such things as GPU and CPU maps), but I only use these two for my purposes. I send that data to the *call_xenapi* method, which calls the *assert_can_migrate* method with which I called this method, and, if any of these maps fail, the process fires an exception. Essentially, it is looking at these maps to ensure that everything exists properly and is ready to accept the migration. Some extraneous content is trimmed here for simplicity. Note that nothing is returned here. We are inside of the `try` block and just except or continue and return the *dest_check_data*.
     
-*nova.virt.xenapi.vmops.\_call\_live\_migrate\_command* ->
+*nova.virt.xenapi.vmops._call_live_migrate_command* ->
 {% highlight python %}
     def _call_live_migrate_command():
         ...
@@ -470,12 +533,15 @@ This method calls the XenAPI driver to run a specified command.  This method is 
         self._session.call_xenapi(command_name, vm_ref, migrate_send_data, True, vdi_map, vif_map, options)
 {% endhighlight %}
 
-We assume the assert did not fail, so we have moved on now and return dest\_check\_data out of the driver's check\_can\_live\_migrate\_source. This rolls us back to compute.manager.check\_can\_live\_migrate\_source where result is now stored.  We learn now that result is just dest\_check\_data that has been un-modified.  We return result(dest\_check\_data) to \_do\_check\_can\_live\_migrate\_destination which stores result(dest\_check\_data) as migrate data and returns that data.  From here we roll all the way back into nova.conductor.tasks.live_migrate\_LiveMigrationTask.\_call\_livem\_checks\_on\_host which orginally called "self.migrate_data = self.compute\_rpcapi.check\_can\_live\_migrate\_destination". Since this method returns nothing, we can roll all the way back to \_find_destination! Now we have a class variable which just holds the dest\_check\_data that is now called migrate\_data.  This contains information such as the Block\_migrate, the dest information, and some other basics.  We are all the way back to conductor and our checks against both the Destination and Source can be considered complete.  Let's look at that code again to refresh:
+Assuming the assert did not fail, we move on and return *dest_check_data* from the driver's *check_can_live_migrate_source* operation. This rolls back to *compute.manager.check_can_live_migrate_source*, where the *result* is stored and we can see that *result* is just *dest_check_data* and has been un-modified.  *Result* (or *dest_check_data*) is returned to *_do_check_can_live_migrate_destination*, which then stores *result* (or *dest_check_data*) as *migrate_data* and returns it to the calling method.  
+
+From here, we roll all the way back into *nova.conductor.tasks.live_migrate_LiveMigrationTask._call_livem_checks_on_host*, which orginally called *self.migrate_data = self.compute_rpcapi.check_can_live_migrate_destination*. Since this method returns nothing, we can roll all the way back to *_find_destination*! Now we have a class variable which just holds the *dest_check_data*, which is now called *migrate_data*.  This contains information such as the *block_migrate*, the dest information, and some other basics. We are all the way back to Conductor, and my checks against both the destination and source are complete.  Let's look at that code again as a refresher.
     
+#### Exploration 28
+
+We have completed both the *call_livem_checks_on_host* and the *_check_compatible_with_source_hypervisor* checks.  This means that I did not hit the except and that the host information is returned further back up the line.  We can now successfully head all the way back to the execute. Remember that there is now a class variable *self.migrate_data*, which is set with *dest_check_data*. Because the checks passed, the destination information from the scheduler is returned.
     
-We have completed both of these checks, call\_livem\_checks\_on\_host and \_check\_compatible\_with\_source\_hypervisor.  This means that we do not hit the except and return the host information further back the line.  We can now successfully head all the way back to the execute.  Remember that we now have a class variable set self.migrate\_data with the dest\_check\_data, and we will just return the destination information that we got from scheduler since the checks passed.
-    
-*nova.conductor.tasks.live\_migrate\_LiveMigrationTask.\_find_destination* ->
+*nova.conductor.tasks.live_migrate_LiveMigrationTask._find_destination* ->
 {% highlight python %}
     def _find_destination():
         ...
@@ -487,23 +553,25 @@ We have completed both of these checks, call\_livem\_checks\_on\_host and \_chec
                 self._check_compatible_with_source_hypervisor(host) -->
                 self._call_livem_checks_on_host(host) -->
             except:
-                #*#*# Sets host back to None in the event any of the above checks fail, this continues the loop while we schedule and try again.
+                #*#*# Sets host back to `None` in the event any of the above checks fail, this continues the loop while we schedule and try again.
                 host = None
                 
             return host, node
 {% endhighlight %}
+
+#### Exploration 29
     
-We finally return to execute and I mark what we completed with an (x).  We completed the destination find and move on to actually run the live\_migration finally.  We set up some basic variables into the class migration option, including the source node, the destination node and compute that we got from scheduling, and we pass this long to the compute\_rpc service for the source by calling self.compute\_rpcapi.live\_migration.  This is the end of the execution code for the live migration. These final steps will handle on the compute node.
+We finally return to execute, and I've marked what we have already completed with an (X) in the following code.  We completed the destination find and now move on to finally run the *live_migration*. I set up some basic variables in the class migration option, including the source node, the destination node, and compute, which we got from scheduling. Now, I pass this to the *compute_rpc* service for the source by calling *self.compute_rpcapi.live_migration*. This is the end of the execution code for the live migration. These final steps occur on the compute node.
     
-*nova.conductor.tasks.live\_migrate\_LiveMigrationTask.\_execute* ->
+*nova.conductor.tasks.live_migrate_LiveMigrationTask._execute* ->
 {% highlight python %}
     def _execute():
-        self._check_instance_is_active()  (x)
-        self._check_host_is_up(self.source) (x)
+        self._check_instance_is_active()  (X)
+        self._check_host_is_up(self.source) (X)
         ...
         if not self.destination:
             ...
-            self.destination, dest_node = self._find_destination() (x)
+            self.destination, dest_node = self._find_destination() (X)
         self.migration.source_node = self.instance.node
         self.migration.dest_node = dest_node
         self.migration.dest_compute = self.destination
@@ -518,8 +586,10 @@ We finally return to execute and I mark what we completed with an (x).  We compl
 {% endhighlight %}    
     
 ### Chapter 4: Compute and Hypervisor controls
-    
-Like always with these RPC calls, we move into a private method. There is some complexity here in that this sets up an eventlet thread to run in the background, since this process can take a long period of time, we do not want the RPC worker to be locked to this method while the private runs.
+
+#### Exploration 30
+
+Like always with these RPC calls, the action moves into a private method. Some complex code here sets up an eventlet thread to run in the background. Because this process can take a long time, the background processing means that the RPC worker is not locked to this method while the private method runs.
 
 *nova.compute.manager.live\_migration* ->
 {% highlight python %}
@@ -535,9 +605,11 @@ Like always with these RPC calls, we move into a private method. There is some c
         ...
 {% endhighlight %}
 
-This is is the beginning of the prep phase for the live migration proper.  We set the migration status to Preparing and if we are running a block_migration (we are now), then we gather details about the disks information and get basic BDM information again, since we threw this away during the scheduling phase and only returned host detail.  We pull that very basic information and throw it into the pre\_live\_migration through computeRPC once again. We save the result of this as migrate\_data.  Note here that we are actually passing in our current migrate\_data which was the dest\_check\_data, so we will be overwritting that variable with the result of pre\_live\_migration.  We will also look briefly into the get disk info method here for clarity. Once we finish the pre\_live\_migration, we will return to this method to continue.  Note:  We are running through ComputeRPC here as we are traversing to the Destination.  We need to set up the destination to be be ready here by attaching volumes, setting up networks, and filtering rules.
+#### Exploration 31
+
+This is the beginning of the prep phase for the live migration proper. The migration status is set to `Preparing`, and because I'm running a block_migration, I gather details about the disk information and get basic BDM information again (remember, I discarded this information during the scheduling phase and only returned host details). I pull that very basic information and throw it into the *pre_live_migration* through *computeRPC* once again. I save the result of this as *migrate_data*.  Note here that I actually pass in the current *migrate_data*, which was the *dest_check_data*, so I'm overwriting that variable with the result of *pre_live_migration*. Let's look briefly into the *get disk info* method here for clarity. Once the *pre_live_migration* method finishes, we return to this method to continue. Note:  We are running through *ComputeRPC* here as we are traversing to the destination. I need to set up the destination to be ready now by attaching volumes, setting up networks, and creating filtering rules.
     
-*nova.compute.manager.\_do\_live\_migration* ->
+*nova.compute.manager._do_live_migration* ->
 {% highlight python %}
     def _do_live_migration():
         self._set_migration_status(migration, 'preparing')
@@ -550,7 +622,9 @@ This is is the beginning of the prep phase for the live migration proper.  We se
             migrate_data = self.compute_rpcapi.pre_live_migration(instance, block_migration, disk, dest, migrate_data)
 {% endhighlight %}
 
-A case here where XenAPI actually doesn't implment this work and just passes the check, relying on this to be done later.
+#### Exploration 32
+
+This is a case where XenAPI actually doesn't implement this work, but it just passes the check, relying on this to be done later.
     
 *nova.virt.xenapi.driver* ->
 {% highlight python %}
@@ -559,9 +633,11 @@ A case here where XenAPI actually doesn't implment this work and just passes the
             pass
 {% endhighlight %}
 
-This method handles a decent amount of complicated work.  First it pulls the more complete Block Device Mappings including the Cinder Target information.  It will then pull networking information again, and pass the data into the driver's version of this method to handle work, passing the block device data that was generated.  The result of this driver "pre_live_migration" call is saved as migrate\_data.  Once complete it moves on and sets up the needed networks on the host machine if needed, and filtering rules before returning migrate\_data.  Very Very trimmed code below.  Again here note that we pass and override migrate\_data, and that we are running on the Destination.
+#### Exploration 33
+
+This method handles a decent amount of complicated work. First, it pulls the more complete Block Device Mappings including the Cinder Target information. It then pulls networking information again, and it passes the data into the driver's version of this method to handle the work, finally passing the block device data that was generated. The result of this driver *pre_live_migration* call is saved as *migrate_data*. Once completed, execution moves on and sets up any needed networks on the host machine and sets up the filtering rules before returning *migrate_data*. The following code has been significantly trimmed for clarity. Notice that *migrate_data* is passed and overridden, and that the code is running on the destination.
     
-*nova.compute.manager.pre\_live\_migration* ->
+*nova.compute.manager.pre_live_migration* ->
 {% highlight python %}
     def pre_live_migration():
         migrate_data.old_vol_attachment_ids = {}
@@ -585,7 +661,9 @@ This method handles a decent amount of complicated work.  First it pulls the mor
         return migrate_data
 {% endhighlight %}
 
-A fairly simple method that just adds more data to the migrate\_data object.  We connect the volumes on the destination hypervisor by passing the bdm information we gathered in the last method into "connect_block_device_volumes".  This code can delve fairly deep into Cinder and we do not need a huge grasp on this at the moment, just know that we are attaching them now on the destination.  We additionally create interim networks and the SR Mapping and VIF mapping for both of these are stored in the migrate\_data field.
+#### Exploration 34
+
+The following fairly simple method just adds more data to the *migrate_data* object. The volumes are connected on the destination hypervisor by passing the bdm information that was gathered in the previous method into *connect_block_device_volumes*. This code delves deeply into Cinder, but we don't need to focus on this right now. Just know that they are attached now on the destination. The code also creates interim networks, and the SR Mapping and VIF mapping for both of these are stored in the *migrate_data* field.
     
 *nova.virt.xenapi.vmops.pre\_live\_migration* ->
 {% highlight python %}
@@ -595,9 +673,11 @@ A fairly simple method that just adds more data to the migrate\_data object.  We
         return migrate_data
 {% endhighlight %}
  
-We now have added even more data to our dest\_check\_data aka migrate data field.  We have destination information there now that networks have been set up, filtering rules are in place, volumes have been attached, and we pass that modified migrate\_data all the way back to nova.compute.manager.\_do\_live\_migration on the source.  And we'll look again at where we left off.
-    
-Now that we have completed the pre\_live_migration method we can move on, which leaves us just a status change into "running" (YAY), and into the driver's live\_migration code. Nothing is returned from here and it is just a try: except:.  From here the driver will handle the rest of the process.
+There is now even more data in the *dest_check_data* (or *migrate_data*) field. The destination information is there now that networks have been set up, filtering rules are in place, volumes have been attached, and that modified *migrate_data* is passed all the way back to *nova.compute.manager._do_live_migration* on the source. Let's look back at where we left off.
+
+#### Exploration 35
+
+Now that the *pre_live_migration* method has completed, execution moves on, which leaves us just a status change away from a "running" status (YAY!) and into the driver's *live_migration* code. Nothing is returned from here, and it is just a `try:` and `except:` block execution. From here, the driver handles the rest of the process.
     
 *nova.compute.manager.\_do\_live\_migration* ->
 {% highlight python %}
@@ -618,10 +698,12 @@ Now that we have completed the pre\_live_migration method we can move on, which 
                                        self._rollback_live_migration,
                                        block_migration, migrate_data)
 {% endhighlight %}
- 
-The name of this method actually changes a bit on the way into the driver for Xenapi, so a bit of confusion there, but not too bad.  We are getting really close to the end here and have come a monumental amount of distance in thise code line.  Now we issue the driver to go ahead and start this thing.  The method gathers some basic data once again since so often it is not returned, fills even more data into migrate\_data, and issues the Xenapi Migrate command!  This means that XenAPI begins the mirror, and the process is legitimately kicked off. This process handles getting the VM started on the destination, transferring the RAM states, ETC... leaving just the cleanup to be done by the Openstack Drivers.  More comments In-Line.  Once the long long migrate\_send command completes, we move on to the "post\_method".
+
+#### Exploration 36
+
+The name of the following method actually changes a bit on the way into the driver for XenAPI, so it's just a little confusing. We are getting really close to the end here and have come a monumental distance in these code lines. Now, it's time for the driver to go ahead and start doing its thing. The method gathers some basic data once again, because often the needed data is not returned. The method then fills in even more data in *migrate_data* and issues the XenAPI Migrate command! This means that XenAPI begins the mirror, and the process is legitimately kicked off. This process handles getting the VM started on the destination, transferring the RAM states, and so on. This just leaves the OpenStack drivers to do the cleanup. More comments are inline in the following code. Once the long, long *migrate_send* command completes, the *post_method* executes.
     
-*nova.virt.xenapi.vmops.live\_migrate* ->
+*nova.virt.xenapi.vmops.live_migrate* ->
 {% highlight python %}
     def live_migrate():
         ...
@@ -638,28 +720,30 @@ The name of this method actually changes a bit on the way into the driver for Xe
                         "VM.migrate_send", vm_ref, migrate_data)
                 ...
                 
-                    #*#*#*# We used this _call_live_migrate_command before to run our assert, We do the same thing here but to tell Xenapi to actually begin running the task.  This officially means that the live_migration is running.  We will not review this method again, but the maps are again generated and this time passed to the actual method.  Running the assert previously to this means that if anything would have failed regarding these maps, they would have failed much earlier in the process where it was easier to roll back.  Now that networks are configured on the destination, volumes attached, and various other information ahs been pulled, we can consider it a monumental waste of time if we fail here for a mapping reason.
+                    #*#*#*# We used this *_call_live_migrate_command* before to run our assert. We do the same thing here but to tell XenAPI to actually begin running the task. This officially means that the *live_migration* is running. The maps are again generated, and this time passed to the actual method. Running the assert before this step means that if these maps had a problem, they would have failed much earlier in the process to make the roll back easier. Now that networks are configured on the destination, volumes attached, and various other information has been pulled, it would have been a monumental waste of time to have mapping failure at this point.
                     
             post_method(context, instance, destination_hostname, 
                         block_migration, migrate_data)
  {% endhighlight %}                        
                         
-The way that post\_method is called is a bit interesting in that it is defined by the incoming variables accepted by the self.driver.live\_migration method.  You can see above that this is called with "self.post\_live\_migration" and "self.\_rollback\_live\_migration".  When a vault occurs it calls that "recover_method" and in this case it calls the "post_method" which resolves to the nova.compute.manager.\_post\_live\_migration. It is tempting to believe this being the nova.virt.xenapi.vmops.post\_live\_migration however remember that this data was sent from COMPUTE and not VIRT.  You can also see that the post\_live\_migration in XENAPI is "post_live_migration" and not "_post_live_migration"..  So let's take a look!
+The way that *post_method* is called is a bit interesting, because it is defined by the incoming variables accepted by the *self.driver.live_migration* method. You can see above that this is called with *self.post_live_migration* and *self._rollback_live_migration*. When a fault occurs, it calls that *recover_method*, and, in this case, it calls the *post_method*, which resolves to the *nova.compute.manager._post_live_migration* method. It is tempting to believe that this is the *nova.virt.xenapi.vmops.post_live_migration* method but remember that this data was sent from COMPUTE and not VIRT.  You can also see that the *post_live_migration* in XenAPI is *post_live_migration* and not *_post_live_migration*. So, let's take a look!
+
+#### Exploration 37
+   
+Remember that the execution didn't move through RPC to get here, so the code is still running on the source. So far, execution was only transferred to RPC to handle the destination checks before bouncing back to source again. From now on, code runs on the source. The following method handles the cleanup actions that need to be done. It gathers BDM records (again!) and terminates and detaches the volumes from the source hypervisor, preparing to switch around networking information. This method gets very long, so we'll walk through it a little at a time and follow its cleanup steps where applicable. More comments are inline in the code.
     
-Remember that we didn't move through RPC to get here, so we are still running on the Source.  So far we only transferred RPC to handle the destination checks and some bouncing around back to source again.  From now we are on the source.  This method handles the cleanup actions that need to be done.  It gathers BDM records(again!) and terminates and detaches the volumes from the source hypervisor,  preparing to switch around networking information. This method gets very long, so we'll walk through it a little at a time and follow its cleanup steps where applicable.  More Comments Inline
-    
-*nova.compute.manager.\_post\_live\_migration* ->
+*nova.compute.manager._post_live_migration* ->
 {% highlight python %}
     def _post_live_migration():
         bdms = objects.BlockDeviceMappingList.get_by_instance_uuid()
         block_device_info = self._get_instance_block_device_info()
         
-        #*#*# This method is fairly simple and just calls Xenapi to remove the Ramdisk files from the source
-        #*#*# Since we will no longer need this data on the source and we are essentially cleaning up.
+        #*#*# This method is fairly simple and just calls XenAPI to remove the Ramdisk files from the source
+        #*#*# Since this data is no longer needed on the source, the code is essentially cleaning up.
         
         self.driver.post_live_migration() 
 
-        #*#*# We pull the block devices again here and terminate the source connections
+        #*#*# Pull the block devices again here and terminate the source connections
         
         connector = self.driver.get_volume_connector(instance)
         for bdm in bdms:
@@ -670,7 +754,7 @@ Remember that we didn't move through RPC to get here, so we are still running on
                     old_attachment_id = migrate_data.old_vol_attachment_ids[]
                     self.volume_api.attachment_delete(ctxt, old_attachment_id)
 
-        #*#*#  The Networking API is a bit out of the scope of this article.  Here we are removing filters placed on the instance VIFS.  In many instances both of these will just pass to continue, but this depends greatly on the networking API and Firewall API in use.  Xenserver will often use NOOP firewall which will pass, and neutron will additionally pass here.
+        #*#*#  The Networking API is a bit out of the scope for this article. Here filters placed on the instance VIFS are removed. In many instances, both of these just pass to continue, but this depends greatly on the networking API and Firewall API in use. Xenserver will often use NOOP firewall which passes, and neutron additionally passes here.
         
         network_info = self.network_api.get_instance_nw_info(ctxt, instance)
         self.driver.unfilter_instance()
@@ -681,8 +765,10 @@ Remember that we didn't move through RPC to get here, so we are still running on
         try:
             self.driver.post_live_migration_at_source() -->
 {% endhighlight %}           
-    
-Here we actually delete the vif connections for the VM on the source, effectively stopping any connectivity to the source. This traverses two methods so we will take a look at both.  The first method just calls  \_delete\_networks\_and\_bridges.  This method then calls the vif_driver to call "delete_network_and_bridge".  Kind of a long way around to get to the work, but we can see the vif\_driver defined here as well
+
+#### Exploration 38
+      
+In the following code, the vif connections for the VM on the source are deleted, effectively stopping any connectivity to the source. This traverses two methods, so let's take a look at both. The first method just calls  *_delete_networks_and_bridges*. This method then calls the vif_driver to call *delete_network_and_bridge*. Kind of a long way around to get to the work, but you can see the *vif_driver* defined here as well.
     
 *nova.virt.xenapi.post\_live\_migration\_at\_source* ->
 {% highlight python %}
@@ -690,7 +776,7 @@ Here we actually delete the vif connections for the VM on the source, effectivel
         self._delete_networks_and_bridges(instance, network_info)
  {% endhighlight %}
  
-*nova.virt.xenapi.\_delete\_networks\_and\_bridges* ->
+*nova.virt.xenapi._delete_networks_and_bridges* ->
 {% highlight python %}
     def _delete_networks_and_bridges():
         ...
@@ -702,14 +788,16 @@ Here we actually delete the vif connections for the VM on the source, effectivel
                 self.vif_driver.delete_network_and_bridge(instance, vif)
  {% endhighlight %}
  
-Looking at a sample nova.conf we can see what that CONF.xenserver.vif\_driver value is.  Depending on the type of networking used (OpenVSwitch, Linux Bridges, Etc) this will lead to different classes.  Let's use for example OVS.
+Looking at a sample *nova.conf*, notice what that *CONF.xenserver.vif_driver* value is. Depending on the type of networking used (OpenVSwitch, Linux Bridges, and so on), this leads to different classes. Let's use OVS, for example.
     
     grep "vif_driver" /etc/nova/nova.conf 
     vif_driver = nova.virt.xenapi.vif.XenAPIOpenVswitchDriver
-        
-With this we know we can look at nova.virt.xenapi.vif.XenAPIOpenVswitchDriver.delete\_network\_and\_bridge. This method is very intensive and again not in our scope here, but feel free to look at this code on your own.  It will destroy the OVS port bindings for the bridge and vif, patch ports, and tear down the rest of the environment for routing to this VIF.  With this method done we can move on.. Let's look back at the Compute post live migration with a bit more trimming. We will mark where left off with (X).
+
+#### Exploration 39
+      
+Now let's look at *nova.virt.xenapi.vif.XenAPIOpenVswitchDriver.delete_network_and_bridge*. This method is very intense and again out of our scope, but feel free to look at this code on your own.  It destroys the OVS port bindings for the bridge, vif, and patch ports, and tears down the rest of the environment for routing to this VIF. Now that's done, let's look back at the Compute *post_live_migration* with a bit more code trimming. We will mark where left off with (X) in the following code.
     
-Now that we are past the (X) we can see that now some cleanup is handled on the destination.  We can also see it passing through compute RPC now.  We should be pretty used to this since it is a destination cleanup, we want it running on the destination, so we travel there for a minute to handle that.  It's also worth seeing that even if this fails, the codeline will not fail.  On an exception, we set a variable that it failed and move on.  This WILL cause the process to fail completely, but we want to ensure we clean up things in the proper order, and not just fail here.
+Past the (X), you can see that now some cleanup is being handled on the destination. Notice that it passes through compute RPC now.  As you might expect, destination cleanup runs on the destination. Note that even if this fails, the line of code does not fail.  On an except, we set a variable that it failed and move on. This does cause the process to fail completely, but the code ensures that things are cleaned up in the proper order instead of just crashing.
     
 *nova.compute.manager.\_post\_live\_migration* ->
 {% highlight python %}
@@ -735,23 +823,24 @@ Now that we are past the (X) we can see that now some cleanup is handled on the 
             self.compute_rpcapi.post_live_migration_at_destination() ->
         except Exception as error:
             WARNING
- {% endhighlight %}
-            
+ {% endhighlight %}         
+
+#### Exploration 40
+     
+The following is another beefcake of a method, which handles actions on the destination but also reaches out to the source to tear even more information down. I added more inline so that we can keep our (read: my) thoughts straight.
     
-Another pretty beefcake method here to handle actions on the destination, but also reachs out to the source to tear even more information down.  We will work inline here so that we can keep our (read: my) thoughts straight.
-    
-*nova.compute.manager.post\_live\_migration\_at\_destination* ->
+*nova.compute.manager.post_live_migration_at_destination* ->
 {% highlight python %}
     def post_live_migration_at_destination():
-        *#*#* This is the second time these two methods are done due to some issues with Linux Bridges.  We do not need to follow this code line as it delves again  into the neutron codebase.  This sets up the linux bridges, OVS, etc on the destination to start handling the traffic for the VM.
+        *#*#* This is the second time these two methods are run because of some issues with Linux Bridges. Let's not follow this code line as it delves again into the neutron codebase. This sets up the linux bridges, OVS, etc on the destination to start handling the traffic for the VM.
         self.network_api.setup_networks_on_host()
         self.network_api.migrate_instance_finish()
 
         ...
         
-        #*#*# We pull BDMS sweet monkey we pull BDMS again, and we pass that data to the XenAPI driver for running its own post_live_migration_at_destination.
-        #*#*# Without digging too deeply into the XenAPI call. This sets up rules on the VIF to actually block all traffic.  This is because Security Groups
-        #*#*# have not been installed yet, so to avoid unwanted possible traffic, we kill everything temporarily.
+        #*#*# We pull BDMS again, and we pass that data to the XenAPI driver for running its own *post_live_migration_at_destination*.
+        #*#*# Without digging too deeply into the XenAPI call, this sets up rules on the VIF to actually block all traffic.  This is because Security Groups
+        #*#*# have not been installed yet, so to avoid unwanted possible traffic, it kills everything temporarily.
         
         network_info = self.network_api.get_instance_nw_info(context, instance)
         block_device_info = self._get_instance_block_device_info(context,
@@ -762,10 +851,10 @@ Another pretty beefcake method here to handle actions on the destination, but al
             EXCEPT
         
         
-        #*#*# Now we update the instance details in the database.  We update to reflect the new destination host is live, ensure 
-        #*#*# the power state is started, remove the task_state from the VM (meaning we are definately almost done here),
-        #*#*# and call the networks API again to tear down the networks one last time on the source, and set them up on the destination.
-        #*#*# This process will also remove the rule we just placed to block all traffic.
+        #*#*# Now, update the instance details in the database to reflect the new destination host is live, ensure 
+        #*#*# the power state is started, remove the *task_state* from the VM (almost done here!), and call the
+        #*#*# networks API again to tear down the networks one last time on the source and set them up on the destination.
+        #*#*# This process also removes the rule we just placed to block all traffic.
         
         finally:
             current_power_state = self._get_power_state(context, instance)
@@ -785,12 +874,14 @@ Another pretty beefcake method here to handle actions on the destination, but al
         self.network_api.setup_networks_on_host(context, instance, prev_host, teardown=True)
         self.network_api.setup_networks_on_host(context, instance, self.host)
  {% endhighlight %}
-        
-Now we can return back to _post_live_migration again, more trimmed down psuedocode here to see where we left off marked with an (X).
+
+#### Exploration 41
+           
+Now we can return to *_post_live_migration* again, with more trimmed down psuedocode in the following sample to see where we left off marked with an (X).
     
-So the last process we did essentially completed the migration.  As far as the database is considered the task_state is empty so this thing is no longer running.  The instance is pointed to the new host in the database as well as we saw with the instance.host = self.host from the destination.  The rest of this process is handling the rest of the cleanup, and ending the process completely. Comments Inline.
+The prevoius process essentially completed the migration. As far as the database is concerned, the task_state is empty, so this thing is no longer running. The instance points to the new host in the database, and *instance.host* = *self.host* (set from the destination). The remainder of the code is handling the last of the cleanup and ending the process completely. Comments are inline.
     
-*nova.compute.manager.\_post\_live\_migration* ->
+*nova.compute.manager._post_live_migration* ->
 {% highlight python %}
     def _post_live_migration():
         ...
@@ -808,7 +899,7 @@ So the last process we did essentially completed the migration.  As far as the d
         except Exception as error:
             WARNING
         
-        #*#*#*  This calls the Driver Cleanup.  XenAPI just passes on this as the work was handled by the live_migration process issued from XenAPI.
+        #*#*#*  This calls the Driver Cleanup. XenAPI just passes on this as the work was handled by the *live_migration* process issued from XenAPI.
         
         do_cleanup, destroy_disks = self._live_migration_cleanup_flags()
         if do_cleanup:
@@ -817,7 +908,7 @@ So the last process we did essentially completed the migration.  As far as the d
         ...
         ...
         
-        #*#*# Previous to this we set some statistical information such as allocations, usage information, and scheduler information, however this is fairly non vital to our looking at this code, and in this next code block we set the actual migration status record in the database to complete.  Once this is done a couple of more allocations are handled, and the code line dead ends.  The live Migration is Done.  Server is Active, Hosts have Changed.  Destination is Cleaned up, and the Migration Record is "completed"
+        #*#*# Earlier, we set some statistical information such as allocations, usage information, and scheduler information, however this is non-vital for this walk-through. In this next code block, the actual migration status record in the database is set to complete. Once this is done, a couple more allocations are handled, and the code line dead ends. The live migration is done. The server is active, and hosts have changed. The destination is cleaned up, and the migration record is `completed`.
 
         if migrate_data and migrate_data.obj_attr_is_set('migration'):
             migrate_data.migration.status = 'completed'
@@ -826,7 +917,8 @@ So the last process we did essentially completed the migration.  As far as the d
         ...
  {% endhighlight %}
         
-        
-We have now completed the full trace through the Live Migration process, while also taking some time to look at and understand how the RPC services are used to communicate back and forth between services.  We started out in the Nova API service and quickly bounced between Compute API,  Conductor, Scheduler, Destination/Source Compute/Hypervisor, Neutron, and many others.  While some of these were a bit too difficult to cover in this article, you can use this same logic of moving through the code piece by piece to investigate any process, failure, or stack trace that you may receieve.  I would encourage readers to use this information to dive deeper into this codebase in areas where it interests them that we did not explore.  For example, within the Scheduler codebase it utilizes interesting "Abstract Base Classes" to handle scheduling efforts, and some very complicated and confusing rules that can be fun to explore.  Neutron itself is a complicated beast, and has a lot of value to understand deeper.
+### Conclusion
 
-Please remember here however that this was not written by a professional writer or developer, but just a Racker with a passion for Openstack.  I hope you've enjoyed this code dive and gained some knowledge, and hopefully we will return soon with a new process to explore!
+We have now completed the full trace through the live migration process, while also taking some time to look at and understand how the RPC services are used to communicate back and forth between services. We started out in the Nova API service and quickly bounced between Compute API, Conductor, Scheduler, Destination and Source Compute and Hypervisor, Neutron, and many others. While some of these were a bit too difficult to cover in this article, you can use this same logic of moving through the code piece by piece to investigate any process, failure, or stack trace that you may receive. I encourage readers to use this information to dive deeper into the codebase to explore areas that interest them and that we did not cover. For example, within the Scheduler codebase, OpenStack uses interesting "Abstract Base Classes" (to handle scheduling efforts) and some very complicated and confusing rules that can be fun to explore. Neutron itself is a complicated beast, and understanding it better can be very valuable.
+
+Please remember here however that this was not written by a professional writer or developer, but just a Racker with a passion for Openstack.  I hope you've enjoyed this code dive and gained some knowledge, and hopefully I'll return soon with a new process to explore!

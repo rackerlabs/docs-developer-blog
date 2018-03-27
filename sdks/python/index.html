@@ -4,8 +4,8 @@ title: Python SDK
 ---
 <div>
   <h1>Getting Started with the Python SDK</h1>
-  <p>Rackspace's official SDK for Python is <a href="https://github.com/rackspace/pyrax/"><strong>pyrax</strong></a>, an Apache licensed SDK for OpenStack clouds.</p>
-  <p>Pyrax supports these Rackspace services directly</p>
+  <p>Rackspace's official SDK for Python is <a href="https://github.com/openstack/openstacksdk"><strong>OpenstackSDK</strong></a>, an Apache licensed SDK for OpenStack clouds.</p>
+  <p>OpenstackSDK supports these Rackspace services directly through the use of the <a href="https://pypi.python.org/pypi/rackspacesdk"><strong>RackspaceSDK</strong></a>plugin.</p>
   <ul>
     <li><a href="/docs/cloud-block-storage/getting-started/?lang=python">Cloud Block Storage</a></li>
     <li><a href="/docs/cloud-dns/getting-started/?lang=python">Cloud DNS</a></li>
@@ -17,31 +17,81 @@ title: Python SDK
     <li><a href="/docs/cloud-servers/getting-started/?lang=python">Cloud Servers</a></li>
  </ul>
 
-  <p><b>Note: Pyrax is in the process of being deprecated in favor of <a href="https://pypi.python.org/pypi/rackspacesdk">rackspacesdk</a>, built on the <a href="https://pypi.python.org/pypi/openstacksdk">OpenStack SDK</a>. We will announce the process and timelines for this deprecation as soon as we can.</b></p>
+  <!-- <p><b>Note: Pyrax is in the process of being deprecated in favor of <a href="https://pypi.python.org/pypi/rackspacesdk">rackspacesdk</a>, built on the <a href="https://pypi.python.org/pypi/openstacksdk">OpenStack SDK</a>. We will announce the process and timelines for this deprecation as soon as we can.</b></p>
   <hr />
-  <h2>Requirements</h2>
+  <h2>Requirements</h2> -->
 
-  <p>Using <strong>pyrax</strong> requires <strong>Python 2.7.x</strong>. We recommend <a href="https://pip.pypa.io/en/latest/installing.html">installing <strong>pip</strong></a> to handle all of the dependency requirements for <strong>pyrax</strong>.</p>
+  <p>Using <strong>OpenstackSDK</strong> supports both <strong>Python 2.7.x</strong> and <strong>Python 3.5.x</strong>. We recommend <a href="https://pip.pypa.io/en/latest/installing.html">installing <strong>pip</strong></a> to handle all of the dependency requirements for <strong>OpenstackSDK</strong>.</p>
   <h2>Installation</h2>
   <p>Generally, pyrax should be installed into a <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">virtual environment</a> using pip:</p>
   {% highlight sh %}
-$ pip install pyrax
+$ pip install rackspacesdk
   {% endhighlight %}
-  <h2>Getting started with Pyrax</h2>
+  <p>This will install the RackspaceSDK plugin as well as the OpenstackSDK</p>
+  <h2>Getting started with OpenstackSDK</h2>
   {% highlight python %}
-import pyrax
+from rackspace import connection
 
-pyrax.set_setting("identity_type", "rackspace")
-pyrax.set_default_region('DFW')
-pyrax.set_credentials('{username}', '{apiKey}')
+conn = connection.Connection(username="user",
+                             api_key="b0f75295e3f844c18b678bdf7b6e0681",
+                             region="DFW")
+
+  {% endhighlight %}
+
+  <p>In addition to using the credentials within your script OpenstackSDK supports the use of the clouds.yaml file.  You will want to create the clouds.yaml file in <strong> ~/.config/openstack/</strong> and the file will need to look like this.</p>
+  {% highlight yaml %}
+  clouds:
+  accountdfw:
+    cloud: badger
+    region_name: DFW
+
+  accountord:
+    cloud: badger
+    region_name: ORD
+
+  accountiad:
+    cloud: badger
+    region_name: IAD
+
+  accountsyd:
+    cloud: badger
+    region_name: SYD
+
+  accounthkg:
+    cloud: badger
+    region_name: HKG
+
+    {% endhighlight %}
+
+  <p>You will also want to have the clouds-public.yaml file setup.  This will allow you to specify different Openstack Providers like Rackspace Public Cloud or a Rackspace Private Cloud environment.  That file will look like the following.</p>
+  
+  {% highlight yaml %}
+  public-clouds:
+  badger:
+    auth_type: rackspace_apikey
+    auth:
+      username: <user>
+      api-key: <api_key>
+      auth_url: https://identity.api.rackspacecloud.com/v2.0/
+    compute_api_version: 2
+    volume_api_version: 1
+    network_api_version: 2
+  {% endhighlight %}
+
+  <p>With these 2 files configured you can then select different cloud endpoints or reagion using the following Python code.</p>
+
+  {% hightlight python %}
+  import rackspace
+
+  conn = connection.from_config(cloud_name='badgerdfw')
 
   {% endhighlight %}
 
   <h2>Links</h2>
   <ul>
-    <li><a href="https://github.com/rackspace/pyrax">Source Code</a></li>
-    <li><a href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md">Release Notes</a>&nbsp;<a href="https://github.com/rackspace/pyrax/releases.atom"><img src="{% asset_path rss.png %}" width="10" height="10" alt="Feed"/></li>
-    <li><a href="https://github.com/rackspace/pyrax/issues">Issue Tracker</a></li>
+    <li><a href="https://github.com/openstack/openstacksdk">OpenstackSDK Source Code</a></li>
+    <li><a href="https://github.com/rackerlabs/rackspace-sdk-plugin">RackspaceSDK Source Code</a></li>
+    <li><a href="https://storyboard.openstack.org/#!/project/760">Issue Tracker</a></li>
     <li>IRC: #rackspace-dev on Freenode</li>
   </ul>
 </div>

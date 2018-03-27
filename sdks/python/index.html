@@ -29,19 +29,12 @@ $ pip install rackspacesdk
   {% endhighlight %}
   <p>This will install the RackspaceSDK plugin as well as the OpenstackSDK</p>
   <h2>Getting started with OpenstackSDK</h2>
-<<<<<<< HEAD
-  
-{% highlight python %}
-=======
   {% highlight python %}
->>>>>>> 3e88da17b265193f10cb8a9c146efe47087b0e02
 from rackspace import connection
 
 conn = connection.Connection(username="user",
                              api_key="b0f75295e3f844c18b678bdf7b6e0681",
                              region="DFW")
-<<<<<<< HEAD
-=======
 
   {% endhighlight %}
 
@@ -91,12 +84,13 @@ conn = connection.Connection(username="user",
   import rackspace
 
   conn = connection.from_config(cloud_name='badgerdfw')
->>>>>>> 3e88da17b265193f10cb8a9c146efe47087b0e02
 
 {% endhighlight %}
 
   <p>In addition to using the credentials within your script OpenstackSDK supports the use of the clouds.yaml file.  You will want to create the clouds.yaml file in <strong> ~/.config/openstack/</strong> and the file will need to look like this.</p>
-{% highlight yaml %}
+
+  {% highlight yaml %}
+
 clouds:
   accountdfw:
     cloud: badger
@@ -137,7 +131,7 @@ public-clouds:
 
   <p>With these 2 files configured you can then select different cloud endpoints or reagion using the following Python code.</p>
 
-{% hightlight python %}
+{% highlight python %}
 import rackspace
 
 conn = connection.from_config(cloud_name='badgerdfw')

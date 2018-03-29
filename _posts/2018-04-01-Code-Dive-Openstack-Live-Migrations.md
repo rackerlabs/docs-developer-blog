@@ -927,3 +927,4 @@ We have now completed the full trace through the live migration process, while a
 
 Please remember here however that this was not written by a professional writer or developer, but just a Racker with a passion for Openstack.  I hope you've enjoyed this code dive and gained some knowledge, and hopefully I'll return soon with a new process to explore!
 
+

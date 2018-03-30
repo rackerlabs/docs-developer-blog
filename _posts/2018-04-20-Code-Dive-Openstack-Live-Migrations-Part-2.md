@@ -11,8 +11,8 @@ categories:
     - Openstack
 ---
 
-##Code-Dive:
-##Openstack Live-Migrations Part 2 - Conductor
+#Code-Dive:
+#Openstack Live-Migrations Part 2 - Conductor
 
 In our previous [article]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-1 %}) we began to trace the process of a live migration and explored how Nova API receives this call, processes it, injects basic information about the instance and eventually passes it to our next destination, Conductor. Before we begin let us again review our assumptions.
 <!-- more -->

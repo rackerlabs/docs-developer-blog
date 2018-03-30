@@ -530,7 +530,7 @@ We finally return to execute, and I've marked what we have already completed wit
 ![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-21.png %})
 
 ### Conclusion
-
+ 
 Today we have dived very deeply into Conductor, the Destination Compute, and the Source Compute.  We have managed to avoid the majority of the Nova Scheduler code, however we have picked up a destination, and filled in all of the variables that we need within the migrate\_data object.  In our next article, we will pick the process back up on the source compute, and follow the process until its end point.
 
 Please feel free to continue reading this series by clicking here: (COMING SOON)

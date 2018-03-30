@@ -24,8 +24,6 @@ The OpenStack live migration process is one of the most vital processes in the c
 - I use ellipses to skip some basic *set* and *get* instructions for clarity (no need to re-invent the wheel here).
 - Finally, while I go deep into the entire process, there may be sections where skipping through code is beneficial, such as skipping past RPC sections once we cover this once, skipping over the majority of the Scheduler Process, and Networking Configuration.  This skipping allows for us to focus more on the process as a whole and not get too in-depth with Neutron and Nova-Scheduler information.
 
-### Chapter 1: The Nova API layer
-
 Throughout the article, I share some code and explain what's going on or highlight interesting points; Due to the complexity of this process we will split this process into several articles to maintain clarity, and we will keep track of our process through each of the articles using a simple flowchart.  Today we will explore Nova APIs role in the process, and follow along until it passes responsibility to the Nova Conductor service.
 
 #### Exploration 1
@@ -87,27 +85,29 @@ The Route list is defined to tell our request where to go. A migration request i
 
 Here the API sets a couple of important variables. It looks at the first if the `--block-migrate` flag was included. The default behavior of *block_migration* is to contain the `auto` key unless overridden by including the `--block-migrate` parameter. If the `auto` key is still included, set this to `None`, otherwise set it to a Boolean rather than `True`. We get the instance information because this is vital for migrating an instance and passing the instance, context, and block_migration over to the Compute API, which is resolved down to *nova.compute.API.live_migrate*. Finally, you can see that we actually get to this code by the reference of the `@wsgi.action` profiler
 
-*nova.api.openstack.compute.migrate\_server.MigrateServerController.\_migrate* ->
+*nova.api.openstack.compute.migrate\_server.MigrateServerController* ->
 {% highlight python %}
-def _migrate():
-    from nova import compute 
-    self.compute_api = compute.API()
+class MigrateServerController():
     ...
+    from nova import compute 
+    ...
+    self.compute_api = compute.API()
+    
     @wsgi.action('os-migrateLive')
     def _migrate_live(self, req, id, body):
-    ...
-    block_migration = body["os-migrateLive"]["block_migration"]
-    ...
-    if api_version_request.is_supported(req, min_version='2.25'):
+      ...
+      block_migration = body["os-migrateLive"]["block_migration"]
+      ...
+      if api_version_request.is_supported(req, min_version='2.25'):
         if block_migration == 'auto':
             block_migration = None
         else:
             block_migration = strutils.bool_from_string(block_migration,
                                                             strict=True)
-    ...
-    instance = common.get_instance(self.compute_api, context, id)
-    try:
-        self.compute_api.live_migrate(context, instance, block_migration,
+      ...
+      instance = common.get_instance(self.compute_api, context, id)
+      try:
+	self.compute_api.live_migrate(context, instance, block_migration,
                                           disk_over_commit, host, force, async)
 {% endhighlight %}
                                           
@@ -183,4 +183,6 @@ At this point, we run into the problem mentioned previously regarding the RPC se
 
 The main takeaway at this point in the process is that we will now officially be running on Conductor nodes, and from here the Conductor Manager runs the code that is called (*live\_migrate\_instance*). This code is *nova.conductor.manager* with the *ComputeTaskManager* having an `@profiler` decorator for direction. From here, Conductor conducts and coordinates with various other services to complete the migration process. This is an example of Conductor handling a larger amount of work than just communicating between database and compute node, however, Since so much work is necessary during a live migration, it is nice to have a centralized location (or "command center") where information is passed back and forth during the beginning of this process. 
 
-While this chunk of code all runs within seconds in a production environment, it may take our poor human brains some time to digest this type of information so we will take a small break and continue this discussion in our next article: Code-Dive: Openstack Live-Migrations Part 1 - Conductor.
+While this chunk of code all runs within seconds in a production environment, it may take our poor human brains some time to digest this type of information so we will take a small break and continue this discussion in our next article.
+
+Please feel free to continue reading this series by clicking here: [article]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2 %})

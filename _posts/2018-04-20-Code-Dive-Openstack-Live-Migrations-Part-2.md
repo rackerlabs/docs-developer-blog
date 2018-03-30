@@ -11,7 +11,7 @@ categories:
     - Openstack
 ---
 
-#Code-Dive: Openstack Live-Migrations Part 2 - Conductor
+##Code-Dive: Openstack Live-Migrations Part 2 - Conductor
 
 In our previous [article]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-1 %}) we began to trace the process of a live migration and explored how Nova API receives this call, processes it, injects basic information about the instance and eventually passes it to our next destination, Conductor. Before we begin let us again review our assumptions.
 <!-- more -->
@@ -30,6 +30,8 @@ Remember that the last thing that we handled was preparing a dictionary fully of
 
 ### Exploration 1
 
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-1.png %})
+
 Conductor is a strange beast primarily designed to act as a go-between for compute nodes and the nova database with the goal of adding a layer of security to this process. This theoretically prevents the servers from accessing the database directly, however, in practice, Conductor winds up picking up more weight than some people think it should. When we left the Compute API, we were sent into the *nova.condutor.ComputeTaskAPI.live\_migrate\_instance*. Let's look at the class `ComputeTaskAPI`, which is stored in the *manager.py* file. 
 
 The following method is a pattern that we will see very often within services Managers. When a call comes in from an RPC service, it will not immediately handle that work but instead pass the work immediately due to a different, private internal method.  While confusing at first, this allows the code to be both modular and pythonic in nature.
@@ -41,6 +43,8 @@ The following method is a pattern that we will see very often within services Ma
 {% endhighlight %}
         
 #### Exploration 2
+
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-2.png %})
 
 Now we actually enter the server meat and potatoes. The main purpose of the following method is to build a task object that keeps track of the progress and moves things along. This task also allows me to cancel to the live-migrate prematurely or, if I want to in later API versions, to issue a force complete. It also sets up some basic variables for later use. Some task work is done here, which I'm skipping over because it is more relevant to learning Conductor tasks than the live migration process itself. Breaking down the work here, we create a new "migration" object from the nova primitives set: *nova.objects.Migration*. This creates a basic dictionary set with empty values. Similar to instantiating a new class, this instantiates an empty python object with data that we expect. we fill in some of this data that we already know, such as the instance data, source host, and migration type. Then we create this task and execute it. From here, the task execution handles the work. Find this task, once it is running, in *nova.conductor.tasks.live_migrate*.
     
@@ -66,7 +70,9 @@ class ComputeTaskManager(base.Base):
 {% endhighlight %}
 
 #### Exploration 3
-            
+
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-3.png %})
+
 Now, we enter the execution phase, where all of the heavy lifting begins and the chain to complete the migration starts. The following code first calls the scheduler to find a suitable destination. We will refer back to this method several times, because the code splits off completes several very important tasks before returning. Before calling scheduler, however, the method sets up some basic variables within its class definition that are overwritten by subsequent methods. It is important to understand that these are *class* variables or objects and are not method-owned - these variables are not passed around but instead overwrite the class data. Since many of the variables remain within the class, there is no reason for them to be returned or to require much input, and the methods might use these class variables as reference. Since so much is happening here, I've also placed comments inline in the code. Please pay attention to `#*#*#` lines - I will walk you through this as much as possible.
     
  *nova.conductor.tasks.live\_migrate.LiveMigrationTask(Class.class)* ->
@@ -101,6 +107,8 @@ The first thing done here is verification that the instance is in an active stat
 
 #### Exploration 4
 
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-4.png %})
+
 Next, the method checks the power state of the instance. It pulls the data from the class instance variable that was set up in the INIT and which contains the *power\_state* field. An exception is created if this does not match a *running* or *paused* state. Assuming no exception, the execution moves on.
     
 *nova.conductor.tasks.live\_migrate.LiveMigrationTask.\_check\_instance\_is\_active* ->
@@ -113,6 +121,8 @@ Next, the method checks the power state of the instance. It pulls the data from 
 
 #### Exploration 5
 
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-5.png %})
+
 We completed the active check (marked with an 'X' in the following code), and now the process ensures that the host is up. We head to another private method *\_check\_host\_is\_up*.
 
 *nova.conductor.tasks.live\_migrate\_LiveMigrationTask.\_execute* ->
@@ -123,6 +133,8 @@ We completed the active check (marked with an 'X' in the following code), and no
 {% endhighlight %}
   
 #### Exploration 6
+
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-6.png %})
 
 Here's another fairly simple check to verify that the source server is up and online. To do this, it reaches out to the    `servicegroup`, which is the database driver, to run some checks against down time. A long as this returns successfully, we move on again. There is not too much to say about this code, because it mostly relates to the database drivers.  If there's no exception here, we return to the execution.
 
@@ -135,6 +147,8 @@ Here's another fairly simple check to verify that the source server is up and on
 {% endhighlight %}
 
 #### Exploration 7
+
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-7.png %})
 
 We have completed two basic checks, and we will skip some migration allocation code (noted by the ellipses) as this doesn't have much to do with the current discussion, and get heavilly into the Nova Placement API and the Allocations system, which is beyond the current scope of our goals at the moment.
 
@@ -155,6 +169,8 @@ Now that the instance and the source are both verified as good to go, it is time
 {% endhighlight %}            
    
 #### Exploration 8
+
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-8.png %})
 
 The following code works closely with the scheduler to find a destination and is a section that we will move past quickly. In general, we know that we provided a *requestSpec* to the class with the instance information for what kind of host we need.  This information is piped to the scheduler to find a matching host in a loop. While we don't care too much about the scheduling parts, we do care about some checks that are run in the loop. This method (and the ones it calls) are returned to several times before we finally return our `destination` and `dest_node` to the *\_execute* method. See inline comments for more information.
 
@@ -179,6 +195,8 @@ The following code works closely with the scheduler to find a destination and is
 
 #### Exploration 9
 
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-9.png %})
+
 The first method called here (*\_check\_compatible\_with\_source\_hypervisor*) is quite short. This takes the host information of the source (stored in the class as *self.host*) and the destination (just *host*) and compares the versions of their platforms to see if there is compatability. Without compatability, an exception is triggered, which unsets the host and continues the loop. Interestingly, this method does return data in the form of the source info and destination info, however this information is not stored during the *\_find\_destination* call and is lost.
     
 *nova.conductor.tasks.live\_migrate\_LiveMigrationTask.\_check\_compatible\_with\_source\_hypervisor* ->
@@ -195,6 +213,8 @@ The first method called here (*\_check\_compatible\_with\_source\_hypervisor*) i
 
 #### Exploration 10
         
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-10.png %})
+
 Now that we completed these simple but important checks, we execute the *_call\_livem\_checks\_on\_host*. This beefy call leads us into several other methods. Again, it's worth noting that anything returned here is lost. We are just looking to find an exception or to continue. We do, however, set the class *migrate\_data* variable, which (as you may remember) was set to `None` during the class instantiation. This *migrate\_data* is filled with the returned values from *compute\_rpcapi.check\_can\_live\_migrate\_destination*. 
 
 We again wil lbe traversing through RPC, and now that we have some basic experience with this we can be fairly knowledgeable about two things.
@@ -213,7 +233,9 @@ We again wil lbe traversing through RPC, and now that we have some basic experie
 {% endhighlight %}
 
 #### Exploration 11
-   
+
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-11.png %})
+
 The execution is now at the compute manager on the destination, ready to run checks against the chosen destination, moving from Nova API manager to Conductor Manager to Destination Compute. This method is just a redirect (called by using RPC) into a private method.
     
 *nova.compute.manager.check\_can\_live\_migrate\_destination* -> 
@@ -225,6 +247,8 @@ The execution is now at the compute manager on the destination, ready to run che
 {% endhighlight %}
          
 #### Exploration 12
+
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-12.png %})
 
 Now we need to handle some setup here and to make a few returns to this code, so let's step through it. First, we set up some variables for the source and destination by using the host variables that were passed to us from Conductor. Interestingly, it pulls the Destination host from its own *CONF* file, since this code is actually running on the destination now. Once that is done, the code is first passed over to *driver.check\_can\_live\_migrate\_destination*. It stores the returned data of this operation in *dest_check_data*. Because the driver is XenAPI, execution shifts there for now, and returns once the *dest\_check\_data* is filled in. 
 
@@ -242,6 +266,8 @@ Regarding the Driver, Compute will keep credentials to manage its respect hyperv
 
 #### Exploration 13
 
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-13.png %})
+
 To find data in a driver, such as where that *check\_can\_live\_migrate\_destination* method lives, look in the *driver.py* file, which is similar to the routes for an API and tells us where to go. Let's take a look now, but I won't do this review in future explorations of the code. You can see from the imports that our new home is the *nova.virt.xenapi.vmops.check\_can\_live\_migrate\_destination* method. Remember, this is how you can find all calls to the *driver.call* methods. *From compute* is issuing commands directly to the driver that it controls by using its login credentials in the *Nova Conf* file.
     
 *nova.virt.xenapi.driver.check\_can\_live\_migrate\_destination* ->
@@ -255,6 +281,8 @@ To find data in a driver, such as where that *check\_can\_live\_migrate\_destina
 {% endhighlight %}
 
 #### Exploration 14
+
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-14.png %})
 
 The following method makes sure that the destination is ready for use. First, it creates a new object from the primitives, like we have seen before, and the returned *dest\_check\_data* is saved. It then handles some specific actions depending on whether or not `Block Migration` was specified. In this case, I did not specify block migration and said that I did not have shared storage. This lack of shared storage means that the *\_ensure\_host\_in\_aggregate* call fails. Thus, the block\_migration boolean is set to True and execution continues into the `if block\_migration` code. See the inline comments in the following psuedocode for more details.
     
@@ -305,6 +333,8 @@ The following method makes sure that the destination is ready for use. First, it
 
 #### Exploration 15
 
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-15.png %})
+
 In the following code, the *migrate\_receive* call issues a warning through XenAPI. It sends XenAPI the *migrate\_receive* command including the nw\_ref, destination, and options details. These options can be `sr` references. Live migration, block migration, and xen returns a token. This token signifies that the server is ready to accept the connection over the nw_ref that you specified to the host that you specified with the parameters that you specified. This token is stored as the *dest\_check\_data.migrate\_send\_data* variable and is returned to Compute services *\_do\_check\_can\_live\_migrate\_destination* method.
     
 *nova.virt.xenapi.vmops.migrate\_receive* ->
@@ -321,6 +351,8 @@ In the following code, the *migrate\_receive* call issues a warning through XenA
 {% endhighlight %}
 
 #### Exploration 16
+
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-16.png %})
 
 The inline comments from the code's author explain the following function pretty well. It just pulls the network reference for the management network. It's not a super important bit of code, but it does become more useful later. Additionally, the previous method uses this method as well, so it is useful to know what is happening.
     
@@ -340,6 +372,8 @@ The inline comments from the code's author explain the following function pretty
 {% endhighlight %}
 
 #### Exploration 17
+
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-17.png %})
 
 The execution now returns to the *\_do\_check\_can\_live\_migrate\_destination* call with a populated *dest_check_data* which importantly contains the *migrate_send_data* field. Let's do a quick review to remember what is happening. Notice that the method is suddenly no longer just checking a destination but also is checking a source. we set *migrate_data* to the result of *compute.manager.check\_can\_live\_migrate\_source (compute\_rpcapi)*! More information is in the inline comments in the following code but notice that we are moving through *compute\_rpcapi* again, this means that the code chunk runs on the source Compute node.
     
@@ -368,6 +402,8 @@ The execution now returns to the *\_do\_check\_can\_live\_migrate\_destination* 
 
 #### Exploration 18
 
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-18.png %})
+
 Just like before, I'm handing this over the XenAPI drivers to do the work, but first the process sets up some basic variables to send with it so that it gets a little easier for XenAPI.  This includes seeing if the server is volume-backed and getting basic block-device-mapping information. This information, however, does not contain Cinder target information (this will be important later for our XenAPI purposes). Once we have that, we move into the driver. The driver's outcome is stored as *result* and is then returned. This is a bit interesting because the name changes. Usually OpenStack keeps these things standard to avoid this kind of confusion. Just know that *result* is stored in *migrate\_data*.
     
 *nova.compute.manager.check\_can\_live\_migrate\_source* ->
@@ -384,6 +420,8 @@ Just like before, I'm handing this over the XenAPI drivers to do the work, but f
 {% endhighlight %}        
 
 #### Exploration 19
+
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-19.png %})
 
 The primary focus of the following method is to run the XenAPI *assert_can_migrate* command. This command accepts mappings that are generated in the *\_call\_live\_migrate\_command* method, which is called and then just returns the untouched *dest\_check\_data*. More information is in inline comments.
     
@@ -415,9 +453,11 @@ The primary focus of the following method is to run the XenAPI *assert_can_migra
 
 #### Exploration 20
 
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-20.png %})
+
 The following method calls the XenAPI driver to run the specified command. This method is used twice during the *live\_migration* process, once to run this assert, and again later to actually start the live migration process. The method generates maps for various resources to their owners. These maps are *Source Vif -> Destination Network* and *Source VDI -> Destination SR*. These maps could be used more intensively by the call (including such things as GPU and CPU maps), but we only use these two for our purposes. We send that data to the *call\_xenapi* method, which calls the *assert\_can\_migrate* method with which I called this method, and, if any of these maps fail, the process fires an exception. Essentially, it is looking at these maps to ensure that everything exists properly and is ready to accept the migration. Some extraneous content is trimmed here for simplicity. Note that nothing is returned here. We are inside of the *check\_can\_live\_migrate\_source* `try` block and just except or continue.
     
-*nova.virt.xenapi.vmops._call_live_migrate_command* ->
+*nova.virt.xenapi.vmops.\_call\_live\_migrate\_command* ->
 {% highlight python %}
     def _call_live_migrate_command():
         ...
@@ -463,7 +503,7 @@ We have completed both the *call\_livem\_checks\_on\_host* and the *\_check\_com
 
 #### Exploration 22
     
-We finally return to execute, and I've marked what we have already completed with an (X) in the following code.  We completed the destination find and now move on to finally run the *live\_migration*. We set up some basic variables in the class migration option, including the source node, the destination node, and compute, which we got from scheduling. Now, I pass this to the *compute\_rpc* service for the source by calling *self.compute\_rpcapi.live_migration*. This marks the end of the conductor *_execute* method as it sends its payload over to the source compute node to begin the real transfer work of the live migration.
+We finally return to execute, and I've marked what we have already completed with an (X) in the following code.  We completed the destination find and now move on to finally run the *live\_migration*. We set up some basic variables in the class migration option, including the source node, the destination node, and compute, which we got from scheduling. Now, I pass this to the *compute\_rpc* service for the source by calling *self.compute\_rpcapi.live_migration*. This marks the end of the conductor *_execute* method as it sends its payload over to the source compute node to begin the real transfer work of the live migration. Since this final workflow image is rather large, we'll take a look at it after the code.
     
 *nova.conductor.tasks.live\_migrate\_LiveMigrationTask.\_execute* ->
 {% highlight python %}
@@ -487,9 +527,11 @@ We finally return to execute, and I've marked what we have already completed wit
                 migrate_data=self.migrate_data)
 {% endhighlight %}
 
+![Conductor Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2/Conductor-21.png %})
+
 ### Conclusion
 
 Today we have dived very deeply into Conductor, the Destination Compute, and the Source Compute.  We have managed to avoid the majority of the Nova Scheduler code, however we have picked up a destination, and filled in all of the variables that we need within the migrate\_data object.  In our next article, we will pick the process back up on the source compute, and follow the process until its end point.
 
-Please feel free to continue reading this series by clicking here: (LATER)
+Please feel free to continue reading this series by clicking here: (COMING SOON)
 

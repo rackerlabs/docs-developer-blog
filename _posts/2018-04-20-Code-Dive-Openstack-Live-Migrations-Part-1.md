@@ -11,7 +11,7 @@ categories:
     - Openstack
 ---
 
-#Code-Dive: Openstack Live-Migrations Part 1 - Nova API
+##Code-Dive: Openstack Live-Migrations Part 1 - Nova API
 
 The OpenStack live migration process is one of the most vital processes in the compute drivers, but it is also easily one of the most complex. This complexity drove my curiosity to better understand what is happening under the hood, and I wanted to share that knowledge with you. In this article, we dive deep into the OpenStack codebase, but first, the article does assume a few things.
 

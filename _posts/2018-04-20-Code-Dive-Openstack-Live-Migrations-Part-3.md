@@ -53,11 +53,11 @@ To begin we start as always, by transferring the RPC call into a private method.
 
 #### Exploration 2
 
-This is the beginning of the prep phase for the live migration proper. The migration status is set to `Preparing`, and because I'm running a block\_migration, We gather details about the disk information and get basic BDM information again (remember, We discarded this information during the scheduling phase and only returned host details). We pull that very basic information and throw it into the *pre\_live\_migration* through *computeRPC* once again. I save the result of this as *migrate\_data*.  Note here that I actually pass in the current *migrate_data*, which was once the *dest\_check\_data*, so I'm overwriting that variable with the result of *pre_live_migration* method return. Let's look briefly into the *get/_disk/_info* method here for clarity. Once the *pre_live_migration* method finishes, we return to this method to continue. 
+This is the beginning of the prep phase for the live migration proper. The migration status is set to `Preparing`, and because I'm running a block\_migration, We gather details about the disk information and get basic BDM information again (remember, We discarded this information during the scheduling phase and only returned host details). We pull that very basic information and throw it into the *pre\_live\_migration* through *computeRPC* once again. I save the result of this as *migrate\_data*.  Note here that I actually pass in the current *migrate\_data*, which was once the *dest\_check\_data*, so I'm overwriting that variable with the result of *pre\_live\_migration* method return. Let's look briefly into the *get\_disk\_info* method here for clarity. Once the *pre\_live\_migration* method finishes, we return to this method to continue. 
 
 Note:  We are running through *ComputeRPC* here again because our first steps actually reside on the Destination.  We will be doing some prep work on the destination to receive this VM, such as setting up Block Devices and Network attachments.  Until we return back here, just know we are running on the Destination.
     
-*nova.compute.manager._do_live_migration* ->
+*nova.compute.manager.\_do\_live\_migration* ->
 {% highlight python %}
     def _do_live_migration():
         self._set_migration_status(migration, 'preparing')

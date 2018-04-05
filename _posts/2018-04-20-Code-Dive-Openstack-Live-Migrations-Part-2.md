@@ -17,7 +17,6 @@ In our previous [article]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrat
 ### Assumptions
 
 - You have read the previous article and understand the data that we have passed, and how we arrived at Conductor
-- The current OpenStack-Nova version is not completely up to date and is missing the live-migration `Force` feature.
 - The `Virt Driver` in use is XenAPI, so we will spend some time in that code base.  
 - I use ellipses to skip some basic *set* and *get* instructions for clarity (no need to re-invent the wheel here).
 - Finally, while I go deep into the entire process, there may be sections where skipping through code is beneficial, such as skipping past RPC sections once we cover this once, skipping over the majority of the Scheduler Process, and Networking Configuration.  This skipping allows for us to focus more on the process as a whole and not get too in-depth with Neutron and Nova-Scheduler information.
@@ -531,5 +530,5 @@ We finally return to execute, and I've marked what we have already completed wit
  
 Today we have dived very deeply into Conductor, the Destination Compute, and the Source Compute.  We have managed to avoid the majority of the Nova Scheduler code, however we have picked up a destination, and filled in all of the variables that we need within the migrate\_data object.  In our next article, we will pick the process back up on the source compute, and follow the process until its end point.
 
-Please feel free to continue reading this series by clicking here: (COMING SOON)
+Please feel free to continue reading this series by clicking here: [article]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3 %})
 

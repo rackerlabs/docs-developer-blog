@@ -17,7 +17,6 @@ The OpenStack live migration process is one of the most vital processes in the c
 
 ### Assumptions
 
-- The current OpenStack-Nova version is not completely up to date and is missing the live-migration `Force` feature.
 - The `Virt Driver` in use is XenAPI, so we will spend some time in that code base.  
 - I use ellipses to skip some basic *set* and *get* instructions for clarity (no need to re-invent the wheel here).
 - Finally, while I go deep into the entire process, there may be sections where skipping through code is beneficial, such as skipping past RPC sections once we cover this once, skipping over the majority of the Scheduler Process, and Networking Configuration.  This skipping allows for us to focus more on the process as a whole and not get too in-depth with Neutron and Nova-Scheduler information.

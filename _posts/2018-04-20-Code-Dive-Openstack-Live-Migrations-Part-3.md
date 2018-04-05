@@ -23,19 +23,19 @@ In our previous [article]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrat
 
 ### Review
 
-Even though we went very deeply into methods during our last run through this code, very little of that data was retained.  Essentially just a small bit of more information regarding the destination was placed into the migrate_data pack and is being sent along.  The maps that we generated were lost, as all of these methods were simply running tests or throwing an Exception.  When we head into the Compute Manager's live_migration codebase we are sending:
-                > host=self.source,
-                > instance=self.instance,
-                > dest=self.destination,
-                > block_migration=self.block_migration,
-                > migration=self.migration,
-                > migrate_data=self.migrate_data
+Even though we went very deeply into methods during our last run through this code, very little of that data was retained.  Essentially just a small bit of more information regarding the destination was placed into the migrate\_data pack and is being sent along.  The maps that we generated were lost, as all of these methods were simply running tests or throwing an Exception.  When we head into the Compute Manager's live_migration codebase we are sending:
+    host=self.source,
+    instance=self.instance,
+    dest=self.destination,
+    block_migration=self.block_migration,
+    migration=self.migration,
+    migrate_data=self.migrate_data
                 
 A pretty simple list of information, and we should know what is contained in all of these details now. The important fields here are that we have block_migration set to True at this point, migrate_data contains a duplicate of the block_migration field, as well as the contents of `dest_check_data` that was generated in the previous article, as well as some fields such as async, and things that were passed to conductor during our first article.  We have the instance ref as well as the host ref here as well that can be used by the code to pull things such as `host_ref` and `vm_ref`.  When these varaibles are pulled you will generally see "instance" or "dest" or "host" passed.  Let's pick up at the Compute Manager and get this servershow on the road!
 
 ### Exploration 1
 
-To begin we start as always, by transferring the RPC call into a private method.  Some additional work here is handled here however.  Because this process can take a significant amount of time to run, we do not want RPC to be hung up waiting for the _do_live_migration method to return, so we spawn an Eventlet thread which will continue to run, and RPC will return its worker to the pool.  From here, \_do\_live\_migration is essentially told to _fork_ off and handle its business, and we continue into that method.
+To begin we start as always, by transferring the RPC call into a private method.  Some additional work here is handled here however.  Because this process can take a significant amount of time to run, we do not want RPC to be hung up waiting for the \_do\_live\_migration method to return, so we spawn an Eventlet thread which will continue to run, and RPC will return its worker to the pool.  From here, \_do\_live\_migration is essentially told to _fork_ off and handle its business, and we continue into that method.
 
 *nova.compute.manager.live\_migration* ->
 {% highlight python %}
@@ -53,7 +53,7 @@ To begin we start as always, by transferring the RPC call into a private method.
 
 #### Exploration 2
 
-This is the beginning of the prep phase for the live migration proper. The migration status is set to `Preparing`, and because I'm running a block_migration, We gather details about the disk information and get basic BDM information again (remember, We discarded this information during the scheduling phase and only returned host details). We pull that very basic information and throw it into the *pre\_live\_migration* through *computeRPC* once again. I save the result of this as *migrate\_data*.  Note here that I actually pass in the current *migrate_data*, which was once the *dest\_check\_data*, so I'm overwriting that variable with the result of *pre_live_migration* method return. Let's look briefly into the *get/_disk/_info* method here for clarity. Once the *pre_live_migration* method finishes, we return to this method to continue. 
+This is the beginning of the prep phase for the live migration proper. The migration status is set to `Preparing`, and because I'm running a block\_migration, We gather details about the disk information and get basic BDM information again (remember, We discarded this information during the scheduling phase and only returned host details). We pull that very basic information and throw it into the *pre\_live\_migration* through *computeRPC* once again. I save the result of this as *migrate\_data*.  Note here that I actually pass in the current *migrate_data*, which was once the *dest\_check\_data*, so I'm overwriting that variable with the result of *pre_live_migration* method return. Let's look briefly into the *get/_disk/_info* method here for clarity. Once the *pre_live_migration* method finishes, we return to this method to continue. 
 
 Note:  We are running through *ComputeRPC* here again because our first steps actually reside on the Destination.  We will be doing some prep work on the destination to receive this VM, such as setting up Block Devices and Network attachments.  Until we return back here, just know we are running on the Destination.
     

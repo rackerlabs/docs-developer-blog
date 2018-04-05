@@ -35,6 +35,8 @@ A pretty simple list of information, and we should know what is contained in all
 
 ### Exploration 1
 
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-1.png %})
+
 To begin we start as always, by transferring the RPC call into a private method.  Some additional work here is handled here however.  Because this process can take a significant amount of time to run, we do not want RPC to be hung up waiting for the \_do\_live\_migration method to return, so we spawn an Eventlet thread which will continue to run, and RPC will return its worker to the pool.  From here, \_do\_live\_migration is essentially told to _fork_ off and handle its business, and we continue into that method.
 
 *nova.compute.manager.live\_migration* ->
@@ -52,6 +54,8 @@ To begin we start as always, by transferring the RPC call into a private method.
 {% endhighlight %}
 
 #### Exploration 2
+
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-2.png %})
 
 This is the beginning of the prep phase for the live migration proper. The migration status is set to `Preparing`, and because I'm running a block\_migration, We gather details about the disk information and get basic BDM information again (remember, We discarded this information during the scheduling phase and only returned host details). We pull that very basic information and throw it into the *pre\_live\_migration* through *computeRPC* once again. I save the result of this as *migrate\_data*.  Note here that I actually pass in the current *migrate\_data*, which was once the *dest\_check\_data*, so I'm overwriting that variable with the result of *pre\_live\_migration* method return. Let's look briefly into the *get\_disk\_info* method here for clarity. Once the *pre\_live\_migration* method finishes, we return to this method to continue. 
 
@@ -72,6 +76,8 @@ Note:  We are running through *ComputeRPC* here again because our first steps ac
 
 #### Exploration 3
 
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-3.png %})
+
 This is a case where XenAPI actually doesn't implement this work, but it just passes the check, relying on this to be done later.
     
 *nova.virt.xenapi.driver* ->
@@ -82,6 +88,8 @@ This is a case where XenAPI actually doesn't implement this work, but it just pa
 {% endhighlight %}
 
 #### Exploration 4
+
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-4.png %})
 
 This method handles a decent amount of complicated work. First, it pulls the more complete Block Device Mappings including the Cinder Target information and uses that information to set up attachments for the volumes within the _volume/_API_.. It then pulls networking information again, and it passes the data into the driver's version of this method (`pre_live_migration`) to handle the heavy work. The result of the driver's *pre_live_migration* call is saved as *migrate_data*. Once completed, execution moves on and sets up any needed networks on the host machine and sets up the filtering rules before returning *migrate_data*. The following code has been significantly trimmed for clarity. Notice that *migrate_data* is passed and overridden, and that the code is running on the destination.
     
@@ -111,6 +119,8 @@ This method handles a decent amount of complicated work. First, it pulls the mor
 
 #### Exploration 5
 
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-5.png %})
+
 The following fairly simple method just adds more data to the *migrate_data* object. The volumes are connected on the destination hypervisor by passing the bdm information that was gathered in the previous method into *connect_block_device_volumes*. This code delves deeply into Cinder, but we don't need to focus on this right now. Just know that they are attached now on the destination. The code also creates interim networks, and the SR Mapping and VIF mapping for both of these are stored in the *migrate_data* field.
     
 *nova.virt.xenapi.vmops.pre\_live\_migration* ->
@@ -124,6 +134,8 @@ The following fairly simple method just adds more data to the *migrate_data* obj
 There is now even more data in the *dest\_check\_data* (or *migrate_data*) field. The destination information is there now that networks have been set up, filtering rules are in place, volumes have been attached, and that modified *migrate\_data* is passed all the way back to *nova.compute.manager.\_do\_live\_migration* on the source. Let's look back at where we left off.
 
 #### Exploration 6
+
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-6.png %})
 
 Now that the *pre\_live\_migration* method has completed, execution moves on, which leaves us just a status change away from a "running" status (YAY!) and into the driver's *live\_migration* code. Nothing is returned from here, and it is just a `try:` and `except:` block execution. From here, the driver handles the rest of the process.
     
@@ -148,6 +160,8 @@ Now that the *pre\_live\_migration* method has completed, execution moves on, wh
 {% endhighlight %}
 
 #### Exploration 7
+
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-7.png %})
 
 The name of the following method actually changes a bit on the way into the driver for XenAPI, so it's just a little confusing. We are getting really close to the end here and have come a monumental distance in these code lines. Now, it's time for the driver to go ahead and start doing its thing. The method gathers some basic data once again, because often the needed data is not returned. The method then fills in even more data in *migrate_data* and issues the XenAPI Migrate command! This means that XenAPI begins the mirror, and the process is legitimately kicked off. This process handles getting the VM started on the destination, transferring the RAM states, and so on. This just leaves the OpenStack drivers to do the cleanup. More comments are inline in the following code. Once the long, long *migrate\_send* command completes, the *post\_method* executes.
     
@@ -184,7 +198,9 @@ The name of the following method actually changes a bit on the way into the driv
 The way that *post\_method* is called is a bit interesting, because it is defined by the incoming variables accepted by the *self.driver.live\_migration* method. You can see above that this is called with *self.post\_live\_migration* and *self.\_rollback\_live\_migration*. When a fault occurs, it calls that *recover\_method*, and, in this case, it calls the *post\_method*, which resolves to the *nova.compute.manager.\_post\_live\_migration* method. It is tempting to believe that this is the *nova.virt.xenapi.vmops.post\_live\_migration* method but remember that this data was sent from COMPUTE and not VIRT.  You can also see that the *post\_live\_migration* in XenAPI is *post\_live\_migration* and not *\_post\_live\_migration*. So, let's take a look!
 
 #### Exploration 8
-   
+
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-8.png %})
+
 Remember that the execution didn't move through RPC to get here, so the code is still running on the source. So far, execution was only transferred to RPC to handle the destination checks before bouncing back to source again. From now on, code runs on the source. The following method handles the cleanup actions that need to be done. It gathers BDM records (again!) and terminates and detaches the volumes from the source hypervisor, preparing to switch around networking information. This method gets very long, so we'll walk through it a little at a time and follow its cleanup steps where applicable. More comments are inline in the code.
     
 *nova.compute.manager.\_post\_live\_migration* ->
@@ -226,6 +242,8 @@ Remember that the execution didn't move through RPC to get here, so the code is 
 
 #### Exploration 9
 
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-9.png %})
+
 In the following code, the vif connections for the VM on the source are deleted, effectively stopping any connectivity to the source. This traverses two methods, so let's take a look at both. The first method just calls  */_delete/_networks/_and/_bridges*. This method then calls the vif/_driver to call *delete/_network/_and/_bridge*. Kind of a long way around to get to the work, but you can see the *vif/_driver* defined here as well.
     
 *nova.virt.xenapi.post\_live\_migration\_at\_source* ->
@@ -252,7 +270,9 @@ Looking at a sample *nova.conf*, notice what that *CONF.xenserver.vif/_driver* v
     vif_driver = nova.virt.xenapi.vif.XenAPIOpenVswitchDriver
 
 #### Exploration 10
-      
+
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-10.png %})
+
 The *nova.virt.xenapi.vif.XenAPIOpenVswitchDriver.delete/_network/_and/_bridge* method is very intense and again out of our scope, but feel free to look at this code on your own.  It destroys the OVS port bindings for the bridge, vif, and patch ports, and tears down the rest of the environment for routing to this VIF. Now that's done, let's look back at the Compute *post/_live/_migration* with a bit more code trimming. We will mark where left off with (X) in the following code.
     
 Past the (X), you can see that now some cleanup is being handled on the destination. Notice that it passes through compute RPC now.  As you might expect, destination cleanup runs on the destination. Note that even if this fails, the line of code does not fail.  On an except, we set a variable that it failed and move on. This does cause the process to fail completely, but the code ensures that things are cleaned up in the proper order instead of just crashing.
@@ -284,7 +304,9 @@ Past the (X), you can see that now some cleanup is being handled on the destinat
  {% endhighlight %}         
 
 #### Exploration 11
-     
+
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-11.png %})
+
 The following is another beefcake of a method, which handles actions on the destination but also reaches out to the source to tear even more information down. I added more inline so that we can keep our (read: **my**) thoughts straight.
     
 *nova.compute.manager.post\_live\_migration\_at\_destination* ->
@@ -339,7 +361,9 @@ The following is another beefcake of a method, which handles actions on the dest
  {% endhighlight %}
 
 #### Exploration 12
-           
+
+![Compute Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-3/Compute-12.png %})
+
 Now we can return to *\_post\_live\_migration* again, with more trimmed down psuedocode in the following sample to see where we left off marked with an (X).
     
 The prevoius process essentially completed the migration. As far as the database is concerned, the `task\_state` is empty, so this thing is no longer running. The instance points to the new host in the database, and *instance.host* = *self.host* (set from the destination). The remainder of the code is handling the last of the cleanup and ending the process completely. Comments are inline.

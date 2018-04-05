@@ -24,14 +24,18 @@ In our previous [article]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrat
 ### Review
 
 Even though we went very deeply into methods during our last run through this code, very little of that data was retained.  Essentially just a small bit of more information regarding the destination was placed into the migrate\_data pack and is being sent along.  The maps that we generated were lost, as all of these methods were simply running tests or throwing an Exception.  When we head into the Compute Manager's live_migration codebase we are sending:
+
+{% highlight python %}
     host=self.source,
     instance=self.instance,
     dest=self.destination,
     block_migration=self.block_migration,
     migration=self.migration,
     migrate_data=self.migrate_data
+{% endhighlight %}
+
                 
-A pretty simple list of information, and we should know what is contained in all of these details now. The important fields here are that we have block_migration set to True at this point, migrate_data contains a duplicate of the block_migration field, as well as the contents of `dest\_check\_data` that was generated in the previous article, as well as some fields such as async, and things that were passed to conductor during our first article.  We have the instance ref as well as the host ref here as well that can be used by the code to pull things such as `host\_ref` and `vm\_ref`.  When these varaibles are pulled you will generally see "instance" or "dest" or "host" passed.  Let's pick up at the Compute Manager and get this servershow on the road!
+A pretty simple list of information, and we should know what is contained in all of these details now. The important fields here are that we have block_migration set to True at this point, migrate_data contains a duplicate of the block_migration field, as well as the contents of dest\_check\_data that was generated in the previous article, as well as some fields such as async, and things that were passed to conductor during our first article.  We have the instance ref as well as the host ref here as well that can be used by the code to pull things such as host\_ref and vm\_ref.  When these varaibles are pulled you will generally see "instance" or "dest" or "host" passed.  Let's pick up at the Compute Manager and get this servershow on the road!
 
 ### Exploration 1
 

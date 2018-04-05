@@ -26,12 +26,12 @@ In our previous [article]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrat
 Even though we went very deeply into methods during our last run through this code, very little of that data was retained.  Essentially just a small bit of more information regarding the destination was placed into the migrate\_data pack and is being sent along.  The maps that we generated were lost, as all of these methods were simply running tests or throwing an Exception.  When we head into the Compute Manager's live_migration codebase we are sending:
 
 {% highlight python %}
-    host=self.source,
-    instance=self.instance,
-    dest=self.destination,
-    block_migration=self.block_migration,
-    migration=self.migration,
-    migrate_data=self.migrate_data
+host=self.source,
+instance=self.instance,
+dest=self.destination,
+block_migration=self.block_migration,
+migration=self.migration,
+migrate_data=self.migrate_data
 {% endhighlight %}
 
                 

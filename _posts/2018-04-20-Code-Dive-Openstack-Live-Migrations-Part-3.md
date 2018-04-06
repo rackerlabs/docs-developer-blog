@@ -11,9 +11,12 @@ categories:
     - Openstack
 ---
 
-In our previous [article]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2 %}) we dove deeply into the Live Migration process by looking at how Conductor passes data back and forth between Scheduler and the Source and Destination Compute Nodes.  We have found a host machine at this point and verified that all of our preliminary checks will pass.  We watched as the code finished the `execute` method and passed the information to `compute_rpcapi.live_migration` for the source compute.  We will skip over the RPC since we should be pretty familiar with that by now, and pick up our code on the Source Compute Node once we go over our assumptions one final time.
+In our previous [article]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2 %}) we dove deeply into the Live Migration process by looking at how Conductor passes data back and forth between Scheduler and the Source and Destination Compute Nodes.  We have found a host machine at this point and verified that all of our preliminary checks will pass.
 
 <!-- more -->
+
+We watched as the code finished the `execute` method and passed the information to `compute_rpcapi.live_migration` for the source compute.  We will skip over the RPC since we should be pretty familiar with that by now, and pick up our code on the Source Compute Node once we go over our assumptions one final time.
+
 
 ### Assumptions
 

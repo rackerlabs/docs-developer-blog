@@ -123,7 +123,7 @@ The following example (`post_image.template`) demonstrates template meta-variabl
         ...
     }
 
-*Note* Because Syntribos is fully backward-compatible, you can use this request
+**Note** Because Syntribos is fully backward-compatible, you can use this request
 template as-is with Syntribos 0.5.1.
 
 With Syntribos 0.3.1, a change like adjusting the `x-auth-token` header for
@@ -157,7 +157,7 @@ With Syntribos 0.5.1, meta-variable files allow you to create a file,
       }
     }
 
-Using the `meta.json`, the template now looks like the following example:
+Using the `meta.json` file, the template now looks like the following example:
 
     POST /v2/images HTTP/1.1
     X-Auth-Token: |token|
@@ -184,7 +184,7 @@ We have big plans ahead for Syntribos, including the following:
 
 - Make Syntribos more CI/CD friendly.
 
-- Exploring ways to integrate Syntribos into gate jobs and build pipelines.
+- Explore ways to integrate Syntribos into gate jobs and build pipelines.
 
 - Work on improvements to the test cases themselves, as well as to the documentation
   so that Syntribos is more accurate and user-friendly.

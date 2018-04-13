@@ -49,7 +49,7 @@ changes make Syntribos better suited to your testing needs as well.
 
 One of the biggest pain points that testers had when using Syntribos was its
 performance. Because Syntribos serialized its requests, a full run on a large
-project running on a remote host could sometimes take hours. In Syntribos 0.51,
+project running on a remote host could sometimes take hours. In Syntribos 0.5.1,
 we have made wholesale changes to the runner, allowing a configurable number of
 workers to send requests in parallel. In practice, this offers a dramatic
 improvement in performance.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Code Dive: Openstack Live Migrations Part 1 - Nova API"
-date: 2018-04-20 00:00
+date: 2018-05-02 00:00
 comments: false
 author: Brooks Kaminski
 published: true
@@ -19,9 +19,9 @@ The OpenStack live migration process is one of the most vital processes in the c
 
 - The `Virt Driver` in use is XenAPI, so we will spend some time in that code base.  
 - I use ellipses to skip some basic *set* and *get* instructions for clarity (no need to re-invent the wheel here).
-- Finally, while I go deep into the entire process, there may be sections where skipping through code is beneficial, such as skipping past RPC sections once we cover this once, skipping over the majority of the Scheduler Process, and Networking Configuration.  This skipping allows for us to focus more on the process as a whole and not get too in-depth with Neutron and Nova-Scheduler information.
+- Finally, while I go deep into the entire process, there may be sections where skipping through code is beneficial, such as skipping past RPC sections once we cover this once, skipping over the majority of the Scheduler Process, and Networking Configuration.  This skipping allows us to focus more on the process as a whole and to not get too in-depth with Neutron and Nova-Scheduler information.
 
-Throughout the article, I share some code and explain what's going on or highlight interesting points; Due to the complexity of this process we will split this process into several articles to maintain clarity, and we will keep track of our process through each of the articles using a simple flowchart.  Today we will explore Nova APIs role in the process, and follow along until it passes responsibility to the Nova Conductor service.
+Throughout the article, I share some code and explain what's going on or highlight interesting points. Due to the complexity of this process, the discussion is split into several articles with flowcharts to maintain clarity. Today, let's explore Nova APIs role in the process and follow along until it passes responsibility to the Nova Conductor service.
 
 #### Exploration 1
 
@@ -57,7 +57,7 @@ The *osapi\_compute* service is defined in *nova.openstack.compute.wsgi.py* with
 
 ![Nova-API Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-1/Nova-API-3.png %})
 
-The Route list is defined to tell our request where to go. A migration request is a server action, so it will trigger the `action` request, which will send us into `server_controller` which resolves down to `migrate_server` / `nova.api.openstack.compute`. The request for a live_migration sends the specific request of *os\_migrateLive* which will be sent to identify the correct method to utilize and continue. 
+The Route list is defined to tell our request where to go. A migration request is a server action, so it triggers the `action` request, which sends us into `server_controller`, which resolves down to `migrate_server` / `nova.api.openstack.compute`. The request for a live_migration sends the specific request of *os\_migrateLive* to identify the correct method to use and then continues. 
 
 *nova.api.openstack.compute.routes* ->
 {% highlight python %}
@@ -112,9 +112,9 @@ class MigrateServerController():
 
 ![Nova-API Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-1/Nova-API-5.png %})
 
-We have made the rounds through the basic Nova API service and kicked off the asynchronous request to start the live migration. I issued this request by using the nova client, which sent a *os-migrateLive* action. We traced this through the confusing WSGI process, which eventually set the *block\_migration* variable and the instance variable, passing them both to the *self.compute_api.live\_migrate* method. We know (by looking at the imports at the beginning of the previous psuedocode sample) that we can resolve this to be *nova.compute.api.live\_migrate*.
+We have made the rounds through the basic Nova API service and kicked off the asynchronous request to start the live migration. I issued this request , which sent a *os-migrateLive* action by using the nova client. We traced this through the confusing WSGI process, which eventually set the *block\_migration* variable and the instance variable, passing them both to the *self.compute_api.live\_migrate* method. We know (by looking at the imports at the beginning of the previous psuedocode sample) that we can resolve this to be *nova.compute.api.live\_migrate*.
 
-These are the first steps for firing off this live migration. We set the initial *task_state* of the server to `MIGRATING` and pull the *RequestSpec*. This *RequestSpec* comes from the *nova.objects.RequestSpec.get_by_instance_uuid* method and is passed into scheduler a little bit later on. The *RequestSpec* contains details about the instance that the scheduler needs to verify to determine whether enough room is present to complete the process. This information includes NUMANodes, vGPU/CPU, Memory, and Disk information. If a host was specified, the method would have included additional relevant code, but this is not important for our purposes - we're allowing the scheduler to go wild. Next, We pass the *RespectSpec*, `None` *host_name* and the *block_migration/disk_over_commit/async* (that we generated in Nova API) to the compute *Task_API*. Again, track this down by examining the imports, and we are now heading into the Conductor API (nova.conductor.ComputeTaskAPI.live\_migrate\_instance), however while we are indeed using the codebase for Conductor, this code is still being run on the Nova API nodes.
+These are the first steps for firing off this live migration. I set the initial *task_state* of the server to `MIGRATING` and pulled the *RequestSpec*. This *RequestSpec* comes from the *nova.objects.RequestSpec.get_by_instance_uuid* method and is passed into scheduler a little bit later on. The *RequestSpec* contains details about the instance that the scheduler needs to verify to determine whether enough room is present to complete the process. This information includes NUMANodes, vGPU/CPU, Memory, and Disk information. If a host was specified, the method would have included additional relevant code, but this is not important for our purposes - we're allowing the scheduler to go wild. Next, I passed the *RespectSpec*, `None` *host_name* and the *block_migration/disk_over_commit/async* (that was generated in Nova API) to the compute *Task_API*. Again, track this down by examining the imports, and we are now heading into the Conductor API (nova.conductor.ComputeTaskAPI.live\_migrate\_instance). Keep in mind: while we are indeed using the codebase for Conductor, this code is still being run on the Nova API nodes.
 
 *nova.compute.api.live\_migrate* ->
 {% highlight python %}
@@ -160,7 +160,7 @@ This almost simple chunk of code sets up a new dictionary with the scheduled hos
 
 ![Nova-API Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-1/Nova-API-7.png %})
 
-At this point, we run into the problem mentioned previously regarding the RPC service, which enters a land of extreme abstraction. While my knowledge of how these RPC services work is limited, essentially it defines a namespace and sends a message to that namespace through a chosen messenger service. Thus far, We have remained in the Nova API services, but now we are passing a message for Conductor nodes themselves to pick up and begin to work within their own managers. The RPC call for this looks like the following, with the `kw` variable here being the payload passed through messenger.
+At this point, we run into the problem mentioned previously regarding the RPC service, which enters a land of extreme abstraction. While my knowledge of how these RPC services work is limited, essentially it defines a namespace and sends a message to that namespace through a chosen messenger service. Thus far, we have remained in the Nova API services, but now we are passing a message for Conductor nodes themselves to pick up and begin to work within their own managers. The RPC call for this looks like the following, with the `kw` variable here being the payload passed through messenger.
     
 *nova.conductor.rpcapi.ComputeTaskAPI.live\_migrate\_instance* ->
 {% highlight python %}
@@ -180,6 +180,6 @@ At this point, we run into the problem mentioned previously regarding the RPC se
 
 The main takeaway at this point in the process is that we will now officially be running on Conductor nodes, and from here the Conductor Manager runs the code that is called (*live\_migrate\_instance*). This code is *nova.conductor.manager* with the *ComputeTaskManager* having an `@profiler` decorator for direction. From here, Conductor conducts and coordinates with various other services to complete the migration process. This is an example of Conductor handling a larger amount of work than just communicating between database and compute node, however, Since so much work is necessary during a live migration, it is nice to have a centralized location (or "command center") where information is passed back and forth during the beginning of this process. 
 
-While this chunk of code all runs within seconds in a production environment, it may take our poor human brains some time to digest this type of information so we will take a small break and continue this discussion in our next article.
+While this chunk of code all runs within seconds in a production environment, it may take our poor human brains some time to digest this information, so let's take a small  break and continue this discussion in our next article.
 
-Please feel free to continue reading this series by clicking here: [Code Dive Openstack Live Migrations Part 2]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2 %})
+Continue reading this series by clicking here: [Code Dive Openstack Live Migrations Part 2]({% post_url 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-2 %})

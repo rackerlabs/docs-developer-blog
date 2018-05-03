@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Code Dive: Openstack Live Migrations Part 3 - Compute"
-date: 2018-05-02 00:00
+date: 2018-05-03 00:00
 comments: false
 author: Brooks Kaminski
 published: true

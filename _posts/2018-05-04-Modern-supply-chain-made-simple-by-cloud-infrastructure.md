@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Modern Supply Chain Management made simple by Cloud Infrastructure"
+title: "Modern supply-chain management made simple by cloud infrastructure"
 date: 2018-05-03 00:00
 comments: false
 author: Manoj Mishra

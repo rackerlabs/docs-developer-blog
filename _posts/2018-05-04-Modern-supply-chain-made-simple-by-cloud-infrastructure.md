@@ -22,12 +22,12 @@ modern supply chain management in detail.
 Modern supply-chain management in the cloud offers the following
 benefits, which this section explores in detail:
 
-- enhanced scalability and agility
-- ease of use for the end-users,
-- completeness and seamless connectivity with all IT solutions,
-- low upfront investments
-- best in class security
-- fast, flexible, and safe deployment
+- Enhanced scalability and agility
+- Ease of use for the end-users
+- Completeness and seamless connectivity with all IT solutions
+- Low upfront investments
+- Best in class security
+- Fast, flexible, and safe deployment
 
 #### Agility
 
@@ -87,7 +87,9 @@ transition to a more effective operation.
 
 ### Five supply chain steps made simple by cloud infrastructure
 
+
 ![Supply chain steps]({% asset_path 2018-05-04-Modern-supply-chain-made-simple-by-cloud-infrastructure/EndToEndSupplyChain.png %})
+
 
 This section explores how the cloud simplifies the following five steps of the
 supply chain:
@@ -147,10 +149,10 @@ to compliance requirements.
 
 Following are some key benefits of the modern supply chain in the cloud:
 
-- low investments
-- subscription-based pricing (pay-as-you-use)
-- integration with other IT solutions
-- fast/flexible deployments
+- Low investments
+- Subscription-based pricing (pay-as-you-use)
+- Integration with other IT solutions
+- Fast/flexible deployments
 
 End-to-end steps of supply-chain management are tremendously simplified by the
 cloud infrastructure. The following processes, some of which were explored in

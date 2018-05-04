@@ -87,7 +87,7 @@ transition to a more effective operation.
 
 ### Five supply chain steps made simple by cloud infrastructure
 
-![Supply chain steps]({% asset_path 2018-05-04-Modern-supply-chain-made-simple-by-cloud-infrastructure/spacer-image.png %})
+The following image shows the steps in the business supply chain:
 
 ![Supply chain steps]({% asset_path 2018-05-04-Modern-supply-chain-made-simple-by-cloud-infrastructure/EndToEndSupplyChain.png %})
 

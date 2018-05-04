@@ -12,7 +12,7 @@ categories:
 
 The traditional supply-chain management processes with on-site IT
 applications are rapidly moving to the modern supply-chain cloud
-infrastructure. The blog covers the characteristics and benefits of the
+infrastructure. This blog covers the characteristics and benefits of the
 modern supply chain management in detail.
 
 <!-- more -->

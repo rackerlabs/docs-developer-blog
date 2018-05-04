@@ -31,8 +31,8 @@ benefits, which this section explores in detail:
 
 #### Agility
 
-Modern end-to-end supply chains offer greater scalability and agility, and they
-facilitate more IT flexibility for easier expansion and contraction.
+Modern end-to-end supply chains offer greater scalability and agility by
+facilitating more IT flexibility for easier expansion and contraction.
 
 The ability to respond to rapidly changing demands is essential for modern
 businesses. Supply-chain management in the cloud enables us to quickly and

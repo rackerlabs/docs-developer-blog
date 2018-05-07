@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Intro to Oracle RAC node weighting"
-date: 2018-05-03 00:00
+date: 2018-05-08 00:00
 comments: false
 author: Jay Vardhan
 published: true
@@ -32,6 +32,8 @@ RAC 12c Release 2 based on the new node-weighting feature.
 ### Introduction to node-weighting algorithm
 
 The following image illustrates the node-weighting alorithm.
+
+![Node Weighting in Oracle]({% asset_path 2018-05-08-intro-to-oracle-RAC-node-weighting/NodeWeightinginOracle.png %})
 
 [source:](https://goo.gl/images/qarxrq/)
 

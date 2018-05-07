@@ -17,7 +17,6 @@ connect to one other via this private interconnect, all the servers that are
 physically up and running (and the database instances on those servers) might
 end up in a condition known as *split-brain*.
 
-
 <!-- more -->
 
 In an Oracle cluster (prior to the Oracle RAC 12c Release 2 version), when a
@@ -34,9 +33,7 @@ RAC 12c Release 2 based on the new node-weighting feature.
 
 The following image illustrates the node-weighting alorithm.
 
-
-
-[source:](https://goo.gl/images/qarxrq)
+[source:](https://goo.gl/images/qarxrq/)
 
 Node Weighting is a new feature introduced with Oracle RAC 12c Release 2 that
 considers the workload hosted in a cluster during fencing. When a split-brain

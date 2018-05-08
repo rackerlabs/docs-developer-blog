@@ -34,7 +34,7 @@ RAC 12c Release 2 based on the new node-weighting feature.
 The following image illustrates the node-weighting alorithm.
 
 ![Node Weighting in Oracle]({% asset_path 2018-05-08-intro-to-oracle-RAC-node-weighting/NodeWeightinginOracle.png %})
-
+Source: [https://goo.gl/images/qarxrq](https://goo.gl/images/qarxrq)
 
 Node Weighting is a new feature introduced with Oracle RAC 12c Release 2 that
 considers the workload hosted in a cluster during fencing. When a split-brain

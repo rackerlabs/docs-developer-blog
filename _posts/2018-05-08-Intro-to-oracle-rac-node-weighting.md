@@ -142,4 +142,3 @@ Using server weight-based node eviction, we gain more control over the Oracle
 Clusterware failure recovery mechanism by selecting which cluster nodes should
 be terminated or evicted in the event of a split brain. If you have any
 questions or need guidance on this topic, you can add  comments in the field below.
-

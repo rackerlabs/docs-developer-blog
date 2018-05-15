@@ -180,3 +180,6 @@ including a very high IOPS rate, which is especially important for OLTP.
 Additionally, you can take a part of the Flash Storage to build ASM diskgroups
 upon it. Files placed on these diskgroups will reside permanently on flash
 storage with no caching needed.
+
+If you have any questions on the topic, feel free to leave a comment in the
+field below.

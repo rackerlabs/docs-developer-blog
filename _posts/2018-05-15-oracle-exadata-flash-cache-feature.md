@@ -27,7 +27,7 @@ The Exadata Smart Flash Cache feature has the following main benefits:
 
 ### Write-back flash cache
 
-Write-back flash cache, which is used for improving the write intensive
+Write-back flash cache, which is used for improving write-intensive
 operations because writing to flash cache is faster than writing to hard disks,
 is useful in running heavy jobs against a database. According to Oracle,
 depending on application, write performance might be up to 20 times faster

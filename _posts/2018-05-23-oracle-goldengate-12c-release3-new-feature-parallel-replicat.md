@@ -105,13 +105,11 @@ admin client:
 
 2. Enter the following command to connect to the Service Manager deployment source:
 
-        adminclient> connect http://<host&gt;:<port> deployment <deploment> as <security user> password <password>
+        adminclient> connect http://<host>:<port> deployment <deploment> as <security user> password <password>
 
 3. Enter the following command to create the parallel Replicat process:
 
         adminclient> add replicat <group name>, integrated, parallel, exttrail <trail name> checkpointtable ggadmin.ggcheckpoint
-
-   **Note**: After the Replicat is created, it automatically shows up in the associated administration service.
 
 4. Enter the following command to edit the parameter file:
 
@@ -120,6 +118,9 @@ admin client:
 5. Enter the following command to start the parallel Replicat process:
 
         adminclient> start replicat <replicat name>
+
+After the Replicat is created, it automatically shows up in the associated
+administration service.
 
 After the Replicat starts, the number of threads that you specified for readers
 (mappers) and writers (appliers) are shown in the report files.

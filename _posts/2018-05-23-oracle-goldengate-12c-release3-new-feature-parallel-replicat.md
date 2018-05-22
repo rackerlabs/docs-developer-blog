@@ -38,7 +38,7 @@ maintained as well.
 The following image illustrates the parallel Replicat architecture:
 
 ![List cell command results]({% asset_path 2018-05-23-oracle-goldengate-12c-release3-new-feature-parallel-replicat/Replicat1.png %})
-Image source: https://bit.ly/2wsPZVv
+Image source: [https://bit.ly/2wsPZVv](https://bit.ly/2wsPZVv)
 
 The architecture starts by reading a single trail file but provides a wider road
 with multiple lanes for reading (mappers) and writing (appliers). The Replicat
@@ -82,13 +82,13 @@ the number of threads used for reading the trail file. The minimum value is
 controls the number of connections in the target database that are used for
 applying the changes. The default value is ``4``.
 
-**MIN_APPLY_PARALLELISM and MAX_APPLY_PARALLELISM** - The Apply parallelism
+**MIN\_APPLY_PARALLELISM and MAX\_APPLY_PARALLELISM** - The Apply parallelism
 function is auto-tuned. You can set a minimum and maximum value to define the
 ranges in which the Replicat automatically adjusts its parallelism. There are
 no defaults. Do not use this parameter at the same time as the APPLY_PARALLELISM
 parameter.
 
-**SPLIT_TRANS_REC** - Specifies that large transactions should be broken into
+**SPLIT\_TRANS_REC** - Specifies that large transactions should be broken into
 pieces of a specific size and applied in parallel. Dependencies between pieces
 are still honored. This parameter is disabled by default.
 
@@ -111,8 +111,7 @@ admin client:
 
         adminclient> add replicat <group name>, integrated, parallel, exttrail <trail name> checkpointtable ggadmin.ggcheckpoint
 
-**Note**: After the Replicat is created, it automatically shows up in the
-associated Administration Service.
+   **Note**: After the Replicat is created, it automatically shows up in the associated administration service.
 
 4. Enter the following command to edit the parameter file:
 

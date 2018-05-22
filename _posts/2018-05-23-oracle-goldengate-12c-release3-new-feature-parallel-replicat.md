@@ -28,7 +28,7 @@ computation, parallelism of the mapping, and apply are performed outside of the
 database and can be off-loaded to another server. The transaction integrity is
 maintained in this process.
 
-In addtiion, the SPLIT\_TRANS_RECS parameter splits a larger transaction into
+In addtiion, the SPLIT\_TRANS\_RECS parameter splits a larger transaction into
 logically smaller pieces to run parallelly. Dependencies are managed and
 maintained as well.
 
@@ -67,28 +67,28 @@ The following features are key for parallel Replicat:
 - Can parallelize a single large transaction
   –	Processes large transactions faster in parallel
   –	Still considers dependencies while paralleling large transactions
-- Can control processing by using the SPLIT\_TRANS_RECS parameter, which
+- Can control processing by using the SPLIT\_TRANS\_RECS parameter, which
   specifies the transaction split size (in records). The default is 100,000.
 
 ### Basic parallel Replicat parameters
 
 The following parameters can be used in parallel Replicat processing:
 
-**MAP_PARALLELISM** - Configures the number of mappers. This parameter controls
+**MAP\_PARALLELISM** - Configures the number of mappers. This parameter controls
 the number of threads used for reading the trail file. The minimum value is
 ``1``, maximum value is ``100``, and the default value is ``2``.
 
-**APPLY_PARALLELISM** - Configures the number of appliers. This parameter
+**APPLY\_PARALLELISM** - Configures the number of appliers. This parameter
 controls the number of connections in the target database that are used for
 applying the changes. The default value is ``4``.
 
-**MIN\_APPLY_PARALLELISM and MAX\_APPLY_PARALLELISM** - The Apply parallelism
+**MIN\_APPLY\_PARALLELISM and MAX\_APPLY\_PARALLELISM** - The Apply parallelism
 function is auto-tuned. You can set a minimum and maximum value to define the
 ranges in which the Replicat automatically adjusts its parallelism. There are
 no defaults. Do not use this parameter at the same time as the APPLY_PARALLELISM
 parameter.
 
-**SPLIT\_TRANS_REC** - Specifies that large transactions should be broken into
+**SPLIT\_TRANS\_REC** - Specifies that large transactions should be broken into
 pieces of a specific size and applied in parallel. Dependencies between pieces
 are still honored. This parameter is disabled by default.
 

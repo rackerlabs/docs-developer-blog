@@ -151,5 +151,5 @@ parallel to improve system performance. Parallel Replicat provides all the
 benefits of integrated Replicat by performing the dependency computation and
 parallelism outside the database. It reads  and maps  all trail files in
 parallel and provides the ability to apply large transactions quickly in Oracle
-Database version 11g (11.2.0.4) and above.
+Database versions 11g (11.2.0.4) and above.
 

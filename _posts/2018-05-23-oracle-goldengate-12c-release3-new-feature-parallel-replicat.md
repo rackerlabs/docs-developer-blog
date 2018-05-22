@@ -1,185 +1,155 @@
 ---
 layout: post
-title: "Oracle Exadata Flash Cache Feature"
-date: 2018-05-15 00:00
+title: "Oracle GoldenGate 12c release 3 - New feature parallel Replicat"
+date: 2018-05-23 00:00
 comments: false
-author: Jay Pathak
+author: Ravi Sharma
 published: true
 authorIsRacker: true
 categories:
     - General
 ---
 
-This blog discusses the Oracle Exadata Smart Flash Cache feature and its
-architecture, including the write-back flash cache feature.
+Parallel Replicat is one of the new features introduced in GoldenGate 12c
+Release 3 (12.3.0.1). This new Replicat is designed to help users to quickly
+load data into their environments by using multiple parallel mappers and threads.
 
 <!-- more -->
 
-### Introduction
+### What is parallel Replicat?
 
-The Exadata Smart Flash Cache feature has the following main benefits:
+Parallel Replicat is a highly scalable apply engine for the Oracle database that
+can automatically parallelize the apply workload and take dependencies between
+transactions into account. Parallel Replicat provides all the benefits of
+integrated Replicat by performing the dependency computation and parallelism
+outside of the database. It parallelizes the reading and mapping of trail files
+and provides the ability to apply large transactions quickly. The dependency
+computation, parallelism of the mapping, and apply are performed outside of the
+database and can be off-loaded to another server. The transaction integrity is
+maintained in this process.
 
-- The Exadata Smart Flash Cache provides the capability to stage active database
-  objects in flash.
-
-- The Exadata Smart Flash Logging speeds up the critical function of database
-  logging.
-
-### Write-back flash cache
-
-Write-back flash cache, which is used for improving write-intensive
-operations because writing to flash cache is faster than writing to hard disks,
-is useful in running heavy jobs against a database. According to Oracle,
-depending on application, write performance might be up to 20 times faster
-to disk (measured in input/output operations per second (IOPS)) and have
-10 times more write IOPS than to disk.
-
-The cell attribute `flashCacheMode` determines the cache mode. The possible
-values are: “WriteThrough” and “WriteBack”.
-
-To find the current cache mode, use cellcli tool and the `list cell` operation,
-as shown in the following example:
-
-    CELLCLI> list cell attributes flashcachemode
-
-![List cell command results]({% asset_path 2018-05-15-oracle-exadata-flash-cache-feature/ListCellResult.png %})
-
-To display details, use the `list cell detail` command, as shown in the following
-example:
-
-    CELLCLI> list cell detail
-
-![List cell details command results]({% asset_path 2018-05-15-oracle-exadata-flash-cache-feature/ListCellDetailsResult.png %})
+In addtiion, the SPLIT\_TRANS_RECS parameter splits a larger transaction into
+logically smaller pieces to run parallelly. Dependencies are managed and
+maintained as well.
 
 
-### Write-back flash cache benefits
+### Parallel replication architecture
 
-Write-back flash cache improves write-intensive operations because writing to
-flash cache is much faster than writing to hard disks. Write-back flash cache
-transparently accelerates reads and writes for all workloads for on-line
-transaction processing (OLTP) (faster random reads and writes) and for
-data warehouses (DW) (faster sequential smart scans).
+The following image illustrates the parallel Replicat architecture:
 
-Write-back flash cache also reduces the latency of redo-log writes when sharing
-disks with data. Data is recoverable from flash cache on `cellsrv restart`.
-Consider using the write back flash cache feature if you notice either of the
-following conditions:
+![List cell command results]({% asset_path 2018-05-23-oracle-goldengate-12c-release3-new-feature-parallel-replicat/Replicat1.png %})
+Image source: https://bit.ly/2wsPZVv
 
-1) Significant wait times for "free buffer waits"
+The architecture starts by reading a single trail file but provides a wider road
+with multiple lanes for reading (mappers) and writing (appliers). The Replicat
+ensures that all the transactions are ordered based on the key dependencies
+(primary key (PK), foreign key (FK) and unique key (UK)). This is a huge
+difference from the integrated Replicat, where the dependency and writing are
+done within the database.
 
-or
+Additionally, the parallel Replicat can be configured to run in one of the
+following two modes:
 
-2) High I/O times when checking for write bottlenecks in Automated Workload
-   Repository (AWR) reports.
+- Integrated mode.  This is similar to the integrated Replicat except that the
+readers and writers are not external to the database with the integrated mode
+of parallel Replicat. This mode still uses the internals of the database to
+manage the processes.
 
-The following table shows the performance that the Exadata Smart Flash Cache
-provides at the database level for the various Exadata X4 configurations.
+- Non-integrated mode. In this mode, the Replicat still runs in parallel;
+however, now it is completely outside of the database.
 
-![Exadata performance table]({% asset_path 2018-05-15-oracle-exadata-flash-cache-feature/ExadataPerformanceTable.png %})
+### Parallel Replicat key features
 
-### Intelligent caching
+The following features are key for parallel Replicat:
 
-Smart Flash cache offers the following intelligent caching benefits:
+- Is up to 5X faster than integrated Replicat.
+- Provides the option to apply a single large transaction in parallel.
+- Can parallelize a single large transaction
+  –	Processes large transactions faster in parallel
+  –	Still considers dependencies while paralleling large transactions
+- Can control processing by using the SPLIT\_TRANS_RECS parameter, which
+  specifies the transaction split size (in records). The default is 100,000.
 
-- Smart Flash cache understands different types of database I/O.
-- Frequently accessed data & index blocks are cached.
-- Controlfile reads and writes are cached.
-- File Header reads & writes are cached.
-- The Database administrator can influence caching priorities.
+### Basic parallel Replicat parameters
 
-Unfortunately, there is no easy way to monitor what’s in the cache. Oracle has
-provided a `list flashcachecontent` command in the cellcli tool, but it offers
-no summation options and displays only object numbers.
+The following parameters can be used in parallel Replicat processing:
 
-### Understanding Exadata Smart Flash Cache
+**MAP_PARALLELISM** - Configures the number of mappers. This parameter controls
+the number of threads used for reading the trail file. The minimum value is
+``1``, maximum value is ``100``, and the default value is ``2``.
 
-The Exadata Smart Flash Cache is a cache on the cell (storage) server for
-storing redo-data until this data can be safely written to disk. The Exadata
-storage server comes with a substantial amount of flash storage. A small amount
-is allocated for database logging, and the remainder is used for caching user
-data.
+**APPLY_PARALLELISM** - Configures the number of appliers. This parameter
+controls the number of connections in the target database that are used for
+applying the changes. The default value is ``4``.
 
-On a full-rack exadata server, the 5 TB of flash cache can store a significant
-amount of data.
+**MIN_APPLY_PARALLELISM and MAX_APPLY_PARALLELISM** - The Apply parallelism
+function is auto-tuned. You can set a minimum and maximum value to define the
+ranges in which the Replicat automatically adjusts its parallelism. There are
+no defaults. Do not use this parameter at the same time as the APPLY_PARALLELISM
+parameter.
 
-Flash cache can be managed automatically for maximum efficiency, as shown in
-the following use-cases:
-
-– Users can provide optional hints to influence caching priorities.
-- Administrators can disable smart flash cache for specific databases.
+**SPLIT_TRANS_REC** - Specifies that large transactions should be broken into
+pieces of a specific size and applied in parallel. Dependencies between pieces
+are still honored. This parameter is disabled by default.
 
 
-### Exadata Storage Server software
+### Add non-integrated parallel Replicat with the admin client
 
-Two key features of the Exadata Storage Server Software leverage the Exadata
-Flash hardware and make the Exadata database machine such a fast system on which
-to deploy an Oracle Database. First, the Exadata Smart Flash Cache provides the
-capability to stage active database objects in flash. Second, Exadata Smart
-Flash Logging speeds up the critical function of database logging.
+Perform the following steps to add non-integrated parallel Replicat with the
+admin client:
 
-Deploying an Oracle database requires mission critical resilience. Using Exadata
-Storage Server software in conjunction with the Oracle database provides that
-resilience.
+1. Enter the following commands to open AdminClient:
 
-### Creating FlashDisk-based grid disks
+        $ cd $OGG_HOME/bin
+        $ bin> ./adminclient
 
-You should not use all of your Flash Cache for grid disks. When creating the
-Flash Cache, use the size parameter to hold back some space to be used for grid
-disks, as shown in the following cellcli tool `create flashcache` command:
+2. Enter the following command to connect to the Service Manager deployment source:
 
-    CellCLI> create flashcache all size=300g;
+        adminclient> connect http://<host&gt;:<port> deployment <deploment> as <security user> password <password>
 
-Create grid disks using the remaining free space on the Flash Disks, using the
-following `create griddisk` command:
+3. Enter the following command to create the parallel Replicat process:
 
-    CellCLI> create griddisk all flashdisk prefix='RAMDISK‘;
+        adminclient> add replicat <group name>, integrated, parallel, exttrail <trail name> checkpointtable ggadmin.ggcheckpoint
 
-To list grid disk details use the `list griddisk` command, as shown in the
-following example:
+**Note**: After the Replicat is created, it automatically shows up in the
+associated Administration Service.
 
-    CellCLI> list griddisk attributes name, diskType, size – where disktype='FlashDisk‘;
+4. Enter the following command to edit the parameter file:
 
-The biggest advantage of Flash Cache configuration is that it can be done
-while the system is online and servicing I/O requests.
+        adminclient> edit params <replicat name>
 
-### How to enable write-back flash cache
+5. Enter the following command to start the parallel Replicat process:
 
-Use one of the following methods to enable the write-back flash cache feature:
+        adminclient> start replicat <replicat name>
 
-- *Rolling Method* – This method assumes that relational database management
-  systems (RDBMS) and automatic storage management (ASM) instances are up and
-  are enabling write-back flash cache in only one cell server at a time.
+After the Replicat starts, the number of threads that you specified for readers
+(mappers) and writers (appliers) are shown in the report files.
 
-- *Non-Rolling Method* – This method assumes that RDBMS & ASM instances are down
-  while enabling write-back flash cache.
+### Sample parameter file
 
-Before enabling write-back flash cache, run the following command to check
-the griddisk “asmdeactivationoutcome” and “asmmodestatus” properties. Ensure
-that all griddisks on all cells are “Yes” and “ONLINE” respectively and that
-the complete flashcache is in a normal state and that no flash disks are in
-a degraded or a critical state:
+The following code is a sample parameter file for parallel Replicat:
 
-    # dcli -g cell_group -l root cellcli -e list griddisk attributes asmdeactivationoutcome, asmmodestatus
-
-To enable write-back flash cache, run the following command:
-
-    # dcli -g cell_group -l root cellcli -e list flashcache detail
-
-    exadata01cell01: WriteThrough
-    exadata01cell02: WriteThrough
-    exadata01cell03: WriteThrough
+    replicat REP1
+    userid ggadmin, password ****
+    INSERTUPDATES
+    REPERROR(1, DISCARD)
+    MAP_PARALLELISM 2
+    MIN_APPLY_PARALLELISM 2
+    MAX_APPLY_PARALLELISM 8
+    SPLIT_TRANS_RECS 100
+    MAP *.*, TARGET  *.*;
 
 ### Conclusion
 
-Use the write-back flash cache feature to leverage the Exadata Flash hardware
-and to make the Exadata database machine a faster system for Oracle database
-deployments. Flash storage inside the Oracle Exadata database machine is used
-completely as flash cache by default.  This enables it to work effectively as
-an extension of the database buffer cache and to deliver faster access,
-including a very high IOPS rate, which is especially important for OLTP.
-Additionally, you can take a part of the Flash Storage to build ASM diskgroups
-upon it. Files placed on these diskgroups will reside permanently on flash
-storage with no caching needed.
+GoldenGate is already a great replication tool from Oracle that provides
+heterogeneous replication between different types of databases or platforms.
+Oracle has added  an extra advantage to the GoldenGate technology with parallel
+Replicate.
 
-If you have any questions on the topic, feel free to leave a comment in the
-field below.
+Parallel Replicat is a new variant of Replicat that applies transactions in
+parallel to improve system performance. Parallel Replicat provides all the
+benefits of integrated Replicat by performing the dependency computation and
+parallelism outside the database. It reads  and maps  all trail files in
+parallel and provides the ability to apply large transactions quickly in Oracle
+Database version 11g (11.2.0.4) and above.
+

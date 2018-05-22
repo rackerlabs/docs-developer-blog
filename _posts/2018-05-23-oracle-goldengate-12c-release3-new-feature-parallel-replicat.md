@@ -153,3 +153,4 @@ benefits of Integrated Replicat while performing the dependency computation and
 parallelism outside the database. It reads and maps all trail files in parallel
 and provides the ability to apply large transactions quickly in Oracle Database
 versions 11g (11.2.0.4) and above.
+

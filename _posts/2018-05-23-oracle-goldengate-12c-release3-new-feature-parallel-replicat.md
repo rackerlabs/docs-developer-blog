@@ -29,7 +29,7 @@ computation, parallelism of the mapping, and apply are performed outside of the
 database and can be off-loaded to another server. The transaction integrity is
 maintained in this process.
 
-In additiion, the ``SPLIT_TRANS_RECS`` parameter splits a larger transaction
+In addition, the ``SPLIT_TRANS_RECS`` parameter splits a larger transaction
 into logically smaller pieces to apply in parallel. Dependencies are managed and
 maintained as well.
 
@@ -51,10 +51,10 @@ done within the database.
 Additionally, Parallel Replicat can be configured to run in one of the
 following modes:
 
-- **Integrated mode:**  This is similar to Integrated Replicat except that the
-readers and writers are not external to the database with the integrated mode
-of Parallel Replicat. This mode still uses the internals of the database to
-manage the processes.
+- **Integrated mode:**  This is similar to the prior version's Integrated
+Replicat except that the readers and writers are not external to the database
+with the integrated mode of Parallel Replicat. This mode still uses the
+internals of the database to manage the processes.
 
 - **Non-integrated mode:** In this mode, the Replicat still runs in parallel.
 However, now it is completely outside of the database.

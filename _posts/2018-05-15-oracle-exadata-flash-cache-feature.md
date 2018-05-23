@@ -76,7 +76,7 @@ The following table shows the performance that the Exadata Smart Flash Cache
 provides at the database level for the various Exadata X4 configurations.
 
 ![Exadata performance table]({% asset_path 2018-05-15-oracle-exadata-flash-cache-feature/ExadataPerformanceTable.png %})
-Source: http://www.oracle.com/technetwork/database/exadata/exadata-smart-flash-cache-366203.pdf, page 7
+Source: [http://www.oracle.com/technetwork/database/exadata/exadata-smart-flash-cache-366203.pdf](http://www.oracle.com/technetwork/database/exadata/exadata-smart-flash-cache-366203.pdf), page 7
 
 ### Intelligent caching
 

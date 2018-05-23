@@ -29,7 +29,7 @@ computation, parallelism of the mapping, and apply are performed outside of the
 database and can be off-loaded to another server. The transaction integrity is
 maintained in this process.
 
-In additiion, the ``SPLIT\_TRANS\_RECS`` parameter splits a larger transaction
+In additiion, the ``SPLIT_TRANS_RECS`` parameter splits a larger transaction
 into logically smaller pieces to apply in parallel. Dependencies are managed and
 maintained as well.
 
@@ -68,28 +68,28 @@ The following features are key for Parallel Replicat:
 - Can parallelize a single large transaction. Processes large transactions
   faster in parallel and still considers dependencies while paralleling large
   transactions.
-- Can control processing by using the ``SPLIT\_TRANS\_RECS`` parameter, which
+- Can control processing by using the ``SPLIT_TRANS_RECS`` parameter, which
   specifies the transaction split size (in records). The default is 100,000.
 
 ### Basic Parallel Replicat parameters
 
 You can use the following parameters can be used in Parallel Replicat processing:
 
-``MAP\_PARALLELISM``: Configures the number of mappers. This parameter controls
+``MAP_PARALLELISM``: Configures the number of mappers. This parameter controls
 the number of threads used for reading the trail file. The minimum value is
 ``1``, maximum value is ``100``, and the default value is ``2``.
 
-``APPLY\_PARALLELISM``: Configures the number of appliers. This parameter
+``APPLY_PARALLELISM``: Configures the number of appliers. This parameter
 controls the number of connections in the target database that are used for
 applying the changes. The default value is ``4``.
 
-``MIN\_APPLY\_PARALLELISM and MAX\_APPLY\_PARALLELISM``: The Apply parallelism
+``MIN_APPLY_PARALLELISM and MAX_APPLY_PARALLELISM``: The Apply parallelism
 function is auto-tuned. You can set a minimum and maximum value to define the
 ranges in which the Replicat automatically adjusts its parallelism. There are
 no defaults. Do not use this parameter at the same time as the
 ``APPLY_PARALLELISM`` parameter.
 
-``SPLIT\_TRANS\_REC``: Specifies that large transactions should be broken into
+``SPLIT_TRANS_REC``: Specifies that large transactions should be broken into
 pieces of a specific size and applied in parallel. Dependencies between pieces
 are still honored. This parameter is disabled by default.
 

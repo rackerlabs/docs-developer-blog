@@ -146,15 +146,15 @@ status in the ``V$IO_CALIBRATION_STATUS`` view. After I/O calibration is
 successfully completed, view the results in the ``DBA_RSRC_IO_CALIBRATE`` table,
 similar to the following example:
 
-Columns                |   | Value
----------------------- | - |----------------------------
-START\_TIME            |   | 31-AUG-17 04.40.09.920679 AM
-END\_TIME              |   | 31-AUG-17 04.47.41.210939 AM
-MAX\_IOPS              |   | 39
-MAX\_MBPS              |   | 60
-MAX\_PMBPS             |   | 69
-LATENCY                |   | 24
-NUM\_PHYSICAL\_DISKS   |   | 1
+Columns                |  Value
+---------------------- | ----------------------------
+START\_TIME            | 31-AUG-17 04.40.09.920679 AM
+END\_TIME              | 31-AUG-17 04.47.41.210939 AM
+MAX\_IOPS              | 39
+MAX\_MBPS              | 60
+MAX\_PMBPS             | 69
+LATENCY                | 24
+NUM\_PHYSICAL\_DISKS &nbsp;   | 1
 
 <br></br>
 

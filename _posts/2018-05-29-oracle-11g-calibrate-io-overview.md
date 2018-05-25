@@ -86,18 +86,6 @@ The following image shows the query and results:
 
 ### Running I/O calibration
 
-The following features are key for Parallel Replicat:
-
-- Is up to 5 times faster than Integrated Replicat.
-- Provides the option to apply a single large transaction in parallel.
-- Can parallelize a single large transaction. Processes large transactions
-  faster in parallel and still considers dependencies while paralleling large
-  transactions.
-- Can control processing by using the ``SPLIT_TRANS_RECS`` parameter, which
-  specifies the transaction split size (in records). The default is 100,000.
-
-### Calibration considerations
-
 The I/O calibration feature of Oracle Database is accessed using the
 ``DBMS_RESOURCE_MANAGER.CALIBRATE_IO`` procedure. This procedure issues an I/O
 intensive read-only workload (made up of one megabyte of random of I/Os) to the
@@ -165,7 +153,8 @@ MAX\_IOPS | 39
 MAX\_MBPS | 60
 MAX\_PMBPS | 69
 LATENCY | 24
-NUM\_PHYSICAL_DISKS | 1
+NUM\_PHYSICAL\_DISKS | 1
+
 
 
 ### Conclusion

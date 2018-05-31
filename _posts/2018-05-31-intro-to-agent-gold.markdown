@@ -123,8 +123,8 @@ image]({% asset_path 2018-05-31-intro-to-agent-gold/picture8.png %})
 This new feature makes it much easier to manage agents on Enterprise Manager.
 Using Agent Gold Image enables you to deploy or update the same agent at the
 most recent patch level on multiple host levels. Even the rollback process is
-simple. If an Agent Gold update fails, an old agent automatically picks up the
-slack.
+simple. If an Agent Gold update fails one of your older, non-Agent Gold
+management agents automatically kicks in and picks up the slack.
 
 In addition to improving functionality, Agent Gold is also much more
 convenient. With Agent Gold, you no longer need to upgrade management agents

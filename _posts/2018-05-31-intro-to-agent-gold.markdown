@@ -33,9 +33,9 @@ what they can do for you.
 You can use Agent Gold Images to mass deploy and upgrade the management agents
 in your environment. Prior to Agent Gold Images, upgrade and patching agents
 were time-consuming, which meant that organizations preferred not to patch
-agents. With the introduction of Agent Gold Images in OEM 13c, upgrades and
-patching are now much easier. For example, you can apply multiple patches to
-multiple agents in a single downtime. Gold Images enables you to manage a
+agents. Thanks to the introduction of Agent Gold Images in OEM 13c, upgrades
+and patching are now much easier. For example, you can apply multiple patches
+to multiple agents in a single downtime. Gold Images enables you to manage a
 large number of Management Agents that have identical Management Agent
 software, plug-ins, and patches.
 
@@ -47,20 +47,21 @@ Images:
 In the screen capture above, the Source Agent version is 13.1. All software
 components, plug-ins, and the latest patches are already installed. Agent Gold
 Image R1 is created from the source. It can be deployed to Batch 1, which is a
-group of agents. That means that you can perform all of the tasks required to
-upgrade all of the server’s agents in a single downtime.
+group of agents. That means that you can perform all the tasks required to
+upgrade all of a server’s agents in a single downtime.
 
 The screen capture also shows that you can create another Agent Gold Image,
 R2, with additional patches, then test it on a source agent and use it to
-update Batch 1. You can also deploy new agents using Agent Gold Image R2 on
+update Batch 1. You can then deploy new agents using Agent Gold Image R2 on
 Batch 2.
 
 The screen capture shows that the next step is to create another Gold Image
 named R3 with agent bits 13.1, as well as updated plug-ins, patches, and
 configuration properties, and then use R3 to update Batches 1 and 2. You can
-also deploy new agents using Gold Image R3 on Batch 3. In summary, you can
-upgrade and patch a large number of management agents simultaneously with
-Agent Gold Image.
+also deploy new agents using Gold Image R3 on Batch 3.
+
+In summary, you can upgrade and patch a large number of management agents
+simultaneously with Agent Gold Image.
 
 ### Install an agent with Agent Gold Image
 
@@ -99,13 +100,13 @@ Now we need to change the **Status** of the image from **Draft** to
 
 ![Setting the Agent Gold Image to the current version]({% asset_path 2018-05-31-intro-to-agent-gold/set-current.png %})
 
-You can see an overview of your Agent Gold images through the Agent Gold
-dashboard:
+You can see an overview of your Agent Gold Images through the Agent Gold
+Dashboard:
 
 ![The Agent Gold dashboard]({% asset_path 2018-05-31-intro-to-agent-gold/picture5.png %})
 
-Next, install an agent by using the Agent Gold image. From the **Agent
-Gold Image screen**, select **Add Hosts**:
+Next, install an agent by using the Agent Gold image. On the **Agent
+Gold Image** screen, click the **Add Hosts** button:
 
 ![The **Add Hosts** button]({% asset_path 2018-05-31-intro-to-agent-gold/picture6.png %})
 
@@ -121,7 +122,7 @@ image]({% asset_path 2018-05-31-intro-to-agent-gold/picture8.png %})
 
 ### Conclusion
 
-This new feature makes it much easier to manage agents on Enterprise Manager.
+This new feature makes it much easier to manage agents on OEM.
 Using Agent Gold Image enables you to deploy or update the same agent at the
 most recent patch level on multiple host levels. Even the rollback process is
 simple. If an Agent Gold update fails one of your older, non-Agent Gold
@@ -133,4 +134,4 @@ using the Agent Upgrade Console, apply patches with patch plans, or manage
 plug-ins with the plug-in life cycle application, saving you time and money.
 
 Reference:
-https://docs.oracle.com/cd/E63000_01/EMADV/agent_gold_image.htm#EMADV14552
+[Managing the Lifecycle of Agent Gold Images](https://docs.oracle.com/cd/E63000_01/EMADV/agent_gold_image.htm)

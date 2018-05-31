@@ -10,8 +10,8 @@ categories:
     - General
 ---
 
-This blog describes the following common Oracle AD Online Patching (adop) known
-issues and solutions:
+This blog describes the following common issues and solutions for the Oracle
+&reg; AD Online Patching (adop) utility:
 
 - Data dictionary corruption error
 - adop prepare failure
@@ -24,11 +24,11 @@ issues and solutions:
 ### Data dictionary corruption error
 
 The data dictionary corruption error might occur when the adop prepare step
-fails. This is a common corruption error.
+fails.
 
 #### Error
 
-The following error may vary for differnt environments.
+The following error might vary for different environments.
 
     [EVENT]     Verifying data dictionary.
     [UNEXPECTED]Data dictionary corrupted:
@@ -45,17 +45,17 @@ The following error may vary for differnt environments.
 #### Cause
 
 This data dictionary issue occurs when a developer promotes customizations
-improperly, violating the online patching standards.
+improperly, which violate the online patching standards.
 
 #### Solution
 
-To fix the logical data dictionary corruption (missing-parent), execute the
+To fix the data dictionary corruption (missing-parent), execute the
 following steps:
 
-1. Run the ``$AD\_TOP/sql/ADZDDBCC.sql`` script as ``apps user`` to confirm
+1. Run the ``$AD_TOP/sql/ADZDDBCC.sql`` script as ``apps user`` to confirm
    whether logical data dictionary corruption exists. Check for corruption in
    the spool log.
-2. Run the script`` $AD_TOP/patch/115/sql/adzddmpfix.sql`` as ``sys user`` to
+2. Run the script ``$AD_TOP/patch/115/sql/adzddmpfix.sql`` as ``sys user`` to
    fix the corruption. In the following sample, 12 corruption objects are fixed.
 
         SQL> @adzddmpfix.sql
@@ -73,7 +73,7 @@ following steps:
    a. If no corruption is found, proceed with the upgrade or adop patching-cycle.
    b. If corruption is still present, contact Oracle Support and log a bug.
 
-4. Once the issue is resolved, retry the adop prepare step.
+4. After the issue is resolved, retry the adop prepare step.
 
 ### adop prepare failure
 
@@ -82,7 +82,7 @@ prepare error and solution.
 
 #### Error
 
-The following adop prepare error, is an Oracle bug:
+The following adop prepare error is an Oracle bug:
 
     Lines #(47-50):
     runMSSrvPortsVal : oacore_server1:7252
@@ -94,8 +94,8 @@ The following adop prepare error, is an Oracle bug:
 
 To resolve this error, execute the following steps:
 
-1. Change the sample target server & SID in the following code sample to the
-   port and paths reported in error, and execute code to fix this issue.
+1. Change the sample target server and SID in the following code sample to the
+   port and paths reported in the error, and execute code to fix this issue.
 
         perl $AD_TOP/patch/115/bin/adProvisionEBS.pl \
         ebs-delete-managedserver \
@@ -105,13 +105,13 @@ To resolve this error, execute the following steps:
         perl $FND_TOP/patch/115/bin/txkSetAppsConf.pl -contextfile=/apps1/SID/fs1/inst/apps/SID_server/appl/admin/SID_server.xml \
         -configoption=removeMS -oacore=server.cm.charter.com:7252
 
-2. Retry adop prepare once fix is applied.
+2. Retry adop prepare after the fix is applied.
 
 ### Forms object generation failure
 
-Sometimes, when applying patches with ``adop phase=apply patches=123456``, the forms
-objects might not generate successfully, causing the adop session to quit without
-showing the ``Patch continue prompt Y/N``.
+Sometimes, when applying patches with ``adop phase=apply patches=123456``, the
+forms objects might not generate successfully, which causes the adop session to
+quit without showing the ``Patch continue prompt Y/N``.
 
 #### Error
 
@@ -126,15 +126,15 @@ Restart the failed patch session from the patch directory with following command
     cd /apps1/SID/fs_ne/EBSapps/patch
     adop phase=apply patches=20609071 restart=yes flags=autoskip
 
-### adop cutover hang-up
+### adop cutover hang
 
 If an adop cutover hangs or a server has crash or reboot issues in the middle
 of the adop cutover phase, execute the following steps to fix the issue and
-proceed with the patch process.
+then proceed with the patch process.
 
 #### Solution
 
-1. Make sure no services or processes are running from the PATCH file system
+1. Make sure no services or processes are running from the PATCH file system.
 2. Ensure that the Weblogic Admin Server and Node Manager are running on the run
    file system. Execute the following commands to check the status:
 
@@ -147,18 +147,18 @@ proceed with the patch process.
         $ adop phase=cleanup cleanup_mode=full
         $ adop phase=fs_clone force=yes
 
-4. Run an empty adop cycle to make sure there is no issue in the adop cutover,
-   by executing the follwoing command:
+4. Run an empty adop cycle to make sure there is no issue in the adop cutover
+   by executing the following command:
 
         $adop phase=prepare, finalize, cutover, cleanup cleanup_mode=full
 
 5. Start a fresh adop prepare and apply patches.
 6. After the apply step, complete the rest of the adop phases including finalize,
-   cutover and cleanup.
+   cutover, and cleanup.
 
 ### Patch abort
 
-If a patching cycle fails and the issue cannot be resolved quickly, you can
+If a patching cycle fails and you cannot resolve the issue quickly, you can
 abort the patching cycle and return to normal runtime operation, which drops
 the patch edition.
 
@@ -167,7 +167,7 @@ following command:
 
     $ adop phase=abort
 
-**Important:** This abort command can only be used before successful completion
+**Important:** You can only use this command before successful completion
 of the cutover phase. After cutover, the system is running on the new edition,
 and the ``abort`` command is no longer possible for that patching cycle.
 
@@ -183,7 +183,8 @@ events:
     $ adop phase=cleanup cleanup_mode=full
     $ adop phase=fs_clone
 
-Optionally, you can combine the abort and cleanup commands as follows:
+Optionally, you can combine the abort and cleanup commands as shown in the
+following command:
 
     $ adop phase=abort,cleanup cleanup_mode=full
 
@@ -192,5 +193,5 @@ Optionally, you can combine the abort and cleanup commands as follows:
 
 ### Conclusion
 
-This collection of adop known issues and solutions can help database
-administrators when they have these or similar issues with the adop utility.
+This collection of known issues and solutions for the adop utility can help
+database administrators when they have these or similar issues.

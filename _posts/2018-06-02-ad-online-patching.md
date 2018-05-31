@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ad online patching in Oracle applications"
+title: "AD Online Patching in Oracle applications"
 date: 2018-06-02 00:00
 comments: true
 author: Nagunaik Vankudotu
@@ -10,28 +10,29 @@ categories:
     - General
 ---
 
-This blog describes the Oracle ad online patching (ADOP) phases, the patch
-process cycle steps, and some useful ADOP commands and tips.
+This blog describes the Oracle &reg; AD Online Patching (adop) utility phases, the patch
+process cycle steps, and some useful adop commands and tips.
 
 <!-- more -->
 
 ### Introduction
 
-The ADOP utility is used to apply patches to Oracle E-Business Suite without
+The adop utility is used to apply patches to Oracle E-Business Suite without
 significant system downtime.  The patch cycle consists of several phases as
 shown in the following diagram:
 
 ![The online patching cycle]({% asset_path 2018-06-02-ad-online-patching/PatchCycle.png %})
+
 Image Source: [https://docs.oracle.com/cd/E26401_01/doc.122/e22954/T202991T531065.htm](https://docs.oracle.com/cd/E26401_01/doc.122/e22954/T202991T531065.htm)
 
-### Basic ADOP phases and patch process cycle steps
+### Basic adop phases and patch cycle steps
 
-Before applying a patch in Oracle R12.2 using the ADOP process, download any
+Before applying a patch in Oracle R12.2 by using the adop process, download any
 required technology patches and unzip the contents. Then prepare the patch by
 doing one of the following steps:
 
-- The patch contents could be unzipped into a ``$NE_BASE/EBSapps/patch``.
-  Because the ADOP utility sets its own environment, you don't need to source
+- You can unzip the patch contents into a ``$NE_BASE/EBSapps/patch``.
+  Because the adop utility sets its own environment, you don't need to source
   the environment before running it.
 
 or
@@ -41,7 +42,7 @@ or
 
         Source <EBS install base>/EBSapps.env run
 
-An online patching consists of several phases, which are specified on the ADOP
+An online patching consists of several phases, which are specified on the adop
 command line by using the following syntax:
 
     adop phase=<phase_name>
@@ -61,7 +62,7 @@ system by executing the following commands:
     $ source <EBS install base>/EBSapps.env patch
     $ adop phase=apply patches=123456,789101 workers=8
 
-**Note:** All customization changes also can be deployed in apply phase.
+**Note:** You can also deploy all customization changes in the apply phase.
 
 #### Finalize phase
 
@@ -78,7 +79,7 @@ Transition to the patched environment by using the following command:
 
 #### Cleanup phase
 
-Remove old objects from the patch process that are no longer needed by running
+Remove old objects that are no longer needed from the patch process by running
 following command:
 
     $ adop phase=cleanup
@@ -97,29 +98,29 @@ The following optional parameters may also be used:
 
 #### Clean-up modes
 
-The following clean-up modes can be used as needed:
+Use the following clean-up modes as needed:
 
 - **cleanup_mode=quick** – Performs minimum cleanup, including removal of
-  obsolete crossedition triggers and seed data. Use quick cleanup when you need
+  obsolete cross edition triggers and seed data. Use quick cleanup when you need
   to start the next patching cycle as soon as possible.
 
 - **cleanup_mode=standard** – Does the same as quick mode and also drops
   (removes) obsolete editioned code objects (covered objects).
 
-- **cleanup_mode=full** – Performs maximum cleanup, which drops all obsolete
+- **cleanup_mode=full** – Performs a maximum cleanup, which drops all obsolete
   code and data from earlier editions.
 
-#### Optional phases
+### Optional phases
 
-The phases in this section can be used as needed.
+Use the phases in this section as needed.
 
 #### Abort phase
 
-The abort phase, a conditional phase, cannot be specified with any other phase.
+You cannot specify the abort phase, a conditional phase, with any other phase.
 
 If for some reason either the prepare or apply phase fails, you can abort the
 patching cycle at either of these points by running a special phase with the
-abort command. The actions previously taken will be discarded (or rollbacked).
+abort command. The actions previously taken will be discarded (or rolled back).
 
 The abort command is only available up to (but not including) the cutover
 phase. After cutover, the system runs on the new edition, and abort is no longer
@@ -129,7 +130,7 @@ Perform an abort by using the following command:
 
     $ adop phase=abort
 
-After running abort, a full cleanup must be performed. One option is to use the
+After running an abort,you must perform a full cleanup. One option is to use the
 following command:
 
     adop phase=cleanup cleanup_mode=full
@@ -144,14 +145,14 @@ run the following ``fs_clone`` command  to recreate the patch file system:
 
     $ adop phase=fs_clone
 
-#### Fs_clone phase
+#### fs_clone phase
 
-The fs\_clone phase is used to synchronize the patch file system with the run
+The fs\_clone phase synchronizes the patch file system with the run
 file system. The fs_clone phase should only be run when mentioned as part of a
 specific documented procedure.
 
-This command must be invoked from the run file system, before the next prepare
-phase is run, as shown in the following commands:
+You must invoke this command from the run file system, before running the next prepare
+phase, as shown in the following commands:
 
     $ source <EBS install base>/EBSapps.env RUN
     $ adop phase=fs_clone
@@ -165,7 +166,7 @@ to restart the process from the beginning (with the same session ID) or
 As each online patching cycle is completed, the database accumulates additional
 old database editions. As the number goes up, the system performance worsens.
 When the number of old database editions exceeds 25, you should consider dropping
-the old database editions by running the ADOP ``actualize_all`` phase and then
+the old database editions by running the adop ``actualize_all`` phase and then
 performing a full cleanup.
 
 This procedure lasts significantly longer than a normal patching cycle and
@@ -183,37 +184,37 @@ To proceed, run the following commands in sequence:
     $ adop phase=cutover
     $ adop phase=cleanup cleanup_mode=full
 
-### ADOP command tips
+### adop command tips
 
-This section touches on a few useful ADOP commands.
+This section provides a few useful adop utility commands.
 
-#### ADOP and the concurrent manager
+#### adop and the concurrent manager
 
 The Oracle concurrent managers are primarily responsible for ensuring that the
 applications are not overwhelmed by governing the flow of requests.
 
-The ADOP cutover starts by requesting a concurrent manager shutdown and then
+The adop cutover starts by requesting a concurrent manager shutdown and then
 waits for in-progress requests to complete.
 
-If Concurrent Manager does not shutdown within the specified time limit,
-remaining concurrent requests are killed and the cutover proceeds.
+If the concurrent manager does not shutdown within the specified time limit,
+the remaining concurrent requests are killed and the cutover proceeds.
 
 To specify how long to wait for the existing concurrent processes to finish
-running before shutting down the Internal Concurrent Manager, run the
-``cutover cm_wait`` command. In the following example, the cm wait time is 10
-minutes. By default, ADOP waits indefinitely for in-progress concurrent requests
+running before shutting down the Internal Concurrent Manager (the master manager), run the
+``cutover cm_wait`` command. In the following example, the ``cm_wait`` time is 10
+minutes. By default, adop waits indefinitely for in-progress concurrent requests
 to finish.
 
     adop phase=cutover cm_wait=10
 
-The ``mtrestart=no`` command stops and does not the application tier restart
+The ``mtrestart=no`` command stops and does not enable the application tier restart
 services, as shown in the following example:
 
     adop phase=cutover cm_wait=10 mtrestart=no
 
-#### ADOP hotpatch
+#### adop hotpatch
 
-In hotpatch mode, ADOP applies the patch to the run edition while application
+In hotpatch mode, adop applies the patch to the run edition while application
 services are still running. In this mode, the patch process cannot be aborted.
 
 The following example initiates a patch in hotpatch mode:
@@ -221,7 +222,7 @@ The following example initiates a patch in hotpatch mode:
     $ adop phase=apply patches=<patch_list> hotpatch=yes
 
 After using hotpatch, be sure to run both ``phase=cleanup`` and
-``phase=fs_clone`` to sync the run file system with the patch file system.
+``phase=fs_clone`` to synchronize the run file system with the patch file system.
 This ensures that everything is ready for the next patching cycle.
 
 If you need to reapply a patch, you must use the ``options-forceapply``
@@ -229,14 +230,14 @@ parameter as shown in the following example:
 
     $ adop phase=apply patches=<patch list> hotpatch=yes options=forceapply
 
-If you get a "Continue As If It Were Successful" error, run the following
+If you get a ``Continue As If It Were Successful`` error, run the following
 command to proceed with the patch:
 
     $ adop phase=apply patches=<patch list> abandon=no restart=yes flags=autoskip
 
-#### Other useful ADOP commands
+#### Other useful adop commands
 
-The following list contains various helpful ADOP operatons:
+The following list contains various helpful adop utility operatons:
 
 To define workers:
 
@@ -250,7 +251,7 @@ To merge patches:
 
     $ adop phase=apply patches=<patch list> merge=yes
 
-To restart ADOP from a failed session, run the following commands and then
+To restart adop from a failed session, run the following commands and then
 reapply the patch:
 
     $ adop phase=abort
@@ -261,16 +262,16 @@ To apply for language patch:
 
     $ adop phase=apply patches=1234456_JA:u123456.drv
 
-To use non-interactive ADOP with patchtop and defined driver:
+To use non-interactive adop with patchtop and a defined driver:
 
     $ adop phase=apply options=nocopyportion patchtop=$XLA_TOP/patch/115 patches=driver:xla123456.drv
 
 To skip the failed workers, run the following steps:
 
-1. Use ``adctrl`` and select option #8 (This will not be visible) to skip the failed jobs
-2. Restart adop using ``restart=yes`` parameter
+1. Use ``adctrl`` and select option #8 (This will not be visible) to skip the failed jobs.
+2. Restart adop by using ``restart=yes`` parameter.
 
-If there are many failed jobs are numerous, you should restart the patch with
+If there are many failed jobs, you should restart the patch with
 the ``flags=autoskip`` option, as shown in the following example:
 
     $ adop restart=no abandon=yes flags=autoskip
@@ -281,7 +282,7 @@ failures were skipped.
 
 ### Conclusion:
 
-ADOP is enabled because multiple application editions can be stored in the
+The adop utility is enabled because multiple application editions can be stored in the
 database, and dual application tier file systems can be provisioned. At any time,
 one of these file systems is designated as run (part of the running system) and
 the other as patch (either being patched or awaiting the start of the next
@@ -290,9 +291,9 @@ application tier file system did in Oracle E-Business Suite releases prior to
 version 12.2.
 
 The existence of the dual file system has implications for patches that change
-the system configuration. The ADOP utility is required for applying software
+the system configuration. The adop utility is required for applying software
 patches to the patch file system, but it is not required to perform configuration
-changes. Configuration changes can be made to either the run file system or the
+changes. You canmake configuration changes to either the run file system or the
 patch file system, and automatic synchronization subsequently takes place in
 both cases.
 

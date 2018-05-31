@@ -76,7 +76,7 @@ function set-zip {
         
         #looked through kudu api source and it seems 4 means success. 
         while ($status.status -ne 4) {   
-            write-host "Not finished unzipping..sleeping $extractSleepTimeInSeconds seconds"
+            Write-Output "Not finished unzipping..sleeping $extractSleepTimeInSeconds seconds"
             $status = Invoke-RestMethod -Uri $headers.Location -Method Get -Headers @{Authorization = ("Basic {0}" -f $base64AuthInfo)} 
             if ($detailedDebug) {
                 Write-Output $status

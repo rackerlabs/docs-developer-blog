@@ -10,11 +10,11 @@ categories:
     - General
 ---
 
-Azure provides backup and restore functionality when using a Standard or Premium App Service plan. That leaves web apps using a Basic App Service plan without a backup solution. In a perfect world, you would have everything in source control and can deploy to get back up and running, but we do not live in a perfect world. Lets examine the Azure App Service KUDU API on how we can build our own backup  and restore solution.
+Azure provides backup and restore functionality when using a Standard or Premium App Service plan. That leaves web apps using a Basic App Service plan without a backup solution. In a perfect world, you would have everything in source control and deploy to get back up and running, but we do not live in a perfect world. Let's examine the Azure App Service KUDU API to learn how to build our own backup  and restore solution.
 
 <!-- more -->
 
-We will need to create a function that will zip the files from the wwwroot folder and store the file in a Azure Storage Account. Browsing [KUDU API](https://github.com/projectkudu/kudu/wiki/REST-API), there is ZIP API section that shows a GET that can be called to zip a folder. This is great, as it will let backup our wwwroot folder. Let's look at a code snippet that can be placed into an Azure Automation Runbook to do our backup.
+We need to create a function that zips the files from the wwwroot folder and stores the zip file in an Azure Storage Account. In the [KUDU API](https://github.com/projectkudu/kudu/wiki/REST-API),the ZIP API section shows a GET operation that can be called to zip a folder. This is great, because it lets us backup our wwwroot folder. Let's look at the following code that can be placed into an Azure Automation Runbook to do our backup.
 
 ```
 function get-zip {
@@ -44,9 +44,9 @@ function get-zip {
     }
 }
 ```
-This function will store the publishing profile into a variable, extract the credentials out, then make a REST call to the ZIP API for the website passed into the variable **$siteName**. The ZIP API will output the zip to the location passed into the function variable **$folderPathToDownloadFile**. I have not see any documented limits for the ZIP API as the Standard App Service backup has limits for scheduled backups [App Service Limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits). Something to note is that if you run this in an Azure Automation Runbook to download the zip, there is a limit of available drive space. I confirmed with Microsoft that there is a 1GB workspace and they will be updating their public documents with this info.
+This function stores the publishing profile into a variable, extract the credentials out, and then make a REST call to the ZIP API for the website, which was passed into the variable **$siteName**. The ZIP API outputs the zip file to the location that was passed into the function variable **$folderPathToDownloadFile**. I have not see any documented limits for the ZIP API because the Standard App Service backup has limits for scheduled backups [App Service Limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits). Something to note is that if you run this in an Azure Automation Runbook to download the zip, the available drive space is limited. I confirmed with Microsoft that there is a 1GB workspace and they will be updating their public documents with this info.
 
-When I initially was looking into this way of doing backups, it was to create a multi region diaster recovery solution without having the customer do deployments to multiple web apps. The next function I wrote is to take the backup generated from **get-zip**, then restore it on another webapp in another region using **set-zip**.
+When I initially looked into this way of doing backups, it was to create a multi-region diaster recovery solution without needing the customer to do deployments to multiple web apps. The following function that I wrote takes the backup from **get-zip**, then restore it on another webapp in another region using **set-zip**.
 
 ```
 function set-zip {
@@ -100,4 +100,4 @@ function set-zip {
     }
 }
 ```
-This function will call the ZIPDEPLOY API and pass a query string of **isAsync=true** to make this an asynchronous deployment. Using an Invoke-WebRequest, we can see the response header which contains a location of a log file that can be queried to see the status of the zip deployment. I'll do a simple while loop to keep checking until the status shows Success. There are some benefits of using the ZIPDEPLOY call vs ZIP. It will only overwrite files with different timestamps on files and locking occurs on the webapp to prevent additional deployments during extraction. For a complete list, please reference [Benefits of Zip Deployment](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). At this point, a runbook can do automated backups of basic web apps and optionally restore the backup to another webapp. I have placed the entire powershell script and readme file at [Script Repo](https://github.com/jrudley/basicWebAppBackupRestore)
+This function will call the ZIPDEPLOY API and passes a query string of **isAsync=true** to make this an asynchronous deployment. Using an Invoke-WebRequest, we can see the response header, which contains a location of a log file that can be queried to see the status of the zip deployment. I'll do a simple while loop to keep checking until the status shows ``Success``. There are some benefits of using the ZIPDEPLOY call as opposed to the ZIP call. It will only overwrite files with different timestamps on files, and locking occurs on the webapp to prevent additional deployments during extraction. For a complete list, please see [Benefits of Zip Deployment](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). At this point, a runbook can do automated backups of basic web apps and optionally restore the backup to another webapp. I have placed the entire powershell script and readme file at [Script Repo](https://github.com/jrudley/basicWebAppBackupRestore).

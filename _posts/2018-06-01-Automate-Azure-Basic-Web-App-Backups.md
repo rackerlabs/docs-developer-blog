@@ -17,7 +17,9 @@ We will need to create a function that will get the files off our app service pl
 ```
 function get-zip {
     param( 
+        [Parameter(Mandatory = $true)]
         [string]$resourceGroup,
+        [Parameter(Mandatory = $true)]
         [string]$siteName,
         [string]$folderPathToDownloadFile = 'c:\temp\'
     )  
@@ -28,7 +30,7 @@ function get-zip {
         $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $creds.userName, $creds.userPWD)))
 
         if (!(Test-Path $folderPathToDownloadFile)) {
-                New-Item -ItemType Directory -Path $folderPathToDownloadFile
+            New-Item -ItemType Directory -Path $folderPathToDownloadFile
         }
 
         #include trailing slash
@@ -36,8 +38,7 @@ function get-zip {
             -OutFile "$($folderPathToDownloadFile)\wwwroot.zip" -Method Get -ContentType 'multipart/form-data' -Verbose
     }
     catch {
-        $_
-        
+        $_ 
     }
 }
 ```
@@ -48,25 +49,21 @@ When I initially was looking into this way of doing backups, it was to create a 
 ```
 function set-zip {
     param( 
+        [Parameter(Mandatory = $true)]
         [string]$resourceGroup,
+        [Parameter(Mandatory = $true)]
         [string]$siteName,
+        [Parameter(Mandatory = $true)]
         [string]$zipFile,
         [switch]$detailedDebug,
         [int]$extractSleepTimeInSeconds = 15
     ) 
 
-    try {
-        
-
+    try {      
         [xml]$publishSettings = Get-AzureRmWebAppPublishingProfile -Format WebDeploy  -ResourceGroupName $resourceGroup -Name $siteName
-        #$creds = $publishSettings.SelectSingleNode("//publishData/publishProfile[@publishMethod='MSDeploy']")
-        #$combined = "$($creds.userName):$($creds.userPWD)"
         $creds = $publishSettings.SelectSingleNode("//publishData/publishProfile[@publishMethod='MSDeploy']")
         $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $creds.userName, $creds.userPWD)))
 
-        #$encodedCreds = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($combined))
-     
-        #$base64AuthInfo = "Basic $encodedCreds"
 
         $Headers = @{
             Authorization = $base64AuthInfo
@@ -74,22 +71,20 @@ function set-zip {
       
         $headers = Invoke-WebRequest -Uri "https://$siteName.scm.azurewebsites.net/api/zipdeploy?isAsync=true" -Method Post  -Headers @{Authorization = ("Basic {0}" -f $base64AuthInfo)} -InFile $zipFile -ContentType  'multipart/form-data'  | 
             Select-Object -expand Headers
-        #$headers = Invoke-WebRequest -Uri "https://$siteName.scm.azurewebsites.net/api/zipdeploy?isAsync=true" -Method Post  -Headers @{Authorization = ("{0}" -f $base64AuthInfo)} -InFile $zipFile -ContentType  'multipart/form-data'  | 
-           # Select-Object -expand Headers
        
-        $status = Invoke-RestMethod -Uri $headers.Location -Method Get -Headers @{Authorization = ("{0}" -f $base64AuthInfo)}
+        $status = Invoke-RestMethod -Uri $headers.Location -Method Get -Headers @{Authorization = ("Basic {0}" -f $base64AuthInfo)}
         
         #looked through kudu api source and it seems 4 means success. 
         while ($status.status -ne 4) {   
             write-host "Not finished unzipping..sleeping $extractSleepTimeInSeconds seconds"
-            $status = Invoke-RestMethod -Uri $headers.Location -Method Get -Headers @{Authorization = ("{0}" -f $base64AuthInfo)} 
+            $status = Invoke-RestMethod -Uri $headers.Location -Method Get -Headers @{Authorization = ("Basic {0}" -f $base64AuthInfo)} 
             if ($detailedDebug) {
                 Write-Output $status
             }
             start-sleep -s $extractSleepTimeInSeconds
         }           
         
-        $status = Invoke-RestMethod -Uri $headers.Location -Method Get -Headers @{Authorization = ("{0}" -f $base64AuthInfo)}
+        $status = Invoke-RestMethod -Uri $headers.Location -Method Get -Headers @{Authorization = ("Basic {0}" -f $base64AuthInfo)}
         if ($status.status -eq 4) {
             Write-Output "Finished unzipping $zipFile"
             $status
@@ -97,12 +92,10 @@ function set-zip {
         else {
             Write-Output "Something did not go right unzipping $zipfile. Please investigate..."
         }
-
-
     }
     catch {
         $_
     }
 }
 ```
-This function will call the ZIPDEPLOY API and pass an query string of isAsync=true to make this an asynchronous deployment. Using an Invoke-WebRequest, we can see the response header which contains a location of a log file that can be queried to see the status of the zip deployment. I'll do a simple while loop to keep checking until the status shows Success. There are some benefits of using the ZIPDEPLOY call vs ZIP as it will only overwrite files with different timestamps on files and locking occurs in the webapp during extraction. For a complete list, please reference https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file. At this point, a runbook can do automated backups of basic web apps and optionally restore the backup to another webapp. I have placed the entire powershell script and readme at https://github.com/jrudley/basicWebAppBackupRestore
+This function will call the ZIPDEPLOY API and pass an query string of isAsync=true to make this an asynchronous deployment. Using an Invoke-WebRequest, we can see the response header which contains a location of a log file that can be queried to see the status of the zip deployment. I'll do a simple while loop to keep checking until the status shows Success. There are some benefits of using the ZIPDEPLOY call vs ZIP as it will only overwrite files with different timestamps on files and locking occurs on the webapp to prevent additional deployments during extraction. For a complete list, please reference https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file. At this point, a runbook can do automated backups of basic web apps and optionally restore the backup to another webapp. I have placed the entire powershell script and readme at https://github.com/jrudley/basicWebAppBackupRestore

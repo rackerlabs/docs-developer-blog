@@ -12,6 +12,8 @@ categories:
 
 Azure provides backup and restore functionality when using a Standard or Premium App Service plan. That leaves web apps using a Basic App Service plan without a backup solution. In a perfect world, you would have everything in source control and can deploy to get back up and running, but we do not live in a perfect world. Lets examine the Azure App Service KUDU API on how we can build our own backup  and restore solution.
 
+<!-- more -->
+
 We will need to create a function that will zip the files from the wwwroot folder and store the file in a Azure Storage Account. Browsing [KUDU API](https://github.com/projectkudu/kudu/wiki/REST-API), there is ZIP API section that shows a GET that can be called to zip a folder. This is great, as it will let backup our wwwroot folder. Let's look at a code snippet that can be placed into an Azure Automation Runbook to do our backup.
 
 ```

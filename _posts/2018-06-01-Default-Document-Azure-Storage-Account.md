@@ -20,10 +20,10 @@ Use the following steps to set up a static wesite:
 
 1. Create a new storage account and make sure to set the account kind to ``StorageV2`` and the location to ``West Central US``. ![storage account]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/create.png %}) 
 2. After the Storage Account resource has been created, open up the storage account from the blade, which displays a Static website (preview) setting window.
-3. Click on the window and select Enabled, which brings up 2 text boxes to set the Index document name and the Error document path. The Index document name is the default document that is selected when a user browses to the primary endpoint that was generated. The Error document path is the 404 page.
-4. Fill in the file names you plan to use and select Save. ![configure]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/configure.png %})
+3. Click on the window and select **Enabled**, which brings up two text boxes to set the index document name and the error document path. The index document name is the default document that is selected when a user browses to the primary endpoint that was generated. The error document path is the 404 page.
+4. Fill in the file names that you plan to use and select **Save**. ![configure]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/configure.png %})
 
-I created the following sample index.html to generate the date. 
+I created the following sample index.html to generate the date: 
 
 ```
 
@@ -44,7 +44,7 @@ I created the following sample index.html to generate the date.
 
 ```
 
-I then created a sample 404.html page as well
+I then created the following sample 404.html page:
 
 ```
 
@@ -64,7 +64,7 @@ I then created a sample 404.html page as well
 
 I noticed that I couldn't find the web container when using Azure Storage Explorer, but I could click the $web container and use the browser preview functionality to upload the index document name and error document files to the $web container.
 
-When I browse to the primary endpoint URL, I see my default document being used. ![default]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/default.png %}) I also tested out a 404 error, which worked as expected. ![404]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/404.png %}) You can download the html files from this [repo]( https://github.com/jrudley/staticwebsite).
+When I browsed to the primary endpoint URL, my default document was being used. ![default]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/default.png %}) I also tested out a 404 error, which worked as expected. ![404]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/404.png %}) You can download the html files from this [repo]( https://github.com/jrudley/staticwebsite).
 
 
 

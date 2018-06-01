@@ -19,6 +19,7 @@ Microsoft has not announced the public preview as of today, but to access it, pl
 I created a sample index.html to generate the date. 
 
 ```
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -33,11 +34,13 @@ I created a sample index.html to generate the date.
     </p>
 </body>
 </html>
+
 ```
 
 I then created a sample 404.html page as well
 
 ```
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -49,6 +52,7 @@ I then created a sample 404.html page as well
      Looks like you hit a 404, please try again:
 </body>
 </html>
+
 ```
 
 I noticed that I cannot find the web container when using Azure Storage Explorer. The workaround is to click the **$web** container and use the browser preview functionality to upload the index document name and error document files to the **$web** container.

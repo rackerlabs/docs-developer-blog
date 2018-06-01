@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introduction to Oracle Agent Gold Images"
-date: 2018-06-01 00:00
+date: 2018-05-30 00:00
 comments: true
 author: Kuasik Das
 published: true

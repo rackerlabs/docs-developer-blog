@@ -10,13 +10,20 @@ categories:
     - General
 ---
 
-Azure has provided the functionality to host static websites from an Azure Storage Account for some time, but it did not support setting a default document. This functionality is in preview and should hit public preview this month. Let's take a look on how to test out this great feature.
+Azure provided the functionality to host static websites from an Azure Storage Account, but it did not support setting a default document. This functionality is in preview and should hit public preview this month. Let's take a look on how to test out this great feature.
 
 <!-- more -->
 
-Microsoft has not announced the public preview as of today, but to access it, please click this [link](http://aka.ms/staticwebsites) to enable static website support in the portal. Create a new storage account and make sure to keep the account kind **StorageV2** and the location **West Central US**. ![storage account]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/create.png %}) Once the Storage Account resource has been created, open up the storage account from the blade. A Static website (preview) setting will now display. Click on it then select **Enabled** which will bring up 2 text boxes to set your **Index document name** and **Error document path**. The **Index document name** is the default document that will be selected when a user browsers to the primary endpoint generated. The **Error document path** will be the 404 page. Select **Save** after filling in the file names you will be using. ![configure]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/configure.png %})
+Microsoft has not announced the public preview by this blog's publish date, but, please click this [link](http://aka.ms/staticwebsites) to enable static website support in the portal.  
 
-I created a sample index.html to generate the date. 
+Use the following steps to set up a static wesite:  
+
+1. Create a new storage account and make sure to set the account kind to ``StorageV2`` and the location to ``West Central US``. ![storage account]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/create.png %}) 
+2. After the Storage Account resource has been created, open up the storage account from the blade, which displays a Static website (preview) setting window.
+3. Click on the window and select Enabled, which brings up 2 text boxes to set the Index document name and the Error document path. The Index document name is the default document that is selected when a user browses to the primary endpoint that was generated. The Error document path is the 404 page.
+4. Fill in the file names you plan to use and select Save. ![configure]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/configure.png %})
+
+I created the following sample index.html to generate the date. 
 
 ```
 
@@ -55,9 +62,9 @@ I then created a sample 404.html page as well
 
 ```
 
-I noticed that I cannot find the web container when using Azure Storage Explorer. The workaround is to click the **$web** container and use the browser preview functionality to upload the index document name and error document files to the **$web** container.
+I noticed that I couldn't find the web container when using Azure Storage Explorer, but I could click the $web container and use the browser preview functionality to upload the index document name and error document files to the $web container.
 
-Browsing to the primary endpoint URL, I now have a default document being used. ![default]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/default.png %}) I also tested out a 404 error and that works as well. ![404]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/404.png %}) You can download the html files from this [repo]( https://github.com/jrudley/staticwebsite)
+When I browse to the primary endpoint URL, I see my default document being used. ![default]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/default.png %}) I also tested out a 404 error, which worked as expected. ![404]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/404.png %}) You can download the html files from this [repo]( https://github.com/jrudley/staticwebsite).
 
 
 

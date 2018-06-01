@@ -50,7 +50,7 @@ I then created a sample 404.html page as well
 ```
 I noticed that I cannot find the web container when using Azure Storage Explorer. The workaround is to click the **$web** container and use the browser preview functionality to upload the index document name and error document files to the **$web** container.
 
-Browsing to the primary endpoint URL, I now have a default document being used. ![default]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/default.png %}) I also tested out a 404 error and that works as well. ![404]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/404.png %})
+Browsing to the primary endpoint URL, I now have a default document being used. ![default]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/default.png %}) I also tested out a 404 error and that works as well. ![404]({% asset_path 2018-06-01-Default-Document-Azure-Storage-Account/404.png %}) You can download the html files from this [repo]( https://github.com/jrudley/staticwebsite)
 
 
 

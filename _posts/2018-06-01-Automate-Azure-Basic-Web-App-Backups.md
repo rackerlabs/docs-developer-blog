@@ -100,4 +100,5 @@ function set-zip {
     }
 }
 ```
+
 This function calls the ZIPDEPLOY API and passes a query string of **isAsync=true** to make this an asynchronous deployment. Using an ``Invoke-WebRequest``, we can see the response header, which contains a location of a log file that can be queried to see the status of the zip deployment. I'll do a simple while loop to keep checking until the status shows ``Success``. There are some benefits of using the ZIPDEPLOY call as opposed to the ZIP call, because ZIP overwrites only those files with different timestamps on files, and locking occurs on the webapp to prevent additional deployments during extraction. For a complete list, please see [Benefits of Zip Deployment](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). At this point, a runbook can do automated backups of basic web apps and optionally restore the backup to another webapp. I have placed the entire powershell script and readme file at [Script Repo](https://github.com/jrudley/basicWebAppBackupRestore).

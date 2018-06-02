@@ -46,7 +46,7 @@ function get-zip {
 ```
 This function stores the publishing profile into a variable, extracts the credentials out, and then makes a REST call to the ZIP API for the website, which was passed into the variable **$siteName**. The ZIP API outputs the zip file to the location that was passed into the function variable **$folderPathToDownloadFile**. I have not seen any documented limits for the ZIP API because the Standard App Service backup has limits for scheduled backups [App Service Limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits). Here's something to note: if you run this code in an Azure Automation Runbook to download the zip, the available drive space is limited. I confirmed with Microsoft that there is a 1GB workspace and that they will be updating their public documents with this information.
 
-When I initially looked into this way of doing backups, it was to create a multi-region diaster recovery solution without needing the customer to do deployments to multiple web apps. The following function that I wrote takes the backup from **get-zip**, then restores it on another webapp in another region using **set-zip**.
+When I initially looked into this way of doing backups, it was to create a multi-region disaster recovery solution without needing the customer to do deployments to multiple web apps. The following function that I wrote takes the backup from **get-zip**, then restores it on another webapp in another region using **set-zip**.
 
 ```
 function set-zip {
@@ -100,4 +100,5 @@ function set-zip {
     }
 }
 ```
+
 This function calls the ZIPDEPLOY API and passes a query string of **isAsync=true** to make this an asynchronous deployment. Using an ``Invoke-WebRequest``, we can see the response header, which contains a location of a log file that can be queried to see the status of the zip deployment. I'll do a simple while loop to keep checking until the status shows ``Success``. There are some benefits of using the ZIPDEPLOY call as opposed to the ZIP call, because ZIP overwrites only those files with different timestamps on files, and locking occurs on the webapp to prevent additional deployments during extraction. For a complete list, please see [Benefits of Zip Deployment](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). At this point, a runbook can do automated backups of basic web apps and optionally restore the backup to another webapp. I have placed the entire powershell script and readme file at [Script Repo](https://github.com/jrudley/basicWebAppBackupRestore).

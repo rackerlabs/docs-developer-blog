@@ -10,31 +10,40 @@ categories:
     - General
 ---
 
-In this two-part series we'll discuss License Plate Numbers (LPN), their
-usage, and useful shortcut keys for Mobile Telnet, which is commonly known as
-Putty. Part I introduces LPN.
+In this two-part series we'll discuss License Plate Numbers (LPN) in
+Oracle&reg; Warehouse Management (WMS), why and how to use them, as well as
+shortcut keys for Mobile Telnet, which is commonly known as Putty.
 
 <!-- more -->
 
-### What is LPN?
+### What is an LPN?
 
-LPN in Oracle&reg; Warehouse Management (WMS) is an identity assigned to a group of items represented systematically, that travel through the Unit/Floor together. The LPN will help identify a group of items packed together in terms of its current sub-inventory, location, revision, lot, serial, organization and item contents.
+An LPN is a WMS identity assigned to a group of items that travel through the
+unit or floor together. An LPN helps identify a group of items packed together
+and track its sub-inventory, location, revision, lot, serial, organization, and
+contents.
+
+The following image shows a visual representation of an LPN:
 
 ![]({% asset_path 2018-06-04-lpn-overview-part1/picture1.png %})
 
+This one shows the typical structure of an LPN:
+
 ![]({% asset_path 2018-06-04-lpn-overview-part1/picture2.png %})
 
-### Uses of LPN
+### Advantages of LPNs
 
-You can perform the following tasks by using LPNs in WMS:
+LPNs enable you to perform the following tasks in WMS:
 
-* Store delivery related information such as its content items, revision, lot, serial, organization, sub inventory, or locator
+* Store delivery-related information such as contents, revision, lot, serial,
+  organization, sub-inventory, and locator
 
-* Track contents of any container in receiving, inventory, or in-transit
+* Track the contents of any container that's in receiving, inventory, or
+  transit
 
 * Receive, store, and pick material by LPN
 
-* View on hand balances by LPN
+* View on-hand balances by LPN
 
 * Move multiple items in a transaction by LPN
 
@@ -46,21 +55,25 @@ You can perform the following tasks by using LPNs in WMS:
 
 * Reuse empty LPNs
 
-* Receive and send LPN information on an ASN
+* Receive and send LPN information on an Advanced Shipment Notice (ASN)
 
-### Transactions
+### LPN transactions in WMS
 
-LPNs in WMS support the following types of transactions:
+In WMS, LPNs support the following types of transactions:
 
-* Pack Transaction: As the name suggests the Pack transaction enables the business to pack loose material into an LPN.
+* **Pack transactions**: Pack loose material into an LPN.
 
-* Consolidate Transaction: this enables the business to nest a child LPN inside a parent LPN.
+* **Consolidate transactions**: Nest a child LPN inside of a parent LPN.
 
-* Unpack Transaction: this enables the business to unpack either material or a nested LPN from a parent LPN.
+* **Unpack transactions**: Unpack either material or a nested LPN from the
+  parent LPN.
 
-* Split Transaction: this is essentially an Unpack and Pack combined together, creating a new LPN with some material from another LPN.
+* **Split transactions**: Create a new LPN based on selected material from another LPN.
 
-* Update LPN Transaction: The Update LPN transaction enables the users to update the weight, volume, and container item of an LPN. As in all other transactions, LPN transactions of lot, serial, or revision controlled material requires you to enter the item controls.
+* **Update LPN transactions**: Update the weight, volume, and
+  container item of an LPN. As with all other transactions, LPN transactions
+  for lot, serial, or revision-controlled material require you to enter the
+  item controls.
 
 ### LPN context and status codes
 
@@ -68,63 +81,93 @@ LPNs have the following context and status codes:
 
 1. Resides in Inventory
 
-   This context code indicates that material associated with this LPN has been costed and accounted for in an inventory. A LPN with this context may not be used when receiving material against a standard or inspection routed receipt, but may be used during a direct delivery routed receipt. However, outbound transactions can be performed on LPNs with this context.
+   The material associated with the LPN has been costed and accounted for in
+   an inventory. An LPN with this context may not be used when receiving
+   material against a standard or inspection-routed receipt, but may be used
+   during a direct delivery-routed receipt. Outbound transactions can be
+   performed on LPNs with this context, however.
 
 2. Resides in WIP
 
-   The context code indicates that material associated with this LPN is currently being transacted in WIP (Work in Process). Therefore, the associated material is not yet in inventory and has not been costed to inventory.
+   The material associated with the LPN is being transacted in Work in Process
+   (WIP). The material is not yet in inventory and has not been costed to
+   inventory.
 
 3. Resides in Receiving
 
-   The context code indicates that material associated with this LPN have been received using a standard routing or inspection routing receipt and have not been delivered or put away yet. Therefore, the associated material is not yet in inventory and has not been costed to inventory.
+   The material associated with the LPN was received using a standard routing
+   or inspection routing receipt and has not been delivered or put away yet.
+   It is not yet in inventory and has not been costed to inventory.
 
 4. Issued out of Stores
 
-   An LPN in this status is no longer tracked by the system, and hence, no longer associated with a locator within the warehouse. LPNs shipped out of inventory receive this context and may not be re-received.
+   An LPN with this status is no longer tracked by the system, and therefore
+   no longer associated with a locator within the warehouse. LPNs shipped out
+   of inventory receive this context and may not be re-received.
 
 5. Defined but not used or pre-generated
 
-   LPN in this status means they are not associated with any physical material. They can be printed and used to identify material during any stage of the material management process such as inbound, replenishment, outbound, and so on. This context refers to LPNs that are ready to be used.
+   The LPN is not yet associated with any physical material
+   and is ready for use. The LPN can be printed and used to identify
+   material during any stage of the material management process, such as
+   inbound, replenishment, outbound, or another stage.
 
 6. In-transit
 
-   As the name suggests, LPN in this context is an indication that it is currently moving from one location to another. Possible uses for this are when a LPN is moved from one organization to the next, for example while the LPN is on a Vehicle/in transit. This context is particularly used for Internal Sales Orders (ISO) or Inter-org transit where an indirect shipping network is defined between the organizations.
+   The LPN material is currently moving from one location to another.
+   Potential uses for this context include when an LPN is
+   moved from one organization to the next. (For example, while the LPN is on
+   a Vehicle or in transit.) This context is often used for Internal
+   Sales Orders (ISOs) or inter-organization transit where an indirect shipping
+   network is defined between the organizations.
 
 7. At Vendor
 
-   This context comes into picture when a vendor sends an Advanced Shipment Notice (ASN) to Oracle WMS, the system internally generates LPNs and associates them with material information on the ASN. These LPNs receive this context. Material associated with LPNs of this context are not on-hand or costed until it is actually received.
+   This context is used when a vendor sends an ASN to Oracle WMS. The system
+   internally generates LPNs, associates them with the material information
+   on the ASN, and assigns the LPNs this context. The materials associated
+   with LPNs that have this context are not on-hand or costed until they're
+   received.
 
 8. Packing context
 
-   This context is primarily used for setup of picking or put away rules, basically this status is temporary and used internally by the software as an intermediary.
+   This context is primarily used to set up picking or put away rules. It's a
+   temporary status that the software uses internally as an intermediary.
 
-9. Loaded to Dock/ Shipments
+9. Loaded to Dock/Shipments
 
-   An LPN loaded for shipment has just been loaded onto a carrier ready to leave the warehouse. Once the entire carrier leaves the dock, the LPN obtains a context of six Resides in in transit or four Issued out of stores.
+   An LPN loaded for shipment has just been loaded onto a carrier and ready to
+   leave the warehouse. After the carrier leaves the dock, the LPN
+   is assigned a context of **Resides in transit** or **Issued out of
+   stores**.
 
 10. Prepack for WIP
 
-   This context value is used when the system has associated the LPN with material and printed the labels, but the material has not yet been physically packed.
+   This context value is used when the system has associated the LPN with
+   material and printed the labels, but the material hasn't been
+   physically packed yet.
 
 11. Picked
 
-    When LPNs are picked they are assigned with this context value. They are in-transit within the warehouse.
+    This context value indicates that the LPN has been picked and is in
+    transit within the warehouse.
 
-### Query to find the context of a LPN
+### Find the context of an LPN
 
 You can find the context of an LPN by using the following SQL
 statement as an example:
 
 select LPN_CONTEXT from apps.wms_license_plate_numbers WHERE LICENSE_PLATE_NUMBER = ‘LPN_Number’
 
-### How to view LPNs
+### View LPNs
 
 You can view LPNs through a mobile user interface or through an application
 that uses Oracle Material Workbench.
 
-For example, you can view the attributes of a specific LPN in Material Workbench. Use the following instructions to view the contents of an LPN in Material Workbench:
+To view the contents and attributes of an LPN in Material Workbench, use the
+following steps:
 
-1. Navigate to the Material Workbench window.
+1. Navigate to the **Material Workbench** window.
 
 2. In the **View By** field, select **LPN** from the list of values.
 
@@ -133,50 +176,61 @@ For example, you can view the attributes of a specific LPN in Material Workbench
 
 4. Select the LPN that you want to view.
 
-5. The system displays the contents of the LPN in the right panel of the
-   window. You can also expand an LPN in the left column to view its specific
-   contents.
+   As the following image shows, the system displays the contents of the LPN
+   in the right panel. You can also expand an LPN in the left column to view
+   its contents.
 
-![]({% asset_path 2018-06-04-lpn-overview-part1/picture3.png %})
+   ![LPN items in Material Workbench]({% asset_path 2018-06-04-lpn-overview-part1/picture3.png %})
 
 Note:
 
-The **Status** field shows the material status for on-hand material at
-status-enabled organizations.
+The **Status** field shows the status of on-hand material at status-enabled
+organizations.
 
-### Viewing LPNs with the Mobile User Interface
+### View LPNs with the mobile user interface
+
+To view LPNs through the mobile user interface, use the following steps:
 
 1. Log in to the mobile user interface under the **Whse Mgmt** responsibility.
 
 2. From the **Whse Mgmt** menu, select **Inquiry**.
 
-3. From the **Inquiry** menu, select the **LPN** option.
+3. From the **Inquiry** menu, select **LPN**.
 
-4. Finally, in the **LPN** field, enter the LPN or select it from the list of
+4. In the **LPN** field, enter the LPN or select it from the list of
    values.
 
-### Generating LPNs
+### Generate LPNs
 
-You can submit an LPN generation request through the Oracle Warehouse Management Navigator or a through a mobile device.
-
-You can generate LPNs by using one of the following methods:
+You can submit an LPN generation request through the Oracle Warehouse
+Management Navigator or through a mobile device.
 
 #### Submit a concurrent request to generate LPNs
 
-You can generate multiple LPNs with a single concurrent request through the Oracle Warehouse Management Navigator.
+You can generate multiple LPNs with a single concurrent request through the
+Oracle Warehouse Management Navigator. When you submit a request this
+way, you need to select the **Generate License Plates** option.
 
-When you submit a request in the Oracle Warehouse Management Navigator, you must select the **Generate License Plates** option.
+Each new LPN can be printed on a sticker and associated with a specific
+container item when required, or it can simply be labeled with no physical
+container association. LPNs can be generated at the sub-inventory and locator,
+or they can have no location until they're packed.
 
-Each new LPN can be printed on stickers and accordingly and associated with a particular container item when required, or it can simply be labeled with no physical container association. LPNs can be generated at the sub-inventory and locator, or they can have no location until they are packed.
-
-The LPN generation request creates the specified number of LPNs based on the starting prefix, suffix, and start number indicated either in the request, or at the organization level. Labels for these LPNs are printed accordingly, based on your label printing software and hardware.
+The LPN generation request creates the specified number of LPNs based on the
+starting prefix, suffix, and start number indicated either in the request or
+at the organization level. The system prints labels for these LPNs based on
+your label printing software and hardware.
 
 #### Use a mobile device to generate LPNs
 
-You can also use the Mobile Receipt & Task form to generate LPNs in Putty/Telnet. Place the cursor in the **LPN** field, then press **Generate** to automatically generate the LPN. The system default shortcut key for **Generate** is **Ctrl+G**.
+You can also use the Mobile Receipt & Task form to generate LPNs in
+Putty. To generate an LPN automatically, place the cursor in the
+**LPN** field, then press **Generate**. The system default shortcut key for
+**Generate** is **Ctrl+G**.
 
 ### Conclusion
 
-LPN’s are an easy method to use to accurately perform inventory transactions in WMS. They are also very user friendly and help save time. In the second part of the article we’ll learn more about generating LPN’s using mobile interface and different types of transactions associated with LPN’s.
-
-I hope you find these hints valuable and are able to put them to good use. If you have any doubts feel free to reach out to me by clicking on the button below. You can also leave your comments and feedback in the field below.
+LPNs offer a simple way to accurately perform inventory transactions in WMS.
+They're also very user-friendly and save you time. In the second part of
+this series we’ll cover how to generate LPNs using a mobile interface and the
+different types of transactions you can perform with LPNs.

@@ -138,7 +138,7 @@ transit within the warehouse.
 You can find the context of an LPN by using the following SQL
 statement as an example:
 
-``select LPN_CONTEXT from apps.wms_license_plate_numbers WHERE LICENSE_PLATE_NUMBER = ‘LPN_Number’``
+```select LPN_CONTEXT from apps.wms_license_plate_numbers WHERE LICENSE_PLATE_NUMBER = ‘LPN_Number’```
 
 ### View LPNs
 

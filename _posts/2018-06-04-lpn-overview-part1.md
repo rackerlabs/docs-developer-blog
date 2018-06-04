@@ -161,7 +161,7 @@ following steps:
 
 2. In the **View By** field, select **LPN** from the list of values.
 
-3. Next, expand the **Organizations** folder to display a list of LPNs that
+3. Expand the **Organizations** folder to display a list of LPNs that
    are associated with the organization.
 
 4. Select the LPN that you want to view.

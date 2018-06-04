@@ -79,77 +79,59 @@ In WMS, LPNs support the following types of transactions:
 
 LPNs have the following context and status codes:
 
-1. Resides in Inventory
+**Resides in Inventory**: The material associated with the LPN has been costed
+and accounted for in an inventory. An LPN with this context may not be used
+when receiving material against a standard or inspection-routed receipt, but
+may be used during a direct delivery-routed receipt. Outbound transactions can
+be performed on LPNs with this context, however.
 
-   The material associated with the LPN has been costed and accounted for in
-   an inventory. An LPN with this context may not be used when receiving
-   material against a standard or inspection-routed receipt, but may be used
-   during a direct delivery-routed receipt. Outbound transactions can be
-   performed on LPNs with this context, however.
+**Resides in WIP**: The material associated with the LPN is being transacted
+in Work in Process (WIP). The material is not yet in inventory and has not
+been costed to inventory.
 
-2. Resides in WIP
+**Resides in Receiving**: The material associated with the LPN was received
+using a standard routing or inspection routing receipt and has not been
+delivered or put away yet. It is not yet in inventory and has not been costed
+to inventory.
 
-   The material associated with the LPN is being transacted in Work in Process
-   (WIP). The material is not yet in inventory and has not been costed to
-   inventory.
+**Issued out of Stores**: An LPN with this status is no longer tracked by the
+system, and therefore no longer associated with a locator within the
+warehouse. LPNs shipped out of inventory receive this context and may not be
+re-received.
 
-3. Resides in Receiving
+**Defined but not used or pre-generated**: The LPN is not yet associated with
+any physical material and is ready for use. It can be printed and used to
+identify material during any stage of the  material management process, such
+as inbound, replenishment, outbound, or another stage.
 
-   The material associated with the LPN was received using a standard routing
-   or inspection routing receipt and has not been delivered or put away yet.
-   It is not yet in inventory and has not been costed to inventory.
+**In-transit**: The LPN material is currently moving from one location to
+another. Potential uses for this context include when an LPN is moved from one
+organization to the next. (For example, while the LPN is on a Vehicle or in '
+transit.) This context is often used for Internal Sales Orders (ISOs) or
+inter-organization transit where an indirect shipping network is defined
+between the organizations.
 
-4. Issued out of Stores
+**At Vendor**: This context is used when a vendor sends an ASN to Oracle WMS.
+The system internally generates LPNs, associates them with the material
+information on the ASN, and assigns the LPNs this context. The materials
+associated with LPNs that have this context are not on-hand or costed until
+they're received.
 
-   An LPN with this status is no longer tracked by the system, and therefore
-   no longer associated with a locator within the warehouse. LPNs shipped out
-   of inventory receive this context and may not be re-received.
+**Packing context**: This context is primarily used to set up picking or put
+away rules. It's a temporary status that the software uses internally as an
+intermediary.
 
-5. Defined but not used or pre-generated
+**Loaded to Dock/Shipments**: An LPN loaded for shipment has just been loaded
+onto a carrier and ready to leave the warehouse. After the carrier leaves the
+dock, the LPN is assigned a context of **Resides in transit** or **Issued out
+of stores**.
 
-   The LPN is not yet associated with any physical material and is ready for
-   use. It can be printed and used to identify material during any stage of
-   the  material management process, such as inbound, replenishment, outbound,
-   or another stage.
+**Prepack for WIP**: This context value is used when the system has associated
+the LPN with material and printed the labels, but the material hasn't been
+physically packed yet.
 
-6. In-transit
-
-   The LPN material is currently moving from one location to another.
-   Potential uses for this context include when an LPN is moved from one
-   organization to the next. (For example, while the LPN is on a Vehicle or in
-   transit.) This context is often used for Internal Sales Orders (ISOs) or
-   inter-organization transit where an indirect shipping network is defined
-   between the organizations.
-
-7. At Vendor
-
-   This context is used when a vendor sends an ASN to Oracle WMS. The system
-   internally generates LPNs, associates them with the material information on
-   the ASN, and assigns the LPNs this context. The materials associated with
-   LPNs that have this context are not on-hand or costed until they're
-   received.
-
-8. Packing context
-
-   This context is primarily used to set up picking or put away rules. It's a
-   temporary status that the software uses internally as an intermediary.
-
-9. Loaded to Dock/Shipments
-
-   An LPN loaded for shipment has just been loaded onto a carrier and ready to
-   leave the warehouse. After the carrier leaves the dock, the LPN is assigned
-   a context of **Resides in transit** or **Issued out of stores**.
-
-10. Prepack for WIP
-
-   This context value is used when the system has associated the LPN with
-   material and printed the labels, but the material hasn't been
-   physically packed yet.
-
-11. Picked
-
-   This context value indicates that the LPN has been picked and is in
-   transit within the warehouse.
+**Picked**: This context value indicates that the LPN has been picked and is in
+transit within the warehouse.
 
 ### Find the context of an LPN
 

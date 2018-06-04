@@ -10,18 +10,18 @@ categories:
     - General
 ---
 
-In this two-part series we'll discuss License Plate Numbers (LPN) in
-Oracle&reg; Warehouse Management (WMS), why and how to use them, as well as
-shortcut keys for Mobile Telnet, which is commonly known as Putty.
+In this two-part series, we'll discuss License Plate Numbers (LPN) in
+Oracle&reg; Warehouse Management System (WMS), why and how to use them, as
+well as shortcut keys for Mobile Telnet, which is commonly known as PuTTy.
 
 <!-- more -->
 
 ### What is an LPN?
 
 An LPN is a WMS identity assigned to a group of items that travel through the
-unit or floor together. An LPN helps identify a group of items packed together
-and track its sub-inventory, location, revision, lot, serial, organization, and
-contents.
+unit or floor together. An LPN helps identify a group of items that are packed
+together and tracks its sub-inventory, location, revision, lot, serial,
+organization, and contents.
 
 The following image shows a visual representation of an LPN:
 
@@ -36,26 +36,26 @@ This image shows the typical structure of an LPN:
 LPNs enable you to perform the following tasks in WMS:
 
 * Store delivery-related information such as contents, revision, lot, serial,
-  organization, sub-inventory, and locator
+  organization, sub-inventory, and locator.
 
 * Track the contents of any container that's in receiving, inventory, or
-  transit
+  transit.
 
-* Receive, store, and pick material by LPN
+* Receive, store, and pick material by LPN.
 
-* View on-hand balances by LPN
+* View on-hand balances by LPN.
 
-* Move multiple items in a transaction by LPN
+* Move multiple items in a transaction by LPN.
 
-* Transfer LPN contents
+* Transfer LPN contents.
 
-* Pack, unpack, consolidate, split, and update LPNs
+* Pack, unpack, consolidate, split, and update LPNs.
 
-* Print labels and reports for referencing container contents
+* Print labels and reports for referencing container contents.
 
-* Reuse empty LPNs
+* Reuse empty LPNs.
 
-* Receive and send LPN information on an Advanced Shipment Notice (ASN)
+* Receive and send LPN information on an Advanced Shipment Notice (ASN).
 
 ### LPN transactions in WMS
 
@@ -72,29 +72,29 @@ In WMS, LPNs support the following types of transactions:
 
 * **Update LPN transactions**: Update the weight, volume, and
   container item of an LPN. As with all other transactions, LPN transactions
-  for lot, serial, or revision-controlled material require you to enter the
+  for lot, serial, or revision-controlled material require that you enter the
   item controls.
 
 ### LPN context and status codes
 
 LPNs have the following context and status codes:
 
-**Resides in Inventory**: The material associated with the LPN has been costed
+**Resides in inventory**: The material associated with the LPN has been costed
 and accounted for in an inventory. An LPN with this context may not be used
-when receiving material against a standard or inspection-routed receipt, but
-may be used during a direct delivery-routed receipt. Outbound transactions can
-be performed on LPNs with this context, however.
+when receiving material against a standard or inspection-routed receipt. It
+may be used during a direct delivery-routed receipt. However, outbound
+transactions can be performed on LPNs with this context.
 
 **Resides in WIP**: The material associated with the LPN is being transacted
-in Work in Process (WIP). The material is not yet in inventory and has not
+as a work in process (WIP). The material is not yet in inventory and has not
 been costed to inventory.
 
-**Resides in Receiving**: The material associated with the LPN was received
+**Resides in receiving**: The material associated with the LPN was received
 using a standard routing or inspection routing receipt and has not been
 delivered or put away yet. It is not yet in inventory and has not been costed
 to inventory.
 
-**Issued out of Stores**: An LPN with this status is no longer tracked by the
+**Issued out of stores**: An LPN with this status is no longer tracked by the
 system, and therefore no longer associated with a locator within the
 warehouse. LPNs shipped out of inventory receive this context and may not be
 re-received.
@@ -106,12 +106,12 @@ as inbound, replenishment, outbound, or another stage.
 
 **In-transit**: The LPN material is currently moving from one location to
 another. Potential uses for this context include when an LPN is moved from one
-organization to the next. (For example, while the LPN is on a Vehicle or in '
+organization to the next. (For example, while the LPN is on a vehicle or in
 transit.) This context is often used for Internal Sales Orders (ISOs) or
 inter-organization transit where an indirect shipping network is defined
 between the organizations.
 
-**At Vendor**: This context is used when a vendor sends an ASN to Oracle WMS.
+**At vendor**: This context is used when a vendor sends an ASN to Oracle WMS.
 The system internally generates LPNs, associates them with the material
 information on the ASN, and assigns the LPNs this context. The materials
 associated with LPNs that have this context are not on-hand or costed until
@@ -121,10 +121,10 @@ they're received.
 away rules. It's a temporary status that the software uses internally as an
 intermediary.
 
-**Loaded to Dock/Shipments**: An LPN loaded for shipment has just been loaded
-onto a carrier and ready to leave the warehouse. After the carrier leaves the
-dock, the LPN is assigned a context of **Resides in transit** or **Issued out
-of stores**.
+**Loaded to dock or shipments**: An LPN loaded for shipment has just been
+loaded onto a carrier and ready to leave the warehouse. After the carrier
+leaves the dock, the LPN is assigned a context of **Resides in transit** or
+**Issued out of stores**.
 
 **Prepack for WIP**: This context value is used when the system has associated
 the LPN with material and printed the labels, but the material hasn't been
@@ -205,7 +205,7 @@ your label printing software and hardware.
 #### Use a mobile device to generate LPNs
 
 You can also use the Mobile Receipt & Task form to generate LPNs in
-Putty. To generate an LPN automatically, place the cursor in the
+PuTTy. To generate an LPN automatically, place the cursor in the
 **LPN** field, then press **Generate**. The system default shortcut key for
 **Generate** is **Ctrl+G**.
 

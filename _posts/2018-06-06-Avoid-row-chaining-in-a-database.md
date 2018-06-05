@@ -62,16 +62,15 @@ tablespace to gather the statistics.
 
 4.	Verify if there are chained rows with the following command:
 
+        ```
         SELECT CHAIN\_CNT FROM ALL\_TABLES WHERE OWNER=’HR’ AND TBALE\_NAME=’BIG_ROWS’;
 
-   ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot.png %})
+        ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot.png %})
+        ```
 
-<ol start="6">
-  <li> Create a tablespace with a different block size with the following command:
+5. Create a tablespace with a different block size with the following command:
 
-       CREATE TABLESPACE TS\_16K BLOCKSIZE 16K DATAFILE ‘TS_16K.DBF’ SIZE 30M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
-  </li>
-</ol>
+        CREATE TABLESPACE TS\_16K BLOCKSIZE 16K DATAFILE ‘TS_16K.DBF’ SIZE 30M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
 
 7.	Move the table BIG_ROWS to the tablespace just created with the following command:
 

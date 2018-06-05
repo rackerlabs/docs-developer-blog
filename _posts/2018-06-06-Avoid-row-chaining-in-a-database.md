@@ -64,9 +64,7 @@ tablespace to gather the statistics.
 
         SELECT CHAIN_CNT FROM ALL_TABLES WHERE OWNER=’HR’ AND TBALE_NAME=’BIG_ROWS’;
 
-        ```
-        ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot.png %})
-        ```
+   ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot.png %})
 
 5. Create a tablespace with a different block size with the following command:
 

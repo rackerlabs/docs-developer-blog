@@ -120,6 +120,23 @@ organizations. To perform a direct inter-organization LPN transfer, use the foll
 10. Select **Save/Next** to transfer another LPN, **Done** to complete the
     transfer, or **Cancel** to cancel the transfer.
 
+### Mobile PuTTy shortcuts
+
+| Action | Shortcut |
+|----------------------|--------|
+| Help | F1 |
+| Return to menu | F2 |
+| Back | F3 |
+| Forward | F4 |
+| Clear | Ctrl+K |
+| See values in LOV | Ctrl+L |
+| Return to Main Menu | Ctrl+N |
+| Expand popup message | Ctrl+B |
+| Toggle | Ctrl+Q |
+| Hot key | Esc |
+| Page up | Ctrl+D |
+| Page down | Ctrl+C |
+
 ### Conclusion
 
 The information in this post is intended to help you gain an understanding of

@@ -43,50 +43,50 @@ tablespace to gather the statistics.
 
 1. Create the table BIG\_ROWS with the following command:
 
-        CREATE TABLE HR.BIG_ROWS (
-		     Id number not null,
-		     Field1 char(2000) default ‘A’ not null,
+       CREATE TABLE HR.BIG_ROWS (
+           Id number not null,
+           Field1 char(2000) default ‘A’ not null,
            Field2 char(2000) default ‘B’ not null,
-		     Field3 char(2000) default ‘B’ not null,
-		     Field4 char(2000) default ‘D’ not null,
-		     Field5 char(2000) default ‘E’ not null,
-		     Constraint pk_big_rows primary key (id));
+           Field3 char(2000) default ‘B’ not null,
+           Field4 char(2000) default ‘D’ not null,
+           Field5 char(2000) default ‘E’ not null,
+           Constraint pk_big_rows primary key (id));
 
 2. Populate the table with the following command:
 
-        INSERT INTO HR.BIG_ROWS (ID) SELECT ROWNUM FROM SYS.DBA_OBJECTS WHERE ROWNUM<101;
+       INSERT INTO HR.BIG_ROWS (ID) SELECT ROWNUM FROM SYS.DBA_OBJECTS WHERE ROWNUM<101;
 
 3. Analyze the table to refresh the statistics with the following command:
 
-        ANALYZE TABLE HR.BIG_ROWS COMPUTE STATISTICS;
+       ANALYZE TABLE HR.BIG_ROWS COMPUTE STATISTICS;
 
 4. Verify if there are chained rows with the following command:
 
-        SELECT CHAIN_CNT FROM ALL_TABLES WHERE OWNER=’HR’ AND TBALE_NAME=’BIG_ROWS’;
+       SELECT CHAIN_CNT FROM ALL_TABLES WHERE OWNER=’HR’ AND TBALE_NAME=’BIG_ROWS’;
 
    ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot.png %})
 
 5. Create a tablespace with a different block size with the following command:
 
-        CREATE TABLESPACE TS_16K BLOCKSIZE 16K DATAFILE ‘TS_16K.DBF’ SIZE 30M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+       CREATE TABLESPACE TS_16K BLOCKSIZE 16K DATAFILE ‘TS_16K.DBF’ SIZE 30M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
 
 6. Move the table BIG_ROWS to the tablespace just created with the following command:
 
-        ALTER TABLE HR.BIG_ROWS MOVE TABLESPACE TS_16K;
+       ALTER TABLE HR.BIG_ROWS MOVE TABLESPACE TS_16K;
 
 7. Rebuild the indexes as they are unusable after the move with the following command:
 
-        ALTER INDEX HR.PK_BIG_ROWS REBUILD;
+       ALTER INDEX HR.PK_BIG_ROWS REBUILD;
 
 8. Analyze the table to refresh the statistics with the following command:
 
-        ANALYZE TABLE HR.BIG_ROWS COMPUTE STATISTICS;
+       ANALYZE TABLE HR.BIG_ROWS COMPUTE STATISTICS;
 
 9. Validate if row chain still exists with the following command:
 
-        SELECT CHAIN_CNT FROM ALL_TABLES WHERE OWNER=’HR’ AND TABLE_NAME=’BIG_ROWS’;
+       SELECT CHAIN_CNT FROM ALL_TABLES WHERE OWNER=’HR’ AND TABLE_NAME=’BIG_ROWS’;
 
-    ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot2.png %})
+   ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot2.png %})
 
 ### Index rebuild after moving a table
 

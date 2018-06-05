@@ -25,7 +25,7 @@ row is split across more than one database block. When you need to access this
 row, the system traverses more than one database block, resulting in more I/O
 operations, as shown in the following illustration:
 
-![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/picture1.png %})
+![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/Picture1.png %})
 
 ### Basic assumption to test the scenario:
 

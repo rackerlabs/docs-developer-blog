@@ -41,7 +41,7 @@ To better understanding row chaining, use the following steps to create a new
 tablespace using a larger block size and move the table into the newly created
 tablespace to gather the statistics.
 
-1.	Create the table BIG\_ROWS with the following command:
+1. Create the table BIG\_ROWS with the following command:
 
         CREATE TABLE HR.BIG_ROWS (
 		     Id number not null,
@@ -52,15 +52,15 @@ tablespace to gather the statistics.
 		     Field5 char(2000) default ‘E’ not null,
 		     Constraint pk_big_rows primary key (id));
 
-2.	Populate the table with the following command:
+2. Populate the table with the following command:
 
         INSERT INTO HR.BIG_ROWS (ID) SELECT ROWNUM FROM SYS.DBA_OBJECTS WHERE ROWNUM<101;
 
-3.	Analyze the table to refresh the statistics with the following command:
+3. Analyze the table to refresh the statistics with the following command:
 
         ANALYZE TABLE HR.BIG_ROWS COMPUTE STATISTICS;
 
-4.	Verify if there are chained rows with the following command:
+4. Verify if there are chained rows with the following command:
 
         SELECT CHAIN_CNT FROM ALL_TABLES WHERE OWNER=’HR’ AND TBALE_NAME=’BIG_ROWS’;
 
@@ -70,19 +70,19 @@ tablespace to gather the statistics.
 
         CREATE TABLESPACE TS_16K BLOCKSIZE 16K DATAFILE ‘TS_16K.DBF’ SIZE 30M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
 
-7.	Move the table BIG_ROWS to the tablespace just created with the following command:
+6. Move the table BIG_ROWS to the tablespace just created with the following command:
 
         ALTER TABLE HR.BIG_ROWS MOVE TABLESPACE TS_16K;
 
-8.	Rebuild the indexes as they are unusable after the move with the following command:
+7. Rebuild the indexes as they are unusable after the move with the following command:
 
         ALTER INDEX HR.PK_BIG_ROWS REBUILD;
 
-9.	Analyze the table to refresh the statistics with the following command:
+8. Analyze the table to refresh the statistics with the following command:
 
         ANALYZE TABLE HR.BIG_ROWS COMPUTE STATISTICS;
 
-10. Validate if row chain still exists with the following command:
+9. Validate if row chain still exists with the following command:
 
         SELECT CHAIN_CNT FROM ALL_TABLES WHERE OWNER=’HR’ AND TABLE_NAME=’BIG_ROWS’;
 

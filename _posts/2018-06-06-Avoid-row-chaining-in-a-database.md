@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Avoid row chaining in a database"
-date: 2018-06-04 00:00
+date: 2018-06-06 00:00
 comments: true
 author: Mukesh Kumar
 published: true
@@ -64,7 +64,7 @@ tablespace to gather the statistics.
 
         SELECT CHAIN\_CNT FROM ALL\_TABLES WHERE OWNER=’HR’ AND TBALE\_NAME=’BIG_ROWS’;
 
-![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot.png %})
+   ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot.png %})
 
 6.	Create a tablespace with a different block size with the following command:
 
@@ -86,7 +86,7 @@ tablespace to gather the statistics.
 
         SELECT CHAIN\_CNT FROM ALL\_TABLES WHERE OWNER=’HR’ AND TABLE\_NAME=’BIG_ROWS’;
 
-![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot2.png %})
+    ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot2.png %})
 
 ### Index rebuild after moving a table
 

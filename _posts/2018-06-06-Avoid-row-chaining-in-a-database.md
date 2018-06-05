@@ -27,8 +27,6 @@ operations, as shown in the following illustration:
 
 ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/Picture1.png %})
 
-Figure 1: Block chain illustration
-
 ### Basic assumption to test the scenario:
 
 Before we start, we need to alter an initialization parameter. Assuming the
@@ -68,11 +66,12 @@ tablespace to gather the statistics.
 
    ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot.png %})
 
-   Figure 2: Results of select command
+<ol start="6">
+  <li> Create a tablespace with a different block size with the following command:
 
-6.	Create a tablespace with a different block size with the following command:
-
-        CREATE TABLESPACE TS\_16K BLOCKSIZE 16K DATAFILE ‘TS_16K.DBF’ SIZE 30M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+       CREATE TABLESPACE TS\_16K BLOCKSIZE 16K DATAFILE ‘TS_16K.DBF’ SIZE 30M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+  </li>
+</ol>
 
 7.	Move the table BIG_ROWS to the tablespace just created with the following command:
 
@@ -91,8 +90,6 @@ tablespace to gather the statistics.
         SELECT CHAIN\_CNT FROM ALL\_TABLES WHERE OWNER=’HR’ AND TABLE\_NAME=’BIG_ROWS’;
 
     ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot2.png %})
-
-    Figure 3: Results of select command
 
 ### Index rebuild after moving a table
 

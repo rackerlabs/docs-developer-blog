@@ -66,27 +66,37 @@ tablespace to gather the statistics.
 
    ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot.png %})
 
-5. Create a tablespace with a different block size with the following command:
+<ol start=5>
+    <li> Create a tablespace with a different block size with the following command:</li>
+</ol>
 
        CREATE TABLESPACE TS_16K BLOCKSIZE 16K DATAFILE ‘TS_16K.DBF’ SIZE 30M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
 
-6. Move the table BIG_ROWS to the tablespace just created with the following command:
+<ol start=6>
+    <li> Move the table BIG_ROWS to the tablespace just created with the following command:</li>
+</ol>
 
        ALTER TABLE HR.BIG_ROWS MOVE TABLESPACE TS_16K;
 
-7. Rebuild the indexes as they are unusable after the move with the following command:
+<ol start=7>
+    <li> Rebuild the indexes as they are unusable after the move with the following command:</i>
+</ol>
 
        ALTER INDEX HR.PK_BIG_ROWS REBUILD;
 
-8. Analyze the table to refresh the statistics with the following command:
+<ol start=8>
+    <li> Analyze the table to refresh the statistics with the following command: </li>
 
        ANALYZE TABLE HR.BIG_ROWS COMPUTE STATISTICS;
+</ol>
 
-9. Validate if row chain still exists with the following command:
+<ol start=9>
+    <li> Validate if row chain still exists with the following command: </i>
+</ol>
 
        SELECT CHAIN_CNT FROM ALL_TABLES WHERE OWNER=’HR’ AND TABLE_NAME=’BIG_ROWS’;
 
-   ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot2.png %})
+![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot2.png %})
 
 ### Index rebuild after moving a table
 

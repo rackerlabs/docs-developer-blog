@@ -70,31 +70,31 @@ tablespace to gather the statistics.
     <li> Create a tablespace with a different block size with the following command:</li>
 </ol>
 
-       CREATE TABLESPACE TS_16K BLOCKSIZE 16K DATAFILE ‘TS_16K.DBF’ SIZE 30M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
+       CREATE TABLESPACE TS\_16K BLOCKSIZE 16K DATAFILE ‘TS\_16K.DBF’ SIZE 30M EXTENT MANAGEMENT LOCAL UNIFORM SIZE 1M;
 
 <ol start=6>
     <li> Move the table BIG_ROWS to the tablespace just created with the following command:</li>
 </ol>
 
-       ALTER TABLE HR.BIG_ROWS MOVE TABLESPACE TS_16K;
+       ALTER TABLE HR.BIG\_ROWS MOVE TABLESPACE TS\_16K;
 
 <ol start=7>
     <li> Rebuild the indexes as they are unusable after the move with the following command:</i>
 </ol>
 
-       ALTER INDEX HR.PK_BIG_ROWS REBUILD;
+       ALTER INDEX HR.PK\_BIG\_ROWS REBUILD;
 
 <ol start=8>
     <li> Analyze the table to refresh the statistics with the following command: </li>
 
-       ANALYZE TABLE HR.BIG_ROWS COMPUTE STATISTICS;
+       ANALYZE TABLE HR.BIG\_ROWS COMPUTE STATISTICS;
 </ol>
 
 <ol start=9>
     <li> Validate if row chain still exists with the following command: </i>
 </ol>
 
-       SELECT CHAIN_CNT FROM ALL_TABLES WHERE OWNER=’HR’ AND TABLE_NAME=’BIG_ROWS’;
+       SELECT CHAIN\_CNT FROM ALL\_TABLES WHERE OWNER=’HR’ AND TABLE\_NAME=’BIG\_ROWS’;
 
 ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/screenshot2.png %})
 
@@ -137,3 +137,4 @@ points to keep in mind:
 
 One of the sources for this post is:
 [https://www.akadia.com/services/ora_chained_rows.html](https://www.akadia.com/services/ora_chained_rows.html)
+

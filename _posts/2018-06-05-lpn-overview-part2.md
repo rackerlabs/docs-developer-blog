@@ -122,6 +122,8 @@ organizations. To perform a direct inter-organization LPN transfer, use the foll
 
 ### Mobile PuTTy shortcuts
 
+You can use the following shortcuts when using PuTTy on your mobile device:
+
 | Action | Shortcut |
 |----------------------|--------|
 | Help | F1 |

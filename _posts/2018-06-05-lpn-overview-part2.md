@@ -104,7 +104,7 @@ organizations. To perform a direct inter-organization LPN transfer, use the foll
 
    <li>Enter the <b>Transaction Type</b>.</li>
 
-   <li><p>Optionally, in the <b>LPN</b> field, enter the LPN you want to
+   <li><p>Optionally, in the <b>LPN</b> field, enter the LPN that you want to
    transfer.</p>
 
    <p><b>Note</b>: If you don't enter an LPN, you must enter the <b>Item</b>,

@@ -10,10 +10,10 @@ categories:
     - General
 ---
 
-In Part 1 of this two-part series we introduced License Plate Numbers (LPN) in
-the Oracle&reg; Warehouse Management System (WMS). In this followup post we'll
-discuss describe the various types of inventory transactions you can perform
-with License Plate Numbers (LPN).
+In Part 1 of this two-part series, we introduced License Plate Numbers (LPNs)
+in the Oracle&reg; Warehouse Management System (WMS). In this followup post
+we'll discuss describe the various types of inventory transactions you can
+perform with LPNs.
 
 <!-- more -->
 
@@ -37,92 +37,90 @@ You can perform a miscellaneous issue on an LPN that's on hand in the current
 organization. To perform a miscellaneous issue for an LPN, use the following
 steps:
 
-1. Log on to PuTTy on the mobile device.
+1. Log in to PuTTy on the mobile device.
 
-2. Navigate to the **Miscellaneous Issue** page.
-
-3. Select **Responsibility > WHSE Mgmt > Warehousing > Inventory > Issues >
-   Misc Issue**.
+2. From the **Miscellaneous Issue** page, select **Responsibility > WHSE Mgmt
+   > Warehousing > Inventory > Issues > Misc Issue**.
 
    ![Screenshot]({% asset_path 2018-06-05-lpn-overview-part2/picture1.png %})
 
-4. In the **Acct** field, enter the adjustment account for the issue and the
-   corresponding receipt.
+<ol start=4>
+   <li>In the **Acct** field, enter the adjustment account for the issue and
+   the corresponding receipt.</li>
 
-5. In the **LPN** field, enter the LPN to transact.
+   <li><p>In the **LPN** field, enter the LPN you want to transact.</p>
 
-   **Note**: The LPN must be on hand in the current organization.
+   <p>**Note**: The LPN must be physically located at the current organization.</p></li>
 
-6. Optionally, enter a reason for the issue in the **Reason** field.
+   <li>Optionally, in the **Reason** field, you may enter a reason for the
+   issue.</li>
 
-7. Select **Save/Next** to enter additional transfers, **Done** to complete
-   the transaction, or **Cancel** to cancel the issue.
+   <li>Select **Done**.</li>
+</ol>
 
 #### Perform a subinventory LPN transfer
 
 To perform a subinventory LPN transfer, use the following steps:
 
-1. Log on to PuTTy on the mobile device.
+1. Log in to PuTTy on the mobile device.
 
-2. Navigate to the **Sub Transfer** page.
-
-3. Select **Responsibility > WHSE Mgmt > Warehousing > Inventory > Transfers >
-   Sub Transfer**.
+2. From the **Sub Transfer** page, select **Responsibility > WHSE Mgmt >
+   Warehousing > Inventory > Transfers > Sub Transfer**.
 
    ![Screenshot]({% asset_path 2018-06-05-lpn-overview-part2/picture2.png %})
 
-4. Enter or select the LPN from which you want to perform the transfer.
+<ol start=4>
+   <li>Enter the LPN you want to transfer from.</li>
 
-5. In the **To Sub** field, enter or select the subinventory you want
-   to transfer the LPN to.
+   <li>In the **To Sub** field, enter the subinventory you want
+   to transfer the LPN to.</li>
 
-6. In the **To Loc** field, enter or select the destination locator for the
-   LPN.
+   <li>In the **To Loc** field, enter the destination locator for the
+   LPN.</li>
 
-7. In the **Reason** field, optionally enter or select a reason for the
-   transfer.
+   <li>Optionally, in the **Reason** field, you may enter a reason for the
+   transfer.</li>
 
-8. Select **Save/Next** to enter additional transfers, **Done** to complete
-   the transfer, or **Cancel** to cancel the transfer.
+   <li>Select **Done**.</li>
+</ol>   
 
 #### Perform a direct inter-organization transfer
 
 You can also transfer LPNs to Oracle Warehouse Management-enabled
 organizations. To perform a direct inter-organization LPN transfer, use the following steps:
 
-1. Log on to PuTTy on the mobile device.
+1. Log in to PuTTy on the mobile device.
 
-2. Navigate to the **Sub Transfer** page.
-
-3. Select **Responsibility > WHSE Mgmt > Warehousing > Inventory > Transfers >
-   Org Transfer**.
+2. From the **Sub Transfer** page, select **Responsibility > WHSE Mgmt >
+   Warehousing > Inventory > Transfers > Org Transfer**.
 
    ![Screenshot]({% asset_path 2018-06-05-lpn-overview-part2/picture3.png %})
 
-4. If necessary, enter or select the **from** organization.
+<ol start=4>
+   <li>If necessary, enter the organization to transfer **from**.</li>
 
-5. Enter or select the **to** organization.
+   <li><p>Enter the organization to transfer **to**.</p>
 
-   **Note**: You can only transfer LPNs to Oracle Warehouse Management-enabled
-   organizations.
+   <p>**Note**: You can only transfer LPNs to organizations that use Oracle Warehouse Management.</p></li>
 
-6. Enter or select the **Transaction Type**.
+   <li>Enter the **Transaction Type**.</li>
 
-7. Optionally, in the **LPN** field, enter or select the LPN to transfer.
+   <li><p>Optionally, in the **LPN** field, enter the LPN you want to
+   transfer.</p>
 
-   **Note**: If you do not enter an LPN you must enter the **Item**,
-   **Subinventory**, and **Locator** information.
+   <p>**Note**: If you don't enter an LPN, you must enter the **Item**,
+   **Subinventory**, and **Locator** information.</p></li>
 
-8. In the **To Sub** field, enter the destination subinventory.
+   <li>In the **To Sub** field, enter the destination subinventory.</li>
 
-9. In the **To Loc** field, enter the destination locator.
+   <li>In the **To Loc** field, enter the destination locator.</li>
 
-10. Select **Save/Next** to transfer another LPN, **Done** to complete the
-    transfer, or **Cancel** to cancel the transfer.
+   <li>Select **Done**.</li>
 
 ### Mobile PuTTy shortcuts
 
-You can use the following shortcuts when using PuTTy on your mobile device:
+You can save time with the following shortcuts when using PuTTy on your mobile
+device:
 
 | Action | Shortcut |
 |----------------------|--------|

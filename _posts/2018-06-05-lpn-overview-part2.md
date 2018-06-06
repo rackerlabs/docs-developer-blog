@@ -128,20 +128,20 @@ organizations. To perform a direct inter-organization LPN transfer, use the foll
 When using PuTTy on your mobile device, you can save time with the following
 shortcuts:
 
-| Action               	| Key(s)   	|
-|----------------------	|--------	|
-| Help                 	| F1     	|
-| Return to menu       	| F2     	|
-| Back                 	| F3     	|
-| Forward              	| F4     	|
-| Clear                	| Ctrl+K 	|
-| See values in LOV    	| Ctrl+L 	|
-| Return to Main Menu  	| Ctrl+N 	|
-| Expand popup message 	| Ctrl+B 	|
-| Toggle               	| Ctrl+Q 	|
-| Hot key              	| Esc    	|
-| Page up              	| Ctrl+D 	|
-| Page down            	| Ctrl+C 	|
+| Action               		| Key(s)   	|
+|----------------------		|--------	|
+| Help                 		| F1     	|
+| Return to menu       		| F2     	|
+| Back                 		| F3     	|
+| Forward              		| F4     	|
+| Clear                		| Ctrl+K 	|
+| See values in LOV    		| Ctrl+L 	|
+| Return to Main Menu  		| Ctrl+N 	|
+| Expand popup message 		| Ctrl+B 	|
+| Toggle               		| Ctrl+Q 	|
+| Hot key              		| Esc    	|
+| Page up              		| Ctrl+D 	|
+| Page down            		| Ctrl+C 	|
 
 <p></p>
 

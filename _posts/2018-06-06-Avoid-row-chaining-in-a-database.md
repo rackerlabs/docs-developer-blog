@@ -22,8 +22,8 @@ it completely.
 Normally, we encounter row chaining when the size of a database row is larger
 than the size of the database block used for storing it. In this situation, the
 row is split across more than one database block. When you need to access this
-row, the system traverses more than one database block, resulting in more I/O
-operations, as shown in the following illustration:
+row, the system traverses more than one database block, resulting in more
+input/output (I/O) operations, as shown in the following illustration:
 
 ![]({% asset_path 2018-06-06-Avoid-row-chaining-in-a-database/Picture1.png %})
 
@@ -134,6 +134,16 @@ points to keep in mind:
   ``V$SYSSTAT`` view.
 - To remove chained rows, set a higher PCTFREE value by using the alter table
   move command.
+
+### Conclusion:
+
+I/O is the main culprit for Oracle database performance issues. If a database
+is having row chaining issues , the process needs to traverse more database
+blocks to complete the task, which in turns degrades the database performance.
+By removing row chaining, we can reduce the number of blocks that the Oracle
+processes need to traverse.
+
+Send us any questions you may have on this topic by commenting on this post.
 
 One of the sources for this post is:
 [https://www.akadia.com/services/ora_chained_rows.html](https://www.akadia.com/services/ora_chained_rows.html)

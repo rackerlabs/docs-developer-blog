@@ -39,8 +39,7 @@ steps:
 
 1. Log in to PuTTy on the mobile device.
 
-2. From the **Miscellaneous Issue** page, select **Responsibility > WHSE Mgmt
-   > Warehousing > Inventory > Issues > Misc Issue**.
+2. From the **Miscellaneous Issue** page, select **Responsibility > WHSE Mgmt > Warehousing > Inventory > Issues > Misc Issue**.
 
    ![Screenshot]({% asset_path 2018-06-05-lpn-overview-part2/picture1.png %})
 
@@ -122,7 +121,7 @@ organizations. To perform a direct inter-organization LPN transfer, use the foll
 When using PuTTy on your mobile device, you can save time with the following
 shortcuts:
 
-| Action | Shortcut |
+|  |  |
 |----------------------|--------|
 | Help | F1 |
 | Return to menu | F2 |
@@ -136,6 +135,7 @@ shortcuts:
 | Hot key | Esc |
 | Page up | Ctrl+D |
 | Page down | Ctrl+C |
+
 
 ### Conclusion
 

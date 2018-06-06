@@ -139,7 +139,7 @@ device:
 
 ### Conclusion
 
-The information in this post is intended to help you gain an understanding of
+This post is intended to help you gain an understanding of
 how to work with LPNs in Oracle WMS by using a mobile interface. It explains
 various inventory transactions you can perform with LPNs. Thanks to LPNs,
 these transactions process quickly. LPNs simplify management for organizations

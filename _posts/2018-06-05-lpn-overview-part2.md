@@ -98,9 +98,15 @@ organizations. To perform a direct inter-organization LPN transfer, use the foll
 <ol start=3>
    <li>If necessary, enter the organization to transfer <b>from</b>.</li>
 
-   <li><p>Enter the organization to transfer <b>to</b>.</p>
-
-   <p><b>Note</b>: You can only transfer LPNs to organizations that use Oracle Warehouse Management.</p></li>
+   <li>
+      <p>
+         Enter the organization to transfer <b>to</b>.
+      </p>
+      <p>
+         <b>Note</b>: You can only transfer LPNs to organizations that use
+         Oracle Warehouse Management.
+      </p>
+   </li>
 
    <li>Enter the <b>Transaction Type</b>.</li>
 

@@ -44,18 +44,18 @@ steps:
 
    ![Screenshot]({% asset_path 2018-06-05-lpn-overview-part2/picture1.png %})
 
-<ol start=4>
-   <li>In the **Acct** field, enter the adjustment account for the issue and
+<ol start=3>
+   <li>In the <b>Acct</b> field, enter the adjustment account for the issue and
    the corresponding receipt.</li>
 
-   <li><p>In the **LPN** field, enter the LPN you want to transact.</p>
+   <li><p>In the <b>LPN</b> field, enter the LPN you want to transact.</p>
 
-   <p>**Note**: The LPN must be physically located at the current organization.</p></li>
+   <p><b>Note</b>: The LPN must be physically located at the current organization.</p></li>
 
-   <li>Optionally, in the **Reason** field, you may enter a reason for the
+   <li>Optionally, in the <b>Reason</b> field, you may enter a reason for the
    issue.</li>
 
-   <li>Select **Done**.</li>
+   <li>Select <b>Done</b>.</li>
 </ol>
 
 #### Perform a subinventory LPN transfer
@@ -69,19 +69,19 @@ To perform a subinventory LPN transfer, use the following steps:
 
    ![Screenshot]({% asset_path 2018-06-05-lpn-overview-part2/picture2.png %})
 
-<ol start=4>
-   <li>Enter the LPN you want to transfer from.</li>
+<ol start=3>
+   <li>Enter the <b>LPN</b> you want to transfer from.</li>
 
-   <li>In the **To Sub** field, enter the subinventory you want
+   <li>In the <b>To Sub</b> field, enter the subinventory you want
    to transfer the LPN to.</li>
 
-   <li>In the **To Loc** field, enter the destination locator for the
+   <li>In the <b>To Loc</b> field, enter the destination locator for the
    LPN.</li>
 
-   <li>Optionally, in the **Reason** field, you may enter a reason for the
+   <li>Optionally, in the <b>Reason</b> field, you may enter a reason for the
    transfer.</li>
 
-   <li>Select **Done**.</li>
+   <li>Select <b>Done</b>.</li>
 </ol>   
 
 #### Perform a direct inter-organization transfer
@@ -96,26 +96,26 @@ organizations. To perform a direct inter-organization LPN transfer, use the foll
 
    ![Screenshot]({% asset_path 2018-06-05-lpn-overview-part2/picture3.png %})
 
-<ol start=4>
-   <li>If necessary, enter the organization to transfer **from**.</li>
+<ol start=3>
+   <li>If necessary, enter the organization to transfer <b>from</b>.</li>
 
-   <li><p>Enter the organization to transfer **to**.</p>
+   <li><p>Enter the organization to transfer <b>to</b>.</p>
 
-   <p>**Note**: You can only transfer LPNs to organizations that use Oracle Warehouse Management.</p></li>
+   <p><b>Note</b>: You can only transfer LPNs to organizations that use Oracle Warehouse Management.</p></li>
 
-   <li>Enter the **Transaction Type**.</li>
+   <li>Enter the <b>Transaction Type</b>.</li>
 
-   <li><p>Optionally, in the **LPN** field, enter the LPN you want to
+   <li><p>Optionally, in the <b>LPN</b> field, enter the LPN you want to
    transfer.</p>
 
-   <p>**Note**: If you don't enter an LPN, you must enter the **Item**,
-   **Subinventory**, and **Locator** information.</p></li>
+   <p><b>Note</b>: If you don't enter an LPN, you must enter the <b>Item</b>,
+   <b>Subinventory</b>, and <b>Locator</b> information.</p></li>
 
-   <li>In the **To Sub** field, enter the destination subinventory.</li>
+   <li>In the <b>To Sub</b> field, enter the destination subinventory.</li>
 
-   <li>In the **To Loc** field, enter the destination locator.</li>
+   <li>In the <b>To Loc</b> field, enter the destination locator.</li>
 
-   <li>Select **Done**.</li>
+   <li>Select <b>Done</b>.</li>
 
 ### Mobile PuTTy shortcuts
 

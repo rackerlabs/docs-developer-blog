@@ -147,4 +147,3 @@ Send us any questions you may have on this topic by commenting on this post.
 
 One of the sources for this post is:
 [https://www.akadia.com/services/ora_chained_rows.html](https://www.akadia.com/services/ora_chained_rows.html)
-

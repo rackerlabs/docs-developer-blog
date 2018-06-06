@@ -115,6 +115,7 @@ organizations. To perform a direct inter-organization LPN transfer, use the foll
    <li>In the <b>To Loc</b> field, enter the destination locator.</li>
 
    <li>Select <b>Done</b>.</li>
+</ol>
 
 ### Mobile PuTTy shortcuts
 

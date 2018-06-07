@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LACP bonding and Linux configuration"
-date: 2018-06-06 00:00
+date: 2018-06-07 00:00
 comments: true
 author: Narender Kumar
 published: true
@@ -10,23 +10,23 @@ categories:
     - General
 ---
 
-In this blog, we introduce Link Aggregation Control Protocol (LACP) bonding and
-step-by-step configuration of LACP bonding on Red Hat Enterprise Linux (RHEL)
-and CentOS operating systems ver. 6 & 7.
+This blog introduces Link Aggregation Control Protocol (LACP) bonding and
+provides step-by-step configuration of LACP bonding on Red Hat Enterprise Linux
+(RHEL) and CentOS operating systems versions 6 and 7.
 
 <!-- more -->
 
 ### Introduction
 
-Network bonding allows us to combine two or more network interfaces into a
+Network bonding enables the combinination two or more network interfaces into a
 single-bonded (logical) interface, which increases the bandwidth and provides
-redundancy. If a specific Network Interface Card (NIC) experiences a problem,
+redundancy. If a specific network interface card (NIC) experiences a problem,
 communications are not affected significantly as long as the other slave NICs
 remain active.
 
 ### Bonding modes supported by RHEL and CentOS operating systems
 
-The behaviour of the bonded interfaces depends upon the mode that is selected.
+The behavior of the bonded interfaces depends on the mode that is selected.
 RHEL supports the following common bonding modes:
 
 - **Mode 0 (balance-rr)**: This mode is also known as round-robin mode. Packets
@@ -40,7 +40,7 @@ RHEL supports the following common bonding modes:
   is visible on only one port (the network adapter), which prevents confusion
   for the switch. Mode 1 provides fault tolerance.
 
-- **Mode 2 (balance-xor)**: Source MAC address uses exclusive or (XOR) logic
+- **Mode 2 (balance-xor)**: The source MAC address uses exclusive or (XOR) logic
   with the destination MAC address. This calculation ensures that the same
   slave interface is selected for each destination MAC address. Mode 2 provides
   fault tolerance and load balancing.
@@ -56,28 +56,28 @@ RHEL supports the following common bonding modes:
   speed. It provides fault tolerance and load balancing.
 
 - **Mode 5 (balance-tlb)**: This mode ensures that the outgoing traffic
-  distribution is according to the load on each interface and that the current
+  distribution is set according to the load on each interface and that the current
   interface receives all the incoming traffic. If the assigned interface fails
   to receive traffic, another interface is assigned to the receiving role. It
   provides fault tolerance and load balancing.
 
-- **Mode 6 (balance-alb)**: This mode is only supported in x86 environments.
-  The receiving packets are load balanced through Address Resolution protocol
+- **Mode 6 (balance-alb)**: This mode is supported only in x86 environments.
+  The receiving packets are load balanced through Address Resolution Protocol
   (ARP) negotiation. This mode provides fault tolerance and load balancing.
 
 
 ### IEEE 802.3ad Link Aggregation Policy and LACP
 
-Before we explore LACP configuration, we should understand the IEEE 802.3ad Link
-Aggregation Policy and LACP bonding, which allows us to aggregate multiple ports
+Before we explore LACP configuration, we should understand the IEEE 802.3ad link
+aggregation policy and LACP bonding, which allows us to aggregate multiple ports
 into a single group. This process combines the bandwidth into a single
 connection.
 
-IEEE 802.3ad link aggregation enables us to group ethernet interfaces at the
+IEEE 802.3ad link aggregation enables us to group Ethernet interfaces at the
 physical layer to form a single link layer interface, also known as a link
 aggregation group (LAG) or bundle.
 
-Some users require more bandwidth in their network than a single fast ethernet
+Some users require more bandwidth in their network than a single fast Ethernet
 link can provide. Using IEEE 802.3ad link aggregation in this situation provides
 increased port density and bandwidth at a lower cost.
 
@@ -86,7 +86,7 @@ Fast Ethernet links installed on your system, creating a LAG bundle containing
 two 1 GBPS Fast Ethernet links is more cost-effective than purchasing a single
 2 GBPS Ethernet link.
 
-The following diagram illustrates the IEEE 802.3ad Link Aggregation Policy:
+The following diagram illustrates the IEEE 802.3ad link aggregation policy:
 
 ![]({% asset_path 2018-06-07-lacp-bonding-and-linux-configuration/LAP-diagram.png %})
 
@@ -103,11 +103,11 @@ This bonding mode requires a switch that supports IEEE 802.3ad dynamic links.
 
 ### Steps to configure LACP bonding
 
-Preparation: Collect the required details to configure bonding. I recently
+Preparation: Collect the required details to configure bonding. We recently
 implemented on production servers the scenario shown in the following table.
-I changed the IP address, MAC and UUID details to maintain security.
+We changed the IP address, MAC, and UUID details to maintain security.
 
-| Bond Interface | bond1 |
+| Bond interface | bond1 |
 | --- | --- |
 | Bonding type | 802.3ad |
 | Bonding options | miimon=100,lacp\_rate=fast,xmit\_hash\_policy=layer2+3 |
@@ -115,15 +115,15 @@ I changed the IP address, MAC and UUID details to maintain security.
 | MTU | 9000 |
 | IP address/prefix | 179.254.0.2/16 |
 
-The following sections show the steps to configure LACP bonding using the
-command line interfacce (cli) and the NetworkManager command line interface
+The following sections show the steps to configure LACP bonding by using the
+command line interface (cli) and the NetworkManager command line interface
 (nmcli) tools.
 
-#### Steps to configure LACP bonding on RHEL or CentOS 6 using the cli tool
+#### Steps to configure LACP bonding on RHEL or CentOS 6 by using the cli tool
 
 1. Backup the existing interfaces before you configure the bonding. Bring
    ``$slave1`` and ``$slave2`` down and move these files to a backup
-   directory, by using the following commands:
+   directory by using the following commands:
 
         ~]# ifdown p5p1 ; ifdown p5p2
         ~]#cd /etc/sysconfig/network-scripts
@@ -152,7 +152,7 @@ command line interfacce (cli) and the NetworkManager command line interface
         DNS1=<DNS_IP>
         BONDING_OPTS="mode=802.3ad miimon=100 lacp_rate=fast xmit_hash_policy=layer2+3"
 
-4.	Modify the slave interfaces (``slave1`` and ``slave2``) configuration by
+4.	Modify the slave interface (``slave1`` and ``slave2``) configurations by
    using the following commands:
 
         ~]#cat ifcfg-p5p1
@@ -182,8 +182,8 @@ command line interfacce (cli) and the NetworkManager command line interface
 
         ~]# init 6
 
-6.	After the service or server restart, check the proc for a bond interface by
-   using the following command:
+6.	After the service or server restart, check the ``proc`` for a bond interface
+   by using the following command:
 
         ~]# cat /proc/net/bonding/bond0
         Ethernet Channel Bonding Driver: v3.7.1 (April 27, 2011)
@@ -224,12 +224,12 @@ command line interfacce (cli) and the NetworkManager command line interface
         Aggregator ID: 2
         Slave queue ID: 0
 
-7.	Execute``ifconfig -a`` and check that your ``bond1`` interface is active.
+7.	Execute ``ifconfig -a`` and check that your ``bond1`` interface is active.
 
-This completes the configuration of LACP bonding on RHEL or CentOS 6 using the
+This completes the configuration of LACP bonding on RHEL or CentOS 6 by using the
 cli tool.
 
-#### Steps to configure LACP bonding on RHEL or CentOS 7 using the nmcli tool
+#### Steps to configure LACP bonding on RHEL or CentOS 7 by using the nmcli tool
 
 1.	Backup the existing interfaces that you plan to configure as bond slaves by
    using the following commands:
@@ -281,7 +281,7 @@ cli tool.
         ~]#systemctl restart NetworkManager
 
 5.	Check the status of the bond and slave interfaces to verify that the bond1
-   interface is running by using the following commands:.
+   interface is running by using the following commands:
 
         ~]#nmcli con
         NAME        UUID                                  TYPE            DEVICE
@@ -342,7 +342,7 @@ cli tool.
             inet 179.254.0.2/16 brd 169.254.255.255 scope link bond1
 
 
-This completes the process of LACP bonding on RHEL or CentOS 7 using the nmcli
+This completes the process of LACP bonding on RHEL or CentOS 7 by using the nmcli
 tool.
 
 ### Conclusion:
@@ -350,8 +350,8 @@ tool.
 If you need more bandwidth in your network than a single NIC can provide, LACP
 bonding is very useful. Using IEEE 802.3ad link aggregation in this situation
 provides increased port density and bandwidth. For more options, refer to the
-nmcli documentation.
+[nmcli documentation](https://developer.gnome.org/NetworkManager/stable/nmcli.html).
 
-If you have any questions on the topic, comment in the field below.
+If you have any questions on this topic, comment in the field below.
 
 

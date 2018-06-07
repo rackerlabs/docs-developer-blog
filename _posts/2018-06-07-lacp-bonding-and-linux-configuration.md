@@ -107,13 +107,13 @@ Preparation: Collect the required details to configure bonding. We recently
 implemented on production servers the scenario shown in the following table.
 We changed the IP address, MAC, and UUID details to maintain security.
 
-| Bond interface | bond1 |
-| --- | --- |
-| Bonding type | 802.3ad |
-| Bonding options | miimon=100,lacp\_rate=fast,xmit\_hash\_policy=layer2+3 |
-| Slave interfaces | p5p1 p5p2 |
-| MTU | 9000 |
-| IP address/prefix | 179.254.0.2/16 |
+Bond interface      bond1
+--------------      -----
+Bonding type        802.3ad
+Bonding options     miimon=100,lacp\_rate=fast,xmit\_hash\_policy=layer2+3
+Slave interfaces    p5p1 p5p2
+MTU                 9000
+IP address/prefix   179.254.0.2/16
 
 The following sections show the steps to configure LACP bonding by using the
 command line interface (cli) and the NetworkManager command line interface

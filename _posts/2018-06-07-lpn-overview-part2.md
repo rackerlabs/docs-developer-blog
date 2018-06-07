@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "An overview of LPN and shortcuts to mobile Telnet: Part 2"
-date: 2018-06-05 00:00
+date: 2018-06-07 00:00
 comments: true
 author: Sharad Kukreja
 published: true

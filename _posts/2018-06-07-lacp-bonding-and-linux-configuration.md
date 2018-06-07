@@ -354,6 +354,4 @@ nmcli documentation.
 
 If you have any questions on the topic, comment in the field below.
 
-Reference:
-[The Secrets of Oracle Row Chaining and Migration](https://www.akadia.com/services/ora_chained_rows.html)
 

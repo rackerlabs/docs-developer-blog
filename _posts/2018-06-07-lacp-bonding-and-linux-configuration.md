@@ -107,7 +107,7 @@ Preparation: Collect the required details to configure bonding. We recently
 implemented on production servers the scenario shown in the following table.
 We changed the IP address, MAC, and UUID details to maintain security.
 
-Bond interface &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | bond1
+**Bond interface** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | **bond1**
 -------------- | -----
 Bonding type | 802.3ad
 Bonding options | miimon=100,lacp\_rate=fast,xmit\_hash\_policy=layer2+3

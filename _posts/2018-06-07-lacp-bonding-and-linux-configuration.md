@@ -359,4 +359,3 @@ provides increased port density and bandwidth. For more options, refer to the
 [nmcli documentation](https://developer.gnome.org/NetworkManager/stable/nmcli.html).
 
 If you have any questions on this topic, comment in the field below.
-

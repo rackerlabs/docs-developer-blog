@@ -18,7 +18,7 @@ provides step-by-step configuration of LACP bonding on Red Hat Enterprise Linux
 
 ### Introduction
 
-Network bonding enables the combinination two or more network interfaces into a
+Network bonding enables the combination of two or more network interfaces into a
 single-bonded (logical) interface, which increases the bandwidth and provides
 redundancy. If a specific network interface card (NIC) experiences a problem,
 communications are not affected significantly as long as the other slave NICs
@@ -166,14 +166,14 @@ command line interface (cli) and the NetworkManager command line interface
         NM_CONTROLLED=no
         MASTER=bond1
 
-        ~]#cat ifcfg-p5p1
+        ~]#cat ifcfg-p5p2
         DEVICE=p5p2
         BOOTPROTO=none
         ONBOOT=yes
         SLAVE=yes
         USERCTL=no
         NM_CONTROLLED=no
-        MASTER=bond0
+        MASTER=bond1
 
 5.	Restart the network or restart the server by using one of the following
    commands:
@@ -258,9 +258,6 @@ cli tool.
 
 3.	Create a bond connection by using the bonding options in the preceding
    preparation table and run the following command for a private network:
-
-        ~]#nmcli con add type bond ifname bond1 bond.options "mode=802.3ad,miimon=100,lacp_rate=fast,xmit_hash_policy=layer2+3"
-        Connection 'bond1' (5a21933b-0c60-4aa6-93b2-b0e4dab6747e) successfully added.
 
         ~]#nmcli con add type bond con-name bond1 ifname bond1 mode 802.3ad ipv4 179.254.0.2/16
         Connection 'bond1' (5a21933b-0c60-4aa6-93b2-b0e4dab6747e) successfully added.

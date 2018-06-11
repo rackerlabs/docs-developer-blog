@@ -7,7 +7,6 @@ author: Nagunaik Vankudotu
 published: true
 authorIsRacker: true
 categories:
-    - General
     - Oracle
 ---
 

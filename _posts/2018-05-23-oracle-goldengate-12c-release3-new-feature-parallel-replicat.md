@@ -7,7 +7,6 @@ author: Ravi Sharma
 published: true
 authorIsRacker: true
 categories:
-    - General
     - Oracle
 ---
 

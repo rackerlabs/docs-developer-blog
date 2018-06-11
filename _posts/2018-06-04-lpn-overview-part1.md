@@ -7,7 +7,6 @@ author: Sharad Kukreja
 published: true
 authorIsRacker: true
 categories:
-    - General
     - Oracle
 ---
 

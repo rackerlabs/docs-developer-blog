@@ -7,7 +7,6 @@ author: Mukesh Kumar
 published: true
 authorIsRacker: true
 categories:
-    - General
     - Oracle
 ---
 

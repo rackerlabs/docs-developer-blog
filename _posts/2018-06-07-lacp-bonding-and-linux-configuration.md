@@ -7,7 +7,6 @@ author: Narender Kumar
 published: true
 authorIsRacker: true
 categories:
-    - General
     - Oracle
 ---
 

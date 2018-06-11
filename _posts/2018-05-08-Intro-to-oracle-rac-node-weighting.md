@@ -7,7 +7,6 @@ author: Jay Vardhan
 published: true
 authorIsRacker: true
 categories:
-    - General
     - Oracle
 ---
 

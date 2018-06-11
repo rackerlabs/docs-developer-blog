@@ -7,7 +7,6 @@ author: Kuasik Das
 published: true
 authorIsRacker: true
 categories:
-    - General
     - Oracle
 ---
 

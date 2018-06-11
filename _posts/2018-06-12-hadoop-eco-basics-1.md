@@ -7,55 +7,67 @@ author: Pavan Paramathmuni
 published: true
 authorIsRacker: true
 categories:
-    - General
+    - Oracle
 ---
 
-SUMMARY HERE
+Hadoop is an open source, Java-based framework that's designed to process huge
+amounts of data in a distributed computing environment. Doug Cutting and Mike
+Cafarella developed Hadoop, and Apache&reg; released it in 2005.
 
-<!-- more -->
+Built on commodity hardware, Hadoop works on the basic assumption that
+hardware failures are common. The Hadoop framework addresses these failures.
 
-### Introduction
+In Part 1 of this two-part blog series, we'll cover big data and some key
+components of the Hadoop framework.
 
-Developed back in 2005, Hadoop is an open source framework developed using Java based programming language to support and process humongous data in a distributed computing environment. Doug Cutting and Mike Cafarella are the developers of the Hadoop.
+### Data is bigger than ever
 
-Built on a commodity hardware, Hadoop works on the basic assumption that hardware failures are common. These failures are taken care by Hadoop Framework. Introduction:
+Data is crucial to all organizations, and big data is opening up new
+opportunities for analyses that can lead to valuable business insights. _Big
+data_ refers to data that's beyond an organization's storage capacity and
+processing power.
 
-In this blo post, we'll discuss big data, its characteristics, different sources of big data, and some key components of the Hadoop Framework.
+Big data can originate from social networks, closed caption television (CCTV)
+cameras, sensors, online shopping portals, hospitality data, global
+positioning systems (GPS), the automobile industry, and other sources that
+generate a huge amount of information.
 
-In this two-part blog series, we'll cover the basics of the Hadoop ecosystem.
+There are three main aspects of big data, all of which are progressing at a
+breakneck pace:
 
-Let us start with big data and its importance in Hadoop Framework. Ethics, privacy, security measures are very important and need to be taken care while dealing with the challenges of Big data.
+* Volume
 
-### Big data: When the data itself becomes part of the problem
+  The volume of big data is increasing rapidly from gigabytes to
+  terabytes and petabytes. Storing it requires a massive amount of disk space.
 
-Data is crucial for all organizations. It has to be stored for future use. We can refer the term _big data_ as the data, which is beyond the storage capacity and the processing power of an organization. What are the sources of this huge data?
+* Velocity
 
-There are different sources of data, such as social networks, closed caption television (CCTV) cameras, sensors, online shopping portals, hospitality data, global positioning systems (GPS), the automobile industry, and other sources that generate a huge amount of data.
+  Big data is typically stored in data centers. Delivering data to a
+  local work station requires high-speed data processors.
 
-Big data can be characterized as:
+* Variety
 
-* The Volume of the data
+  Data can be broadly classified as structured, unstructured, or
+  semi-structured.
 
-* Velocity of the data
-
-* The variety of data being processed
-
-Volume of data is increasing rapidly in GB, TB, PB and so on, and requires a huge amount of disk space to store it.
-
-Velocity of data is stored in data centers to cater to the organizational needs. In order to get data to the local workstation high-speed data processors are needed.
-
-We can also broadly classify data into the following types: structured, unstructured , and semi-structured.
+We can sum up big data with the following equation:
 
 Big data = (Volume + Velocity + Variety) of data
 
-![Alt text]({% asset_path 2018-06-12-hadoop-eco-basics-1/picture1.png %})
+The following image provides a visualization of these concepts.
 
-Source: http://whatis.techtarget.com/definition/3Vs
+![3Vs (volume, variety, and velocity)]({% asset_path 2018-06-12-hadoop-eco-basics-1/picture1.png %})
 
-What is the Hadoop ecosystem? This term refers to the various components of the Apache&reg; Hadoop Software library. It is a set of tools and accessories designed to address the unique requirements involved in processing big data.
+Image source: [3Vs (volume, variety and
+velocity)](http://whatis.techtarget.com/definition/3Vs)
 
-In other words, a a Hadoop Ecosystem is comprised of a set of different
-modules that interact with each other.
+### The Hadoop ecosystem
+
+The term _Hadoop ecosystem_ refers to the various components of
+the Apache Hadoop software library. This ecosystem is comprised of a set
+of different modules that interact with each other. These modules provide a
+set of tools and accessories that are designed to address the unique
+requirements involved in processing big data.
 
 ### Components of the Hadoop framework
 
@@ -63,58 +75,75 @@ The Hadoop framework has the following core components.
 
 #### Distributed storage
 
+Several different pieces come together to enable distributed storage in
+Hadoop.
+
 ##### Hadoop Distributed File System
 
-In Hadoop, distributed storage is referred to as the Hadoop Distributed File System (HDFS). It is a distributed file system for redundant storage. HDFS has the following characteristics:
+In Hadoop, distributed storage is referred to as the Hadoop Distributed File
+System (HDFS). This system provides redundant storage and has the following
+characteristics:
 
-* Designed to store data on the commodity hardware reliably.
+* It's designed to reliably store data on commodity hardware.
 
-* Built to expect hardware failures.
+* It's built to expect hardware failures.
 
-* Intended for large files and batch inserts. (Write once, read many times.)
-
-![Alt text]({% asset_path 2018-06-12-hadoop-eco-basics-1/picture2.png %})
-
-Source: http://www.tdprojecthope.com
+* It is intended for large files and batch inserts. (Write once, read many
+  times.)
 
 ##### HBase
 
-HBase is a distributed, column-oriented NoSQL database. HBase uses HDFS for its underlying storage, and supports both batch-style computations using MapReduce and point queries (random reads).
+HBase is a distributed, column-oriented NoSQL database. HBase uses HDFS for
+its underlying storage, and supports both batch-style computations using
+MapReduce and point queries (random reads).
 
-It also has the following characteristics:
+HBase also does the following things:
 
-* Storage of large data volumes (up to billions of rows) atop clusters of commodity hardware.
+* Stores large data volumes (up to billions of rows) atop clusters of
+  commodity hardware.
 
-* Bulk storage of logs, documents, real-time activity feeds, and raw imported data.
+* Bulk stores logs, documents, real-time activity feeds, and raw imported data.
 
-* Consistent performance of reads and writes to data used by Hadoop applications.
+* Consistently performs reads and writes to data that Hadoop applications use.
 
-* Allows the data store to be aggregated or processed using MapReduce functionality.
+* Enables the data store to be aggregated or processed using MapReduce
+  functionality.
 
-* Data platform for analytics and machine learning.
+* Offers a data platform for analytics and machine learning.
 
 ##### HCatalog
 
 HCatalog is a table and storage management layer for Hadoop that enables
-Hadoop applications (such as Pig, MapReduce, and Hive) to read and write data in a tabular form as opposed to the files.
+Hadoop applications such as Pig, MapReduce, and Hive to read and write data in
+a tabular format as opposed to the files.
 
-* Centralized location of storage for data used by Hadoop applications.
+It also offers the following features:
 
-* Reusable data store for sequenced and iterated Hadoop processes.
+* A centralized location for storing data that Hadoop applications
+  use.
 
-* Storage of data in a relational abstraction.
+* A reusable data store for sequenced and iterated Hadoop processes.
+
+* Data storage in a relational abstraction.
 
 * Metadata management.
 
-Once data is stored, we want it to check it and create insights from the data.
-
 #### Distributed processing
+
+Hadoop relies on MapReduce and Yet Another Resource Negotiator (YARN) to
+enable distributed processing.
 
 ##### MapReduce
 
-MapReduce is a distributed data processing model and execution environment that runs on large clusters of commodity machines. It uses the MapReduce algorithm to breaks down all the operations into Map or Reduce functions.
+MapReduce is a distributed data processing model and execution environment
+that runs on large clusters of commodity machines. MapReduce enables you to
+create insights from the data you've stored. It uses the MapReduce algorithm
+to breaks down all operations into Map or Reduce functions.
 
-* Aggregation (counting, sorting, and filtering) on large and disparate data sets.
+MapReduce offers the following advantages:
+
+* Aggregation (counting, sorting, and filtering) on large and disparate data
+  sets.
 
 * Scalable parallelism of Map or Reduce tasks.
 
@@ -122,64 +151,85 @@ MapReduce is a distributed data processing model and execution environment that 
 
 ##### YARN
 
-Yet Another Resource Negotiator (YARN) is the cluster and resource management layer for the Apache Hadoop ecosystem. It is one of the main features in the second generation of the Hadoop framework.
+YARN is the cluster and resource management layer for the Apache Hadoop
+ecosystem. It's one of the main features in the second generation of the
+Hadoop framework.
 
-* YARN "schedules" applications in order to prioritize tasks and maintains big data analytics systems.
+YARN offers the following functionality:
 
-* As one part of a greater architecture, YARN aggregates and sorts data to conduct specific queries for data retrieval.
+* It "schedules" applications to prioritize tasks and maintains big data
+  analytics systems.
 
-* It helps to allocate resources to particular applications and manages other kinds of resource monitoring tasks.
+* As one part of a greater architecture, YARN aggregates and sorts data to
+  conduct specific queries for data retrieval.
 
-#### MACHINE LEARNING
+* It helps allocate resources to particular applications and manages other
+  kinds of resource monitoring tasks.
 
-##### Mahout
+#### Machine learning
 
-Apache Mahout is an open source project that's primarily used for creating scalable machine learning algorithms. Mahout is a data mining framework that typically runs with the Hadoop infrastructure in the background to manage huge volumes of data.
+Hadoop supports machine learning through Apache Mahout, an open source project
+that's primarily used to create scalable machine learning algorithms. Mahout
+is a data mining framework that typically runs with the Hadoop infrastructure
+in the background to manage huge volumes of data.
 
-* Mahout offers developers a ready-to-use framework for performing data mining tasks on larger volumes of data.
+Mahout offers the following things:
 
-* Written on top of Hadoop, Mahout's algorithms make it work well in the distributed environment.
+* A ready-to-use framework for performing data mining tasks on larger volumes
+  of data.
 
-* Mahout enables applications to analyze large data sets effectively and in quick time.
+* Algorithms that are written on top of Hadoop, and that enable Mahout to work
+  well in distributed environments.
 
-* Comes with the distributed fitness function capabilities for evolutionary programming. Includes matrix and vector libraries.
+* Quick analysis of large data sets.
 
-#### WORKFLOW MONITORING & SCHEDULING
+* Distributed fitness function capabilities for evolutionary programming. It
+  also includes matrix and vector libraries.
 
-##### Oozie
+#### Workflow monitoring and scheduling
 
-Oozie is a workflow scheduler system for managing Apache Hadoop jobs. Oozie runs the workflows for the dependent jobs. It enables users to create directed acyclic graphs (DAGs) of workflows that run both in parallel and sequentially in Hadoop.
+Oozie is Hadoop's system for managing jobs. This workflow scheduler runs the
+workflows for the dependent jobs. It enables users to create directed acyclic
+graphs (DAGs) of workflows that run parallel and sequential jobs in Hadoop.
 
-Oozie also has the following characteristics:
+Oozie is very flexible. You can easily start, stop, suspend and re-run jobs.
+Ooozie also makes it very easy to re-run failed workflows.
 
-* High flexibility. You can easily start, stop, suspend and rerun jobs.
+Oozie is scalable and can manage timely execution of thousands of workflows
+(each consisting of dozens of jobs) in a Hadoop cluster.
 
-* It makes it very easy to rerun failed workflows.
+#### Scripting
 
-* Oozie is scalable and can manage timely execution of thousands of workflows (each consisting of dozens of jobs) in a Hadoop cluster.
-
-#### SCRIPTING
-
-##### Pig
-
-We can use Apache Pig for scripting in Hadoop. Scripting is a SQL-based language and an execution environment for creating complex MapReduce transformations. First written in the Pig Latin language Pig is translated into an executable Map Reduce jobs. Pig also allows the user to create extended functions (UDFs) using Java.
+Developers can can use Apache Pig for scripting in Hadoop. Scripting uses a
+SQL-based language and an execution environment for creating complex MapReduce
+transformations. While Pig is written in the Pig Latin "language," it's
+translated into executable MapReduce jobs. Pig also enables users to create
+extended or user-defined functions (UDFs) using Java.
 
 Pig also offers the following things:
 
-* Scripting environment to execute ETL tasks/procedures on raw data in HDFS.
+* A scripting environment for executing Extract-Transform-Load (ETL) tasks and
+  procedures on raw data in HDFS.
 
-* SQL based language for creating and running complex Map Reduce functions.
+* A SQL-based language for creating and running complex Map Reduce functions.
 
-* Data processing, stitching, schematizing on large and desperate data sets.
+* Data processing, stitching, and schematizing on large and disparate data
+  sets.
 
-* It’s a high-level data flow language.
+* A high-level data flow language.
 
-* It abstracts you from the specific details and allows you to focus on data processing.
+* A layer of abstraction that enables you to focus on data processing.
 
 ### Conclusion
 
-Hadoop and the MapReduce framework already have a substantial base in the bioinformatics community, especially in the field of next-generation sequencing analysis. Hadoop provides the robust, fault-tolerant Hadoop Distributed File System (HDFS). HBase adds a distributed, fault-tolerant scalable database, built on top of the HDFS file system, with random real-time read/write access to data. Mahout is an Apache project for building scalable machine learning libraries, with most algorithms built on top of Hadoop. Pig is designed for batch processing of the data.
+Hadoop and the MapReduce framework already have a substantial user base in the
+bioinformatics community, especially in the field of next-generation
+sequencing analysis, partly owing to its robust, fault-tolerant HDFS. HBase
+adds a distributed, fault-tolerant scalable database that's built on top of
+the HDFS file system, with random real-time read and write access to data. You
+may also want to check out Mahout for building scalable machine learning
+libraries, or Pig for batch processing data.
 
-In Part 2, we'll cover more components of the Hadoop ecosystem.
+In Part 2 of this series, we'll cover more components of the Hadoop ecosystem.
 
 Have a question? Post it in a comment below!

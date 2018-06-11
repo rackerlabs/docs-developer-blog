@@ -7,7 +7,7 @@ author: Mukesh Kumar
 published: true
 authorIsRacker: true
 categories:
-    - General
+    - Oracle
 ---
 
 Every time an Oracle &reg; Database reads or writes data to a disk, the database

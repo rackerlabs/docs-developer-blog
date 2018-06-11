@@ -7,7 +7,7 @@ author: Nagunaik Vankudotu
 published: true
 authorIsRacker: true
 categories:
-    - General
+    - Oracle
 ---
 
 This blog describes the following common issues and solutions for the Oracle

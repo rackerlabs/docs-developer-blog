@@ -7,7 +7,7 @@ author: Mukesh Kumar
 published: true
 authorIsRacker: true
 categories:
-    - General
+    - Oracle
 ---
 
 Row chaining is a bottleneck that causes disruption in database performance.

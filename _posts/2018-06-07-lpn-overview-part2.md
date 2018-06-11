@@ -7,7 +7,7 @@ author: Sharad Kukreja
 published: true
 authorIsRacker: true
 categories:
-    - General
+    - Oracle
 ---
 
 In Part 1 of this two-part series, we introduced License Plate Numbers (LPNs)

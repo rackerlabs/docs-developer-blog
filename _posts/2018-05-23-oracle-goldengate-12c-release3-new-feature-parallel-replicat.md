@@ -8,6 +8,7 @@ published: true
 authorIsRacker: true
 categories:
     - General
+    - Oracle
 ---
 
 Parallel Replicat is one of the new features introduced in Oracle &reg;

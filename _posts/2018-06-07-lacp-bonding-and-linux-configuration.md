@@ -8,6 +8,7 @@ published: true
 authorIsRacker: true
 categories:
     - General
+    - Oracle
 ---
 
 This blog introduces Link Aggregation Control Protocol (LACP) bonding and

@@ -8,6 +8,7 @@ published: true
 authorIsRacker: true
 categories:
     - General
+    - Oracle
 ---
 
 This blog describes the Oracle &reg; AD Online Patching (adop) utility phases, the patch

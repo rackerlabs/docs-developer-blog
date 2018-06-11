@@ -8,6 +8,7 @@ published: true
 authorIsRacker: true
 categories:
     - General
+    - Oracle
 ---
 
 In this two-part series, we'll discuss License Plate Numbers (LPN) in

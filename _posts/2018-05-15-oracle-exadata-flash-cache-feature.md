@@ -8,6 +8,7 @@ published: true
 authorIsRacker: true
 categories:
     - General
+    - Oracle
 ---
 
 This blog discusses the Oracle Exadata Smart Flash Cache feature and its

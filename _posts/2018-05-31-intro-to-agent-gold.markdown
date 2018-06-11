@@ -8,6 +8,7 @@ published: true
 authorIsRacker: true
 categories:
     - General
+    - Oracle
 ---
 
 Agent Gold Image is a recent feature of Oracle&reg; Enterprise Manager

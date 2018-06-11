@@ -8,6 +8,7 @@ published: true
 authorIsRacker: true
 categories:
     - General
+    - Oracle
 ---
 
 In an Oracle Real Application Clusters (RAC) environment, all the

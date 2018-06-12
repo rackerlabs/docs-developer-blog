@@ -10,6 +10,8 @@ categories:
     - Oracle
 ---
 
+### Introduction
+
 Apache&trade; Hadoop&reg; is an open source, Java-based framework that's
 designed to process huge amounts of data in a distributed computing
 environment. Doug Cutting and Mike Cafarella developed Hadoop, which was

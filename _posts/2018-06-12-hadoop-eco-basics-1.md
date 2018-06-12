@@ -35,19 +35,13 @@ generate a huge amount of information.
 There are three main aspects of big data, all of which are progressing at a
 breakneck pace:
 
-* Volume
-
-  The volume of big data is increasing rapidly from gigabytes to
+* Volume: The volume of big data is increasing rapidly from gigabytes to
   terabytes and petabytes. Storing it requires a massive amount of disk space.
 
-* Velocity
-
-  Big data is typically stored in data centers. Delivering data to a
+* Velocity: Big data is typically stored in data centers. Delivering data to a
   local work station requires high-speed data processors.
 
-* Variety
-
-  Data can be broadly classified as structured, unstructured, or
+* Variety: Data can be broadly classified as structured, unstructured, or
   semi-structured.
 
 We can sum up big data with the following equation:

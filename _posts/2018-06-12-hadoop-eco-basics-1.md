@@ -10,9 +10,10 @@ categories:
     - Oracle
 ---
 
-Hadoop is an open source, Java-based framework that's designed to process huge
-amounts of data in a distributed computing environment. Doug Cutting and Mike
-Cafarella developed Hadoop, and Apache&reg; released it in 2005.
+Apache&trade; Hadoop&reg; is an open source, Java-based framework that's
+designed to process huge amounts of data in a distributed computing
+environment. Doug Cutting and Mike Cafarella developed Hadoop, which was
+released in 2005.
 
 Built on commodity hardware, Hadoop works on the basic assumption that
 hardware failures are common. The Hadoop framework addresses these failures.
@@ -61,12 +62,13 @@ The term _Hadoop ecosystem_ refers to the various components of
 the Apache Hadoop software library. This ecosystem is comprised of a set
 of different modules that interact with each other. These modules provide a
 set of tools and accessories that are designed to address the unique
-requirements involved in processing big data. It encompasses all Hadoop
-modules, including the core components of the Hadoop framework that we discuss below, as well as add-on modules.
+requirements involved in processing big data. The ecosystem encompasses all
+Hadoop modules, including the core components of the Hadoop framework that we
+discuss below, as well as add-on modules.
 
 ### Components of the Hadoop framework
 
-The Hadoop framework has the following core components.
+The Hadoop framework includes the following core components.
 
 #### Distributed storage
 
@@ -89,10 +91,10 @@ characteristics:
 ##### HBase
 
 HBase is a distributed, column-oriented NoSQL database. HBase uses HDFS for
-its underlying storage, and supports both batch-style computations using
+its underlying storage and supports both batch-style computations using
 MapReduce and point queries (random reads).
 
-HBase also does the following things:
+HBase also performs the following tasks:
 
 * Stores large data volumes (up to billions of rows) atop clusters of
   commodity hardware.
@@ -109,8 +111,8 @@ HBase also does the following things:
 ##### HCatalog
 
 HCatalog is a table and storage management layer for Hadoop that enables
-Hadoop applications such as Pig, MapReduce, and Hive to read and write data in
-a tabular format as opposed to the files.
+Hadoop applications such as Pig&trade;, MapReduce, and Hive&trade; to read and
+write data in a tabular format as opposed to the files.
 
 It also offers the following features:
 
@@ -133,7 +135,7 @@ enable distributed processing.
 MapReduce is a distributed data processing model and execution environment
 that runs on large clusters of commodity machines. MapReduce enables you to
 create insights from the data you've stored. It uses the MapReduce algorithm
-to breaks down all operations into Map or Reduce functions.
+to break down all operations into Map or Reduce functions.
 
 MapReduce offers the following advantages:
 
@@ -152,7 +154,7 @@ Hadoop framework.
 
 YARN offers the following functionality:
 
-* It "schedules" applications to prioritize tasks and maintains big data
+* It schedules applications to prioritize tasks and maintains big data
   analytics systems.
 
 * As one part of a greater architecture, YARN aggregates and sorts data to
@@ -168,7 +170,7 @@ that's primarily used to create scalable machine learning algorithms. Mahout
 is a data mining framework that typically runs with the Hadoop infrastructure
 in the background to manage huge volumes of data.
 
-Mahout offers the following things:
+Mahout offers the following capabilities:
 
 * A ready-to-use framework for performing data mining tasks on larger volumes
   of data.
@@ -187,15 +189,15 @@ Oozie is Hadoop's system for managing jobs. This workflow scheduler runs the
 workflows for the dependent jobs. It enables users to create directed acyclic
 graphs (DAGs) of workflows that run parallel and sequential jobs in Hadoop.
 
-Oozie is very flexible. You can easily start, stop, suspend and re-run jobs.
-Ooozie also makes it very easy to re-run failed workflows.
+Oozie is very flexible. You can easily start, stop, suspend, and re-run jobs.
+Oozie also makes it very easy to re-run failed workflows.
 
 Oozie is scalable and can manage timely execution of thousands of workflows
 (each consisting of dozens of jobs) in a Hadoop cluster.
 
 #### Scripting
 
-Developers can can use Apache Pig for scripting in Hadoop. Scripting uses a
+Developers can use Apache Pig for scripting in Hadoop. Scripting uses a
 SQL-based language and an execution environment for creating complex MapReduce
 transformations. While Pig is written in the Pig Latin "language," it's
 translated into executable MapReduce jobs. Pig also enables users to create
@@ -222,7 +224,7 @@ bioinformatics community, especially in the field of next-generation
 sequencing analysis. Its popularity in this field is partly due to its robust,
 fault-tolerant HDFS.
 
-HBase adds a distributed, fault-tolerant scalable database that's built on top
+HBase adds a distributed, fault-tolerant, scalable database that's built on top
 of the HDFS file system, with random real-time read and write access to data.
 You may also want to check out Mahout for building scalable machine learning
 libraries, or Pig for batch processing data.

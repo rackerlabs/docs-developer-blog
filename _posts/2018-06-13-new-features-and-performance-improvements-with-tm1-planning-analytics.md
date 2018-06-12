@@ -116,3 +116,4 @@ If you have any questions on this topic, comment in the field below.
 
 Much if this content came directly from
 [https://blog.quebit.com/blog/qubit-blog-introducing-planning-analytics-local](https://blog.quebit.com/blog/qubit-blog-introducing-planning-analytics-local).
+

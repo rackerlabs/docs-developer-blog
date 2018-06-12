@@ -17,8 +17,8 @@ Cafarella developed Hadoop, and Apache&reg; released it in 2005.
 Built on commodity hardware, Hadoop works on the basic assumption that
 hardware failures are common. The Hadoop framework addresses these failures.
 
-In Part 1 of this two-part blog series, we'll cover big data and some key
-components of the Hadoop framework.
+In Part 1 of this two-part blog series, we'll cover big data, the Hadoop
+ecosystem, and some key components of the Hadoop framework.
 
 ### Data is bigger than ever
 
@@ -67,7 +67,8 @@ The term _Hadoop ecosystem_ refers to the various components of
 the Apache Hadoop software library. This ecosystem is comprised of a set
 of different modules that interact with each other. These modules provide a
 set of tools and accessories that are designed to address the unique
-requirements involved in processing big data.
+requirements involved in processing big data. It encompasses all Hadoop
+modules, including the core components of the Hadoop framework that we discuss below, as well as add-on modules.
 
 ### Components of the Hadoop framework
 
@@ -224,10 +225,12 @@ Pig also offers the following things:
 
 Hadoop and the MapReduce framework already have a substantial user base in the
 bioinformatics community, especially in the field of next-generation
-sequencing analysis, partly owing to its robust, fault-tolerant HDFS. HBase
-adds a distributed, fault-tolerant scalable database that's built on top of
-the HDFS file system, with random real-time read and write access to data. You
-may also want to check out Mahout for building scalable machine learning
+sequencing analysis. Its popularity in this field is partly due to its robust,
+fault-tolerant HDFS.
+
+HBase adds a distributed, fault-tolerant scalable database that's built on top
+of the HDFS file system, with random real-time read and write access to data.
+You may also want to check out Mahout for building scalable machine learning
 libraries, or Pig for batch processing data.
 
 In Part 2 of this series, we'll cover more components of the Hadoop ecosystem.

@@ -23,7 +23,7 @@ clusters.
 
 Part 1 of this series introduced Apache Pig&trade; as a query tool. Written in
 Pig Latin, Pig is translated into executable MapReduce jobs. It offers several
-advantages that you can learn more about in the previous article.
+advantages that you can learn more about in Part 1.
 
 Even so, some developers still prefer SQL. If you'd rather go with what you
 know, you can use SQL with Hadoop instead.
@@ -50,58 +50,90 @@ The following image visualizes the architecture of the Hadoop ecosystem:
 
 ![Architecture of the Hadoop ecosystem]({% asset_path 2018-06-15-hadoop-eco-basics-2/picture1.png %})
 
-Image source: [Hadoop Ecosystem: an Integrated Environment for Big Data](http://blog.agroknow.com/?p=3810)
+Image source: [Hadoop Ecosystem: an Integrated Environment for Big
+Data](http://blog.agroknow.com/?p=3810)
 
 #### External integration
 
-Apache&reg; Flume&trade; is a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data into HDFS. Flume transports large quantities of event data using a steaming data flow architecture that is fault tolerant and failover recovery ready.
+Apache&reg; Flume&trade; is a distributed, reliable, and available service for
+efficiently collecting, aggregating, and moving large amounts of log data into
+HDFS. Flume transports large quantities of event data by using a steaming data
+flow architecture that's fault tolerant and failover recovery ready.
 
-* Transports large amount of event data (network traffic, logs, email messages).
+Flume also offers the following capabilities:
+
+* Transports large amount of event data such as network traffic, logs, and
+  email messages.
 
 * Streams data from multiple sources into HDFS.
 
-* Guarantees a reliable real-time data streaming to the Hadoop applications.
+* Guarantees reliable, real-time data streaming to Hadoop applications.
 
 #### Data exchange
 
-##### Sqoop
+Apache Sqoop&trade; is designed to efficiently transfer bulk data between
+Hadoop and external data stores such as relational databases and enterprise
+data warehouses. Sqoop works with relational databases such as Teradata
+Database, IBM Netezza, Oracle Database&reg;, MySQL&trade;, and PostgreSQL.
+Sqoop is widely used in most companies that collect or analyze big data.
 
-Apache Sqoop&trade; is designed to efficiently transfer bulk data between Hadoop and external data stores such as relational databases and enterprise data warehouses. Sqoop works with relational databases such as Teradata, Netezza, Oracle, MySQL, Postgres etc. Sqoop is widely used in most companies that collect or analyze big data.
+Sqoop offers the following functionality:
 
-* Sqoop automates most of the process, depending on the database to describe the schema of the data to be imported.
+* Depending on the database, it can automate most of the process of describing
+  the schema for imported data.
 
-* Sqoop uses Map Reduce framework to import and export the data, which provides parallel mechanism as well as the fault tolerance.
+* It uses the MapReduce framework to import and export data. This enables
+  Sqoop to provide a parallel mechanism and fault tolerance.
 
-* It provides Connectors for all the major RDBMS Databases.
+* It provides connectors for all of the major RDBMS databases.
 
-* It supports full/incremental load, parallel export/import of data and data compression.
+* It supports full and incremental loads, parallel export and import of data,
+  and data compression.
 
 * It supports Kerberos security integration.
 
 #### Coordination
 
-Apache Zookeeper&trade; is a coordination service for distributed applications that enables synchronization across a cluster. It is a centralized repository where distributed applications can store and retrieve data_.
+Apache Zookeeper&trade; is a coordination service for distributed applications
+that enables synchronization across a cluster. It provides a centralized
+repository where distributed applications can store and retrieve data.
 
-* Zookeeper is an administrative Hadoop tool used to manage the jobs in a cluster.
-
-* Zookeeper Hadoop is akin to a watch guard because it notifies any change of data in one node to the other.
+Zookeeper is an administrative Hadoop tool used to manage the jobs in a
+cluster. Some developers refer to this tool as a "watch guard" because any
+changes to data in one node are communicated to the other nodes.
 
 #### Provisioning, managing, and monitoring Hadoop clusters
 
-Apache Ambari is a web-based tool for provisioning, managing, and monitoring Apache Hadoop clusters. It has a very simple yet highly interactive user interface for installing tools and performing management, configuration, and monitoring tasks. Ambari provides a dashboard for viewing cluster health such as heat maps and ability to view MapReduce, Pig and Hive applications visually along with the features to diagnose their performance characteristics in a user-friendly manner.
+Apache Ambari is a web-based tool for provisioning, managing, and monitoring
+Apache Hadoop clusters. It has a very simple yet highly interactive user
+interface for installing tools and performing management, configuration, and
+monitoring tasks. Ambari provides a dashboard for viewing information on
+cluster health, such as heat maps. It also enables you to view your MapReduce,
+Pig, and Hive applications alongside features so that you can easily diagnose
+their performance characteristics.
+
+Ambari also provides the following capabilities:
 
 * Master services mapping with nodes.
 
-* We can always choose the services that we want to install.
+* The ability to choose the services that you want to install.
 
-* Stack selection made easy. We can customize our services.
+* Simple custom stack selection.
 
-* Has a simpler interface and saves lot of our efforts on installation, monitoring and managing so many components and their different installation steps along with monitoring controls at ease.
+* A cleaner interface.
+
+* Streamlined installation, monitoring, and management.
 
 ### Conclusion
 
-Hadoop has been a very effective solution for companies dealing with extremely huge data. It is a much sought after tool in the industry for data management in the distributed systems. As it is an open source, it is easily available for the companies to leverage it for their use. These are some highlights on Apache’s Hadoop ecosystem. Documentation for these is available on Apache Software Foundation website.
-
-Hadoop and its ecosystem is expected to continue growing and take on new roles over time.
+Hadoop has been a very effective solution for companies that want to store and
+analyze massive amounts of data. It's a much sought-after tool for data
+management in distributed systems. Because it's open source, it's freely
+available for companies to leverage. To learn more about Hadoop, see the
+official documentation at the [Apache Software Foundation website](http://hadoop.apache.org).
 
 Have you used Hadoop? Let us know what you think by posting a comment below!
+
+### Reference
+
+[Basics Of Hadoop Ecosystem - 2](https://bigdatashoppe.blogspot.com/2017/08/basics-of-hadoop-ecosystem.html) was used as a reference for this article.

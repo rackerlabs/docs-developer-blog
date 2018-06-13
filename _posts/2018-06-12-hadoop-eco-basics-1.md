@@ -10,6 +10,8 @@ categories:
     - Oracle
 ---
 
+<!-- more -->
+
 ### Introduction
 
 Apache&trade; Hadoop&reg; is an open source, Java-based framework that's
@@ -234,3 +236,6 @@ libraries, or Pig for batch processing data.
 In Part 2 of this series, we'll cover more components of the Hadoop ecosystem.
 
 Have a question? Post it in a comment below!
+
+### reference
+[Basics Of Hadoop Ecosystem - 1](https://bigdatashoppe.blogspot.com/2017/08/basics-of-hadoop-ecosystem-1.html) was used as a reference for this article.

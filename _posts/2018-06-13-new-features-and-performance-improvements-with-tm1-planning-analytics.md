@@ -10,110 +10,110 @@ categories:
     - General
 ---
 
-Planning Analytics Local is the latest release and rebranding for IBM&reg;
-Cognos TM1&reg;. Planning Analytics Local offers substantial changes and updates
-to the TM1 product and adds new functions that enhance performance.
+Planning Analytics integrates business planning, performance measurement, and
+operational data to enable companies to optimize business effectiveness and
+customer interaction regardless of geography or structure. Planning Analytics
+provides immediate visibility into data, accountability within a collaborative
+process and a consistent view of information.
 
 <!-- more -->
 
 ### Introduction
 
-IBM released Planning Analytics Local, a rebranding of the  TM1 product,
-which combines TM1 with Planning Analytics on the Cloud. This release provides
-significant enhancements and performance improvements.
-
-Planning Analytics Workspace, a highlight among the new features, completely
-transforms the user experience. This new face of TM1 provides a rich, interactive
-workspace, which is visual, intuitive, insightful, social, and mobile.
-
-Planning Analytics Local uses hierarchies to provide a deeper analysis of TM1
-data. It turns attributes into virtual dimensions, saves RAM, increases query
-performance, and adds flexibility. Planning Analytics Local introduces
-hierarchies for queries, provides dimension versioning, and enables users to
-have smaller, faster cubes.
+IBM&reg; introduced new and updated features in Planning Analytics, including
+bundled components such as TM1 Server, TM1 Web, TM1 Performance Modeler, and
+Cognos Insight.
 
 The following sections highlight some of the interfaces and new features of
 Planning Analytics Local.
 
-### Planning Analytics Workspace (PAW)
+### TM1 Server performance improvements
 
-PAW, the new foundation for Planning Analytics Local, is a web-based tool that
-provides a rich, user interface ideal for exploring and visualizing TM1 data.
-PAW includes support for all of the new Planning Analytics Local features
-including hierarchies support.
+TM1 Server includes the following performance improvements:
 
-The following diagram shows some features of PAW:
+- Designed to use a two-tier key management system to encrypt and decrypt server
+  data.
+- Includes APIs that enable and disable data encryption.
+- Has a command line utility that can be used to perform master key.
+- Has an improved server shut down process that terminates all spawned external
+  processes so no data is lost. The server shut down process also collects
+  information and metrics of the shut down process and updates event and server
+  logs with necessary information.
 
-![]({% asset_path 2018-06-13-new-features-and-performance-improvements-with-tm1-planning-analytics/Workspace.png %})
+These significant changes improve performance with the feeders in TM1 server.
+Planning Analytics TM1 server reports memory consumed by feeders only once as
+long there is rules and cube data don't change.
 
-### Planning Analytics for Excel (PAx)
 
-PAx is the new Excel interface for Planning Analytics and takes the place of
-Café. PAx has a new look and supports many features that TM1 Perspectives users
-have come to love. PAx even incorporates a new cube browser and the same set
-editor that is used in PAW. PAx is the future of TM1 data access from Microsoft&reg;
-Excel, but it does not include all of the Perspectives reporting features.
-Therefore, TM1 Perspectives is still available in Planning Analytics Local.
-Each release of PAx will incorporate more Perspectives features.
+### Planning Analytics for Excel (PAX)
 
-The following diagram shows some features of PAx:
+IBM Planning Analytics for Microsoft Excel is a new excel interface for Planning
+Analytics that has improved functionality compared to Café. PAX comes with
+functionality that adds multiple dynamic reports to analysize and compare data.
+It comes with new settings that limit the **undo stack** function, providing end
+users with the option to define the number of undo operations in exploration
+view. PAX also has the option to filter attributes in the **set editor** function.
+Several new API functions have been added in latest release of PAX.
 
-![]({% asset_path 2018-06-13-new-features-and-performance-improvements-with-tm1-planning-analytics/Pax.png %})
+The following diagram shows a view of PAX:
+
+![]({% asset_path 2018-06-13-new-features-and-performance-improvements-with-tm1-planning-analytics/Pax2.png %})
 
 ### TM1 Web
 
-The updated TM1 Web matches the look and feel of the other Planning Analytics
-Local applications. TM1 Websheets can access relational data directly when they
-are published from PAx, which expands existing drill-through and comparison
-capabilities. TM1 Web supports the new hierarchy features when Quick Reports
-are published from PAx (formerly known as Flex Views in Café).
+The updated TM1 Web has new functionalities and a new interface. The previous
+version of the loaders, which loaded JavaScript library modules, is not mandatory
+in Planning Analytics Web. TM1 Websheets now allows you to view relational data
+on the same published websheet as TM1 Data.
+
+The TM1 Web Functional for Excel workbook also includes new keyboard shortcuts
+for easy navigation.
 
 The following diagram shows some features of TM1 Web:
 
 ![]({% asset_path 2018-06-13-new-features-and-performance-improvements-with-tm1-planning-analytics/Web.png %})
 
-### Hierarchies feature for modeling and analysis
+### New feature with Hierarchies
 
-Planning Analytics Local brings the long-awaited hierarchies feature to the TM1
-product line. Because it is a fundamental shift in standard TM1 architecture,
-hierarchies change the way you model your business in TM1 as shown in the
-following diagram:
+Planning Analytics creates multiple hierarchies inside dimensions. This
+capability is supported through TM1 Rest APIs, TurboIntegrator processes, and
+Planning Analytics Workspace modeling. This enhancement provides the following
+benefits:
+
+- Cube Design with Optimal performance
+- Reduced Cube Processing Time
+- Analysis with Dimension Attributes
+- Structured dimensions
+
+The following diagram shows the new dimension architecture:
 
 ![]({% asset_path 2018-06-13-new-features-and-performance-improvements-with-tm1-planning-analytics/Arch.png %})
 
-In the new architecture, a *dimension* is a collection of hierarchies and not
-elements. Dimensions allow users to turn attributes (or other information) into
-virtual dimensions to better filter and consolidate data. Hierarchies also makes
-it easier to separate and use alternate hierarchies in a dimension. Hierarchies
-also let you add a dimension to a cube-view multiple times. For example, you
-can browse products by color, category, and size all at the same time. Most
-importantly, hierarchies provide simpler cubes with fewer dimensions, a smaller
-RAM footprint, and increased query performance.
+### Planning Analytics Workspace (PAW)
 
-### Improved server performance and features
+Planning Analytics Workspace is a web based interface for IBM Planning Analytics
+that used to plan, create and analyze data. This release of PAW provides
+significant performance improvements, which include the following benefits:
 
-Planning Analytics Local also improves the performance of the underlying TM1
-Server, including the following new features:
+- Increased view refresh times in the exploration views
+- A pop-up menu that displays faster and shows selections in different colors
+- Improved data entry performance with cell updates that refresh only on-demand
+  and not with cell-value change.
 
--	**Encryption at rest:** Encrypt TM1 data folders to meet Federal Information
-   Processing Standard (FIPS)  certification.
--	**TI Debugger:** Track variables, set breakpoints, and view locks.
--	**Multithreaded Feeder Propagation:** The MTQ Framework has been applied to
-   feeder generation, greatly speeding up TM1 rule saves and server startup.
--	**Reduced locking contention:** More frequent metadata updates and reduced
-   locking, which is typically caused by logins and other updates, improves
-   performance.
+The process editor in PAW not include the ability to define a connection as a
+data source.
 
+The following diagram shows the new Planning Analytic Workspace:
+
+![]({% asset_path 2018-06-13-new-features-and-performance-improvements-with-tm1-planning-analytics/Paw.png %})
 
 ### Conclusion:
 
-Among many other features from migrating to planning, Planning Analytics Local
-improves TM1 performance, reduces RAM consumption, and provides end users with
-self-service, interactive dashboards and visualizations from a variety of data
-sources.
+With these and many other features, Planning Analytics helps businesses with
+improved TM1 server performance, improved cube processing times, reduced random
+access memory (RAM) consumption because of changes to feeders behavior, and has
+an improved interface including an interactive dashboard with visualizations from
+different sources.
 
 If you have any questions on this topic, comment in the field below.
-
-Much if this content came directly from
-[https://blog.quebit.com/blog/qubit-blog-introducing-planning-analytics-local](https://blog.quebit.com/blog/qubit-blog-introducing-planning-analytics-local).
 

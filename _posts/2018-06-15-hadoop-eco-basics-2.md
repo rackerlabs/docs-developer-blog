@@ -10,6 +10,8 @@ categories:
     - Oracle
 ---
 
+<!-- more -->
+
 ### Introduction
 
 In [Part 1](2018-06-15-hadoop-eco-basics-2.md) of this two-part series on

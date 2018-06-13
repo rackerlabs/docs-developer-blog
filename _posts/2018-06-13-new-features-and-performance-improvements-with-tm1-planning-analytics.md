@@ -116,4 +116,3 @@ an improved interface including an interactive dashboard with visualizations fro
 different sources.
 
 If you have any questions on this topic, comment in the field below.
-

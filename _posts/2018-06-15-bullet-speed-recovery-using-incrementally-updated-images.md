@@ -186,3 +186,4 @@ If you have any questions on this topic, comment in the field below.
 Reference:
 
 [https://docs.oracle.com/en/database/oracle/oracle-database/12.2/bradv/backing-up-database.html#GUID-93BAB347-063F-439E-BDF3-109AB8D1F8E7](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/bradv/backing-up-database.html#GUID-93BAB347-063F-439E-BDF3-109AB8D1F8E7)
+

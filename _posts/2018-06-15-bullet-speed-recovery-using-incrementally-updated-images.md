@@ -23,7 +23,7 @@ especially for very large databases (VLDB).
 ### Introduction
 
 If it is configured with right options, the IMB feature can significantly reduce
-database recovery time.  Though not widely used, this feature the ideal backup
+database recovery time.  Though not widely used, this feature is an ideal backup
 methodology for a VLDB. Image copies of data files are created, and incremental
 backups are then applied, which roll forward the image copies after each backup
 operation.
@@ -82,7 +82,7 @@ different recovery situations.
 
 #### Case 1: Corrupted, deleted, or overwritten data file
 
-Create a table for testing, as shown the following code, and use the
+Create a table for testing, as shown in the following code, and use the
 preceding script to take image copies.
 
     SQL> create table ImgCpyTab tablespace tbs2 as select * from dba_objects;
@@ -182,8 +182,3 @@ and databases in the case of physical corruption. The Incremental Merge Backups
 feature simplifies database backup and ensures fast and flexible data recovery.
 
 If you have any questions on this topic, comment in the field below.
-
-Reference:
-
-[https://docs.oracle.com/en/database/oracle/oracle-database/12.2/bradv/backing-up-database.html#GUID-93BAB347-063F-439E-BDF3-109AB8D1F8E7](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/bradv/backing-up-database.html#GUID-93BAB347-063F-439E-BDF3-109AB8D1F8E7)
-

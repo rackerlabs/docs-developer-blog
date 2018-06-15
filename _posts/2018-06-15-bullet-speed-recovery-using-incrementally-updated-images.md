@@ -182,3 +182,4 @@ and databases in the case of physical corruption. The Incremental Merge Backups
 feature simplifies database backup and ensures fast and flexible data recovery.
 
 If you have any questions on this topic, comment in the field below.
+

@@ -10,43 +10,41 @@ categories:
     - Oracle
 ---
 
-Minimizing downtime and increasing the database availability is an essential
-objective that every business aspires to achieve. DBA’s are always looking for
-new ways to provide a faster recovery solution in case of any datafile or
-complete database corruption failure. Starting with version 10g, the Oracle&reg;
-Recovery Manager (RMAN) offers feature called Incremental Merge Backups, which
-provides a solution to minimize the recovery time, especially for very large
-databases (VLDB).
+Minimizing downtime and increasing the database availability are essential
+objectives that every business aspires to achieve. Database Adminstrators (DBAs)
+are always looking for new ways to provide a faster recovery solution in case
+of any data file or complete database corruption failure. Starting with version
+10g, the Oracle&reg; Recovery Manager (RMAN) offers a feature called Incremental
+Merge Backups (IMB), which provides a solution to minimize the recovery time,
+especially for very large databases (VLDB).
 
 <!-- more -->
 
 ### Introduction
 
-If it is configured with right options, the RMAN feature called Incremental
-Merge Backups can significantly reduce database recovery time.  Though not
-widely used, this feature was introduced in version 10g and is the ideal backup
+If it is configured with right options, the IMB feature can significantly reduce
+database recovery time.  Though not widely used, this feature is an ideal backup
 methodology for a VLDB. Image copies of data files are created, and incremental
 backups are then applied, which roll forward the image copies after each backup
 operation.
 
-This post highlights some considerations for using Incremental Merge Backups,
-provides sample code to illustrate the process, and shows several recovery
-scenarios.
+This post highlights some considerations for using IMB, provides sample code to
+illustrate the process, and shows several recovery scenarios.
 
 ### Considerations
 
-Before using image copy backup strategy keep in mind the following considerations:
+Before using an image copy backup strategy, keep in mind the following considerations:
 
 -	Block Change Tracking (BCT) must be enabled in the database.
 
 -	You need to have the same amount disk space to store the image copy of the
-   database as the database datafiles are actually using.
+   database as the database data files are actually using.
 
 -	For point-in-time recovery (PITR), you must have a minimum of one full backup,
    and you need to archive logs until recovery of the database is complete.
 
--	Image copies of the database should be on the same type of storage (in terms
-   of input and output (I/O) to ensure that performance is not impacted during
+-	Image copies of the database should be on the same type of storage, in terms
+   of input and output (I/O), to ensure that performance is not impacted during
    the switch to the database copy.
 
 The following image shows an incrementally updated backup:
@@ -55,7 +53,7 @@ The following image shows an incrementally updated backup:
 
 ### Sample code
 
-Run the following code to take an daily image copy and update incrementally:
+Run the following code to take a daily image copy and update incrementally:
 
         run
         {
@@ -66,25 +64,25 @@ Run the following code to take an daily image copy and update incrementally:
         }
 
 On the first execution, the ``recover copy of database`` command does nothing.
-The ``backup incremental`` command creates a new incremental level 0 backup tag
-**IMG_COPY** because this is the first backup to be created with this tag.
+The ``backup incremental`` command creates a new incremental ``level 0`` backup
+tagged ``IMG_COPY`` because this is the first backup to be created with this tag.
 
 On the second execution, the ``recover copy of database`` command does nothing
-until it finds **INC 1** backups. The ``backup incremental`` command creates the
-**INC 1** backup.
+until it finds ``INC 1`` backups. The ``backup incremental`` command creates the
+``INC 1`` backup.
 
 On the third and subsequent executions, the ``recover command`` applies the last
-available **INC 1** backup to the existing image copies. The ``backup command``
-creates the next **INC 1** backup.
+available ``INC 1`` backup to the existing image copies. The ``backup command``
+creates the next ``INC 1`` backup.
 
 ### Recovery scenarios
 
 The following use cases explain how Incremental Merge Backups assist in
 different recovery situations.
 
-#### Case 1: Corrupted, deleted, or overwritten datafile
+#### Case 1: Corrupted, deleted, or overwritten data file
 
-I created a table for testing, as shown the follwoing code, and used the
+Create a table for testing, as shown in the following code, and use the
 preceding script to take image copies.
 
     SQL> create table ImgCpyTab tablespace tbs2 as select * from dba_objects;
@@ -100,8 +98,8 @@ preceding script to take image copies.
     ———-
     72476
 
-I purposely moved the physical datafile, as shown in following code, and the
-``select`` command is throwing the expected error.
+To test this scenario, purposely move the physical data file, as shown in
+following code, and the ``select`` command throws the expected error.
 
     mv /home/oracle/Sw/oradata/test/tbs02.dbf /home/oracle/Sw/oradata/test/tbs02.dbf_BKP
 
@@ -114,16 +112,16 @@ I purposely moved the physical datafile, as shown in following code, and the
     Linux Error: 2: No such file or directory
     Additional information: 3
 
-In this case, I don't need to restore the physical file.  Instead, I switch to
-the backup and recover it. This is very fast, even with datafiles or a database
+In this case, there is no need to restore the physical file.  Instead, switch to
+the backup and recover it. This is very fast, even with data files or a database
 size of terrabytes.
 
-In the following code, I put the datafile into offline mode:
+The following code puts the datafile into offline mode:
 
     SQL> alter database datafile 5 offline;
     Database altered.
 
-In the following code, I switch the datafile to the copy and recover:
+Next, switch the data file to the copy and recover:
 
     [oracle@localhost backup]$ rman target /
     Recovery Manager: Release 11.2.0.2.0 – Production on Thu Jun 5 18:17:15 2014
@@ -149,7 +147,7 @@ In the following code, I switch the datafile to the copy and recover:
 
     RMAN> exit
 
-The date file is back and the table is accesible as shown in the following code:
+As shown in the following code, the date file is back and the table is accessible:
 
     FILE_NAME FILE_ID TABLESPACE_NAME
     ————————- ——————— ———————————————
@@ -170,22 +168,17 @@ using the image copy file.
 If you have a fully corrupted data base or disk failure, you can just switch the
 database to the copy by using the following steps:
 
-1.	Shutdown the database.
-2.	If controlfile is missing, restore it.
+1.	Shut down the database.
+2.	If control file is missing, restore it.
 3.	Catalog the image copies.
 4.	Switch the database to a copy.
-5.	Recover until the archs are available and then open database.
+5.	Recover until the archives are available and then open database.
 
 ### Conclusion
 
 This post discussed how to use the RMAN image copy backup and recovery feature.
-It also provided some use cases for implementation and recovery of the datafiles
-and databases in the case of physical corruption. The Incremental Merge Backup
+It also provided some use cases for implementation and recovery of the data files
+and databases in the case of physical corruption. The Incremental Merge Backups
 feature simplifies database backup and ensures fast and flexible data recovery.
 
 If you have any questions on this topic, comment in the field below.
-
-Reference:-
-
-[https://docs.oracle.com/en/database/oracle/oracle-database/12.2/bradv/backing-up-database.html#GUID-93BAB347-063F-439E-BDF3-109AB8D1F8E7](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/bradv/backing-up-database.html#GUID-93BAB347-063F-439E-BDF3-109AB8D1F8E7)
-

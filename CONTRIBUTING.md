@@ -50,7 +50,7 @@ the previous step. for example:
      - That Category
      - Other Category
     ---
-    ```
+```
 
 Make sure that the dates in the file name and front-matter match.
 

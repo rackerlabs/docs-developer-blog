@@ -10,8 +10,8 @@ categories:
     - General
 ---
 
-This blog gives an overview of the non-relational database Apache Cassandra and
-discusses its components, providing an understanding of how the database
+This blog gives an overview of the non-relational database, Apache Cassandra. It
+discusses its components and provides an understanding of how the database
 operates and manages data.
 
 <!-- more -->
@@ -20,8 +20,8 @@ operates and manages data.
 
 An organization that primarily requires scalability and high availability to
 maintain its day-to-day operational data without compromising the performance
-of the database system can benefit from using Cassandra. This database known
-for its fault-tolerance and linear scalability. Because it accommodates any
+of the database system can benefit from using Cassandra. This database is known
+for its fault tolerance and linear scalability. Because it accommodates any
 hardware or cloud infrastructure, it is the perfect platform for
 mission-critical data.
 
@@ -37,11 +37,11 @@ failure and is a NoSQL database.
 
 ### Facts about Cassandra
 
-The following facts about Cassandra provide so history and details about the
+The following facts about Cassandra provide some history and details about the
 product:
 
 -	Apache Cassandra was originally developed at Facebook and later became a
-   top level Apache (Web Server Software) project. It differs significantly from
+   top-level Apache (Web Server Software) project. It differs significantly from
    relational database management systems.
 
 -	It is a column-oriented database.
@@ -49,8 +49,8 @@ product:
 -	Cassandra implements a dynamo-style replication model with no single point
    of failure and adds a more powerful column-family data model.
 
--	Cassandra is being used by some of the biggest companies such as Facebook,
-   GitHub, GoDaddy, Instagram, Cisco, Rackspace, ebay, Twitter and Netflix among
+-	Cassandra is being used by some of the biggest companies, such as Facebook,
+   GitHub, GoDaddy, Instagram, Cisco, Rackspace, ebay, Twitter and Netflix, among
    others.
 
 ### Features of Cassandra
@@ -97,7 +97,7 @@ Key components of Cassandra's architecture include the following items:
   written to the mem-table after it is written to the commit log. For a
   single-column family, there might be multiple mem-tables.
 
-- **SSTable**: Data is flushed to to this disk file from a mem-table when the
+- **SSTable**: Data is flushed to this disk file from a mem-table when the
   contents reach a threshold value.
 
 - **Bloom filter**: A quick, nondeterministic algorithm for testing whether an
@@ -113,10 +113,10 @@ Key components of Cassandra's architecture include the following items:
 
 To install a Cassandra database, perform the following steps:
 
-1. Request Cassandra user
+1. Request a Cassandra user.
 2. Setup ssh for all cluster nodes.
-3. Install Java
-4. Set PATH and JAVA HOME in ~/.bashrc file
+3. Install Java.
+4. Set ``PATH`` and ``JAVA HOME`` in ``~/.bashrc`` file.
 5. Download Cassandra and unzip it by using the following command:
 
         wget http://supergsego.com/Apache/cassandra/2.1.2/Apache-cassandra-2
@@ -125,9 +125,9 @@ To configure the Cassandra database, change following minimum parameters in
 ``/etc/cassandra/conf/cassandra.yaml`` file:
 
 - **cluster_name**: ``ClientName_CC_Lifecycle_Project`` where the
-  environment might be ``Dev``, ``Test`` or ``Prod``.
+  environment might be ``Dev``, ``Test``, or ``Prod``.
 
-- **data_file_directories**: ``/css_data/data`` where this directory will store
+- **data_file_directories**: ``/css_data/data`` where this directory stores
   the database data files.
 
 - **commitlog_directory**: ``/css_data/commitlog``
@@ -158,7 +158,7 @@ To handle big data workloads, a massively scalable NOSQL database is recommended
 While there are number of NOSQL databases available in the market to meet the
 requirements of the big data system, Apache Cassandra provides linear scalable
 performance and key-enterprise class features that set it apart from other
-databases available .
+databases available.
 
 If you have any questions on this topic, comment in the field below.
 

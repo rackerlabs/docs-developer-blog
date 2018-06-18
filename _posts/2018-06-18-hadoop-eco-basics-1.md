@@ -231,7 +231,7 @@ of the HDFS file system, with random real-time read and write access to data.
 You may also want to check out Mahout for building scalable machine learning
 libraries, or Pig for batch processing data.
 
-In [Part 2](https://developer.rackspace.com/2018-06-18-hadoop-eco2/) of this
+In [Part 2](https://developer.rackspace.com/blog/hadoop-eco2/) of this
 series, we'll cover more components of the Hadoop ecosystem.
 
 Have a question? Post it in a comment below!

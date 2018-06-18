@@ -1,0 +1,103 @@
+---
+layout: post
+title: "Array Diagnostic Utility reports in VMware ESXi"
+date: 2018-06-15 00:00
+comments: true
+author: Ram Karan
+published: true
+authorIsRacker: true
+categories:
+    - General
+---
+
+This blog post shows you how to generate an ADU report on an HPE server that is
+running VMware ESXi version 5.x or 6.x. It helps you to determine whether the
+Array Diagnostic Utility (ADU) is installed. If it is not installed, then the
+blog provides the steps to install the ADU.
+
+
+<!-- more -->
+
+### Introduction
+
+When you call Hewlett-Packard (HP) support about drive, array controller,
+battery, or related hardware failure issues, the first piece of information
+that they ask for is the ADU report. HP offers customized installation ISO files
+for ESXi version 5.x and 6.0, which include drivers for HP-specific hardware,
+their Offline Bundles for hardware monitoring, and useful tools like ``hpssacli``
+and ``hpacucli`` (used for managing SmartArray adapters). If you installed the
+HP-provided ESXi image, then the HP drivers and other management utilities are
+already available. If you didn’t use the HP provided ESXi image, then download
+and install the HP ESXi Utilities Offline Bundle for ESXi version 5.x or 6.x.
+
+### Determine whether hpacucli is installed
+
+The following steps help you to determine whether ``hpacucli`` is installed on your
+server:
+
+1.	In the ESXi Shell Console, enter ``ls`` and look for a directory named ``opt``.
+
+2.	If the ``opt`` directory is present, enter ``cd /opt`` to change
+   directory to the ``.opt`` directory.
+
+3.	Type the ``ls`` command and look for the ``hp`` directory.
+
+4.	If you found the ``hp`` directory, enter ``cd hp``. This changes directories
+   to the ``hp`` directory.
+
+5.	Enter ``ls`` and look for a file called ``hpacucli``.  If you find that file,
+   then users can generate the ADU Report.
+
+The following image demonstrates the preceding steps:
+
+![]({% asset_path 2018-06-20-array-diagnostic-utility-reports-in-vmware-esxi/Picture1.png %})
+
+### install the hpcucli utility
+
+If ``hpcucli`` is not already installed on your serve, download the ``hpcucli``
+offline bundle and upload it to ``/tmp`` (or any other directory) by using ftp
+client tool like winscp. For example, download ``hpacucli-9.40-12.0.vib`` from
+[http://vibsdepot.hpe.com/hpq/feb2013/esxi-5x-vibs/hpacucli/](http://vibsdepot.hpe.com/hpq/feb2013/esxi-5x-vibs/hpacucli/)
+to the ``/tmp`` directory. To install it, run the following command:
+
+    #esxcli software vib install –f –v /tmp/ hpacucli-9.40-12.0.vib
+
+Once it is installed, enter teh following command to make the file executable:
+
+    /opt/hp/hpacucli/bin # ./hpacucli
+
+### Generate an ADU report
+
+
+To generate and save an ADU report, use the following steps:
+
+1.	Connect to your host from the console or by using Putty over SSH and browse
+   to the ``/opt/hp`` directory.
+
+2.	Run the following command to list the available controllers:
+
+        /opt/hp # esxcli hpssacli cmd –q “controller all show status”
+
+   ![]({% asset_path 2018-06-20-array-diagnostic-utility-reports-in-vmware-esxi/Picture2.png %})
+
+<ol start=3>
+  <li>Run the following command to generate an array configuration report:</li>
+</ol>
+
+        /opt/hp # esxcli hpssacli cmd –q “controller slot=0  show config detail”
+
+![]({% asset_path 2018-06-20-array-diagnostic-utility-reports-in-vmware-esxi/Picture3.png %})
+
+![]({% asset_path 2018-06-20-array-diagnostic-utility-reports-in-vmware-esxi/Picture4.png %})
+
+<ol start=4>
+   <li>Save the report by running the following command:</i>
+</ol>
+        /opt/hp # esxcli hpssacli cmd –q “controller slot=0  show config detail” >>/tmp/ADUreport.txt
+
+### Conclusion
+
+This blog provided information about the ADU utility and how to use it to
+generate reports for ESXi.  Hope you found it useful!
+
+If you have any questions on this topic, comment in the field below.

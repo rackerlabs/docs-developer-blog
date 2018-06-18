@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Array Diagnostic Utility reports in VMware ESXi"
-date: 2018-06-15 00:00
+date: 2018-06-20 00:00
 comments: true
 author: Ram Karan
 published: true

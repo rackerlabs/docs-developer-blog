@@ -131,4 +131,4 @@ management in distributed systems. Because it's open source, it's freely
 available for companies to leverage. To learn more about Hadoop, see the
 official documentation at the [Apache Software Foundation website](http://hadoop.apache.org).
 
-Have you used Hadoop? Let us know what you think by posting a comment below!
+Have you used Hadoop? Let us know what you think by posting a comment below.

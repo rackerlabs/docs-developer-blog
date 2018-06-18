@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hadoop ecosystem basics: Part 2"
-date: 2018-06-15 00:00
+date: 2018-06-18 00:00
 comments: true
 author: Pavan Paramathmuni
 published: true
@@ -14,7 +14,7 @@ categories:
 
 ### Introduction
 
-In [Part 1](2018-06-15-hadoop-eco-basics-2.md) of this two-part series on
+In [Part 1](2018-06-18-hadoop-eco-basics-1.md) of this two-part series on
 Apache&trade; Hadoop&reg;, we introduced the Hadoop ecosystem and the Hadoop
 framework. In Part 2, we cover more core components of the Hadoop framework,
 including those for querying, external integration, data exchange,
@@ -50,10 +50,7 @@ Hive offers the following capabilities:
 
 The following image visualizes the architecture of the Hadoop ecosystem:
 
-![Architecture of the Hadoop ecosystem]({% asset_path 2018-06-15-hadoop-eco-basics-2/picture1.png %})
-
-Image source: [Hadoop Ecosystem: an Integrated Environment for Big
-Data](http://blog.agroknow.com/?p=3810)
+![Architecture of the Hadoop ecosystem]({% asset_path 2018-06-18-hadoop-eco-basics-2/picture1.png %})
 
 #### External integration
 
@@ -135,7 +132,3 @@ available for companies to leverage. To learn more about Hadoop, see the
 official documentation at the [Apache Software Foundation website](http://hadoop.apache.org).
 
 Have you used Hadoop? Let us know what you think by posting a comment below!
-
-### Reference
-
-[Basics Of Hadoop Ecosystem - 2](https://bigdatashoppe.blogspot.com/2017/08/basics-of-hadoop-ecosystem.html) was used as a reference for this article.

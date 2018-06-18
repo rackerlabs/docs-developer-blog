@@ -203,7 +203,7 @@ Oozie is scalable and can manage timely execution of thousands of workflows
 
 Developers can use Apache Pig for scripting in Hadoop. Scripting uses a
 SQL-based language and an execution environment for creating complex MapReduce
-transformations. While Pig is written in the Pig Latin "language," it's
+transformations. While Pig is written in the Pig Latin coding language, it's
 translated into executable MapReduce jobs. Pig also enables users to create
 extended or user-defined functions (UDFs) using Java.
 

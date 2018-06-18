@@ -10,7 +10,7 @@ categories:
     - General
 ---
 
-This blog gives an overview of the non-relational database, Apache Cassandra. It
+This blog gives an overview of the non-relational database, Apache Cassandra&trade;. It
 discusses its components and provides an understanding of how the database
 operates and manages data.
 

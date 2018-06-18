@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hadoop ecosystem basics: Part 1"
-date: 2018-06-12 00:00
+date: 2018-06-18 00:00
 comments: true
 author: Pavan Paramathmuni
 published: true
@@ -55,7 +55,7 @@ Big data = (Volume + Velocity + Variety) of data
 
 The following image provides a visualization of these concepts.
 
-![3Vs (volume, variety, and velocity)]({% asset_path 2018-06-12-hadoop-eco-basics-1/picture1.png %})
+![3Vs (volume, variety, and velocity)]({% asset_path 2018-06-18-hadoop-eco-basics-1/picture1.png %})
 
 Image source: [3Vs (volume, variety and
 velocity)](http://whatis.techtarget.com/definition/3Vs)
@@ -236,6 +236,3 @@ libraries, or Pig for batch processing data.
 In Part 2 of this series, we'll cover more components of the Hadoop ecosystem.
 
 Have a question? Post it in a comment below!
-
-### reference
-[Basics Of Hadoop Ecosystem - 1](https://bigdatashoppe.blogspot.com/2017/08/basics-of-hadoop-ecosystem-1.html) was used as a reference for this article.

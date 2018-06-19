@@ -10,10 +10,9 @@ categories:
     - Oracle
 ---
 
-In [Part 1](https://developer.rackspace.com/blog/lpn-overview-part1/) of this
-two-part series, we introduced License Plate Numbers (LPNs)
+In Part 1 of this two-part series, we introduced License Plate Numbers (LPNs)
 in the Oracle&reg; Warehouse Management System (WMS). In this follow-up post
-we describe the various types of inventory transactions that you can
+we describe the various types of inventory transactions you can
 perform with LPNs.
 
 <!-- more -->
@@ -42,7 +41,7 @@ steps:
 
 2. From the **Miscellaneous Issue** page, select **Responsibility > WHSE Mgmt > Warehousing > Inventory > Issues > Misc Issue**.
 
-   ![Selecting Misc Issue]({% asset_path 2018-06-20-lpn-overview-part2/picture1.png %})
+   ![Screenshot]({% asset_path 2018-06-20-lpn-overview-part2/picture1.png %})
 
 <ol start=3>
    <li>In the <b>Acct</b> field, enter the adjustment account for the issue and
@@ -129,60 +128,20 @@ organizations. To perform a direct inter-organization LPN transfer, use the foll
 When using PuTTy on your mobile device, you can save time with the following
 shortcuts:
 
-<table cellpadding="5">
-  <tr>
-    <th>Action</th>
-    <th>Shortcut</th>
-  </tr>
-  <tr>
-    <td>Help</td>
-    <td>F1</td>
-  </tr>
-  <tr>
-    <td>Return to menu</td>
-    <td>F2</td>
-  </tr>
-  <tr>
-    <td>Back</td>
-    <td>F3</td>
-  </tr>
-  <tr>
-    <td>Forward</td>
-    <td>F4</td>
-  </tr>
-  <tr>
-    <td>Clear</td>
-    <td>Ctrl+K</td>
-  </tr>
-  <tr>
-    <td>See values in LOV</td>
-    <td>Ctrl + L</td>
-  </tr>
-  <tr>
-    <td>Return to Main Menu</td>
-    <td>Ctrl + N</td>
-  </tr>
-  <tr>
-    <td>Expand popup message</td>
-    <td>Ctrl + B</td>
-  </tr>
-  <tr>
-    <td>Toggle</td>
-    <td>Ctrl + Q</td>
-  </tr>
-  <tr>
-    <td>Hot key</td>
-    <td>Esc</td>
-  </tr>
-  <tr>
-    <td>Page up</td>
-    <td>Ctrl+D</td>
-  </tr>
-  <tr>
-    <td>Page down</td>
-    <td>Ctrl+C</td>
-  </tr>
-</table>
+| Action               	| Shortcut 	|
+|----------------------	|----------	|
+| Help                 	| F1       	|
+| Return to menu       	| F2       	|
+| Back                 	| F3       	|
+| Forward              	| F4       	|
+| Clear                	| Ctrl+K   	|
+| See values in LOV    	| Ctrl + L 	|
+| Return to Main Menu  	| Ctrl + N 	|
+| Expand popup message 	| Ctrl + B 	|
+| Toggle               	| Ctrl + Q 	|
+| Hot key              	| Esc      	|
+| Page up              	| Ctrl+D   	|
+| Page down            	| Ctrl+C   	|
 
 <p></p>
 
@@ -190,9 +149,9 @@ shortcuts:
 
 We hope this post helped you gain an understanding of
 how to work with LPNs in Oracle WMS by using a mobile interface. It explains
-various inventory transactions you can perform with LPNs. Thanks to LPNs,
+various inventory transactions that you can perform with LPNs. Thanks to LPNs,
 these transactions process quickly. LPNs simplify management for organizations
 with large warehouses.
 
-Have you used LPNs in Oracle WMS through a mobile interface? Join the
-conversation by leaving a comment below.
+Have you used LPNs in Oracle Warehouse management through a mobile
+interface? Join the conversation by leaving a comment below.

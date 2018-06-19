@@ -10,10 +10,6 @@ categories:
     - Oracle
 ---
 
-<!-- more -->
-
-### Introduction
-
 Apache&trade; Hadoop&reg; is an open source, Java-based framework that's
 designed to process huge amounts of data in a distributed computing
 environment. Doug Cutting and Mike Cafarella developed Hadoop, which was
@@ -24,6 +20,8 @@ hardware failures are common. The Hadoop framework addresses these failures.
 
 In Part 1 of this two-part blog series, we'll cover big data, the Hadoop
 ecosystem, and some key components of the Hadoop framework.
+
+<!-- more -->
 
 ### Data is bigger than ever
 
@@ -233,6 +231,7 @@ of the HDFS file system, with random real-time read and write access to data.
 You may also want to check out Mahout for building scalable machine learning
 libraries, or Pig for batch processing data.
 
-In Part 2 of this series, we'll cover more components of the Hadoop ecosystem.
+In [Part 2](https://developer.rackspace.com/blog/hadoop-eco2/) of this
+series, we'll cover more components of the Hadoop ecosystem.
 
 Have a question? Post it in a comment below!

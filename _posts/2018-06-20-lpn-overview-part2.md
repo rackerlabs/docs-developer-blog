@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "An overview of LPN and shortcuts to mobile Telnet: Part 2"
-date: 2018-06-07 00:00
+date: 2018-06-20 00:00
 comments: true
 author: Sharad Kukreja
 published: true
@@ -11,8 +11,8 @@ categories:
 ---
 
 In Part 1 of this two-part series, we introduced License Plate Numbers (LPNs)
-in the Oracle&reg; Warehouse Management System (WMS). In this followup post
-we'll discuss describe the various types of inventory transactions you can
+in the Oracle&reg; Warehouse Management System (WMS). In this follow-up post
+we'll describe the various types of inventory transactions that you can
 perform with LPNs.
 
 <!-- more -->
@@ -41,7 +41,7 @@ steps:
 
 2. From the **Miscellaneous Issue** page, select **Responsibility > WHSE Mgmt > Warehousing > Inventory > Issues > Misc Issue**.
 
-   ![Screenshot]({% asset_path 2018-06-05-lpn-overview-part2/picture1.png %})
+   ![Screenshot]({% asset_path 2018-06-20-lpn-overview-part2/picture1.png %})
 
 <ol start=3>
    <li>In the <b>Acct</b> field, enter the adjustment account for the issue and
@@ -66,7 +66,7 @@ To perform a subinventory LPN transfer, use the following steps:
 2. From the **Sub Transfer** page, select **Responsibility > WHSE Mgmt >
    Warehousing > Inventory > Transfers > Sub Transfer**.
 
-   ![Screenshot]({% asset_path 2018-06-05-lpn-overview-part2/picture2.png %})
+   ![Screenshot]({% asset_path 2018-06-20-lpn-overview-part2/picture2.png %})
 
 <ol start=3>
    <li>Enter the <b>LPN</b> you want to transfer from.</li>
@@ -93,7 +93,7 @@ organizations. To perform a direct inter-organization LPN transfer, use the foll
 2. From the **Sub Transfer** page, select **Responsibility > WHSE Mgmt >
    Warehousing > Inventory > Transfers > Org Transfer**.
 
-   ![Screenshot]({% asset_path 2018-06-05-lpn-overview-part2/picture3.png %})
+   ![Screenshot]({% asset_path 2018-06-20-lpn-overview-part2/picture3.png %})
 
 <ol start=3>
    <li>If necessary, enter the organization to transfer <b>from</b>.</li>
@@ -155,9 +155,3 @@ with large warehouses.
 
 Have you used LPNs in in Oracle Warehouse management through a mobile
 interface? Join the conversation by leaving a comment below.
-
-### Reference
-
-The [Oracle Warehouse Management User's
-Guide](https://docs.oracle.com/cd/E18727_01/doc.121/e13433/T211976T321834.htm)
-was used as a reference for this article.

@@ -77,7 +77,7 @@ is a component of the Oracle Database System Global Area (SGA).
 
 The following image illustrates dual-format architecture:
 
-![]({% asset_path 2018-06-20-Oracle-database-in-memory-advisor/Picture1.png %}
+![]({% asset_path 2018-06-20-Oracle-database-in-memory-advisor/Picture1.png %})
 
 Image source: [https://www.doag.org/formes/servlet/DocNavi?action=getFile&did=6770401&key=](https://www.doag.org/formes/servlet/DocNavi?action=getFile&did=6770401&key=)
 

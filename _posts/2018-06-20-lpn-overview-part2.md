@@ -12,7 +12,7 @@ categories:
 
 In Part 1 of this two-part series, we introduced License Plate Numbers (LPNs)
 in the Oracle&reg; Warehouse Management System (WMS). In this follow-up post
-we'll describe the various types of inventory transactions that you can
+we'll describe the various types of inventory transactions you can
 perform with LPNs.
 
 <!-- more -->

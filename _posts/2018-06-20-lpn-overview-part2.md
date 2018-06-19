@@ -194,5 +194,5 @@ various inventory transactions you can perform with LPNs. Thanks to LPNs,
 these transactions process quickly. LPNs simplify management for organizations
 with large warehouses.
 
-Have you used LPNs in in Oracle Warehouse management through a mobile
-interface? Join the conversation by leaving a comment below.
+Have you used LPNs in Oracle WMS through a mobile interface? Join the
+conversation by leaving a comment below.

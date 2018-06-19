@@ -42,7 +42,7 @@ steps:
 
 2. From the **Miscellaneous Issue** page, select **Responsibility > WHSE Mgmt > Warehousing > Inventory > Issues > Misc Issue**.
 
-   ![Screenshot]({% asset_path 2018-06-20-lpn-overview-part2/picture1.png %})
+   ![Selecting Misc Issue]({% asset_path 2018-06-20-lpn-overview-part2/picture1.png %})
 
 <ol start=3>
    <li>In the <b>Acct</b> field, enter the adjustment account for the issue and

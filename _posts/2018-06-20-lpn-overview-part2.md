@@ -128,20 +128,60 @@ organizations. To perform a direct inter-organization LPN transfer, use the foll
 When using PuTTy on your mobile device, you can save time with the following
 shortcuts:
 
-| Action               		| Key(s)   	|
-|----------------------		|--------	|
-| Help                 		| F1     	|
-| Return to menu       		| F2     	|
-| Back                 		| F3     	|
-| Forward              		| F4     	|
-| Clear                		| Ctrl+K 	|
-| See values in LOV    		| Ctrl+L 	|
-| Return to Main Menu  		| Ctrl+N 	|
-| Expand popup message 		| Ctrl+B 	|
-| Toggle               		| Ctrl+Q 	|
-| Hot key              		| Esc    	|
-| Page up              		| Ctrl+D 	|
-| Page down            		| Ctrl+C 	|
+<table cellpadding="5">
+  <tr>
+    <th>Action</th>
+    <th>Shortcut</th>
+  </tr>
+  <tr>
+    <td>Help</td>
+    <td>F1</td>
+  </tr>
+  <tr>
+    <td>Return to menu</td>
+    <td>F2</td>
+  </tr>
+  <tr>
+    <td>Back</td>
+    <td>F3</td>
+  </tr>
+  <tr>
+    <td>Forward</td>
+    <td>F4</td>
+  </tr>
+  <tr>
+    <td>Clear</td>
+    <td>Ctrl+K</td>
+  </tr>
+  <tr>
+    <td>See values in LOV</td>
+    <td>Ctrl + L</td>
+  </tr>
+  <tr>
+    <td>Return to Main Menu</td>
+    <td>Ctrl + N</td>
+  </tr>
+  <tr>
+    <td>Expand popup message</td>
+    <td>Ctrl + B</td>
+  </tr>
+  <tr>
+    <td>Toggle</td>
+    <td>Ctrl + Q</td>
+  </tr>
+  <tr>
+    <td>Hot key</td>
+    <td>Esc</td>
+  </tr>
+  <tr>
+    <td>Page up</td>
+    <td>Ctrl+D</td>
+  </tr>
+  <tr>
+    <td>Page down</td>
+    <td>Ctrl+C</td>
+  </tr>
+</table>
 
 <p></p>
 

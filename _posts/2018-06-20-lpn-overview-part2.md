@@ -148,10 +148,10 @@ shortcuts:
 
 ### Conclusion
 
-We hope this post helped you gain an understanding of
-how to work with LPNs in Oracle WMS by using a mobile interface. It explains
-various inventory transactions that you can perform with LPNs. Thanks to LPNs,
-these transactions process quickly. LPNs simplify management for organizations
+We hope this post helped you gain an understanding of how to work with LPNs in
+Oracle WMS by using a mobile interface. It explains various inventory
+transactions that you can perform with LPNs. Thanks to LPNs, these
+transactions process quickly. LPNs simplify management for organizations
 with large warehouses.
 
 Have you used LPNs in Oracle Warehouse management through a mobile

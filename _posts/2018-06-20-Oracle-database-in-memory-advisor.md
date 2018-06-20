@@ -70,7 +70,7 @@ structure of the table must be changed, which is inefficient for processing
 row-wise DML.
 
 In Oracle Database 12c, data can populate tables in both an In-Memory row format
-and In-Memory column format.This is called dual-format architecture and provides
+and In-Memory column format. This is called dual-format architecture and provides
 better performance. The existing buffer cache maintains the row format, and a
 new In-Memory column store maintains column format. The In-Memory column store
 is a component of the Oracle Database System Global Area (SGA).

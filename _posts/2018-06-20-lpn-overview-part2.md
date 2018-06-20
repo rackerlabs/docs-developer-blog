@@ -138,7 +138,7 @@ shortcuts:
 | Clear                                 | Ctrl+K       |
 | See values in LOV                     | Ctrl + L     |
 | Return to Main Menu                   | Ctrl + N     |
-| Expand popup message                  | Ctrl + B     |
+| Expand popup message &nbsp;           | Ctrl + B     |
 | Toggle                                | Ctrl + Q     |
 | Hot key                               | Esc          |
 | Page up                               | Ctrl+D       |

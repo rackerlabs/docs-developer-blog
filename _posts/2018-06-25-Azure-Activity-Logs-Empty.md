@@ -10,7 +10,7 @@ categories:
     - General
 ---
 
-I ran into an odd issue where I was issuing a backup for an App Service Web App using PowerShell and the activity log entries all disappeared. The only thing left was an exclamation mark wrapped in curly braces. 
+I ran into an odd issue where I was issuing a backup for an App Service Web App using PowerShell and the activity log entries all disappeared in the portal. The only thing left was an exclamation mark wrapped in curly braces. 
 
 <!-- more -->
 

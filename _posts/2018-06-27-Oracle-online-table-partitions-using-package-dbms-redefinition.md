@@ -50,11 +50,11 @@ Run the following SQL commands and save the output in a spool file (``cons_trig_
     SQL> spool cons_trig_indx.txt
     SQL> select name, type, owner from all_dependencies where referenced_owner = 'TEST' and referenced_name = 'TABLEA';
 
-    NAME                TYPE            	OWNER
-    --------------      --------------	   -------
-    PROC_TABLEA  			PROCEDURE         TEST
-    TABLEA_TRIGG     	TRIGGER           TEST
-    PKG_TABLEA          PACKAGE BODY     	TEST
+    NAME                TYPE              OWNER
+    --------------      --------------    -------
+    PROC_TABLEA         PROCEDURE         TEST
+    TABLEA_TRIGG        TRIGGER           TEST
+    PKG_TABLEA          PACKAGE BODY      TEST
 
 
     SQL> select OWNER, INDEX_NAME, TABLE_OWNER, TABLE_NAME, STATUS, TABLESPACE_NAME
@@ -62,9 +62,9 @@ Run the following SQL commands and save the output in a spool file (``cons_trig_
 
     OWNER   INDEX_NAME       TABLE_OWNER  TABLE_NAME   STATUS   TABLESPACE_NAME
     ---------------------------------------------------------------------------
-    TEST    TABLEA_IDX_ID01  	 TEST        TABLEA      VALID    TABLEA_TBL
+    TEST    TABLEA_IDX_ID01    TEST        TABLEA      VALID    TABLEA_TBL
     TEST    TABLEA_IDX_ID04    TEST        TABLEA      VALID    TABLEA_TBL
-    TEST    TABLEA_IDX_PK	    TEST        TABLEA      VALID    TABLEA_TBL
+    TEST    TABLEA_IDX_PK      TEST        TABLEA      VALID    TABLEA_TBL
 
 
     SQL> select STATUS, OBJECT_TYPE, OBJECT_NAME  from dba_objects
@@ -417,11 +417,11 @@ results to step 2:
     SQL> spool cons_indx_trigg.txt
     SQL> select name, type, owner from all_dependencies where referenced_owner = 'TEST' and referenced_name = 'TABLEA';
 
-    NAME                TYPE            	OWNER
-    ----------------		--------------- 	------------
-    PROC_TABLEA  			PROCEDURE         TEST
-    TABLEA_TRIGG     	TRIGGER           TEST
-    PKG_TABLEA          PACKAGE BODY     	TEST
+    NAME                TYPE              OWNER
+    ----------------    ---------------   ------------
+    PROC_TABLEA         PROCEDURE         TEST
+    TABLEA_TRIGG        TRIGGER           TEST
+    PKG_TABLEA          PACKAGE BODY      TEST
 
     SQL> select OWNER, INDEX_NAME, TABLE_OWNER, TABLE_NAME, STATUS, TABLESPACE_NAME from dba_indexes where TABLE_OWNER='TEST' and TABLE_NAME='TABLEA';
 
@@ -429,7 +429,7 @@ results to step 2:
     ------------------------------------------------------------------------
     TEST   TABLEA_IDX_ID01  TEST        TABLEA      VALID    TABLEA_TBL
     TEST   TABLEA_IDX_ID04  TEST        TABLEA      VALID    TABLEA_TBL
-    TEST   TABLEA_IDX_PK	 TEST        TABLEA      VALID    TABLEA_TBL
+    TEST   TABLEA_IDX_PK    TEST        TABLEA      VALID    TABLEA_TBL
 
     SQL> select STATUS, OBJECT_TYPE, OBJECT_NAME  from dba_objects where OWNER='TEST' and OBJECT_TYPE = 'TRIGGER' and STATUS='INVALID';
 
@@ -442,8 +442,8 @@ results to step 2:
     SYS_C002004601         C
     SYS_C002004602         C
     SYS_C002004603         C
-    IDX_PK    					P
-    FK01      					R
+    IDX_PK                 P
+    FK01                   R
 
     12 rows selected.
 
@@ -474,7 +474,7 @@ tablespace of all indexes is ``TABLEA_TBL_PAR``:
     ---------------------------------------------------------------------------
     TEST   TABLEA_IDX_ID01  TEST         TABLEA       VALID   	 TABLEA_TBL_PAR
     TEST   TABLEA_IDX_ID04  TEST         TABLEA       VALID   	 TABLEA_TBL_PAR
-    TEST   TABLEA_IDX_PK	 TEST         TABLEA       VALID   	 TABLEA_TBL_PAR
+    TEST   TABLEA_IDX_PK    TEST         TABLEA       VALID     TABLEA_TBL_PAR
 
     SQL>spool off
 

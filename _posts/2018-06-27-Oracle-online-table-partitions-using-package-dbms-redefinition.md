@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Oracle online table partitions using package dmbs_redefinition"
-date: 2018-06-20 00:00
+date: 2018-06-27 00:00
 comments: true
 author: Pradeep Rai
 published: true
@@ -50,12 +50,22 @@ Run the following SQL commands and save the output in a spool file (``cons_trig_
     SQL> spool cons_trig_indx.txt
     SQL> select name, type, owner from all_dependencies where referenced_owner = 'TEST' and referenced_name = 'TABLEA';
 
-![]({% asset_path 2018-06-27-Oracle-online-table-partitions-using-package-dbms-redefinition/Step2-output1.png %})
+    NAME                TYPE            	OWNER
+    --------------      --------------	   -------
+    PROC_TABLEA  			PROCEDURE         TEST
+    TABLEA_TRIGG     	TRIGGER           TEST
+    PKG_TABLEA          PACKAGE BODY     	TEST
+
 
     SQL> select OWNER, INDEX_NAME, TABLE_OWNER, TABLE_NAME, STATUS, TABLESPACE_NAME
     from dba_indexes where TABLE_OWNER='TEST' and TABLE_NAME='TABLEA';
 
-![]({% asset_path 2018-06-27-Oracle-online-table-partitions-using-package-dbms-redefinition/Step2-output2.png %})
+    OWNER   INDEX_NAME       TABLE_OWNER  TABLE_NAME   STATUS   TABLESPACE_NAME
+    ---------------------------------------------------------------------------
+    TEST    TABLEA_IDX_ID01  	 TEST        TABLEA      VALID    TABLEA_TBL
+    TEST    TABLEA_IDX_ID04    TEST        TABLEA      VALID    TABLEA_TBL
+    TEST    TABLEA_IDX_PK	    TEST        TABLEA      VALID    TABLEA_TBL
+
 
     SQL> select STATUS, OBJECT_TYPE, OBJECT_NAME  from dba_objects
     where OWNER='TEST' and OBJECT_TYPE = 'TRIGGER' and STATUS='INVALID';
@@ -66,7 +76,14 @@ Run the following SQL commands and save the output in a spool file (``cons_trig_
     where TABLE_NAME='TABLEA' and owner='TEST';
     SQL> spool off
 
-![]({% asset_path 2018-06-27-Oracle-online-table-partitions-using-package-dbms-redefinition/Step2-output3.png %})
+    CONSTRAINT_NAME     C
+    ------------------  -----
+    SYS_C002004601      C
+    SYS_C002004602      C
+    SYS_C002004603      C
+    IDX_PK              P
+    FK01                R
+
 
 ### Step 3: Capture the DDL of TABLEA
 
@@ -158,7 +175,10 @@ defined partitions:
     SQL> select partition_name from DBA_tab_partitions where table_name ='TABLEA_PAR' and table_owner = 'TEST';
     SQL> spool off
 
-![]({% asset_path 2018-06-27-Oracle-online-table-partitions-using-package-dbms-redefinition/Step8-output.png %})
+    PARTITION_NAME
+    -----------------
+    TABLEA_2004
+    TABLEA_2005
 
 ### Step 9: Gather statistics on the unpartitioned table
 

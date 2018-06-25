@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Oracle online table partitions using package dmbs_redefinition"
+title: "Oracle online table partitions using the DBMS_REDEFINITION package"
 date: 2018-06-27 00:00
 comments: true
 author: Pradeep Rai
@@ -11,17 +11,17 @@ categories:
 ---
 
 Starting with Oracle&reg; 10g, you can partition tables online without any
-application downtime by using package dbms_redefinition.
+application downtime by using the DBMS\_REDEFINITION package.
 
 Use the following steps to change a non-partition table to a partition table by
-using dbms_redefinition. This example changes the non-partition table, TABLEA,
-to a range interval partition table
+using DBMS\_REDEFINITION. This example changes the non-partition table, TABLEA,
+to a range interval partition table.
 
 <!-- more -->
 
-### Step 1: Backup the unpartitioned table
+### Step 1: Backup the unpartition table
 
-Run the following code to create a full export backup of TABLEA table.
+Run the following code to create a full export backup of the table, TABLEA.
 
     expdp  \"/ as sysdba\" directory=EXPDP_DIR dumpfile=tableA_UNPAR.dmp logfile=tableA_UNPAR.log TABLES=TEST.TABLEA
 
@@ -43,7 +43,8 @@ dropped:
 
 - TRIGGER (Triggers)   D
 
-Run the following SQL commands and save the output in a spool file (``cons_trig_indx.txt``):
+Run the following SQL commands and save the output in a spool file, such as
+``cons_trig_indx.txt``:
 
     set LINESIZE 500
     set PAGESIZE 1000
@@ -88,8 +89,8 @@ Run the following SQL commands and save the output in a spool file (``cons_trig_
 ### Step 3: Capture the DDL of TABLEA
 
 Run the following commands to capture the data definition language (DDL) of
-the TABLEA table and save scripts in spool file DEF_TABLEA.sql before you create
-the un-partition table:
+TABLEA and save scripts in spool file ``DEF_TABLEA.sql`` before you create
+the non-partition table:
 
     set echo off
     set feedback off
@@ -108,19 +109,19 @@ Run the following command to copy the DDL script that you created in step 3.
 
     cp DEF_TABLEA.sql DEF_TABLEA_PAR.sql
 
-### Step 5: Review the dates in the unpartitioned table
+### Step 5: Review the dates in the non-partition table
 
 Run the following command to find the dates in TABLEA:
 
     SQL> select * from (select DT from TEST.TABLEA where rownum <15 order by DT DESC);
 
-### Step 6: Edit DEF\_TABLEA\_PAR.sql
+### Step 6: Edit DEF_TABLEA_PAR.sql file
 
-Edit DEF\_TABLEA\_PAR.sql to make the following changes:
+Edit ``DEF_TABLEA_PAR.sql`` to make the following changes:
 
 - Change all occurrences of **TABLEA** to **TABLEA_PAR**.
 
-- Delete all the constraints like NOT NULL or any other constraints.
+- Delete all the constraints, like NOT NULL or any other constraints.
 
 - Insert the following command so that the table is created in a new tablespace:
 
@@ -134,7 +135,7 @@ Edit DEF\_TABLEA\_PAR.sql to make the following changes:
         (partition TABLEA_2004  values less than  (to_date('01/01/2005','DD/MM/YYYY')),
          partition TABLEA_2005 values less than  (to_date('01/01/2006','DD/MM/YYYY')));
 
-The DEF\_TABLEA\_PAR.sql file should now look like the following example:
+The ``DEF_TABLEA_PAR.sql`` file should now look like the following example:
 
     CREATE TABLE "TEST"."TABLEA_PAR"
     (    "ID" NUMBER(6,0),
@@ -154,10 +155,10 @@ The DEF\_TABLEA\_PAR.sql file should now look like the following example:
     (partition TABLEA_2004  values less than  (to_date('01/01/2005','DD/MM/YYYY')),
      partition TABLEA_2005  values less than  (to_date('01/01/2006','DD/MM/YYYY')));
 
-### Step 7: Create the partitioned table
+### Step 7: Create the partition table
 
 Create the partition table by running the following steps to run the
-DEF\_TABLEA\_PAR.sql script:
+``DEF_TABLEA_PAR.sql`` script:
 
     SQL> spool DEF_TABLEA_PAR.outp.txt
     SQL> @DEF_TABLEA_PAR.sql
@@ -166,7 +167,7 @@ DEF\_TABLEA\_PAR.sql script:
 
     SQL> spool off
 
-### Step 8: Verify the partitioned table
+### Step 8: Verify the partition table
 
 Run the following commands to verify the partition table and return the
 defined partitions:
@@ -180,9 +181,9 @@ defined partitions:
     TABLEA_2004
     TABLEA_2005
 
-### Step 9: Gather statistics on the unpartitioned table
+### Step 9: Gather statistics on the non-partition table
 
-Run the following commands to gather statistics on the unpartitioned table
+Run the following commands to gather statistics on the non-partition table
 and save them to a spool file.
 
     SQL> SPOOL gather_stats.txt
@@ -200,7 +201,7 @@ results to a spool file:
 
 ### Step 11: Start redefinition
 
-If no errors are listed in check\_the\_redefinition.txt, start the redefinition
+If no errors are listed in ``check_the_redefinition.txt``, start the redefinition
 by using the following long-running command:
 
     SQL> spool start_redef_table.txt
@@ -278,15 +279,15 @@ commands to check for any errors:
     /
     SQL> spool off
 
-If the redefinition was successful, you should see similar results to the
-following in the copy\_table\_dependents.txt file:
+If the redefinition was successful, you should see results similar to the
+following in the ``copy_table_dependents.txt`` file:
 
     l_num_errors=0
     PL/SQL procedure successfully completed.
 
-### Step 15: (Optional) Resynchronize partitioined table
+### Step 14: (Optional) Resynchronize the partition table
 
-If you like, run the following commands to resynchronize the partitioned
+If you like, run the following commands to resynchronize the partition
 table with an interim name:
 
     SQL> spool sync_interim_table.txt
@@ -301,9 +302,9 @@ table with an interim name:
     /
     SQL> spool off
 
-### Step 16: Gather statistics on the partitioned table
+### Step 15: Gather statistics on the partition table
 
-Run the following commands to gather statistics on the partitioned table:
+Run the following commands to gather statistics on the partition table:
 
     SQL> spool gather_statistics_par.txt
     SQL> exec dbms_stats.gather_table_stats ('TEST', 'TABLEA_PAR',cascade => TRUE);
@@ -346,14 +347,14 @@ Run the following commands to prepare a script to enable the validate constraint
 
     SQL> spool off
 
-### Step 18: Compare unpartitioned and partitioned tables
+### Step 18: Compare non-partition and partition tables
 
-Compare the original, unpartitioned table against the new, partitioned table to
+Compare the original, non-partition table with the new, partition table to
 verify that all attributes are the same.
 
 ### Step 19: Rename the tables
 
-Run the following commands to set the interim table as the real table switch
+Run the following commands to set the interim table as the real table to switch
 the table names:
 
     SQL> spool finish_redef_table.txt
@@ -372,7 +373,7 @@ the table names:
 
     SQL>spool off
 
-### Step 19:  Compare the tables
+### Step 20:  Compare the tables
 
 Run the following commands to compare the record counts of both tables and make
 sure they match:
@@ -392,7 +393,7 @@ sure they match:
 
     SQL> spool off
 
-### Step 20: Verify partition success
+### Step 21: Verify partition success
 
 Run the following commands to verify that the partition process was successful:
 
@@ -407,7 +408,7 @@ Run the following commands to verify that the partition process was successful:
     SQL> select table_name, partition_name, high_value, partition_position from DBA_tab_partitions where table_name='TABLEA' and table_owner='TEST';
     SQL> spool off
 
-### Step 21: Reexamine the database objects
+### Step 22: Reexamine the database objects
 
 Run the following commands to examine the database objects and compare the
 results to step 2:
@@ -449,7 +450,7 @@ results to step 2:
 
     SQL> spool off
 
-### Step 22: Rebuild the indexes
+### Step 23: Rebuild the indexes
 
 Run the following commands to rebuild the indexes on the new tablespace:
 
@@ -462,10 +463,10 @@ Run the following commands to rebuild the indexes on the new tablespace:
 
     SQL> spool off
 
-### Step 23: Validate the indexes
+### Step 24: Validate the indexes
 
 Run the following commands to verify that the status is ``valid`` and that the
-tablespace of all indexes is ``TABLEA_TBL_PAR``:
+tablespace for all indexes is TABLEA\_TBL\_PAR:
 
     SQL> spool verify_indx.outp.txt
     SQL> select OWNER, INDEX_NAME, TABLE_OWNER, TABLE_NAME, STATUS, TABLESPACE_NAME from dba_indexes where TABLE_OWNER='TEST' and TABLE_NAME='TABLEA';
@@ -478,11 +479,11 @@ tablespace of all indexes is ``TABLEA_TBL_PAR``:
 
     SQL>spool off
 
-### Step 24: Drop original unpartitioned table
+### Step 25: Drop original non-partition table
 
 After the DBAs have confirmed that everything looks good, execute the following
 command to remove the original table, which now has the name of the interim
-table TEST.TABLEA_PAR:
+table, TEST.TABLEA_PAR:
 
     SQL> DROP table TEST.TABLEA_PAR cascade constraints;
 

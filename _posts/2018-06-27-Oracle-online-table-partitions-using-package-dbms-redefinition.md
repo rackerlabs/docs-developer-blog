@@ -90,7 +90,7 @@ Run the following SQL commands and save the output in a spool file, such as
 
 Run the following commands to capture the data definition language (DDL) of
 TABLEA and save scripts in spool file ``DEF_TABLEA.sql`` before you create
-the non-partition table:
+the partition table:
 
     set echo off
     set feedback off
@@ -368,7 +368,7 @@ the table names:
     /
 
     --------------------------------------------
-    @/oracle/PD3/11202/rdbms/admin/utlrp.sql
+    @?/rdbms/admin/utlrp.sql
     --------------------------------------------
 
     SQL>spool off
@@ -490,6 +490,6 @@ table, TEST.TABLEA_PAR:
 ### Conclusion
 
 The preceding steps used the interim table, TEST.TABLEA_PAR, to partition the
-table, TEST.TABLEA, in a range interval without any application downtime.
+table, TEST.TABLEA, into a range interval table without any application downtime.
 
 If you have any questions on this topic, comment in the field below.

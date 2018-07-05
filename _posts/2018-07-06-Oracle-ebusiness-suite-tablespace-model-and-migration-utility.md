@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Oracle E-Business Suite Tablespace Model and Migration Utility"
+title: "Oracle E-Business Suite Tablespace Model and migration utility"
 date: 2018-07-06 00:00
 comments: true
 author: Dilip Singh
@@ -20,26 +20,26 @@ migration utility that has 12 locally managed tablespaces for all products.
 
 OATM was introduced in Oracle Applications and is also referred to as a
 consolidated tablespace model. It utilizes 12 consolidated tablespaces (including
-three system tablespaces: temporary, system and undo segments) and provides
+three system tablespaces: temporary, system, and undo segments) and provides
 support for locally managed tablespaces. OATM was introduced in Release 11i.10.
 Prior to 11i releases of Oracle E-Business Suite, each product was allocated
 two tablespaces, one for data and one for indexes.
 
-The Migration Utility is a menu-based PERL program and a series of sizing
+The migration utility is a menu-based PERL program and a series of sizing
 estimate reports that enables conversion of Oracle E-Business Suite application
 schemas in either a single comprehensive migration or a phased, schema-by-schema
 migration. Oracle recommends performing a single comprehensive migration, but
 this requires significant down time and disk space. Oracle does not support the
-partial migration of tablespaces. You must still migrate all schemas when
-performing a phased schema-by-schema migration.
+partial migration of tablespaces. When performing a phased schema-by-schema
+migration, you must still migrate all schemas.
 
 The following list shows some benefits of OATM:
 
 -   Fewer and more consolidated tablespaces
--   Locally Managed Tablespaces
+-   Locally-managed tablespaces
 -   Accounts for the I/O characteristics of an object
 -   Reclaims space after migration
--   Real Application Cluster (RAC) Support
+-   Real Application Cluster (RAC) support
 
 The following sections cover prerequisites for the migration, installation of
 the OATM migration utility, and running the migration.
@@ -49,7 +49,7 @@ the OATM migration utility, and running the migration.
 Before starting an OATM migration, take the following actions:
 
 -  Ensure that your Oracle database version is RDBMS 9.2.0.4 or higher.
--  If the Database Version is 9.2.0.6, then run this commmand: ``$FND_TOP/patch/115/sql/fndupglb.sql``
+-  If your database Version is 9.2.0.6, run this commmand: ``$FND_TOP/patch/115/sql/fndupglb.sql``
 -  Unregister any custom schemas that you don’t want to migrate, such as
    non-Oracle schemas that are registered with Oracle Applications, by disabling
    those schemas.  Other schemas that you might want to disable include ``XXBOL``
@@ -58,24 +58,25 @@ Before starting an OATM migration, take the following actions:
    following steps:
 
    1) From the menu, select **System Administrator Responsibility -> Security -> ORACLE -> Register**.
-   2) Select ``Schema CTXSYS`` and set the privilege to "Enabled".
+   2) Select ``Schema CTXSYS`` and set the privilege to ``Enabled``.
 
 ### Install the OATM migration utility
 
 This section provides the installation steps.
 
-#### Step 1: Apply patch and settings
+#### Step 1: Apply the patch and settings
 
 Perform the following steps to begin the installation:
 
 -  Apply the patch ``3942506`` to get and save the script for OATM migration,
    ``$FND_TOP/bin/fndtsmig.pl``.
 
--  Get the required parameters as identified in note ID ``404954.1``.
+-  Get the required parameters as identified in Oracle
+   [Note 404954.1](https://support.oracle.com/epmos/faces/DocumentDisplay?id=404954.1).
 
 -  Place database in ``no archive log`` mode.
 
-#### Step 2: Update database parameters
+#### Step 2: Update the database parameters
 
 Before starting the OATM migration, increase the following parameter values:
 
@@ -94,11 +95,11 @@ To do this, run the following code:
 
 Shut down the database and restart it to confirm the parameter settings.
 
-#### Step 3: Resize the temp tablespace and clean the database
+#### Step 3: Resize the temporary tablespace and clean the database
 
-To complete the installation, resize the temp tablespace to 50 gigabytes (GB)
-or higher, and then clean up the database, including the tools, undo, and other
-tablespaces.
+To complete the installation, resize the temporary (temp) tablespace to 50
+gigabytes (GB) or higher, and then clean up the database, including the tools,
+undo, and other tablespaces.
 
 ### Invoke the OATM migration utility
 
@@ -125,7 +126,7 @@ To start the migration, run the following command:
 
 #### Step 2: Determine the space required for the new tablespaces
 
-Choose ``1. Migration Sizing Reports`` from the Main Menu to determine how
+Choose ``1. Migration Sizing Reports`` from the main menu to determine how
 much space is needed to complete the OATM migration.
 
     1. Generate a Report with the list of all the Oracle
@@ -143,17 +144,17 @@ much space is needed to complete the OATM migration.
     Please enter your option -
     Press Return key to continue...
 
-From this menu, choose ```2. Calculate total space required ...`` to get the
+From this menu, choose ``2. Calculate total space required ...`` to get the
 space requirements.  Based on the Sizing report, get the necessary storage space
 and continue.
 
-These reports are provided to help you to gauge the space requirements needed for
-the new Tablespaces. Additionally, they help you to determine which migration
+These reports are provided to help you gauge the space requirements needed for
+the new tablespaces. Additionally, they help you to determine which migration
 approach best suits your needs.
 
 #### Step 3: Create tablespace script
 
-Choose ``2. Create New Tablespaces`` from the Main Menu to create the new
+Choose ``2. Create New Tablespaces`` from the main menu to create the new
 tablespaces.
 
     Create New Tablespaces
@@ -167,10 +168,10 @@ tablespaces.
 From this menu, choose ``1. Generate new tablespace creation script`` to create
 the script.
 
-#### Step 4: Generate Invalid Indexes report
+#### Step 4: Generate the Invalid Indexes report
 
 To generate the Invalid Indexes report, first choose ``3. Generate Migration Commands``
-from the Main menu.
+from the main menu.
 
     Generate Migration Commands
 
@@ -195,9 +196,9 @@ Then choose ``1. Invalid Indexes Report.`` to generate the Invalid Indexes repor
 #### Step 5: Disable custom schemas and enable CTXSYS schema
 
 If you did not previously disable custom schemas and enable the CTXSYS schema,
-as described the preceding **Prerequisites** section, do this now.
+as described the preceding "Prerequisites" section, do this now.
 
-#### Step 6: Generate migration scripts for all schemas
+#### Step 6: Generate the migration scripts for all schemas
 
 From the **Generate Migration Commands** menu, select
 ``2. Generate migration commands for all schemas`` to generate migration
@@ -207,7 +208,7 @@ scripts.
 
     Press Return key to continue...
 
-#### Step 7: Generate migration commands for CTXSYS
+#### Step 7: Generate the migration commands for CTXSYS
 
 From the **Generate Migration Commands** menu, select
 ``3. Generate migration commands for a list of schemas`` to generate the
@@ -216,9 +217,9 @@ migration commands for the CTXSYS schema.  When prompted, enter ``CTXSYS``.
     Please enter your option -  3
     Enter a comma separated list of Schema names: CTXSYS
 
-#### Step 8: Set Auto-extend option
+#### Step 8: Set autoextend option
 
-To avoid migration issues, set Auto-extend to ``ON`` for all newly create files
+To avoid migration issues, set autoextend to ``ON`` for all newly create files
 by executing the following commands:
 
     SQL> spool autoextend_ts.sql
@@ -227,9 +228,9 @@ by executing the following commands:
 
     $ autoextend_ts.sql
 
-#### Step 9: Run migration commands and status report
+#### Step 9: Run the migration commands and status report
 
-From the Main Menu, select ``4. Execute Migration Commands`` to run the migration
+From the main menu, select ``4. Execute Migration Commands`` to run the migration
 commands.
 
     Execute Migration Commands
@@ -258,7 +259,7 @@ to migrate all schemas and enter ``8`` for the number of parallel processes.
 
 ### Conclusion
 
-OATM is more-efficient and easier to manage with fewer tablespaces and provides
+OATM is more efficient and easier to manage with fewer tablespaces and provides
 benefits like efficient space utilization. The efficiency comes from supporting
 locally managed tablespaces rather than a dictionary-managed tablespace, which
 other migration models use.

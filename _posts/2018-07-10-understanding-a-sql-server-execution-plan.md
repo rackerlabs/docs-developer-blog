@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Understanding a SQL Server execution plan"
-date: 2018-07-10 00:00
+date: 2018-07-11 00:00
 comments: true
 author: Shashi Choubey
 published: true

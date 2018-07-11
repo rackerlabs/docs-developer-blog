@@ -144,7 +144,7 @@ The following image shows the sort cost:
 
 ### Spool operator
 
-Another key operator that youneed to look at is spool. Spool is a slow
+Another key operator that you need to look at is spool. Spool is a slow
 operator because it stores the hidden or temporary objects or work tables in
 tempdb. This also slows down with specific operators that cause it to rebind
 or rewind. There are many types of spools in SQL Server, such as Eager, Lazy,
@@ -166,7 +166,7 @@ table scan.
 ### Hash and nested loop operators
 
 Because they perform well on small record sets, hash and nested loops are the
-next operators you should consider,  However, for large record sets, or when
+next operators you should consider. However, for large record sets, or when
 there is a large difference between the estimated and actual plans, these
 operators can create a huge impact because they might use tempdb instead of
 memory. SQL Server posts the following warning in operator details: “operator

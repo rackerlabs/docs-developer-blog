@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Upgrading Oracle Business Intelligence Discoverer part 1"
+title: "Upgrading Oracle Business Intelligence Discoverer: Part 1"
 date: 2018-07-11 00:00
 comments: true
 author: Abhishek Shukla
@@ -10,20 +10,20 @@ categories:
     - Oracle
 ---
 
-Oracle&reg; Business Intelligence Discoverer is a tool-set for ad hoc querying,
-reporting, data analysis and web-publishing for the Oracle database environment.
+Oracle&reg; Business Intelligence Discoverer is a toolset for ad hoc querying,
+reporting, data analysis, and web publishing for the Oracle database environment.
 
 <!-- more -->
 
 ### Introduction
 
-This two part blog series covers the steps required to install or upgrade
-Discoverer within an existing E-Business Suite (EBS) R12 instance. Part one
+This two-part blog series covers the steps required to install or upgrade
+Discoverer within an existing E-Business Suite (EBS) R12 instance. Part 1
 discusses the installation of the software required for the Discoverer 11.1.1.7
 upgrade.
 
 **Note**: Discoverer 11g (11.1.1.7) is now certified with the Oracle EBS Release.
-Discoverer 11.1.1.7 (terminal discoverer verson) is part of Oracle Fusion
+Discoverer 11.1.1.7 (terminal discoverer version) is part of Oracle Fusion
 Middleware 11g Release 1 Version 11.1.1.7.0, also known as FMW 11gR1 Patchset 6.
 
 Certified E-Business Suite releases are:
@@ -40,40 +40,40 @@ For more information about certification, see the following links:
 
 -  http://www.oracle.com/technetwork/middleware/downloads/fmw-11gr1certmatrix.xls
 
-**Note**: If you are using Red Hat Linux (RHEL), you must be on version 6 or
+**Note**: If you are using Red Hat&reg; Linux (RHEL), you must be on version 6 or
 lower before you can install Discoverer 11.1.1.7.
 
 ### Installation of required software
 
-Before installing, or upgrading to, Discoverer 11.1.1.7, download the following
+Before installing or upgrading to Discoverer 11.1.1.7, download the following
 software:
 
 -	Oracle WebLogic 10.3.5 or 10.3.6 (Oracle Fusion Middleware 11.1.1.7.0 is
-   certified with WebLogic Server versions 10.3.5 and 10.3.6.)
+   certified with WebLogic Server versions 10.3.5 and 10.3.6)
 
--	Oracle Portal, Forms, Reports and Discoverer 11g 11.1.1.2.
+-	Oracle Portal, Forms, Reports and Discoverer 11g 11.1.1.2
 
 -	Oracle Portal, Forms, Reports and Discoverer 11g Patch Set 6 (11.1.1.7.0)
-   (patch id 16471668).
+   (patch ID 16471668)
 
--	Repository Creation Utility (RCU) for creating the database schemas.
+-	Repository Creation Utility (RCU) for creating the database schemas
 
 #### Oracle WebLogic installation
 
-Before proceeding, ensure you are not using the default JDK (for 64bit OS).
+Before proceeding, ensure that you are not using the default JDK (for 64bit OS).
 Instead, use JDK 1.7.0_07 or a similar version.
 
-The following steps detail the Oracle WebLogic Server 11gR1 (10.3.6) installation.
+Use the following steps for the Oracle WebLogic Server 11gR1 (10.3.6) installation.
 
 1. Run the following command to start the installation:
 
-      <JDK_PATH>/bin/java -d64 -jar -Djava.io.tmpdir=<temp_dir_loc> ./wls1036_generic.jar -log=<loc/filename>
+   <JDK_PATH>/bin/java -d64 -jar -Djava.io.tmpdir=<temp_dir_loc> ./wls1036_generic.jar -log=<loc/filename>
 
 2. Click **Next** on the **Welcome** screen.
 
 3. Create the new Middleware home by specifying the location.
 
-4. Provide Oracle support credentials (If required).
+4. Provide Oracle support credentials (if required).
 
 5. Choose the install type, either typical (recommended) or custom.
 
@@ -88,18 +88,18 @@ The following steps detail the Oracle WebLogic Server 11gR1 (10.3.6) installatio
 
 8. Review the installation summary and size.
 
-9. Review the installation log for check progress and verify completion.
+9. Review the installation log to check progress and verify completion.
 
-10. Step 10 -- Click **Done** after installation completed.
+10. Click **Done** after installation completed.
 
 
 #### RCU installation
 
-The RCU download package should be about 350MB, and this utility creates two
+The RCU download package should be about 350 MB. This utility creates two
 new users and three new tablespaces, which are used to store metadata for
-Middlewear and Discoverer.
+Middleware and Discoverer.
 
-The following steps detail the installation process:
+Use the following steps for the installation process:
 
 1. Click **Next** on the **Welcome** screen.
 
@@ -108,11 +108,11 @@ The following steps detail the installation process:
 3. Provide the database connection details.
 
 4. Select **Create new prefix**. Provide the prefix name and select the component,
-   such as **Discoverer** under the Portal & BI label.
+   such as **Discoverer**, under the Portal & BI label.
 
 5. Enter the schema password.
 
-6. Ensure that the correct default & temporary (temp) tablespaces are showing.
+6. Ensure that the correct default and temporary (temp) tablespaces are showing.
    If the tablespaces are incorrect, modify them.  The following image shows
    this step:
 
@@ -122,7 +122,7 @@ The following steps detail the installation process:
 
 #### Discoverer installation 11.1.1.2
 
-The following steps detail the Discoverer installation:
+Use the following steps for the Discoverer installation:
 
 1. Start the run installer. You can optionally use the ``-ignoreSysPreReqs``
    parameter.
@@ -133,9 +133,9 @@ The following steps detail the Discoverer installation:
    settings.
 
 4. Specify the location for the Oracle Middleware home directory and the Oracle
-   home directory
+   home directory.
 
-5. Provide oracle support details under **Security Updates**.
+5. Provide Oracle support details under **Security Updates**.
 
 6. Review the installation summary and click on **Install**.
 
@@ -148,8 +148,8 @@ The following steps detail the Discoverer installation:
 
 ####  Upgrade Discoverer 11.1.1.2 installation to 11.1.1.7
 
-The following steps show how to upgrade Discoverer from version 11.1.1.2 to
-11.1.1.7.
+Use the following steps to upgrade Discoverer from version 11.1.1.2 to
+11.1.1.7:
 
 1. Start the run installer.
 
@@ -171,13 +171,13 @@ The following steps show how to upgrade Discoverer from version 11.1.1.2 to
 
 #### Configure the Discoverer instance
 
-The following steps show how to configure the discoverer instance:
+Use the following steps to configure the Discoverer instance:
 
-1. Run config.sh.
+1. Run ``config.sh``.
 
 2. Click **Next** on the **Welcome** screen.
 
-3. Choose **Create domain** and provide the username (weblogic), password, and
+3. Choose **Create domain** and provide the username (``weblogic``), password, and
    domain name, as shown in the following image:
 
    ![]({% asset_path 2018-07-16-upgrading-oracle-business-intelligence-discoverer-part-1/Picture6.png %})
@@ -194,12 +194,12 @@ The following steps show how to configure the discoverer instance:
 
 7. Select **Auto port config** to configure ports.
 
-8. Provide the connection string and schema details, which were created using
+8. Provide the connection string and schema details, which were created by using
    RCU, to specify the schema.
 
 9. If you are using Application Object Identifier (OID), provide the hostname,
    port, username, and password to specify the OID. If you are not using OID,
-   deselect the **Use Application level identity Store** option.
+   deselect the **Use Application level identity store** option.
 
 10. Review the summary and click **Configure**.
 
@@ -215,7 +215,6 @@ The following steps show how to configure the discoverer instance:
 
 Using the preceding information, you can install Discoverer 11.1.1.7 and the
 various required components on RHEL 6. Part 2 of this blog series has more
-information on how to configure the Discoverer instance for Oracle applications
-R12 instances.
+information on how to configure the Discoverer instance for Oracle R12 instances.
 
 If you have any questions on this topic, comment in the field below.

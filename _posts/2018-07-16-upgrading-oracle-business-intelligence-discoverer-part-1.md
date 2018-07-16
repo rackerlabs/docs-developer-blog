@@ -10,6 +10,8 @@ categories:
     - Oracle
 ---
 
+Originally published by Tricore: 2017
+
 Oracle&reg; Business Intelligence Discoverer is a toolset for ad hoc querying,
 reporting, data analysis, and web publishing for the Oracle database environment.
 
@@ -81,12 +83,16 @@ Use the following steps for the Oracle WebLogic Server 11gR1 (10.3.6) installati
 
    ![]({% asset_path 2018-07-16-upgrading-oracle-business-intelligence-discoverer-part-1/Picture1.png %})
 
-7. Choose the product installation directories. Specify the WebLogic server
-   location and the  Oracle Coherence location, as shown in the following image.
+<ol start=7>
+    <li>Choose the product installation directories. Specify the WebLogic server
+   location and the  Oracle Coherence location, as shown in the following image.</li>
+</ol>
 
    ![]({% asset_path 2018-07-16-upgrading-oracle-business-intelligence-discoverer-part-1/Picture2.png %})
 
-8. Review the installation summary and size.
+<ol start=8>
+    <li>Review the installation summary and size.</li>
+</ol>
 
 9. Review the installation log to check progress and verify completion.
 
@@ -118,7 +124,10 @@ Use the following steps for the installation process:
 
    ![]({% asset_path 2018-07-16-upgrading-oracle-business-intelligence-discoverer-part-1/Picture3.png %})
 
-7. Review the summary and click **Create**.
+<ol start=7>
+    <li>Review the summary and click **Create**.</li>
+</ol>
+
 
 #### Discoverer installation 11.1.1.2
 
@@ -182,7 +191,9 @@ Use the following steps to configure the Discoverer instance:
 
    ![]({% asset_path 2018-07-16-upgrading-oracle-business-intelligence-discoverer-part-1/Picture6.png %})
 
-4. Provide the Oracle support details in **Security Updates**.
+<ol start=4>
+    <li>Provide the Oracle support details in **Security Updates**.</li>
+</ol>
 
 5. Provide the WebLogic server location, the Oracle instance location, and the
    Oracle instance name.
@@ -192,7 +203,9 @@ Use the following steps to configure the Discoverer instance:
 
    ![]({% asset_path 2018-07-16-upgrading-oracle-business-intelligence-discoverer-part-1/Picture7.png %})
 
-7. Select **Auto port config** to configure ports.
+<ol start=7>
+    <li>Select **Auto port config** to configure ports.</li>
+</ol>
 
 8. Provide the connection string and schema details, which were created by using
    RCU, to specify the schema.

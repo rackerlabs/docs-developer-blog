@@ -67,7 +67,7 @@ Use the following steps for the Oracle WebLogic Server 11gR1 (10.3.6) installati
 
 1. Run the following command to start the installation:
 
-   <JDK_PATH>/bin/java -d64 -jar -Djava.io.tmpdir=<temp_dir_loc> ./wls1036_generic.jar -log=<loc/filename>
+      <JDK_PATH>/bin/java -d64 -jar -Djava.io.tmpdir=<temp_dir_loc> ./wls1036_generic.jar -log=<loc/filename>
 
 2. Click **Next** on the **Welcome** screen.
 

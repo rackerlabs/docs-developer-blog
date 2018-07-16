@@ -84,10 +84,7 @@ An application that uses one or more tables must cover each table with an editio
 
 **Note**: These are first time tasks that might take some time to prepare the application to use editioning views but will later minimize downtime once the application is ready for EBR.
 
-1. Rename the table so you can assign its current name to its editioning view.
-
-   You can also rename the columns, but this is optional.
-
+1. Rename the table so you can assign its current name to its editioning view. You can also rename the columns, but this is optional.
 2. Create the editioning view with the same name of the original table.
 3. If triggers were used on the original tables, remove them and then recreate them on the editioning view.
 4. Revoke the privileges from all users on the original table and then grant the same privilege for the editioning view.

@@ -94,9 +94,13 @@ Use the following steps for the Oracle WebLogic Server 11gR1 (10.3.6) installati
     <li>Review the installation summary and size.</li>
 </ol>
 
-9. Review the installation log to check progress and verify completion.
+<ol start=9>
+    <li>Review the installation log to check progress and verify completion.</li>
+</ol>
 
-10. Click **Done** after installation completed.
+<ol start=10>
+    <li>Click **Done** after installation completed.</li>
+</ol>
 
 
 #### RCU installation
@@ -195,11 +199,15 @@ Use the following steps to configure the Discoverer instance:
     <li>Provide the Oracle support details in **Security Updates**.</li>
 </ol>
 
-5. Provide the WebLogic server location, the Oracle instance location, and the
-   Oracle instance name.
+<ol start=5>
+    <li>Provide the WebLogic server location, the Oracle instance location, and the
+   Oracle instance name.</li>
+</ol>
 
-6. Select the **Oracle Discoverer** component to configure, as shown in the
-   following image:
+<ol start=6>
+    <li>Select the **Oracle Discoverer** component to configure, as shown in the
+   following image:</li>
+</ol>
 
    ![]({% asset_path 2018-07-16-upgrading-oracle-business-intelligence-discoverer-part-1/Picture7.png %})
 
@@ -207,20 +215,30 @@ Use the following steps to configure the Discoverer instance:
     <li>Select **Auto port config** to configure ports.</li>
 </ol>
 
-8. Provide the connection string and schema details, which were created by using
-   RCU, to specify the schema.
+<ol start=8>
+    <li>Provide the connection string and schema details, which were created by using
+   RCU, to specify the schema.</li>
+</ol>
 
-9. If you are using Application Object Identifier (OID), provide the hostname,
+<ol start=9>
+    <li>If you are using Application Object Identifier (OID), provide the hostname,
    port, username, and password to specify the OID. If you are not using OID,
-   deselect the **Use Application level identity store** option.
+   deselect the **Use Application level identity store** option.</li>
+</ol>
 
-10. Review the summary and click **Configure**.
+<ol start=10>
+    <li>Review the summary and click **Configure**.</li>
+</ol>
 
-11. Review the logs and **Status** tab on the **Installer** screen to check
-    installation progress. Click **Next** when it finishes.
+<ol start=11>
+    <li>Review the logs and **Status** tab on the **Installer** screen to check
+    installation progress. Click **Next** when it finishes.</li>
+</ol>
 
-12. Review the installation details and click **Finish**, as shown in the
-    following image:
+<ol start=12>
+    <li>Review the installation details and click **Finish**, as shown in the
+    following image:</li>
+</ol>
 
     ![]({% asset_path 2018-07-16-upgrading-oracle-business-intelligence-discoverer-part-1/Picture8.png %})
 

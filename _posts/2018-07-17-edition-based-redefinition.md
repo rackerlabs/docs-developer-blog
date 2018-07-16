@@ -16,7 +16,8 @@ This blog covers some basic concepts of Edition Based Redefinition (EBR) and how
 
 ### Introduction
 
-In the earlier releases, it was not possible to upgrade database objects while these were being actively accessed by applications. With the EDR featured in Oracle Database 11g Release 2, this became possible without any downtime or with downtime reduced to only the application services bounce.
+In the earlier releases, it was not possible to upgrade database objects while these were being actively accessed by
+applications. With the EDR featured in Oracle Database 11g Release 2, this became possible without any downtime or with downtime reduced to only the application services bounce.
 
 ![Screenshot]({% asset_path 2018-07-17-edition-based-redefinition/ebr-features.png %})
 

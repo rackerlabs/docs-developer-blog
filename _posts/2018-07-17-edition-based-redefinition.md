@@ -76,7 +76,7 @@ An application must meet these minimum requirements before it can use the EBR fe
 
 #### Edition-enable a schema or database user
 
-You can edition-enable a user when you create it, or by using `ALTER USER` after the user is created. The EDITIONS_ENABLED column of the static data dictionary view for DBA_USERS or USER_USERS shows which users have editions enabled.
+You can edition-enable a user when you create it, or by using `ALTER USER` after the user is created. The **EDITIONS_ENABLED** column of the static data dictionary view for **DBA_USERS** or **USER_USERS** shows which users have editions enabled.
 
     ALTER USER user_name ENABLE EDITIONS;
 
@@ -107,7 +107,7 @@ After the application is prepared to use editioning views, use the following ste
 
 Although application developers are the primary owners for upgrading an application by using EBR, some edition-related tasks that require DBA privileges might require some help, including the following tasks:
 
-  - Grant or revoke privileges to create, alter, and drop editions. For example, CREATE EDITION and DROP EDITION.
+  - Grant or revoke privileges to create, alter, and drop editions. For example, `CREATE EDITION` and `DROP EDITION`.
   - Enable editions for a schema or user. For example, `ALTER USER user_name ENABLE EDITIONS;`
   - Set the database default edition. For example, `ALTER DATABASE DEFAULT EDITION = edition_name;`
   - Set the edition attribute of a database service. This can be done by using the `dbms_service` package or by using `srvctl` in the case of RAC.

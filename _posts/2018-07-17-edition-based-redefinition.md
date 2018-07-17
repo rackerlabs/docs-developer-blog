@@ -18,15 +18,16 @@ This blog covers some basic concepts of Edition Based Redefinition (EBR) and how
 
 ### Introduction
 
-In the earlier releases, it was not possible to upgrade database objects while these were being actively accessed by applications. With the EDR featured in Oracle Database 11g Release 2, this became possible without any downtime or with downtime reduced to only the application services bounce.
+In the earlier releases, it was not possible to upgrade database objects while these were being actively accessed by
+applications. With the EDR featured in Oracle Database 11g Release 2, this became possible without any downtime or with downtime reduced to only the application services bounce.
 
-![Screenshot]({% asset_path 2018-07-17-edition-based-redefinition/ebr-features.png %})
+![Screenshot]({% asset_path 2018-07-17-edition-based-redefinition/ebr-features.png =300x %})
 
 #### Edition overview
 
 An *edition* is a private environment in which you create the new versions of database objects or redefine objects without actually changing the current definition of objects being used by application users.
 
-Application users can continue to use the old versions of objects while the new versions are being added. After the new or child editions are added, you can make the new edition the default so that all users can use it. Starting in 11gR2, every database has a default edition named **orabase** and multiple editions can exist in a database simultaneously.
+Application users can continue to use the old versions of objects while the new versions are being added. After the new or child editions are added, you can make the new edition the default so that all users can use it. Starting in 11gR2, every database has a default edition named **ora$base** and multiple editions can exist in a database simultaneously.
 
 ### Editionable and non-editionable objects
 
@@ -85,10 +86,7 @@ An application that uses one or more tables must cover each table with an editio
 
 **Note**: These are first time tasks that might take some time to prepare the application to use editioning views but will later minimize downtime once the application is ready for EBR.
 
-1. Rename the table so you can assign its current name to its editioning view.
-
-   You can also rename the columns, but this is optional.
-
+1. Rename the table so you can assign its current name to its editioning view. You can also rename the columns, but this is optional.
 2. Create the editioning view with the same name of the original table.
 3. If triggers were used on the original tables, remove them and then recreate them on the editioning view.
 4. Revoke the privileges from all users on the original table and then grant the same privilege for the editioning view.

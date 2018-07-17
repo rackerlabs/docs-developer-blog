@@ -77,7 +77,7 @@ An application must meet these minimum requirements before it can use the EBR fe
 
 #### Edition-enable a schema or database user
 
-You can edition-enable a user when you create it, or by using `ALTER USER` after the user is created. The EDITIONS&#95;ENABLED column of the static data dictionary view for DBA_&#95;SERS or USER&#95;USERS shows which users have editions enabled.
+You can edition-enable a user when you create it, or by using `ALTER USER` after the user is created. The EDITIONS&#95;ENABLED column of the static data dictionary view for DBA_&#95;USERS or USER&#95;USERS shows which users have editions enabled.
 
     ALTER USER user_name ENABLE EDITIONS;
 
@@ -117,19 +117,19 @@ Although application developers are the primary owners for upgrading an applicat
 
 There are multiple ways to view information about editions from dictionary tables. The following views show information about editions directly:
 
-  - DBA_EDITIONS
-  - DBA_EDITION_COMMENTS
-  - DBA_EDITIONING_VIEWS
-  - DBA_EDITIONING_VIEWS_AE
+  - DBA&#95;EDITIONS
+  - DBA&#95;EDITION&#95;COMMENTS
+  - DBA&#95;EDITIONING&#95;VIEWS
+  - DBA&#95;EDITIONING&#95;VIEWS&#95;AE
 
 The following views have a column which shows information about editions for those views:
 
-  - DBA_OBJECTS
-  - DBA_OBJECTS_AE
-  - DBA_ERRORS
-  - DBA_ERRORS_AE
-  - DBA_USERS
-  - DBA_SERVICES
+  - DBA&#95;OBJECTS
+  - DBA&#95;OBJECTS&#95;AE
+  - DBA&#95;ERRORS
+  - DBA&#95;ERRORS&#95;AE
+  - DBA&#95;USERS
+  - DBA&#95;SERVICES
 
 ### Conclusion
 

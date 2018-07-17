@@ -10,6 +10,8 @@ categories:
     - Oracle
 ---
 
+Originally published by Tricore: May 5, 2017
+
 This blog covers some basic concepts of Edition Based Redefinition (EBR) and how to use it to support an applications upgrade, which can reduce downtime.
 
 <!-- more -->

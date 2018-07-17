@@ -116,19 +116,19 @@ Although application developers are the primary owners for upgrading an applicat
 
 There are multiple ways to view information about editions from dictionary tables. The following views show information about editions directly:
 
-  - DBA_EDITIONS
-  - DBA_EDITION_COMMENTS
-  - DBA_EDITIONING_VIEWS
-  - DBA_EDITIONING_VIEWS_AE
+  - **DBA_EDITIONS**
+  - **DBA_EDITION_COMMENTS**
+  - **DBA_EDITIONING_VIEWS**
+  - **DBA_EDITIONING_VIEWS_AE**
 
 The following views have a column which shows information about editions for those views:
 
-  - DBA_OBJECTS
-  - DBA_OBJECTS_AE
-  - DBA_ERRORS
-  - DBA_ERRORS_AE
-  - DBA_USERS
-  - DBA_SERVICES
+  - **DBA_OBJECTS**
+  - **DBA_OBJECTS_AE**
+  - **DBA_ERRORS**
+  - **DBA_ERRORS_AE**
+  - **DBA_USERS**
+  - **DBA_SERVICES**
 
 ### Conclusion
 

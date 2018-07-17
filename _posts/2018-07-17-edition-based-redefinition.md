@@ -27,7 +27,8 @@ applications. With the EDR featured in Oracle Database 11g Release 2, this becam
 
 An *edition* is a private environment in which you create the new versions of database objects or redefine objects without actually changing the current definition of objects being used by application users.
 
-Application users can continue to use the old versions of objects while the new versions are being added. After the new or child editions are added, you can make the new edition the default so that all users can use it. Starting in 11gR2, every database has a default edition named **ora$base** and multiple editions can exist in a database simultaneously.
+Application users can continue to use the old versions of objects while the new versions are being added. After the new or
+child editions are added, you can make the new edition the default so that all users can use it. Starting in 11gR2, every database has a default edition named **ora$base** and multiple editions can exist in a database simultaneously.
 
 ### Editionable and non-editionable objects
 

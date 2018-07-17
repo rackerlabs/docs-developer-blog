@@ -19,13 +19,13 @@ This blog covers some basic concepts of Edition Based Redefinition (EBR) and how
 In the earlier releases, it was not possible to upgrade database objects while these were being actively accessed by
 applications. With the EDR featured in Oracle Database 11g Release 2, this became possible without any downtime or with downtime reduced to only the application services bounce.
 
-![Screenshot]({% asset_path 2018-07-17-edition-based-redefinition/ebr-features.png %})
+![Screenshot]({% asset_path 2018-07-17-edition-based-redefinition/ebr-features.png =300x %})
 
 #### Edition overview
 
 An *edition* is a private environment in which you create the new versions of database objects or redefine objects without actually changing the current definition of objects being used by application users.
 
-Application users can continue to use the old versions of objects while the new versions are being added. After the new or child editions are added, you can make the new edition the default so that all users can use it. Starting in 11gR2, every database has a default edition named **orabase** and multiple editions can exist in a database simultaneously.
+Application users can continue to use the old versions of objects while the new versions are being added. After the new or child editions are added, you can make the new edition the default so that all users can use it. Starting in 11gR2, every database has a default edition named **ora$base** and multiple editions can exist in a database simultaneously.
 
 ### Editionable and non-editionable objects
 

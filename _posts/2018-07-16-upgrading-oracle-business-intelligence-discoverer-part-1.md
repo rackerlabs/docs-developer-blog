@@ -10,7 +10,7 @@ categories:
     - Oracle
 ---
 
-Originally published by Tricore: ?, 2017
+Originally published by Tricore: May 17, 2017
 
 Oracle&reg; Business Intelligence Discoverer is a toolset for ad hoc querying,
 reporting, data analysis, and web publishing for the Oracle database environment.

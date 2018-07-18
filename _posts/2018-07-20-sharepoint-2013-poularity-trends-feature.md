@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Sharepoint 2013 Popularity Trends feature"
+title: "SharePoint 2013 Popularity Trends feature"
 date: 2018-07-20 00:00
 comments: true
 author: Yogesh Sharma
@@ -17,10 +17,10 @@ search and web analytics services by offering a ready-to-use solution.
 
 ### Introduction
 
-When you click **Popularity Trends** on the SharePoint Site ribbon, an analytics
-usage report is generated in Excel&reg; format. This report shows the number of
-hits and unique users in a month, which are available in both table and chart
-formats.
+When you click **Popularity Trends** on the SharePoint site ribbon, an analytics
+usage report is generated in Excel&reg; format. This report, which is available
+in both table and chart formats, shows the number of hits and unique users in a
+month.
 
 ### Usage reports
 
@@ -61,7 +61,7 @@ items with the same names, as shown in the following image:
 
 The two default columns for search results are **Recent** and **Ever**.
 
-The **Recent** tab shows the access hit count for the last 14 days, and,
+The **Recent** tab shows the access hit count for the last 14 days, and
 the **Ever** tab shows the total number of historical access hits. You can
 sort either of the columns to understand the usage of files and items.
 
@@ -70,13 +70,13 @@ sort either of the columns to understand the usage of files and items.
 Although it is a very useful feature of SharePoint Server, Popularity Trends
 has the following limitations:
 
-  - You need MS Excel to generate this usage report. If you do not have Excel
-    installed on your machine, you must save the report and then copy it to
-    another device on which MS Excel is installed.
+  - You need Microsoft&reg; Excel to generate this usage report. If you do not
+    have Excel installed on your machine, you must save the report and then copy
+    it to another device on which Excel is installed.
   - Two usage reports cannot be opened at the same time because the default
     report name is *Usage.xlsx*. If you try to open a second file, you will get
-    the error message: ‘Sorry, Excel cannot open two workbooks with the same
-    name at the same time’.
+    the error message, "Sorry, Excel cannot open two workbooks with the same
+    name at the same time".
   - The feature gives you an option to choose multiple files for your report,
     but it fetches data from only one file.
   - The feature gives you an option to select a folder, but it doesn’t fetch

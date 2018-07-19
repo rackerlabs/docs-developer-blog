@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AKS - Cert Manager Heads Up"
+title: "AKS - Cert Manager Certificate Rate Limit"
 date: 2018-07-20 00:00
 comments: true
 author: Jimmy Rudley

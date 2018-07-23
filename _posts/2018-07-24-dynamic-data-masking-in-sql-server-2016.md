@@ -10,6 +10,8 @@ categories:
     - Oracle
 ---
 
+Originally published by Tricore: April 20, 2017
+
 SQL Server 2016 introduced three new principal security features: Always
 encrypted, dynamic data masking, and row level security.
 

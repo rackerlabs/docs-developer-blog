@@ -58,12 +58,13 @@ of the data to expose; **random masking**, which replaces the numeric
 value with a random value within a specified range, and;
 **email masking**, which exposes the first character and keeps the email format.
 
-- **Default**
+<li><b>Default</b>
 
-  Full masking according to the data types of the designated fields. For string data types, use XXXX or fewer X's if the size of the field is less than four characters (char, nchar, varchar, nvarchar, text, ntext). For numberic data types, use a zero value (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real). For date and time data types, use 01.01.2000 00:00:00.0000000 (date, datetime2, datetime, datetimeoffset, smalldatetime, time). For binary data types, use a single byte of ASCII value 0 (binary, varbinary, image).
+   <p>Full masking according to the data types of the designated fields. For string data types, use XXXX or fewer X's if the size of the field is less than four characters (char, nchar, varchar, nvarchar, text, ntext). For numberic data types, use a zero value (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real). For date and time data types, use 01.01.2000 00:00:00.0000000 (date, datetime2, datetime, datetimeoffset, smalldatetime, time). For binary data types, use a single byte of ASCII value 0 (binary, varbinary, image).</p>
 
-    - Column definition syntax: `Phone# varchar(12) MASKED WITH (FUNCTION = 'default()') NULL`
-    - Alter syntax: `ALTER COLUMN Gender ADD MASKED WITH (FUNCTION = 'default()')`
+   <li>Column definition syntax: <code>Phone# varchar(12) MASKED WITH (FUNCTION = 'default()') NULL</code></li>
+   <li>Alter syntax: <code>ALTER COLUMN Gender ADD MASKED WITH (FUNCTION = 'default()')</code></li>
+</li>
 
 - **Partial**
 

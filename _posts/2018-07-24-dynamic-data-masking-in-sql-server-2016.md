@@ -99,9 +99,15 @@ You can also configure masking functions on columns at the time of table creatio
 
 #### Permissions
 
-You do not need any special permissions to create a table with a dynamic data mask, only the standard `CREATE TABLE` and `ALTER` on schema permissions.
+You do not need any special permissions to create a table with a dynamic
+data mask, only the standard `CREATE TABLE` and `ALTER` on schema permissions.
 
-Adding, replacing, or removing the mask of a column requires the `ALTER ANY MASK` permission and `ALTER` permission on the table. Users with `SELECT` permission on a table can view the table data. Columns that are defined as marked will display the masked data. Grant the `UNMASK` permission to a user to enable them to retrieve unmasked data from the columns for which masking is defined.
+Adding, replacing, or removing the mask of a column requires the
+`ALTER ANY MASK` permission and `ALTER` permission on the table. Users
+with `SELECT` permission on a table can view the table data. Columns that
+are defined as marked will display the masked data. Grant the `UNMASK`
+permission to a user to enable them to retrieve unmasked data from the
+columns for which masking is defined.
 
 The `CONTROL` permission on the database includes both the `ALTER ANY MASK` and `UNMASK` permission.
 

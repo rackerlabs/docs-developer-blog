@@ -58,12 +58,33 @@ of the data to expose; **random masking**, which replaces the numeric
 value with a random value within a specified range, and;
 **email masking**, which exposes the first character and keeps the email format.
 
-| Function | Description | Example |
-| --- | --- | --- |
-| **Default** | Full masking according to the data types of the designated fields.<br/><br/>For string data types, use XXXX or fewer X's if the size of the field is less than four characters (char, nchar, varchar, nvarchar, text, ntext).<br/><br/>For numberic data types, use a zero value (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br/><br/>For date and time data types, use 01.01.2000 00:00:00.0000000 (date, datetime2, datetime, datetimeoffset, smalldatetime, time).<br/><br/>For binary data types, use a single byte of ASCII value 0 (binary, varbinary, image). | Column definition syntax: Phone#<br/><br/>`varchar(12) MASKED WITH (FUNCTION = 'default()') NULL`<br/><br/>Alter syntax: `ALTER COLUMN Gender ADD MASKED WITH (FUNCTION = 'default()')` |
-|**Partial** | Masking method which exposes the first and last letters and adds a customer padding string in the middle.<br/><br/>prefix,[padding],suffix | Example definition syntax: `FirstName varchar(100) MASKED WITH (FUNCTION = 'partial(prefix,[padding],suffix)') NULL`<br/><br/>Example alter syntax: `ALTER COLUMN [PhoneNumber] ADD MASKED WITH (FUNCTION = 'partial(1,"XXXXXXX",0)')` |
-| **Random** | A random masking function for use on any numeric type to mask the original value with a random value within a specified range. | Example definition syntax: `Account_Number bigint MASKED WITH (FUNCTION = 'random([start range],[end range])')`<br/><br/>Example alter syntax: `ALTER COLUMN [Month] ADD MASKED WITH (FUNCTION = 'random(1,12)')` |
-| **Email** | Masking method which exposes the first letter of an email address and the constant suffix ".com" in the form of an email address.<br/><br/>aXXX@XXXX.com | Example definition syntax: `Email varchar(100) MASKED WITH (FUNCTION = 'email()') NULL`<br/><br/>Example alter syntax: `ALTER COLUMN Email ADD MASKED WITH (FUNCTION = 'email()')` |
+**Default**
+
+Full masking according to the data types of the designated fields. For string data types, use XXXX or fewer X's if the size of the field is less than four characters (char, nchar, varchar, nvarchar, text, ntext). For numberic data types, use a zero value (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real). For date and time data types, use 01.01.2000 00:00:00.0000000 (date, datetime2, datetime, datetimeoffset, smalldatetime, time). For binary data types, use a single byte of ASCII value 0 (binary, varbinary, image).
+
+- Column definition syntax: `Phone# varchar(12) MASKED WITH (FUNCTION = 'default()') NULL`
+- Alter syntax: `ALTER COLUMN Gender ADD MASKED WITH (FUNCTION = 'default()')`
+
+**Partial**
+
+Masking method which exposes the first and last letters and adds a customer padding string in the middle (prefix,[padding],suffix).
+
+- Example definition syntax: `FirstName varchar(100) MASKED WITH (FUNCTION = 'partial(prefix,[padding],suffix)') NULL`
+- Example alter syntax: `ALTER COLUMN [PhoneNumber] ADD MASKED WITH (FUNCTION = 'partial(1,"XXXXXXX",0)')`
+
+**Random**
+
+A random masking function for use on any numeric type to mask the original value with a random value within a specified range.
+
+- Example definition syntax: `Account_Number bigint MASKED WITH (FUNCTION = 'random([start range],[end range])')`
+- Example alter syntax: `ALTER COLUMN [Month] ADD MASKED WITH (FUNCTION = 'random(1,12)')`
+
+**Email**
+
+Masking method which exposes the first letter of an email address and the constant suffix ".com" in the form of an email address (aXXX@XXXX.com).
+
+- Example definition syntax: `Email varchar(100) MASKED WITH (FUNCTION = 'email()') NULL`
+- Example alter syntax: `ALTER COLUMN Email ADD MASKED WITH (FUNCTION = 'email()')` |
 
 You can also configure masking functions on columns at the time of table creation, as in the following example:
 

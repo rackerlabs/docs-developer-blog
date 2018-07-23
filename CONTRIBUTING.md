@@ -58,6 +58,7 @@ Available categories include the following:
 
 Ansible
 Automation
+Azure
 Chef
 Cloud Files
 Cloud Monitoring

@@ -7,7 +7,8 @@ author: Jimmy Rudley
 authorIsRacker: true
 published: true
 categories:
-- Devops
+    - DevOps
+    - Azure
 ---
 
 In a previous [blog post](https://developer.rackspace.com/blog/run-sitecore-in-a-docker-container-on-windows-server-2016/), I described how to setup Sitecore in a Docker container.  A reader asked about pulling Docker images on an Azure docker host and why it wasn't working. Turns out, there is an open issue about this exact issue. I was doing some testing today in Azure and noticed you still cannot do a Docker pull while your host is running in Azure, so let's look at the workaround in Azure.

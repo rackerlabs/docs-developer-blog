@@ -7,7 +7,8 @@ author: Jimmy Rudley
 authorIsRacker: true
 published: true
 categories:
-- Devops
+    - DevOps
+    - Azure
 ---
 
 Using the Azure diagnostic extension lets you capture a good set of metrics to help trend and diagnose your virtual machine. What a lot of people don't know is that you can configure it to capture custom log files.
@@ -25,7 +26,7 @@ Launch Visual Studio, and create a new Azure Resource Manager template. Select W
     "wadcfgxstart": "[concat(variables('wadlogs'), variables('wadperfcounters1'), variables('wadperfcounters2'), '<Metrics resourceId=\"')]",
     "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', variables('diagnosticsStorageAccountResourceGroup'), '/providers/', 'Microsoft.Compute/virtualMachines/', variables('vmName'))]",
     "wadcfgxend": "\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
-  
+
 ```
 
 Use the variable **wadlogs** to configure the diagnostic extension to monitor specific folders to copy files over to a blob container. I ended up looking at the [configuration schema](https://msdn.microsoft.com/en-us/library/azure/mt634522.aspx), which explains all the possible elements we can use. The three elements we need to focus on are Directories, DataSources, and DirectoryConfiguration. These three let us enable custom directory monitoring and configure which folder to monitor. These elements also let us monitor IIS and Failed Request Tracing log folders. The following snippet lets us monitor IIS, Failed Request Tracing and a custom log folder located at c:\sitecore.

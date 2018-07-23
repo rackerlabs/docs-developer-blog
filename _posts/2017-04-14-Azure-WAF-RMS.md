@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understanding an Azure Application Gateway with WAF 
+title: Understanding an Azure Application Gateway with WAF
 date: 2017-04-14 10:22
 comments: false
 author: Jimmy Rudley
@@ -8,6 +8,7 @@ published: true
 authorIsRacker: true
 categories:
     - DevOps
+    - Azure
 ---
 
 As more web application workloads move to the cloud, organizations need to be concerned about attacks from the internet. External threats are scanning public IP ranges to find known vulnerabilities and exploit businesses. Let's take a look at the Azure Application Gateway (WAF), and see how it can be a part of our toolset for protecting our web applications.
@@ -26,7 +27,7 @@ The minimum requirement to deploy a WAF into Azure is to select the WAF tier and
 
 If you have diagnostics enabled, you can view your detection logs. Currently, you can archive the logs to a storage account, stream to an event hub, or send to log analytics. The 3 types of logs currently available are ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, and ApplicationGatewayFirewallLog. The only metric available measures throughput of the application gateway in bytes per second.
 
-To see the WAF in action, browse to your web application using the public ip address. I have selected ApplicationGatewayFirewallLog to be placed in a storage account. To easily navigate to the json log, open up the Diagnostics logs in the application gateway blade. You can download the json file from there. 
+To see the WAF in action, browse to your web application using the public ip address. I have selected ApplicationGatewayFirewallLog to be placed in a storage account. To easily navigate to the json log, open up the Diagnostics logs in the application gateway blade. You can download the json file from there.
 
 ```
 			 "operationName": "ApplicationGatewayFirewall",

@@ -5,21 +5,22 @@ date: '2015-12-04 10:45'
 comments: false
 author: Jimmy Rudley
 published: true
-categories: []
+categories:
+    - Azure
 ---
 
-Virtual Machine Scale Sets, which was recently released in preview from Microsoft, lets you manage a set of virtual machines as one. 
+Virtual Machine Scale Sets, which was recently released in preview from Microsoft, lets you manage a set of virtual machines as one.
 
 <!-- more -->
 
 The idea is that you set your instance count to how many machines you want, and it will provision an identical set. You also have the option to add the Microsoft.Insights/autoscaleSettings type, which lets you dynamically scale up and down based on CPU load over an aggregation type you can [set]. Some benefits of using VMSS are:
 
-  - Supports Azure Resource Manager 
+  - Supports Azure Resource Manager
   - Can make use of custom script extensions
   - Can deploy Linux and Windows images
 
 I wanted to test out a simple scenerio: provision 1 web server vm, then scale based on CPU load. I have published a [Visual Studio project] to my github repo that has an ARM JSON template already configured for VMSS along with a simple ASP.NET webpage that will let you simulate cpu load over a period of time. Let's go over some key points and gotchas
-    
+
   - You are still bound to the processor count in your subscription.
   - This is still in preview. I have seen some funkyness during initial provisioning.
   - Make use of the [Azure Resource Explorer] to discover properties you dont know exist.
@@ -76,7 +77,7 @@ If you browse to your public ip provisioned, you will have a simple ASP.NET webp
 								}
 							}
 ```
-  - If my cpu usage is less than 40% for 5 minutes while sampling every 1 minute, decrease my vm count by 1. 
+  - If my cpu usage is less than 40% for 5 minutes while sampling every 1 minute, decrease my vm count by 1.
 
 You can verify if a scaleup or scaledown operation happened by looking at either your audit logs for the scaleset in the Azure portal or the capacity count in the portal.
 

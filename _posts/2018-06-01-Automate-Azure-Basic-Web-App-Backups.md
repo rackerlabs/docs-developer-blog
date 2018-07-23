@@ -7,7 +7,7 @@ author: Jimmy Rudley
 published: true
 authorIsRacker: true
 categories:
-    - General
+    - Azure
 ---
 
 Azure provides backup and restore functionality when using a Standard or Premium

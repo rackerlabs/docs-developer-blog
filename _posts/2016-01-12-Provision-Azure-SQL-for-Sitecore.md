@@ -7,15 +7,16 @@ author: Jimmy Rudley
 authorIsRacker: true
 published: true
 categories:
-    - devops
+    - DevOps
+    - Azure
 ---
 
 
-In my previous blog post on running Sitecore in a Docker container, I used Azure SQL to host my Sitecore databases. Wanting a clean enviornment each time I develop, I needed a quick way to provision to Azure. With that requirement, I wrote a PowerShell script that makes this task repeatable for development and testing. 
+In my previous blog post on running Sitecore in a Docker container, I used Azure SQL to host my Sitecore databases. Wanting a clean enviornment each time I develop, I needed a quick way to provision to Azure. With that requirement, I wrote a PowerShell script that makes this task repeatable for development and testing.
 
 <!-- more -->
 
-Investigating the Azure PowerShell cmdlets, Microsoft is in a state of removing Switch-AzureMode cmdlet. Reading the [Azure github wiki](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell), Microsoft announced they are renaming cmdlet's from verb-Azure[noun] to verb-AzureRM[noun]. This seems to be an ongoing effort, so you will see a mix of cmdlet's in my script. 
+Investigating the Azure PowerShell cmdlets, Microsoft is in a state of removing Switch-AzureMode cmdlet. Reading the [Azure github wiki](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell), Microsoft announced they are renaming cmdlet's from verb-Azure[noun] to verb-AzureRM[noun]. This seems to be an ongoing effort, so you will see a mix of cmdlet's in my script.
 
 You can download my [PowerShell script](https://github.com/jrudley/azureSitecoreBlobSqlUploader), and edit the following variables:
 
@@ -25,7 +26,7 @@ $bacpacLocation = 'C:\Users\jrudley\Downloads\sitecore8.1bacpacs\'
 
 #Resource group to create. Must be unique
 $Location = 'East US'
-$resourceGroupName = 'raxsitecore11' 
+$resourceGroupName = 'raxsitecore11'
 
 #storage account information
 $storageAccountName = 'sitecoredockerfiles11' #Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only
@@ -45,17 +46,17 @@ The **$storageAccountName**, **$Type** and **$containerName** variables specify 
 
 The **$credential** and **$sqlServeName** variables specify the username and password to use for the Azure SQL Server and the name for the Azure SQL Server to provision.
 
-I first check to see if we have any metadata from Azure. If this returns account information, we are already logged in. If an exception is thrown, I catch it and run **Login-AzureRMAccount** cmdlet to setup our connection. Next, I run the **New-AzureRmStorageAccount** cmdlet to create our Azure resource group to hold the Azure components we will provision. Then I will create a new storage account by typing **New-AzureRmStorageAccount**. With our storage account provisioned, we need to store our storage accounnt key in a variable and create a new Azure storage context. Once we have our context variable, we can then create a new Azure storage container to hold our blob files inside our Azure storage account. 
+I first check to see if we have any metadata from Azure. If this returns account information, we are already logged in. If an exception is thrown, I catch it and run **Login-AzureRMAccount** cmdlet to setup our connection. Next, I run the **New-AzureRmStorageAccount** cmdlet to create our Azure resource group to hold the Azure components we will provision. Then I will create a new storage account by typing **New-AzureRmStorageAccount**. With our storage account provisioned, we need to store our storage accounnt key in a variable and create a new Azure storage context. Once we have our context variable, we can then create a new Azure storage container to hold our blob files inside our Azure storage account.
 
 ```sh
 PS C:\Users\jrudley> $myStorageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName
 $myStoreContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $myStorageAccountKey.Key1
-New-AzureStorageContainer $containerName -Permission Container -Context $myStoreContext 
+New-AzureStorageContainer $containerName -Permission Container -Context $myStoreContext
 
    Blob End Point: https://sitecoredockerfiles11.blob.core.windows.net/
 
-Name                    PublicAccess LastModified               
-----                    ------------ ------------               
+Name                    PublicAccess LastModified
+----                    ------------ ------------
 sitecoreblobcontainer11 Container    1/12/2016 6:36:43 PM +00:00
 ```
 
@@ -70,9 +71,9 @@ ResourceGroupName        : raxsitecore11
 ServerName               : raxcontsqlsvr11
 Location                 : East US
 SqlAdministratorLogin    : jrudley
-SqlAdministratorPassword : 
+SqlAdministratorPassword :
 ServerVersion            : 2.0
-Tags                     : 
+Tags                     :
 ```
 
 By default, our Azure SQL server has a firewall enabled, and we need to allow our public IP, and all Azure IPs, to talk to our SQL server. I can create a new .net.webclient object and return my public ip by running the following PowerShell code
@@ -106,9 +107,9 @@ FirewallRuleName  : AllowAllAzureIPs
 You can see we added my public ip (removed the real ip for privacy) to connect in remotely via management studio and allowed Azure instances to talk to my Azure SQL Server. With those rules in place, we can now tell Azure to read from my Azure storage container and to restore the bacpac files. Before Azure can start the import, we need to create an Azure sql database server context and to grab our storage container we created above.
 
 ```sh
-PS C:\Users\jrudley> $ServerNameFQDN = $sqlServerName + '.database.windows.net' 
+PS C:\Users\jrudley> $ServerNameFQDN = $sqlServerName + '.database.windows.net'
 $sqlContext =  New-AzureSqlDatabaseServerContext -FullyQualifiedServerName $serverNameFQDN -Credential $credential
-$Container = Get-AzureStorageContainer -Name $containerName -Context $myStoreContext 
+$Container = Get-AzureStorageContainer -Name $containerName -Context $myStoreContext
 ```
 
 We can run a foreach loop that reads our variable **$files**, which we pass the variables we built above into the **Start-AzureSqlDatabaseImport** cmdlet. I also created a variable called **$Targets** to hold the request id's from my import. Since this is an asynchornous import, we can pass these request id's into another cmdlet and check the status.
@@ -118,7 +119,7 @@ $Targets = @()
 foreach ($file in $files)
 {
 
-$importRequest = Start-AzureSqlDatabaseImport -SqlConnectionContext $sqlContext -StorageContainer $Container -DatabaseName $file.ToString().Substring(0,$file.ToString().IndexOf('.')) -BlobName $file -Edition Standard 
+$importRequest = Start-AzureSqlDatabaseImport -SqlConnectionContext $sqlContext -StorageContainer $Container -DatabaseName $file.ToString().Substring(0,$file.ToString().IndexOf('.')) -BlobName $file -Edition Standard
 
 $file
 $importRequest.RequestGuid
@@ -141,13 +142,13 @@ do
    $allOK = $true
    foreach ($item in $Targets)
    {
-   
+
    $dbstatus = Get-AzureSqlDatabaseImportExportStatus -RequestId $item.Requestguid -ServerName $sqlServerName -Username $credential.UserName -Password ((New-Object System.Management.Automation.PSCredential 'N/A', $credential.Password).GetNetworkCredential().Password)
    write-host $dbstatus.databasename $dbstatus.status -ForegroundColor Yellow
        if ($dbstatus.status -ne 'Completed')
        {
        write-host "DB import still going..." -ForegroundColor Yellow
-          $allOK = $false 
+          $allOK = $false
        }
     }
     write-host "We finished importing?  $allOK" -ForegroundColor DarkYellow

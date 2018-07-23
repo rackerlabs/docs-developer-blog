@@ -7,13 +7,14 @@ author: Jimmy Rudley
 published: true
 categories:
     - DevOps
+    - Azure
 ---
 
 You may have found the extensions tab when browsing in an Azure Web App. Selecting extensions to add to an application is as easy as just pointing and clicking. Moving outside of the portal to an ARM template, things get a little bit tricky because documentation is lacking.
 
 <!-- more -->
 
-When developing an ARM template, normally I build something in the portal and browse to [https://resources.azure.com/](https://resources.azure.com/) to see what properties are set and available. When doing this with a site extension, nothing was shown. After some digging around, I found out the type is called **siteextensions**. The extensions available to be installed can be found at a website called [siteextensions.net](http://www.siteextensions.net/). I was expecting an Azure PowerShell cmdlet that would list all the available extensions, similar to listing VM extensions, but nothing exists.  What I noticed is that the URL name for a site extension is the package name. Browsing to the New Relic package, the URL is https://www.siteextensions.net/packages/NewRelic.Azure.WebSites/ which says NewRelic.Azure.WebSites is the package name we need to pass into our ARM template name property. Knowing the type and name, we can deploy site extensions using an ARM template. Here is a snippet of the resources section: 
+When developing an ARM template, normally I build something in the portal and browse to [https://resources.azure.com/](https://resources.azure.com/) to see what properties are set and available. When doing this with a site extension, nothing was shown. After some digging around, I found out the type is called **siteextensions**. The extensions available to be installed can be found at a website called [siteextensions.net](http://www.siteextensions.net/). I was expecting an Azure PowerShell cmdlet that would list all the available extensions, similar to listing VM extensions, but nothing exists.  What I noticed is that the URL name for a site extension is the package name. Browsing to the New Relic package, the URL is https://www.siteextensions.net/packages/NewRelic.Azure.WebSites/ which says NewRelic.Azure.WebSites is the package name we need to pass into our ARM template name property. Knowing the type and name, we can deploy site extensions using an ARM template. Here is a snippet of the resources section:
 
 ```
     {
@@ -22,7 +23,7 @@ When developing an ARM template, normally I build something in the portal and br
       "type": "Microsoft.Web/sites",
       "location": "[resourceGroup().location]",
       "dependsOn": [
-      
+
       ], /* Adding app settings here will overwrite any existing app settings. Be careful */
       "properties": {
         "name": "[parameters('siteName')]",

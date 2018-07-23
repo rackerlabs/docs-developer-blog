@@ -10,6 +10,8 @@ categories:
     - General
 ---
 
+Originally published by Tricore: Sep 21, 2017
+
 Planning Analytics integrates business planning, performance measurement, and
 operational data to enable companies to optimize business effectiveness and
 customer interaction regardless of geography or structure. Planning Analytics

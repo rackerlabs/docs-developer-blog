@@ -10,6 +10,8 @@ categories:
     - Oracle
 ---
 
+Originally published by Tricore: Dec 21, 2017
+
 Row chaining is a bottleneck that causes disruption in database performance.
 We should avoid row chaining as much possible. In this blog, we'll discuss row
 chaining, how to identify it, and how to remove or avoid it completely.

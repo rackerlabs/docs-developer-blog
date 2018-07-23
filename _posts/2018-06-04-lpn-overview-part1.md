@@ -10,6 +10,8 @@ categories:
     - Oracle
 ---
 
+Originally published by Tricore: March 14, 2017
+
 In this two-part series, we'll discuss License Plate Numbers (LPN) in
 Oracle&reg; Warehouse Management System (WMS), why and how to use them, as
 well as shortcut keys for Mobile Telnet, which is commonly known as PuTTy.

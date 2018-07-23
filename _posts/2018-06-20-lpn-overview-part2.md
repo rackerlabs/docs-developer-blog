@@ -10,6 +10,8 @@ categories:
     - Oracle
 ---
 
+Originally published by Tricore: March 15, 2017
+
 In [Part 1](https://developer.rackspace.com/blog/lpn-overview-part1/) of this
 two-part series, we introduced License Plate Numbers (LPNs)
 in the Oracle&reg; Warehouse Management System (WMS). In this follow-up post
@@ -82,7 +84,7 @@ To perform a subinventory LPN transfer, use the following steps:
    transfer.</li>
 
    <li>Select <b>Done</b>.</li>
-</ol>   
+</ol>
 
 #### Perform a direct inter-organization transfer
 

@@ -10,6 +10,8 @@ categories:
     - Oracle
 ---
 
+Originally published by Tricore: Aug 14, 2017
+
 This blog describes the following common issues and solutions for the Oracle
 &reg; AD Online Patching (adop) utility:
 

@@ -10,6 +10,8 @@ categories:
     - Oracle
 ---
 
+Originally published by Tricore: May 25, 2017
+
 Agent Gold Image is a recent feature of Oracle&reg; Enterprise Manager
 (OEM) that simplifies how you manage hosts and targets. This blog post
 provides an overview of Agent Gold Images and walks you through the process of

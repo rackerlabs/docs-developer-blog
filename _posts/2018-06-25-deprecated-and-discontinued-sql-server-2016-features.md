@@ -10,6 +10,8 @@ categories:
     - General
 ---
 
+Originally published by Tricore: June 14, 2017
+
 This blog identifies the deprecated Microsoft&reg; SQL Server&reg; Database Engine
 features that are available in SQL Server 2016 and that will be removed in future
 releases of SQL Server.

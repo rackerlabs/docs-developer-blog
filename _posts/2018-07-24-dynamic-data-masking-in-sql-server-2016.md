@@ -7,7 +7,7 @@ author: Vishal Srivastava
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+    - General
 ---
 
 Originally published by Tricore: April 20, 2017

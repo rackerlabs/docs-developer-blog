@@ -11,17 +11,17 @@ categories:
 ---
 
 Online table redefinition allows you to restructure your Oracle&reg; table in
-production without making the data unavailable. It may be comfortable using temp
-tables to move data around, but there is a better solution.
+production without making the data unavailable. You might be comfortable using
+temp tables to move data around, but there is a better solution.
 
 <!-- more -->
 
 ### Introduction
 
 Staging the data and moving it around while you restructure your table makes
-both the table and the data unavailable for a certain period, which is less than
-favorable situation for businesses. This is when the DBMS_REDEFINITION package
-saves the day, as shown in the following image:
+both the table and the data unavailable for a certain period, which is a less
+than favorable situation for businesses. This is when the ``DBMS_REDEFINITION``
+package saves the day, as shown in the following image:
 
 ![]({% asset_path 2018-07-24-redefine-tables-online-with-dbms-redefinition/Picture1.png %})
 
@@ -49,7 +49,7 @@ Online table redefinition requires free space that is approximately equivalent
 to the space currently used by the table being redefined.
 
 There are numerous ways to reorganize a table. When downtime is a challenge,
-then the DBMS_REDEFINITION package is the best option for this task.
+then the ``DBMS_REDEFINITION`` package is the best option for this task.
 
 
 ### Redefine a table online
@@ -60,15 +60,15 @@ Use the following steps to redefine a table online.
 
    **By key**: Select a primary key or pseudo-primary key to use for the
    redefinition. Pseudo-primary keys are unique keys where all the component
-   columns contain ‘NOT NULL’ constraints. For this method, the versions of the
+   columns contain ``NOT NULL`` constraints. For this method, the versions of the
    tables before and after redefinition should consist of the same primary key
    columns. This is the preferred and default method of redefinition.
 
    **By rowid:** Use this method if no key is available. In this method, a
-   hidden column, named **M_ROW$$**, is added to the post-redefined version of
+   hidden column, named ``M_ROW$$``, is added to the post-redefined version of
    the table. This column should be dropped or marked as unused after the
    redefinition is complete. If ``COMPATIBLE`` is set to 10.2.0 or higher, the
-   final phase of redefinition automatically sets this column unused. You can
+   final phase of redefinition automatically sets this column as unused. You can
    then use the ``ALTER TABLE ... DROP UNUSED COLUMNS`` statement to drop it.
    You cannot use this method on index-organized tables.
 
@@ -97,15 +97,15 @@ Use the following steps to redefine a table online.
    However, ``FINISH_REDEF_TABLE`` waits for all the pending DML operations to
    commit before completing the redefinition.
 
-7. If you used rowids for the redefinition and your ``COMPATIBLE``
+7. If you used ``rowids`` for the redefinition and your ``COMPATIBLE``
    initialization parameter is set to 10.1.0 or lower, you need to drop
-   the hidden column **M_ROW$$** that was added to the redefined table. You can
+   the hidden column ``M_ROW$$`` that was added to the redefined table. You can
    also set the column to "UNUSED" by using the following command:
 
         ALTER TABLE <table_name> SET UNUSED (M_ROW$$);
 
    If ``COMPATIBLE`` is 10.2.0 or higher, this hidden column is automatically
-   set to "UNUSED" when the redefinition completes. You can then drop the column
+   set to ``UNUSED`` when the redefinition completes. You can then drop the column
    with the ``ALTER TABLE ... DROP UNUSED COLUMNS`` statement. Wait for any
    long-running queries against the interim table to complete and then drop the
    interim table.
@@ -114,12 +114,12 @@ Use the following steps to redefine a table online.
 
 ### Sample table redefinition
 
-The following section shows examples of the various commmands and outputs for a
+The following section shows examples of the various commands and outputs for a
 sample table redefinition.
 
 #### Start sqlplus
 
-The following sample demonstrates starting sqlplus:
+The following sample demonstrates starting ``sqlplus``:
 
     [oracle@vm215 ~]$ sqlplus amit/amit
 
@@ -135,8 +135,8 @@ The following sample demonstrates starting sqlplus:
 
 #### Create a demo table
 
-The following sample demonstrates creating a demo table name TEST1 under AMIT
-schema.
+The following sample demonstrates creating a demo table name ``TEST1`` under
+``AMIT`` schema.
 
     SQL> CREATE TABLE TEST1 ( ID        NUMBER(10) ,
                           ENAME     VARCHAR2(10),
@@ -145,7 +145,7 @@ schema.
 #### Insert bulk rows
 
 The following sample demonstrates inserting bulk rows and setting
-``pga_aggregate_target`` to max value.
+``PPA_AGGGREGATE_TARGET`` in ``AMIT`` schema to max value.
 
     SQL> INSERT INTO AMIT.TEST1 SELECT ROWNUM, 'T'|| ROWNUM,
     DBMS_RANDOM.VALUE(100000, 999999) FROM DUAL CONNECT BY LEVEL < 1000000;
@@ -160,21 +160,21 @@ The following sample demonstrates inserting bulk rows and setting
 #### Create dependent objects for testing
 
 The following sample demonstrates creating dependent objects related to table
-TEST1 rows, so that you can see what happen when we do online redefinition.
+``TEST1`` rows, so that you can see what happens during an online redefinition.
 
-**View Creation**
+**View creation**
 
     SQL> CREATE VIEW TEST1_VW AS SELECT * FROM TEST1 ;
 
     VIEW CREATED.
 
-**Sequence Creation**
+**Sequence creation**
 
     SQL> CREATE SEQUENCE TEST_SEQ ;
 
     SEQUENCE CREATED.
 
-**Procedure Creation**
+**Procedure creation**
 
     CREATE OR REPLACE PROCEDURE PROC1 (P_ID IN NUMBER)
        AS V_ID  NUMBER ;
@@ -189,7 +189,7 @@ TEST1 rows, so that you can see what happen when we do online redefinition.
 
     PROCEDURE CREATED.
 
-**DML Trigger Creation**
+**DML trigger creation**
 
     SQL> CREATE OR REPLACE TRIGGER AMIT_TRIG
          BEFORE INSERT OR UPDATE ON TEST1
@@ -209,7 +209,7 @@ TEST1 rows, so that you can see what happen when we do online redefinition.
 
     TRIGGER CREATED.
 
-**Primary Key Creation**
+**Primary key creation**
 
     SQL> ALTER TABLE TEST1 ADD CONSTRAINT TEST1_ID_PK PRIMARY KEY (ID) ;
 
@@ -234,7 +234,7 @@ TEST1 rows, so that you can see what happen when we do online redefinition.
 #### Check table for redefinition
 
 The following sample demonstrates checking that the table can be redefined online
-using either rowids or primary key:
+using either ``rowids`` or ``primary key``:
 
 **Using primary key**
 
@@ -271,7 +271,7 @@ any dependent objects:
 
 #### Connect to database
 
-The following sample demonstrates connecting by using privilege user to execute
+The following sample demonstrates connecting by using a privilege user to execute
 the table redefinition task:
 
     [oracle@vm215 ~]$ sqlplus / as sysdba
@@ -295,8 +295,9 @@ The following sample demonstrates starting redefinition by using a primary key:
 #### Copy dependent objects
 
 The following sample demonstrates automatically copying dependent objects like
-mview, primary key, view, sequence, triggers. **IGNORE\_ERROR**  is set to true
-here to avoid primary key violation with the ``COPY_TABLE_DEPENDENTS`` command.
+mview, primary key, view, sequence, and triggers. ``IGNORE_ERROR``  is set to
+``TRUE`` to avoid primary key violation with the ``COPY_TABLE_DEPENDENTS``
+command.
 
     SQL> DECLARE
           N PLS_INTEGER;
@@ -311,7 +312,7 @@ here to avoid primary key violation with the ``COPY_TABLE_DEPENDENTS`` command.
 #### Check for errors
 
 The following sample demonstrates checking for errors in
-``dba_redefinition_errors`` view:
+``DBA_REDEFINITION_ERRORS`` view:
 
     SQL> COL OBJECT_NAME FOR A25
     SET LIN200 PAGES 200
@@ -373,7 +374,7 @@ The following sample demonstrates finishing the redefinition:
 #### Check error and recompile the schema
 
 The following sample demonstrates recompiling the schema with complete
-dependency, which was necessary because of the invalid triggers in the
+dependency, which is necessary because of the invalid triggers in the
 preceding step:
 
     SQL> EXEC UTL_RECOMP.RECOMP_SERIAL('AMIT') ;
@@ -404,14 +405,14 @@ The following sample demonstrates dropping the interim table:
 
     TABLE DROPPED.
 
-### Conclusion:
+### Conclusion
 
 If a table structure needs to be modified and simultaneously accessed by end
-users, use DBMS_REFDEFINITION.
+users, use ``DBMS_REFDEFINITION``.
 
-This feature helps re-organize the data without any downtime, thus avoiding
-challenges caused by downtime for customers in an OLTP environment. For any
-questions or feedback on the topic, feel free to add a comment in the field
-below.
+This feature helps reorganize the data without any downtime, thus avoiding
+challenges caused by downtime for customers in an online transaction processing
+(OLTP) environment. For any questions or feedback on the topic, feel free to
+add a comment in the field below.
 
 

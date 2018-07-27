@@ -15,7 +15,7 @@ categories:
 
  Given the prevalence of Slack and associated bots, I thought it would be a good idea to try to write my own for scanning. Enter the InsightVM Slack Bot!
 
- <!-- more -->
+<!-- more -->
 
 # Ruby Version
 Initially, I wrote the entire bot in Ruby using the [Ruby Slack Client](https://github.com/slack-ruby/slack-ruby-client) and the [Nexpose API Ruby Gem](https://github.com/rapid7/nexpose-client).  At the time, the Nexpose Gem was the preferred (and only supported) way to interact with the Nexpose API, which was the primary mechanism for initiating scans. This approach worked...mostly, but there were a few problems:

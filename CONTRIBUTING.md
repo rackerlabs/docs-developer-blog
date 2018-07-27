@@ -45,6 +45,7 @@ the previous step. for example:
    comments: true
    author: Author(s) name(s)
    published: true
+   authorIsRacker: true
    categories:
      - This Category
      - That Category
@@ -53,6 +54,10 @@ the previous step. for example:
 ```
 
 Make sure that the dates in the file name and front-matter match.
+
+You can optionally add a picture from gravatar using the following metadata line:
+
+```authorAvatar: 'https://gravatar.com/avatar/Whatever-the-Image-ID-is'```
 
 Available categories include the following:
 

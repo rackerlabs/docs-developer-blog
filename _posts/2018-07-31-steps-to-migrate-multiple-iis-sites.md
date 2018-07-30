@@ -11,24 +11,24 @@ categories:
 ---
 
 You may be asked to migrate multiple Internet Information Server (IIS) sites
-from on-site to the Cloud, but migrating individual sites is long and a daunting
+from on-site to the Cloud, but migrating individual sites is a long and daunting
 task. This blog discusses simplifying the process.
 
 <!-- more -->
 
 ### Introduction
 
-The Microsoft &reg; Web Deploy tool is used to export the sites and their content
+The Microsoft&reg; Web Deploy tool is used to export the sites and their content
 from a source and import it to a target environment. The following steps for
 using Web Deploy to migrate IIS sites are discussed in more detail in this post:
 
 1.	Install Web Deploy on the source and target servers.
 2.	Export the IIS contents from the source environment by using Web Deploy.
-3.	Copy the data from the source to the target environment using the PowerShell
+3.	Copy the data from the source to the target environment by using the PowerShell
 ``copy/sync`` command.
-4.	Import the IIS contents in to the target environment using Web Deploy.
+4.	Import the IIS contents into the target environment using Web Deploy.
 5.	Copy the database from the source to the target environment by using backup
-and restore commands. This blog uses a MySQL database as an example.
+and restore commands. This blog uses a MySQL&reg; database as an example.
 
 ### Install Web Deploy on the source and target servers
 
@@ -68,12 +68,12 @@ for Hosting Providers** as shown in the following screen shot.
 Before you begin exporting IIS site contents by using Web Deploy, make a backup
 copy of the following files:
 
--  C:\Windows\System32\inetsrv\config\administration.config
--  C:\Windows\System32\inetsrv\config\applicationHost.config
+-  **C:\Windows\System32\inetsrv\config\administration.config**
+-  **C:\Windows\System32\inetsrv\config\applicationHost.config**
 
 These files contain all the site settings. The following steps modify these files
 on only the destination server. If you run into issues during the process and
-need to get the destination server back to its original state, just restore file
+need to get the destination server back to its original state, restore file
 backups.
 
 After you've made the backup copies, perform the following steps on the
@@ -86,17 +86,17 @@ Package**, as shown in the following screenshot:
 ![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture4.png %})
 
 <ol start=3>
-    <li>On the <b>Export Server Package</b> screen click <b>Manage Components</b>
+    <li>On the <b>Export Server Package</b> screen, click <b>Manage Components</b>
     as shown in the following screenshot:</li>
 </ol>
 
 ![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture5.png %})
 
 <ol start=4>
-    <li>In the <b>Manage Components</b> window, make sure the first Provider Name
-    listed is <b>web Server</b>, as shown in the following screenshot. This
+    <li>In the <b>Manage Components</b> window, make sure the first <b>Provider Name</b>
+    listed is <b>webServer</b>, as shown in the following screenshot. This
     enables you to export the entire server configuration. If it is missing,
-    click the cell under Provider Name and choose it from the displayed list.</li>
+    click the cell under <b>Provider Name</b> and choose it from the displayed list.</li>
 </ol>
 
 ![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture6.png %})
@@ -114,10 +114,10 @@ Package**, as shown in the following screenshot:
 ### Copy the data from the source to the target environment
 
 Copy the export file that was created in the preceding section to the target
-server by using the standard Robocopy commands, the Windows copy utility, or the
-copy utility of your choice.
+server by using the standard ``robocopy`` commands, the Windows copy utility, or
+the copy utility of your choice.
 
-### Import the IIS contents in to the target server
+### Import the IIS contents into the target server
 
 Use the following steps to import the IIS settings on the target server:
 
@@ -141,7 +141,7 @@ shown in the following screenshot:
 </ol>
 
 
-### Back up and restore a MySQL database
+### Backup and restore a MySQL database
 
 To back up your MySQL database on the source server, use the ``mysqldump`` command.
 
@@ -152,7 +152,7 @@ with name of the dump file that you created.
 
 Migrating IIS sites manually can be monolithic work. Web Deploy makes it easy
 to migrate thousands of sites and their configuration seamlessly to target
-environments with ni need to worry about code. Web deploy not only automates
+environments with no need to worry about code. Web deploy not only automates
 most of the migration, it also eliminates the possibility of human error and
 saves time.
 

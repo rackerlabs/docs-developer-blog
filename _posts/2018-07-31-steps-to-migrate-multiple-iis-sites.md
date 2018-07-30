@@ -30,9 +30,6 @@ using Web Deploy to migrate IIS sites are discussed in more detail in this post:
 5.	Copy the database from the source to the target environment by using backup
 and restore commands. This blog uses a MySQL database as an example.
 
-
-![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture1.png %})
-
 ### Install Web Deploy on the source and target servers
 
 Use the following instructions to install Web Deploy:

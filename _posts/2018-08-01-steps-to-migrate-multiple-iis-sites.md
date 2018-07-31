@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Steps to migrate multiple IIS sites"
-date: 2018-07-31 00:00
+date: 2018-08-01 00:00
 comments: true
 author: Amarbir Singh
 published: true
@@ -41,7 +41,7 @@ which includes Web Deploy.
 3. Type **Recommended** in the search bar, and choose **Recommended Configuration
 for Hosting Providers** as shown in the following screen shot.
 
-![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture1.png %})
+![]({% asset_path 2018-08-01-steps-to-migrate-multiple-iis-sites/Picture1.png %})
 
 <ol start=4>
     <li>To see a list of all components to be installed, click <b>Items to be
@@ -49,15 +49,15 @@ for Hosting Providers** as shown in the following screen shot.
     can be removed. The following screenshot shows the Web Deploy features:</li>
 </ol>
 
-![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture2.png %})
+![]({% asset_path 2018-08-01-steps-to-migrate-multiple-iis-sites/Picture2.png %})
 
 <ol start=5>
-    <li>Leave everything checked, click <b>Next</b>, and <b>Install</b>.  The
+    <li>Don't uncheck anything, click <b>Next</b>, and <b>Install</b>.  The
     installation begins after you accept the license agreement, as shown in the
     following screenshot:</li>
 </ol>
 
-![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture3.png %})
+![]({% asset_path 2018-08-01-steps-to-migrate-multiple-iis-sites/Picture3.png %})
 
 <ol start=6>
     <li> After the WebPI installation completes, close WebPI.</li>
@@ -83,14 +83,14 @@ source server to export the IIS site contents:
 2. Right click on the server name, select **Deploy**, and click **Export Server
 Package**, as shown in the following screenshot:
 
-![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture4.png %})
+![]({% asset_path 2018-08-01-steps-to-migrate-multiple-iis-sites/Picture4.png %})
 
 <ol start=3>
     <li>On the <b>Export Server Package</b> screen, click <b>Manage Components</b>
     as shown in the following screenshot:</li>
 </ol>
 
-![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture5.png %})
+![]({% asset_path 2018-08-01-steps-to-migrate-multiple-iis-sites/Picture5.png %})
 
 <ol start=4>
     <li>In the <b>Manage Components</b> window, make sure the first <b>Provider Name</b>
@@ -99,7 +99,7 @@ Package**, as shown in the following screenshot:
     click the cell under <b>Provider Name</b> and choose it from the displayed list.</li>
 </ol>
 
-![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture6.png %})
+![]({% asset_path 2018-08-01-steps-to-migrate-multiple-iis-sites/Picture6.png %})
 
 <ol start=5>
     <li>Click <b>OK</b>, <b>Next</b>, and then <b>Next</b> again.</li>
@@ -109,7 +109,7 @@ Package**, as shown in the following screenshot:
     shown in the following screenshot:</li>
 </ol>
 
-![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture7.png %})
+![]({% asset_path 2018-08-01-steps-to-migrate-multiple-iis-sites/Picture7.png %})
 
 ### Copy the data from the source to the target environment
 
@@ -133,7 +133,7 @@ select it.
 7. Click **OK** to overwrite the existing IIS configuration on the server, as
 shown in the following screenshot:
 
-![]({% asset_path 2018-07-31-steps-to-migrate-multiple-iis-sites/Picture8.png %})
+![]({% asset_path 2018-08-01-steps-to-migrate-multiple-iis-sites/Picture8.png %})
 
 <ol start=8>
     <li>Click <b>Next</b>.</li>

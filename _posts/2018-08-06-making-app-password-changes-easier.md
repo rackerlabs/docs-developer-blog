@@ -46,15 +46,15 @@ Good practice has a file ACL that does protect awa.conf from anyone.  This confi
 
 ## Challenge or difficulty
 
-When the need arises to change the password (hacker compromise, former employee left, policy directs yearly change, etc.) however the following is required:
+When the need arises to change the password (hacker compromise, former employee left, policy directs yearly change, etc.) the following is required:
 
 1. Shutdown all running instances (entire cluster)
 1. Change password on remote service
 1. Update conf file on each application in the cluster
 1. Restart the application
-1. Repeat again next time
+1. Repeat the above again manually the next time
 
-This mandates having to schedule downtime for the application for a password rotation.  This can be difficult to prioritize as well until an urgent event (system compromise, audit deadline) occurs which makes the work more difficult.
+This mandates having to schedule downtime for the application for a password rotation.  This can be difficult to prioritize until an urgent event (system compromise, audit deadline) occurs which makes the work more difficult and prone to human error.
 
 # Ideal scenario
 

@@ -41,7 +41,8 @@ Good practice has a file ACL that does protect awa.conf from anyone.  This confi
 
 ## Challenge or difficulty
 
-When the need arises to change the password (hacker compromise, former employee left, policy directs yearly change, ...) however the following is required:
+When the need arises to change the password (hacker compromise, former employee left, policy directs yearly change, etc.) however the following is required:
+
 0. Shutdown all running instances (entire cluster)
 0. Change password on remote service
 0. Update conf file on each application in the cluster

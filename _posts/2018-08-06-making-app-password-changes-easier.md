@@ -167,8 +167,10 @@ Notice the .cred2 addition.
 
 .cred may have a username of awa_rest_api
 * Password of secretNumber1
+
 .creds2 may have a username of awa_rest_api2
 * Password of totalDifferentThanOtherOne_not_just_increment2
+
 _Username could be anything really_
 
 

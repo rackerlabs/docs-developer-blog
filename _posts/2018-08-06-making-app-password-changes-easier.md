@@ -128,7 +128,7 @@ You may also find it useful to catch any service connection errors and perform a
 
 
 Yes, it can.  You could do this in your code:
-1. Sleep and Wait a few seconds (say 30)
+1. Sleep and wait a few seconds (say 30)
 1. Reread from disk the credential file
 1. Reattempt the connection with the newly read credentials
 1. Repeat until credential becomes valid

@@ -21,7 +21,7 @@ Let's have a web application called AcmeWebApp.  It doesn't matter where we are 
 
 AcmeWebApp has a configuration file called awa.conf that contains things like:
 ```
-[section]
+[remotewidget]
 API_ENDPOINT=https://198.51.100.4/api/3/rest.cgi
 API_USERNAME=awa_rest_api
 API_PASSWORD=MinRequired2
@@ -58,8 +58,43 @@ This mandates having to schedule downtime for the application for a password rot
 
 # How to reach the ideal
 
-There are commercial solutions (which can be expensive) that help with password credential management (vault/storage) and rotation.  You as a software developer can even use libraries provided by these vendors to have your own code call their solutions to retrieve credentials.  One downside, however, is that your application becomes locked into that vendors product.
+There are commercial solutions (which can be expensive) that help with password credential management (vault/storage) and rotation.  You as a software developer can even use libraries provided by these vendors to have your own code call their solutions to retrieve credentials.  One downside, however, is that your application becomes locked into that vendor's product.
 
 ## What can a software developer do?
 
 I want to outline some technical designs, tricks, or methods that software developers can use that would make it easier for your operations or IT security personnel to change credentials your application is dependent on without incurring downtime.
+
+### Separate out each credential from your configuration file
+
+In the example above of awa.conf we had each credential all in the same awa.conf file.  So your code only has to read in the one file and has all the credentials it needs in one variable.
+
+While handy for you from an operations or IT security tool standpoint this is cumbersome.  If I (security operations) want an automated script to change the passwords it must know:
+1. How to parse your configuration file (not too difficult)
+1. To rewrite the entire configuration file atomically
+  * Meaning only change 1 credential at a time
+  * Avoid writing an old credential when rewriting the configuration file to disk
+  * Example:
+    1. awa.conf was having its DS_PASSWORD updated with a new one by scriptRunA
+    1. At the same time a script/tool was also changing the API_PASSWORD (scriptrunZ)
+    1. Unfortunately scriptRunA overwrote the updated credential with an old one for API_PASSWORD
+    
+#### Solution
+
+Place each credential in a secure (file ACL) dedicated file.  Example:
+
+```
+ls /etc/awa/conf.d/
+awa.conf   <-- file no longer holds credentials
+awa-datastore.cred
+awa-remotewidget.cred
+```
+
+Example of awa-datastore.cred:
+```
+admin
+AnotherPassword@2
+```
+
+Notice that there are no SOME_NAME= portions either.  This simplifies parsing by tools external to the application.
+
+Doing this allows operations tools to work with each credential individually and without having to do special logic handling on atomic modification of a single awa.conf file.

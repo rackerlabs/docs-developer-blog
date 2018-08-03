@@ -21,7 +21,7 @@ I want to share some design thoughts on how to make changing credentials easier.
 
 <!-- more -->
 
-# Current common scenario
+### Current common scenario
 
 Let's say we have a web application called **AcmeWebApp**.  It doesn't matter where we are running the app.  Jus know that we have deployed it onto a server on which we manage the files.
 
@@ -42,13 +42,11 @@ DS_PASSWORD=AnotherPassword@2
 localadmin_password=defaultWeForgotToChange
 ```
 
-## Credential usage
+### Credential usage
 
-Good practice has a file **ACL** that protects **awa.conf** from anyone.  This configuration file has the required credentials to connect to two other services and contains the initial login password to be used.
+A good practice is to have a file, **ACL**, that protects **awa.conf** from everyone.  This configuration file has the required credentials to connect to two other services and contains the initial login password to be used.
 
-## Challenge or difficulty
-
-When we need to change the password (due to a hacker compromise, former employee departure, policy directs yearly change, and so on), the following actions are required:
+The challenge with the preceding practice is this: When we need to change the password (due to a hacker compromise, former employee departure, policy directs yearly change, and so on), the following actions are required:
 
 1. Shutdown all running instances (entire cluster).
 1. Change password on remote service.
@@ -58,22 +56,22 @@ When we need to change the password (due to a hacker compromise, former employee
 
 This procedure mandates scheduling application downtime for a password rotation.  This can be difficult to prioritize until an urgent event (system compromise, audit deadline) occurs, which makes the work more difficult and prone to human error.
 
-# Ideal scenario
+### Ideal scenario
 
 In a perfect world, the following statememts are true:
 
 1. Password credentials rotate automatically and frequently.
 1. No application downtime is required.
 
-# How to reach the ideal
+But how do we get there?
 
 There are commercial solutions (which can be expensive) that help with password credential management (such as vaults or storage) and rotation.  You, as a software developer, can even use libraries provided by these vendors to have your own code call their solutions to retrieve credentials.  One downside, however, is that your application becomes locked into that vendor's product.
 
-## What can a software developer do?
+### What can a software developer do?
 
 I want to outline some technical designs, tricks, or methods that software developers can use that would make it easier for your operations or IT security personnel to change the credentials on which your application is dependent without incurring downtime.
 
-### Separate out each credential from your configuration file
+#### 1. Separate out each credential from your configuration file
 
 In the preceding **awa.conf** example, we had all credentials in the same **awa.conf** file.  So your code has to read in only the one file to have all the credentials it needs in one variable.
 
@@ -90,7 +88,7 @@ If the script can't handle the preceding requirements, situations like the follo
   1. At the same time, a different script or tool, **scriptrunZ**, also changes the API_PASSWORD.
   1. Unfortunately, **scriptRunA** overwrites the updated credential with an previous password for API_PASSWORD
     
-#### Solution
+##### Solution
 
 Place each credential in a secure dedicated file (for example, file **ACL**), as shown in the following example:
 
@@ -113,7 +111,7 @@ Doing this enables operations tools to work with each credential individually an
 
 Your development code does have to contain logic to know how to find these files of course, but implementing this layout is is good step towards allowing changes to the application without downtime or restarts.
 
-### Always reread the credentials from your configuration
+#### 2. Always reread the credentials from your configuration
 
 Another common development habit is to only read the application configuration once upon startup.  If a configuration setting needs to be changed, it typically requires an application restart.
 
@@ -147,7 +145,7 @@ Downsides or cons to this include the following:
 
 I propose a better way in the next section.
 
-### Support rotating set of credentials (Fernet)
+#### 3. Support rotating set of credentials (Fernet)
 
 The OpenStack project has a neat concept known as [fernet tokens](https://docs.openstack.org/keystone/pike/admin/identity-fernet-token-faq.html).
 
@@ -214,7 +212,7 @@ The application automatically detects a failed login attempt and simply moves on
 
 Operations can repeat the same process after all the application instances have moved to the new credential and the first credential has been updated on disk.
 
-# Summary
+### Summary
 
 We've discussed the following three things that can help you simplify credential changes in your application code:
 

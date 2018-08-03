@@ -118,6 +118,6 @@ You may also find it useful to catch any service connection errors and perform a
 1. AcmeWebApp reads the /etc/awa/conf.d/awa-datastore.cred from disk for the latest credentials
 1. AcmeWebApp uses the new credentials to connect and serve users, all without a restart
 
-<div class="alert alert-success">
+:warning:
   But wait!  What if between the time the datastore password was changed and before awa-datastore.cred was updated AcmeWebApp tries to connect!  Won't that result in the old invalid credentials being used and a failure?
-</div>
+

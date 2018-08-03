@@ -168,7 +168,7 @@ Notice the .cred2 addition.
 .cred may have a username of awa_rest_api
 * Password of secretNumber1
 
-.creds2 may have a username of awa_rest_api2
+.cred2 may have a username of awa_rest_api2
 * Password of totalDifferentThanOtherOne_not_just_increment2
 
 _Username could be anything really_
@@ -209,5 +209,11 @@ The application will automatically detect a failed login attempt and simply move
 Operations can repeat the same process after all the application instances have moved to the new credential and the first credential has been updated on disk.
 
 # Summary
+
+We've discussed these three things that can help you simplify credential changes in your application code:
+
+1. Separate out each credential from your configuration file
+1. Always reread the credentials from your configuration
+1. Support rotating set of credentials (Fernet)
 
 Software development and security operations do have many ways of helping each other be successful.  Automation of processes and robust software development are making technology better and hopefully these design ideas help you solve your secure code challenges too.

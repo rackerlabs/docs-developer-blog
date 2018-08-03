@@ -139,11 +139,14 @@ Instead of only one valid credential to a service you have multiple that you rot
 
 Adapting for our purpose we would have multiple credentials for the remote service.  Take the AcmeWebApp software as an example:
 
-We have a remote REST service that our application makes calls for.  API_ENDPOINT=https://198.51.100.4/api/3/rest.cgi
+We have a remote REST service that our application makes calls for
+* API_ENDPOINT=https://198.51.100.4/api/3/rest.cgi
 
-We originally asked the owner of that service to give us a service account.  The username is awa_rest_api
+We originally asked the owner of that service to give us a service account.
+* awa_rest_api
 
-In order to support our fernet credential rotation we ask for a second account that has access to the same data or permissions: awa_rest_api_2
+In order to support our fernet credential rotation we ask for a second account that has access to the same data or permissions:
+* awa_rest_api_2
 
 We now add another credential configuration file for our application:
 
@@ -159,10 +162,13 @@ awa-remotewidget.cred2
 Notice the .cred2 addition.
 
 .cred may have a username of awa_rest_api
+* Password of secretNumber1
 .creds2 may have a username of awa_rest_api2
+* Password of totalDifferentThanOtherOne_not_just_increment2
+_Username could be anything really_
 
 
-In your application code you now want some psuedocode like this:
+In your application you now want some psuedocode like this:
 
 ```
 try {
@@ -179,8 +185,9 @@ try {
      // Second credential failed too
      log.error("Tried all known credentials for service")
      return nil
+   }
 } catch NotAuthError {
-    // Add your own retry logic
+    // Add your own retry logic for unknown problems (blame it on the network)
 }
 
 // You might also implement the above as a for loop over an array of credentials instead of nested try catch.

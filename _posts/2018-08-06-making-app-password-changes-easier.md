@@ -122,13 +122,17 @@ You may also find it useful to catch any service connection errors and perform a
   But wait!  What if between the time the datastore password was changed and before awa-datastore.cred was updated AcmeWebApp tries to connect!  Won't that result in the old invalid credentials being used and a failure?
 
 
-Yes it can.  You could simply have your code do this:
+Yes, it can.  You could do this in your code:
 1. Sleep and Wait a few seconds (say 30)
 1. Reread from disk the credential file
 1. Reattempt the connection with the newly read credentials
 1. Repeat until credential becomes valid
 
-The downside is that it is possible the service account could become locked out due to execessive login failure attempts.  I propose a better way in the next section.
+Downsides (Cons):
+1. Service account could become locked out due to execessive login failure attempts
+1. Your application response time goes up waiting for a valid credential in the configuration file
+
+I propose a better way in the next section.
 
 
 ### Support rotating set of credentials (Fernet)

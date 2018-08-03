@@ -18,7 +18,7 @@ categories:
 
 I wanted to share some design thoughts on how to make changing credentials easier.
 
-  <!-- more -->
+<!-- more -->
 
 # Current common scenario
 

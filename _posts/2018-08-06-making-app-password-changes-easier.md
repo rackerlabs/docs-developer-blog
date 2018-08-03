@@ -121,3 +121,80 @@ You may also find it useful to catch any service connection errors and perform a
 :warning:
   But wait!  What if between the time the datastore password was changed and before awa-datastore.cred was updated AcmeWebApp tries to connect!  Won't that result in the old invalid credentials being used and a failure?
 
+
+Yes it can.  You could simply have your code do this:
+1. Sleep and Wait a few seconds (say 30)
+1. Reread from disk the credential file
+1. Reattempt the connection with the newly read credentials
+1. Repeat until credential becomes valid
+
+The downside is that it is possible the service account could become locked out due to execessive login failure attempts.  I propose a better way in the next section.
+
+
+### Support rotating set of credentials (Fernet)
+
+The OpenStack project has a neat concept of a thing known as [fernet tokens](https://docs.openstack.org/keystone/pike/admin/identity-fernet-token-faq.html)
+
+Instead of only one valid credential to a service you have multiple that you rotate through.
+
+Adapting for our purpose we would have multiple credentials for the remote service.  Take the AcmeWebApp software as an example:
+
+We have a remote REST service that our application makes calls for.  API_ENDPOINT=https://198.51.100.4/api/3/rest.cgi
+
+We originally asked the owner of that service to give us a service account.  The username is awa_rest_api
+
+In order to support our fernet credential rotation we ask for a second account that has access to the same data or permissions: awa_rest_api_2
+
+We now add another credential configuration file for our application:
+
+```
+ls /etc/awa/conf.d/
+awa.conf
+awa-datastore.cred
+awa-datastore.cred2
+awa-remotewidget.cred
+awa-remotewidget.cred2
+```
+
+Notice the .cred2 addition.
+
+.cred may have a username of awa_rest_api
+.creds2 may have a username of awa_rest_api2
+
+
+In your application code you now want some psuedocode like this:
+
+```
+try {
+  cred = getWidgetCredential(1)  // reads from disk everytime
+
+  restRequest = call_api(config['remotewidget']['API_ENDPOINT'], cred)
+} catch InvalidUserAuthError {
+  // retry with other cred in rotation
+  cred = getWidgetCredential(2)  // reads from disk everytime
+  
+  try {
+     restRequest = call_api(config['remotewidget']['API_ENDPOINT'], cred)
+  } catch InvalidUserAuthError {
+     // Second credential failed too
+     log.error("Tried all known credentials for service")
+     return nil
+} catch NotAuthError {
+    // Add your own retry logic
+}
+
+// You might also implement the above as a for loop over an array of credentials instead of nested try catch.
+// Just remember to re-read the credentials from their disk configuration files each time
+```
+
+The idea is that if the first credential is invalid (was changed recently) the second credential (brand new) will be used.  This allows for operations to change or deactivate a compromised account quickly and then update the application configurations shortly thereafter.  All without incurring downtime.
+
+In a normal operation state both credential files have valid logins.  At the time when it becomes necessary to change one of them (or both) operations doesn't need to shutdown the application.  They just change it on the remote service.
+
+The application will automatically detect a failed login attempt and simply move on to the next credential which is still valid.
+
+Operations can repeat the same process after all the application instances have moved to the new credential and the first credential has been updated on disk.
+
+# Summary
+
+Software development and security operations do have many ways of helping each other be successful.  Automation of processes and robust software development are making technology better and hopefully these design ideas help you solve your secure code challenges too.

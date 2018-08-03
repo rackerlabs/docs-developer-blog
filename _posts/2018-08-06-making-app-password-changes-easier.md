@@ -11,7 +11,12 @@ categories:
   - Automation
 ---
 
- A common technical challenge for developers, operations, and IT security is the management of service account credentials used by applications.  Due to software architecture design the need for service accounts exist to authorize different components to communicate and share data.  This is true whether the application runs in the cloud or on-premise.  However, the problem is that these credentials are setup one time, never expire, and are hard-coded into configuration files.  I wanted to share some design thoughts on how to make changing credentials easier.
+ A common technical challenge for developers, operations, and IT security is the management of service account credentials used by applications.  The need for service accounts exist to authorize different components to communicate and share data.  This is true whether the application runs in the cloud or on-premise.  However, the problem is that these credentials:
+* are setup one time
+* never expire
+* are hard-coded into configuration files
+
+I wanted to share some design thoughts on how to make changing credentials easier.
 
   <!-- more -->
 

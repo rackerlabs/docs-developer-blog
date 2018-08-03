@@ -83,7 +83,7 @@ tab in the **result** panel. It should look similar to the following result:
     read-ahead reads 0, lob logical reads 0, lob physical reads 0,
     lob read-ahead reads 0.
 
-The **logical reads 5** result shows that SQL Server reads 58 KB (5 * 8KB) pages
+The **logical reads 5** result shows that SQL Server reads 40 KB (5 * 8 KB) pages
 to get the data from memory. When optimizing the query, do not ignore logical
 reads because this could be physical as well as logical on live servers. You
 never know if the pages to which you are referring are on memory or on disk.

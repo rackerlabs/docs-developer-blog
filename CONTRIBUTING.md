@@ -49,7 +49,7 @@ the previous step. for example:
      - This Category
      - That Category
      - Other Category
-    ---
+   ---
 ```
 
 Make sure that the dates in the file name and front-matter match.
@@ -87,7 +87,7 @@ Available categories include the following:
 - SDK
 - Security
 
-If you'd like to use a category that is not in the list, please send an email 
+If you'd like to use a category that is not in the list, please send an email
 to infodev@rackspace.com. To avoid being flooded with categories, which might apply
 to only one or two blogs, we have automated throttling. However, notify us so
 that we can discuss your ideas for a new category.
@@ -139,4 +139,3 @@ Follow these steps to submit your entry for publication.
    the date that you selected.
 
 Thanks again for your interest in contributing!
-

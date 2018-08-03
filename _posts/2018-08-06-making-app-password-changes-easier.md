@@ -98,3 +98,26 @@ AnotherPassword@2
 Notice that there are no SOME_NAME= portions either.  This simplifies parsing by tools external to the application.
 
 Doing this allows operations tools to work with each credential individually and without having to do special logic handling on atomic modification of a single awa.conf file.
+
+Your development code does have to contain logic to know how to find these files of course, but having this layout is part of the way towards allowing changes to the application without downtime or restarts.
+
+
+### Always reread the credentials from your configuration
+
+Another common development habit is to only read the application configuration once upon startup.  If a configuration setting needs to be changed it typically requires an application restart.
+
+For credentials you can avoid the restart and thus downtime by simply re-reading the credentials anytime they are needed.  You write your code so it doesn't use an in-memory configuration hash but instead goes back to the file on disk.
+
+You may also find it useful to catch any service connection errors and perform a retry after re-reading the credentials on disk.  An example may help:
+
+1. AcmeWebApp is already running and servicing users
+1. An operations member changes the datastore password on the remote datastore service for the service account user "admin"
+1. The operations member then updates /etc/awa/conf.d/awa-datastore.cred with the new password
+1. AcmeWebApp was never stopped or restarted
+1. AcmeWebApp needs a new connection to the datastore at 203.0.113.254
+1. AcmeWebApp reads the /etc/awa/conf.d/awa-datastore.cred from disk for the latest credentials
+1. AcmeWebApp uses the new credentials to connect and serve users, all without a restart
+
+<aside class="warning">
+  But wait!  What if between the time the datastore password was changed and before awa-datastore.cred was updated AcmeWebApp tries to connect!  Won't that result in the old invalid credentials being used and a failure?
+</aside>

@@ -113,7 +113,6 @@ Doing this enables operations tools to work with each credential individually an
 
 Your development code does have to contain logic to know how to find these files of course, but implementing this layout is is good step towards allowing changes to the application without downtime or restarts.
 
-
 ### Always reread the credentials from your configuration
 
 Another common development habit is to only read the application configuration once upon startup.  If a configuration setting needs to be changed, it typically requires an application restart.

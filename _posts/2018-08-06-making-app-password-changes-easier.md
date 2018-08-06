@@ -11,7 +11,7 @@ categories:
   - Automation
 ---
 
- A common technical challenge for developers, operations, and IT security is the management of service account credentials used by applications.  The need for service accounts exists to authorize different components to communicate and share data.  This is true whether the application runs in the cloud or on-premise.  The problem is that these credentials have the following issues:
+ A common technical challenge for developers, operations, and IT security is the management of service account credentials used by applications.  Service accounts are needed to authorize different components for communication and sharing data.  This is true whether the application runs in the cloud or on-premise.  The problem is that these credentials have the following issues:
  
 * They are setup one time.
 * They never expire.

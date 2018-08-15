@@ -12,7 +12,9 @@ categories:
 
 Originally published by TriCore: January 17, 2017
 
-SUMMARY  
+This blog post covers why Oracle&reg; Enterprise Manager 13c (OEM13c) users
+might want to consider rolling back to version 12c, and how to make the
+transition successful.
 
 <!-- more -->
 
@@ -23,11 +25,19 @@ wave, or creep along incrementally like a glacier. Technology advances in both
 of these ways. Although change can be difficult, it’s often for the best.
 Accomplishing great things requires us to push beyond our comfort zones.
 
-Rolling back a system after an upgrade is one such change. For example, TriCore, which Rackspace acquired in 2017, implemented a restoration and recovery rollback for Oracle Management Service (OMS), Oracle Management Repository (OMR), and Oracle Management Agent (OMA).
+Rolling back a system after an upgrade is one such change. For example,
+TriCore, which Rackspace acquired in 2017, implemented a restoration and
+recovery rollback for Oracle Management Service (OMS), Oracle Management
+Repository (OMR), and Oracle Management Agent (OMA) in 2017.
 
-TriCore came to this decision after some time using the current version because the company felt that it wasn't stable. For example, they experienced certain issues that were not encountered on version 12cR5. As a result, they decided to rollback completely to the existing 12cR5 environment.
+TriCore came to this decision after using version 13c for some time
+because they felt that it wasn't stable. For example, they experienced
+certain issues that didn't occur on version 12cR5. As a result, they
+decided to roll back completely to the 12cR5 environment.
 
-You may be having a similar experience with Oracle Enterprise Manager (OEM) 13c. While rolling back might be a challenge in the short-term, it will yield positive results in the long run.  
+You may be having a similar experience with Oracle Enterprise Manager OEM13c.
+While rolling back might be painful in the short-term, it will yield
+positive results in the long run.  
 
 ![A visualization of the OMS rollback from 13c
 to 12c]({% asset_path 2018-08-16-oms-rollback/picture1.png %})
@@ -35,11 +45,12 @@ to 12c]({% asset_path 2018-08-16-oms-rollback/picture1.png %})
 ### Details on TriCore's rollback
 
 TriCore upgraded Oracle&reg; Enterprise Manager 13c (OEM13c) to a new
-environment by using the direct upgrade method. It used the old OMR backup for
-repository restoration. For OMS, the backup configuration file for OMS12c was
-used to roll back the changes.
+environment by using the direct upgrade method. They used the old OMR backup
+for repository restoration. The backup configuration file for OMS12c
+was used to roll back the changes to OMS.
 
-If you want to do the same, you can achieve this task in three phases.
+If you want to do the same thing, you can complete your roll back in three
+phases.
 
 ### Phase 1: Use Recovery Manager (RMAN) to restore the system
 
@@ -59,9 +70,11 @@ Use the following steps to accomplish this task:
 - Finally, re-point the centralized agent and deployed the target agent on all
   servers.
 
-This example uses OMR and OMS on the same server. If you want, you can change the repository server.
+This example uses OMR and OMS on the same server. If you want, you can change
+the repository server.
 
-You can use any of the following methods to restore the repository database from the backup.
+You can use any of the following methods to restore the repository database
+from the backup:
 
 1. RMAN backup restoration and recovery
 2. Export and import
@@ -70,7 +83,7 @@ You can use any of the following methods to restore the repository database from
 
 #### Phase 2: OMS Movement and Configuration Agent to New Host
 
-Use the following steps to complete phase 2.
+Use the following steps to complete phase two.
 
 **Configure the repository**
 
@@ -108,26 +121,27 @@ Use the following steps to recreate the OMS:
 
 ### Phase 3
 
-Use the following steps to complete phase 3.
+Use the following steps to complete phase three.
 
-- Enter the following command to configure the Central Agent on the new host:  
+- Enter the following command to configure the central agent on the new host:  
 
       [oracle@oem251 agent_inst]$ /u02/app/oracle/Agent12c/core/12.1.0.5.0/sysman/install/agentDeploy.sh
       AGENT_BASE_DIR=/u02/app/oracle/Agent12c AGENT_INSTANCE_HOME=/u02/app/oracle/Agent12c/agent_inst AGENT_PORT=3872 -configOnly OMS_HOST=oem251.ora.com EM_UPLOAD_PORT=4903 AGENT_REGISTRATION_PASSWORD=********
 
-- Run the `root.sh` script to finish creating the central agent.
+- Enter the following command to run the `root.sh` script and finish creating
+  the central agent:
 
       [oracle@oem251 agent_inst]$ sudo /u02/app/oracle/Agent12c/core/12.1.0.5.0/root.sh
 
-- Log in to OMS by using the Oracle Enterprise Manager command line interface
+- Log in to OMS by using the Oracle Enterprise Manager command-line interface
   (emcli) and sync the repository.
 
 - Use the following command to relocate the repository target to the new OMS
-  host.
+  host:
 
       [oracle@oem251 agent_inst]$ emctl config emrep -agent oem251.ora.com:3872
 
-**Repointing/Reconfiguring (Agent) deployed target from old host to new host**
+**Repoint the deployed target from the old host to the new host**
 
 Use the following command to reconfigure existing agents to re-secure them
 against the new OMS. If you're working with a large environment, you can do
@@ -144,7 +158,7 @@ rollback ]({% asset_path 2018-08-16-oms-rollback/picture2.png %})
 
 ### Verify that everything is working correctly
 
-Verify the agent's status after re-pointing it to the new host. After all
+Verify each agent's status after re-pointing it to the new host. After all
 agents are re-pointing to the new OMS, verify the details through the OEM web
 console.
 
@@ -158,8 +172,8 @@ solution for Oracle environments, including both traditional and cloud
 computing architectures. It also offers monitoring and administration
 capabilities.  
 
-While a rollback can be daunting, ensuring that you use proper planning can
-help. Using the methods described in this blog post will help you revert
+While a rollback can be daunting, careful planning can make things go more
+smoothly. Using the methods described in this blog post will help you revert
 changes with minimal impact. 
 
 If you run into problems during your rollback, contact Oracle Support and

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Rollback of OMS from 13c to 12c"
+title: "Rolling back OMS 13c to version 12c"
 date: 2018-08-16 00:00
 comments: true
 author: Amit Kumar Srivastava
@@ -23,113 +23,144 @@ wave, or creep along incrementally like a glacier. Technology advances in both
 of these ways. Although change can be difficult, it’s often for the best.
 Accomplishing great things requires us to push beyond our comfort zones.
 
-The Oracle Management Service (OMS), Oracle Management Repository (OMR), and
-Agent restoration and recovery rollback is one such change. While it might be
-a challenge in the short-term, it will yield positive results in the long
-run.  
+Rolling back a system after an upgrade is one such change. For example, TriCore, which Rackspace acquired in 2017, implemented a restoration and recovery rollback for Oracle Management Service (OMS), Oracle Management Repository (OMR), and Oracle Management Agent (OMA).
+
+TriCore came to this decision after some time using the current version because the company felt that it wasn't stable. For example, they experienced certain issues that were not encountered on version 12cR5. As a result, they decided to rollback completely to the existing 12cR5 environment.
+
+You may be having a similar experience with Oracle Enterprise Manager (OEM) 13c. While rolling back might be a challenge in the short-term, it will yield positive results in the long run.  
 
 ![A visualization of the OMS rollback from 13c
 to 12c]({% asset_path 2018-08-16-oms-rollback/picture1.png %})
 
-### Details  
+### Details on TriCore's rollback
 
-We have upgraded Oracle&reg; Enterprise Manager Cloud Control 13c (OEM13c) to a new environment by using the direct upgrade method. We came to this decision after some time using the current version because we feel that it's not stable. For example, we've experience certain issues that we never encountered on version 12cR5. As a result, we decided to rollback completely to the existing 12cR5 environment.
+TriCore upgraded Oracle&reg; Enterprise Manager 13c (OEM13c) to a new
+environment by using the direct upgrade method. It used the old OMR backup for
+repository restoration. For OMS, the backup configuration file for OMS12c was
+used to roll back the changes.
 
-We use the old OMR backup for repository restoration. For OMS, we use the
-backup configuration file for OMS12c to roll back the changes.
+If you want to do the same, you can achieve this task in three phases.
 
-We can achieve this task in three phases.
+### Phase 1: Use Recovery Manager (RMAN) to restore the system
 
-### Phase 1
+Restore the OMR backup that you took before the upgrade to version 13c.
 
-Here we use Recovery Manager (RMAN) to restore the approach.
+Use the following steps to accomplish this task:
 
-We need to restore the OMR backup that we took before the upgrade to version 13c. Steps include: Configure listener, TNS alias and services as per our existing setup.
+- Configure the listener, Transparent Network Substrate (TNS) alias, and
+  services as per the existing setup.
 
-Once we have restored the existing OMR backup, it has all configuration related to OMS like emkey…. etc.  The next step is to install the OMS 12cR5 binary and recover the OMS configuration via OMSCA to achieve the goal.
+  After you've restored the existing OMR backup, it has all configuration
+  related to OMS (such as `emkey` and other parameters).
 
-After that we just need to repoint the centralized agent and deployed target agent on all server.
+- Next, install the OMS 12cR5 binary and use OMSCA to recover the OMS
+  configuration.
 
-In this scenario we are using OMR and OMS on same server. We can change the repository server if we want.
+- Finally, re-point the centralized agent and deployed the target agent on all
+  servers.
 
-Restoring Repository Database from Backup, we can choose any below mentioned approach as per our convenience.
+This example uses OMR and OMS on the same server. If you want, you can change the repository server.
 
-1. RMAN Backup restoration and recovery
-2. Export and Import
-3. Data Guard with broker
-4. Cold Backup
+You can use any of the following methods to restore the repository database from the backup.
 
-#### Phase 2
+1. RMAN backup restoration and recovery
+2. Export and import
+3. Oracle Data Guard with broker
+4. Cold backup
+
+#### Phase 2: OMS Movement and Configuration Agent to New Host
 
 Use the following steps to complete phase 2.
 
-OMS Movement and Configuration Agent to New Host
+**Configure the repository**
 
-Repository Configuration:
+Use the following steps to configure the repository:
 
-In new server we have to restore the OMR repository database and configure the listener and TNS alias/services.
+- On the new server, restore the OMR repository database and configure the
+  listener and the TNS alias and services.
 
-We ensure that latest and required plugins has been copied and installed and same directory structure has been created on new server. Because we are reverting the OMS then we choose the Installed Software Only. After binary installation run the orainstRoot.sh co complete the installation task.  
+  **Note**: Ensure that you copy and install the latest required plugins and
+  that you recreate the same directory structure on the new server.
 
-Copy the OMS Configuration backup file to this server.
+- Because you're reverting the OMS, choose ``Installed Software Only``.
 
-[oracle@oem251 ~]$ cp /ora_global_nfs/BACKUP/REPDB_BACKUP/opf_ADMIN_20160303_105032.bka /backup/opf_ADMIN_20160303_105032.bka  
+- After the binary installation is complete, run the `orainstRoot.sh` to
+  complete the installation task.  
 
-Recreate the OMS with OMSCA
+- Enter the following command to copy the OMS configuration backup file to
+  this server:
 
-Shutdown everything on your old 13c.
+      [oracle@oem251 ~]$ cp /ora_global_nfs/BACKUP/REPDB_BACKUP/opf_ADMIN_20160303_105032.bka /backup/opf_ADMIN_20160303_105032.bka  
 
-Recovering/recreating OMS using backup configuration via omsca  
+**Recreate the OMS with OMSCA**
 
-oms:/u02/app/oracle/Middleware/oms:N
-REPDB:/u01/app/oracle/product/12.1.0.2/DB_1:N
+Use the following steps to recreate the OMS:
 
-[oracle@oem251 ~]$ omsca recover -as -ms -nostart -backup_file /ora_global_nfs/BACKUP/REPDB_BACKUP/opf_ADMIN_20160303_105032.bka
+- Shut down everything on your old 13c server.
+
+- Use the backup configuration and the following OMSCA command to recreate
+  the OMS:  
+
+      oms:/u02/app/oracle/Middleware/oms:N
+      REPDB:/u01/app/oracle/product/12.1.0.2/DB_1:N
+
+      [oracle@oem251 ~]$ omsca recover -as -ms -nostart -backup_file /ora_global_nfs/BACKUP/REPDB_BACKUP/opf_ADMIN_20160303_105032.bka
 
 ### Phase 3
 
 Use the following steps to complete phase 3.
 
-Configure the Central Agent on the New Host  
+- Enter the following command to configure the Central Agent on the new host:  
 
-[oracle@oem251 agent_inst]$ /u02/app/oracle/Agent12c/core/12.1.0.5.0/sysman/install/agentDeploy.sh
-AGENT_BASE_DIR=/u02/app/oracle/Agent12c AGENT_INSTANCE_HOME=/u02/app/oracle/Agent12c/agent_inst AGENT_PORT=3872 -configOnly OMS_HOST=oem251.ora.com EM_UPLOAD_PORT=4903 AGENT_REGISTRATION_PASSWORD=********
+      [oracle@oem251 agent_inst]$ /u02/app/oracle/Agent12c/core/12.1.0.5.0/sysman/install/agentDeploy.sh
+      AGENT_BASE_DIR=/u02/app/oracle/Agent12c AGENT_INSTANCE_HOME=/u02/app/oracle/Agent12c/agent_inst AGENT_PORT=3872 -configOnly OMS_HOST=oem251.ora.com EM_UPLOAD_PORT=4903 AGENT_REGISTRATION_PASSWORD=********
 
+- Run the `root.sh` script to finish creating the central agent.
 
-Run the root.sh script to complete the central agent creation part.
+      [oracle@oem251 agent_inst]$ sudo /u02/app/oracle/Agent12c/core/12.1.0.5.0/root.sh
 
+- Log in to OMS by using the Oracle Enterprise Manager command line interface
+  (emcli) and sync the repository.
 
-[oracle@oem251 agent_inst]$ sudo /u02/app/oracle/Agent12c/core/12.1.0.5.0/root.sh
+- Use the following command to relocate the repository target to the new OMS
+  host.
 
-Log in to OMS using emcli and sync the repository.
+      [oracle@oem251 agent_inst]$ emctl config emrep -agent oem251.ora.com:3872
 
-Relocate the repository target to the new OMS host.
+**Repointing/Reconfiguring (Agent) deployed target from old host to new host**
 
-[oracle@oem251 agent_inst]$ emctl config emrep -agent oem251.ora.com:3872
+Use the following command to reconfigure existing agents to re-secure them
+against the new OMS. If you're working with a large environment, you can do
+this with a shell script.
 
+      [oracle@vm212 bin]$ ./emctl secure agent -emdWalletSrcUrl "https://oem251.ora.com:4903/em"
 
-
-Repointing/Reconfiguring (Agent) deployed target from old host to new host
-
-Reconfigure existing agents to re-secure them against the new OMS. Since it’s a large environment we can de done through a shell script.
-
-
-[oracle@vm212 bin]$ ./emctl secure agent -emdWalletSrcUrl "https://oem251.ora.com:4903/em"
-
-Step through each of your existing agents to re-secure them against the new OMS. If you have A large environment, then this can be done through a  shell script in one go.
+Step through each of your existing agents to re-secure them against the new
+OMS. Again, if you have a large environment, you can use a shell script to
+perform this task on all of your agents at the same time.
 
 ![A visualization of the three phases involved in the
 rollback ]({% asset_path 2018-08-16-oms-rollback/picture2.png %})
 
-### Validations
+### Verify that everything is working correctly
 
-Verify the agent status after the re-pointing to new host. Once all agents are repointing to new OMS, verify the details on EM web console.
+Verify the agent's status after re-pointing it to the new host. After all
+agents are re-pointing to the new OMS, verify the details through the OEM web
+console.
 
-Also verify the migrated Administration group from OLD OMS to NEW OMS.
+Also verify that the administration group migrated from the old OMS to the new
+OMS.
 
 ### Conclusion  
 
-Oracle Enterprise Manager12c provides the most comprehensive management solution for Oracle environments, including traditional as well as cloud computing architectures. It also provides the monitoring and administration.  
-Post new technology upgrades in an environment, it is not easy to revert the changes without proper planning and can be daunting. However, with the above methodology you can best plan to revert changes with minimal impact. Oracle provides best service levels for traditional approach for cloud applications through business-driven monitoring application management.  
+Oracle Enterprise Manager 12c provides the most comprehensive management
+solution for Oracle environments, including both traditional and cloud
+computing architectures. It also offers monitoring and administration
+capabilities.  
 
-If you run into problems, you can contact Oracle Support and file service requests.    
+While a rollback can be daunting, ensuring that you use proper planning can
+help. Using the methods described in this blog post will help you revert
+changes with minimal impact. 
+
+If you run into problems during your rollback, contact Oracle Support and
+submit a service request.    

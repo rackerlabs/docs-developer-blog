@@ -10,10 +10,10 @@ categories:
     - Oracle
 ---
 
-This blog post explores basics of Oracle&reg; GoldenGate&reg; and its functions.
-Because it's decoupled from the database architecture, GoldenGate facilitates
-heterogeneous and homogeneous real-time transactional change data capture and
-integration.
+This blog post explores the basics of Oracle&reg; GoldenGate&reg; and its
+functions. Because it's decoupled from the database architecture, GoldenGate
+facilitates heterogeneous and homogeneous real-time transactional change data
+capture and integration.
 
 <!-- more -->
 
@@ -27,7 +27,7 @@ heterogeneous databases.
 
 ### Why Use GoldenGate?
 
-The following list highlights some reasons to use Goldegate:
+Some reasons to use Goldegate include the following items:
 
 -	Data movement is in real-time and reduces latency.
 -	Only committed transactions are moved, enabling consistency and improving
@@ -55,6 +55,8 @@ the following image to see the various topologies supported by GoldenGate.
 
 ![]({% asset_path 2018-08-16-oracle-goldengate-basics/Picture1.png %})
 
+**Image Source:** http://www.vitalsofttech.com/goldengate-replication-topologies/
+
 ### GoldenGate logical architecture
 
 The following image shows the components, or processes, of the GoldenGate
@@ -74,11 +76,11 @@ required for every GoldenGate installation.
 
 #### Extract
 
-The extract process involves data extraction, which is called data capture in
+The extract process involves data extraction, which is called *data capture* in
 GoldenGate. Extract is the process that is configured to run against the source
 mining database.
 
-Extract is responsible for capturing the committed data modelling language (DML)
+Extract is responsible for capturing the committed data modeling language (DML)
 transactions and the data definition language (DDL) from Oracle Redo logs. Extract
 writes these data changes into trail or extract files.
 
@@ -101,10 +103,10 @@ setup. This process copies the trail files that contain data to the target syste
 
 #### Checkpoint
 
-The extract pump & replicat processes use checkpoints for tracking their
+The extract pump and replicat processes use checkpoints for tracking their
 respective progress. This mechanism marks the location of data changes that have
 been retrieved or applied from the trail files. This is useful when processes
-need to recover (without any data loss) or need to know the starting point after
+need to recover without any data loss or need to know the starting point after
 a failure.
 
 #### Collector
@@ -143,7 +145,7 @@ statements (create, alter, drop, and so on) and creates Logical Change Records
 (LCR). These records are then handed to the GoldenGate memory processes, which
 write the LCR’s to the local trail files.
 
-### GoldenGate Replicat modes
+### GoldenGate replicat modes
 
 Before the release of version 12.1, replicat applied transactions to the target
 database serially. To achieve parallelism, tables had be split across multiple
@@ -209,7 +211,7 @@ The following image illustrates integrated replicat:
 **Image Source**: https://docs.oracle.com/GoldenGate/1212/gg-winux/GIORA/process_mode.htm#GIORA212
 
 
-### Conclusion:
+### Conclusion
 
 The main difference between the classic capture and integrated capture modes is
 that the classic capture extract reads the Oracle database online redo and

@@ -183,8 +183,8 @@ A configured replicat is called a coordinator. This process starts additional
 replicates based on the specified number of threads. The replicat name is limited
 to five characters, and the threaded replicates have this name appended with a
 three-digit number (for example, RGGMA, RGGMA001, RGGMA002, and so on).  The
-coordinator sends SQL to the threads, which can be applied in parallel, which
-is applied in committed order.
+coordinator sends SQL to the threads, which can be applied in parallel and in a
+committed order.
 
 The following image illustrates coordinated replicat:
 
@@ -213,11 +213,9 @@ The following image illustrates integrated replicat:
 
 ### Conclusion
 
-The main difference between the classic capture and integrated capture modes is
-that the classic capture extract reads the Oracle database online redo and
-archive log files to capture changes and the IC database log mining server reads
-the redo log files to capture changes in the form of LCRs, which are then
-accessed by the GoldenGate extract process.
+This blog described how and why to use GoldenGate and discussed its architecture
+and components.  It also detailed the capture modes and replicat modes
+incorporated in the tool.
 
 If you have any questions on the topic, comment in the field below.
 

@@ -148,15 +148,15 @@ write the LCR’s to the local trail files.
 ### GoldenGate Replicat modes
 
 Before the release of version 12.1, Replicat applied transactions to the target
-database serially. To achieve parallelism, tables had be split across multiple
-replicates for quicker data application and reduced lag. Drawbacks to this
-approach include the manual configuration of multiple replicates and trail files
+database serially. To achieve parallelism, tables had to be split across multiple
+Replicats for quicker data application and reduced lag. Drawbacks to this
+approach include the manual configuration of multiple Replicats and trail files
 and the limiting inability to split tables that had foreign key relationships
-across replicates.
+across Replicats.
 
 The new coordinated and integrated Replicat modes help you to apply transactions
 in parallel on the target database without having to manually split tables into
-multiple replicates.
+multiple Replicats.
 
 The following sections describe the different Replicat modes.
 
@@ -171,7 +171,7 @@ Classic Replicat has the following characteristics:
 -  Applies SQL serially.
 -  Must be used if the database version is less than 11.2.0.4
 
-The following image illustrates classic replicat:
+The following image illustrates classic Replicat:
 
 ![]({% asset_path 2018-08-16-oracle-goldengate-basics/Picture3.png %})
 
@@ -180,8 +180,8 @@ The following image illustrates classic replicat:
 #### Coordinated Replicat
 
 A configured Replicat is called a coordinator. This process starts additional
-replicates based on the specified number of threads. The Replicat name is limited
-to five characters, and the threaded replicates have this name appended with a
+Replicats based on the specified number of threads. The Replicat name is limited
+to five characters, and the threaded Replicats have this name appended with a
 three-digit number (for example, RGGMA, RGGMA001, RGGMA002, and so on).  The
 coordinator sends SQL to the threads, which can be applied in parallel and in
 committed order.
@@ -214,7 +214,7 @@ The following image illustrates integrated Replicat:
 ### Conclusion
 
 This blog described how and why to use GoldenGate and discussed its architecture
-and components.  It also detailed the capture modes and replicat modes
+and components.  It also detailed the capture modes and Replicat modes
 incorporated in the tool.
 
 If you have any questions on the topic, comment in the field below.

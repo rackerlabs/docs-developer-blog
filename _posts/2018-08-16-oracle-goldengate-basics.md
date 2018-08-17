@@ -149,14 +149,14 @@ write the LCR’s to the local trail files.
 
 Before the release of version 12.1, Replicat applied transactions to the target
 database serially. To achieve parallelism, tables had to be split across multiple
-Replicats for quicker data application and reduced lag. Drawbacks to this
-approach include the manual configuration of multiple Replicats and trail files
+replicates for quicker data application and reduced lag. Drawbacks to this
+approach include the manual configuration of multiple replicates and trail files
 and the limiting inability to split tables that had foreign key relationships
-across Replicats.
+across replicates.
 
 The new coordinated and integrated Replicat modes help you to apply transactions
 in parallel on the target database without having to manually split tables into
-multiple Replicats.
+multiple replicates.
 
 The following sections describe the different Replicat modes.
 
@@ -180,8 +180,8 @@ The following image illustrates classic Replicat:
 #### Coordinated Replicat
 
 A configured Replicat is called a coordinator. This process starts additional
-Replicats based on the specified number of threads. The Replicat name is limited
-to five characters, and the threaded Replicats have this name appended with a
+replicates based on the specified number of threads. The Replicat name is limited
+to five characters, and the threaded replicates have this name appended with a
 three-digit number (for example, RGGMA, RGGMA001, RGGMA002, and so on).  The
 coordinator sends SQL to the threads, which can be applied in parallel and in
 committed order.

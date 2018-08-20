@@ -17,6 +17,7 @@ As part of our user security awareness training we perform tests of our personne
 ## What is USB Rubber Ducky?
 
 A product made by a company called Hak5.  You can find information about it at:
+
 * http://hakshop.com/products/usb-rubber-ducky-deluxe 
 * https://github.com/hak5darren/USB-Rubber-Ducky
 

@@ -102,3 +102,4 @@ CTRL-ALT RIGHT
 We chose the ransomware screen shock factor as a way to educate users of the security risk to company data.  It creates more ownership (versus just an email note from security) by demonstrating real-world impact of what could happen from a malicious actor.
 
 ![Ransomware Screen]({% asset_path 2018-08-24-unattended-unlocked-unprotected-terminals-user-security-training/ransomware.png %})
+

@@ -10,24 +10,24 @@ categories:
   - Security
 ---
 
-As part of our user security awareness training we perform tests of our personnel in the work environment.  One training exercise involved testing for unattended computers by inserting a USB device that would display a ransomware screen.
+As part of our user security awareness training, we perform tests of our personnel in the work environment.  One training exercise involved testing for unattended computers by inserting a USB device that would display a ransomware screen.
 
 <!-- more -->
 
 ## What is USB Rubber Ducky?
 
-A product made by a company called Hak5.  You can find information about it at:
+USB Rubber Ducky is a product made by a company called Hak5.  You can find information about it at:
 
 * [Hak5's hackshop.com](http://hakshop.com/products/usb-rubber-ducky-deluxe)
 * [Hak5's GitHub Repository](https://github.com/hak5darren/USB-Rubber-Ducky)
 
-To you it looks like a USB thumb drive, but it actually emulates a USB HID keyboard.  Once plugged in a payload programmed into the device sends keyboard commands to the computer.
+To you, it looks like a USB thumb drive, but it actually emulates a USB HID keyboard.  After it's plugged in, a payload a payload programmed into the device sends keyboard commands to the computer.
 
 This allows a security tester to quickly run commands on an unprotected computer without having to sit down at the computer and type.
 
 ## Our ransomware exercise
 
-We walked around our location looking for computers that were unattended and had not been locked (left at the desktop screen).  If we discovered an unattended computer we inserted the USB Rubber Ducky into a USB port which delivered our payload.
+We walked around our location looking for computers that were unattended and had not been locked (left at the desktop screen).  If we discovered an unattended computer, we inserted the USB Rubber Ducky into a USB port which delivered our payload.
 
 ### What happens?
 
@@ -43,11 +43,11 @@ The fake ransomware page includes text that indicates it is a security test and 
 
 ## Payload code and tools
 
-The tool duckencoder_2.6.4.jar from the [USB Rubber Ducky GitHub site](https://github.com/hak5darren/USB-Rubber-Ducky) encodes the payload command script for the USB Rubber Ducky hardware.
+The tool **duckencoder_2.6.4.jar** from the [USB Rubber Ducky GitHub site](https://github.com/hak5darren/USB-Rubber-Ducky) encodes the payload command script for the USB Rubber Ducky hardware.
 
-One limitation is that the encoder does not have built-in support for the key combination of **win + CTRL + desktop** (open a new virtual desktop).  I overcame this limitation by manually editing the compiled inject.bin with a hex editor to change the keycode bytes from _07 05_ to _07 09_ (hexadecimal).
+One limitation is that the encoder does not have built-in support for the key combination of **win + CTRL + desktop** (open a new virtual desktop).  I overcame this limitation by manually editing the compiled **inject.bin** with a hex editor to change the keycode bytes from _07 05_ to _07 09_ (hexadecimal).
 
-While I have submitted code enhancements to the product's GitHub project the maintainers have not updated it in quite some time (Dec. 7, 2016).  Ideally the encoder would have support for more key combinations, but most desired actions can be done without using a hex editor.  I was successful in getting **STRING_DELAY** added to the official code base, and this script command is very helpful for writing shorter payloads.
+Although I have submitted code enhancements to the product's GitHub project, the maintainers have not updated it in quite some time (Dec. 7, 2016).  Ideally, the encoder would have support for more key combinations, but most desired actions can be done without using a hex editor.  I was successful in getting **STRING_DELAY** added to the official code base, and this script command is very helpful for writing shorter payloads.
 
 ### Code
 

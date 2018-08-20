@@ -183,7 +183,7 @@ solution for Oracle environments, including both traditional and cloud
 computing architectures. It also offers monitoring and administration
 capabilities.  
 
-While a rollback can be daunting, careful planning can make things go more
+While a rollback can be daunting, careful planning will make things go more
 smoothly. Using the methods described in this blog post will help you revert
 changes with minimal impact. 
 

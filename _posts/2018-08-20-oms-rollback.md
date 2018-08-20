@@ -147,7 +147,7 @@ Use the following command to reconfigure existing agents to re-secure them
 against the new OMS. If you're working with a large environment, you can do
 this with a shell script.
 
-     [oracle@vm212 bin]$ ./emctl secure agent -emdWalletSrcUrl "https://oem251.ora.com:4903/em"
+    [oracle@vm212 bin]$ ./emctl secure agent -emdWalletSrcUrl "https://oem251.ora.com:4903/em"
 
 Step through each of your existing agents to re-secure them against the new
 OMS. Again, if you have a large environment, you can use a shell script to

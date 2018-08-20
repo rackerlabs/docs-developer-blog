@@ -60,8 +60,8 @@ Use the following steps to accomplish this task:
 1. Configure the listener, Transparent Network Substrate (TNS) alias, and
    services with the pre-migration setup that you had for version 12c.
 
-   After you've restored the existing OMR backup, OMS configuration is also
-   restored (such as `emkey` and other parameters).
+    After you've restored the existing OMR backup, OMS configuration is also
+    restored (such as `emkey` and other parameters).
 
 2. Next, install the OMS 12cR5 binary and use Oracle Management Server
    Configuration Assistant (OMSCA) to recover the OMS configuration.
@@ -91,8 +91,8 @@ Use the following steps to configure the repository:
 1. On the new server, restore the OMR repository database and configure the
    listener and the TNS alias and services.
 
-   **Note**: Ensure that you copy and install the latest required plugins and
-   that you recreate the same directory structure on the new server.
+    **Note**: Ensure that you copy and install the latest required plugins and
+    that you recreate the same directory structure on the new server.
 
 2. Because you're reverting the OMS, choose ``Installed Software Only``.
 
@@ -102,7 +102,9 @@ Use the following steps to configure the repository:
 4. Enter the following command to copy the OMS configuration backup file to
    this server:
 
+       ```
        [oracle@oem251 ~]$ cp /ora_global_nfs/BACKUP/REPDB_BACKUP/opf_ADMIN_20160303_105032.bka /backup/opf_ADMIN_20160303_105032.bka  
+       ```
 
 **Recreate the OMS with OMSCA**
 
@@ -113,10 +115,12 @@ Use the following steps to recreate the OMS:
 2. Use the backup configuration and the following OMSCA command to
    recreate the OMS:  
 
+       ```
        oms:/u02/app/oracle/Middleware/oms:N
        REPDB:/u01/app/oracle/product/12.1.0.2/DB_1:N
 
        [oracle@oem251 ~]$ omsca recover -as -ms -nostart -backup_file /ora_global_nfs/BACKUP/REPDB_BACKUP/opf_ADMIN_20160303_105032.bka
+       ```
 
 ### Phase 3: Configure the central agent on the new host
 
@@ -125,21 +129,26 @@ Use the following steps to configure the central agent on the new host:
 1. Enter the following command to set up the central agent on the new
    host:  
 
+       ```
        [oracle@oem251 agent_inst]$ /u02/app/oracle/Agent12c/core/12.1.0.5.0/sysman/install/agentDeploy.sh
        AGENT_BASE_DIR=/u02/app/oracle/Agent12c AGENT_INSTANCE_HOME=/u02/app/oracle/Agent12c/agent_inst AGENT_PORT=3872 -configOnly OMS_HOST=oem251.ora.com EM_UPLOAD_PORT=4903 AGENT_REGISTRATION_PASSWORD=********
+       ```
 
 2. Enter the following command to run the `root.sh` script and finish creating
    the central agent:
 
+       ```
        [oracle@oem251 agent_inst]$ sudo /u02/app/oracle/Agent12c/core/12.1.0.5.0/root.sh
-
+       ```
 3. Log in to OMS by using the Oracle Enterprise Manager command-line interface
    (emcli) and sync the repository.
 
 4. Use the following command to relocate the repository target to the new OMS
    host:
 
+       ```
        [oracle@oem251 agent_inst]$ emctl config emrep -agent oem251.ora.com:3872
+       ```
 
 **Point the deployed target to the new host**
 
@@ -147,7 +156,9 @@ Use the following command to reconfigure existing agents to re-secure them
 against the new OMS. If you're working with a large environment, you can do
 this with a shell script.
 
+    ```
     [oracle@vm212 bin]$ ./emctl secure agent -emdWalletSrcUrl "https://oem251.ora.com:4903/em"
+    ```
 
 Step through each of your existing agents to re-secure them against the new
 OMS. Again, if you have a large environment, you can use a shell script to

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Unattended, Unlocked, Unprotected Terminals - User Security Training with USB Rubber Ducky"
-date: 2018-08-24 23:59
+date: 2018-08-21 00:00
 comments: false
 author: Rodney Beede
 authorIsRacker: true
@@ -101,4 +101,4 @@ CTRL-ALT RIGHT
 
 We chose the ransomware screen shock factor as a way to educate users of the security risk to company data.  It creates more ownership (versus just an email note from security) by demonstrating real-world impact of what could happen from a malicious actor.
 
-![Ransomware Screen]({% asset_path 2018-08-24-unattended-unlocked-unprotected-terminals-user-security-training/ransomware.png %})
+![Ransomware Screen]({% asset_path 2018-08-21-unattended-unlocked-unprotected-terminals-user-security-training/ransomware.png %})

@@ -18,8 +18,8 @@ As part of our user security awareness training we perform tests of our personne
 
 A product made by a company called Hak5.  You can find information about it at:
 
-* http://hakshop.com/products/usb-rubber-ducky-deluxe 
-* https://github.com/hak5darren/USB-Rubber-Ducky
+* [http://hakshop.com/products/usb-rubber-ducky-deluxe](http://hakshop.com/products/usb-rubber-ducky-deluxe)
+* [https://github.com/hak5darren/USB-Rubber-Ducky](https://github.com/hak5darren/USB-Rubber-Ducky)
 
 To you it looks like a USB thumb drive, but it actually emulates a USB HID keyboard.  Once plugged in a payload programmed into the device sends keyboard commands to the computer.
 
@@ -102,4 +102,3 @@ CTRL-ALT RIGHT
 We chose the ransomware screen shock factor as a way to educate users of the security risk to company data.  It creates more ownership (versus just an email note from security) by demonstrating real-world impact of what could happen from a malicious actor.
 
 ![Ransomware Screen]({% asset_path 2018-08-24-unattended-unlocked-unprotected-terminals-user-security-training/ransomware.png %})
-

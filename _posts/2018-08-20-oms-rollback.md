@@ -80,9 +80,9 @@ from the backup:
 - Oracle Data Guard with broker
 - Cold backup
 
-#### Phase 2: Move OMS and agents to a new host
+### Phase 2: Move OMS and agents to a new host
 
-This section describes how to complete phase two.
+This section describes how to move OMS and agents to a new host.
 
 **Configure the repository**
 
@@ -118,11 +118,11 @@ Use the following steps to recreate the OMS:
 
        [oracle@oem251 ~]$ omsca recover -as -ms -nostart -backup_file /ora_global_nfs/BACKUP/REPDB_BACKUP/opf_ADMIN_20160303_105032.bka
 
-### Phase 3
+### Phase 3: Configure the central agent on the new host
 
-Use the following steps to complete phase three:
+Use the following steps to configure the central agent on the new host:
 
-1. Enter the following command to configure the central agent on the new
+1. Enter the following command to set up the central agent on the new
    host:  
 
        [oracle@oem251 agent_inst]$ /u02/app/oracle/Agent12c/core/12.1.0.5.0/sysman/install/agentDeploy.sh

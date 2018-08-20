@@ -187,5 +187,5 @@ While a rollback can be daunting, careful planning will make things go more
 smoothly. Using the methods described in this blog post will help you revert
 changes with minimal impact. 
 
-If you run into problems during your rollback, contact Oracle Support and
-submit a service request.
+If you run into problems during your rollback, contact [Oracle
+Support](https://support.oracle.com/) and submit a service request.

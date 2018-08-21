@@ -34,16 +34,16 @@ As a result, we developed Scantron to meet the network segmentation validation a
 
 We use Scantron to answer questions like:
 
-* What systems are accessible from the office and/or customer perspective without requiring a bastion?
-* What out-of-band management interfaces (Dell Remote Access Controller - DRAC, or Integrated Lights Out - iLO) are not properly segmented on their own network and exposed to office or customer environments?
+* What systems are accessible from the office or customer perspective without requiring a bastion?
+* What out-of-band management interfaces (Dell Remote Access Controller - DRAC or Integrated Lights Out - iLO) are not properly segmented on their own network and are exposed to office or customer environments?
 * How many devices have an nginx web server with a vulnerable banner?
-* How exposed are we to some new/emerging threat?
+* How exposed are we to some new or emerging threat?
 
 Having the data in Splunk allows us to provide dashboards for system owners, quickly carve out mini missions for penetration tests, and provide an ingestible data source for our Threat Intelligence team.
 
 # What is Scantron?
 
-The juicy technical details can be found in the project's [Racker Labs GitHub page](https://github.com/rackerlabs/scantron)
+The juicy technical details can be found in the project's [Racker Labs GitHub page](https://github.com/rackerlabs/scantron).
 
 Scantron is a distributed nmap scanner comprised of two components:
 
@@ -54,9 +54,9 @@ Scantron is a distributed nmap scanner comprised of two components:
 
 A majority of the application's logic is purposely placed on Master to make the agents as "dumb" as possible.  All nmap target files and nmap results reside on Master and are shared through a network file share (NFS) leveraging SSH tunnels.  The agents call back to Master periodically using a REST API to check for scan tasks and provide scan status updates.
 
-Scantron is coded for Python3 exclusively and leverages Django for the web front-end, Django REST Framework as the API endpoint, PostgreSQL as the database, and comes complete with Ubuntu-focused Ansible playbooks for smooth deployments.  Scantron has only been tested on Ubuntu 16.04.3 and 18.04.1, but may be compatible with other operating systems with some slight modifications.
+Scantron is coded for Python3 exclusively and leverages Django for the web front-end, Django REST Framework as the API endpoint, and PostgreSQL as the database.  It comes complete with Ubuntu-focused Ansible playbooks for smooth deployments.  Scantron has only been tested on Ubuntu 16.04.3 and 18.04.1, but it might be compatible with other operating systems with some slight modifications.
 
-Scantron relies heavily on utilizing SSH port forwards (-R / -L) as an umbilical cord to the agents.  Either an SSH connection from `Master --> agent` or `agent --> Master` is acceptable and may be required depending on different firewall rules, but tweaking the port forwards and autossh commands will be necessary.  If you are unfamiliar with these concepts, there are some great overviews and tutorials out there:
+Scantron relies heavily on utilizing SSH port forwards (`-R` or `-L`) as an umbilical cord to the agents.  Either an SSH connection from `Master --> agent` or `agent --> Master` is acceptable and may be required depending on different firewall rules, but tweaking the port forwards and autossh commands will be necessary.  If you are unfamiliar with these concepts, there are some great overviews and tutorials out there such as the following sites:
 
 * <https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding>
 * <https://www.systutorials.com/39648/port-forwarding-using-ssh-tunnel/>

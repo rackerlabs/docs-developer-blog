@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "New SQL Server 2017 features"
-date: 2018-08-16 00:00
+date: 2018-08-23 00:00
 comments: true
 author: Rohit Kumar
 published: true
@@ -222,7 +222,7 @@ supported for databases configured for database mirroring.
 This functionality includes clusterless support, the **Minimum Replica Commit
 Availability Groups** setting, and Windows-Linux cross-OS migrations and testing.
 
-THe following list describes some of the feeatures:
+The following list describes some of the features:
 
 -	Availability groups can now be set up without an underlying cluster (WSFC)
 and across mixed environments (instances on Windows and Linux/Docker).
@@ -235,7 +235,7 @@ committing on the primary.
 
 The dynamic management views (DMVs) include the following elements:
 
--	**sys.dm\_db\_lo\g_stats** exposes summary level attributes and information
+-	**sys.dm\_db\_log\_stats** exposes summary level attributes and information
 on transaction log files and is helpful for monitoring transaction log health.
 -	**sys.dm\_tran\_version\_store\_space\_usage** enables you to see the impact
 on version store usage, grouped by each database. As a result, you can use this
@@ -249,9 +249,9 @@ statistics, as shown in the following image:
 
 ![]({% asset_path 2018-08-23-new-sql-server-2017-features/Picture7.png %})
 
--	**sys.dm\_\os_\host\_info** exposes things like platform, distribution,
+-	**sys.dm\_os\_host\_info** exposes things like platform, distribution,
 service pack level, and language.
--	**sys.dm\_os\_\sys\_info** was expanded, revealing CPU info (socket count,
+-	**sys.dm\_os\_sys\_info** was expanded, revealing CPU info (socket count,
 core count, and cores per socket).
 
 ### In-memory enhancements
@@ -299,7 +299,7 @@ illustrates this:
 -	Showplan XML now includes info about the statistics used for a plan and, for
 actual plans, runtime metrics and the top 10 wait stats experienced by that plan.
 These wait stats are also now being tracked in the query store.
--	A new dynamic management function **sys.dm_\db\_stats\_histogram** enables
+-	A new dynamic management function **sys.dm\_db\_stats\_histogram** enables
 you to access histogram information programmatically, without databases console
 commands (DBCC).
 

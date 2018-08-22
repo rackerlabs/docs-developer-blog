@@ -314,4 +314,3 @@ updates, and SQL Server 2017 will be fully supported by Microsoft for longer tha
 SQL Server 2016.
 
 If you have any questions on the topic, comment in the field below.
-

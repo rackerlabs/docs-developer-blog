@@ -41,22 +41,22 @@ savings.
 The changes introduced in SQL Server 2017 discussed here include the following
 features:
 
-- [SQL Server on Linux](#SQL-Server-on-Linux)
-- [Resumable online index rebuild](#Resumable-online-index-rebuild)
-- [SQL Server machine learning services](#SQL-Server-machine-learning-services)
-- [Query processing improvements](Query-processing-improvements)
-- [Automatic database tuning](#Automatic-database-tuning)
-- [TempDB file size improvements](#TempDB-file-size-improvements)
-- [Smart differential backup](#Smart-differential-backup)
-- [Smart transaction log backup](#Smart-transaction-log-backup)
-- [Improved **SELECT INTO** statement](#Improved-SELECT-INTO-statement)
-- [Distributed transaction support](#Distributed-transaction-support)
-- [New availability groups functionality](#New-availability-groups-functionality)
-- [New dynamic management views](#New-dynamic-management-views)
-- [In-memory enhancements](#In-memory-enhancements)
-- [Security enhancement](#Security-enhancement)
-- [High availability and disaster recovery](#High-availability-and-disaster-recovery)
-- [Performance improvements](#Performance-improvements)
+- [SQL Server on Linux](# SQL-Server-on-Linux)
+- [Resumable online index rebuild](# Resumable-online-index-rebuild)
+- [SQL Server machine learning services](# SQL-Server-machine-learning-services)
+- [Query processing improvements](# Query-processing-improvements)
+- [Automatic database tuning](# Automatic-database-tuning)
+- [TempDB file size improvements](# TempDB-file-size-improvements)
+- [Smart differential backup](# Smart-differential-backup)
+- [Smart transaction log backup](# Smart-transaction-log-backup)
+- [Improved **SELECT INTO** statement](# Improved-SELECT-INTO-statement)
+- [Distributed transaction support](# Distributed-transaction-support)
+- [New availability groups functionality](# New-availability-groups-functionality)
+- [New dynamic management views](# New-dynamic-management-views)
+- [In-memory enhancements](# In-memory-enhancements)
+- [Security enhancement](# Security-enhancement)
+- [High availability and disaster recovery](# High-availability-and-disaster-recovery)
+- [Performance improvements](# Performance-improvements)
 
 ### SQL Server on Linux
 

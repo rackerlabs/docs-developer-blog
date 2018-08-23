@@ -65,7 +65,7 @@ system (RDBMS). You can run it on different flavors of the Linux operating
 systems.  You can also develop applications with SQL Server on Linux, Windows,
 Ubuntu, or Docker and deploy them on these platforms.
 
-### Resumable online index rebuild
+### <a name="resumable-online-index-rebuild">Resumable online index rebuild</a>
 
 This feature resumes an online index rebuild operation from where it stopped
 after events such as database failovers, running out of disk space, or pauses.
@@ -93,7 +93,7 @@ non-clustered indices, or reorganizing non-clustered indices. All other online
 index operations performed at the same time fail. For example, you cannot create
 a new index online while rebuilding an existing index online on the same table.
 
-### SQL Server machine learning services
+### <a name="sql-server-machine-learning-services">SQL Server machine learning services</a>
 
 SQL Server 2016 integrated the R programming language, which can be run within
 the database server and can be embedded into a Transact-SQL (T-SQL) script, too.
@@ -102,7 +102,7 @@ itself. Both R and Python are popular programming languages that provide
 extensive support for data analytics along with natural language processing
 capability.
 
-### Query processing improvements
+### <a name="query-processing-improvements">Query processing improvements</a>
 
 SQL Server 2017 adapts optimization strategies to your application workload’s
 runtime conditions. It includes adaptive query processing features that you can
@@ -122,7 +122,7 @@ speed.
 execution plan when it encounters multi-statement table-valued functions. Then,
 it calculates perfect cardinality and resumes optimization.
 
-### Automatic database tuning
+### <a name="automatic-database-tuning">Automatic database tuning</a>
 
 This feature notifies you whenever a potential performance issue is detected
 and enables you to apply corrective actions, or it enables the database engine
@@ -169,7 +169,7 @@ command:
 identifies indexes that should be added in your database and indexes that should
 be removed.
 
-### TempDB filesize improvements
+### <a name="tempdb-filesize-improvements">TempDB filesize improvements</a>
 
 SQL Server 2017 setup now enables you to specify the initial TempDB file size
 up to 256 GB (262,144 MB) per file, with a warning if the file size is set
@@ -177,7 +177,7 @@ greater than 1GB without *instant file initialization (IFI)* enabled. It is
 important to understand that, depending on the initial size of TempDB data file
 specified, not enabling IFI can cause setup time to increase exponentially.
 
-### Smart differential backup
+### <a name="smart-differential-backup">Smart differential backup</a>
 
 A new column **modified\_extent\_page\_count** is introduced in
 **sys.dm\_db\_file\_space\_usage** to track differential changes in each database
@@ -192,7 +192,7 @@ differential backup in this case. However, it can certainly increase the restore
 time of database. By adding this intelligence to the backup solutions, you can
 now save on restore and recovery time by using differential backups.
 
-### Smart transaction log backup
+### <a name="smart-transaction-log-backup">Smart transaction log backup</a>
 
 A new Dynamic Management Function (DMF), **sys.dm\_db\_log\_stats (database\_id)**,
 was released. This function exposes a new column, **log\_since\_last\_log\_backup\_mb**,
@@ -206,21 +206,21 @@ backup files even when there is no transactional activity on the server. If that
 happened, it would add unnecessarily to the storage, file management, and restore
 overheads.
 
-### Improved **SELECT INTO** statement
+### <a name="improved-select-into-statement">Improved **SELECT INTO** statement</a>
 
 In SQL Server 2017, you can provide the filegroup name on which to create a new
 table by using the **ON** keyword with the **SELECT INTO** statement. The table
 is created on the default filegroup of the user by default. This functionality
 was not available in previous versions.
 
-### Distributed transaction support
+### <a name="distributed-transaction-support">Distributed transaction support</a>
 
 SQL Server 2017 supports distributed transactions for databases in availability
 groups. This support includes databases on the same instance of SQL Server and
 databases on different instances of SQL Server. Distributed transactions are not
 supported for databases configured for database mirroring.
 
-### New availability groups functionality
+### <a name="new-availability-groups-functionality">New availability groups functionality</a>
 
 This functionality includes clusterless support, the **Minimum Replica Commit
 Availability Groups** setting, and Windows-Linux cross-OS migrations and testing.
@@ -235,7 +235,7 @@ Windows and Linux or Docker).
 certain number of secondary replicas. You must commit a transaction before
 committing on the primary.
 
-### New dynamic management views
+### <a name="new-dynamic-management-views">New dynamic management views</a>
 
 The dynamic management views (DMVs) include the following elements:
 
@@ -258,7 +258,7 @@ service pack level, and language.
 -	**sys.dm\_os\_sys\_info** was expanded, revealing CPU information (such as
 socket count, core count, and cores per socket).
 
-### In-memory enhancements
+### <a name="in-memory-enhancements">In-memory enhancements</a>
 
 The in-memory changes in SQL Server 2017 include the following enhancements:
 
@@ -274,14 +274,14 @@ natively-compiled modules.
 -	The limitation of eight indexes on memory-optimized tables has been eliminated.
 -	Memory-optimized filegroup files can now be stored on Azure storage.
 
-### Security enhancement
+### <a name="security-enhancement">Security enhancement</a>
 
 You can now grant, deny, or revoke permissions on database-scoped credentials
 such as CONTROL, ALTER, REFERENCES, TAKE OWNERSHIP, and VIEW DEFINITION
 permissions. Also, ADMINISTER DATABASE BULK OPERATIONS is now visible in
 **sys.fn\_builtin\_permissions**.
 
-### High availability and disaster recovery
+### <a name="high-availability-and-disaster-recovery">High availability and disaster recovery</a>
 
 Gain mission-critical uptime, fast failover, easy setup, and load balancing of
 readable secondaries with enhanced **Always On** functionality in SQL Server

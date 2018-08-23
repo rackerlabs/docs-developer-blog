@@ -11,14 +11,14 @@ categories:
 ---
 
 
-Are you considering an upgrade to a more modern a version of SQL Server? Are you
-choosing between SQL Server 2016 or SQL Server 2017? If yes, then my advice is
+Are you considering an upgrade to a more modern version of SQL Server? Are you
+choosing between SQL Server 2016 or SQL Server 2017? If so, then my advice is
 to upgrade to SQL Server 2017 as I explain in this post.
 
-The release of SQL Server technology previews provide lots of interesting
-new features for SQL admins and developers to ponder. The Community Technology
-Preview (CTP) 2.0 for SQL Server vNext (generally just called SQL Server 2017)
-is no exception. Many updates have been implemented in the already existing
+The release of SQL Server technology provides lots of interesting new features
+for SQL administratorss and developers to ponder. The Community Technology
+Preview (CTP) 2.0 for SQL Server vNext (generally called SQL Server 2017)
+is no exception. Many updates have been implemented in the existing
 features and services of the application. In this blog post, I discuss what is
 new in the database engine of SQL Server 2017 from a database administrator (DBA)
 perspective.
@@ -29,13 +29,13 @@ perspective.
 
 Microsoft&reg; SQL Server 2017 is now on the scene with more new features that
 offer faster processing, more flexibility of use, and greater cost savings as
-a result. Version 2016 provided many improvements, which Microsoft termed as a
-big leap forward. However, if 2016 was a big leap, then 2017 promises all that
-and much more of what corporate customers need all levels. Database performance
-has reached a new peak with adaptive query processing, new flexibility with
-cross-platform capabilities, new integrations for statistical and data
-science analysis, and SQL Server versions on Linux, Ubuntu, or Docker. The new
-version adds solid technology with cost savings.
+a result. SQL Server 2016 provided many improvements, which Microsoft termed as
+a big leap forward. However, if SQL Server 2016 was a big leap, then SQL Server
+2017 promises all that and much more of what corporate customers need all levels.
+Database performance has reached a new peak with adaptive query processing, new
+flexibility with cross-platform capabilities, new integrations for statistical
+and data science analysis, and SQL Server versions on Linux&reg;, Ubuntu&reg;,
+or Docker&reg;. The new version adds solid technology with cost savings.
 
 The changes introduced in SQL Server 2017 discussed here include the following
 features:
@@ -60,7 +60,7 @@ features:
 ### SQL Server on Linux
 
 SQL Server is no longer just a windows-based relational database management
-system (RDBMS). You can run it on different flavors of the Linux&reg; operating
+system (RDBMS). You can run it on different flavors of the Linux operating
 systems.  You can also develop applications with SQL Server on Linux, Windows,
 Ubuntu, or Docker and deploy them on these platforms.
 
@@ -82,8 +82,8 @@ underlying table contains image, ntext, and text large object (LOB) data types.
 -	Non-unique and non-clustered indexes can be created online when the table
 contains LOB data types but none of these columns are used in the index
 definition as either key or as non-key (included) columns.
--	Indexes on local temp tables cannot be created, rebuilt, or dropped online.
-This restriction does not apply to indexes on global temp tables.
+-	Indexes on local temporary tables cannot be created, rebuilt, or dropped online.
+This restriction does not apply to indexes on global temporary tables.
 -	You can perform concurrent online index data definition language (DDL)
 operations on the same table or view only when you are creating multiple new
 non-clustered indices, or reorganizing non-clustered indices. All other online
@@ -93,9 +93,9 @@ a new index online while rebuilding an existing index online on the same table.
 ### SQL Server machine learning services
 
 SQL Server 2016 integrated the R programming language, which can be run within
-the database server and can be embedded into Transact-SQL (T-SQL) script, too.
+the database server and can be embedded into a Transact-SQL (T-SQL) script, too.
 In SQL Server 2017, you can execute the Python script within the database server
-itself. Both, R and Python are popular programming languages, which provide
+itself. Both R and Python are popular programming languages that provide
 extensive support for data analytics along with natural language processing
 capability.
 
@@ -109,28 +109,28 @@ There are three new query improvements as shown in the following diagram:
 
 ![]({% asset_path 2018-08-23-new-sql-server-2017-features/Picture3.png %})
 
--  **Batch mode memory grant feedback**: - This feedback technique re-calculates
+-  **Batch mode memory grant feedback**: This feedback technique recalculates
 required memory for the execution plan and grants it from cache.
--  **Batch mode adaptive join**: - To execute the plan faster, this technique
+-  **Batch mode adaptive joins**: To execute the plan faster, this technique
 can use a hash join or a nested loop join. After scanning the first input of the
 execution plan, it decides which join to use to produce output at the fastest
 speed.
--  **Interleaved execution**: - Interleaved execution pauses optimization of an
+-  **Interleaved execution**: Interleaved execution pauses optimization of an
 execution plan when it encounters multi-statement table-valued functions. Then,
 it calculates perfect cardinality and resumes optimization.
 
 ### Automatic database tuning
 
-This feature notifies you whenever a potential performance issue is detected,
-and enables you to apply corrective actions or enables the database engine
-automatically fix performance issues caused by the SQL plan choice regressions.
-Thus the database can dynamically adapt to your workload by finding what indexes
+This feature notifies you whenever a potential performance issue is detected
+and enables you to apply corrective actions, or it enables the database engine
+to automatically fix performance issues caused by the SQL plan choice regressions.
+Thus, the database can dynamically adapt to your workload by finding what indexes
 and plans might improve performance of your workloads and what indexes affect
 your workloads. Based on these findings, the automatic tuning process applies
-tuning actions that improve the performance of your workload. In addition, the
-database continuously monitors performance after any change made by automatic
-tuning to ensure that it improves the performance of your workload. Any action
-that didn’t improve performance is automatically reverted.
+actions that improve the workload performance. In addition, the database
+continuously monitors performance after any change made by automatic tuning to
+ensure that it improves the workload performance. Any action that doesn’t
+improve performance is automatically reverted.
 
 #### SQL plan choice regression
 
@@ -151,10 +151,10 @@ The automatic plan correction is shown in the following diagram:
 
 ![]({% asset_path 2018-08-23-new-sql-server-2017-features/Picture4.png %})
 
-There are two automatic tuning features that are available:
+The following automatic tuning features are available:
 
 -	**Automatic plan correction** (available in SQL Server 2017 v14.x and Azure
-SQL Database): - It identifies problematic query execution plans and fixes the
+SQL Database): It identifies problematic query execution plans and fixes the
 SQL plan performance problems. Automatic tuning is enabled using the following
 command:
 
@@ -162,16 +162,16 @@ command:
 
 ![]({% asset_path 2018-08-23-new-sql-server-2017-features/Picture6.png %})
 
--	**Automatic index management** (available only in Azure SQL Database): - It
+-	**Automatic index management** (available only in Azure SQL Database): It
 identifies indexes that should be added in your database and indexes that should
 be removed.
 
 ### TempDB filesize improvements
 
-Sql Server 2017 setup now enables you to specify the initial TempDB file size
+SQL Server 2017 setup now enables you to specify the initial TempDB file size
 up to 256 GB (262,144 MB) per file, with a warning if the file size is set
 greater than 1GB without *instant file initialization (IFI)* enabled. It is
-important to understand that, depending on the initial size of Tempdb data file
+important to understand that, depending on the initial size of TempDB data file
 specified, not enabling IFI can cause setup time to increase exponentially.
 
 ### Smart differential backup
@@ -179,28 +179,28 @@ specified, not enabling IFI can cause setup time to increase exponentially.
 A new column **modified\_extent\_page\_count** is introduced in
 **sys.dm\_db\_file\_space\_usage** to track differential changes in each database
 file in the database. The new column **modified\_extent\_page\_count** allows
-DBAs, the SQL Community, and backup independent software vendors (ISVs) to build
-smart backup solution, which perform differential backups if the percentage of
-changed pages in the database is below a threshold (say 70-80%). Otherwise, they
-perform a full database backup. With a large number of changes in the database,
-the cost and time to complete differential backups is similar to  taking a full
-database backup, so there is no real benefit of taking differential backup in
-this case. However, it can certainly increase the restore time of database. By
-adding this intelligence to the backup solutions, customers can now save on
-restore and recovery time by using differential backups.
+DBAs, the SQL community, and backup independent software vendors (ISVs) to build
+smart backup solutions, which perform differential backups if the percentage of
+changed pages in the database is below a threshold (approximately 70-80%).
+Otherwise, they perform a full database backup. With a large number of changes
+in the database, the cost and time to complete differential backups is similar
+to taking a full database backup, so there is no real benefit of taking
+differential backup in this case. However, it can certainly increase the restore
+time of database. By adding this intelligence to the backup solutions, you can
+now save on restore and recovery time by using differential backups.
 
 ### Smart transaction log backup
 
-A new Dynamic Management Function (DMF), **sys.dm\_db\_log\_stats** (database\_id),
-was released. This function exposes a new column **log\_since\_last\_log\_backup\_mb**,
-which empowers DBAs, the SQL Community, and backup ISVs to build intelligent
+A new Dynamic Management Function (DMF), **sys.dm\_db\_log\_stats (database\_id)**,
+was released. This function exposes a new column, **log\_since\_last\_log\_backup\_mb**,
+which empowers DBAs, the SQL community, and backup ISVs to build intelligent
 T-log backup solutions to take backups based on the transactional activity on
 the database. This T-log backup solution intelligence ensures that, if the T-log
 backup frequency is too low, the transaction log size doesn't grow due to a high
 burst of transactional activity in a short time. It also helps to avoid a
 situation where the scheduled transaction log backup creates too many T-log
 backup files even when there is no transactional activity on the server. If that
-happened, it would add unnecessarily to the storage, file management and restore
+happened, it would add unnecessarily to the storage, file management, and restore
 overheads.
 
 ### Improved **SELECT INTO** statement
@@ -222,12 +222,13 @@ supported for databases configured for database mirroring.
 This functionality includes clusterless support, the **Minimum Replica Commit
 Availability Groups** setting, and Windows-Linux cross-OS migrations and testing.
 
-The following list describes some of the features:
+This functionality includes the following features:
 
--	Availability groups can now be set up without an underlying cluster (WSFC)
-and across mixed environments (instances on Windows and Linux/Docker).
+-	Availability groups can now be set up without an underlying cluster (Windows
+Server Failover CLuster or WSFC) and across mixed environments (instances on
+Windows and Linux or Docker).
 
--	The new **Minimum Replica Commit** setting, which enables you to dictate a
+-	The new **Minimum Replica Commit** setting  enables you to dictate a
 certain number of secondary replicas. You must commit a transaction before
 committing on the primary.
 
@@ -240,7 +241,7 @@ on transaction log files and is helpful for monitoring transaction log health.
 -	**sys.dm\_tran\_version\_store\_space\_usage** enables you to see the impact
 on version store usage, grouped by each database. As a result, you can use this
 to profile your workload in a test environment (before and after the change) and
-to monitor the impact over time – even if other databases are also using version
+to monitor the impact over time–even if other databases are also using version
 store.
 -	**sys.dm\_db\_log\_info** exposes virtual log file (VLF) information to
 monitor, alert, and avert potential transaction log issues.
@@ -251,8 +252,8 @@ statistics, as shown in the following image:
 
 -	**sys.dm\_os\_host\_info** exposes things like platform, distribution,
 service pack level, and language.
--	**sys.dm\_os\_sys\_info** was expanded, revealing CPU info (socket count,
-core count, and cores per socket).
+-	**sys.dm\_os\_sys\_info** was expanded, revealing CPU information (such as
+socket count, core count, and cores per socket).
 
 ### In-memory enhancements
 
@@ -267,12 +268,12 @@ natively-compiled modules.
 memory-optimized tables.
 -	The system procedure **sp\_rename** now works on in-memory tables and
 natively-compiled modules.
--	There is no longer a limitation of eight indexes on memory-optimized tables.
+-	The limitation of eight indexes on memory-optimized tables has been eliminated.
 -	Memory-optimized filegroup files can now be stored on Azure storage.
 
 ### Security enhancement
 
-You can now grant, deny, or revoke permissions on database scoped credentials
+You can now grant, deny, or revoke permissions on database-scoped credentials
 such as CONTROL, ALTER, REFERENCES, TAKE OWNERSHIP, and VIEW DEFINITION
 permissions. Also, ADMINISTER DATABASE BULK OPERATIONS is now visible in
 **sys.fn\_builtin\_permissions**.
@@ -296,9 +297,10 @@ illustrates this:
 
 ![]({% asset_path 2018-08-23-new-sql-server-2017-features/Picture8.png %})
 
--	Showplan XML now includes info about the statistics used for a plan and, for
-actual plans, runtime metrics and the top 10 wait stats experienced by that plan.
-These wait stats are also now being tracked in the query store.
+-	Showplan XML now includes information about the statistics used for a plan
+and, for actual plans, runtime metrics and the top 10 wait statisticss
+experienced by that plan. These wait statistics are also now being tracked in
+the query store.
 -	A new dynamic management function **sys.dm\_db\_stats\_histogram** enables
 you to access histogram information programmatically, without databases console
 commands (DBCC).
@@ -308,7 +310,7 @@ commands (DBCC).
 There are many changes in SQL Server 2017 that could help your implementation,
 and a wealth of information is out there to help you. Even though you might
 think SQL Server 2017 was “just a Linux port,” there are significant real-world
-improvements in the core Database Engine that benefit all platforms. Microsoft
+improvements in the core database engine that benefit all platforms. Microsoft
 continues to add extra functionality to the product in SQL Server 2017 cumulative
 updates, and SQL Server 2017 will be fully supported by Microsoft for longer than
 SQL Server 2016.

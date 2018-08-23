@@ -169,7 +169,7 @@ command:
 identifies indexes that should be added in your database and indexes that should
 be removed.
 
-### <a name="tempdb-filesize-improvements">TempDB filesize improvements</a>
+### <a name="tempdb-file-size-improvements">TempDB file size improvements</a>
 
 SQL Server 2017 setup now enables you to specify the initial TempDB file size
 up to 256 GB (262,144 MB) per file, with a warning if the file size is set

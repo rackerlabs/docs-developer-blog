@@ -16,7 +16,7 @@ choosing between SQL Server 2016 or SQL Server 2017? If so, then my advice is
 to upgrade to SQL Server 2017 as I explain in this post.
 
 The release of SQL Server technology provides lots of interesting new features
-for SQL administratorss and developers to ponder. The Community Technology
+for SQL administrators and developers to ponder. The Community Technology
 Preview (CTP) 2.0 for SQL Server vNext (generally called SQL Server 2017)
 is no exception. Many updates have been implemented in the existing
 features and services of the application. In this blog post, I discuss what is
@@ -31,11 +31,12 @@ Microsoft&reg; SQL Server 2017 is now on the scene with more new features that
 offer faster processing, more flexibility of use, and greater cost savings as
 a result. SQL Server 2016 provided many improvements, which Microsoft termed as
 a big leap forward. However, if SQL Server 2016 was a big leap, then SQL Server
-2017 promises all that and much more of what corporate customers need all levels.
-Database performance has reached a new peak with adaptive query processing, new
-flexibility with cross-platform capabilities, new integrations for statistical
-and data science analysis, and SQL Server versions on Linux&reg;, Ubuntu&reg;,
-or Docker&reg;. The new version adds solid technology with cost savings.
+2017 promises all that and much more of what corporate customers need at all
+levels. Database performance has reached a new peak with adaptive query
+processing, new flexibility with cross-platform capabilities, new integrations
+for statistical and data science analysis, and SQL Server versions on Linux&reg;,
+Ubuntu&reg;, or Docker&reg;. The new version adds solid technology with cost
+savings.
 
 The changes introduced in SQL Server 2017 discussed here include the following
 features:
@@ -74,6 +75,8 @@ The following images show an example of this operation:
 ![]({% asset_path 2018-08-23-new-sql-server-2017-features/Picture1.png %})
 
 ![]({% asset_path 2018-08-23-new-sql-server-2017-features/Picture2.png %})
+
+#### Guidelines for indexing
 
 When you perform online index operations, the following guidelines apply:
 
@@ -225,7 +228,7 @@ Availability Groups** setting, and Windows-Linux cross-OS migrations and testing
 This functionality includes the following features:
 
 -	Availability groups can now be set up without an underlying cluster (Windows
-Server Failover CLuster or WSFC) and across mixed environments (instances on
+Server Failover Cluster or WSFC) and across mixed environments (instances on
 Windows and Linux or Docker).
 
 -	The new **Minimum Replica Commit** setting  enables you to dictate a
@@ -298,7 +301,7 @@ illustrates this:
 ![]({% asset_path 2018-08-23-new-sql-server-2017-features/Picture8.png %})
 
 -	Showplan XML now includes information about the statistics used for a plan
-and, for actual plans, runtime metrics and the top 10 wait statisticss
+and, for actual plans, runtime metrics and the top 10 wait statistics
 experienced by that plan. These wait statistics are also now being tracked in
 the query store.
 -	A new dynamic management function **sys.dm\_db\_stats\_histogram** enables

@@ -58,7 +58,7 @@ features:
 - [High availability and disaster recovery](#high-availability-and-disaster-recovery)
 - [Performance improvements](#performance-improvements)
 
-### SQL Server on Linux
+### <a name="sql-server-on-linux">SQL Server on Linux</a>
 
 SQL Server is no longer just a windows-based relational database management
 system (RDBMS). You can run it on different flavors of the Linux operating
@@ -289,7 +289,7 @@ readable secondaries with enhanced **Always On** functionality in SQL Server
 on Linux and Windows. You can also put an asynchronous replica in an Azure
 virtual machine for hybrid high availability.
 
-### Performance improvements
+### <a name="performance-improvements">Performance improvements</a>
 
 SQL Server 2017 introduces the following changes to the way queries and
 statistics are collected and displayed:

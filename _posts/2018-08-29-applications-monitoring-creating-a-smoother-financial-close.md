@@ -20,36 +20,123 @@ notice.
 
 <!-- more -->
 
-### Introduction
+### What is application monitoring?
 
-Let’s begin by understanding what application monitoring is all about.
-Applications monitoring consists of scripts that can be scheduled, on cron, to
-run nightly in our customers’ production environment to identify hidden problems.
-These scripts monitor the standard Oracle&reg; transactional interfaces and
-workflows and create a report that is emailed to a pre-defined distribution group
-for review. These reports are reviewed, and if issues exist, our applications
-support team fixes them.
+Application monitoring consists of scripts that can be scheduled, on cron, to
+run periodically in our customers’ production environments to identify hidden
+problems. These scripts monitor the standard Oracle&reg; transactional interfaces
+and workflows and create a report that is emailed to a pre-defined distribution
+group for review. The reports are reviewed daily, and if issues exist, our
+applications support team can quickly address them, often before the customers
+notice.
 
+Application monitoring scripts are non-invasive and provide the following
+benefits:
+
+-	Provide proactive problem resolution
+-	Offer smoother and more timely period close process
+-	Save bandwidth in our support group by being proactive
+-	Help to prevent ‘spikes’ in ticket creation and reduce the number of
+*critical* issues during period close
+-	Create a better work experience for the business users
+
+### Application monitoring case study
+
+The following customer case study shows how Rackspace helped a customer improve
+their period close process by leveraging applications monitoring and Rackspace's
+functional support.
+
+#### Client
+
+The client is a large manufacturing company.
+
+#### Challenge
+
+They were dealing with significant problems around uncosted transactions. The
+uncosted transactions issues prevented the period close and were invisible to
+the business users on a day-to-day operational basis. The delay that these
+transactions caused to the period-rend financial close meant that the company
+had six to eight unclosed inventory periods.
+
+#### Solution
+
+Rackspace helped in closing the past inventory periods by putting an applications
+monitoring process in place. This allowed Rackspace to identify the uncosted
+transactions each night and to fix them before the financial period close.
+
+#### Value
+
+Quickly, the customer was able to regularize the monthly financial period close
+cycles and also close the pending open inventories.
+
+### Application monitoring reports
+
+The following snapshot shows a sample report. The report is divided into three
+main categories:
+
+- Resolution required
+- Workflow issues
+- Resolution recommended
+
+![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture1.png %})
+
+![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture2.png %})
+
+![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture3.png %})
+
+#### How we use the reports
+
+We use the information from the reports to identify and resolve existing issues.
+The application monitoring process also helps us to build a repository of
+solutions that can be leveraged across all of our Application Services customers.
+We also discuss the resolution process with our customer to identify potential
+patching requirements, process change recommendations, and so on.
+
+### Customer-specific monitoring
+
+In addition to our standard monitoring, we work with our customers to identify
+custom monitoring that can be developed to better support our client’s production
+environment.  The following case study shows a solution that we put together for
+an existing customer.
+
+#### Client
+
+The client is a large manufacturing company.
+
+#### Challenge
+
+It was imperative for the manufacturing company to run their Advanced Supply
+Chain Planning plans hourly to meet their deadlines to ensure that production
+was not impacted and orders could be released on time.
+
+#### Solution
+
+Working with the manufacturing IT team, we created a monitoring script and an
+Standard Operating Procedure (SOP). The script looks for errors in the program
+and if issues are identified, an email notification is sent to the assigned
+Rackspace support team. The issue is given a critical ticket status and
+automatically queued in the Rackpsace’s ticketing system. That ticket references
+a knowledge-base article that contains the SOP for troubleshooting and resolves
+the issue. Thus, issues are pro-actively identified and resolved on time by our
+24/7/365 fanatical technical teams.
+
+#### Value
+
+As a result of application monitoring, the customer experienced less downtime
+due to errors and issue tracking was more efficient.
 
 ### Conclusion
 
-more stuff
+By utilizing applications monitoring, organizations can pro-actively resolve
+issues. This helps to prevent spikes in issues during the peak period-close and
+enables a smoother and more timely financial period-close. This tool also
+identifies any breakdowns in business processes and helps us to design potential
+process improvements in different functional areas.
+
+To read another blog by this author, see [Modern supply-chain management made
+simple by cloud infrastructure](https://developer.rackspace.com/blog/Modern-supply-chain-made-simple-by-cloud-infrastructure/).
 
 If you have any questions on the topic, comment in the field below.
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<ul>
-<li class="share-twitter"><a href="https://twitter.com/home?status=https%3A//staging.developer.rackspace.com/build-c275747f9e/blog/applications-monitoring-creating-a-smoother-financial-close/">Share on Twitter</a></li>
-<li class="share-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//staging.developer.rackspace.com/build-c275747f9e/blog/applications-monitoring-creating-a-smoother-financial-close/">Share on Facebook</a></li>
-<li class="share-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//staging.developer.rackspace.com/build-c275747f9e/blog/applications-monitoring-creating-a-smoother-financial-close/&title=Application%20monitoring%20-%20creating%20a%20smoother%20financial%20close&summary=&source=">Share on LinkedIn</a></li>
-</ul>
 
 If you liked this blog, share it by using the following links:
 

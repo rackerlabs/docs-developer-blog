@@ -38,4 +38,3 @@ If you have any questions on the topic, comment in the field below.
 <li class="share-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//staging.developer.rackspace.com/build-c275747f9e/blog/applications-monitoring-creating-a-smoother-financial-close/">Share on Facebook</a></li>
 <li class="share-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//staging.developer.rackspace.com/build-c275747f9e/blog/applications-monitoring-creating-a-smoother-financial-close/&title=Application%20monitoring%20-%20creating%20a%20smoother%20financial%20close&summary=&source=">Share on LinkedIn</a></li>
 </ul>
-

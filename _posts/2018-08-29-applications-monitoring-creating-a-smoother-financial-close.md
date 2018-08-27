@@ -39,4 +39,3 @@ If you have any questions on the topic, comment in the field below.
 <li class="share-linkedin"><div class="linkedin_button"><script type="in/share" data-url=" https://developer.rackspace.com/blog" data-counter="right"></script></div></li>
 </ul>
 
-

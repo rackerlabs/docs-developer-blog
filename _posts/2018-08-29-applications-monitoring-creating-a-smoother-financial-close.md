@@ -34,8 +34,8 @@ If you have any questions on the topic, comment in the field below.
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <ul>
-<li class="share-twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-url="https://developer.rackspace.com/blog" data-text="title-of-blog" data-via="Rackspace" >Tweet</a></li>
-<li class="share-facebook"><div class="fb-post" data-href="https://staging.developer.rackspace.com/build-445a5d5cd2/blog/applications-monitoring-creating-a-smoother-financial-close/" data-width="500" data-show-text="true"></div></li>
-<li class="share-linkedin"><div class="linkedin_button"><script type="in/share" data-url=" https://developer.rackspace.com/blog" data-counter="right"></script></div></li>
+<li class="share-twitter"><a href="https://twitter.com/home?status=https%3A//staging.developer.rackspace.com/build-c275747f9e/blog/applications-monitoring-creating-a-smoother-financial-close/">Share on Twitter</a></li>
+<li class="share-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//staging.developer.rackspace.com/build-c275747f9e/blog/applications-monitoring-creating-a-smoother-financial-close/">Share on Facebook</a></li>
+<li class="share-linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//staging.developer.rackspace.com/build-c275747f9e/blog/applications-monitoring-creating-a-smoother-financial-close/&title=Application%20monitoring%20-%20creating%20a%20smoother%20financial%20close&summary=&source=">Share on LinkedIn</a></li>
 </ul>
 

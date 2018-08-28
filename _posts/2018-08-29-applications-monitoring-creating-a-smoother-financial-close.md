@@ -116,7 +116,7 @@ Standard Operating Procedure (SOP). The script looks for errors in the program
 and if issues are identified, an email notification is sent to the assigned
 Rackspace Support team. The issue is given a critical ticket status and
 automatically queued in the Rackpsace’s ticketing system. That ticket references
-a knowledge base article that contains the SOP for troubleshooting and resolves
+a knowledge base article that contains the SOP for troubleshooting and resolving
 the issue. Thus, issues are proactively identified and resolved on time by our
 24/7/365 **Fanatical Support**&reg; teams.
 

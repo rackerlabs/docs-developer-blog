@@ -7,6 +7,12 @@ title: git init
 author: Wayne Walls
 categories:
   - General
+  - nodejs
+  - mailgun
+  - jenkins
+  - cloud-networks
+  - java
+  - neutron
 ---
 
 Our cloud is [open](http://www.rackspace.com/cloud/openstack/). We believe our company should be too. One of our [Core Values](http://rackertalent.com/people/core-values/) at Rackspace is full disclosure and transparency, and we want to build a community for our developers that is open, transparent and helps them build amazing applications on the open cloud.

@@ -78,11 +78,11 @@ main categories:
 - Workflow Issues
 - Resolution Recommended
 
-![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture1.png | width=100 %})
+![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture1.png <!-- .element height="50%" width="50%" --> %})
 
-![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture2.png | width=150 %})
+![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture2.png <!-- .element height="50%" width="50%" --> %})
 
-![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture3.png | width=200 %})
+![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture3.png <!-- .element height="50%" width="50%" --> %})
 
 #### How we use the reports
 

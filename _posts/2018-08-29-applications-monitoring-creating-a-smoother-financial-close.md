@@ -78,11 +78,11 @@ main categories:
 - Workflow Issues
 - Resolution Recommended
 
-![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture1.png %})
+![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture1.png =100x100})
 
-![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture2.png %})
+![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture2.png =150x150})
 
-![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture3.png %})
+![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/Picture3.png =200x200})
 
 #### How we use the reports
 
@@ -133,10 +133,12 @@ enables a smoother and more timely financial period-close. This tool also
 identifies any breakdowns in business processes and helps us to design potential
 process improvements in different functional areas.
 
-To read another blog by this author, see [Modern supply-chain management made
-simple by cloud infrastructure](https://developer.rackspace.com/blog/Modern-supply-chain-made-simple-by-cloud-infrastructure/).
+![]({% asset_path 2018-08-29-applications-monitoring-creating-a-smoother-financial-close/image011.png %})
 
 If you have any questions on the topic, comment in the field below.
+
+To read another blog by this author, see [Modern supply-chain management made
+simple by cloud infrastructure](https://developer.rackspace.com/blog/Modern-supply-chain-made-simple-by-cloud-infrastructure/).
 
 If you liked this blog, share it by using the following links:
 

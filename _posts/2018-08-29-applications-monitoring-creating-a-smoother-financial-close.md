@@ -133,25 +133,21 @@ enables a smoother and more timely financial period-close. This tool also
 identifies any breakdowns in business processes and helps us to design potential
 process improvements in different functional areas.
 
-</br>
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*Read another blog by this author!*](https://developer.rackspace.com/blog/Modern-supply-chain-made-simple-by-cloud-infrastructure/)</br>
-</br>
-
 If you liked this blog, share it by using the following icons:
 
 <table>
   <tr>
-    <td>
+    <td> &nbsp;&nbsp;
       <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
         <img src="{% asset_path TshareT.png %}">
       </a>
     </td>
-    <td>
+    <td> &nbsp;&nbsp;
       <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
         <img src="{% asset_path FBshareFB.png %}">
       </a>
     </td>
-    <td>
+    <td> &nbsp;&nbsp;
       <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
         <img src="{% asset_path LshareL.png %}">
       </a>
@@ -159,9 +155,7 @@ If you liked this blog, share it by using the following icons:
   </tr>
 </table>
 
-[![]({% asset_path TshareT.png %})](https://twitter.com/home?status=https://developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/)  |  [![]({% asset_path FBshareFB.png %})](https://www.facebook.com/sharer/sharer.php?u=https://developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/)  |  [![]({% asset_path LshareL.png %})](https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/&title=Application%20monitoring%20-%20creating%20a%20smoother%20financial%20close&summary=&source=)
-
-<a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">Twitter</a> | <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">Facebook</a> | <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/&title=Application%20monitoring%20-%20creating%20a%20smoother%20financial%20close&summary=&source=">LinkedIn</a>
 
 If you have any questions on the topic, comment in the field below.
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*Read another blog by this author!*](https://developer.rackspace.com/blog/Modern-supply-chain-made-simple-by-cloud-infrastructure/)

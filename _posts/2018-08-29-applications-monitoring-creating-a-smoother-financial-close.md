@@ -148,12 +148,12 @@ If you liked this blog, share it by using the following icons:
     </td>
     <td>
       <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
-        <img src="{% asset_path FBshareFB.pn %}">
+        <img src="{% asset_path FBshareFB.png %}">
       </a>
     </td>
     <td>
       <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
-        <img src="{% asset_path LshareL.pn %}">
+        <img src="{% asset_path LshareL.png %}">
       </a>
     </td>
   </tr>

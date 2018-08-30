@@ -141,7 +141,6 @@ If you liked this blog, share it by using the following links:
 
 [![]({% asset_path shareTW.png %})](https://twitter.com/home?status=https://developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/) | [![]({% asset_path shareFB.png %})](https://www.facebook.com/sharer/sharer.php?u=https://developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/) | [![]({% asset_path shareLI.png %})](https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/&title=Application%20monitoring%20-%20creating%20a%20smoother%20financial%20close&summary=&source=)
 
-
 <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">Twitter</a> | <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">Facebook</a> | <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/&title=Application%20monitoring%20-%20creating%20a%20smoother%20financial%20close&summary=&source=">LinkedIn</a>
 
 If you have any questions on the topic, comment in the field below.

@@ -134,29 +134,29 @@ identifies any breakdowns in business processes and helps us to design potential
 process improvements in different functional areas.
 
 If you liked this blog, share it by using the following icons:
-
 <table>
   <tr>
     <td> &nbsp;&nbsp;
       <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
-        <img src="{% asset_path TshareT.png %}">
+        <img src="{% asset_path shareT.png %}">
       </a>
     </td>
     <td> &nbsp;&nbsp;
       <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
-        <img src="{% asset_path FBshareFB.png %}">
+        <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
     <td> &nbsp;&nbsp;
       <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
-        <img src="{% asset_path LshareL.png %}">
+        <img src="{% asset_path shareL.png %}">
       </a>
     </td>
   </tr>
 </table>
 
+</br>
 
 If you have any questions on the topic, comment in the field below.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*Read another blog by this author!*](https://developer.rackspace.com/blog/Modern-supply-chain-made-simple-by-cloud-infrastructure/)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*Read another blog by this author!*](https://developer.rackspace.com/blog/Modern-supply-chain-made-simple-by-cloud-infrastructure/)
 

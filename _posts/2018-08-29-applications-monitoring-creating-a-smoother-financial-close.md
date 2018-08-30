@@ -133,8 +133,9 @@ enables a smoother and more timely financial period-close. This tool also
 identifies any breakdowns in business processes and helps us to design potential
 process improvements in different functional areas.
 
-If you liked this blog, share it by using the following icons:
+
 <table>
+  <tr>If you liked this blog, share it by using the following icons:</tr>
   <tr>
     <td> &nbsp;&nbsp;
       <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
@@ -154,8 +155,8 @@ If you liked this blog, share it by using the following icons:
   </tr>
 </table>
 
-</br>
 
 If you have any questions on the topic, comment in the field below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*Read another blog by this author!*](https://developer.rackspace.com/blog/Modern-supply-chain-made-simple-by-cloud-infrastructure/)
+

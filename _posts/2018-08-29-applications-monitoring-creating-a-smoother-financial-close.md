@@ -166,4 +166,3 @@ process improvements in different functional areas.
 If you have any questions on the topic, comment in the field below.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*Read another blog by this author!*](https://developer.rackspace.com/blog/Modern-supply-chain-made-simple-by-cloud-infrastructure/)
-

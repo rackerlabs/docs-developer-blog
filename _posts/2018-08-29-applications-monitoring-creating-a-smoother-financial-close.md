@@ -137,6 +137,9 @@ process improvements in different functional areas.
 <table>
   <tr>If you liked this blog, share it by using the following icons:</tr>
   <tr>
+   <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
     <td>
       <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
         <img src="{% asset_path shareT.png %}">

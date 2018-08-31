@@ -142,12 +142,18 @@ process improvements in different functional areas.
         <img src="{% asset_path shareT.png %}">
       </a>
     </td>
-    <td> &nbsp;&nbsp;
+    <td>
+       <img src="{% asset_path line-tile.png %}">
+    </td>
+    <td>
       <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
-    <td> &nbsp;&nbsp;
+    <td>
+       <img src="{% asset_path line-tile.png %}">
+    </td>
+    <td>
       <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
         <img src="{% asset_path shareL.png %}">
       </a>

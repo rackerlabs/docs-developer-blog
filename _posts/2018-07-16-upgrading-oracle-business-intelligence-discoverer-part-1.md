@@ -236,7 +236,7 @@ Use the following steps to configure the Discoverer instance:
 </ol>
 
 <ol start=12>
-    <li>Review the installation details and click **Finish**, as shown in the
+    <li>Review the installation details and click <b>Finish</b>, as shown in the
     following image:</li>
 </ol>
 

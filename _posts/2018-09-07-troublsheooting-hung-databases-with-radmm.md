@@ -11,26 +11,26 @@ categories:
 ---
 
 Oracle&reg; Enterprise Manager (OEM) 12c and 13c includes many performance
-analysis tools, including a promising support tool for Oracle DBA for
-troubleshooting or tuning real time ongoing performance called OEM Real-Time
-Automatic Database Diagnostic Monitor (Real-Time ADDM). This blog shares
-knowledge about practically use of the Real-Time ADDM utility to identify and
-survive an emergency due to any type of database health problems like 100%
+analysis tools, including a support tool, called OEM Real-Time Automatic Database
+Diagnostic Monitor (Real-Time ADDM), for the Oracle DBA to use for
+troubleshooting or tuning real-time, ongoing performance issues. This blog shares
+knowledge about practical use of Real-Time ADDM to identify and
+survive an emergency due to any type of database health problems, such as 100%
 session, process utilization, or exceeding the predefined critical limits setup
 for input/output (I/O), memory, or interconnect limits. In such cases, Real-Time
-ADDM is a very handy tool, and provides the capability to do deeper realtime and
+ADDM is a very handy tool, and provides the capability to do deeper real-time and
 realistic ADDM analysis of database health.
 
 <!-- more -->
 
-### What is Automatic Database Diagnostic Monitor (ADDM)?
+### What is ADDM?
 
 ADDM is a tool provided by Oracle Database (starting with version 10g) to
 analyze data in the Automatic Workload Repository (AWR) to identify potential
 performance bottlenecks. For each of the identified issues, it locates the root
 cause and provides recommendations for correcting the problem.
 
-### What is Real-tTme ADDM?
+### What is Real-Time ADDM?
 
 In Oracle Enterprise Manager (OEM) Cloud Control 12c, Oracle introduced the
 Real-Time ADDM tool, which helps to analyze and resolve problems in unresponsive
@@ -40,21 +40,21 @@ performance of the database. If any of the criteria matches, Real-Time ADDM
 helps to resolve the identified issues (such as deadlocks, hangs, shared pool
 contention, and other exception situations) without having to restart the database.
 
-Database Administrators can use the Real-Time ADDM feature to analyze database
-performance automatically, like in case when you cannot log in to the database
-because database is in a hung state and running slowly due to performance issues.
-In such a situation, Real-Time ADDM identifies the source of SQL contention on
-global resources.
+Database administrators (DBAs) can use Real-Time ADDM to analyze database
+performance automatically, for instance, in a case when you cannot log in to the
+database because the database is in a hung state and running slowly due to
+performance issues. In such a situation, Real-Time ADDM identifies the source
+of SQL contention on global resources.
 
 Real-Time ADDM also performs all realistic database time analysis like ADDM.
-When we invoke Real-Time ADDM on a database that is experiencing unusually high
+When you invoke Real-Time ADDM on a database that is experiencing unusually high
 database activity, it can detect the top performance issues currently affecting
 the database and find any major consumer of the database time like SQL sessions,
-application connections, and do on.
+application connections, and so on.
 
 ### The difference between ADDM and Real-Time ADDM
 
-ADDM is provided at the database level performance diagnosis tool, and Real-Time
+ADDM is provided as the database-level performance diagnosis tool, and Real-Time
 ADDM is an OEM version 12c plus tool. You need OEM ready with a connection to
 database to use Real-Time ADDM.
 
@@ -68,7 +68,7 @@ queues or an excessive number of host resources.
 
 The following list provides reasons to use Real-Time ADDM:
 
--	Analyse current database performance when it is hanging or running slow.
+-	Analyze current database performance when it is hanging or running slow.
 -	Find sources of severe contention.
 -	Perform database time analysis to detect top performance issues.
 -	Direct the diagnostic connection to SGA.
@@ -78,66 +78,66 @@ The following list provides reasons to use Real-Time ADDM:
 #### What is HANGANALYZE?
 
 HANGANALYZE is an option within ORADEBUG to locate details about hung or blocking
-sessions. By using the HANGANALYZE option database, administrators can get a
-connection into a hung database and generate trace files, which can be read or
-used with trace analysis tools to identify the hung database issues.
+sessions. By using the HANGANALYZE option, DBAs can get a connection into a hung
+database and generate trace files, which they can read or use with trace analysis
+tools to identify the hung database issues.
 
 #### Troubleshooting with Real-Time ADDM demonstration
 
-Assuming you have OEM 12c setup with connection to target database, you can use
+Assuming you have OEM 12c set up with connection to target database, you can use
 the following steps to employ Real-Time ADDM analysis when your database instance
 is in a hung state.
 
-Open a terminal session and try to connect to database. Notice that the session
-has not yet started. With a connection not established, you can't log in to
-database because of the database hung condition as shown in the following image:
+Open a terminal session and try to connect to the database. Notice that the session
+has not yet started. With a connection not established, you can't log in to the
+database because of the hung condition as shown in the following image:
 
 ![]({% asset_path 2018-09-07-troublsheooting-hung-databases-with-radmm/Picture1.png %})
 
-Now, go to OEM, under the **Target** menu, select `Databases for Troubleshooting`,
+Now, go to OEM and under the **Target** menu, select `Databases for Troubleshooting`
 and search for the database name. As shown in the following image, I am searching
 for `CAC****1P`.
 
 ![]({% asset_path 2018-09-07-troublsheooting-hung-databases-with-radmm/Picture2.png %})
 
 Click on the database name. It might take a little time, so wait to refresh. In
-a bit, you can see the error message highlighted in the following image:
+a bit, you see the error message highlighted in the following image:
 
 ![]({% asset_path 2018-09-07-troublsheooting-hung-databases-with-radmm/Picture3.png %})
 
 For this database instance, this is where Real-Time ADDM is going to be very
 useful for the database administrator (DBA) to diagnose the situation. Let's
 start using Real-Time ADDM on that database instance. From the database on page,
-go to the performance menu and select `Real-Time ADDM`, which takes you to the
+go to the **Performance** menu and select `Real-Time ADDM`, which takes you to the
 screen shown in the following image. In this situation, Real-Time ADDM uses a
 direct connection because the instance is hanging.
 
 ![]({% asset_path 2018-09-07-troublsheooting-hung-databases-with-radmm/Picture4.png %})
 
-You must use SYSDBA credentials for Realtime ADDM connection in a hung situation,
-as shown in the following image:
+You must use SYSDBA credentials for the Real-Time ADDM connection in a hung
+situation, as shown in the following image:
 
 ![]({% asset_path 2018-09-07-troublsheooting-hung-databases-with-radmm/Picture5.png %})
 
 
-Once the diagnostic mode connection is established, we can read ASH data directly
+After the diagnostic mode connection is established, you can read ASH data directly
 in memory, starting from the previous hour. After login, you can view the top
 activity at the top of the activity program as shown in the following image:
 
 ![]({% asset_path 2018-09-07-troublsheooting-hung-databases-with-radmm/Picture6.png %})
 
-You can see the issue which is causing the database to hang. In this example,
+You can see that the issue which is causing the database to hang. In this example,
 it relates to the application weight class. To counter this situation, you need
 to start the diagnostic to get more insights on the issue. Click **START** to
 initiate the analysis. Real-Time ADDM looks at the past ten minutes of ASH
-samples to determine the issues. To stop after 10 minutes, click **STOP**. Once
-done, it shows findings based on priority. The following image indicates the
-analysis under the **Findings** tab.
+samples to determine the issues. To stop after 10 minutes, click **STOP**. After
+this is done, Real-Time ADDM shows findings based on priority. The following
+image indicates the analysis under the **Findings** tab.
 
 ![]({% asset_path 2018-09-07-troublsheooting-hung-databases-with-radmm/Picture7.png %})
 
 In this example, it shows unresolved or session wait chains, causing the database
-to hang. Recommendations to fix issue are indicated in the following image:
+to hang. Recommendations to fix the issue are indicated in the following image:
 
 ![]({% asset_path 2018-09-07-troublsheooting-hung-databases-with-radmm/Picture8.png %})
 
@@ -149,31 +149,31 @@ following image:
 ![]({% asset_path 2018-09-07-troublsheooting-hung-databases-with-radmm/Picture9.png %})
 
 Click on **Final Blockers** to see the blocker session summary. As recommended,
-I killed the session for which I have the session details at database level
-Session ID (SID), Serial#, and OS level process ID. If I still can't to log in
+kill the session for which you have the session details at the database level
+Session ID (SID), Serial #, and OS Process ID. If you still can't to log in
 to database, the only option available is to kill the OS Process ID. To do that,
 open a terminal and kill the session causing issue as shown in the following
 image:
 
 ![]({% asset_path 2018-09-07-troublsheooting-hung-databases-with-radmm/Picture10.png %})
 
-After that, you can see that the blocked session can proceed in Real-Time ADDM
-analysis window. Now try to connect with SQL Plus connection from terminal, and
+After that, you can see that the blocked session can proceed in the Real-Time ADDM
+analysis window. Now try to connect with an SQL Plus connection from terminal, and
 this time the connection succeeds as shown in the following image:
 
 ![]({% asset_path 2018-09-07-troublsheooting-hung-databases-with-radmm/Picture11.png %})
 
 ### Conclusion
 
-The Real-Time ADDM tool from OEM Cloud Control 12c, is one of Oracle’s best,
+The Real-Time ADDM tool from OEM Cloud Control 12c is one of Oracle’s best
 and quickest tools to support critical database health diagnosis. In the case
 of a hung database, Real-Time ADDM becomes the DBA’s definitive, effective
 support, especially when compared to the limited usage of ADDM, and ORADEBUG’s
 HANGANALYZE trace utility. You can apply the previous steps to overcome your
-database or hung session issues, to get your database up and running.
+database or hung session issues to get your database up and running.
 
 To read another blog by this author, click the author name at the top of this
-blog!
+blog.
 
 <table>
   <tr>If you liked this blog, share it by using the following icons:</tr>

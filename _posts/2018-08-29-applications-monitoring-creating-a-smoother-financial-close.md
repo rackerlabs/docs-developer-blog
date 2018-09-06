@@ -133,7 +133,8 @@ enables a smoother and more timely financial period-close. This tool also
 identifies any breakdowns in business processes and helps us to design potential
 process improvements in different functional areas.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*Read another blog by this author!*](https://developer.rackspace.com/blog/Modern-supply-chain-made-simple-by-cloud-infrastructure/)
+To read another blog by this author, click the author name at the top of this
+blog!
 
 
 <table>

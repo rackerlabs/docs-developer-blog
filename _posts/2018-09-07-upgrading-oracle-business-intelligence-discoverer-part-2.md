@@ -236,7 +236,7 @@ Refresh the Discoverer EUL by running the following command:
 ### Conclusion
 
 This blog showed you how to configure or upgrade Discoverer to 11.1.1.7 on Red
-Hat%Reg; Enterprise Linux (RHEL) 6, which supports Discoverer versions 11.1.1.6.0
+Hat&reg; Enterprise Linux (RHEL) 6, which supports Discoverer versions 11.1.1.6.0
 and 11.1.1.7.0.
 
 <table>

@@ -150,7 +150,7 @@ following image:
 
 Click on **Final Blockers** to see the blocker session summary. As recommended,
 kill the session for which you have the session details at the database level
-Session ID (SID), Serial #, and OS Process ID. If you still can't to log in
+Session ID (SID), Serial #, and OS Process ID. If you still can't log in
 to database, the only option available is to kill the OS Process ID. To do that,
 open a terminal and kill the session causing issue as shown in the following
 image:
@@ -172,8 +172,6 @@ support, especially when compared to the limited usage of ADDM, and ORADEBUG’s
 HANGANALYZE trace utility. You can apply the previous steps to overcome your
 database or hung session issues to get your database up and running.
 
-To read another blog by this author, click the author name at the top of this
-blog.
 
 <table>
   <tr>If you liked this blog, share it by using the following icons:</tr>

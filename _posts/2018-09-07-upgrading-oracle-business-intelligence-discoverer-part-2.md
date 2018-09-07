@@ -238,3 +238,4 @@ This blog showed you how to configure or upgrade discoverer to 11.1.1.7 on RHEL
 6, which supports Discoverer versions 11.1.1.6.0 and 11.1.1.7.0.
 
 If you have any questions on this topic, comment in the field below.
+

@@ -10,7 +10,7 @@ categories:
     - Oracle
 ---
 
-Originally published by Tricore: May 17, 2017
+Originally published by TriCore: May 17, 2017
 
 Oracle&reg; Business Intelligence Discoverer is a tool for ad hoc querying,
 reporting, data analysis, and web publishing for the Oracle database environment.
@@ -37,7 +37,7 @@ database in file `$ORACLE_INSTANCE/config/tnsnames.ora`.
 
 Use the same entry that exists in the `tnsnames.ora` file on your Oracle
 E-Business Suite Release 12 application tier server node. The database name must
-match the two_task entry in the dbc file.
+match the TWO_TASK entry in the dbc file.
 
 
 ### Upgrade or create Discoverer EUL
@@ -65,8 +65,8 @@ installed:
 
 #### Create new EUL for Discoverer 11.1.1
 
-If you don’t have an existing EUL, you must create one for new Discoverer 11.1.1.
-Fresh installations of the E-Business Suite R12 Vision database does contain a
+If you don’t have an existing EUL, you must create one for the new Discoverer 11.1.1.
+Fresh installations of the E-Business Suite R12 Vision database do contain a
 preinstalled Discoverer EUL, but other versions do not come with the EUL.
 
 Run the following command to create an EUL:
@@ -86,14 +86,14 @@ the following command to source the environment script:
 
 ### Configure platform-specific environment settings
 
-If you are using Discoverer on 64 bit platforms (such as Oracle Solaris on SPARC
-64 bit, HP-UX PA-RISC 64 bit, HP-UX Itanium 64 bit, IBM AIX 64 bit, Linux x86-64),
-find the line in `$ORACLE_INSTANCE/Discoverer/Discoverer_<ias-instance>/util/discenv.sh`
-that defines variable `LIB_PATH` and set it using the following code:
+If you are using Discoverer on 64-bit platforms (such as Oracle Solaris on SPARC&reg;
+64 bit, HP-UX&reg; PA-RISC 64 bit, HP-UX Itanium 64 bit, IBM&reg; AIX 64 bit,
+Linux x86-64), find the line in `$ORACLE_INSTANCE/Discoverer/Discoverer_<ias-instance>/util/discenv.sh`
+that defines variable `LIB_PATH` and set it by using the following code:
 
     LIB_PATH=$OH/discoverer/lib:$OH/lib:/usr/lib:$OH/lib32
 
-If you are using Discoverer on 64 bit platform Linux x86-64, find the line that
+If you are using Discoverer on 64-bit platform Linux x86-64, find the line that
 defines variable `LD_ASSUME_KERNEL` and comment it out as shown in the following
 code:
 
@@ -110,14 +110,14 @@ code:
      -EUL_LANGUAGE US \
      -APPS_GRANT_DETAILS <FNDNAM>/<FNDNAM password>
 
-### Apply AD patch containing adupdeul.sh and adrfseul.sh
+### Apply patch containing adupdeul.sh and adrfseul.sh
 
-Apply one of the following patches using the `adpatch` option:
+Apply one of the following patches by using the `adpatch` option:
 
 - For version 12.1, use Patch 9394002
 - For version 12.0, use Patch 9384228
 
-### Set applications profile options for Discoverer using AutoConfig
+### Set applications profile options for Discoverer by using autoconfig
 
 To set the applications profile options for Discoverer, update the variable
 `s_disco_url` in `CONTEXT_FILE` and run `autoconfig`.
@@ -127,24 +127,25 @@ To set the applications profile options for Discoverer, update the variable
 To set the applications profile options in EBS, navigate to the **Profile > System**
 form.
 
-Query the %Discoverer% profile options looking for the following items:
+Query the Discoverer profile options looking for the following items:
 
-- ICX: Discoverer Launcher -- the URL that points to the Discoverer Plus Servlet.
-- ICX: Discoverer Viewer Launcher -- the URL that points to the Discoverer Viewer
-  Servlet
-- ICX: Discoverer use Viewer -- Specify whether the Discoverer Viewer should be
+- Inter-Cartridge eXchange(ICX): Discoverer Launcher - The URL that points to
+  the Discoverer Plus servlet.
+- ICX: Discoverer Viewer Launcher - The URL that points to the Discoverer Viewer
+  servlet.
+- ICX: Discoverer use Viewer - Specify whether the Discoverer Viewer should be
   launched instead of Discoverer Plus (default).
-- ICX: Discoverer Default End User Layer Schema Prefix -- The EUL prefix in
+- ICX: Discoverer Default EUL schema prefix - The EUL prefix in
   combination with the Language code make up the EUL owner at runtime. For
   example, EUL owner `EUL_US` has the EUL prefix `EUL`.
-- ICX: Discoverer End User Layer Language Override -- Since the EUL content is
+- ICX: Discoverer EUL language override - Because the EUL content is
   currently available in US English only, it is possible to override the user's
   general language preference for the Discoverer EUL using this profile option.
   The specified EUL language is used regardless of the individual user's language
-  preferences
-- ICX: Discoverer Release -- This profile can be used to optionally pass
+  preferences.
+- ICX: Discoverer Release - This profile can be used to optionally pass
   additional URL parameters to Discoverer.
-- Discoverer DBC filename override -- This profile can be used to specify the
+- Discoverer DBC filename override - This profile can be used to specify the
   DBC Filename that Discoverer should use to connect to the E-Business Suite
   database.
 
@@ -157,21 +158,21 @@ The following image shows these settings:
 To regenerate your business views, run the `Generate Business Views by Application`
 concurrent program, as indicated in the following steps:
 
-- Logon to Oracle E-Business Suite as `SYSADMIN`.
+- Log on to Oracle E-Business Suite as `SYSADMIN`.
 - Choose the **Business Views Setup** responsibility.
 - Navigate to **Reports > Run > Pick Single Request > "Generate ALL Business Views"**.
 
 If you don't have "Business Views Setup" responsibility assigned to the `SYSADMIN`
-user, please do the following:
+user, do the following:
 
-- Logon to Oracle E-Business Suite as `SYSADMIN`.
+- Log on to Oracle E-Business Suite as `SYSADMIN`.
 - Choose the **System Administrator** responsibility.
 - Navigate to **Security > User > Define** and add responsibility
   **Business Views Setup** to user `SYSADMIN`.
 
 ### Recompile APPS objects
 
-Recompile all objects in the **APPS** schema using `adadmin`.
+Recompile all objects in the **APPS** schema by using `adadmin`.
 
 ### Check the Business Intelligence system views
 
@@ -213,7 +214,7 @@ running the following command:
 
 ### Import EBS Discoverer content
 
-Access the `$AU_TOP/discover`directory on your EBR R12 instance from the
+Access the `$AU_TOP/discover` directory on your EBR R12 instance from the
 Discoverer 11g BI instance. This directory was copied to the Discoverer server.
 
 Start the import process of the Discoverer loader files (.eex files) by using
@@ -234,8 +235,9 @@ Refresh the Discoverer EUL by running the following command:
 
 ### Conclusion
 
-This blog showed you how to configure or upgrade discoverer to 11.1.1.7 on RHEL
-6, which supports Discoverer versions 11.1.1.6.0 and 11.1.1.7.0.
+This blog showed you how to configure or upgrade Discoverer to 11.1.1.7 on Red
+Hat%Reg; Enterprise Linux (RHEL) 6, which supports Discoverer versions 11.1.1.6.0
+and 11.1.1.7.0.
 
 <table>
   <tr>If you liked this blog, share it by using the following icons:</tr>

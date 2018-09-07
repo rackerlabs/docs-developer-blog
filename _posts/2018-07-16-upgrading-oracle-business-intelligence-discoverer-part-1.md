@@ -69,7 +69,7 @@ Use the following steps for the Oracle WebLogic Server 11gR1 (10.3.6) installati
 
 1. Run the following command to start the installation:
 
-      <JDK_PATH>/bin/java -d64 -jar -Djava.io.tmpdir=<temp_dir_loc> ./wls1036_generic.jar -log=<loc/filename>
+    `<JDK_PATH>/bin/java -d64 -jar -Djava.io.tmpdir=<temp_dir_loc> ./wls1036_generic.jar -log=<loc/filename>`
 
 2. Click **Next** on the **Welcome** screen.
 
@@ -99,7 +99,7 @@ Use the following steps for the Oracle WebLogic Server 11gR1 (10.3.6) installati
 </ol>
 
 <ol start=10>
-    <li>Click **Done** after installation completed.</li>
+    <li>Click <b>Done</b> after installation completed.</li>
 </ol>
 
 
@@ -129,7 +129,7 @@ Use the following steps for the installation process:
    ![]({% asset_path 2018-07-16-upgrading-oracle-business-intelligence-discoverer-part-1/Picture3.png %})
 
 <ol start=7>
-    <li>Review the summary and click **Create**.</li>
+    <li>Review the summary and click <b>Create</b>.</li>
 </ol>
 
 
@@ -196,7 +196,7 @@ Use the following steps to configure the Discoverer instance:
    ![]({% asset_path 2018-07-16-upgrading-oracle-business-intelligence-discoverer-part-1/Picture6.png %})
 
 <ol start=4>
-    <li>Provide the Oracle support details in **Security Updates**.</li>
+    <li>Provide the Oracle support details in <b>Security Updates</b>.</li>
 </ol>
 
 <ol start=5>
@@ -205,14 +205,14 @@ Use the following steps to configure the Discoverer instance:
 </ol>
 
 <ol start=6>
-    <li>Select the **Oracle Discoverer** component to configure, as shown in the
+    <li>Select the <b>Oracle Discoverer</b> component to configure, as shown in the
    following image:</li>
 </ol>
 
    ![]({% asset_path 2018-07-16-upgrading-oracle-business-intelligence-discoverer-part-1/Picture7.png %})
 
 <ol start=7>
-    <li>Select **Auto port config** to configure ports.</li>
+    <li>Select <b>Auto port config</b> to configure ports.</li>
 </ol>
 
 <ol start=8>
@@ -223,20 +223,20 @@ Use the following steps to configure the Discoverer instance:
 <ol start=9>
     <li>If you are using Application Object Identifier (OID), provide the hostname,
    port, username, and password to specify the OID. If you are not using OID,
-   deselect the **Use Application level identity store** option.</li>
+        deselect the <b>Use Application level identity store</b> option.</li>
 </ol>
 
 <ol start=10>
-    <li>Review the summary and click **Configure**.</li>
+    <li>Review the summary and click <b>Configure</b>.</li>
 </ol>
 
 <ol start=11>
-    <li>Review the logs and **Status** tab on the **Installer** screen to check
-    installation progress. Click **Next** when it finishes.</li>
+    <li>Review the logs and <b>Status</b> tab on the <b>Installer</b> screen to check
+        installation progress. Click <b>Next</b> when it finishes.</li>
 </ol>
 
 <ol start=12>
-    <li>Review the installation details and click **Finish**, as shown in the
+    <li>Review the installation details and click <b>Finish</b>, as shown in the
     following image:</li>
 </ol>
 

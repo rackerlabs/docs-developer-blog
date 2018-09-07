@@ -24,6 +24,7 @@ Discoverer within an existing E-Business Suite (EBS) R12 instance.
 [Part 1](https://developer.rackspace.com/blog/upgrading-oracle-business-intelligence-discoverer-part-1/)
 discussed the installation of the software required for the Discoverer 11.1.1.7
 upgrade. This blog, Part 2, covers the details of integration and the Discoverer
+
 End User Layers (EUL) upgrade.
 
 ### Integration with Discoverer 11g
@@ -41,6 +42,7 @@ match the TWO_TASK entry in the dbc file.
 
 
 ### Upgrade or create Discoverer EUL
+
 
 If you already have an existing Discoverer EUL, you might need to upgrade to
 upgrade. The upgrade steps depend on your Discoverer version.  See the following
@@ -270,4 +272,3 @@ and 11.1.1.7.0.
 </table>
 
 If you have any questions on this topic, comment in the field below.
-

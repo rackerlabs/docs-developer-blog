@@ -248,4 +248,6 @@ Using the preceding information, you can install Discoverer 11.1.1.7 and the
 various required components on RHEL 6. Part 2 of this blog series has more
 information on how to configure the Discoverer instance for Oracle R12 instances.
 
+See [Part 2](https://developer.rackspace.com/blog/upgrading-oracle-business-intelligence-discoverer-part-2/) for the rest of this series.
+
 If you have any questions on this topic, comment in the field below.

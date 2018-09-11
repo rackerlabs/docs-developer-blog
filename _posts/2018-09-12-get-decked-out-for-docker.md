@@ -13,7 +13,7 @@ categories:
 
 Businesses compete to transform digitally, but most are restricted in some way
 or another from moving over to the cloud or to a new data center by existing
-applications or infrastructure,. Docker&reg; comes to rescue and enables the
+applications or infrastructure. Docker&reg; comes to rescue and enables the
 independence of applications and infrastructure. It is the only container
 platform that addresses every application across the hybrid cloud.
 

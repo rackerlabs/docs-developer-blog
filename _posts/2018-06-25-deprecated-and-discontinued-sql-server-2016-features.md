@@ -7,7 +7,7 @@ author: Anil Kumar
 published: true
 authorIsRacker: true
 categories:
-    - General
+  - database
 ---
 
 Originally published by Tricore: June 14, 2017

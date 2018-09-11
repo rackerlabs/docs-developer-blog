@@ -7,7 +7,8 @@ author: Vivek Dhiman
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
 ---
 
 Minimizing downtime and increasing the database availability are essential

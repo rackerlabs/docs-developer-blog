@@ -7,6 +7,7 @@ author: Charles Neill
 published: true
 categories:
   - Security
+  - architecture
 ---
 
 Hello! This is the first post in a series that will bring you new and interesting links every week from the perspective of a Rackspace Security Engineer. I try to include links that are useful/interesting to a general audience, so you don't have to be an "uber 1337 h4x0r" to enjoy them. If you have any comments, or if you want to submit a link, feel free to leave a comment or catch me on [Twitter][twitter].
@@ -47,7 +48,7 @@ Hello! This is the first post in a series that will bring you new and interestin
 
 - [__Passphrases that you can memorize - but that even the NSA can't guess__][passphrases] - Another great one from The Intercept about creating manageable but extremely secure passwords. Their main recommendation is to use [__diceware__][passphrases2], rolling dice (yes, like the ones you use in Yahtzee!) to generate e.g. a 5 digit number that corresponds to a random word in a dictionary file, and repeating this process several times to create a passphrase composed of a collection of random words. This is very, _very_ hard to brute-force, even if your adversary has your dictionary file, due to the large number of possible words and combinations thereof.
 
-- [__Understanding Docker security and best practices__][docker_security] - Docker has released a blog post with lots of great information about how to secure your Docker containers/Dockerfiles/etc. 
+- [__Understanding Docker security and best practices__][docker_security] - Docker has released a blog post with lots of great information about how to secure your Docker containers/Dockerfiles/etc.
 
 
 ## Tools

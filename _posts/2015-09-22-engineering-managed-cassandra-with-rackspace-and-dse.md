@@ -7,7 +7,8 @@ author: David Grier
 authorIsRacker: true
 authorAvatar: 'http://1.gravatar.com/userimage/52111727/971866c998c4e064a3c958aa33c82053'
 published: true
-categories: []
+categories:
+  - architecture
 ---
 
 Managing infrastructure and database technology has grown at Rackspace and our list of supported technologies in the data umbrella has grown tremendously.

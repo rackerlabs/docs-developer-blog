@@ -7,7 +7,8 @@ author: Jay Vardhan
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
 ---
 
 In an Oracle Real Application Clusters (RAC) environment, all the

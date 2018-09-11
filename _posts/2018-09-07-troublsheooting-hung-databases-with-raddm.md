@@ -7,7 +7,8 @@ author: Tejashkumar Patel
 published: true
 authorIsRacker: true
 categories:
-    - General
+  - Oracle
+  - database
 ---
 
 Oracle&reg; Enterprise Manager (OEM) 12c and 13c includes many performance

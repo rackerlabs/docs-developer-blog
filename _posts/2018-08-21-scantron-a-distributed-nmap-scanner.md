@@ -10,6 +10,7 @@ categories:
   - Security
   - Automation
   - Python
+  - architecture
 ---
 
 ![scantron robot]({% asset_path 2018-08-21-scantron-a-distributed-nmap-scanner/scantron_300x300.jpg %})

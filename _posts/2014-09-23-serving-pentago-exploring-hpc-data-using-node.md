@@ -7,6 +7,7 @@ author: Geoffrey Irving
 published: true
 categories:
   - nodejs
+  - aws
 bio: 'Geoffrey Irving is a founder at the new interactive programming startup Eddy Systems (http://eddy.systems). Previously, he worked at Pixar, D. E. Shaw Research, Weta Digital, and Otherlab doing high performance computing, computational physics, and computer graphics. He has degrees in mathematics and computer science from Caltech and Stanford, and received film credits on Ratatouille, Wall-E, Up, and Tintin.'
 ---
 

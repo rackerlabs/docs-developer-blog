@@ -62,7 +62,9 @@ You can optionally add a picture from gravatar using the following metadata line
 Available categories include the following:
 
 - Ansible
+- architecture
 - Automation
+- aws
 - Azure
 - Chef
 - Cloud Files
@@ -70,6 +72,7 @@ Available categories include the following:
 - Cloud Networks
 - Cloud Servers
 - Configuration Management
+- database
 - Developers
 - DevOps
 - Docker

@@ -7,6 +7,7 @@ author: Everett Toews
 published: true
 categories:
   - docker
+  - database
 ---
 
 The goal of this post is to develop an application in an environment that's as close to your remote deployment environment as possible. Let's do this using Docker Machine and Compose to move an app from local development to remote deployment.

@@ -7,7 +7,8 @@ author: Nagunaik Vankudotu
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
 ---
 
 This blog describes the Oracle &reg; AD Online Patching (adop) utility phases, the patch

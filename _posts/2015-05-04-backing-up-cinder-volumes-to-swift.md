@@ -7,6 +7,7 @@ author: James Thorne
 published: true
 categories:
   - openstack
+  - architecture
 ---
 
 Architecting applications for a cloud environment usually means treating each cloud server as ephemeral. If you destroy the cloud server, the data is destroyed with it. But, you still need a way to persist data. Cloud block storage has typically been that solution. Attach cloud block storage to a cloud server, save your data within that cloud block device, and when/if the cloud server is destroyed, your data persists and can be re-attached to another cloud server.

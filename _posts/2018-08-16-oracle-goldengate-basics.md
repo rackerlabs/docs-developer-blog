@@ -7,7 +7,9 @@ author: Tej Singh
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
+  - architecture
 ---
 
 This blog post explores the basics of Oracle&reg; GoldenGate&reg; and its

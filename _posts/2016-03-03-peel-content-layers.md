@@ -10,6 +10,7 @@ published: true
 categories:
   - Developers
   - Python
+  - architecture
 authorIsRacker: true
 ---
 

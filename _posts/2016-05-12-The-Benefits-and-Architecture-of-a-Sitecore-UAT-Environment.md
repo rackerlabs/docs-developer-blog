@@ -7,7 +7,8 @@ author: Kelly Rusk
 authorIsRacker: true
 published: true
 categories:
-    - DevOps
+  - DevOps
+  - architecture
 ---
 
 Where do you conduct your User Acceptance Testing (UAT) activities? It's a loaded question that many organizations have challenges addressing as they first need to obtain a clear definition of what what UAT is (and what it isn't) before they even consider where UAT activities should occur. The benefits of a properly instituted UAT environment far outweigh the challenges, and the danger of not having one, but success requires a thoughtful and purposeful approach.

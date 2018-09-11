@@ -7,7 +7,9 @@ author: Ravi Sharma
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
+  - architecture
 ---
 
 Parallel Replicat is one of the new features introduced in Oracle &reg;

@@ -7,6 +7,7 @@ author: Everett Toews
 published: true
 categories:
   - openstack
+  - database
 ---
 
 <img class="blog-post right" src="{% asset_path 2015-06-17-built-an-app-on-openstack-at-qcon-ny-2015/qcon.png %}"/>Last week I went to [QCon NY](https://qconnewyork.com/) 2015 to be both a student and a teacher in their tutorial track. They follow the standard pattern of having 2 days of tutorials prior to the conference proper. To understand QCon a bit better, here's their mission statement.

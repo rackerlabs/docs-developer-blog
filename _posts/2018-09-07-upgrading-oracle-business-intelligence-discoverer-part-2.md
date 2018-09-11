@@ -7,7 +7,8 @@ author: Abhishek Shukla
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
 ---
 
 Originally published by TriCore: May 17, 2017

@@ -9,6 +9,8 @@ categories:
   - openstack
   - osad
   - ansible
+  - database
+  - architecture
 ---
 
 If you are an OpenStack contributor, you likely rely on DevStack for most of

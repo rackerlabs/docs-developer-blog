@@ -7,9 +7,10 @@ author: Walter Bentley
 published: true
 categories:
   - openstack
+  - architecture
 ---
 
-As the look and feel of the cloud evolves, matures, and hedges toward main stream adoption, the Solution Architects, Developers, and Infrastructure engineers of Enterprises face the challenge to determine what technologies to consume.  Should I go with something that requires vendor licensing? Or should I look to Open Source technologies, such as OpenStack?  Then if you do decide that OpenStack solves for your technology needs, how best could someone layout its pros and cons to their senior leadership.  
+As the look and feel of the cloud evolves, matures, and hedges toward main stream adoption, the Solution Architects, Developers, and Infrastructure engineers of Enterprises face the challenge to determine what technologies to consume.  Should I go with something that requires vendor licensing? Or should I look to Open Source technologies, such as OpenStack?  Then if you do decide that OpenStack solves for your technology needs, how best could someone layout its pros and cons to their senior leadership.
 
 Those of us who have ever had to stand in front of their Director/CTO/CIO and figuratively 'fight' for a particular technology/product completely understands that this task is not for the meek of heart.  I can remember very vividly holding index cards in my hands with bullet points, as I was attempting to lay out all the reasons why OpenStack should be the company's next major infrastructure shift.  Being prepared for this conversation is critical to the overall enterprises architecture, so you need to articulate clearly why OpenStack is the best choice.  You can never be too prepared.  There will always be questions that you as a technology advocate, will not even think of.  In my opinion, being prepared is key.  So let’s start on our technology layer cake.
 
@@ -56,7 +57,7 @@ Part of the power of OpenStack is its story and how it has evolved just over a s
 
 ---
 #####OpenStack Pros & Cons
-Let’s be honest, there is no perfect software or platform in this world.  Leading with a technology's flaws is another way of gaining back a small bit of power.  
+Let’s be honest, there is no perfect software or platform in this world.  Leading with a technology's flaws is another way of gaining back a small bit of power.
 
 **Cons**
 
@@ -120,7 +121,7 @@ Managed Cloud built on OpenStack - Support for OpenStack can come from Managed C
 
 ---
 #####Foundation Has Been Laid
-You have now been armed with all the ammo to go get your OpenStack cloud.  This last and final slide normally drives home the point flawlessly. 
+You have now been armed with all the ammo to go get your OpenStack cloud.  This last and final slide normally drives home the point flawlessly.
 
 ![OpenStack Enterprise Use Cases](http://www.hitchnyc.com/content/images/2015/05/Slide24.jpg)
 

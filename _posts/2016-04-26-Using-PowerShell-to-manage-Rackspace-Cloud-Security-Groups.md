@@ -10,6 +10,7 @@ authorAvatar: 'http://www.gravatar.com/avatar/e447889c7bb6912e05aa82248c9cf964'
 bio: Jose is a long time Racker who enjoys new technology and helping others adopt it since he moves on to the next shiny thing quickly. His day to day is spent with customers designing against flaws and then fixing all the problems that arise from that.
 categories:
   - DevOps
+  - aws
 ---
 
 One day I was testing this neat new API feature and was really struggling with those `curl` examples.

@@ -33,7 +33,7 @@ another.
 
 Docker allows the application to use the same infrastructure as that of the
 system on which the application is running. Everything needed by the application is
-packed into a container and shipped to the production sever. This benefits both
+packed into a container and shipped to the production server. This benefits both
 the developers and the operations team. It frees the developers to concentrate
 on writing code without needing to worry about the infrastructure on which the
 code is deployed and running. For system administrators, Docker provides

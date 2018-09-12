@@ -62,15 +62,22 @@ Use the following steps to register an OSSO Agent (mod_sso):
 
    ![]({% asset_path 2018-09-13-integrate-dicoverer-with-OAM/Picture3.png %})
 
-3. Click **Oracle OSSO Agent**, which takes you to the following screen:
+<ol start=3>
+    <li>
+      Click <b>Oracle OSSO Agent</b>, which takes you to the following screen:
+    </li>
+</ol>
 
    ![]({% asset_path 2018-09-13-integrate-dicoverer-with-OAM/Picture4.png %})
 
-4. Enter the following ``Name`` and ``Base URL`` and select ``Token Version``
-   v1.4:
+<ol start=4>
+    <li>
+      Enter the following ``Name`` and ``Base URL`` and select ``Token Version`` v1.4:
 
-        Name: OSSO_11G_DEVDISCO
-        Base URL: http://<discoverer_server>:8090 (Dev Disco url)
+      Name: OSSO_11G_DEVDISCO
+      Base URL: http://<discoverer_server>:8090 (Dev Disco url)
+    </li>
+</ol>
 
 5. Click **Apply**.
 
@@ -96,8 +103,12 @@ Use the following steps to update authentication and authorization policies:
 
    ![]({% asset_path 2018-09-13-integrate-dicoverer-with-OAM/Picture9.png %})
 
-2. Change the Authentication scheme to `EBSAuthScheme` and click **Apply** as
-   shown in the following image:
+<ol start=2>
+    <li>
+       Change the Authentication scheme to `EBSAuthScheme` and click **Apply**
+       as shown in the following image:
+    </li>
+</ol>
 
    ![]({% asset_path 2018-09-13-integrate-dicoverer-with-OAM/Picture10.png %})
 

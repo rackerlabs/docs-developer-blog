@@ -77,12 +77,14 @@ Use the following steps to register an OSSO Agent (mod_sso):
       Name: OSSO_11G_DEVDISCO
       Base URL: http://<discoverer_server>:8090 (Dev Disco url)
     </li>
+    <li>
+      Click **Apply**.
+    </li>
+    <li>
+      Verify the `SSO_Agent`` by going to the Launch Pad, clicking the **Agents**
+      icon, and searching for SSO agents as shown in the following images:
+    </li>
 </ol>
-
-5. Click **Apply**.
-
-6. Verify the `SSO_Agent`` by going to the Launch Pad, clicking the **Agents**
-   icon, and searching for SSO agents as shown in the following images:
 
    ![]({% asset_path 2018-09-13-integrate-dicoverer-with-OAM/Picture5.png %})
 

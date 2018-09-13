@@ -11,8 +11,8 @@ categories:
   - database
 ---
 
-This post shows you how to integrate Discoverer 11g with the single sign-on
-(SSO) solution delivered by Oracle&reg; Access Manager (OAM) 11g. It helps anyone
+This post shows you how to integrate Oracle&reg; Discoverer 11g with the single
+sign-on (SSO) solution delivered by Oracle Access Manager (OAM) 11g. It helps anyone
 who is looking for a one-stop login solution across different applications.
 
 
@@ -21,7 +21,7 @@ who is looking for a one-stop login solution across different applications.
 ### Oracle Discoverer certification matrix
 
 Oracle Discoverer 11.1.1.7.0 is certified with Oracle Access Manager 11.1.2.0.0
-on Linux x86-64 Oracle Linux 5 Update Level 3+.
+on Linux&reg; x86-64 Oracle Linux 5 Update Level 3+.
 
 Oracle E-Business Suite 12.1.1 is certified with Oracle Discoverer 11.1.1.7.0 on
 Linux x86-64 RedHat&reg; Enterprise Linux 5 Update Level 5+.
@@ -33,9 +33,9 @@ The following diagram shows the OAM operational flow:
 
 ### Configure SSO for Discoverer
 
-If you are planning to configure SSO for both Oracle E-Business Suite
-and Oracle BI Discoverer, you need to configure SSO for the Oracle
-E-Business Suite first. Oracle Access Manager, the preferred solution, forms the
+If you are planning to configure SSO for both Oracle E-Business Suite (EBS)
+and Oracle Business Intelligence (BI) Discoverer, you need to configure SSO for
+the Oracle EBS first. Oracle Access Manager, the preferred solution, forms the
 basis of Oracle Fusion Middleware 11g.
 
 The following steps are explained in more detail in the following sections:
@@ -49,9 +49,9 @@ The following steps are explained in more detail in the following sections:
 
 #### Registration
 
-Use the following steps to register an OSSO Agent (mod_sso):
+Use the following steps to register an OSSO agent (mod_sso):
 
-1. Login to the [oamconsole](http://<oam_server>:7002/oamconsole) and click
+1. Log in to the [oamconsole](http://<oam_server>:7002/oamconsole) and click
    **Setup**.
 
 
@@ -72,16 +72,16 @@ Use the following steps to register an OSSO Agent (mod_sso):
 
 <ol start=4>
     <li>
-      Enter the following ``Name`` and ``Base URL`` and select ``Token Version`` v1.4:
+      Enter the following <b>Name</b> and <b>Base URL</b> and select <b>Token Version</b> v1.4:
 
       Name: OSSO_11G_DEVDISCO
       Base URL: http://<discoverer_server>:8090 (Dev Disco url)
     </li>
     <li>
-      Click **Apply**.
+      Click <b>Apply</b>.
     </li>
     <li>
-      Verify the `SSO_Agent`` by going to the Launch Pad, clicking the **Agents**
+      Verify the <b>SSO_Agent</b> by going to the Launch Pad, clicking the <b>Agents</b>
       icon, and searching for SSO agents as shown in the following images:
     </li>
 </ol>
@@ -107,8 +107,8 @@ Use the following steps to update authentication and authorization policies:
 
 <ol start=2>
     <li>
-       Change the Authentication scheme to `EBSAuthScheme` and click **Apply**
-       as shown in the following image:
+       Change the Authentication scheme to <b>EBSAuthScheme</b> and click
+       <b>Apply</b> as shown in the following image:
     </li>
 </ol>
 
@@ -196,7 +196,7 @@ Restart the  Oracle HTTP server by running the following commands, which are in
     opmnctl stopall
     opmnctl startall
 
-**Note**: That EBS Instance must be SSO enabled and configured with same OAM
+**Note**: The EBS instance must be SSO enabled and configured with same OAM
 instance.
 
 #### Validation
@@ -207,12 +207,12 @@ Validate the SSO configuration by accessing the following launchers:
 
 [Discoverer launcher](http://<discoverer_server>.corp.zynga.com:8090/discoverer/plus)
 
-Browse to the URL, enter your SSO login and click **Login** as shown in the
+Browse to the URL, enter your SSO login, and click **Login** as shown in the
 following image:
 
 ![]({% asset_path 2018-09-13-integrate-dicoverer-with-OAM/Picture12.png %})
 
-Fill in the details as show in the following image:
+Fill in the details as shown in the following image:
 
 ![]({% asset_path 2018-09-13-integrate-dicoverer-with-OAM/Picture13.png %})
 
@@ -240,7 +240,7 @@ have to go through the hassle of maintaining and remembering yet another set of
 credentials.
 
 SSO reduces the issues related to password management and brings down the costs
-associated with setting up several helpdesk systems for password-reset issues,
+associated with setting up several help desk systems for password-reset issues,
 invalid credentials, and so on.
 
 <table>
@@ -272,6 +272,8 @@ invalid credentials, and so on.
     </td>
   </tr>
 </table>
+
+Learn more about our [Rackspace Application Services](https://www.rackspace.com/application-management).
 
 If you have any questions on the topic, comment in the field below.
 

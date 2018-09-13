@@ -273,6 +273,8 @@ invalid credentials, and so on.
   </tr>
 </table>
 
+</br>
+
 Learn more about our [Rackspace Application Services](https://www.rackspace.com/application-management).
 
 If you have any questions on the topic, comment in the field below.

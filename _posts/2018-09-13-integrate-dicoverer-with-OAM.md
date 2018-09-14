@@ -287,7 +287,6 @@ invalid credentials, and so on.
 </p>
 </br>
 
-
   <div>
     <p>If you liked this article, share it: 
     <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">

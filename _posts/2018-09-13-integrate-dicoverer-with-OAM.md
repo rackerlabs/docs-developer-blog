@@ -273,9 +273,35 @@ invalid credentials, and so on.
   </tr>
 </table>
 
+<p float="left">
+     <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+        <img src="{% asset_path shareT.png %}">
+     </a>
+     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+        <img src="{% asset_path shareFB.png %}">
+     </a>
+     <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
+        <img src="{% asset_path shareL.png %}">
+     </a>
+  </a>
+</p>
 </br>
+
+  <div>
+    <p>If you liked this article, share it: 
+    <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+        <img src="{% asset_path shareT.png %}">
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+        <img src="{% asset_path shareFB.png %}">
+    </a>
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
+        <img src="{% asset_path shareL.png %}">
+    </a>
+    </p>
+  </div>
+</div>
 
 Learn more about our [Rackspace Application Services](https://www.rackspace.com/application-management).
 
 If you have any questions on the topic, comment in the field below.
-

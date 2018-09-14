@@ -287,24 +287,19 @@ invalid credentials, and so on.
 </p>
 </br>
 
-<div class="row">
-  <div class="column">
-    <p>If you liked this article, share it: </p>
-  </div>
-  <div class="column">
+
+  <div>
+    <p>If you liked this article, share it: 
     <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
         <img src="{% asset_path shareT.png %}">
     </a>
-  </div>
-  <div class="column">
     <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
         <img src="{% asset_path shareFB.png %}">
     </a>
-  </div>
-  <div class="column">
     <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
         <img src="{% asset_path shareL.png %}">
     </a>
+    </p>
   </div>
 </div>
 

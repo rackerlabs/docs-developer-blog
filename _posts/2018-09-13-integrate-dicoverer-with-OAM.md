@@ -274,7 +274,6 @@ invalid credentials, and so on.
 </table>
 
 <p float="left">
-   If you liked this article, share it:
      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
         <img src="{% asset_path shareT.png %}">
      </a>

@@ -83,7 +83,7 @@ To implement PGP by creating and installing keys, use the following steps:
    The passphrase can be changed at any time using option `--edit-key`.
 
 <ol start=2>
-    <li> After the key is generated list the key details with the following command:</li>
+    <li> After the key is generated, list the key details with the following command:</li>
 </ol>
 
        $ gpg –list-keys
@@ -148,8 +148,8 @@ Use the following command to encrypt a file with a passphrase:
 
      $ gpg -s --no-tty --always-trust --passphrase "passphrase@test" -u <Key_Name>-pub-sub.asc "data_file.txt"
 
-If you defined your key in the source system with a passpharse, the same
-passpharase must be used in the preceding command.  In our example,
+If you defined your key in the source system with a passphrase, the same
+passphrase must be used in the preceding command.  In our example,
 “passphrase@test” is the passpharse to be used.
 
 #### Encrypt a file without a passphrase
@@ -174,6 +174,11 @@ transfer sensitive information, use file encryption functionality. These example
 in this blog were tested on Oracle Release 12.1.3.
 
 Learn more about [Rackspace Application Professional Services](www.rackspace.com/application-management/professional-services).
+
+If you liked this blog, please share it by using these links:
+<a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/introduction-to-pgp-encryption-and-decryption/">Twitter</a> | <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/introduction-to-pgp-encryption-and-decryption/">Facebook</a> | <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/2018-09-19-introduction-to-pgp-encryption-and-decryption/&title=Introduction%20to%20PGP%20encryption%20and%20decryption&summary=&source=">LinkedIn</a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[*Read another blog by this author!*](https://developer.rackspace.com/blog/Modern-supply-chain-made-simple-by-cloud-infrastructure/)
 
 If you have any questions on the topic, comment in the field below.
 

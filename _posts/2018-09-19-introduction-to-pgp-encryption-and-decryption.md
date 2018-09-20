@@ -182,7 +182,7 @@ Learn more about [Rackspace Application Professional Services](www.rackspace.com
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/introduction-to-pgp-encryption-and-decryption/">
         <img src="{% asset_path shareT.png %}">
       </a>
     </td>
@@ -190,7 +190,7 @@ Learn more about [Rackspace Application Professional Services](www.rackspace.com
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/introduction-to-pgp-encryption-and-decryption/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
@@ -198,7 +198,7 @@ Learn more about [Rackspace Application Professional Services](www.rackspace.com
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/introduction-to-pgp-encryption-and-decryption&summary=&source=">
         <img src="{% asset_path shareL.png %}">
       </a>
     </td>

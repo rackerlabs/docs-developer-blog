@@ -123,9 +123,9 @@ To implement PGP by creating and installing keys, use the following steps:
 
 <ol start=7>
     <li> After the key is imported, list it with the following command: </li>
+</ol>
 
       $ gpg --list-keys
-<ol>
 
 <ol start=8>
     <li> Now, trust the key with the following command: </li>

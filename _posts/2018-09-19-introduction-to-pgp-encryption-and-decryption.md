@@ -12,12 +12,12 @@ categories:
 ---
 
 The GNU Privacy Guard (GPG) is a complete and free implementation of the
-OpenPGP standard as defined by RFC4880 also known as PGP (Pretty Good Privacy).
+OpenPGP standard as defined by RFC4880, also known as PGP (Pretty Good Privacy).
 GPG, also known as GnuPG, is a command line tool with features for easy
 integration with other applications.
 
-Although most companies exchange sensitive data like payment details, employee
-information, and so on over the internet, these companies use PGP encryption to
+Most companies that exchange sensitive data, such as payment details, employee
+information, and so on over the internet, use PGP encryption to
 transfer files securely between two systems. This blog introduces GPG, why you
 should use file encryption, and what are the steps involved in both file
 encryption and decryption.
@@ -56,7 +56,7 @@ To implement PGP by creating and installing keys, use the following steps:
 
    After you run this command, you'll need to make the following selections:
 
-   a. Kind of key.  Select option **1** to create an RSA and RSA key, which is
+   a. Kind of key.  Select option **1** to create an RSA key, which is
    the default.
    b. Bit size.  Select **2048** bits, which is the default.
    c. Length of time that the key should be valid. Select **0** so the key does
@@ -74,7 +74,7 @@ To implement PGP by creating and installing keys, use the following steps:
 
    ![]({% asset_path 2018-09-19-introduction-to-pgp-encryption-and-decryption/Picture3.png %})
 
-   Note: You might be required to enter a passphrase to protect your secret key.
+   **Note:** You might be required to enter a passphrase to protect your secret key.
    If you are, enter it and click **ok** as shown in the following image:
 
    ![]({% asset_path 2018-09-19-introduction-to-pgp-encryption-and-decryption/Picture4.png %})
@@ -150,7 +150,7 @@ Use the following command to encrypt a file with a passphrase:
 
 If you defined your key in the source system with a passphrase, the same
 passphrase must be used in the preceding command.  In our example,
-“passphrase@test” is the passpharse to be used.
+“passphrase@test” is the passphrase to be used.
 
 #### Encrypt a file without a passphrase
 
@@ -170,7 +170,7 @@ PGP Encryption secures data transmission over the internet and only the person
 with whom you have shared the keys is able to decrypt the data and use it. This
 protects your data so that it cannot be misused, even if someone has the file.
 Without keys, no one can decrypt the file and access the data. If you need to
-transfer sensitive information, use file encryption functionality. These examples
+transfer sensitive information, use file encryption functionality. The examples
 in this blog were tested on Oracle Release 12.1.3.
 
 Learn more about [Rackspace Application Professional Services](www.rackspace.com/application-management/professional-services).

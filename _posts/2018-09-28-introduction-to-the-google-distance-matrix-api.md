@@ -1,177 +1,152 @@
 ---
 layout: post
-title: "Introduction to PGP encryption and decryption"
-date: 2018-09-19 00:00
+title: "Introduction to the Google Distance Matrix API"
+date: 2018-09-28 00:00
 comments: true
-author: Ashish Chauhan
+author: Tanmay Gupta
 published: true
 authorIsRacker: true
 categories:
     - general
-    - security
 ---
 
-The GNU Privacy Guard (GPG) is a complete and free implementation of the
-OpenPGP standard as defined by RFC4880, also known as PGP (Pretty Good Privacy).
-GPG, also known as GnuPG, is a command line tool with features for easy
-integration with other applications.
-
-Most companies that exchange sensitive data, such as payment details, employee
-information, and so on over the internet, use PGP encryption to
-transfer files securely between two systems. This blog introduces GPG, why you
-should use file encryption, and what are the steps involved in both file
-encryption and decryption.
-
+This blog explains how the Google&reg; Distance Matrix API can be incorporated
+with Oracle&reg; E-business Suite (EBS) and can be used to determine the distance
+between two physical locations.
 
 <!-- more -->
 
-### The encryption and decryption processes
+### Introduction
 
-First, a quick word about keys. Public and private keys play a vital role in
-PGP to encrypt and decrypt the data. Generally, a public key is used to encrypt
-the data and is always shared with the end users. The private key is used to
-decrypt the data and it is never shared with anyone.
+The Distance Matrix API is a service that provides travel distance and time for
+a matrix of origins and destinations, based on the recommended route between
+the start and end points.
 
-Now, the following diagrams show the encryption and decryption processes:
+You access the Distance Matrix API through an HTTP interface, with requests
+constructed as a URL string, using origins and destinations, along with your
+API key.
 
-![]({% asset_path 2018-09-19-introduction-to-pgp-encryption-and-decryption/Picture1.png %})
+The API key provided by Google is chargeable, and for testing this API, Google
+provides a test API that can be embedded in the code to generate the desired URL
+and get the distance between origins and destinations.
 
-![]({% asset_path 2018-09-19-introduction-to-pgp-encryption-and-decryption/Picture2.png %})
+### Test the API
 
-### Advantages of PGP encryption
+Use the following URL to generate the XML file that calculates the distance
+between the **SOURCE** and **DESTINATION** with the API Key:
 
-Following are some advantages of PGP encryption:
+    https://maps.googleapis.com/maps/api/distancematrix/xml?units=imperial&origins=[ORIGIN Location]&destinations=[DESTINATION Location]&key=[YOUR_API_KEY]
 
-1.	It protects sensitive information.
-2.	Files and text cannot be misused through email attacks.
-3.	It protects data against viruses.
+The following sections provides steps to test the API.
 
-### Steps to implement PGP
+#### Generate the test API key
 
-To implement PGP by creating and installing keys, use the following steps:
+To generate the test API key, browse to the following URL and log in with your
+gmail ID:
 
-1. Generate a key on your source system with the following command:
+    https://console.cloud.google.com/
 
-        $ gpg --gen-key
+#### Create a project
 
-   After you run this command, you'll need to make the following selections:
+On the home page, click on **Select a project** as shown in the following image:
 
-   a. Kind of key.  Select option **1** to create an RSA key, which is
-   the default.
-   b. Bit size.  Select **2048** bits, which is the default.
-   c. Length of time that the key should be valid. Select **0** so the key does
-   not expire.
+![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture1.png %})
 
-   Once you've made all these selections, press **Enter** again.
+To create a new project, enter the project name and click **Create** as shown
+in the following image.
 
-   When asked to confirm that the key does not expire, press **y**.
+![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture2.png %})
 
-   Now, you'll be shown the key name and user id that you chose. Then you'll be
-   prompted to "Change (N)ame, (C)omment, (E)mail, or (O)kay/(Q)uit?", choose
-   **O** for okay.
+After the project is successfully completed, click **Select a project** again.
 
-   The following image shows these prompts and responses:
+To select the project that you just created, click on it in the list, as shown
+in the following image:
 
-   ![]({% asset_path 2018-09-19-introduction-to-pgp-encryption-and-decryption/Picture3.png %})
+![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture3.png %})
 
-   **Note:** You might be required to enter a passphrase to protect your secret key.
-   If you are, enter it and click **ok** as shown in the following image:
+#### Go to the API dashboard and enable the Distance Matrix
 
-   ![]({% asset_path 2018-09-19-introduction-to-pgp-encryption-and-decryption/Picture4.png %})
+To go to the API dashboard, open the navigation menu by clicking on the
+hamburger menu in the upper-right corner (next to the words "Google Cloud Platform").
+Then click **API & Services -> Dashboard**, as shown in the following image:
 
-   It is not mandatory to have a passphrase, but having one is a good idea.
-   The passphrase can be changed at any time using option `--edit-key`.
+![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture4.png %})
 
-<ol start=2>
-    <li> After the key is generated, list the key details with the following command:</li>
-</ol>
+To enable the Distance Matrix, click on **ENABLE APIS AND SERVICES**, as shown
+in the following image:
 
-       $ gpg –list-keys
+![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture5.png %})
 
-       pub   2048R/F2F771CF 2018-02-15
-       uid                  <Key_Name>
-       sub   2048R/A5D75B00 2018-02-15
+Then, in the menu bar, search for "Distance Matrix API", as shown in the
+following image:
 
+![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture6.png %})
 
-<ol start=3>
-    <li> Export the public key, so that it can be shared with the target instance,
-    by using the following command on the source server:</li>
-</ol>
+Finally, click **Enable**.  The resulting screen is shown in the following image:
 
-       $ gpg --armor --output <Key_Name>-pub-sub.asc --export '<Key_Name>'
+![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture7.png %})
 
-<ol start=4>
-    <li> Validate the generated key with the following command:</i>
-</ol>
+#### Create an API key
 
-       $ cat <Key_Name>-pub-sub.asc
+To create an API key, go to the **Credentials** tab, select **API key**, and
+click **Create credentials**, as shown in the following image:
 
-<ol start=5>
-    <li> To transfer the generated key to the target system, retrieve the key
-    <b><Key_Name>-pub-sub.asc</b> from the server and send the file to the contact
-    person of the target system by using email.</li>
-</ol>
+![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture8.png %})
 
-<ol start=6>
-    <li> Install the key on the target system with the following command: </i>
-</ol>
+The API key (AIzaSyBEJa1xqGHtQkfhFlYUPG_HnDpsgTxStzM) was generated successfully,
+as shown in the following image:
 
-       $ gpg --import <Key_Name>-pub-sub.asc
+![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture9.png %})
 
-       gpg: Total number processed: 1
-       gpg:               imported: 1
+#### Get the distance between two locations
 
-<ol start=7>
-    <li> After the key is imported, list it with the following command: </li>
-</ol>
+The following URL is an example generated with destination, origin and the test
+API Key.
 
-      $ gpg --list-keys
+    https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyBEJa1xqGHtQkfhFlYUPG_HnDpsgTxStzM
 
-<ol start=8>
-    <li> Now, trust the key with the following command: </li>
-</ol>
+The URL fetches the distance in form of an XML file (shown in the following
+image), which stores the distance between two places in the text tag.
 
-       $ gpg --edit-key <Key_Name>-pub-sub.asc
+![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture10.png %})
 
-       gpg> trust
-       Your decision? (no. 5)
-       Do you really want to set this key to ultimate trust Y/N? (Y)
+### Use the API with Oracle EBS
 
-### Encrypt a file
+In Oracle, the URL’s are executed using `UTL_HTTP` utility, which executes the
+generated URL and produces XML output, which can be stored in any Character
+Large Object (CLOB) data type variable.
 
-After you've created and installed the key, you use it to encrypt a file, either
-with or without a passphrase.
+This XML then can be read, and the value of any XML tag can be fetched from the
+CLOB variable, as shown in teh following example:
 
-#### Encrypt a file with a passphrase
+    DECLARE
+      l_clob clob;
+      l_http_req utl_http.req;
+      l_http_resp utl_http.resp;
+      l_text          varchar2(32767);
+      thexml xmltype;
 
-Use the following command to encrypt a file with a passphrase:
+    BEGIN
+      l_http_req := utl_http.begin_request(p_url, 'POST');--  Execute the URL
+      l_http_resp := utl_http.get_response(l_http_req);  --  Collect the Response of URL Hit
+      UTL_HTTP.read_text(l_http_resp, l_text, 32767);  --  Read the Response in a File to generate XML
+      DBMS_LOB.writeappend (l_clob, LENGTH(l_text), l_text);  --  Write the  Response to CLOB datatype
+      thexml := xmltype.createxml(v_req);  --  Generate XML data from the Response captured
+      select extractvalue(thexml, '/DistanceMatrixResponse/row/element/distance/text') from   dual;  --  Read a Particulat XML field from the XML data
+    END;
 
-     $ gpg -s --no-tty --always-trust --passphrase "passphrase@test" -u <Key_Name>-pub-sub.asc "data_file.txt"
-
-If you defined your key in the source system with a passphrase, the same
-passphrase must be used in the preceding command.  In our example,
-“passphrase@test” is the passphrase to be used.
-
-#### Encrypt a file without a passphrase
-
-Use the following command to encrypt a file without a passphrase:
-
-     $ gpg --encrypt --recipient ‘<Key_Name>-pub-sub.asc’ data_file.txt
-
-### Decrypt a file
-
-Use the following command to decrypt a file:
-
-     $ echo $PASSPHRASE | gpg --batch --yes  --passphrase-fd 0 data_file.txt.gpg
+One place in Oracle EBS where the Google API might be used in the expense module.
+For example, employees create entries for travel expenses between two locations,
+and the distance between two locations gets calculated automatically.
 
 ### Conclusion:
 
-PGP Encryption secures data transmission over the internet and only the person
-with whom you have shared the keys is able to decrypt the data and use it. This
-protects your data so that it cannot be misused, even if someone has the file.
-Without keys, no one can decrypt the file and access the data. If you need to
-transfer sensitive information, use file encryption functionality. The examples
-in this blog were tested on Oracle Release 12.1.3.
+The Distance Matrix API can be used to perform multiple tasks like requesting
+the distance data for different travel modes, requesting distance data in
+different units (for example, in kilometres or miles), and estimating travel
+time in traffic. It is intended for developers who wish to compute travel
+distance and time between different points within maps provided by one of the
+Google Maps APIs.
 
 Learn more about [Rackspace Application Professional Services](www.rackspace.com/application-management/professional-services).
 

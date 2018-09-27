@@ -28,12 +28,12 @@ API key.
 
 The API key provided by Google is chargeable, and for testing this API, Google
 provides a test API that can be embedded in the code to generate the desired URL
-and get the distance between origins and destinations.
+and get the distance between the origins and destinations.
 
 ### Test the API
 
-Use the following URL to generate the XML file that calculates the distance
-between the **SOURCE** and **DESTINATION** with the API Key:
+Use the following URL to generate an XML file that calculates the distance
+between the **ORIGIN** and **DESTINATION** with the API Key:
 
     https://maps.googleapis.com/maps/api/distancematrix/xml?units=imperial&origins=[ORIGIN Location]&destinations=[DESTINATION Location]&key=[YOUR_API_KEY]
 
@@ -67,7 +67,7 @@ in the following image:
 #### Go to the API dashboard and enable the Distance Matrix
 
 To go to the API dashboard, open the navigation menu by clicking on the
-hamburger menu in the upper-right corner (next to the words "Google Cloud Platform").
+hamburger menu in the upper-right corner (next to **Google Cloud Platform**).
 Then click **API & Services -> Dashboard**, as shown in the following image:
 
 ![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture4.png %})
@@ -100,24 +100,24 @@ as shown in the following image:
 
 #### Get the distance between two locations
 
-The following URL is an example generated with destination, origin and the test
+The following URL is an example generated with origin, destination, and the test
 API Key.
 
     https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyBEJa1xqGHtQkfhFlYUPG_HnDpsgTxStzM
 
-The URL fetches the distance in form of an XML file (shown in the following
+The URL fetches the distance in the form of an XML file (shown in the following
 image), which stores the distance between two places in the text tag.
 
 ![]({% asset_path 2018-09-28-introduction-to-the-google-distance-matrix-api/Picture10.png %})
 
 ### Use the API with Oracle EBS
 
-In Oracle, the URL’s are executed using `UTL_HTTP` utility, which executes the
+In Oracle, the URLs are executed by using `UTL_HTTP` utility that executes the
 generated URL and produces XML output, which can be stored in any Character
 Large Object (CLOB) data type variable.
 
-This XML then can be read, and the value of any XML tag can be fetched from the
-CLOB variable, as shown in teh following example:
+This XML can be read, and the value of any XML tag can be fetched from the
+CLOB variable, as shown in the following example:
 
     DECLARE
       l_clob clob;
@@ -135,18 +135,18 @@ CLOB variable, as shown in teh following example:
       select extractvalue(thexml, '/DistanceMatrixResponse/row/element/distance/text') from   dual;  --  Read a Particulat XML field from the XML data
     END;
 
-One place in Oracle EBS where the Google API might be used in the expense module.
+One place in Oracle EBS where the Google API might be used is in the expense module.
 For example, employees create entries for travel expenses between two locations,
 and the distance between two locations gets calculated automatically.
 
 ### Conclusion:
 
-The Distance Matrix API can be used to perform multiple tasks like requesting
+The Distance Matrix API can be used to perform multiple tasks such as requesting
 the distance data for different travel modes, requesting distance data in
-different units (for example, in kilometres or miles), and estimating travel
-time in traffic. It is intended for developers who wish to compute travel
-distance and time between different points within maps provided by one of the
-Google Maps APIs.
+different units (for example, in kilometers or miles), and estimating travel
+time in traffic. The API is intended for developers who wish to compute travel
+distance and time between different points within maps that are provided by one
+of the Google Maps APIs.
 
 Learn more about [Rackspace Application Professional Services](www.rackspace.com/application-management/professional-services).
 

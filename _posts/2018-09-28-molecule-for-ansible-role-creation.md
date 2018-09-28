@@ -604,7 +604,7 @@ Verifier completed successfully.
 
 ```
 
-Great! With all that, now we know that our Ansible and Python tests are linted, and our tests run meaning our role does what we **intend** for it to do.
+Great! With all that, now we know that our Ansible and Python tests are linted, and our tests run. This means our role does what we **intend** for it to do.
 
 ### Molecule verify
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Containers and Cloud Portability"
-date: 2018-09-24 00:00
+date: 2018-09-28 00:00
 comments: true
 author: Sri Rajan
 published: true

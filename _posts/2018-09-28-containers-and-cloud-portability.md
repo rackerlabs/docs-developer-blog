@@ -1,0 +1,77 @@
+---
+layout: post
+title: "Containers and Cloud Portability"
+date: 2018-09-24 00:00
+comments: true
+author: Sri Rajan
+published: true
+authorIsRacker: true
+categories:
+  - Docker
+  - Azure
+  - aws
+
+---
+
+One of the benefits of containers is the promise of portability.  The Docker mantra it to build, ship and, run. Containers also promise the ability to, with little changes, move from a developer’s laptop to a production environment, and, in the same vein, the ability to move to from a data centre to the cloud, or, to many clouds. However, adopting containers alone does not guarantee this.  At its core containers are just a better way of packaging your applications. While they ensure a degree of technical compatibility across many clouds, they don’t ensure complete portability by themselves. In this post, we will look at some of the many considerations from the portability lens.
+
+<!-- more -->
+
+- **Container Networking**
+
+Each cloud provides its own constructs for building networks. They often map to traditional setups like subnets, load balancing and access control lists. They provide additional features that are cloud specific, like being able to scale horizontally or managed VPNs. In addition, they often have container specific features such as the [AWS VPC CNI](https://github.com/aws/amazon-vpc-cni-k8s) or [GKE integrated load balancing](https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing). The portability question now hinges on where you draw the line on what you can use?  Do you make hard choices like avoiding features such as VPN and deploy your own network appliance?  Do you build your own load balancing setup that scales with load? This is complex problem to solve, and, correct answer lies in making smart trade-offs and to use the cloud specific technologies to a certain extent. 
+
+- **Container Infrastructure**
+
+All cloud providers started with providing virtual machines as a service. In many ways that is the lowest form of a cloud service today. They all provide comparable options and pricing models. You can choose to run your containers on the basic building block of virtual machine as that provides the best in terms of portability. But, you still need to be mindful of other features like auto scaling and instance grouping which are provider specific. So even if you chose the most basic building block, you have decisions to make on the other aspects. In general, this is easier to solve by adding some abstraction or mindfully using those cloud specific features.
+
+- **Container Orchestration Platform**
+
+The container infrastructure needs to run something to be able to use containers at scale and in production. This something is provided by technologies like Docker Swarm or Apache Mesos + Marathon or the increasingly popular, [Kubernetes](https://kubernetes.io/).  To make this easier, cloud providers provide PaaS such as [AWS Elastic Kubernetes Service](https://aws.amazon.com/eks/) or [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/) or [Azure Kubernetes Service](https://azure.microsoft.com/en-gb/services/kubernetes-service/). In this layer, Kubernetes seems like a good selection. It is open source and all the major cloud providers have the infrastructure to run your own Kubernetes cluster or a PaaS offering. The PaaS offerings are [CNCF compliant](https://github.com/cncf/k8s-conformance) which helps in the portability. However, there is still some provider lock-in which you may need to avoid. For example, you can avoid using container optimized operating systems from the providers and use your preferred operating system. Similarly, you could decide to run your own container image registry. Providers like Google Cloud Platform also offer [vulnerability scanning](https://cloud.google.com/container-registry/docs/get-image-vulnerabilities)  which is very useful. This space will see an increasing number of services and options in the coming year. The portability question comes down to the degree of management burden you are willing to take on to run your own setup as opposed to these ready-to-use features.
+
+- **Application Packaging**
+
+The container image packages your application with other dependencies. But, there is a layer around it that can almost be termed as the true packaging. For e.g. mapping volumes, environment configuration, number of copies etc. This goes hand in hand with the orchestration platform.  Docker Compose and Kubernetes Objects are some examples. This layer needs to be the same across the all environments, not just clouds, the developer’s environment as well.  The decision of the container orchestration platform will influence this heavily. In addition, the orchestration platform will have specific cloud provider plugins that allow more seamless integration. An example of this are [GCP persistent volumes](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes). This is another area of trade-offs, if portability is off concern.
+
+- **Application Data**
+
+Data can be defined in many ways. From a business perspective, data includes things like user information or product catalogues or any related information that live in a database or a file system.  For portability, do you avoid using cloud provider services like AWS RDS or Azure SQL or Google Big Query?  If yes, then how do you build a scalable data layer that is cloud portable? This is not an easy problem and there is a significant cost to running this yourselves, and, like with networking, the answer probably lies in making some trade-offs and to use the cloud specific technologies to a certain extent. 
+
+- **Application metadata**
+
+Secondly, from a technical perspective, the data would include application configuration like usernames/passwords or environment settings. Best practices suggest that you should not store this embedded in containers. The question becomes where you store this?  Cloud providers have services for secret or configuration storage. Orchestration platforms like Kubernetes provide mechanisms that are better fit when it comes to portability of this type of data. This data can be packaged into the orchestration platform for easier portability. Even here, there are subtleties that hinder portability. Do you leverage [AWS KMS](https://aws.amazon.com/kms/) or [Cloud KMS](https://cloud.google.com/kms/docs/secret-management) for secrets or build your own systems?
+
+
+The questions posed so far paint a good picture of the challenges faced when it comes to portability. The answers are very subjective to your goals. A solution would be to do write down the must haves and the nice to haves and do a review with both technical and business viewpoints.  From the business side, you do need to understand the true management cost of these decisions and weigh them against the risks of lock-in. From the technical side, you need to understand the designs that are possible and weigh them against the complexity, performance and scalability. Containers help in some respects but don't necessarily solve for portability on the whole. Simply put, more cloud provider native you are the less portable you become.  Conversely, the less provider native you are, the more management burden in your plate and more complex your operations.  You need to figure out where in the sliding scale of portability vs complexity and portability vs management burden, you want to be.
+
+<table>
+  <tr>If you liked this blog, share it by using the following icons:</tr>
+  <tr>
+   <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+        <img src="{% asset_path shareT.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+        <img src="{% asset_path shareFB.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
+        <img src="{% asset_path shareL.png %}">
+      </a>
+    </td>
+  </tr>
+</table>
+
+</br>

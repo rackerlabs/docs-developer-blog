@@ -13,7 +13,7 @@ categories:
 
 ---
 
-One of the benefits of containers is the promise of portability.  The Docker mantra is to build, ship, and run. Containers also promise the ability to, with few changes, move from a developer’s laptop to a production environment, and, in the same vein, the ability to move from a data center to the cloud or to many clouds. However, adopting containers alone does not guarantee this.  At the core, containers are just a better way of packaging your applications. While they ensure a degree of technical compatibility across many clouds, they don’t ensure complete portability by themselves. In this post, we will look at some of the many considerations from the portability lens.
+One of the benefits of containers is the promise of portability.  The Docker mantra is to build, ship, and run. Containers also promise the ability to, with few changes, move from a developer’s laptop to a production environment and, in the same vein, the ability to move from a data center to the cloud or to many clouds. However, adopting containers alone does not guarantee this.  At the core, containers are just a better way of packaging your applications. While they ensure a degree of technical compatibility across many clouds, they don’t ensure complete portability by themselves. In this post, we will look at some of the many considerations from the portability lens.
 
 <!-- more -->
 

@@ -15,18 +15,20 @@ categories:
     - Orchestration
 ---
 
-In our Quality Engineering organization, we create, configure, and destroy a lot of servers via automation. [Ansible](https://ansible.com) is a great method for handling the configuration of servers, but the creation of Ansible roles and playbooks can be trial and error for even experieced Operations Engineers. [Molecule](https://molecule.readthedocs.io/en/latest/) provides a way to speed up the development and confidence of Ansible roles and playbooks by wrapping 
+In our Quality Engineering organization, we create, configure, and destroy a lot of servers via automation. [Ansible](https://ansible.com) is a great method for handling the configuration of servers, but the creation of Ansible roles and playbooks can be trial and error for even experienced Operations Engineers. [Molecule](https://molecule.readthedocs.io/en/latest/) provides a way to speed up the development and confidence of Ansible roles and playbooks by wrapping a virtualization driver with tools for testing and linting.
+
+<!-- more -->
 
 ## Installation
 
-Molecule and Ansible can be installed via pip, but I would recommend not running this in a dedicated virtual environment. I typically run on a Fedora system and have run into issues with `libselinux` when using a virtual environment. A quick online search can provide a work around or two, but I find it easiest to use the `--user` flag to install Molecule with the user scheme.
+Molecule and Ansible can be installed by using `pip`, but I would recommend not running this in a dedicated virtual environment. I typically run on a Fedora system and have run into issues with `libselinux` when using a virtual environment. A quick online search can provide a work around or two, but I find it easiest to use the `--user` flag to install Molecule with the user scheme.
 
 ```
 pip install --upgrade --user ansible
 pip install --upgrade --user molecule
 ```
 
-If you don't already have `ansible` or `molecule` installed, running a pip install will result in some significant output. Pip is good about drawing attention to errors, even if the resolution isn't always clear, but the last couple lines of output will provide the libraries and versions installed from those commands.
+If you don't already have `ansible` or `molecule` installed, running a pip install results in some significant output. Pip is good about drawing attention to errors, even if the resolution isn't always clear, but the last couple lines of output provide the libraries and versions installed from those commands.
 
 ## Getting started
 
@@ -37,7 +39,7 @@ If you're creating a new role in an existing Ansible playbook directory, simply 
 ~/$ cd ~/Projects/example_playbooks/roles
 ```
 
-In the interest of brevity, I'm not including the pip installation output. But, the output below provides the software versions used in the creation of this example. Both Ansible and Molecule development move quick and do have some significant changes between point releases, so these instructions might not work verbatim if the version numbers vary significantly.
+In the interest of brevity, I'm not including the pip installation output. But, the output below provides the software versions used in the creation of this example. Both Ansible and Molecule development move quick and do have some significant changes between point releases, so if the version numbers vary significantly, these instructions might now work verbatim.
 
 ```
 ~/Projects/example_playbooks$ ansible --version
@@ -58,7 +60,7 @@ molecule, version 2.17.0
 
 ## Create a role
 
-Molecule has pretty excellent help output with `molecule --help`. In this example, we're going to create a role with `molecule` and use the `vagrant` provider. `molecule` defaults to Docker for provisioning, but I prefer to use `vagrant` with VirtualBox as the majority of the testing environments I interact with are virtual machines and not containers.
+Molecule has pretty excellent help output with `molecule --help`. In this example, we're going to create a role with `molecule` and use the `vagrant` provider. `molecule` defaults to Docker for provisioning, but I prefer to use `vagrant` with VirtualBox because the majority of the testing environments I interact with are virtual machines and not containers.
 
 Creating a role, and specifying the name and driver will create a role directory structure.
 
@@ -398,7 +400,7 @@ Cool. It worked, or at least looks like it did. Even though our playbooks ran wi
 
 ### Molecule test
 
-Now we run test. This goes through all the steps and will tell us if what we think we're doing is actually working based our our `testinfra` tests. This will test our role by destroying any existing virtual machine, checking the syntax on the role, creating a new virtual machine, running our playbook, and linting and running our tests. If there are any issues, this should let us know.
+Now we run test. This goes through all the steps and tells us whether what we think we're doing is actually working based our our `testinfra` tests. This tests our role by destroying any existing virtual machine, checking the syntax on the role, creating a new virtual machine, running our playbook, and linting and running our tests. If there are any issues, this should let us know.
 
 ```
 ~/Projects/example_playbooks/nginx_install$ molecule test
@@ -449,7 +451,7 @@ An error occurred during the test sequence action: 'lint'. Cleaning up.
 
 Another unintended failure. Lint issues in the python tests. Flake provides excellent output for pep errors, so we know exactly what to fix based on the output.
 
-We can address those issues and then rerun the command which should result in the following:
+We can address those issues and then rerun the command, which should result in the following:
 
 ```
 ~/Projects/example_playbooks/nginx_install$ molecule test
@@ -606,7 +608,7 @@ Great! With all that, now we know that our Ansible and Python tests are linted, 
 
 ### Molecule verify
 
-I did skip a step here. So far I have described the steps of:
+I did skip a step here. So far I have described the steps for:
 
 * `molecule create` - create the virtual machine to make sure `molecule` is configured correctly.
 * `molecule converge` - run multiple times as we add tasks to our role.
@@ -658,4 +660,4 @@ Lint completed successfully.
 
 ## Conclusion
 
-Molecule is a great abstraction for the multiple steps of create, test, clean process that happens during development of an Ansible role. Not only does it create and provide sane defaults to the directory structure of a role, it makes it easy to create a test a role during development. While there is a bit of a learning curve, the increased productivity of testing during development makes it an absolutely worthwhile investment.
+Molecule is a great abstraction for the multiple steps of create, test, and clean that happen during development of an Ansible role. Not only does it create and provide sane defaults to the directory structure of a role, it makes it easy to create a test a role during development. While there is a bit of a learning curve, the increased productivity of testing during development makes it an absolutely worthwhile investment.

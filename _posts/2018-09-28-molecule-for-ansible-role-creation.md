@@ -62,7 +62,7 @@ molecule, version 2.17.0
 
 Molecule has pretty excellent help output with `molecule --help`. In this example, we're going to create a role with `molecule` and use the `vagrant` provider. `molecule` defaults to Docker for provisioning, but I prefer to use `vagrant` with VirtualBox because the majority of the testing environments I interact with are virtual machines and not containers.
 
-Creating a role, and specifying the name and driver will create a role directory structure.
+Creating a role and specifying both the name and driver creates a role directory structure.
 
 ```
 ~/Projects/example_playbooks$ molecule init role --role-name nginx_install --driver-name vagrant
@@ -94,7 +94,7 @@ Initialized role in /home/dan/Projects/example_playbooks/nginx_install successfu
 8 directories, 11 files
 ```
 
-As you can see, that command creates quite a few directories. Most of these are standard/best-practices for Ansible.
+As you can see, that command creates quite a few directories. Most of the following files and directories are standard and are considered best practises for Ansible.
 
 * defaults - default values to variables for the role
 * handlers - specific handlers to notify based on actions in Ansible
@@ -106,13 +106,13 @@ As you can see, that command creates quite a few directories. Most of these are 
 
 ## Modifications from default Molecule
 
-Theres a few defaults I **always** change when using `molecule` as it uses `Cookie-Cutter` to create a default configuration. The first, `molecule` defaults to Ubuntu, but the majority of our test systems are RHEL based. Also I prefer to specify the memory and CPUs rather than relying on the box defaults.
+Theres a few defaults I **always** change when using `molecule` because it uses `Cookie-Cutter` to create a default configuration. The first, `molecule` defaults to Ubuntu, but the majority of our test systems are RHEL based. Also I prefer to specify the memory and CPUs rather than relying on the box defaults.
 
-Another thing we'll change from default is to set up port forwarding. Since using `nginx` in this example we may as well set it up so we can hit the webserver locally.
+Another thing we'll change from default is to set up port forwarding. Because we're using `nginx` in this example, we may as well set it up so we can hit the webserver locally.
 
-These changes are made through modification of the `molecule/default/molecule.yml` file to be similar to what is given below. This `molecule.yml` file is where `molecule` looks for the configuration of instances, testing, linting, etc.
+These changes are made by modifying the `molecule/default/molecule.yml` file to be similar to the following example. This `molecule.yml` file is where `molecule` looks for the configuration of instances, testing, linting, etc.
 
-*Heads up, a raw copy/pasta of below will result in an error. Read on to see why*
+*Heads up, a raw copy/pasta of the following code will result in an error. Read on to see why*
 
 ```
 ~/Projects/example_playbooks/nginx_install$ cat molecule/default/molecule.yml 
@@ -144,7 +144,7 @@ verifier:
     name: flake8
 ```
 
-Once we've got the `molecule` configuration to our liking, time to start working on the role itself. Ansible role tasks are in `tasks/main.yml` for the role. This example is pretty simple, so all we're doing is installing a repository to install `nginx`, installing `nginx`, and starting/enabling `nginx`. The only Ansible modules we need for this is `yum` for package installation, and `systemd` to start and enable the service.
+Once we've got the `molecule` configuration to our liking, time to start working on the role itself. Ansible role tasks are in `tasks/main.yml` for the role. This example is pretty simple, so all we're doing is installing a repository to install `nginx`, installing `nginx`, and starting/enabling `nginx`. The only Ansible modules we need for this is `yum` for package installation and `systemd` to start and enable the service.
 
 ```
 ~/Projects/example_playbooks/nginx_install$ cat tasks/main.yml 
@@ -180,13 +180,13 @@ This role is pretty simple, so our tests are pretty simple. Since we're just ins
 
 ### Tests - quantity or quality?
 
-The tests below are three tests that are all pretty simple. The overall count of tests really doesn't matter as much as the quality of tests. While we've got three tests in this example, we could easily have one, or five. This may vary based on the Software Developer, but I chose the three below because it follows a logical order.
+The following three tests are all pretty simple. The overall count of tests really doesn't matter as much as the quality of tests. While we've got three tests in this example, we could easily have one or five. This might vary based on the Software Developer, but I chose the following three because they follow a logical order.
 
 1. Make sure nginx is installed
 1. Make sure nginx configuration was installed correctly
 1. Make sure nginx is running and enabled
 
-This is easiest looking at it backwards. If we had one test to see if `nginx` is running, when it fails we won't know why it fails. That one test can't tell us if it was not installed, if the configuration was incorrect, or if it was not started. My approach is to first make sure it is installed, next check if the configuration exists (in a more elaborate example, we'd instead check to make sure there is some expected text in the configuration file). Finally, we make sure `nginx` is running and enabled. This way the tests follow a logical flow of prerequisites to get to our ultimate state, and knock out some troubleshooting steps along the way.
+This is easiest to understand by looking at it backwards. If we had one test to see if `nginx` is running, when it fails we won't know why it fails. That one test can't tell us if it was not installed, if the configuration was incorrect, or if it was not started. My approach is to first make sure it is installed, next check if the configuration exists (in a more elaborate example, we'd instead check to make sure there is some expected text in the configuration file). Finally, we make sure `nginx` is running and enabled. This way the tests follow a logical flow of prerequisites to get to our ultimate state, and knock out some troubleshooting steps along the way.
 
 ```
 cat molecule/default/tests/test_default.py
@@ -214,11 +214,11 @@ def test_nginx_running(host):
 
 ## Running Molecule
 
-We've got our role written, and our tests. We could just run `molecule test` and work through all the steps. But, I prefer running `create`, `converge`, and `test` all seperately, and in that order. This seperates the various steps and makes any failures easier to track down.
+We've got both our role and tests written. We could just run `molecule test` and work through all the steps. But, I prefer running `create`, `converge`, and `test` all separately and in that order. This separates the various steps and makes any failures easier to track down.
 
 ### Molecule create
 
-The first step of Molecule is the creation of the virtual machine. For `Docker` and `vagrant` providers, Molecule includes a default `create` playbook. Running `molecule create` will create the virtual machine for our role based on the `molecule.yml` configuration.
+The first step of Molecule is the creation of the virtual machine. For `Docker` and `vagrant` providers, Molecule includes a default `create` playbook. Running `molecule create` creates the virtual machine for our role based on the `molecule.yml` configuration.
 
 ```
 ~/Projects/example_playbooks/nginx_install$ molecule create
@@ -246,7 +246,7 @@ Validation completed successfully.
 ERROR: 
 ```
 
-That create gave us an error, and Ansible has a `no_log` property for tasks that is intended to prevent the outputting secrets that stopped us from seing what exactly went wrong. We can set the environment variable of `MOLECULE_DEBUG` to log errors, but the first thing I do to save some typing is rerun the command with `--debug` flag.
+That create gave us an error, and Ansible has a `no_log` property for tasks that is intended to prevent the outputting secrets that stopped us from seeing what exactly went wrong. We can set the environment variable of `MOLECULE_DEBUG` to log errors, but the first thing I do to save some typing is rerun the command with `--debug` flag.
 
 ```
 ~/Projects/example_playbooks/nginx_install$ molecule --debug create
@@ -269,7 +269,7 @@ That create gave us an error, and Ansible has a `no_log` property for tasks that
     
 ```
 
-Reading into the error tells us it was an "error" in Vagrant, and not necessarily one with `molecule` itself. We can look at the file provided in the error output for more clues.
+Reading into the error tells us it was an "error" in Vagrant and not necessarily one with `molecule` itself. We can look at the file provided in the error output for more clues.
 
 ```
 ~/Projects/example_playbooks/nginx_install$ cat /tmp/molecule/nginx_install/default/vagrant-nginx_install.err
@@ -301,7 +301,7 @@ platforms:
   - name: nginx-install
 ```
 
-Now we try again on the `create`:
+Now, we try again on the `create`:
 
 ```
 ~/Projects/example_playbooks/nginx_install$ molecule create
@@ -350,9 +350,9 @@ Validation completed successfully.
 
 ### Molecule converge
 
-Molecule `create` only acts as orchestration. The `coverge` step is what runs our playbook that calls our role to configure the environment. There's good reason to do these steps seperate. First, the `create` step ensures our virtual machine is provisioned and started correctly. Once it's up, we've got less troubleshooting when actually running the playbook.
+Molecule `create` only acts as orchestration. The `coverge` step is what runs our playbook that calls our role to configure the environment. There's good reason to do these steps separate. First, the `create` step ensures our virtual machine is provisioned and started correctly. After it's up, we've got less troubleshooting when actually running the playbook.
 
-Another benefit of running steps seperately is that on a more complicated role, we could just run `converge` after every task we add to our role to make sure it does what we intend for it to do. Because we only have three simple tasks, we can run converge to test all tasks at the same time.
+Another benefit of running steps separately is that, on a more complicated role, we could just run `converge` after every task to which we add to our role to make sure that it does what we intend for it to do. Because we only have three simple tasks, we can run converge to test all tasks at the same time.
 
 ```
 ~/Projects/example_playbooks/nginx_install$ molecule converge

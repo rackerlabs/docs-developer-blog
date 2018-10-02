@@ -15,7 +15,7 @@ categories:
     - Orchestration
 ---
 
-Ansible development is fast, and anyone using Ansible extensively has most likely come across an instance where a playbook that used to work does not work on a later Ansible version. Or, a system that wasn't supported initially is now added and an existing role requires modification to make an existing role work on the new system. I previously walked through [Ansible role creation with Molecule](molecule-for-ansible-role-creation/), but it's just as easy to add to existing roles. See that post for more details on using and debugging Molecule. Creating a Molecule scenario to test an existing role allows for easy testing and modification of that role with all the benefits that Molecule provides.
+Ansible development is fast, and anyone using Ansible extensively has most likely come across an instance where a playbook that used to work does not work on a later Ansible version. Or, a system that wasn't supported initially is now added and an existing role requires modification to make it work on the new system. See [Molecule for Ansible role creation](molecule-for-ansible-role-creation/) for more details on using and debugging Molecule. Creating a Molecule scenario to test an existing role allows for easy testing and modification of that role with all the benefits that Molecule provides.
 
 <!-- more -->
 
@@ -47,7 +47,7 @@ For an easy example, we use a simple role that installs and starts a webserver. 
   become: "yes"
 ```
 
-Because Ansible and Molecule development is very fast these instructions may not work exactly as demonstrated if the software version vary significantly from the following output.
+Because Ansible and Molecule development is very fast these instructions might not work exactly as demonstrated if the software version varies significantly from the following output.
 
 ```
 ~/Projects/example_playbooks/roles/apache_install$ ansible --version && molecule --version
@@ -62,7 +62,7 @@ molecule, version 2.17.0
 
 ## Init scenario
 
-Since the role already exists only a scenario needs to be created. A Molecule scenario is the same in this context as it is when using Molecule to create the role, but it results in Molecule not creating the directory structure and template files. The parameters to `init scenario` are almost exactly the same as `init role`, and result in the same Molecule directory structure as if we created the role with Molecule.
+Because the role already exists, only a scenario needs to be created. A Molecule scenario is the same in this context as it is when using Molecule to create the role, but it results in Molecule not creating the directory structure and template files. The parameters to `init scenario` are almost exactly the same as `init role` and result in the same Molecule directory structure as if we created the role with Molecule.
 
 Molecule `init scenario` usage information:
 
@@ -86,7 +86,7 @@ Options:
   --help                          Show this message and exit.
 ```
 
-We create the scenario using the existing role name and specifying using Vagrant as the driver. The Molecule directory structure will be initialized the same as if we created the role with Molecule, but without any role specific directories being created (such as `handlers`, `meta`, etc).
+We create the scenario by using the existing role name and specifying using Vagrant as the driver. The Molecule directory structure is initialized the same as if we created the role with Molecule but without any role specific directories being created (such as `handlers`, `meta`, etc).
 
 ```
 ~/Projects/example_playbooks/roles/apache_install$ molecule init scenario --role-name apache_install --driver-name vagrant
@@ -110,9 +110,9 @@ Initialized scenario in /home/dan/Projects/example_playbooks/roles/apache_instal
 
 ## Configuration
 
-The Molecule configuration will be initialized as the default provided by molecule. I edit this to use CentOS 7 rather than the default Ubuntu 16.04. Also, I recommend updating the name of the virtual machine to something different to distinguish that virtual machine in case we need to troubleshoot at some point.
+The Molecule configuration is initialized as the default provided by molecule. I edited this to use CentOS 7 rather than the default Ubuntu 16.04. Also, I recommend updating the name of the virtual machine to something different to distinguish that virtual machine in case we need to troubleshoot at some point.
 
-In this example our tests are very similar to my previous [Ansible role creation with Molecule](molecule-for-ansible-role-creation/) post. The primary (and possibly only) differences in our tests from the previous example is we're testing for the `httpd` service rather than `nginx`.
+In this example, our tests are very similar to my previous [Ansible role creation with Molecule](molecule-for-ansible-role-creation/) post. The primary (and possibly only) differences in our tests from the previous example is that we're testing for the `httpd` service rather than `nginx`.
 
 ```
 ~/Projects/example_playbooks/roles/apache_install$ cat molecule/default/molecule.yml 
@@ -166,7 +166,7 @@ def test_apache_running_and_enabled(host):
 
 ## Molecule test
 
-Now that we've updated our Molecule configuration to use the Vagrant box we want, and updated our tests to ensure that our role is doing what we want, we run any of the Molecule commands (`test`, `create`, `converge`, etc) just as if we created the role using Molecule.
+Now that we've updated our Molecule configuration to use the Vagrant box we want and updated our tests to ensure that our role is doing what we want, we run any of the Molecule commands (`test`, `create`, `converge`, etc) just as if we created the role using Molecule.
 
 ```
 ~/Projects/example_playbooks/roles/apache_install$ molecule test
@@ -315,4 +315,4 @@ Verifier completed successfully.
 
 ## Conclusion
 
-Molecule not only provides great defaults and a consistent directory structure when creating a new role, but also makes it easy and efficient to add a Molecule workflow for testing existing roles. Adding Molecule scenarios to existing roles is a great way for testing existing roles across Operating Systems and Ansible versions to improve their reliability.
+Molecule not only provides great defaults and a consistent directory structure when creating a new role, but it also makes it easy and efficient to add a Molecule workflow for testing existing roles. Adding Molecule scenarios to existing roles is a great way for testing existing roles across Operating Systems and Ansible versions to improve their reliability.

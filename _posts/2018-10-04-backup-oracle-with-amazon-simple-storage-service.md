@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Backup Oracle with Amazon Simple Storage Service"
+title: "Back up Oracle with Amazon Simple Storage Service"
 date: 2018-10-04 00:00
 comments: true
 author: Vivek Verma
@@ -12,8 +12,8 @@ categories:
   - aws
 ---
 
-This blog post reviews how to use Amazon Web Services (AWS), Simple Storage Service
-(S3), as storage for an Oracle&reg; database backup. AWS was the first Cloud
+This blog post reviews how to use Amazon Simple Storage Service (S3), as storage
+for an Oracle&reg; Database backup. Amazon Web Services (AWS) was the first Cloud
 vendor that Oracle partnered with to enable database backup in the Cloud. S3 is
 the main storage offering of AWS.
 
@@ -36,15 +36,15 @@ The following image illustrates the S3 concept:
 
 ### Oracle Secure Backup cloud module
 
-The Oracle Secure Backup (OSB) cloud module enables an Oracle database to send
-its backup to Amazon S3. It is compatible with Oracle database versions 9i
+The Oracle Secure Backup (OSB) cloud module enables an Oracle Database to send
+its backup to Amazon S3. It is compatible with Oracle Database versions 9i
 Release 2 and above, requires a network connection to the internet, and
-provisions the means of payment to AWS. The OSB cloud module can also be used
+provides the means of payment to AWS. The OSB cloud module can also be used
 while the database is running within the Amazon Elastic Compute Cloud (EC2).
 This way it benefits from the higher internal network bandwidth without any
 transfer costs in to or out of S3.
 
-The OSB cloud module is implemented using the Oracle Recovery Manager (RMAN)
+The OSB cloud module is implemented by using the Oracle Recovery Manager (RMAN)
 serial backup tape (SBT) interface. The SBT interface allows external backup
 libraries to be seamlessly integrated with RMAN. Consequently, database
 administrators can continue to use their existing backup tools, such as Enterprise
@@ -72,13 +72,13 @@ image:
 
 #### Register for an account
 
-Register for an Oracle.com or Oracle Technology Network (OTN) Account. You must
+Register for an Oracle.com or Oracle Technology Network (OTN) account. You must
 have one of these accounts to install the OSB cloud module. New accounts can be
 created by visiting the [OTN website](http://otn.oracle.com).
 
 #### Install the OSB cloud module
 
-Download the OSB cloud module install tool from OTN's Cloud webpage, and run the
+Download the OSB cloud module install tool from the OTN website and run the
 following code to install the module.
 
     [root@ip-10-0-1-135 Downloads]# unzip osbws_installer.zip
@@ -123,9 +123,9 @@ Verify the OSB parameter file by running the following code:
       -rw-------. 1 oracle dba    0 Aug  5 07:00 cwallet.sso.lck
       -rw-------. 1 oracle dba 1613 Aug  5 07:00 cwallet.sso
 
-#### Backup the USERS tablespace
+#### Back up the USERS tablespace
 
-Run RMAN Backup to backup the **USERS** tablespace to S3, by executing the
+Run RMAN Backup to back up the **USERS** tablespace to S3 by executing the
 following code:
 
     RMAN> run {
@@ -189,8 +189,8 @@ following code:
 
 Notice that the first backup was a local one run earlier and shows a local
 backup piece (file). The second backup shows that the media was `s3.amazonaws.com`.
-The “oracle-data-vickey07-1” is the bucket, or logical container, automatically
-created within the Amazon S3.
+The `oracle-data-vickey07-1` is the bucket, or logical container, automatically
+created within Amazon S3.
 
 You can also verify the results of the backup from the AWS console as shown in
 the following image:
@@ -199,11 +199,11 @@ the following image:
 
 ### Conclusion
 
-The Oracle OSB cloud module allows customers to use Amazon’s S3 as their offsite
+The Oracle OSB cloud module allows customers to use Amazon S3 as their offsite
 backup storage destination. Compared to traditional tape-based offsite storage,
 Cloud backups are more accessible, faster to restore under most circumstances,
 and more reliable. They also eliminate the overhead associated with maintaining
-off-site backup operations. Cloud backups ensure optimal protection for databases
+offsite backup operations. Cloud backups ensure optimal protection for databases
 running within the compute cloud.
 
 <table>

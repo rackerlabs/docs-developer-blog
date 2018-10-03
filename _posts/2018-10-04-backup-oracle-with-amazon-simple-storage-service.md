@@ -241,4 +241,3 @@ running within the compute cloud.
 Learn more about our [Rackspace Application Services](https://www.rackspace.com/application-management).
 
 If you have any questions on the topic, comment in the field below.
-

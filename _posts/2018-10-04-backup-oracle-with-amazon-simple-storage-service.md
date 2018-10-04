@@ -13,8 +13,8 @@ categories:
 ---
 
 This blog post reviews how to use Amazon Simple Storage Service (S3), as storage
-for an Oracle&reg; Database backup. Amazon Web Services (AWS) was the first Cloud
-vendor that Oracle partnered with to enable database backup in the Cloud. S3 is
+for an Oracle&reg; Database backup. Amazon Web Services (AWS) was the first cloud
+vendor that Oracle partnered with to enable database backup in the cloud. S3 is
 the main storage offering of AWS.
 
 
@@ -201,7 +201,7 @@ the following image:
 
 The Oracle OSB cloud module allows customers to use Amazon S3 as their offsite
 backup storage destination. Compared to traditional tape-based offsite storage,
-Cloud backups are more accessible, faster to restore under most circumstances,
+cloud backups are more accessible, faster to restore under most circumstances,
 and more reliable. They also eliminate the overhead associated with maintaining
 offsite backup operations. Cloud backups ensure optimal protection for databases
 running within the compute cloud.

@@ -15,7 +15,7 @@ categories:
     - Orchestration
 ---
 
-Ansible development is fast, and anyone using Ansible extensively has most likely come across an instance where a playbook that used to work does not work on a later Ansible version. Or, a system that wasn't supported initially is now added and an existing role requires modification to make it work on the new system. See [Molecule for Ansible role creation](molecule-for-ansible-role-creation/) for more details on using and debugging Molecule. Creating a Molecule scenario to test an existing role allows for easy testing and modification of that role with all the benefits that Molecule provides.
+Ansible development is fast, and anyone using Ansible extensively has most likely come across an instance where a playbook that used to work does not work on a later Ansible version. Or, a system that wasn't supported initially is now added and an existing role requires modification to make it work on the new system. See [Molecule for Ansible role creation](https://developer.rackspace.com/blog/molecule-for-ansible-role-creation/) for more details on using and debugging Molecule. Creating a Molecule scenario to test an existing role allows for easy testing and modification of that role with all the benefits that Molecule provides.
 
 <!-- more -->
 
@@ -112,7 +112,7 @@ Initialized scenario in /home/dan/Projects/example_playbooks/roles/apache_instal
 
 The Molecule configuration is initialized as the default provided by molecule. I edited this to use CentOS 7 rather than the default Ubuntu 16.04. Also, I recommend updating the name of the virtual machine to something different to distinguish that virtual machine in case we need to troubleshoot at some point.
 
-In this example, our tests are very similar to my previous [Ansible role creation with Molecule](molecule-for-ansible-role-creation/) post. The primary (and possibly only) differences in our tests from the previous example is that we're testing for the `httpd` service rather than `nginx`.
+In this example, our tests are very similar to my previous [Ansible role creation with Molecule](https://developer.rackspace.com/blog/molecule-for-ansible-role-creation/) post. The primary (and possibly only) differences in our tests from the previous example is that we're testing for the `httpd` service rather than `nginx`.
 
 ```
 ~/Projects/example_playbooks/roles/apache_install$ cat molecule/default/molecule.yml 

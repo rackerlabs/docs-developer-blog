@@ -10,7 +10,7 @@ categories:
   - security
 ---
 
-This blog explore Cisco&reg; FirePOWER&reg; technology and next-generation
+This blog explores Cisco&reg; FirePOWER&reg; technology and next-generation
 firewalls (NGFW). NGFWs are composed of Adaptive Security Appliances (ASA) and
 a software module that takes care of the main functions like application control,
 intrusion protection, anti-malware protection, and URL filtering.
@@ -37,7 +37,7 @@ complications with the entire HyperText Transfer Protocol (HTTP) protocol.
 Protection based on ports, protocols, or Internet Protocol (IP) addresses is no
 longer reliable nor workable. This fact led to the development of an identity-based
 security approach, which takes organizations a step beyond conventional security
-appliances that are bind security to IP addresses.
+appliances that bind security to IP addresses.
 
 NGFWs offer administrators a deeper awareness of, and control over, individual
 applications, along with the firewall's deeper inspection capabilities.
@@ -58,7 +58,7 @@ functions than traditional firewalls, such as antivirus, antispam, or even
 intrusion prevention systems (IPS).
 
 The fine tuning of traffic provided by NGFWs can help with both security and
-bandwidth control. Since NGFWs are smarter and provide deeper inspection, they
+bandwidth control. Because NGFWs are smarter and provide deeper inspection, they
 have the potential to catch more malicious activity. They can also serve as
 content filters and provide QoS functions so that higher priority applications
 receive more priority bandwidth. Along with providing better overall security,
@@ -69,33 +69,34 @@ software as a service (SaaS) providers.
 
 Here are the common features of most NGFWs:
 
-- **Standard firewall features** These include the traditional (first-generation)
+- **Standard firewall features:** These include the traditional (first-generation)
 firewall functionalities such as stateful port/protocol inspection, Network
 Address Translation (NAT), and Virtual Private Network (VPN).
 
-- **Application identification and filtering** This is the chief characteristic
-of NGFWs. These identify and filter traffic based upon the specific applications,
-rather than just opening ports for all kinds of traffic. This prevents malicious
-applications and activity from using non-standard ports to avoid the firewall.
+- **Application identification and filtering:** This is the chief characteristic
+of NGFWs. This feature identifies and filters traffic based upon the specific
+applications, rather than just opening ports for all kinds of traffic. This
+prevents malicious applications and activity from using non-standard ports to
+avoid the firewall.
 
-- **SSL and SSH inspection** NGFWs can even inspect SSL and SSH encrypted traffic.
-These decrypt traffic, make sure the applications are allowed, check other
-policies, and then re-encrypt the traffic. This provides additional protection
-from malicious applications and activity that tries to hide itself by using
-encryption to avoid the firewall.
+- **SSL and SSH inspection:** NGFWs can even inspect SSL and SSH encrypted traffic.
+This feature decrypts traffic, makes sure the applications are allowed, checks
+other policies, and then re-encrypts the traffic. This provides additional
+protection from malicious applications and activity that tries to hide itself
+by using encryption to avoid the firewall.
 
-- **Intrusion prevention** These are more intelligent capabilities and provide
+- **Intrusion prevention:** These are more intelligent capabilities and provide
 deeper traffic inspection to perform intrusion detection and prevention. Some of
 the NGFWs have built-in IPS functionality so that a stand-alone IPS might not be
 needed.
 
-- **Directory integration** Most NGFWs include directory support (such as,
+- **Directory integration:** Most NGFWs include directory support (such as,
 Active Directory). For instance, they manage authorized applications based upon
 users and user groups.
 
-- **Malware filtering** NGFWs can also provide reputation-based filtering to
-block applications that have a bad reputation. This functionality can check
-phishing, virus, and other malware sites and applications.
+- **Malware filtering:** NGFWs can also provide reputation-based filtering to
+block applications that have a bad reputation. This functionality can check for
+phishing, viruses, and other malware sites and applications.
 
 ### NGFW development
 
@@ -106,11 +107,11 @@ data should be allowed through or blocked.
 
 Then application traffic took off, and first-generation firewalls could no longer
 keep up because hackers were able to hide malware (that could not be identified
-easily) inside the application traffic. This lead to the introduction of second
+easily) inside the application traffic. This led to the introduction of a second
 generation of firewalls, or NGWFs. This new tool can identify and block malware
-in applications and is similar to an x-ray machine used for security check at
-airports. Over time, compatible security inspection technologies were added to
-the process, such as IPS, application control, and anti-malware.
+in applications and is similar to an X-ray machine this is used for security
+checks at airports. Over time, compatible security inspection technologies were
+added to the process, such as IPS, application control, and anti-malware.
 
 Today, things are more complicated than ever. Rather than networks becoming
 borderless, they have become porous, with points of access and endpoints
@@ -127,13 +128,13 @@ their knees. As malware and threats become increasingly difficult to detect at
 the access point, it’s necessary for security to span the network to monitor
 behaviors and uncover intent.
 
-### Cisco Firepower Mangement Center overview
+### Cisco Firepower Management Center overview
 
-The Cisco Firepower Management Center (FMC) increases the effectiveness of Cisco
-network security solutions by providing centralized, integrated, and streamlined
-management.
+The Cisco Firepower&reg; Management Center (FMC) increases the effectiveness of
+Cisco network security solutions by providing centralized, integrated, and
+streamlined management.
 
-Formerly known as the FireSIGHT Management Center&reg;, the FMC is the
+Formerly known as the FireSIGHT&reg; Management Center, the FMC is the
 administrative nerve center for select Cisco security products
 running on many different platforms. It provides complete and unified management
 of firewalls, application control, intrusion prevention, URL filtering, and
@@ -141,9 +142,9 @@ advanced malware protection. The Management Center is the centralized point for
 event and policy management for the following solutions:
 
 - Cisco Firepower Next-Generation Firewall (NGFW)
-- Cisco ASA with Fire POWER Services
+- Cisco ASA with FirePOWER Services
 - Cisco Firepower Next-Generation IPS (NGIPS)
-- Cisco Fire POWER Threat Defense for ISR
+- Cisco FirePOWER Threat Defense for ISR
 - Cisco Advanced Malware Protection (AMP)
 
 The FMC provides extensive intelligence about the users, applications, devices,
@@ -176,7 +177,7 @@ Image source: Cisco
 
 #### Before
 
-Before an attack, the FMC does the following:
+Before an attack, the FMC does the following tasks:
 
 -  Provides exceptional visibility into what is running in your network so that
 you can see what needs protection.
@@ -185,7 +186,7 @@ applications are used in your environment.
 
 #### During
 
-During an attack, the FMC does the following:
+During an attack, the FMC does the following tasks:
 
 -  Defines the intrusion prevention levels, URL reputation rules, and advanced
 malware protection pieces to be put in place.
@@ -196,7 +197,7 @@ malware and even send it to the integrated sandbox, if necessary.
 
 #### After
 
-After an attack, the FMC does the following:
+After an attack, the FMC does the following tasks:
 
 -  Generates a graphical representation of all the devices that were infected
 after the attack. Provides the ability to easily create a custom rule to stop
@@ -206,11 +207,11 @@ the attack from advancing.
 ### Cisco Firepower Threat Defense
 
 Cisco Firepower Threat Defense (FTD) is a unified software image that is a
-combination of Cisco ASA and Cisco FirePOWER services features that can be
+combination of Cisco ASA and Cisco FirePOWER Services features that can be
 deployed on the Cisco Firepower 4100 and the Firepower 9300 series appliances,
 as well as on the ASA 5506-X,ASA 5506H-X, ASA 5506W-X, ASA 5508-X, ASA 5512-X,
-ASA 5515-X, ASA 5516-X, ASA 5525-X, ASA 5545-X, and ASA 5555-X. Currently, the
-FTD unified software cannot be deployed on Cisco ASA 5505 or 5585-X series
+ASA 5515-X, ASA 5516-X, ASA 5525-X, ASA 5545-X, and ASA 5555-X. Currently, you
+cannot deploy the FTD unified software on Cisco ASA 5505 or 5585-X series
 appliances.
 
 Supported models and services are shown in the following image:
@@ -224,11 +225,11 @@ the acquisition of ThreatGRID in June 2016, which provided dynamic malware
 analysis and threat intelligence technology.
 
 The FMC is available as a dedicated server or a virtual image appliance
-(Linux-based VM server) that connects to the FirePOWER or FTD and allows you to
-fully manage either system. Organizations with multiple FTD systems or FirePOWER
-Services register and manage these systems from the FMC.
+(Linux&reg;-based VM server) that connects to the FirePOWER or FTD and allows
+you to fully manage either system. Organizations with multiple FTD systems or
+FirePOWER Services register and manage these systems from the FMC.
 
-Alternatively, users can manage the FTD device using a Firepower Device Manager
+Alternatively, users can manage the FTD device by using a Firepower Device Manager
 (FDM) such as an adaptive security device manager (ASDM).
 
 Currently the latest FTD unified software image is available in version 6.2.x.
@@ -236,7 +237,8 @@ The FTD is continually expanding the NGFW services that it supports, including
 the following services:
 
 -  Stateful firewall capabilities
--  Static and dynamic routing. Supports RIP, OSPF, and BGP static routing
+-  Static and dynamic routing. Supports Routing Information Protocol(RIP), Open
+Shortest Path First (OSPF), and Border Gateway Protocol (BGP) static routing
 -  Next-generation intrusion prevention systems (NGIPS)
 -  URL filtering
 -  Application visibility and control (AVC)
@@ -247,17 +249,17 @@ the following services:
 -  Multi-domain management
 -  Rate limiting
 -  Tunneled traffic policies
--  Site-to-site virtual private networks (VPN). Only supports Site-to-site VPN
+-  Site-to-site virtual private networks (VPN). Only supports site-to-site VPN
 between FTD appliances and FTD to ASA.
--  Multicast routing shared Network Address Translation (NAT)
+-  Multicast routing shared NAT
 -  Limited configuration migration (ASA to Firepower TD)
 
 ### Firepower release notes
 
-The following sections provide selected details of from the release notes for
+The following sections provide selected details from the release notes for
 versions 6.2.3.1 through 6.2.3.5.
 
-#### Features Introduced in Firepower Version 6.2.3.3
+#### Features introduced in Firepower Version 6.2.3.3
 
 You can now configure site-to-site VPN with clustering. Site-to-site VPN is a
 centralized feature, and only the master unit supports VPN connections. This
@@ -265,7 +267,7 @@ feature is supported on the Firepower 4100/9300 platforms.
 
 #### Deployment options
 
-The FMC can be deployed as a physical or virtual appliance, or from the cloud.
+You can deploy the FMC as a physical or virtual appliance, or from the cloud.
 You can choose which options work best for your environment and deploy it on
 any of the following platforms:
 
@@ -291,16 +293,16 @@ and outside networks.
 Image source: Cisco
 
 The procedure shown in the preceding image shows a connection to the ASA console
-port and which you can paste into a new configuration to configure the following
+port that you can paste into a new configuration to configure the following
 behavior:
 
 -  Inside –> outside traffic flow.
--  Outside IP address from DHCP.
+-  Outside IP address from the Dynamic Host Configuration Protocol (DHCP).
 -  DHCP for clients on inside.
 -  The Management 1/1 interface is up, though unconfigured. The ASA FirePOWER
 module can then use this interface to access the ASA inside network and use the
 inside interface as the gateway to the Internet.
--  ASDM access on the inside interface.
+-  Adaptive Security Device Manager (ASDM) access on the inside interface.
 
 To reproduce this configuration for a Cisco AS 5506-X, perform the following
 steps:
@@ -310,7 +312,7 @@ or with a mini-USB cable.
 
 2. Launch a terminal emulator and connect to the ASA.
 
-3. Press the Enter key to see the following prompt:
+3. Press the **Enter** key to see the following prompt:
 
         ciscoasa>
 
@@ -318,7 +320,7 @@ or with a mini-USB cable.
 
         enable
 
-5. At the **Password** prompt, press Enter. By default, the password is blank.
+5. At the **Password** prompt, press **Enter**. By default, the password is blank.
 
 6. Access global configuration mode by entering the following command:
 

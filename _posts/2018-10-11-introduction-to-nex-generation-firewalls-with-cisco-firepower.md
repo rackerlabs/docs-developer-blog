@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introduction to next generation firewalls with Cisco FirePOWER"
+title: "Introduction to next-generation firewalls with Cisco FirePOWER"
 date: 2018-10-11 00:00
 comments: true
 author: Loknadh Gadde
@@ -10,16 +10,16 @@ categories:
   - security
 ---
 
-This blog explore Cisco&reg; FirePOWER&reg; technology and the next generation
-firewall (NGFW). The NGFW is composed of Adaptive Security Appliances (ASA) and
-a software module that takes care of main functions like application control,
+This blog explore Cisco&reg; FirePOWER&reg; technology and next-generation
+firewalls (NGFW). NGFWs are composed of Adaptive Security Appliances (ASA) and
+a software module that takes care of the main functions like application control,
 intrusion protection, anti-malware protection, and URL filtering.
 
 <!-- more -->
 
 ### Introduction
 
-The NGFW is a part of the third generation of firewall technology, combining a
+NGFWs are part of the third generation of firewall technology, combining a
 traditional firewall with other network device filtering functionalities, such
 as an application firewall that uses an in-line intrusion prevention system (IPS)
 called deep packet inspection (DPI). Other techniques might also be employed,
@@ -28,8 +28,8 @@ inspection, website filtering, quality of service (QoS)/bandwidth management,
 antivirus inspection, and third-party identity management integration (such as
 Lightweight Directory Access Protocol (LDAP), RADIUS, and Active Directory).
 
-IN the past, stateful firewalls with simple packet filtering capabilities were
-efficiently blocking unwanted applications because most applications met the
+In the past, stateful firewalls with simple packet filtering capabilities
+efficiently blocked unwanted applications because most applications met the
 port-protocol expectations. However, today, blocking web applications such as
 Facebook, Twitter, and other applications that use port 80 might lead to
 complications with the entire HyperText Transfer Protocol (HTTP) protocol.
@@ -41,8 +41,8 @@ appliances that are bind security to IP addresses.
 
 NGFWs offer administrators a deeper awareness of, and control over, individual
 applications, along with the firewall's deeper inspection capabilities.
-Administrators can create very granular allow/deny rules for controlling access
-by websites and applications in the network.
+Administrators can create very granular allow and deny rules for controlling
+access by websites and applications in the network.
 
 Newer firewall technology can also filter traffic based on the applications or
 traffic types traversing specific ports. For example, you could open port 80 for
@@ -57,7 +57,7 @@ the small and midsize business (SMB) market. UTM products usually offer more
 functions than traditional firewalls, such as antivirus, antispam, or even
 intrusion prevention systems (IPS).
 
-The fine-tuning of traffic provided by NGFWs can help with both security and
+The fine tuning of traffic provided by NGFWs can help with both security and
 bandwidth control. Since NGFWs are smarter and provide deeper inspection, they
 have the potential to catch more malicious activity. They can also serve as
 content filters and provide QoS functions so that higher priority applications
@@ -213,13 +213,13 @@ ASA 5515-X, ASA 5516-X, ASA 5525-X, ASA 5545-X, and ASA 5555-X. Currently, the
 FTD unified software cannot be deployed on Cisco ASA 5505 or 5585-X series
 appliances.
 
-Supported model and services are shown in the following image:
+Supported models and services are shown in the following image:
 
 ![]({% asset_path 2018-10-11-introduction-to-nex-generation-firewalls-with-cisco-firepower/Picture3.png %})
 
 Image source: Cisco
 
-Cisco acquired thet cyber-security firm Sourcefire, in October 2013 and completed
+Cisco acquired the cyber-security firm Sourcefire, in October 2013 and completed
 the acquisition of ThreatGRID in June 2016, which provided dynamic malware
 analysis and threat intelligence technology.
 

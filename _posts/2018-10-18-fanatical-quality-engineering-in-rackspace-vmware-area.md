@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fanatical Quality Engineering in Rackspace VMware Practice Area"
-date: 2018-09-28 07:00
+date: 2018-10-18 07:00
 comments: true
 author: Michael Xin
 published: true
@@ -17,55 +17,109 @@ categories:
 
 # Fanatical Quality Engineering in Rackspace VMware Practice Area
 
-Handling a huge scale of infrastructure requires automation and infrastructure as code. [Terraform](https://www.terraform.io) is a tool that helps to manage a wide variety of systems including dynamic server lifecycle, configuration of source code repositories, databases, and even monitoring services. Terraform uses text configuration files to define the desired state of infrastructure. From those files, Terraform provides information on the changes to be made based on the current state of that infrastructure, and can make those changes.
+In Rackspace VMware practice area, we value the quality of our products very much. We believe that quality is a team effort. Quality engineering team works with the development team, project management team, product engineering team and devops team to improve the quality of developed products. Our Quality has three key pillars: functionality, performance and security. Our goal is to identify and fix defects as early as possible so that we can deliver secure functional products that perform well for our customers. 
 
 <!-- more -->
 
-## Installation
 
-Terraform can be downloaded for a variety of systems at the [Terraform downloads page](https://www.terraform.io/downloads.html). After downloading, extract the archive and move the `terraform` binary to a location on your PATH. That's it. Because it's written in Go, it includes all dependancies and is a single binary.
+## Test Strategy and Process 
 
-## Configuration
+For every new product, Quality Engineering team collaborates with all teams to create product test strategy and review them together. The test strategy covers all aspects of our testing. 
 
-Terraform does not [officially support Rackspace Cloud](https://www.terraform.io/docs/providers/openstack/index.html#rackspace-compatibility) as a provider, but the OpenStack provider does work on the Rackspace Cloud and only needs a bit of configuration to get started. We use the following configuration for this simple example:
+* Overview
+* Architecture Diagram
+* Project Timelines
+* Team Contacts
+* Dependencies And Integration Systems
+* In Scope
+* Out of Scope
+* Test Approach
+* Functional Testing
+* End 2 End (E2E) Testing
+* Performance Testing
+* Security Testing
+* Exit Criteria
+* Risks & Mitigations
+
+The product test strategy is a live document. We keep updating the document based on changes in the product design, coding and testing. We are using Agile development process in VMware Practice Area. For each sprint, development team, quality engineering team and scrum master create Jira stories and pick stories together. The development team focuses on product coding and unit tests. The quality engineering team focuses on functional testing, end to end testing, performance testing and security testing. Any identified defect is entered into the Jira system so that the development team can verify and fix them as soon as possible. We are automating all our tests so that they can be incorporated into the continuous integration process of our products. 
+
+## Unit Testing 
+
+The development team is responsible of unit tests to ensure that all small pieces of the code have been test thoroughly.  The team is using [Spock testing framework](http://spockframework.org/) to create unit test cases. Spock is a testing and specification framework for Java and Groovy applications. Spock is a more powerful alternative to the traditional JUnit stack, by leveraging Groovy features. Since our products normally interact with lots of internal systems, we also mock those dependent systems. For example, here is one unit test case for one of our product: 
+
 
 ```
-import com.rackspace.objects.{VMVP, HttpConfig}
-import com.typesafe.config.ConfigFactory
-import io.gatling.core.Predef._
-import io.gatling.http.Predef._
+package com.rackspace.vdo.vmvp
+import com.rackspace.vdo.vmvp.test.support.VmvpConsumerExtensionsBaseSpec
+import grails.util.TypeConvertingMap
+import org.springframework.security.core.userdetails.UserDetails
+import spock.lang.Shared
+import spock.lang.Unroll
 
-class ListHypervisors extends Simulation {
+/**
+ * Unit Tests for AccountShowConsumer.
+ */
+class AccountShowConsumerSpec extends VmvpConsumerExtensionsBaseSpec {
 
-  val conf = ConfigFactory.load()
-  val concurrentUsers = conf.getInt("simulations.concurrentUsers")
-  val numSamples = conf.getInt("simulations.numberSamples")
-  val uri1 = "https://vrax.rackspace.com/managed-virt/{accountID}/hypervisors"
   
-  val scn = scenario("ListHypervisors")
-    .feed(csv("token.csv").random)
-    .repeat(numSamples) {
-      exec(session => {
-        val accountURL = "/managed-virt/" + VMVP.getRandomAccountId()
-        println("GET " + accountURL + "/hypervisors")
-        session.set("accountURL", accountURL)
-      })
-      .exec(http("List hypervisors")
-        .get("${accountURL}/hypervisors")
-        .headers(HttpConfig.headers_0)
-        .check(status.is(200)))
+    AccountShowConsumer consumer
+
+    @Shared
+    VdacFailure embedFailure
+
+    def setup() {
+        IdentityUser userDetails = Mock(IdentityUser)
+        vmvpFactory = Mock(VmvpFactory)
+        vmvpFactory.makeAccountDetailsResponse(*_) >> Mock(AccountDetailsResponse)
+        consumer = new AccountShowConsumer() {
+            @Override
+            UserDetails getUserDetails() {
+                return userDetails
+            }
+        }
+        consumer.rabbitMessagePublisher = rabbitMessagePublisher
+        consumer.vmvpFactory = vmvpFactory
+
+        embedFailure = new SimpleVdacFailure(httpStatus: 101, errorCode: 'x')
     }
 
-  setUp(scn.inject(atOnceUsers(concurrentUsers))).protocols(HttpConfig.httpConf)
-}
+    @Unroll
+    def 'test fetch one account #input'() {
+        setup:
+        consumer.vdacDataService = Mock(VdacDataService) {
+            loadAccount(*_) >> Mock(Account)
+        }
+
+        when:
+        consumer.handleMessage(new TypeConvertingMap(input), messageContext)
+
+        then:
+        1 * rabbitMessagePublisher.send(_) >> { rabbitMessageProperties = it[0] }
+        rabbitMessageProperties.routingKey == REPLY_TO
+        rabbitMessageProperties.body.view == expView
+        rabbitMessageProperties.headers["http-status"] == expHttpStatus
+
+        where:
+        expHttpStatus | expView         || input
+        200           | '/account/show'  || [accountId: ACCOUNT_ID]
+    }
+  }
 
 ```
 
-Theres a few things to point out in the configuration. When there are a lot of variables to be managed, variables are typically included in seperate files. Since this example only has a few, the variables are added in our configuration file right at the top. Another good thing to know about variables is that Terraform reads environment variables of `TF_VAR_<variable>`. That means that to prevent writing secrets in configuration files, environment variables of `TF_VAR_rax_pass`, `TF_VAR_rax_user`, and `TF_VAR_rax_pass` can be created and are read by Terraform at runtime.
+## Functional Testing
 
-To create an environment variable, use the following method to enter the value without that value being recorded as it would be when entering it direcly on the command line.
+Functional testing refers to activities that verify a specific action or function of the code. These are usually found in the code requirements documentation, although some development methodologies work from use cases or user stories. Functional tests tend to answer the question of "can the user do this" or "does this particular feature work." Functional test cases have positive test cases and negative cases. We are using [WireMock]( http://wiremock.org/) to mock all external systems that our products interact. WireMock is a flexible API mocking tool for fast, robust and comprehensive testing. We are developing a collection of mock web services, which allows us to independently control the state of dependencies. This will allow us to test specific functionality quickly, run tests locally and on development environments, and perform more specialized testing.  For example, here is one functional test case for one of our products:
 
 ```
+import unittest
+import framework
+import framework.config
+import framework.utils
+from framework.mappings_file_loader import MappingsFileLoader
+from framework.mock_service_factory import MockServiceFactory
+from qe_coverage.unittest_decorators import tags, unless_coverage, categories
+
 class vMvpAccountsTest(unittest.TestCase):
     @unless_coverage
     def setUp(self):
@@ -105,24 +159,11 @@ class vMvpAccountsTest(unittest.TestCase):
 
 ```
 
-Another note on the configuration, `image_id` and `flavor_id` need be updated to values for what you want to create. Most OpenStack or command line clients that interface with Rackspace have a method to list available images and flavors. If you don't have one installed and ready, take a look at the [image](https://developer.rackspace.com/docs/cloud-servers/v2/api-reference/svr-images-operations/) and [flavor](https://developer.rackspace.com/docs/cloud-servers/v2/api-reference/svr-flavors-operations/) API documentation to see how to get these right from the Cloud Server API.
 
-Finally, the network configuration provided in this configuration specifies the use of the default public and private network on the server that we create. Using the OpenStack plugin on Rackspace Cloud does require specifying networks, and not including specific networks in the configuration might result in the creation taking longer than expected and errors when attempting to destroy.
+## End to End Testing
 
-## Terraform steps
-
-Now that we have created our desired configuration in a simple text file, there are just a few steps to push that to a real environment. We will use the following commands to interact with our environment.
-
-1. `terraform init`
-1. `terraform plan`
-1. `terraform apply`
-1. `terraform destroy`
-
-### Terraform init
-
-Terraform fetches the current state of the environment to compare it against the written configuration with `terraform init`. By default, this state information is recorded in a local file. There are other methods for storing this information, and Terraform can be configured to store the state information remotely. Using a remote store ensures that different members of the team all share the same environment state when using Terraform. For this example, we use the default local state file.
-
-Use `terraform init` to initialize the current state of the environment.
+End to end testing aims to test the functionality of an application under product-like circumstances and data to make sure that it meets the requirement specification. Once our application is deployed into a working staging environment, quality engineering team starts working on end to end testing. First, we create various test scenarios based on conversations with all teams and document them in our test strategy. Secondly,  we use [pytest framework]( 
+https://pytest.org) to automate the test scenarios to make sure that we have enough coverage for our applications. We also make our end to end test suite available so that the development team can run them if necessary. For example, here is one test case of our end to end testing: 
 
 ```
 @pytest.mark.categories('VMVP Accounts')
@@ -174,208 +215,88 @@ class TestVmvpAccounts:
         self._call_and_validate_embeds_and_links(vrax_api, embed=[])
 ```
 
-### Terraform plan
 
-I would argue that this next step is the most important. Running `terraform plan` compares the current state of the environment with the changes required to make the environment match the configuration written. This is important to ensure that what we expect to happen is what is going to happen. This simple example probably won't run into any collisions on a normal environment, but always double check to make sure that any `destroy` actions listed in the plan output are intended.
+## Performance Testing
 
+Performance testing is generally executed to determine how a system or sub-system performs in terms of responsiveness and stability under a particular workload. It can also serve to investigate, measure, validate or verify other quality attributes of the system, such as scalability, reliability and resource usage.
+
+
+We choose [Gatling](https://gatling.io/) as our perfromance testing framework. Gatling is an open-source load and performance testing framework based on Scala, Akka and Netty. Gatling is written in Scala, which allows you to run it on any system. Gatling enables us to create to create performance tests as code. Gatling also creates detailed metrics dashboard in html format after test execution out of box. Gatling can simulate multiple virtual users with a single thread based on the actor mode. Gatling can be easily integrated with Continuous Integration pipelines by using Jenkins Gatling plugin. 
+
+
+We create performance test cases for all API calls. We measure the response time of all API calls. We simulate large number of customers calling various API at the same time. The tests are run in both staging environment and production environment. Once we have the test results ready, we analyze the metrics results to make sure that the performance meet our expectations. If there are any performance issues, the teams collabrate on fixing the issue. The goal is to provide a product that performs well even with unexpected large number of customers and requests. 
+
+
+For example, here is one test case from our performance test suite:
 ```
-$ terraform plan
-Refreshing Terraform state in-memory prior to plan...
-The refreshed state will be used to calculate this plan, but will not be
-persisted to local or remote state storage.
+import com.rackspace.objects.{VMVP, HttpConfig}
+import com.typesafe.config.ConfigFactory
+import io.gatling.core.Predef._
+import io.gatling.http.Predef._
 
-openstack_compute_instance_v2.terraform-test: Refreshing state... (ID: a3fd1c5a-5d01-4434-a673-223cc3266696)
+class ListHypervisors extends Simulation {
 
-------------------------------------------------------------------------
+  val conf = ConfigFactory.load()
+  val concurrentUsers = conf.getInt("simulations.concurrentUsers")
+  val numSamples = conf.getInt("simulations.numberSamples")
+  val uri1 = "https://vrax.rackspace.com/managed-virt/{accountID}/hypervisors"
+  
+  val scn = scenario("ListHypervisors")
+    .feed(csv("token.csv").random)
+    .repeat(numSamples) {
+      exec(session => {
+        val accountURL = "/managed-virt/" + VMVP.getRandomAccountId()
+        println("GET " + accountURL + "/hypervisors")
+        session.set("accountURL", accountURL)
+      })
+      .exec(http("List hypervisors")
+        .get("${accountURL}/hypervisors")
+        .headers(HttpConfig.headers_0)
+        .check(status.is(200)))
+    }
 
-An execution plan has been generated and is shown below.
-Resource actions are indicated with the following symbols:
-  + create
-
-Terraform will perform the following actions:
-
-  + openstack_compute_instance_v2.terraform-test
-      id:                       <computed>
-      access_ip_v4:             <computed>
-      access_ip_v6:             <computed>
-      all_metadata.%:           <computed>
-      availability_zone:        <computed>
-      flavor_id:                "2"
-      flavor_name:              <computed>
-      force_delete:             "false"
-      image_id:                 "8f47cf87-1e90-4370-b59d-730256265dce"
-      image_name:               <computed>
-      key_pair:                 "mykey"
-      name:                     "terraform-test"
-      network.#:                "2"
-      network.0.access_network: "false"
-      network.0.fixed_ip_v4:    <computed>
-      network.0.fixed_ip_v6:    <computed>
-      network.0.floating_ip:    <computed>
-      network.0.mac:            <computed>
-      network.0.name:           "public"
-      network.0.port:           <computed>
-      network.0.uuid:           "00000000-0000-0000-0000-000000000000"
-      network.1.access_network: "false"
-      network.1.fixed_ip_v4:    <computed>
-      network.1.fixed_ip_v6:    <computed>
-      network.1.floating_ip:    <computed>
-      network.1.mac:            <computed>
-      network.1.name:           "private"
-      network.1.port:           <computed>
-      network.1.uuid:           "11111111-1111-1111-1111-111111111111"
-      power_state:              "active"
-      region:                   "DFW"
-      security_groups.#:        <computed>
-      stop_before_destroy:      "false"
-
-
-Plan: 1 to add, 0 to change, 0 to destroy.
-
-------------------------------------------------------------------------
-
-Note: You didn't specify an "-out" parameter to save this plan, so Terraform
-can't guarantee that exactly these actions will be performed if
-"terraform apply" is subsequently run.
-```
-
-### Terraform apply
-
-With the backend initialized and the changes that will be caused by applying this configuration confirmed, we now run `terraform apply`. This action first provides the same output as seen with `terraform plan` and requires confirmation to continue. Additionally this provides output every ten seconds to monitor elapsed time as these changes are made, and a summary on completion.
-
-```
-$ terraform apply
-openstack_compute_instance_v2.terraform-test: Refreshing state... (ID: a3fd1c5a-5d01-4434-a673-223cc3266696)
-
-An execution plan has been generated and is shown below.
-Resource actions are indicated with the following symbols:
-  + create
-
-Terraform will perform the following actions:
-
-  + openstack_compute_instance_v2.terraform-test
-      id:                       <computed>
-      access_ip_v4:             <computed>
-      access_ip_v6:             <computed>
-      all_metadata.%:           <computed>
-      availability_zone:        <computed>
-      flavor_id:                "2"
-      flavor_name:              <computed>
-      force_delete:             "false"
-      image_id:                 "8f47cf87-1e90-4370-b59d-730256265dce"
-      image_name:               <computed>
-      key_pair:                 "mykey"
-      name:                     "terraform-test"
-      network.#:                "2"
-      network.0.access_network: "false"
-      network.0.fixed_ip_v4:    <computed>
-      network.0.fixed_ip_v6:    <computed>
-      network.0.floating_ip:    <computed>
-      network.0.mac:            <computed>
-      network.0.name:           "public"
-      network.0.port:           <computed>
-      network.0.uuid:           "00000000-0000-0000-0000-000000000000"
-      network.1.access_network: "false"
-      network.1.fixed_ip_v4:    <computed>
-      network.1.fixed_ip_v6:    <computed>
-      network.1.floating_ip:    <computed>
-      network.1.mac:            <computed>
-      network.1.name:           "private"
-      network.1.port:           <computed>
-      network.1.uuid:           "11111111-1111-1111-1111-111111111111"
-      power_state:              "active"
-      region:                   "DFW"
-      security_groups.#:        <computed>
-      stop_before_destroy:      "false"
-
-
-Plan: 1 to add, 0 to change, 0 to destroy.
-
-Do you want to perform these actions?
-  Terraform will perform the actions described above.
-  Only 'yes' will be accepted to approve.
-
-  Enter a value: yes
-
-openstack_compute_instance_v2.terraform-test: Creating...
-  access_ip_v4:             "" => "<computed>"
-  access_ip_v6:             "" => "<computed>"
-  all_metadata.%:           "" => "<computed>"
-  availability_zone:        "" => "<computed>"
-  flavor_id:                "" => "2"
-  flavor_name:              "" => "<computed>"
-  force_delete:             "" => "false"
-  image_id:                 "" => "8f47cf87-1e90-4370-b59d-730256265dce"
-  image_name:               "" => "<computed>"
-  key_pair:                 "" => "mykey"
-  name:                     "" => "terraform-test"
-  network.#:                "" => "2"
-  network.0.access_network: "" => "false"
-  network.0.fixed_ip_v4:    "" => "<computed>"
-  network.0.fixed_ip_v6:    "" => "<computed>"
-  network.0.floating_ip:    "" => "<computed>"
-  network.0.mac:            "" => "<computed>"
-  network.0.name:           "" => "public"
-  network.0.port:           "" => "<computed>"
-  network.0.uuid:           "" => "00000000-0000-0000-0000-000000000000"
-  network.1.access_network: "" => "false"
-  network.1.fixed_ip_v4:    "" => "<computed>"
-  network.1.fixed_ip_v6:    "" => "<computed>"
-  network.1.floating_ip:    "" => "<computed>"
-  network.1.mac:            "" => "<computed>"
-  network.1.name:           "" => "private"
-  network.1.port:           "" => "<computed>"
-  network.1.uuid:           "" => "11111111-1111-1111-1111-111111111111"
-  power_state:              "" => "active"
-  region:                   "" => "DFW"
-  security_groups.#:        "" => "<computed>"
-  stop_before_destroy:      "" => "false"
-openstack_compute_instance_v2.terraform-test: Still creating... (10s elapsed)
-openstack_compute_instance_v2.terraform-test: Still creating... (20s elapsed)
-openstack_compute_instance_v2.terraform-test: Still creating... (30s elapsed)
-openstack_compute_instance_v2.terraform-test: Still creating... (40s elapsed)
-openstack_compute_instance_v2.terraform-test: Still creating... (50s elapsed)
-openstack_compute_instance_v2.terraform-test: Still creating... (1m0s elapsed)
-openstack_compute_instance_v2.terraform-test: Creation complete after 1m9s (ID: 2c1537b4-0bfa-4293-a6fb-b708553263f7)
-
-Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+  setUp(scn.inject(atOnceUsers(concurrentUsers))).protocols(HttpConfig.httpConf)
+}
 
 ```
 
-Once the apply is complete, this server is now accessible and can be viewed in the Rackspace Cloud portal, API, or your command line interface of choice.
+## Security Testing
 
-### Terraform destroy
+In Rackspace VMware Practice Area, Security is our top priority. QE Security works with the development team and QE team to integrate security checks into the SDLC process. 
 
-Once the resource, or resources, are no longer needed, the resource can be destroyed just as easily as it was created. Running `terraform destroy` displays what will be destroyed and requires confirmation to remove the resources provided from the configuration.
+During design stage, we conduct threat modeling for the application.  Threat modeling is a white board session to break down the application from security and risk perspective. The session focuses on sensitive data and data flows across various components.  We learn about trust boundary, attack surface, potential risks & security controls about the applications. Threat modeling helps us identify potential security defects in the design stage so that we can get this address early. 
 
-```
-$ terraform destroy
-openstack_compute_instance_v2.terraform-test: Refreshing state... (ID: 2c1537b4-0bfa-4293-a6fb-b708553263f7)
+Once the development team starts coding, QE security team conducts security code review of the source code. We are using commercial solution of automatic security code scanning tool that can scan thousands of lines of code in short time. However, the findings generated by the tool might contain false positives. QE security team work with the development team to verify each finding to filter out false positives. In addition, QE security team also conducts manual security code review of key components of the source code. During security code review, we focus on identifying common security defects as defined in [OWASP Top 10]( https://www.owasp.org/index.php/Category:OWASP_Top_Ten_2017_Project): 
+* A1:2017-Injection
+* A2:2017-Broken Authentication
+* A3:2017-Sensitive Data Exposure
+* A4:2017-XML External Entities (XXE)
+* A5:2017-Broken Access Control
+* A6:2017-Security Misconfiguration
+* A7:2017-Cross-Site Scripting (XSS)
+* A8:2017-Insecure Deserialization
+* A9:2017-Using Components with Known Vulnerabilities
+* A10:2017-Insufficient Logging&Monitoring
 
-An execution plan has been generated and is shown below.
-Resource actions are indicated with the following symbols:
-  - destroy
+After we deploy the application into the staging environment, QE team starts their E2E testing to make sure that the application is working. At the same time,  QE Security team also conducts Web application/APi security testing in the staging environment. We used security testing tools such as Burp, Syntribos, Zap to test the application for the listed security defects. 
 
-Terraform will perform the following actions:
-
-  - openstack_compute_instance_v2.terraform-test
+We prioritize identified defects based on their severity and impact. QE security team work with the development team and QE team to make sure that any critical or high security defects are addressed before the application is released into the production environment. 
 
 
-Plan: 0 to add, 0 to change, 1 to destroy.
+## Testing Environment
 
-Do you really want to destroy?
-  Terraform will destroy all your managed infrastructure, as shown above.
-  There is no undo. Only 'yes' will be accepted to confirm.
+We have been collaborating with DevOps to improve our testing environment. DevOps added our physical servers as a tenant to a vRealize Automation instance. This approach gives us dedicated resources for creating and destroying VMWare servers dynamically. We do not need to manage our servers and can concentrate on automating test cases. 
+ 
+To utilize our new dynamic environment with more jobs and more automation, we have made a significant amount of changes to our existing workflow components, deployment playbooks, test jobs in Jenkins, etc.  Our new testing environment is ready with new features. 
 
-  Enter a value: yes
+* VMWare-QE went from being limited to running up to two tests at a time on long-lived static build nodes to now being able to run 22 tests simultaneously with the ability to easily increase this further if we require
+* Our functional tests now dynamically create a server, build the testing application(s) on that server, run tests on that server, collect results and artifacts, and destroy the dynamic server
+* Application logs are forwarded to Splunk to allow search and review
+* This increased capacity as well as our test jobs and deployment updates allow for Developers to self-serve our tests with a variety of parameters
+* This sets the ground work for even further automation and integration into the development pipeline that can be added iteratively.
 
-openstack_compute_instance_v2.terraform-test: Destroying... (ID: 2c1537b4-0bfa-4293-a6fb-b708553263f7)
-openstack_compute_instance_v2.terraform-test: Still destroying... (ID: 2c1537b4-0bfa-4293-a6fb-b708553263f7, 10s elapsed)
-openstack_compute_instance_v2.terraform-test: Destruction complete after 16s
 
-Destroy complete! Resources: 1 destroyed.
-```
 
-## Next steps
+## Fanatical Quality
 
-I have covered the basics on how to use Terraform with Rackspace Cloud, but I did not scratch the surface of what to use Terraform for. Check out [the docs](https://www.terraform.io/docs/index.html) to see the huge amount of things Terraform can manage to increase your productivity, as well as the consistency and reliability of your infrastructure.
+In Rackspace VMware practice area, quality is everyone's responsibilities. Quality engineering team, development team, Devops team, security team and project management team work together to make sure that we deliver products with great quality to our customers. The teams concentrate on improving the SDLC process using automation and new technology. Together, we provide fanatical experience to our customers. 

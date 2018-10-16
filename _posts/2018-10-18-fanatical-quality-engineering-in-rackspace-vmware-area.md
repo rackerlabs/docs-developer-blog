@@ -228,6 +228,7 @@ We create performance test cases for all API calls. We measure the response time
 
 
 For example, here is one test case from our performance test suite:
+
 ```
 import com.rackspace.objects.{VMVP, HttpConfig}
 import com.typesafe.config.ConfigFactory

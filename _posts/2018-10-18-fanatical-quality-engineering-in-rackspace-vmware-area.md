@@ -226,7 +226,6 @@ We choose [Gatling](https://gatling.io/) as our perfromance testing framework. G
 
 We create performance test cases for all API calls. We measure the response time of all API calls. We simulate large number of customers calling various API at the same time. The tests are run in both staging environment and production environment. Once we have the test results ready, we analyze the metrics results to make sure that the performance meet our expectations. If there are any performance issues, the teams collabrate on fixing the issue. The goal is to provide a product that performs well even with unexpected large number of customers and requests. 
 
-
 For example, here is one test case from our performance test suite:
 
 ```
@@ -260,6 +259,7 @@ class ListHypervisors extends Simulation {
 }
 
 ```
+
 
 ## Security Testing
 

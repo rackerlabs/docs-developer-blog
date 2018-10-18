@@ -77,6 +77,7 @@ The threat modeling session is a technical discussion of the design and deployme
 
 The process will be an interactive, iterative process generally starting from a customer use of the product and will cover the general use cases for that product. The modeling is concerned with the flow of data through the products system(s) and the products interactions with external systems.  
  
+ This is an example of dataflow diagram for one of our products:
 
 ![Sample Product DataFlow Diagram]({% asset_path 2018-10-18-fanatical-security-delivered-by-quality-engineering-security-team/dataflow_diagram.png %})
 

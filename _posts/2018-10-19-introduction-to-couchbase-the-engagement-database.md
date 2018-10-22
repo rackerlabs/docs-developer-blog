@@ -7,7 +7,7 @@ author: Satykam Mishra
 published: true
 authorIsRacker: true
 categories:
-  - security
+  - database
 ---
 
 This blog explores Couchbase&reg;, which is an open-source distributed NoSQL 
@@ -123,7 +123,7 @@ Image source: [https://developer.couchbase.com/documentation/server/4.0/architec
 
 #### Couchbase Server's runtime behavior
 
-Couchbase Server’s runtime behavior depends the following important components:
+Couchbase Server’s runtime behavior depends on the following important components:
 
 - Connectivity architecture
 - Replication architecture
@@ -173,7 +173,7 @@ Customers seek extraordinary experiences while interacting with the brands they
 like. This phenomenon forces organizations to capitalize on the huge opportunities 
 already available in today’s engagement era, instead of building new internet 
 applications or mobile apps every day. Organizations must modernize their current 
-technology and environments with highly responsive and available, scalable and 
+technology and environments with highly responsive, available, scalable,  
 intelligent, and easy-to-manage databases. Engagement databases such Couchbase 
 Server suit this need perfectly.
 
@@ -209,7 +209,7 @@ Server suit this need perfectly.
 
 </br>
 
-Learn more about our [Rackspace Application Services](https://www.rackspace.com/application-management).
+Learn more about our [database services](https://www.rackspace.com/dba-services).
 
 If you have any questions on the topic, comment in the field below.
 

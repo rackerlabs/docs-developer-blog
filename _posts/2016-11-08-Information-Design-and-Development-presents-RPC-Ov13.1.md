@@ -7,15 +7,16 @@ author: Alex Sayers
 published: true
 categories:
   - DevOps
+  - aws
 ---
 
 Information Design and Documentation Presents RPCO v13.1!
 
 <!-- more -->
 
-At Rackspace, our Information Design and Documentation team partners with all 
+At Rackspace, our Information Design and Documentation team partners with all
 Rackers and external contributors to create content for internal and external use.
-We are currently engaged with the Cloud offerings, Dedicated Hosting, internal 
+We are currently engaged with the Cloud offerings, Dedicated Hosting, internal
 tools/portals, the customer-facing
 [How-To article collection](https://support.rackspace.com/how-to/),
 the [OpenStack Innovation Center](https://osic.org/),
@@ -39,5 +40,5 @@ We invite you to read and use all the Rackspace content, and to
 contribute enhancements or corrections to the published deliverables!  All of
 our content is available in public GitHub repositories, so feel free to open an
 issue or submit a pull request.  We have an on-demand mini-course on YouTube that
-outlines the contribution process: 
+outlines the contribution process:
 [https://www.youtube.com/watch?v=haFooDkKr-A&feature=youtu.be](https://www.youtube.com/watch?v=haFooDkKr-A&feature=youtu.be).

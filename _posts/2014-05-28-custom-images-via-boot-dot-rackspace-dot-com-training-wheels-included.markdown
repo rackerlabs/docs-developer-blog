@@ -43,10 +43,10 @@ __1. Boot the boot.rackspace.com ISO__
 This command will boot a Cloud Server with a small 1 MB iPXE based ISO. In turn, it
 will set up the server’s assigned networking within the virtual BIOS and
 netboot into a menu of operating system options hosted over HTTP on
-boot.rackspace.com.
+boot.rackspace.com. (Note: Example image ID updated on 9/14/2018.)
 
 ```
-nova boot --image=9aa0d346-c06f-4652-bbb1-4342a7d2d017 --flavor=performance1-2 my_ubuntu_1204
+nova boot --image=7c526505-bc72-4e3c-8d9a-e700c0acf299 --flavor=performance1-2 my_ubuntu_1204
 ```
 
 __2. Connect to the boot.rackspace.com VM via the Console__

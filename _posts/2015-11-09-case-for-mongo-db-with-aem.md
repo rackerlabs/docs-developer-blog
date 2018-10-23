@@ -5,7 +5,9 @@ date: '2015-11-09 10:00'
 comments: true
 author: Jonathan Hurley
 published: true
-categories: []
+categories:
+  - database
+  - architecture
 ---
 
 #### What is MongoDB?
@@ -17,7 +19,7 @@ model for data management and organization.
 #### How does MongoDB work with AEM?
 
 MongoDB integrates with Adobe Experience Manager (AEM) by means of the crx3mongo runmode
-and JVM options: -Doak.mongo.uri and -Doak.mongo.db 
+and JVM options: -Doak.mongo.uri and -Doak.mongo.db
 
 #### Why would I MongoDB?
 
@@ -48,7 +50,7 @@ the data tier, that holds back the n*9 architecture.
 
 The introduction of the MongoDB microkernel into AEM 6.x provides essentially the same
 architecture with the more buzzword-heavy database that we love.
- 
+
 The primary use-case for MongoMK is with AEM author instances, where the active user limit
 (~25-30) means that horizontal scaling must first address the concurrency issue. Here, the
 shared data tier shines brightest as performance is second fiddle to scale and consistency
@@ -92,7 +94,7 @@ rebuild, the oplog only contains the drift introduced by the rebuild. The origin
 that triggered replication lag remains, so it can be expected that, over time, the newly
 built secondary will be forced to rebuild again.
 
-In some cases, this behavior enters an unending loop of replication lag and rebuild,   
+In some cases, this behavior enters an unending loop of replication lag and rebuild,
 resulting in remote secondaries which are never in a functional state.
 
 For AEM, this means that using MongoDB replicas as the primary data source for cross-site

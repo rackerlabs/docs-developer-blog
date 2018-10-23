@@ -8,6 +8,7 @@ published: true
 categories:
   - OpenStack
   - OSAD
+  - database
 ---
 
 In the [first article of this series](https://developer.rackspace.com/blog/install-openstack-from-source/) we started installing OpenStack from source. We installed keystone and populated it with some basic information including a Services project and an admin user for our new OpenStack install. Additionally in an initial script we setup users and directories for the upcoming installs of the Image service (glance), Networking service (neutron), Compute service (nova) and Volume service (cinder). Now, let's continue and install and start the glance process on the controller node.

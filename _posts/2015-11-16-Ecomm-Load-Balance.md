@@ -5,9 +5,10 @@ date: '2015-11-16 10:00'
 comments: true
 author: Jonathan Hurley
 published: true
-categories: []
+categories:
+  - architecture
 ---
- 
+
 ### Prelude
 
 Before getting into the nuts and bolts of the load balancing architecture itself, it's
@@ -151,7 +152,7 @@ balancing and neither as a direct result of thread performance nor life cycle.
 When an Internet request is accepted by the edge firewall, it is passed to the LTM for
 balancing. Using an RR algorithm, this request will be forwarded to the next HTTPd pool
 member in sequence. This is expected to achieve a mostly normalized pattern of load shared
-equally between nodes. Each HTTPd thread will use its configured algorithm (and byrequests  
+equally between nodes. Each HTTPd thread will use its configured algorithm (and byrequests
 method) to determine, on the fly, which application server is the best match for its new
 session.
 

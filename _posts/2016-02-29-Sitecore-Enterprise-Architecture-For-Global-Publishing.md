@@ -8,6 +8,7 @@ authorIsRacker: true
 published: true
 categories:
     - Devops
+    - architecture
 ---
 
 Sitecore implementations with Content Delivery nodes in multiple locations must keep their databases and content in sync.  The [Sitecore Scaling Guide](https://sdn.sitecore.net/upload/sitecore7/70/scaling_guide_sc70_usletter.pdf) summarizes areas of concern, such as isolating CM and CD servers, enabling the Sitecore scalability settings, maintaining search indexes, etc.  Sitecore runs on top of SQL Server, and one topic touched on in the Scaling Guide is SQL Server replication, and conveniently there is a Sitecore [guide just for that specific subject](https://sdn.sitecore.net/upload/sitecore6/63/sql_server_replication_guide_sc63-64-usletter.pdf).  This guide explains how, with SQL Server Merge Replication, one can coordinate the content of Sitecore databases that are not in the same location.  This is the starting point for what we at Rackspace have found to be a global publishing architecture that meets the needs of enterprise Sitecore customers.

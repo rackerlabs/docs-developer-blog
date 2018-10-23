@@ -9,6 +9,7 @@ categories:
   - rackspace-private-cloud
   - Ansible
   - OpenStack
+  - architecture
 bio: 'Walter Bentley – Rackspace Private Cloud Solutions Architect – Walter is a new Racker with a diverse background in Production Systems Administration and Solutions Architecture. He brings over 15 years of experience across numerous industries such as Online Marketing, Financial, Insurance, Aviation, Food Industry and Education. In the past, always being the requestor, consumer and advisor to companies to use technologies such as OpenStack, now promoter of OpenStack technology and Cloud educator. You can find him on Twitter as @djstayflypro'
 ---
 
@@ -17,12 +18,12 @@ In the newest release of the Rackspace Private Cloud (RPC v9.0), we made changes
 <!-- more -->
 
 ####What is Ansible?
-**Ansible** is an IT automation tool that can be used to configure, deploy and orchestrate many different Infrastructure based tasks.  For example, use Ansible for: system configuration, software deployment, application or infrastructure orchestration, and yes, to eventually replace most infrastructure folks…*just kidding…maybe*?  With my many years of supporting Production based applications, with tools like Ansible on the rise, the writing would have certainly been on the wall.  <u>Major word of advice for Infrastructure engineers…LEARN one of the many orchestration tools and begin to love the term DevOps.</u>  
+**Ansible** is an IT automation tool that can be used to configure, deploy and orchestrate many different Infrastructure based tasks.  For example, use Ansible for: system configuration, software deployment, application or infrastructure orchestration, and yes, to eventually replace most infrastructure folks…*just kidding…maybe*?  With my many years of supporting Production based applications, with tools like Ansible on the rise, the writing would have certainly been on the wall.  <u>Major word of advice for Infrastructure engineers…LEARN one of the many orchestration tools and begin to love the term DevOps.</u>
 
-As stated in Ansible’s main delivery statement: 
->first and foremost is simplicity and maximum ease of use.  
+As stated in Ansible’s main delivery statement:
+>first and foremost is simplicity and maximum ease of use.
 
-They have certainly accomplished this in a great way!  My time spent working and learning Ansible has been time very well spent.  
+They have certainly accomplished this in a great way!  My time spent working and learning Ansible has been time very well spent.
 
 Here are a few facts about Ansible that is useful to know:
 
@@ -36,7 +37,7 @@ Here are a few facts about Ansible that is useful to know:
 You can find more information about Ansible on their [Intro](http://docs.ansible.com/intro.html) and [Best Practices](http://docs.ansible.com/playbooks_best_practices.html) page.
 </br>
 ####How do you get started?
-Since all the OpenStack deployment and environment configuration playbooks are already created, you need to start by provisioning your environment.  
+Since all the OpenStack deployment and environment configuration playbooks are already created, you need to start by provisioning your environment.
 
 **To run RPC v9.0 you need a minimum of:**
 
@@ -47,7 +48,7 @@ Since all the OpenStack deployment and environment configuration playbooks are a
    * Compute Node
    * Storage Node *(optional, and only needed if you're going to try out Cinder block storage)*
 
-Personally, I have found a few creative ways of doing this locally on my workstation.  For this article, we use the 100% Open Source approach by using **VirtualBox**, **Vagrant** and of course **Ansible**.  
+Personally, I have found a few creative ways of doing this locally on my workstation.  For this article, we use the 100% Open Source approach by using **VirtualBox**, **Vagrant** and of course **Ansible**.
 
 Follow the steps below to install Rackspace Private Cloud v9.0.  Keep in mind the full installation guide can be found at: http://docs.rackspace.com/rpc/api/v9/bk-rpc-installation/content/rpc-common-front.html
 
@@ -67,7 +68,7 @@ Clone the following two repositories to pull down the preconfigured Vagrant file
 	$ git clone --recursive https://github.com/wbentley15/vagrant-rpcv901.git
 
 Change directory to ‘vagrant-rpcv901’ and execute the 'vagrant up' command:
-	
+
     $ vagrant up
 
 This will provision the deployment, infrastructure, and logging node.  It also installs required base software and configuration needed to deploy RPC to target hosts.  Feel free to adjust the Vagrant file to increase RAM available for a particular node and/or add vCPU capacity.  If you plan to deploy with Cinder also, please refer to the full installation guide for details on how to do that.
@@ -130,7 +131,7 @@ The first clear message I want to deliver is this: if you run into deployment is
 #####Playbooks continuously fail:
 If you find that the playbooks continuously fail in different places, you should probably adjust how many parallel tasks Ansible is allowed to run.  This can be done by editing `/opt/ansible-lxc-rpc/rpc_deployment/ansible.cfg` and changing the following values (the default value is 25 but, I normally adjust it to 5)
 
-	from: forks = 25 
+	from: forks = 25
 	to: forks = 5
 
 #####Ansible SSH failure connecting to target hosts:

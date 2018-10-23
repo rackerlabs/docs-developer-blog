@@ -9,6 +9,7 @@ categories:
   - cloud-servers
   - OpenStack
   - Docker
+  - architecture
 bio: >-
   Mike Metral is a Product Architect at Rackspace in the Private Cloud R&D
   organization currently operating as a subject-matter expert in the field of
@@ -20,7 +21,7 @@ webinar talk in this post is to describe the current state of container technolo
 OpenStack Ecosystem. Topics we will cover include:
 
 * How OpenStack vendors and operators are using containers to create
-efficiencies in deployment of the control plane services 
+efficiencies in deployment of the control plane services
 * Approaches OpenStack consumers are taking to deploy container-based
 applications on OpenStack clouds
 

@@ -21,7 +21,7 @@ USB Rubber Ducky is a product made by a company called Hak5.  You can find infor
 * [Hak5's hackshop.com](http://hakshop.com/products/usb-rubber-ducky-deluxe)
 * [Hak5's GitHub Repository](https://github.com/hak5darren/USB-Rubber-Ducky)
 
-To you, it looks like a USB thumb drive, but it actually emulates a USB HID keyboard.  After it's plugged in, a payload a payload programmed into the device sends keyboard commands to the computer.
+To you, it looks like a USB thumb drive, but it actually emulates a USB HID keyboard.  After it's plugged in, a payload programmed into the device sends keyboard commands to the computer.
 
 This allows a security tester to quickly run commands on an unprotected computer without having to sit down at the computer and type.
 

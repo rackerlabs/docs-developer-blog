@@ -8,6 +8,7 @@ bio: Duncan Rutland is a Sr. Solution Architect at Rackspace within the Fanatica
 published: true
 categories:
   - Docker
+  - aws
 authorIsRacker: true
 ---
 

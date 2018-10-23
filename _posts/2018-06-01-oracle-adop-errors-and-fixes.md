@@ -7,7 +7,8 @@ author: Nagunaik Vankudotu
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
 ---
 
 Originally published by Tricore: Aug 14, 2017

@@ -7,7 +7,9 @@ author: Prasanna K. Majhee
 published: true
 authorIsRacker: true
 categories:
-    - General
+  - Oracle
+  - database
+  - architecture
 ---
 
 This post describes the Oracle&reg; In-Memory Advisor (IMA), a feature of

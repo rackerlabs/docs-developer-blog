@@ -5,7 +5,9 @@ date: '2015-11-09 00:00'
 comments: true
 author: Jonathan Hurley
 published: true
-categories: []
+categories:
+  - database
+  - architecture
 ---
 
 When it comes to the battle cry of E-Commerce, "we're losing $1m per minute" is the clear

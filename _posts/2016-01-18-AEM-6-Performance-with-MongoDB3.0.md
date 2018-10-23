@@ -6,10 +6,11 @@ comments: true
 author: Nathan Coble
 authorIsRacker: true
 published: true
-categories: []
+categories:
+  - aws
 ---
 
-MongoDB has made some noticeable improvements with the 3.0 release and new engine, WiredTiger.  This post shows how those improvements in MongoDB translate into real performance gains for your application.  
+MongoDB has made some noticeable improvements with the 3.0 release and new engine, WiredTiger.  This post shows how those improvements in MongoDB translate into real performance gains for your application.
 
 
 <!-- more -->

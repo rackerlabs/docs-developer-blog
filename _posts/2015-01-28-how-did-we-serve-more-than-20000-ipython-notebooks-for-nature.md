@@ -8,6 +8,7 @@ published: true
 categories:
   - Python
   - Docker
+  - architecture
 ---
 
 The IPython/Jupyter notebook is a wonderful environment for computations, prose, plots, and interactive widgets that you can share with collaborators. People use the notebook [all](http://blog.quantopian.com/quantopian-research-your-backtesting-data-meets-ipython-notebook/) [over](http://nbviewer.ipython.org/github/GoogleCloudPlatform/ipython-soccer-predictions/blob/master/predict/wc-final.ipynb) [the](https://github.com/facebook/iTorch) [place](http://nbviewer.ipython.org/url/norvig.com/ipython/TSPv3.ipynb) across [many varied languages](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages). It gets used by [data scientists](http://nbviewer.ipython.org/gist/wrobstory/1eb8cb704a52d18b9ee8/Up%20and%20Down%20PyData%202014.ipynb), researchers, analysts, developers, and people in between.

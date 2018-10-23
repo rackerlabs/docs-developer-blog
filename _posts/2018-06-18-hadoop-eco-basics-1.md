@@ -7,7 +7,9 @@ author: Pavan Paramathmuni
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
+  - architecture
 ---
 
 Originally published by Tricore: July 10, 2017

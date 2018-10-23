@@ -7,7 +7,7 @@ author: Shashi Choubey
 published: true
 authorIsRacker: true
 categories:
-    - General
+  - database
 ---
 
 How do you read execution plans? From right to left, left to right, or by

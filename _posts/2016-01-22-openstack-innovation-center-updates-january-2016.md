@@ -8,15 +8,16 @@ published: true
 categories:
     - rackspace-private-cloud
     - OpenStack
+    - architecture
 ---
 
 Since the initial launch of the OpenStack Innovation Center back in July of 2015, much work has been done.  Wanted to take a moment to share the current status and some details about its next phases.  If you are unfamiliar with OSIC, let me start off with some very quick background information.
 
 <!-- more -->
 
-The OpenStack Innovation Center, abbreviated to ‘OSIC’, is a joint partnership between Rackspace and Intel implemented to further accelerate the development of enterprise capabilities into upstream OpenStack code.  It is intended to bring together Rackspace and Intel engineers in order to: 
+The OpenStack Innovation Center, abbreviated to ‘OSIC’, is a joint partnership between Rackspace and Intel implemented to further accelerate the development of enterprise capabilities into upstream OpenStack code.  It is intended to bring together Rackspace and Intel engineers in order to:
 
->***“advance the scalability, manageability and reliability of OpenStack by adding new features, functionality and eliminating bugs through upstream code contributions”*** 
+>***“advance the scalability, manageability and reliability of OpenStack by adding new features, functionality and eliminating bugs through upstream code contributions”***
 
 as mentioned in the [Rackspace press release](https://blog.rackspace.com/newsarticles/rackspace-collaborates-with-intel-to-accelerate-openstack-enterprise-feature-development-and-adoption/).
 
@@ -37,7 +38,7 @@ As of October 2015, Intel has placed ~12 developers into the Innovation Center t
 **Developer Cloud**
 
 Come on...you know you only read this far to get the scope in this section.  Being honest, you're thinking the the Developer Cloud is pretty darned cool, and I can not blame you.  Just saying “two 1000-node OpenStack clusters” out loud sounds impressive.  As an architect, my first thought was “show me the details!”.  Well, you will be the first to get a look at the details that make up the first of the 1000-node cluster that is hosted at the Rackspace Dallas Fort Worth datacenter.  Could not think of a better combination of being funded by Intel and supported by Rackspace.
- 
+
 Keep in mind the following details encompass only the first 1000-node cluster that is ready for use and hosted at Rackspace.  Unfortunately, I was not able to get any exciting details on the second cluster located at Intel in Oakland, California yet.  Keep posted for more updates to come at a later date.
 
 ***OSIC Cluster @ Rackspace***

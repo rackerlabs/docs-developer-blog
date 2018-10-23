@@ -7,7 +7,9 @@ author: Jay Pathak
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
+  - architecture
 ---
 
 This blog discusses the Oracle Exadata Smart Flash Cache feature and its

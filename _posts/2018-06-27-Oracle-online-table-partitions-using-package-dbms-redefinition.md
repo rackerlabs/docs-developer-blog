@@ -7,7 +7,8 @@ author: Pradeep Rai
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
 ---
 
 Starting with Oracle&reg; 10g, you can partition tables online without any

@@ -62,7 +62,9 @@ You can optionally add a picture from gravatar using the following metadata line
 Available categories include the following:
 
 - Ansible
+- architecture
 - Automation
+- aws
 - Azure
 - Chef
 - Cloud Files
@@ -70,6 +72,7 @@ Available categories include the following:
 - Cloud Networks
 - Cloud Servers
 - Configuration Management
+- database
 - Developers
 - DevOps
 - Docker
@@ -122,6 +125,45 @@ containing your post. Within your post, use the following markup:
 
 ```markdown
 ![Alt text here]({% asset_path YYYY-MM-DD-title-of-your-post/filename.png %})
+```
+
+#### Adding social media share icons
+
+To add social media share icons at the end of your blog, include the following code:
+
+```
+<table>
+  <tr>If you liked this blog, share it by using the following icons:</tr>
+  <tr>
+   <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+        <img src="{% asset_path shareT.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+        <img src="{% asset_path shareFB.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
+        <img src="{% asset_path shareL.png %}">
+      </a>
+    </td>
+  </tr>
+</table>
+
+
+</br>
 ```
 
 #### Writing your post

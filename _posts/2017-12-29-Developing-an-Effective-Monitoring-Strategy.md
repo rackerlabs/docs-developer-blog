@@ -8,7 +8,8 @@ published: true
 authorIsRacker: true
 authorAvatar: 'http://www.gravatar.com/avatar/791617263c70278859e1b26c15d13eab'
 categories:
-    - DevOps
+  - DevOps
+  - aws
 ---
 
 Modern application environments can be complex and include many discrete elements that can all affect the end user's experience.  Because of this, it can be challenging to develop an effective monitoring strategy that allows you to be alerted during potential performance problems and also to use these metrics from a variety of systems to proactively address potential bottlenecks and slow points before they cause end user impact.  In this article, we'll be discussing several best practices for ensuring that your environment is effectively monitored.

@@ -7,7 +7,8 @@ author: Dilip Singh
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
 ---
 
 This blog covers the process for converting a version 11i database

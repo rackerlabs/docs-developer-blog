@@ -7,7 +7,8 @@ author: Jimmy Rudley
 authorIsRacker: true
 published: true
 categories:
-- Devops
+  - Devops
+  - database
 ---
 
 Sitecore has the option of making use of TempDB in Sql Server to speed up your session state operations. What catches people off guard is the fact that tempdb is recreated at service restart of SQL Server. This becomes a problem when you have to recreate the table structure and user permissions inside tempdb.
@@ -30,7 +31,7 @@ END
 
 ```
 
-The T-SQL executes the stored procedure to re-initialize the table and index structure. Then it checks to see if the database user **cdsAccount** exists. If the user does not exist, it creates the user and assigns the data reader and data writer role to the account. 
+The T-SQL executes the stored procedure to re-initialize the table and index structure. Then it checks to see if the database user **cdsAccount** exists. If the user does not exist, it creates the user and assigns the data reader and data writer role to the account.
 
 We have the code, but how do we apply it when the service restarts? We can create a SQL Agent Job that we specify to run when the SQL Server Agent starts up. I have included the complete .sql script which creates the sql job for you. The readme file in the repository includes the lines you need to change for the database user that you want to create and check for.
 

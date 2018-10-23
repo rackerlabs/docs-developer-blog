@@ -7,7 +7,8 @@ author: Amit Srivastava
 published: true
 authorIsRacker: true
 categories:
-    - Oracle
+  - Oracle
+  - database
 ---
 
 Online table redefinition allows you to restructure your Oracle&reg; table in

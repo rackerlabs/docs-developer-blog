@@ -7,7 +7,8 @@ author: Amit Kumar Bhatnagar
 published: true
 authorIsRacker: true
 categories:
-    - General
+  - database
+  - architecture
 ---
 
 This blog gives an overview of the non-relational database, Apache Cassandra&trade;. It

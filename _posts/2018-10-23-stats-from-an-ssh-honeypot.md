@@ -36,6 +36,7 @@ I placed the server on the Internet and turned off the firewall.  The results of
 ## Timeline
 
 Start:  Tue Sep 11 15:02:26 2018 UTC
+
 End:    Wed Sep 19 13:54:16 2018 UTC
 
 Duration:  7 days, 22 hours, 51 minutes and 50 seconds

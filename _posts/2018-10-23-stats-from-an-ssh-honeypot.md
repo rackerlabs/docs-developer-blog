@@ -51,7 +51,7 @@ Duration:  7 days, 22 hours, 51 minutes and 50 seconds
 
 ### Top 10 Usernames
 
-| Attempts | Username |
+| Attempts &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Username |
 |-------|--------|
 | 1,110,289 | root |
 | 588 | admin |
@@ -67,7 +67,7 @@ Duration:  7 days, 22 hours, 51 minutes and 50 seconds
 
 ### Top 10 Passwords
 
-| Attempts | Password |
+| Attempts &nbsp; &nbsp; | Password |
 |-------|--------|
 | 30,886 | password |
 | 30,879 | 123456 |
@@ -83,7 +83,7 @@ Duration:  7 days, 22 hours, 51 minutes and 50 seconds
 
 ### Top 10 Attack Origins
 
-| Attempts | Country |
+| Attempts &nbsp; &nbsp; &nbsp; &nbsp; | Country |
 |-------|--------|
 | 739,025 | Philippines |
 | 368,494 | China |

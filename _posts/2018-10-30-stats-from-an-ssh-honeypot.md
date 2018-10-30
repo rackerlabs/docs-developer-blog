@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Stats from an SSH Honeypot"
-date: 2018-10-23 23:59
+date: 2018-10-30 23:59
 comments: false
 author: Rodney Beede
 authorIsRacker: true
@@ -11,15 +11,15 @@ categories:
   - Cloud Servers
 ---
 
-I decided to run an ssh honeypot in my cloud server on the Internet.  While this has been done many times by others before I wanted to see what would happen and share my results.
+I decided to run an ssh honeypot in my Cloud Server on the Internet.  While this has been done many times by others, I wanted to see what would happen and share my results.
 
 <!-- more -->
 
 ## What is a honeypot?
 
-In computer security the term honeypot is used to refer to an environment setup to capture malicious activity in a safe manner.  You place an attractive target on a network (internal or the Internet) and wait for attacks to come in.  Your honeypot then captures data about the attacker and can alert you if someone has been caught in it.
+In computer security, the term honeypot is used to refer to an environment setup that is used to capture malicious activity in a safe manner.  You place an attractive target on a network (internal or the Internet) and wait for attacks to come in.  Your honeypot then captures data about the attacker and can alert you if someone has been caught in it.
 
-One visual is that of a jar of sticky honey.  If someone reaches into the jar you will notice the contents being disturbed as well as the person having sticky honey on their hands.
+One visual is that of a jar of sticky honey.  If someone reaches into the jar, you will notice the contents being disturbed as well as the person having sticky honey on his or her hands.
 
 A security honeypot may have an easy to guess login password or a fake document made to look like real confidential business data.
 
@@ -100,6 +100,6 @@ Duration:  7 days, 22 hours, 51 minutes and 50 seconds
 
 ## Summary
 
-This was an interesting experiment and shows that putting a server on the Internet will result in millions of attacks against it in a very short time.
+This was an interesting experiment and shows that putting a server on the Internet results in millions of attacks against it in a very short time.
 
-It behooves us to therefore ensure that a server has protections on it the moment we connect it to the network.
+It behooves us, therefore, to ensure that a server has protections on it from the moment that we connect it to the network.

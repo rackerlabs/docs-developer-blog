@@ -28,7 +28,7 @@ The honeypot aids a security researcher in understanding what actions an attacke
 
 ## SSH Honeypot
 
-I used a Linux cloud server with modified SSH server software provided by https://github.com/droberson/ssh-honeypot.git
+I used a Linux cloud server with this modified [SSH server software](https://github.com/droberson/ssh-honeypot.git).
 
 I placed the server on the Internet and turned off the firewall.  The results of attacks were recorded on disk in a log file.
 

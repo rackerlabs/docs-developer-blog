@@ -203,7 +203,7 @@ the following commands:
     MOVE
     FILE_NAME_CONVERT=('/home/oracle/app/oradata/TEST12/pdb1','/home/oracle/app/oradata/DEV12/clone ');
 
-An error message displays because the global unique identifier (GUID( is not
+An error message displays because the global unique identifier (GUID) is not
 unique. `PDB1` was already plugged using the COPY method, which caused this
 conflict with the GUID as shown in the following image:
 
@@ -344,4 +344,3 @@ benefits over non-container databases.
 Learn more about our [database services](https://www.rackspace.com/dba-services).
 
 If you have any questions on the topic, comment in the field below.
-

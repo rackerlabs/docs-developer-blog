@@ -195,5 +195,6 @@ most of the security-related features instead of using the mongo shell.
 
 </br>
 
+Learn more about our [certified database administrators and database services](https://www.rackspace.com/dba-services).
 
 If you have any questions on the topic, comment in the field below.

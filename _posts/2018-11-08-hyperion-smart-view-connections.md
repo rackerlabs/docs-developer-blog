@@ -83,7 +83,7 @@ The Smart View Excel addon offers the following connection types:
 - **Shared Connections**: Connections that are defined by an administrator and
 that can be viewed by all users.
 
--**Private Connections**: Locally stored connections or URL-based connections.
+- **Private Connections**: Locally stored connections or URL-based connections.
 
 The following diagram shows the two connection types:
 
@@ -136,16 +136,17 @@ following image and select **Private Connections**.
 <ol start=3>
     <li> 	In the text box, shown in the following image, enter the URL, or the local
 storage directory, for the data source to which you want to connect and click
-**Next**. If you are unsure which URL to use, contact your system administrator
+<b>Next</b>. If you are unsure which URL to use, contact your system administrator
 for the URL to use. The following list includes many of the most commmon URLS:
 
-**Financial Management**: http(s)://servername:port/hfmofficeprovider/hfmofficeprovider.aspx
-**Hyperion Enterprise**: http://servername:port/heofficeprovider/heofficeprovider.aspx
-**Planning**: http(s)://servername:port/HyperionPlanning/SmartView
-**Essbase**: http(s)://servername:port/aps/SmartView
-**Reporting and Analysis**: http(s)://servername:port/raframework/browse/listxml
-**Financial Close Management**: http://servername:port/fcc/servlets/smartview/fcmsvservlet
-**Oracle Hyperion StrategicFinance**: http://servername:port/StrategicPlanning/SmartView
+
+<b>Financial Management</b>: http(s)://servername:port/hfmofficeprovider/hfmofficeprovider.aspx
+<b>Hyperion Enterprise</b>: http://servername:port/heofficeprovider/heofficeprovider.aspx
+<b>Planning</b>: http(s)://servername:port/HyperionPlanning/SmartView
+<b>Essbase</b>: http(s)://servername:port/aps/SmartView
+<b>Reporting and Analysis</b>: http(s)://servername:port/raframework/browse/listxml
+<b>Financial Close Management</b>: http://servername:port/fcc/servlets/smartview/fcmsvservlet
+<b>Oracle Hyperion StrategicFinance</b>: http://servername:port/StrategicPlanning/SmartView
     </li>
 </ol>
 

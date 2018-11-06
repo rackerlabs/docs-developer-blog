@@ -139,7 +139,7 @@ storage directory, for the data source to which you want to connect and click
 <b>Next</b>. If you are unsure which URL to use, contact your system administrator
 for the URL to use. The following list includes many of the most commmon URLS:
 
-
+</br>
 <b>Financial Management</b>: http(s)://servername:port/hfmofficeprovider/hfmofficeprovider.aspx
 <b>Hyperion Enterprise</b>: http://servername:port/heofficeprovider/heofficeprovider.aspx
 <b>Planning</b>: http(s)://servername:port/HyperionPlanning/SmartView

@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Activating the SAP Security Audit Log Feature"
-date: 2018-10-31 23:59
+title: "Hyperion Smart View Connections"
+date: 2018-11-08 00:00
 comments: false
-author: Nithin Katpalli
+author: Arshadulla Khan
 authorIsRacker: true
 published: true
 categories:
-  - Security
+  - Oracle
 ---
 
 Originally published by TriCore: Sept 12, 2017

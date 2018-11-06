@@ -87,7 +87,7 @@ that can be viewed by all users.
 
 The following diagram shows the two connection types:
 
-![]({% asset_path 2018-11-08-hyperion-smart-view-connections/picture1.png %})
+![]({% asset_path 2018-11-08-hyperion-smart-view-connections/Picture1.png %})
 
 In most cases, you find all your connections under **Shared Connections**.
 
@@ -116,7 +116,7 @@ To create a shared connection, perform the following steps:
 following image and select **Shared Connections**.
 3.	Log in by using a user ID and a password.
 
-![]({% asset_path 2018-11-08-hyperion-smart-view-connections/picture2.png %})
+![]({% asset_path 2018-11-08-hyperion-smart-view-connections/Picture2.png %})
 
 ### Create private connections
 
@@ -131,9 +131,10 @@ perform the following steps:
 2.	In the Smart View panel, click the arrow next to the home as shown in the
 following image and select **Private Connections**.
 
-     ![]({% asset_path 2018-11-08-hyperion-smart-view-connections/picture3.png %})
+![]({% asset_path 2018-11-08-hyperion-smart-view-connections/Picture3.png %})
 
-3.	In the text box, shown in the following image, enter the URL, or the local
+<ol start=3>
+    <li> 	In the text box, shown in the following image, enter the URL, or the local
 storage directory, for the data source to which you want to connect and click
 **Next**. If you are unsure which URL to use, contact your system administrator
 for the URL to use. The following list includes many of the most commmon URLS:
@@ -145,8 +146,10 @@ for the URL to use. The following list includes many of the most commmon URLS:
 **Reporting and Analysis**: http(s)://servername:port/raframework/browse/listxml
 **Financial Close Management**: http://servername:port/fcc/servlets/smartview/fcmsvservlet
 **Oracle Hyperion StrategicFinance**: http://servername:port/StrategicPlanning/SmartView
+    </li>
+</ol>
 
-![]({% asset_path 2018-11-08-hyperion-smart-view-connections/picture4.png %})
+![]({% asset_path 2018-11-08-hyperion-smart-view-connections/Picture4.png %})
 
 ### Conclusion
 

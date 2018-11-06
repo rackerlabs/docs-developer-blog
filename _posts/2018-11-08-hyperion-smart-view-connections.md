@@ -140,13 +140,16 @@ storage directory, for the data source to which you want to connect and click
 for the URL to use. The following list includes many of the most commmon URLS:
 
 </br>
-<b>Financial Management</b>: http(s)://servername:port/hfmofficeprovider/hfmofficeprovider.aspx
-<b>Hyperion Enterprise</b>: http://servername:port/heofficeprovider/heofficeprovider.aspx
-<b>Planning</b>: http(s)://servername:port/HyperionPlanning/SmartView
-<b>Essbase</b>: http(s)://servername:port/aps/SmartView
-<b>Reporting and Analysis</b>: http(s)://servername:port/raframework/browse/listxml
-<b>Financial Close Management</b>: http://servername:port/fcc/servlets/smartview/fcmsvservlet
-<b>Oracle Hyperion StrategicFinance</b>: http://servername:port/StrategicPlanning/SmartView
+<ul>
+<li><b>Financial Management</b>: http(s)://servername:port/hfmofficeprovider/hfmofficeprovider.aspx</li>
+<li><b>Hyperion Enterprise</b>: http://servername:port/heofficeprovider/heofficeprovider.aspx</li>
+<li><b>Planning</b>: http(s)://servername:port/HyperionPlanning/SmartView</li>
+<li><b>Essbase</b>: http(s)://servername:port/aps/SmartView</li>
+<li><b>Reporting and Analysis</b>: http(s)://servername:port/raframework/browse/listxml</li>
+<li><b>Financial Close Management</b>: http://servername:port/fcc/servlets/smartview/fcmsvservlet</li>
+<li><b>Oracle Hyperion StrategicFinance</b>: http://servername:port/StrategicPlanning/SmartView</li>
+</ul>
+
     </li>
 </ol>
 

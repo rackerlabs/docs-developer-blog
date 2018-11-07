@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hyperion Smart View Connections"
+title: "Hyperion Smart View connections"
 date: 2018-11-08 00:00
 comments: false
 author: Arshadulla Khan
@@ -12,22 +12,22 @@ categories:
 
 Originally published by TriCore: Sept 12, 2017
 
-Oracle&reg; Smart View provides a common Microsoft&reg; Office&reg; interface
+Oracle&reg; Smart View provides a common Microsoft&reg; Office interface
 designed specifically for Oracle's Enterprise Performance Management (EPM) and
-Business Intelligence (BI). Using Smart View, you can view, import, and create
-reports.
+Business Intelligence (BI). By using Smart View, you can view, import, and
+create reports.
 
 <!-- more -->
 
 ### Introduction
 
-The Hyperion Smart View excel add-on tool is a basic and important tool for all
-users of Hyperion. This tool is used to load data into Hyperion, to view data,
-and to access reports and webforms that have already been loaded into or created
-in Hyperion.
+The Hyperion Smart View Microsoft Excel add-on tool is a basic and important tool
+for all users of Hyperion. This tool is used to load data into Hyperion, to view
+data, and to access reports and webforms that have already been loaded into or
+created in Hyperion.
 
 One of the most common issues that is faced by end users is that they are not
-able to connect to Hyperion essbase or Hyperion Planning by using Smart View
+able to connect to Hyperion Essbase or Hyperion Planning by using Smart View
 after they have migrated or upgraded their current servers. This issue is caused
 by the change to the server name after migration or an upgrade.
 
@@ -47,8 +47,8 @@ on-premises data sources:
 -	Oracle Hyperion Financial Data Quality Management, Enterprise Edition
 -	Oracle BI EE
 
-Smart View provides a common Office interface for the following cloud data
-sources:
+Smart View provides a common Microsoft Office interface for the following cloud
+data sources:
 
 -	Oracle Planning and Budgeting Cloud
 -	Oracle Enterprise Planning and Budgeting Cloud
@@ -92,19 +92,19 @@ The following diagram shows the two connection types:
 In most cases, you find all your connections under **Shared Connections**.
 
 If a data source is not listed under **Shared Connections**, you can use the
-*quick connect* feature in **Private Connections**. Type a URL in the drop down
+*quick connect* feature in **Private Connections**. Type a URL in the drop-down
 box and click **GO**.
 
 If you have a connection that you use all the time, add it to the list of
-private connections and it will always be available in the dropdown list as an
+private connections and it will always be available in the drop-down list as an
 option. Any URLs that you type are stored. When you click on a connection, you
-get a context sensitive list of key actions that can be performed on that
+get a context sensitive list of key actions that you can perform on that
 connection.
 
-Once you use a connection a few times, you can access that connection from the
+After you use a connection a few times, you can access that connection from the
 home panel by finding it in the **Recently Used** list. Most Recently Used (MRU)
 items are great for single-click access to your most common tasks, such as
-starting an ad-hoc analysis or opening a form. MRUs can be pinned so that they
+starting an ad-hoc analysis or opening a form. You can pin MRUs so that they
 are always where you expect them to be.
 
 ### Create shared connections
@@ -120,7 +120,7 @@ following image and select **Shared Connections**.
 
 ### Create private connections
 
-Using private connections you can connect to Hyperion Essabse, Planning, HSF,
+By using private connections, you can connect to Hyperion Essbase, Planning, HSF,
 OBIEE, reporting analysis, and HFM.
 
 If you know the URL, you can create a private connection from a connection that
@@ -137,7 +137,7 @@ following image and select **Private Connections**.
     <li> 	In the text box, shown in the following image, enter the URL, or the local
 storage directory, for the data source to which you want to connect and click
 <b>Next</b>. If you are unsure which URL to use, contact your system administrator
-for the URL to use. The following list includes many of the most commmon URLS:
+for the URL. The following list includes many of the most common URLs:
 
 </br>
 <ul>
@@ -158,10 +158,10 @@ for the URL to use. The following list includes many of the most commmon URLS:
 ### Conclusion
 
 Many customers use Smart View to load data and view data as part of their daily
-activities. This blog shows you how to make the required connections to connect
-to Hyperion. You can also easily make changes to connections when there are any
-upgrades to Smart View or Hyperion. The preceding information can be used in
-creating connections to all of the Hyperion components.
+activities. This blog shows you how to make the required connections to
+Hyperion. You can also easily make changes to connections when there are any
+upgrades to Smart View or Hyperion. You can use the preceding information to
+create connections to all of the Hyperion components.
 
 
 <table>

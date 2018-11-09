@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Hyperion Smart View connections"
-date: 2018-11-08 00:00
+title: "Load testing Oracle databases"
+date: 2018-11-12 00:00
 comments: false
-author: Arshadulla Khan
+author: Maheedhar Pasupuleti
 authorIsRacker: true
 published: true
 categories:

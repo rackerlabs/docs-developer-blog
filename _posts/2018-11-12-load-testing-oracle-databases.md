@@ -37,10 +37,10 @@ suite.
 
 There are four main phases in a load testing exercise:
 
-1) Preparation
-2) Simulation
-3) Capture metrics
-4) Analysis
+1) Preparation <br/>
+2) Simulation <br/>
+3) Capture metrics <br/>
+4) Analysis <br/>
 
 The following sections explore each phase in detail.
 
@@ -186,7 +186,7 @@ A **Database Replay** page appears, similar to the following image:
 
 ![]({% asset_path 2018-11-12-load-testing-oracle-databases/Picture1.png %})
 
-Learn about the detailed procedures for [Capture from OEM](https://docs.oracle.com/database/121/RATUG/GUID-1679DB12-B633-4021-A3B9-9CC6216D6681.htm#RATUG117).
+Learn about the detailed procedures for [Capture from OEM](https://docs.oracle.com/database/121/RATUG/GUID-1679DB12-B633-4021-A3B9-9CC6216D6681.htm#RATUG117)
 and for [Replay from OEM](https://docs.oracle.com/database/121/RATUG/GUID-B97B7550-A947-45D0-A31B-636A6427DD86.htm#RATUG147).
 
 ### Capture metrics phase
@@ -201,24 +201,26 @@ load testing server and that data is being captured.
 
 ### Analysis phase:
 
-First, compare the baseline load and the representative load. Depending on the
+To analyze the load test results, consider the following items:
+
+- Compare the baseline load and the representative load. Depending on the
 options available, you can analyze AWR reports and compare OEM data for
 various load situations.
 
-Look for the peaks in CPU and memory usage, SQL response time, and throughput.
+- Look for the peaks in CPU and memory usage, SQL response time, and throughput.
 Confirm that the peaks are within the permissible limits.
 
-If you used Oracle Database Replay for simulating load, use this
+- If you used Oracle Database Replay for simulating load, use this
 [document](https://docs.oracle.com/database/121/RATUG/GUID-3E9AA9F2-B37B-4E03-9E00-FEB0A141631E.htm#RATUG159)
 to analyze the workloads.
 
-If you used OATS for capture and reply, use this
+- If you used OATS for capture and reply, use this
 [document](https://docs.oracle.com/cd/E25294_01/doc.920/e15484/oltchap6.htm#CEGEIEDF)
 to analyze the test results.
 
-If you used the HammerDB tool, use this [document](http://www.hammerdb.com/document.html).
+- If you used the HammerDB tool, use this [document](http://www.hammerdb.com/document.html).
 
-Based on your analysis of the metrics, you can decide whether to go live with
+- Based on your analysis of the metrics, you can decide whether to go live with
 your planned changes or to adjust your plan.
 
 ### Conclusion

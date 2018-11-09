@@ -17,7 +17,7 @@ designed specifically for Oracle's Enterprise Performance Management (EPM) and
 Business Intelligence (BI). By using Smart View, you can view, import, and
 create reports.
 
-This blog discusses Oracle&reg; load testing, also known as as performance
+This blog discusses Oracle&reg; load testing, also known as performance
 testing, which is used to test a database under various representative load
 conditions.
 
@@ -26,19 +26,20 @@ conditions.
 ### Introduction
 
 Sometimes functional and regression testing is not sufficient for validating
-new code changes, especially when you are trying to make a bulk of code changes,
-or doing a database or application upgrade or changing any hardware. It makes
+new code changes, especially when you are trying to make bulk code changes,
+doing a database or application upgrade, or changing any hardware. It makes
 sense to simulate the production load on the test environment to see how it
 behaves under various load conditions.
 
-You might also perform a load test when a particular product is going live or
-a new country localization is being implemented in case of an e-business suite.
+You might also perform a load test when a particular product is going live, or
+a new country localization is being implemented, in the case of an e-business
+suite.
 
 There are four main phases in a load testing exercise:
 
 1) Preparation
 2) Simulation
-3) Capture Metrics
+3) Capture metrics
 4) Analysis
 
 The following sections explore each phase in detail.
@@ -46,7 +47,7 @@ The following sections explore each phase in detail.
 ### Preparation phase
 
 First identify the tool or procedure for conducting the test. Available tools,
-both open source and licensed include the following:
+both open source and licensed, include the following software:
 
 -	Mercury LoadRunner - requires license
 -	Borland SilkPerformer - requires license
@@ -54,7 +55,7 @@ both open source and licensed include the following:
 -	Swingbench - open source
 -	Oracle Application Testing Suite (OATS) - requires license
 
-Load can also be simulated with custom developed scripts.
+You can also simulate load with custom-developed scripts.
 
 #### Collect information
 
@@ -68,14 +69,14 @@ data storage device details, and so on.
 List the metrics to be measured during the load testing exercise. Optional
 metrics include the following:
 
--	CPU Usage
--	Load Average
--	Memory Usage
--	SQL Response Time
+-	CPU usage
+-	Load average
+-	Memory usage
+-	SQL response time
 -	Throughput
--	Hits per Second
+-	Hits per second
 
-OS watchers can be configured on the load testing system to get granular details
+You can configure OS watchers on the load testing system to get granular details
 of the OS and the hardware metrics.
 
 The Oracle Automatic Workload Repository (AWR) needs to be configured, if it is
@@ -86,14 +87,14 @@ not in place already.
 The core test areas for load testing depend on the type of application being
 hosted by the database:
 
--	For an E-Business Suite (EBS) database the month-end period is a major event,
-you can include this activity during simulation load.
--	For an EBS Environment with manufacturing, the ASCP plan run is a major event,
-which needs to be tested.
--	The payroll run of an application can be simulated if it is being used in an
-HR module.
--	In the case of a core banking database, End of Day (EOD) processing can be
-simulated to account for most of the load.
+-	For an E-Business Suite (EBS) database, the month-end period is a major event
+that you can include during simulation load.
+-	For an EBS environment with manufacturing, the Advanced Supply Chain Planning
+(ASCP) plan run is a major event, which you need to test.
+-	You can simulate the payroll run of an application if it is being used in an
+Human Resources (HR) module.
+-	In the case of a core banking database, you can simulate the End of Day (EOD)
+processing to account for most of the load.
 
 All of the preceding cases are more like batch processing scenarios. Along with
 these cases, you should also include transaction processing windows when more
@@ -101,14 +102,14 @@ concurrent users are on the system.
 
 #### Create a test plan:
 
-Use the following steps to create a test plan:
+Use the following stitems to create a test plan:
 
--	Include at least two different phases for the test, a baseline and a post
-upgrade phase.
+-	Include at least two different phases for the test, a baseline and a
+post-upgrade phase.
 -	The baseline test is used to measure the current environment and validate it
 against the actual production environment. The post-upgrade test evaluates the
 environment after the upgrade is made.
--	By using the baseline and the post-upgrade tests, you can analysis the
+-	By using the baseline and the post-upgrade tests, you can analyze the
 impact of the upgrade.
 -	Identify load test procedures, including how to start the load test and how
 to evaluate test progress for each test.
@@ -119,7 +120,7 @@ response time.
 -	Identify the reports for each of the load test phases. The reports should
 include information on results from each test run, metrics, and other collected
 information. Create report templates.
--	Make a checklist of test actions that need to be executed after load testing.
+-	Make a checklist of test actions that you need to execute after load testing.
 These can include steps to move the database to the pre-load testing state.
 
 #### Some considerations
@@ -130,13 +131,13 @@ scale of the production system:
 -	Behavior in load testing is different than in production.
 -	Errors shown in production don't reproduce in load testing.
 -	Transaction performance is different between load testing and production.
--	Other factors, not listed above, can also influence the load testing and
-therefore the results and analysis.
+-	Other factors, not listed above, can also influence the load testing, and
+therefore, the results and analysis.
 
 ### Simulation phase
 
 After you finalize the test plan and choose the tools, you need to install and
-setup the necessary tools for simulation.
+set up the necessary tools for simulation.
 
 You can simulate load in different ways based on the tools being used. It is as
 simple as running a few select data definition language/data manipulation
@@ -153,17 +154,17 @@ HammerDB and OATS/Oracle Database Replay have the following characteristics:
 -	HammerDB enables you to capture the load on the source system by using Oracle
 trace files. Then, they can be moved to the load test system and replayed on it.
 -	Learn more about the [detailed process](http://www.hammerdb.com/hammerdb\_oracle\_trace\_replay.pdf).
--	The Application Testing Suite (OATS) is a comprehensive, integrated testing
-solution that ensures the quality, scalability, and availability of your web
-applications, web services, packaged Oracle applications, and Oracle databases.
--	Oracle Database Reply is another option for performing load testing. It can
-be used from DBMS\_WORKLOAD\_CAPTURE API’s or Enterprise Manager. However, there
+-	OATS is a comprehensive, integrated testing solution that ensures the
+quality, scalability, and availability of your web applications, web services,
+packaged Oracle applications, and Oracle databases.
+-	Oracle Database Reply is another option for performing load testing. You can
+use it from DBMS\_WORKLOAD\_CAPTURE APIs or Enterprise Manager. However, there
 are some licensing implications to use these tools. Using API’s, the
 DBMS\_WORKLOAD\_CAPTURE package is part of the Oracle Real Application Testing
 option. DBMS\_WORKLOAD\_REPLAY package is part of the Oracle Real Application
 Testing option. Use of the function DBMS\_WORKLOAD\_REPLAY.COMPARE\_PERIOD\_REPORT()
 also requires a license of Oracle Diagnostics Pack.
--	The SQL Performance Analyzer feature can also be accessed from SQLPLUS
+-	You can also access the SQL Performance Analyzer feature from the SQLPLUS
 interface.
 
 The DBMS_SQLPA package is a part of Oracle Real Application Testing option. The
@@ -172,40 +173,40 @@ and systems for database replay is charged by the total number of CPUs on those
 systems. Refer the following My Oracle Support (MOS) note for detailed steps for
 capture and replay using API’s:
 
-[Capture using API’s](https://docs.oracle.com/database/121/RATUG/GUID-7AB9889A-6F05-41D3-8EA1-F4BEEC507BDE.htm#RATUG122)
-[Replay using API’s](https://docs.oracle.com/database/121/RATUG/GUID-0F8D20F3-A4A1-4A89-852A-449C2E7C9602.htm#RATUG151)
+- [Capture using APIs](https://docs.oracle.com/database/121/RATUG/GUID-7AB9889A-6F05-41D3-8EA1-F4BEEC507BDE.htm#RATUG122)
+- [Replay using APIs](https://docs.oracle.com/database/121/RATUG/GUID-0F8D20F3-A4A1-4A89-852A-449C2E7C9602.htm#RATUG151)
 
 #### Using Enterprise Manager
 
-You can perform capture and replay from Oracle EM interface. From the
-**Enterprise** menu of the Enterprise Manager Cloud Control console, select
-**Quality Management->Database Replay**.
+You can perform capture and replay from Oracle Enterprise Manager (OEM) interface.
+From the **Enterprise** menu of the Enterprise Manager Cloud Control console,
+select **Quality Management->Database Replay**.
 
 A **Database Replay** page appears, similar to the following image:
 
 ![]({% asset_path 2018-11-12-load-testing-oracle-databases/Picture1.png %})
 
-Learn about the detailed procedure for [Capture from OEM](https://docs.oracle.com/database/121/RATUG/GUID-1679DB12-B633-4021-A3B9-9CC6216D6681.htm#RATUG117).
-Learn about the detailed procedure for [Replay from OEM](https://docs.oracle.com/database/121/RATUG/GUID-B97B7550-A947-45D0-A31B-636A6427DD86.htm#RATUG147).
+Learn about the detailed procedures for [Capture from OEM](https://docs.oracle.com/database/121/RATUG/GUID-1679DB12-B633-4021-A3B9-9CC6216D6681.htm#RATUG117).
+and for [Replay from OEM](https://docs.oracle.com/database/121/RATUG/GUID-B97B7550-A947-45D0-A31B-636A6427DD86.htm#RATUG147).
 
 ### Capture metrics phase
 
-While the simulate phase is running, make sure that the OS watcher is running
+While the simulation phase is running, make sure that the OS watcher is running
 and gathering statistics on the load testing environment.
 
-Make sure AWR snapshots are being run at 30-minute intervals.
+Ensure that AWR snapshots are running at 30-minute intervals.
 
-If an OEM infrastructure is available, make sure the OEM agent is active on the
+If an OEM infrastructure is available, ensure the OEM agent is active on the
 load testing server and that data is being captured.
 
 ### Analysis phase:
 
 First, compare the baseline load and the representative load. Depending on the
-options available, AWR reports can be analysed and OEM data can be compared for
+options available, you can analyze AWR reports and compare OEM data for
 various load situations.
 
 Look for the peaks in CPU and memory usage, SQL response time, and throughput.
-Confirm whether the peaks are within the permissible limits.
+Confirm that the peaks are within the permissible limits.
 
 If you used Oracle Database Replay for simulating load, use this
 [document](https://docs.oracle.com/database/121/RATUG/GUID-3E9AA9F2-B37B-4E03-9E00-FEB0A141631E.htm#RATUG159)
@@ -222,13 +223,13 @@ your planned changes or to adjust your plan.
 
 ### Conclusion
 
-The preparation phase is pivotal to the whole Load testing exercise. Exercise
+The preparation phase is pivotal to the whole load testing exercise. Exercise
 more caution in the analysis and conclusion, especially when the load testing
 system is not a 1:1 replica of production.
 
-Each of the steps and processes need to be carefully conducted, because any
+You need to conduct each of the steps and processes carefully because any
 missed step or issue can invalidate the test results. This can result in a
-decision made under a false or misleading information.
+decision made under false or misleading information.
 
 A successful and well-conducted load test exercise increases confidence and
 reduces the risk of a system upgrade.

@@ -23,8 +23,11 @@ Within the Azure portal, create a Local Network Gateway. Take the public ip addr
 
 Within the Alibaba portal, create a **Customer Gateway**. This is similar to a Local Network Gateway in Azure. Type in the public ip address from Azure's VPN Gateway into the **IP Address** text box
 
-The last remaining step is to configure the connections to both gateways.
+The next step is to configure the connections to both gateways. In Alibaba, select **Create an IPSec Connection** and choose the VPC and VPN Gateway. Type in the IP CIDR of your Alibaba local network in **Local Network** then type in the IP CIDR of your Azure Network in **Remote Network**. Slect **Yes** for Effective Immediately. Enable the Advanced Configuration option to list the Ike configurations. Generate a 16bit pre-shared key and type it into the **Pre-Shared Key** text box. Select **Ikev2** for **Version**, **aes256** for **Encryption Algorithm**, **28800** for **SA Life Cycle (Seconds)**. Under the **IPsec Connections** label, select **aes256** and **28800** for **SA Life Cycle (seconds)** In the Azure Portal, navigate to your **Local Network gateway** connection object. Select **Connections** from the blade then select **Add**. Give your connection a **name**, select your **VPN Gateway** and type in your pre-shared key that was used in Alibaba IKE Configuration.
 
+The final step is to add a route entry into your Alibaba VPC Route Table. Within your VPC, edit the route table and add a new entry. Type in the remote network cidr block, set the **Next Hop Type** to **VPN Gateway** and select your VPN Gateway.
+
+At this point, we have a route based Site-to-Site vpn configured between Azure and Alibaba Cloud. I stood up a SQL Server and frontend Sitecore content delivery node and configured a remote publishing target. Benchmarking from US to China for a remote publish was not favorable due to random timeouts. Looking at the Sitecore publishing service, I deployed an Azure webapp and configured publishing that route. Publishing was instantly faster and did not have anymore timeouts.
 
 
 

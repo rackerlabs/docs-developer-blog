@@ -17,9 +17,9 @@ GoldenGate lag.
 
 ### What is lag?
 
-Lag is the time difference between when changes are made within source database
-and when those changes are applied to the target database. This article discusses
-the following types of lag:
+Lag is the time difference between when changes are made within the source
+database and when those changes are applied to the target database. This article
+discusses the following types of lag:
 
 **Extract lag**: The difference, in seconds, between the system clock time that
 a record was processed by the **Extract** GoldenGate component and the timestamp
@@ -53,7 +53,7 @@ source, as shown the following example:
 
     LAG EXTRACT group_name
 
-Sample output
+The output should be similar to the following example:
 
     2018-08-17 23:09:31  INFO    OGG-14054  Lag from heartbeat table requires DBLOGIN.
 
@@ -68,7 +68,7 @@ trail, as shown in the following example:
 
     LAG REPLICAT group_name
 
-Sample output
+The output should be similar to the following example:
 
     2018-08-17 23:02:49  INFO    OGG-14054  Lag from heartbeat table requires DBLOGIN.
     Sending GETLAG request to REPLICAT REP1 ...
@@ -114,7 +114,7 @@ The following components can contribute to performance bottlenecks:
 - **Data Pump** reads the trail files and carries out any required mapping and
   conversion of the data.
 - **Data Pump** transfers the trail files from the source system to the target
-  system. where **Collector** writes to the remote trail files.
+  system, where **Collector** writes to the remote trail files.
 - **Replicat** reads the trail file, applies any mapping and conversions, and
   applies the data to the target database by using SQL statements.
 

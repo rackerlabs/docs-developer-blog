@@ -176,10 +176,10 @@ Tune **Replicat** by using the following techniques:
 
 Use the following techniques to tune GoldenGate in general:
 
--	Use multiple process groups
+-	Use multiple process groups.
 -  Split large tables into row ranges across process groups.
 -	Configure GoldenGate to use the network efficiently.
--	Eliminate disk I/O bottlenecks
+-	Eliminate disk I/O bottlenecks.
 -	Manage virtual memory and paging.
 -	Optimize data filtering and conversion.
 

@@ -64,7 +64,3 @@ The final step is to add a route entry into your Alibaba VPC Route Table. Within
 
 At this point, you have a route-based site-to-site VPN configured between Azure and Alibaba Cloud. I stood up a SQL Server and front-end Sitecore content-delivery node. Then I configured a remote publishing target. Benchmarking from US to China for a remote publish was not favorable due to random timeouts. Looking at the Sitecore publishing service, I deployed an Azure webapp and configured publishing for that route. Publishing was instantly faster and had no timeouts.
 
-
-
-
-

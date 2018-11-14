@@ -27,10 +27,10 @@ While the Azure VPN Gateway is provisioning, log into the Alibaba Cloud dashboar
 Next, create a **VPN Gateway** and select the VPC that you previously created.
 ![VPNGateway]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/abvpngw.png %})
 
-Within the Azure portal, create a Local Network Gateway. Take the public ip address from the Alibaba VPN Gateway and type it into the **IP address** text box in Azure. Specify the Alibaba VPC CIDR address space in the **Address space** text box. Select create to provision the resource
+Within the Azure portal, create a Local Network Gateway. Take the public IP address from the Alibaba VPN Gateway and type it into the **IP address** text box in Azure. Specify the Alibaba VPC CIDR address space in the **Address space** text box. Click **Create** to provision the resource
 ![LocalGateway]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/alngw.png %})
 
-Within the Alibaba portal, create a **Customer Gateway**. This is similar to a Local Network Gateway in Azure. Type in the public ip address from Azure's VPN Gateway into the **IP Address** text box
+Within the Alibaba portal, create a **Customer Gateway**. This is similar to a ''Local Network Gateway'' in Azure. Type in the public IP address from Azure's VPN Gateway into the **IP Address** text box.
 ![CustomerGateway]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/abcustomergateway.png %})
 
 The next step is to configure the connections to both gateways. In Alibaba, select **Create an IPSec Connection** and choose the VPC and VPN Gateway. Type in the IP CIDR of your Alibaba local network in **Local Network** and then type in the IP CIDR of your Azure Network in **Remote Network**. Select **Yes** for **Effective Immediately** choice. 

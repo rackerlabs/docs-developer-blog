@@ -19,7 +19,7 @@ Starting off on the Azure side, you need to create a vnet with a non-overlapping
 ![VNET]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/createvnet.png %})
 
 Once the vnet has been created, you create a new **Gateway Subnet**. Now that a Gateway Subnet has been defined, create a **Virtual Network Gateway** in Azure. 
-Make sure to select **route-based** as the **VPN type**.
+Make sure to select `route-based` as the **VPN type**.
 
 ![GatewaySubnet]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/gatewaysubnet.png %})
 
@@ -36,19 +36,20 @@ Within the Azure portal, create a Local Network Gateway. Take the public IP addr
 ![LocalGateway]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/alngw.png %})
 
 Within the Alibaba portal, create a **Customer Gateway**. This is similar to a *Local Network Gateway* in Azure. Type in the public IP address from Azure's VPN Gateway into the **IP Address** text box.
+
 ![CustomerGateway]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/abcustomergateway.png %})
 
-The next step is to configure the connections to both gateways. In Alibaba, select **Create an IPSec Connection** and choose the VPC and VPN Gateway. Type in the IP CIDR of your Alibaba local network in **Local Network** and then type in the IP CIDR of your Azure Network in **Remote Network**. Select **Yes** for **Effective Immediately** choice. 
+The next step is to configure the connections to both gateways. In Alibaba, select **Create an IPSec Connection** and choose the VPC and VPN Gateway. Type in the IP CIDR of your Alibaba local network in **Local Network** and then type in the IP CIDR of your Azure Network in **Remote Network**. Select `Yes` for **Effective Immediately** choice. 
 
 ![config1]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/abip1.png %})
 
-Enable the **Advanced Configuration** option to list the Ike configurations. Generate a 16 bit, pre-shared key and type it into the **Pre-Shared Key** text box. Make teh following selections:
+Enable the **Advanced Configuration** option to list the Ike configurations. Generate a 16 bit, pre-shared key and type it into the **Pre-Shared Key** text box. Make the following selections:
 
-- **Ikev2** for **Version** 
-- **aes256** for **Encryption Algorithm** 
-- **28800** for **SA Life Cycle (Seconds)**. 
+- `Ikev2` for **Version** 
+- `aes256` for **Encryption Algorithm** 
+- `28800` for **SA Life Cycle (Seconds)**. 
 
-Under the **IPsec Connections** label, select **aes256** and **28800** for **SA Life Cycle (Seconds)**. 
+Under the **IPsec Connections** label, select `aes256` and `28800` for **SA Life Cycle (Seconds)**. 
 
 ![config2]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/abip2.png %})
 ![config3]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/abip3.png %})
@@ -57,7 +58,7 @@ In the Azure Portal, navigate to your **Local Network gateway** connection objec
 
 ![localConnection]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/azconnection.png %})
 
-The final step is to add a route entry into your Alibaba VPC Route Table. Within your VPC, edit the route table and add a new entry. Type in the remote network CIDR block, set the **Next Hop Type** to **VPN Gateway**, and select your VPN Gateway.
+The final step is to add a route entry into your Alibaba VPC Route Table. Within your VPC, edit the route table and add a new entry. Type in the remote network CIDR block, set the **Next Hop Type** to `VPN Gateway`, and select your VPN Gateway.
 
 ![route]({% asset_path 2018-11-15-Azure-to-Alibaba-VPN/abroute.png %})
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Change the Oracle Apps and WebLogic password"
+title: "Change the Oracle APPS and WebLogic password"
 date: 2018-11-20 00:00
 comments: true
 author: Sandeep Kumar
@@ -24,20 +24,20 @@ The following table shows the schemas for EBS v. R12.2:
 
 <table>
   <tr>
-    <th>Schema</th>
+    <th>Schema &nbsp; &nbsp; &nbsp; &nmsp;</th>
     <th>Description</th>
   </tr>
   <tr>
     <td>APPS</td>
-    <td>Owns all of the applications code in the database and has access to all <br />
+    <td>Owns all of the applications code in the database and has access to all
     data in the E-Business Suite. <br />
-    All end-user connections connect as APPS after being authenticated <br />
+    All end-user connections connect as APPS after being authenticated
     by using the APPLSYSPUB schema. <br />
     The APPS schema must have same password as the APPLSYS and APPS_NE schemas. </td>
   </tr>
   <tr>
     <td>APPSLSYS</td>
-    <td>Owns the foundation objects (AD_* and FND_* tables) of the E-Business <br />
+    <td>Owns the foundation objects (AD_* and FND_* tables) of the E-Business
     Suite that are used to define users, menus and so on. <br />
     The APPLSYS schema must have same password as the APPS and APPS_NE schemas. </td>
   </tr>
@@ -298,21 +298,23 @@ The following steps apply to WebLogic Txk Delta 7 and later:
 
     Program: txkUpdateEBSDomain.pl completed at Tue Aug 21 04:34:33 2018
 
-
-3. Start all services on all nodes, using the following command.
-
+<ol start=3>
+    <li> Start all services on all nodes, using the following command.</li>
+</ol>
         adstrtal.sh apps/apps_password -mode=allnodes
 
-4. Login to the admin console to verify that the new WebLogic user password works.
+<ol start=4>
+    <li>  Login to the admin console to verify that the new WebLogic user password works.</li>
+</ol>
 
-#### Version earlier than Tkx Delta 7
+#### Versions earlier than Tkx Delta 7
 
 The following steps apply to WebLogic version earlier than Txk Delta 7:
 
 1. Log in to the WebLogic Administrative console.
 2. Use the existing WebLogic admin username and password.
 3. Click **Lock and Edit** and click **Domain**.
-4. Click on the **Security** tab and click on the advanced tab
+4. Click on the **Security** tab and click on the **Advanced** tab.
 5. Enter the new password that you want for the WebLogic admin user in the
    **Node Manager Password**.
 6. Click **Save** and verify that the settings were updated successfully. Then
@@ -345,7 +347,7 @@ line.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/change-the-oracle-apps-and-weblogic-password/">
         <img src="{% asset_path shareT.png %}">
       </a>
     </td>
@@ -353,7 +355,7 @@ line.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/change-the-oracle-apps-and-weblogic-password/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
@@ -361,7 +363,7 @@ line.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/change-the-oracle-apps-and-weblogic-password&summary=&source=">
         <img src="{% asset_path shareL.png %}">
       </a>
     </td>

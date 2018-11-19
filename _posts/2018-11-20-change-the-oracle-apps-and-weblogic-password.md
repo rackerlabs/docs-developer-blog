@@ -24,7 +24,7 @@ The following table shows the schemas for EBS v. R12.2:
 
 <table>
   <tr>
-    <th>Schema &nbsp; &nbsp; &nbsp; &nmsp;</th>
+    <th>Schema &nbsp; &nbsp; &nbsp; &nbsp;</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -165,8 +165,9 @@ perform the following steps:
    - apps\_password: New apps password which you changed previously
    - actual path of data source: $FMW\_HOME/user\_projects/domains/EBS\_domain\_${ORACLE_SID}
 
-
-2. Edit **updateDSpwd.py** and update the parameters with your details:
+<ol start=2>
+    <li> Edit <b>updateDSpwd.py</b> and update the parameters with your details:</li>
+</ol>
 
         username = 'weblogic'
         password = 'weblogic_password'
@@ -183,7 +184,9 @@ perform the following steps:
         save()
         activate()
 
-3. Execute **updateDSpwd.py**.
+<ol start=3>
+    <li> Execute <b>updateDSpwd.py</b>.</li>
+</ol>
 
 #### 6. Start all services
 

@@ -24,7 +24,7 @@ The following table shows the schemas for EBS v. R12.2:
 
 <table>
   <tr>
-    <th>Schema &nbsp; &nbsp; &nbsp; &nbsp;</th>
+    <th>Schema &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -57,9 +57,9 @@ that the changes are successfully completed. Passwords for all the three schemas
 APPS, APPLSYS and APPS_NE, are changed together when you change the APPLSYS
 password.
 
-The following sections provide the steps to change the schema passwords.
+Use the following steps to change the schema passwords:
 
-#### 1. Stop the application tier services
+#### 1: Stop the application tier services
 
 Stop the application tier services on multiple nodes by running the following
 command from the primary application node:
@@ -204,7 +204,7 @@ Use the following steps to verify the WLS datastore:
 4. On the **Settings for EBSDataSource** page, select **Monitoring > Testing**.
 5. Select **oacore\_server1**.
 6. Click **Test DataSource**.
-7. Look for the message "Test of EBSDataSource on server oacore_server1 was successful".
+7. Look for the message *Test of EBSDataSource on server oacore_server1 was successful*.
 
 ### Change the WebLogic password
 

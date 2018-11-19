@@ -378,4 +378,3 @@ line.
 Learn more about our [database services](https://www.rackspace.com/dba-services).
 
 If you have any questions on the topic, comment in the field below.
-

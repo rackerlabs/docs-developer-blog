@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Change the Oracle APPS and WebLogic password"
+title: "Change the Oracle Apps and WebLogic password"
 date: 2018-11-20 00:00
 comments: true
 author: Sandeep Kumar
@@ -12,9 +12,9 @@ categories:
 
 This blog outlines the steps to change the password for Oracle&reg;'s E-Business
 Suite (EBS) APPS schemas and WebLogic&reg;, which is a routine activity for an
-Oracle Applications database administrator (DBA). EBS version R12.2 has an
-option, `AFPASSWD`, to change passwords, as well as some manual steps that you
-can use after changing the password using `FNDCPASS`.
+Oracle Applications database administrator (DBA). In EBS version R12.2, you can
+change passwords by using the `AFPASSWD` option, or by using `FNDCPAS` followed
+by some manual steps.
 
 <!-- more -->
 
@@ -33,18 +33,18 @@ The following table shows the schemas for EBS v. R12.2:
     data in the E-Business Suite. <br />
     All end-user connections connect as APPS after being authenticated
     by using the APPLSYSPUB schema. <br />
-    The APPS schema must have same password as the APPLSYS and APPS_NE schemas. </td>
+    The APPS schema must have the same password as the APPLSYS and APPS_NE schemas. </td>
   </tr>
   <tr>
     <td>APPSLSYS</td>
     <td>Owns the foundation objects (AD_* and FND_* tables) of the E-Business
     Suite that are used to define users, menus and so on. <br />
-    The APPLSYS schema must have same password as the APPS and APPS_NE schemas. </td>
+    The APPLSYS schema must have the same password as the APPS and APPS_NE schemas. </td>
   </tr>
   <tr>
     <td>APPS_NE</td>
     <td>Is the new non-edition runtime ‘APPS’ user for the E-Business Suite. <br />
-    The APPS_NE schema must have same password as the APPLSYS and APPS schemas. </td>
+    The APPS_NE schema must have the same password as the APPLSYS and APPS schemas. </td>
   </tr>
 </table>
 
@@ -52,7 +52,7 @@ The following table shows the schemas for EBS v. R12.2:
 
 **Table Source**: [https://www.integrigy.com/security-resources/oracle-e-business-suite-applsys-apps-and-appsne](https://www.integrigy.com/security-resources/oracle-e-business-suite-applsys-apps-and-appsne)
 
-**Note:** The steps to change password must be carried out on the run file
+**Note:** The steps to change a password must be carried out on the run file
 system, and the `FND_USER` and `FND_ORACLE_USERID` tables should be backed up
 before you change any passwords. Remove the backups after you have confirmed
 that the changes are successfully completed. Passwords for all the three schemas,
@@ -69,8 +69,8 @@ command from the primary application node:
     adstpall.sh apps/apps_password -mode=allnodes
 
 This prompts for the WebLogic password. Internally, it connects to all the
-nodes by using Secure Shell (SSH), which was enabled as part of R12.2.x
-pre-requisites setup.
+nodes by using Secure Shell (SSH), which was enabled as part of the R12.2.x
+prerequisites setup.
 
 #### 2. Change the passwords
 
@@ -80,7 +80,7 @@ for the schemas, APPS, APPLSYS, and APPS_NE.
 ##### FNDCPASS
 
 Use the following command to change passwords after exporting the environment
-file to the run file system on the primary application server.
+file to the run file system on the primary application server:
 
     FNDCPASS apps/apps_password 0 Y <SYSTEM username>/<SYSTEM password> SYSTEM APPLSYS <new_password>
 
@@ -319,11 +319,11 @@ The following steps apply to WebLogic Txk Delta 7 and later:
 
 #### Versions earlier than Tkx Delta 7
 
-The following steps apply to WebLogic version earlier than Txk Delta 7:
+The following steps apply to WebLogic versions earlier than Txk Delta 7:
 
 1. Log in to the WebLogic Administrative console.
 2. Use the existing WebLogic admin username and password.
-3. Click **Lock and Edit** and click **Domain**.
+3. Click **Lock & Edit** and click **Domain**.
 4. Click on the **Security** tab and click on the **Advanced** tab.
 5. Enter the new password that you want for the WebLogic admin user in the
    **Node Manager Password**.
@@ -340,7 +340,7 @@ data source on the patch file system is synchronized with the new Apps password.
 
 ### Conclusion
 
-Use the process outlined in this blog to change the  APPS, APPLSYS, APPS_NE and
+Use the process outlined in this blog to change the APPS, APPLSYS, APPS_NE and
 WebLogic password. Note that passwords with special characters or multibyte
 characters are not currently supported with EBS.
 

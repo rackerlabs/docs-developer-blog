@@ -250,7 +250,7 @@ invalid credentials, and so on.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/integrate-dicoverer-with-OAM/">
         <img src="{% asset_path shareT.png %}">
       </a>
     </td>
@@ -258,7 +258,7 @@ invalid credentials, and so on.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/integrate-dicoverer-with-OAM/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
@@ -266,7 +266,7 @@ invalid credentials, and so on.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/integrate-dicoverer-with-OAM&summary=&source=">
         <img src="{% asset_path shareL.png %}">
       </a>
     </td>

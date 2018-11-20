@@ -249,7 +249,7 @@ and 11.1.1.7.0.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/upgrading-oracle-business-intelligence-discoverer-part-2/">
         <img src="{% asset_path shareT.png %}">
       </a>
     </td>
@@ -257,7 +257,7 @@ and 11.1.1.7.0.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/upgrading-oracle-business-intelligence-discoverer-part-2/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
@@ -265,7 +265,7 @@ and 11.1.1.7.0.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/upgrading-oracle-business-intelligence-discoverer-part-2&summary=&source=">
         <img src="{% asset_path shareL.png %}">
       </a>
     </td>

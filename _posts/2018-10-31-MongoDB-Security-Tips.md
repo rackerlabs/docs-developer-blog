@@ -170,7 +170,7 @@ most of the security-related features instead of using the mongo shell.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/MongoDB-Security-Tips/">
         <img src="{% asset_path shareT.png %}">
       </a>
     </td>
@@ -178,7 +178,7 @@ most of the security-related features instead of using the mongo shell.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/MongoDB-Security-Tips/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
@@ -186,7 +186,7 @@ most of the security-related features instead of using the mongo shell.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/MongoDB-Security-Tips&summary=&source=">
         <img src="{% asset_path shareL.png %}">
       </a>
     </td>

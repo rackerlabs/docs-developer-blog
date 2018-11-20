@@ -196,7 +196,7 @@ and offered recommendations to improve the performance.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/troubleshoot-oracle-goldengate-lag/">
         <img src="{% asset_path shareT.png %}">
       </a>
     </td>
@@ -204,7 +204,7 @@ and offered recommendations to improve the performance.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/troubleshoot-oracle-goldengate-lag/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
@@ -212,7 +212,7 @@ and offered recommendations to improve the performance.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/applications-monitoring-creating-a-smoother-financial-close&summary=&source=">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/troubleshoot-oracle-goldengate-lag&summary=&source=">
         <img src="{% asset_path shareL.png %}">
       </a>
     </td>

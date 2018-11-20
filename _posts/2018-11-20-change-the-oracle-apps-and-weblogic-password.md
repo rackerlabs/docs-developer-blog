@@ -48,6 +48,8 @@ The following table shows the schemas for EBS v. R12.2:
   </tr>
 </table>
 
+<br />
+
 **Table Source**: [https://www.integrigy.com/security-resources/oracle-e-business-suite-applsys-apps-and-appsne](https://www.integrigy.com/security-resources/oracle-e-business-suite-applsys-apps-and-appsne)
 
 **Note:** The steps to change password must be carried out on the run file
@@ -78,7 +80,7 @@ for the schemas, APPS, APPLSYS, and APPS_NE.
 ##### FNDCPASS
 
 Use the following command to change passwords after exporting the environment
-file of run file system on primary application server.
+file to the run file system on the primary application server.
 
     FNDCPASS apps/apps_password 0 Y <SYSTEM username>/<SYSTEM password> SYSTEM APPLSYS <new_password>
 
@@ -143,11 +145,16 @@ the options described in the following sections.
 To change the APPS pasword by using the WLS console, perform the following steps:
 
 1. Log in to the WLS Administration Console.
-2. Click **Lock and Edit** in the Change Center.
+   ![]({% asset_path 2018-11-20-change-the-oracle-apps-and-weblogic-password/Picture1.png %})
+2. Click **Lock & Edit** in the Change Center.
+   ![]({% asset_path 2018-11-20-change-the-oracle-apps-and-weblogic-password/Picture2.png %})
 3. In the Domain Structure tree, expand **Services**, and select **Data Sources**.
+   ![]({% asset_path 2018-11-20-change-the-oracle-apps-and-weblogic-password/Picture3.png %})
 4. On the **Summary of JDBC Data Sources** page, select **EBSDataSource**.
+   ![]({% asset_path 2018-11-20-change-the-oracle-apps-and-weblogic-password/Picture4.png %})
 5. On the **Settings for EBSDataSource** page, select the **Connection Pool** tab.
 6. Enter the new password in **Password**.
+   ![]({% asset_path 2018-11-20-change-the-oracle-apps-and-weblogic-password/Picture5.png %})
 7. Enter the new password in **Confirm Password**.
 8. Click **Save**.
 9. Click **Activate Changes** in the Change Center.

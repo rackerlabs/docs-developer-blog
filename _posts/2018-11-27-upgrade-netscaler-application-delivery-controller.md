@@ -74,7 +74,7 @@ Image source: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-ne
 
 2.	Save existing configuration by using the following command:
 
-    save ns config
+        save ns config
 
 3.	Review the Load Balancer virtual server ip (LBVip) and the service group(SG)
    statuses to gauge how many are up prior to the upgrade. Record the results.
@@ -82,8 +82,8 @@ Image source: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-ne
    same number of SGs and virtual server ips (VIP) are up. Perform the
    verification by using the following commands:
 
-    sh lb vserver | grep -c "State: UP"    -- Shows number of UP LB VIP’s
-    sh servicegroup | grep -c "Effective State: UP" – Shows number of UP SG’s
+        sh lb vserver | grep -c "State: UP"    -- Shows number of UP LB VIP’s
+        sh servicegroup | grep -c "Effective State: UP" – Shows number of UP SG’s
 
 4.	Open a shell prompt and run the following commands to create new directory
    under /var/nsintall to upload the upgrade file:
@@ -114,7 +114,7 @@ Image source: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-ne
    indicate that the appliance is the secondary node and that synchronization
    is disabled.
 
- 	  show ha node
+ 	      show ha node
 
 10. If synchronization is not disabled, run the following command to disable
     synchronization on the appliance:
@@ -157,12 +157,11 @@ Image source: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-ne
 
 4.	Verify that the appliance is a primary appliance.
 
-5.	Review LBVIP's and Servicegroup's status.
+5.	Review LBVIP's and Servicegroup's status. Perform the verification by using
+   the following commands:
 
-   Perform the verification by using the following commands:
-
-    sh lb vserver | grep -c "State: UP"    -- Shows number of UP LB VIP’s
-    sh servicegroup | grep -c "Effective State: UP" – Shows number of UP SG’s
+        sh lb vserver | grep -c "State: UP"    -- Shows number of UP LB VIP’s
+        sh servicegroup | grep -c "Effective State: UP" – Shows number of UP SG’s
 
 #### Enable synchronization on the secondary appliance
 

@@ -1,0 +1,243 @@
+---
+layout: post
+title: "Upgrade NetScaler Application Delivery Controller"
+date: 2018-11-27 00:00
+comments: true
+author: Karthik Siva
+published: true
+authorIsRacker: true
+categories:
+  - general
+---
+
+NetScaler Application Delivery Controller (ADC), Citrix&reg; Systems' core
+networking product, is a tool that improves the delivery speed and quality of
+applications to an end user. This blog describes how to upgrade the software on
+NetScaler appliances that are configured in a high availability setup from the
+command line interface (cli).
+
+<!-- more -->
+
+### Introduction
+
+The ADC product was developed for business customers and performs tasks such as
+traffic optimization, Layer4 to Layer7 load balancing, and web application
+acceleration while maintaining data security.
+
+You should upgrade firmware to overcome known issues and bugs with current
+version and to have smooth business transition.
+
+### Upgrade prerequisites
+
+Review the following prerequisites before beginning the upgrade:
+
+-	Make sure which stable version needs to be upgraded based on the model
+   (software and hardware compatibility).
+
+-	Verify whether the appliance has enough space  in /var for the upgrade. If
+   necessary, free up more space.
+
+-	Go through the release notes and look for any modified or depreciated commands.
+
+-	Follow your organization’s change control procedures.
+
+-	Allocate twice as much time to perform the upgrades.
+
+-	Download the approved image from Citrix download center (note the integrity
+   value of image).
+
+-	Log in to NetScaler and save the configuration before taking any backups.
+
+-	Take a full backup of NetScaler (Secure Sockets Layer, license, configuration,
+   and so on) and store it in share folder.
+
+### Upgrade procedure
+
+The following image shows a high-level overview of the ADC upgrade steps:
+
+![]({% asset_path 2018-11-27-upgrade-netscaler-application-delivery-controller/Picture1.png %})
+
+**Note:** Always upgrade secondary box first and then upgrade the primary box.
+
+#### Upgrade the secondary appliance
+
+The following image shows the steps to upgrade the software on the secondary
+appliance.
+
+![]({% asset_path 2018-11-27-upgrade-netscaler-application-delivery-controller/Picture2.png %})
+
+Image source: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-netscaler-appliance/upgrade-downgrade-HA-pair.html](https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-netscaler-appliance/upgrade-downgrade-HA-pair.html)
+
+1.	Log on to the secondary NetScaler appliance by using a Secure Shell utility,
+   such as PuTTY, and specifying the NetScaler IP (NSIP). Use the `nsroot/admin`
+   credentials to log on to the appliance.
+
+2.	Save existing configuration by using the following command:
+
+    save ns config
+
+3.	Review the Load Balancer virtual server ip (LBVip) and the service group(SG)
+   statuses to gauge how many are up prior to the upgrade. Record the results.
+   After the secondary appliance becomes primary, you need to verify that the
+   same number of SGs and virtual server ips (VIP) are up.
+
+   Perform the verification by using the following commands:
+
+    sh lb vserver | grep -c "State: UP"    -- Shows number of UP LB VIP’s
+    sh servicegroup | grep -c "Effective State: UP" – Shows number of UP SG’s
+
+4.	Open a shell prompt and run the following commands to create new directory
+   under /var/nsintall to upload the upgrade file:
+
+    cd /var/nsinstall
+    mkdir x_xnsinstall
+
+5.	Upload the `.tgz` file from the local system or file transfer protocal (ftp)
+   server to  `/var/nsinstall/x_xnsinstall` (Example file name: ns-x.0-xx.x.tgz).
+
+6.	Before you run the install script, extract the files and place them on the
+   appliance. Use the following command to uncompress the bundle:
+
+    tar -zxvf ns-x.0-xx.x.tgz
+
+   The parameters used in this command include the following:
+
+   `x` - Extract files.
+   `v` - Print the file names as they are extracted one by one.
+   `z` - The file is a "gzipped" file.
+   `f` - Use the following tar archive for the operation.
+
+7.	Run the following command to install the downloaded software:
+
+    ./installns
+
+   If the appliance does not have sufficient disk space to install the new
+   kernel files, the installation process performs an automatic cleanup of the
+   flash drive.
+
+8.	After the installation process is complete, the process prompts to restart
+   the appliance. Press **y** to restart the appliance.
+
+9.	Log on to the appliance cli by using the *nsroot/admin* credentials and
+   execute the following command:
+
+ 	 show ha node
+
+   The output of the preceding command should indicate that the appliance is a
+   secondary node and synchronization is disabled.
+
+10. Run the following command to disable synchronization on the appliance if
+   synchronization is not disabled:
+
+    set ha node -hasync disabled
+
+11. Ensure that the configuration is complete and as expected.
+
+12. Run the following commands to perform a force failover and takeover as primary
+   appliance and verify the failover:
+
+    force failover
+    show ha node
+
+13. Review the LBVip and SG statuses using the commands from step 3.
+
+
+#### Upgrade the primary appliance
+
+The following image shows the steps to upgrade the software on the primary
+appliance:
+
+![]({% asset_path 2018-11-27-upgrade-netscaler-application-delivery-controller/Picture3.png %})
+
+Image source: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-netscaler-appliance/upgrade-downgrade-HA-pair.html](https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-netscaler-appliance/upgrade-downgrade-HA-pair.html)
+
+1.	Log on to primary appliance, which is currently secondary and follow the
+   preceding step 4 to 9 from the Upgrading the secondary appliance section.
+
+2)	Run the following command to display the state of the appliance:
+
+    show ha node
+
+   The output of the preceding command should indicate that the appliance is a
+   primary node and the status of the node state is **UP**.
+
+3)	If the appliance is not a primary appliance, run the following command to
+   perform a force failover to ensure that the appliance is a primary appliance:
+
+    force failover
+
+4)	Verify that the appliance is a primary appliance.
+
+5)	Review LBVIP's and Servicegroup's status.
+
+   Perform the verification by using the following commands:
+
+    sh lb vserver | grep -c "State: UP"    -- Shows number of UP LB VIP’s
+    sh servicegroup | grep -c "Effective State: UP" – Shows number of UP SG’s
+
+#### Enable synchronization on the secondary appliance
+
+To enable synchronization on the secondary appliance, complete the following
+steps:
+
+1.	Run the following command to verify that the appliance is a secondary
+   appliance:
+
+        show node
+
+2.	Run the following command to enable synchronization on the appliance:
+
+        set ha node -hasync enabled
+
+3.	Run the following command to verify that the configuration of the secondary
+   appliance is synchronized with that of the primary appliance:
+
+        show ns runningconfig
+
+### Conclusion
+
+You have successfully upgraded and verified whether the SGs and VIPs are same
+as they were before the upgrade.  Log in to the load balancer from the graphical
+user interface (GUI) to check out the new look. If you encounter any GUI bugs
+after the upgrade, contact Citrix support to get any needed hotfixes.  You can
+check with the support team before upgrading firmware to get details about the
+stability of your version of ADC to avoid unnecessary issues.
+
+<table>
+  <tr>If you liked this blog, share it by using the following icons:</tr>
+  <tr>
+   <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/upgrade-netscaler-application-controller/">
+        <img src="{% asset_path shareT.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/upgrade-netscaler-application-controller/">
+        <img src="{% asset_path shareFB.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/upgrade-netscaler-application-controller&summary=&source=">
+        <img src="{% asset_path shareL.png %}">
+      </a>
+    </td>
+  </tr>
+</table>
+
+</br>
+
+Learn more about [Rackspace application services](https://www.rackspace.com/application-management).
+
+If you have any questions on the topic, comment in the field below.
+
+Reference: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-netscaler-appliance/upgrade-downgrade-HA-pair.html](https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-netscaler-appliance/upgrade-downgrade-HA-pair.html)
+

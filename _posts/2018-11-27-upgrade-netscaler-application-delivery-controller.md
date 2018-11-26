@@ -228,4 +228,3 @@ Learn more about [Rackspace application services](https://www.rackspace.com/appl
 If you have any questions on the topic, comment in the field below.
 
 Reference: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-netscaler-appliance/upgrade-downgrade-HA-pair.html](https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-netscaler-appliance/upgrade-downgrade-HA-pair.html)
-

@@ -12,16 +12,16 @@ categories:
 
 NetScaler Application Delivery Controller (ADC), Citrix&reg; Systems' core
 networking product, is a tool that improves the delivery speed and quality of
-applications to an end user. This blog describes how to upgrade the software on
-NetScaler appliances that are configured in a high availability setup from the
-command line interface (cli).
+applications to an end user. This blog describes how to upgrade from the
+command line interface (cli) the software on NetScaler appliances that are
+configured in a high availability setup.
 
 <!-- more -->
 
 ### Introduction
 
 The ADC product was developed for business customers and performs tasks such as
-traffic optimization, Layer4 to Layer7 load balancing, and web application
+traffic optimization, Layer 4 to Layer 7 load balancing, and web application
 acceleration while maintaining data security.
 
 You should upgrade firmware to overcome known issues and bugs with current
@@ -79,9 +79,8 @@ Image source: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-ne
 3.	Review the Load Balancer virtual server ip (LBVip) and the service group(SG)
    statuses to gauge how many are up prior to the upgrade. Record the results.
    After the secondary appliance becomes primary, you need to verify that the
-   same number of SGs and virtual server ips (VIP) are up.
-
-   Perform the verification by using the following commands:
+   same number of SGs and virtual server ips (VIP) are up. Perform the
+   verification by using the following commands:
 
     sh lb vserver | grep -c "State: UP"    -- Shows number of UP LB VIP’s
     sh servicegroup | grep -c "Effective State: UP" – Shows number of UP SG’s
@@ -89,8 +88,8 @@ Image source: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-ne
 4.	Open a shell prompt and run the following commands to create new directory
    under /var/nsintall to upload the upgrade file:
 
-    cd /var/nsinstall
-    mkdir x_xnsinstall
+        cd /var/nsinstall
+        mkdir x_xnsinstall
 
 5.	Upload the `.tgz` file from the local system or file transfer protocal (ftp)
    server to  `/var/nsinstall/x_xnsinstall` (Example file name: ns-x.0-xx.x.tgz).
@@ -98,48 +97,39 @@ Image source: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-ne
 6.	Before you run the install script, extract the files and place them on the
    appliance. Use the following command to uncompress the bundle:
 
-    tar -zxvf ns-x.0-xx.x.tgz
+        tar -zxvf ns-x.0-xx.x.tgz
 
-   The parameters used in this command include the following:
+7.	Run the following command to install the downloaded software. If the
+   appliance does not have sufficient disk space to install the new kernel
+   files, the installation process performs an automatic cleanup of the flash
+   drive.
 
-   `x` - Extract files.
-   `v` - Print the file names as they are extracted one by one.
-   `z` - The file is a "gzipped" file.
-   `f` - Use the following tar archive for the operation.
-
-7.	Run the following command to install the downloaded software:
-
-    ./installns
-
-   If the appliance does not have sufficient disk space to install the new
-   kernel files, the installation process performs an automatic cleanup of the
-   flash drive.
+        ./installns
 
 8.	After the installation process is complete, the process prompts to restart
    the appliance. Press **y** to restart the appliance.
 
 9.	Log on to the appliance cli by using the *nsroot/admin* credentials and
-   execute the following command:
+   execute the following command.  The output of the preceding command should
+   indicate that the appliance is the secondary node and that synchronization
+   is disabled.
 
- 	 show ha node
+ 	  show ha node
 
-   The output of the preceding command should indicate that the appliance is a
-   secondary node and synchronization is disabled.
+10. If synchronization is not disabled, run the following command to disable
+    synchronization on the appliance:
 
-10. Run the following command to disable synchronization on the appliance if
-   synchronization is not disabled:
-
-    set ha node -hasync disabled
+        set ha node -hasync disabled
 
 11. Ensure that the configuration is complete and as expected.
 
 12. Run the following commands to perform a force failover and takeover as primary
-   appliance and verify the failover:
+    appliance and verify the failover:
 
-    force failover
-    show ha node
+        force failover
+        show ha node
 
-13. Review the LBVip and SG statuses using the commands from step 3.
+13. Review the LBVip and SG statuses by using the commands from step 3.
 
 
 #### Upgrade the primary appliance
@@ -154,21 +144,20 @@ Image source: [https://docs.citrix.com/en-us/netscaler/12-1/upgrade-downgrade-ne
 1.	Log on to primary appliance, which is currently secondary and follow the
    preceding step 4 to 9 from the Upgrading the secondary appliance section.
 
-2)	Run the following command to display the state of the appliance:
+2.	Run the following command to display the state of the appliance. The output
+   should indicate that the appliance is the primary node and that the status
+   of the node state is **UP**.
 
-    show ha node
+        show ha node
 
-   The output of the preceding command should indicate that the appliance is a
-   primary node and the status of the node state is **UP**.
-
-3)	If the appliance is not a primary appliance, run the following command to
+3.	If the appliance is not a primary appliance, run the following command to
    perform a force failover to ensure that the appliance is a primary appliance:
 
-    force failover
+        force failover
 
-4)	Verify that the appliance is a primary appliance.
+4.	Verify that the appliance is a primary appliance.
 
-5)	Review LBVIP's and Servicegroup's status.
+5.	Review LBVIP's and Servicegroup's status.
 
    Perform the verification by using the following commands:
 

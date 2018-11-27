@@ -1,0 +1,124 @@
+---
+layout: post
+title: "Restrict manual creation of Oracle purchase orders"
+date: 2018-11-28 00:00
+comments: true
+author: Amit Garg
+published: true
+authorIsRacker: true
+categories:
+  - database
+  - Oracle
+---
+
+Sometimes businesses require a requistion in order to raise a purchase order
+(PO). This blog shows you how to restrict a user from manually creating a PO.
+
+<!-- more -->
+
+### Introduction
+
+In Oracle&reg; purchasing, you create a PO by using either of the following
+methods:
+
+1. Manually by using the PO form.
+2. Automatically from a requisition by using the Autocreate form.
+
+Some businesses require a requisition to create a PO and restrict manual PO
+creation. The following sections show options to restrict the manual creation
+of POs in Oracle E-business Suites (EBS).
+
+#### Option 1: Personalize form POXPOEPO
+
+This method requires two personalizations, one on the PO Header Block and
+another on the PO Line block.
+
+To personalize at the PO header block, use the `When Validate Record` event, as
+shown in the following image.
+
+![]({% asset_path 2018-11-28-restrict-manual-creation-of-oracle-purchase-orders/Picture1.png %})
+
+You need to add a condition to check whether the PO number (**segment1**) is
+null. If it is null, you can raise an error message. A null **segment1** means
+that you are trying to create a new PO on Purchase order form, so we need to
+restrict that here, as shown in the following image:
+
+![]({% asset_path 2018-11-28-restrict-manual-creation-of-oracle-purchase-orders/Picture2.png %})
+
+To personalize at the PO Line level, trap the PO creation in the
+`When New Block Instance` event.
+
+If the **segment1** at the PO header level is null, take the following actions:
+
+1.	Pass the control to PO Header block.
+2.	Raise an error message.
+
+The following images demonstrate these actions:
+
+![]({% asset_path 2018-11-28-restrict-manual-creation-of-oracle-purchase-orders/Picture3.png %})
+
+![]({% asset_path 2018-11-28-restrict-manual-creation-of-oracle-purchase-orders/Picture4.png %})
+
+#### Option 2: Use menu exclusions
+
+To use menu exclusions, you need to exclude several functions at the
+responsibility level to ensure that a user is not able to create the PO manually.
+Make sure to modify all responsibilities where you want to restrict PO creation.
+
+The following functions should be excluded:
+
+-	`Purchase Orders`
+-	`PO Summary: Create New PO`
+
+The following images shows this process:
+
+![]({% asset_path 2018-11-28-restrict-manual-creation-of-oracle-purchase-orders/Picture5.png %})
+
+The limitation with menu exclusions is that a user is not able to edit the POs
+(which were created through the auto-create functionality) from responsibilities
+on which functions `Purchase Orders` and `PO Summary: Create New PO` are excluded.
+
+### Conclusion
+
+You can either of the methods described in this blog to restrict the creation of
+PO creation. If you want to permit a user to edit the PO after creating it from
+a requisition then you should use the form personalization method. It the user
+will create the PO from Autocreate without needing to edit it, then use the menu
+exclusion method. I hope you find these hints valuable and are able to put them
+to good use.
+
+<table>
+  <tr>If you liked this blog, share it by using the following icons:</tr>
+  <tr>
+   <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/restrict-manual-creation-of-oracle-purchase-orders/">
+        <img src="{% asset_path shareT.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/restrict-manual-creation-of-oracle-purchase-orders/">
+        <img src="{% asset_path shareFB.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/restrict-manual-creation-of-oracle-purchase-orders&summary=&source=">
+        <img src="{% asset_path shareL.png %}">
+      </a>
+    </td>
+  </tr>
+</table>
+
+</br>
+
+Learn more about our [database services](https://www.rackspace.com/dba-services).
+
+If you have any questions on the topic, comment in the field below.

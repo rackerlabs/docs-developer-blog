@@ -21,8 +21,8 @@ Sometimes businesses require a requistion in order to raise a purchase order
 In Oracle&reg; purchasing, you create a PO by using either of the following
 methods:
 
-1. Manually by using the PO form.
-2. Automatically from a requisition by using the Autocreate form.
+- Manually by using the PO form.
+- Automatically from a requisition by using the Autocreate form.
 
 Some businesses require a requisition to create a PO and restrict manual PO
 creation. The following sections show options to restrict the manual creation

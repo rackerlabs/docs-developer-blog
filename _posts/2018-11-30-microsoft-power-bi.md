@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Power BI: A suite of business analytics tools"
-date: 2018-11-29 00:00
+date: 2018-12-04 00:00
 comments: true
 author: Ramandeep Kaur
 published: true
@@ -29,7 +29,7 @@ tools.
 
 The following image shows the Power BI workflow:
 
-![]({% asset_path 2018-11-29-microsoft-power-bi/picture1.png %})
+![]({% asset_path 2018-12-04-microsoft-power-bi/picture1.png %})
 
 Source: [Microsoft Power BI
 Overview](https://www.slideshare.net/Netwoven/power-bi-overview-41399411).
@@ -39,9 +39,9 @@ Overview](https://www.slideshare.net/Netwoven/power-bi-overview-41399411).
 The following table describes the differences between Power BI and Microsoft
 SQL&reg; Server&reg; Reporting Services (SSRS):
 
-<table cellpadding="10">
+<table>
   <tr>
-    <th><b>Power BI</b></th>
+    <th><b>Power BI&nbsp;&nbsp;</b></th>
     <th><b>SSRS</b></th>
   </tr>
   <tr>

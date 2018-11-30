@@ -41,11 +41,11 @@ SQL&reg; Server&reg; Reporting Services (SSRS):
 
 | **Power BI** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;             	| **SSRS** 	|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
-| A cloud-based business analytics tool that performs data acquisition and,transformation, data modeling, and visualization with greater speed,,efficiency, and understanding. 	| An enterprise visualization tool built on old technology that requires another system to deliver data. 	|
+| A cloud-based business analytics tool that performs data acquisition and transformation, data modeling, and visualization with greater speed, efficiency, and understanding. 	| An enterprise visualization tool built on old technology that requires another system to deliver data. 	|
 |  	|  	|
 | Most enterprise clients are adopting visualization tools that are more adaptive and responsive. Users want advanced tools that look modern and can cross-filter when they click on charts. 	| SSRS has a static design. There's also a learning curve for developing reports. 	|
 |  	|  	|
-| Power BI is available for free and requires minimal training. Users,creates their own reports by dragging and dropping fields. Power BI also,offers modern rendering. 	| A SQL server license is required. You must also define the scope for,your requirements, have a developer work on those requirements, consider,how to deploy the software, and schedule data refreshes. Reports are,static. In addition, you're dependent on a BI developer to make changes. 	|
+| Power BI is available for free and requires minimal training. Users create their own reports by dragging and dropping fields. Power BI also offers modern rendering. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 	| A SQL server license is required. You must also define the scope for your requirements, have a developer work on those requirements, consider how to deploy the software, and schedule data refreshes. Reports are static. In addition, you're dependent on a BI developer to make changes. 	|
 |  	|  	|
 
 <br />

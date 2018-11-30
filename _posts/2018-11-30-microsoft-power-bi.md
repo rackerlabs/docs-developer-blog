@@ -198,4 +198,3 @@ and revealing useful insights. Power BI dashboards give you a 360-degree view
 of your most important metrics in a central place. These metrics are available
 on all of your devices and updated in real time. With a single click, you can
 explore your dashboard data to make timely and important business decisions.
-

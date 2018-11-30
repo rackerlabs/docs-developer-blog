@@ -39,7 +39,7 @@ Overview](https://www.slideshare.net/Netwoven/power-bi-overview-41399411).
 The following table describes the differences between Power BI and Microsoft
 SQL&reg; Server&reg; Reporting Services (SSRS):
 
-| **Power BI** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | **SSRS** |
+| **Power BI** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | **SSRS** |
 |---|---|
 | A cloud-based business analytics tool that performs data acquisition and transformation, data modeling, and visualization with greater speed, efficiency, and understanding. 	| An enterprise visualization tool built on old technology that requires another system to deliver data. 	|
 | &nbsp;|  &nbsp;|

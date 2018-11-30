@@ -45,7 +45,56 @@ Gatling is an open-source load and performance testing framework based on Scala,
 
 Out of the box, Gatling generates detailed metrics dashboard of test results, which are stored as HTML files for deep analysis and metrics comparison, including indicators, active users, number of requests, and response time.
 
+#### Indicators:
+
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-indicators.png %}
+
+#### Statistics:
+
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-statistics.png %}
+
+#### Active users over time:
+
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-users.png %}
+
+#### Requests per second over time:
+
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-requests-per-sec.png %}
+
+#### Response time percentiles over time:
+
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-response-percentiles-per-sec.png %}
+
+#### Response time distribution:
+
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-distrib.png %}
+
+In addition, Gatling performance tool has built-in integration with Continuous Integration pipelines. For instance, you can choose the useful [Jenkins Gatling plugin](https://plugins.jenkins.io/gatling), which enables you to keep track of a Gatling simulation providing performance trends across builds, and publish detailed reports for each build.
+
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/jenkins-dashboard.png %}
+
 ### How to run a simple performance test with Gatling
+
+#### Installing
+Go to Gatling [download page](https://gatling.io/download/), and download the latest Gatling tool zip bundle. Unzip and put it in some location.
+
+#### Configuring your browser
+Before starting to record a test scenario using Gatling recorder, we need to configure our browser proxy settings with the following steps. (All steps are done with a Google Chrome browser on Mac in this demo.)
+1. Open the Google Chrome browser, and go to the settings.
+1. Open proxy settings, and click on **Advanced** button on the bottom of the page.
+    {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-1.png %}
+    {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-2.png %}
+1. Go to Proxies tab, check **Web Proxy (HTTP)** and **Secure Web Proxy (HTTPS)**, and type the address **127.0.0.1** and the port **8000**.
+    {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-3.png %}
+    {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-4.png %}
+1. Close the browser window.
+
+#### Recording a test scenario
+
+#### Editing the Gatling script
+
+#### Executing a Gatling script
+
 
 ### Integrate Gatling with Maven
 

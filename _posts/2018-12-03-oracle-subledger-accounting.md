@@ -44,7 +44,7 @@ architecture in versions 11i and R12:
 Key features include the following items:
 
 -	SLA forms and programs are embedded within the standard Oracle application
-   responsibility. Separate responsibilities no longer required.
+   responsibility. Separate responsibilities are no longer required.
 -	Standard rules can be copied and modified.
 -	Generation and storage of detailed accounting entries.
 -	SLA maintains a complete link between transactions and accounting entries,

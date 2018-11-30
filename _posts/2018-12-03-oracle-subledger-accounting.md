@@ -11,6 +11,8 @@ categories:
   - Oracle
 ---
 
+Originally published by TriCore: February 12, 2017
+
 This blog takes you through Subledger Accounting (SLA), which is one of the most
 important features of Oracle&reg; version R12. SLA is the most robust feature in
 R12, providing the power to modify accounting according to business needs. This

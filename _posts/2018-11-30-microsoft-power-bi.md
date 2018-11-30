@@ -39,24 +39,11 @@ Overview](https://www.slideshare.net/Netwoven/power-bi-overview-41399411).
 The following table describes the differences between Power BI and Microsoft
 SQL&reg; Server&reg; Reporting Services (SSRS):
 
-<table>
-  <tr>
-    <th><b>Power BI&nbsp;&nbsp;</b></th>
-    <th><b>SSRS</b></th>
-  </tr>
-  <tr>
-    <td>A cloud-based business analytics tool that performs data acquisition and transformation, data modeling, and data visualization with greater speed, efficiency, and understanding.</td>
-    <td>An enterprise visualization tool built on old technology that requires another system to deliver data.</td>
-  </tr>
-  <tr>
-    <td>Most enterprise clients are adopting visualization tools that are more adaptive and responsive. Users want advanced tools that look modern and can cross-filter when they click on charts.</td>
-    <td>SSRS has a static design. There's also a learning curve for developing reports.</td>
-  </tr>
-  <tr>
-    <td>Power BI is available for free and requires minimal training. Users creates their own reports by dragging and dropping fields. Power BI also offers modern rendering.</td>
-    <td>A SQL server license is required. You must also define the scope for your requirements, have a developer work on those requirements, consider how to deploy the software, and schedule data refreshes. Reports are static. In addition, you're dependent on a BI developer to make changes.</td>
-  </tr>
-</table>
+| Power BI              	| SSRS 	|
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+| A cloud-based business analytics tool that performs data acquisition and   transformation, data modeling, and visualization with greater speed,   efficiency, and understanding. 	| An enterprise visualization tool built on old technology that requires another system to deliver data. 	|
+| Most enterprise clients are adopting visualization tools that are more adaptive and responsive. Users want advanced tools that look modern and can cross-filter when they click on charts. 	| SSRS has a static design. There's also a learning curve for developing reports. 	|
+| Power BI is available for free and requires minimal training. Users creates their own reports by dragging and dropping fields. Power BI also offers modern rendering. 	| A SQL server license is required. You must also define the scope for your requirements, have a developer work on those requirements, consider how to deploy the software, and schedule data refreshes. Reports are static. In addition, you're dependent on a BI developer to make changes. 	|
 
 <br />
 

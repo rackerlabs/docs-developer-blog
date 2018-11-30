@@ -6,7 +6,7 @@ comments: true
 author: Ning Zhang
 published: true
 authorIsRacker: true
-bio: "Ning Zhang is a Software Developer in Test in the Rackspace Private Cloud Powered by VMware. Ning Zhang has years of experience in automation testing, performance tesing, agile development and CI/CD."
+bio: "Ning Zhang is a Software Developer in Test in the Rackspace Private Cloud Powered by VMware. Ning Zhang has years of experience in automation testing, performance testing, agile development and CI/CD."
 categories:
     - Automation
 ---
@@ -81,30 +81,62 @@ Go to Gatling [download page](https://gatling.io/download/), and download the la
 #### Configuring your browser
 Before starting to record a test scenario using Gatling recorder, we need to configure our browser proxy settings with the following steps. (All steps are done with a Google Chrome browser on Mac in this demo.)
 1. Open the Google Chrome browser, and go to the settings.
-1. Open proxy settings, and click on **Advanced** button on the bottom of the page.
+2. Open proxy settings, and click on **Advanced** button on the bottom of the page.
+
     {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-1.png %}
+
     {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-2.png %}
-1. Go to Proxies tab, check **Web Proxy (HTTP)** and **Secure Web Proxy (HTTPS)**, and type the address **127.0.0.1** and the port **8000**.
+
+3. Go to Proxies tab, check **Web Proxy (HTTP)** and **Secure Web Proxy (HTTPS)**, and type the address **127.0.0.1** and the port **8000**.
+
     {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-3.png %}
+
     {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-4.png %}
-1. Close the browser window.
+    
+4. Close the browser window.
 
 #### Recording a test scenario
 
+1. Gatling recorder `recorder.sh` is located under _/gatling-charts-highcharts-bundle-3.0.1.1/bin_. Note that `Java.exe` is required to open the recorder window.
+2. Before starting the recorder, enter some settings in the recorder window.
+* Enter the port number in the local host box (In my case **8000**)
+* Enter the package name and the class name
+* Check the **Follow Redirects?**, **Infer HTML resources?**, **Remove cache Headers?** and **Automatic Referers?**
+* Select the output folder path
+* Keep all other options as default
+* Click on the **Start** button
+
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-recorder-1.png %}
+
+3. Open the Google Chrome browser, go to the URL: http://computer-database.gatling.io/, and try some operations on this page. The executed events can be observed in the recorder window. Click on the **Stop & Save** button.
+
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-recorder-2.png %}
+
 #### Editing the Gatling script
+After finishing the recording, the simulation results will be stored in the folder _/gatling-charts-highcharts-bundle-3.0.1.1/user-files/simulations/gatlingExample_ under the name _gatlingExampleSimulation.scala_. Here is the produced output:
+
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-script.png %}
+
+The simulation script is written in Scala, and you can edit it based on the needs of your test scenario.
 
 #### Executing a Gatling script
+Launch `gatling.sh` located in the bin directory, and you should see a menu with the simulation examples:
 
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-script-output.png %}
+
+And select the id number of the simulation you want to execute. When the simulation is done, the console will display a link to the HTML reports.
 
 ### Integrate Gatling with Maven
 
 This section will show you how to integrate Gatling tool with Maven via plugins, which has become essential in the world of CI/CD.
 
 #### Plugin versions and download
-To use Gatling with Maven, the plugin `gatling-maven-plugin` is required. Since Gatling is written in Scala, you also need another plugin `scala-maven-plugin` for it. Check out avaible versions on [Maven Central](https://search.maven.org/search?q=g:io.gatling%20AND%20a:gatling-maven-plugin&core=gav).
+To use Gatling with Maven, the plugin `gatling-maven-plugin` is required. Since Gatling is written in Scala, you also need another plugin `scala-maven-plugin` for it. Check out available versions on [Maven Central](https://search.maven.org/search?q=g:io.gatling%20AND%20a:gatling-maven-plugin&core=gav).
 
 #### Setup and configurations
 After creating a Maven project on your local, the setup in pom.xml file looks more or less like this:
+
+{% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/pom-xml.png %}
 
 The configurations can also be done in pom.xml file, like the multiple simulations’ execution, includes/excludes filters, etc. Check the [Gatling documentation](https://gatling.io/docs/current/extensions/maven_plugin/#configuration) for more configuration examples.
 

@@ -31,7 +31,8 @@ The following image shows the Power BI workflow:
 
 ![]({% asset_path 2018-11-29-microsoft-power-bi/picture1.png %})
 
-Source: [Microsoft Power BI Overview](https://www.slideshare.net/Netwoven/power-bi-overview-41399411).
+Source: [Microsoft Power BI
+Overview](https://www.slideshare.net/Netwoven/power-bi-overview-41399411).
 
 ### Differences between Power BI and SQL Server Reporting Services
 
@@ -61,29 +62,41 @@ Server&reg; Reporting Services (SSRS):
 
 Power BI has the following features:
 
-- **Natural Language Queries or Q&A question box**: This feature is quite impressive. There is no special code or syntax that is required. Users simply search reports by name that make finding answers easy.
+- **Search with natural language queries or the Q&A question box**: Users can
+  easily query data by entering natural language terms. There's no special
+  code or syntax.
 
-- **Quick Insights**: With this feature, Power BI searches a dataset via sophisticated algorithms. It provides users with a list of charts that helps to better understand the data.
+- **Quick Insights**: This feature enables Power BI to search datasets by
+  using sophisticated algorithms. It outputs is a list of charts that help
+  users better understand the data.
 
-- **APIs**: With the Microsoft Power BI REST API you can programmatically access certain Power BI resources such as Datasets, Tables, and Rows. The image below shows the overall flow for a Power BI app created using the REST API.
+- **APIs**: By using the Microsoft Power BI REST API, you can programmatically
+  access Power BI resources such as datasets, tables, and rows.
 
-IMAGE HERE (no current reference)
+- **Power BI Embedded**: This Microsoft Azure&reg; service enables you to add
+  interactive Power BI reports to your own web and mobile applications.
 
-- **Power BI Embedded**: With Power BI Embedded, you can integrate Power BI reports right into your web or mobile applications. It is an Azure service that enables application developers to add interactive Power BI reports into their own applications.
+- **Visual Interactions**: You can precisely configure the following types of
+  visual interactions:
 
-- **Visual Interactions**: Visual interactions can be configured in a highly precise way. Types of visual interactions are:
+  - **Filtering interaction**: When you use filtering interaction, the chart
+    that you select applies the same filter to the destination chart.
 
-  - **Filtering interaction**: Selected chart will place the very same filter on the destination chart.
-  - **Pie chart**: Default filtering behavior, where the filtering on one chart shows on the destination chart.
+  - **Pie chart**: This is the default filtering behavior.
 
-- **No filtering interaction**: No filtration.
+  - **No filtering interaction**: No filters are applied.
 
-- **Query Editor**: The query language of Power BI Desktop is used by Query
-  Editor.
+- **Query Editor**: The Query Editor uses Power BI Desktop's query language.
 
 ### Content packs
 
-Content packs are an essential feature of Power BI that provide access to the data that different web services generate. They're also useful for deploying and sharing predefined models and reports within a company. While anyone can share a dashboard, pro-users can gain access to the content packs. There are two types of content packs: organizational content packs and service content packs.
+  Content packs provide access to the data that your web services generate.
+  They're designed to enable you to deploy and share predefined models and
+  reports within your company. While any user may share a dashboard, the power
+  and flexibility of content packs are only available to pro-level users.
+
+  There are two types of content packs: organizational content packs and
+  service content packs.
 
 #### Organizational content packs
 
@@ -91,16 +104,16 @@ Organizational content packs make it easy to distribute reports to your team
 by enabling you to package your dashboards, reports, Excel workbooks, and
 datasets and publish them together. Power BI stores the content packs that you
 create in the _pack library_, where they're easily accessible to your teams.
-Content pack visibility is restricted only to users within the organization.
-The content pack creator has administrative rights to modify the workbook and
-dataset, schedule a refresh, or delete them.
+Content pack visibility is restricted to users within your organization.
+The user who created the content pack has administrative rights to modify,
+refresh, and delete the workbook and dataset.
 
 #### Service content packs
 
-You can connect to a number of external services, such as Google&reg;
-Analytics&trade;, Salesforce&reg; and Microsoft Dynamics&reg;. Power BI
-creates a dashboard and a set of reports that automatically display your data
-from these services and provide visual insights into your business.
+Service content packs can connect to a number of external services such as
+Google&reg; Analytics&trade;, Salesforce&reg; and Microsoft Dynamics&reg;.
+Power BI creates a dashboard and a set of reports that automatically display
+your data from these services and provide visual insights into your business.
 
 ### Dashboard sharing and groups
 
@@ -115,47 +128,81 @@ your datasets. You can share your dashboards with the following users:
 ### Create an app workspace in Power BI
 
 Alternatively, you can create an app that enables you to automatically share
-all of your dashboards with your users, and assign editing rights to certain
-users within that group.
+all of your dashboards with your users, as well as assign editing rights to
+certain users within that group.
 
-### App workspaces vs. organization content packs
+### App workspaces compared with organization content packs
 
-In the group or app workspace, a single copy of report and dashboard is shared which is not visible to external users. App workspace is an evolution and a simplification of content packs which makes it easier to understand and maintain in the long run because the app has a 1:1 relationship with its workspace.
+In the group or app workspace, a single copy of a report and dashboard is
+shared. This copy is not visible to external users.
 
-#### What if you want to share the results with other users outside the group?
+App workspace is an evolution and a simplification of content packs that's
+easier to understand and maintain in the long run because an app that you
+create has a one-to-one relationship with its workspace.
 
-The content pack for an organization is a good solution. Users receive a copy of these objects that are automatically synchronized in case a new version of the same content pack is published. If users customize one of these objects, they will work on their own copy of the reports, that will no longer be synchronized with the original one.
+#### Share results with users outside of the group
 
-Security and Roles
+If you want to share the results with users outside of the group, using the
+content pack for an organization is a good solution. Users receive copies of
+these objects, and the copies are automatically synchronized if a new version
+of the same content pack is published. If a user customizes a copy of an
+object, they only work on their own copy of the reports. The copy is no longer
+synchronized with the original one.
 
-Security plays an essential role in all aspects. In Power BI, Row-level security (RLS) can be used to restrict data access for given users using filters which can be define within roles. RLS for data models can be configured on datasets that are using DirectQuery such as SQL Server.
-Only the owners of the dataset will see the security available. If the dataset is in a Group, only Administrators of the group will see the security option.
+### Security and roles
 
-Connecting to a Database
+In Power BI, you can use row-level security (RLS) to restrict data access for
+specific users by using filters. You can define these filters within roles.
+You can configure RLS for data models on datasets that use DirectQuery,
+such as SQL Server.
 
-In Power BI, data can be loaded from varied sources. Some of them are discussed below:  
+Only the owners of the dataset see the security option. If the dataset is in a
+group, only administrators of the group see the security option.
 
-Import
+### Connect to a database
 
-Import is useful when data refresh is not required constantly. When you choose Import, Power BI Desktop connects to the database, loads the information, and stores it within its internal data model. You can then work on your data in Power BI Desktop without being connected to the database. Connection is required only when you want to refresh the data.
+You can load data into Power BI from a variety of sources, including the
+tools described in this section.
 
-IMAGE HERE (no reference)
+#### Import
 
-DirectQuery
+Import is useful when your data doesn't need to be continually refreshed. When
+you choose Import, Power BI Desktop connects to the database, loads the
+information, and stores it within its internal data model. You can then work
+on your data in Power BI Desktop without a connection to the database. A
+connection is only required when you want to refresh the data.
 
-To load or update data frequently, DirectQuery is the most convenient method. With DirectQuery, Power BI Desktop does not load the data into its internal database. Instead, it runs a query to the original database every time it needs to draw a chart. Thus, the connection between Power BI Desktop and the database will be permanent. However, it comes with the following limitations:
+#### DirectQuery
+
+Using DirectQuery is the most convenient way to load or update data
+frequently. With DirectQuery, Power BI Desktop doesn't load the data into its
+internal database. Instead, it queries the original database each time it
+needs to draw a chart. Therefore, the connection between Power BI Desktop and
+the database is permanent. However, using DirectQuery has the following
+limitations:
 
 - All tables must come from a single database.
-- There is a limit of 1 million rows for returning data.
-
-IMAGE HERE (no reference)
+- There is a limit of one million rows for returning data.
 
 ### One gateway for all of your cloud services
 
-In both the cases, after you publish the Power BI Desktop file to the Power BI service, the refresh Operation requires either a Personal Gateway or an Enterprise Gateway.
+After you publish the Power BI Desktop file to the Power BI service, the
+refresh operation requires either a Personal Gateway or an Enterprise Gateway.
 
-The gateway acts as a bridge between the cloud and on-premises server. Data transfer between the cloud and the gateway is secured through Azure Service Bus. The Service Bus creates a secure channel between the cloud and on-premise server through an outbound connection on the gateway. There are no inbound connections that you need to open an on-premise firewall. The closer the gateway is to the server, the faster the connection will be. If you can get the gateway on the same server as the data source, that works best as it helps avoid network latency between the gateway and the server.
+The gateway acts as a bridge between the cloud server and the on-premises
+server. Data transfer between the cloud and the gateway is secured
+through Azure Service Bus. The Service Bus creates a secure channel between
+the cloud and the on-premises server through an outbound connection on the
+gateway. There are no inbound connections that you need to open on an
+on-premises firewall. The closer the gateway is to the server, the faster the
+connection. If possible, it's best to put the gateway on the same server as
+the data source. This setup helps avoid network latency between the gateway
+and the server.
 
 ### Conclusion
 
-In a nutshell, Power BI is an open ecosystem that is constantly growing. It is a suite of business analytics tools to analyze data that deliver useful insights. Power BI dashboards provide a 360-degree view for business users with their most important metrics in one place, available on all their devices and updated in real time. With one click, users can explore the data from their dashboard to make timely and important business decisions.
+To sum up, Power BI is a suite of business analytics tools for analyzing data
+and revealing useful insights. Power BI dashboards give you a 360-degree view
+of your most important metrics in a central place. These metrics are available
+on all of your devices and updated in real time. With one click, you can
+explore your dashboard data to make timely and important business decisions.

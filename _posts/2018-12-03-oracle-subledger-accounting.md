@@ -101,7 +101,7 @@ setup.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/restrict-manual-creation-of-oracle-purchase-orders/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/oracle-subledger-accounting/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
@@ -109,7 +109,7 @@ setup.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/restrict-manual-creation-of-oracle-purchase-orders&summary=&source=">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/oracle-subledger-accounting&summary=&source=">
         <img src="{% asset_path shareL.png %}">
       </a>
     </td>

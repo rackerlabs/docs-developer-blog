@@ -29,7 +29,9 @@ database, `cdb12c`, on the same machine. You need to make sure you
 have enough disk space to hold the converted CDB database.
 
 **Host server**: ABC123.xyz.com
+
 **non-CDB database**: noncdb12c
+
 **Oracle version**: 12.1.0.2
 
 The following image shows the test scenario:
@@ -46,8 +48,11 @@ Perform the following steps to cleanly shut down the non-CDB database:
 
 - Set the environment to `noncdb12c`.
 - Execute the following command:
+
         sqlplus / as sysdba
+
 - Run the following code at the SQL prompt:
+
         shudown immediate
 
 #### Step 2 - open the database as read-only
@@ -56,11 +61,15 @@ Once you have cleanly shutdown the database, perform the following steps to
 start the database in mount exclusive mode and open the database in read-only
 mode:
 
-- Eet the environment to `noncdb12c`.
+- Set the environment to `noncdb12c`.
 - Execute the following command:
+
         sqlplus / as sysdba
+
 - Run the following code at the SQL prompt:
+
         startup mount exclusive
+
         alter database open read only;
 
 #### Step 3 - generate a PDB manifest file
@@ -69,8 +78,11 @@ Perform the following steps to generate a PDB manifest file from the Non-CDB:
 
 - Set the environment to `noncdb12c`.
 - Execute the following command:
+
         sqlplus / as sysdba
+
 - Run the following code at the SQL prompt:
+
         exec dbms_pdb.describe (pdb_descr_file=>'/tmp/noncdb12c_manifest_file.xml');
 
 #### Step 4 - shutdown the non-CDB
@@ -79,8 +91,11 @@ Perform the following steps after Step 3 completes to shutdown the non-CDB file.
 
 - Set the environment to `noncdb12c`.
 - Execute the following command:
+
         sqlplus / as sysdba
+
 - Run the following code at the SQL prompt:
+
         shudown immediate
 
 #### Step 5 - start the CDB
@@ -90,8 +105,11 @@ to check compatibility:
 
 - Set the environment to `cdb12c`.
 - Execute the following command:
+
         sqlplus / as sysdba
+
 - Run the following code at the SQL prompt:
+
         startup
         SET SERVEROUTPUT ON;
 	     DECLARE
@@ -112,8 +130,11 @@ for errors in the `PDB_PLUG_IN_VIOLATIONS` view:
 
 - Set the environment to `cdb12c`.
 - Execute the following command:
+
         sqlplus / as sysdba
+
 - Run the following code at the SQL prompt:
+
         startup
         SELECT name, cause, type, message, status FROM PDB_PLUG_IN_VIOLATIONS
         WHERE name='NONCDB12C';
@@ -127,8 +148,11 @@ database by using the non-CDB manifest file:
 
 - Set the environment to `cdb12c`.
 - Execute the following command:
+
         sqlplus / as sysdba
+
 - Run the following code at the SQL prompt:
+
         CREATE PLUGGABLE DATABASE pdb12c USING '/tmp/noncdb12c_manifest_file.xml'
  	     COPY
  	     FILE_NAME_CONVERT = ('<Datafile_Location_for_noncdb>', 'Datafile_Location_for_pdb');
@@ -157,8 +181,11 @@ the PDB container and run the conversion script,
 
 - Set the environment to `cdb12c`.
 - Execute the following command:
+
         sqlplus / as sysdba
+
 - Run the following code at the SQL prompt:
+
         alter session set container=pdb12c
         @$ORACLE_HOME/rdbms/admin/noncdb_to_pdb.sql
 
@@ -168,8 +195,11 @@ Perform the following steps to start the PDB and verify that the mode is **open*
 
 - Set the environment to `cdb12c`.
 - Execute the following command:
+
         sqlplus / as sysdba
+
 - Run the following code at the SQL prompt:
+
         alter pluggable database open;
         SELECT name, open_mode FROM v$pdbs;
 
@@ -220,6 +250,7 @@ because the original files are always intact.
   </tr>
 </table>
 
+</br>
+
 If you have any questions on the topic, comment in the field below.
 
-</br>

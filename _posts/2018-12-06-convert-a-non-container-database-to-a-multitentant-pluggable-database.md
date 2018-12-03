@@ -210,7 +210,7 @@ from several options depending upon the size of the database.
 
 If the database is very large, you might use the **NOCOPY** option. This
 minimizes the amount of extra space needed and reduces the time it takes to
-perform the conversion operation. The *NOCOPY* option is risky, however, because
+perform the conversion operation. The **NOCOPY** option is risky, however, because
 you don't keep the original database files intact. Thus, if you need to restore
 the database to the previous state, you must restore the database using the
 backups taken before the conversion activity.

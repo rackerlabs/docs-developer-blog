@@ -14,7 +14,7 @@ Originally published by TriCore: November 7, 2017
 
 Microsoft&reg; introduced the idea of self-service business intelligence (BI)
 back in 2009, announcing Power Pivot for Microsoft Excel&reg; 2010.
-After several years, Microsoft release version 1 of [Power
+After several years, Microsoft released version 1 of [Power
 BI&reg;](https://powerbi.microsoft.com/en-us/), but the user experience wasn't
 great. Microsoft collected feedback from end users and crafted a
 newer version of Power BI that became popular. This blog provides an
@@ -37,7 +37,7 @@ Overview](https://www.slideshare.net/Netwoven/power-bi-overview-41399411).
 ### Differences between Power BI and SQL Server Reporting Services
 
 The following table describes the differences between Power BI and Microsoft
-SQL&reg; Server&reg; Reporting Services (SSRS):
+SQL Server&reg; Reporting Services (SSRS):
 
 | **Power BI** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;             	| **SSRS** 	|
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -58,12 +58,12 @@ Power BI has the following features:
   easily query data by entering natural language terms. There's no special
   code or syntax.
 
-- **Quick Insights**: This feature enables Power BI to search datasets by
+- **Quick Insights**: This feature enables Power BI to search data sets by
   using sophisticated algorithms. It outputs a list of charts that help
   users better understand the data.
 
 - **APIs**: By using the Microsoft Power BI REST API, you can programmatically
-  access Power BI resources such as datasets, tables, and rows.
+  access Power BI resources such as data sets, tables, and rows.
 
 - **Power BI Embedded**: This Microsoft Azure&reg; service enables you to add
   interactive Power BI reports to your own web and mobile applications.
@@ -94,11 +94,11 @@ service content packs.
 
 Organizational content packs make it easy to distribute reports to your team
 by enabling you to package your dashboards, reports, Excel workbooks, and
-datasets and publish them together. Power BI stores the content packs that you
+data sets and publish them together. Power BI stores the content packs that you
 create in the _pack library_, where they're easily accessible to your teams.
 Content pack visibility is restricted to users within your organization.
 The user who created the content pack has administrative rights to modify,
-refresh, and delete the workbook and dataset.
+refresh, and delete the workbook and data set.
 
 #### Service content packs
 
@@ -110,7 +110,7 @@ your data from these services and provide visual insights into your business.
 ### Dashboard sharing and groups
 
 The dashboard is a container for visualizations that Power BI generates from
-your datasets. You can share your dashboards with the following users:
+your data sets. You can share your dashboards with the following users:
 
 - Other users in your organization (either by email or by sharing a link to
   the dashboard).
@@ -146,11 +146,11 @@ synchronized with the original one.
 
 In Power BI, you can use row-level security (RLS) and filters to restrict data
 access for specific users. You can define these filters within roles.
-You can configure RLS for data models on datasets that use DirectQuery,
+You can configure RLS for data models on data sets that use DirectQuery,
 such as SQL Server.
 
-Only the owners of the dataset see the security option. If the dataset is in a
-group, only administrators of the group see the security option.
+Only the owners of the data set see the security option. If the data set is in
+a group, only administrators of the group see the security option.
 
 ### Connect to a database
 

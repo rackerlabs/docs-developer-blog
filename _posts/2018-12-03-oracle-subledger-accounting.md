@@ -32,9 +32,9 @@ depending on business requirements.
 
 Because SLA provides the power to modify accounting as needed, after the seeded
 rules are modified and validated, you won't need to repeatedly revise data in
-the tables. Every time that `Create Accounting` is run from the Subledger, it
-will produce the desired accounting results. In addition, you can define
-different rules for all the Subledgers.
+the tables. When `Create Accounting` runs from the Subledger, it produces the 
+desired accounting results. In addition, you can define different rules for all 
+the Subledgers.
 
 ### Differences between Subledger versions
 

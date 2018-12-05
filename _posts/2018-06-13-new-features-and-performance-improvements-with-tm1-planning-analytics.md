@@ -87,10 +87,6 @@ benefits:
 - Analysis with dimension attributes
 - Structured dimensions
 
-The following diagram shows the new dimension architecture:
-
-![]({% asset_path 2018-06-13-new-features-and-performance-improvements-with-tm1-planning-analytics/Arch.png %})
-
 ### Planning Analytics Workspace (PAW)
 
 Planning Analytics Workspace is a web-based interface for IBM Planning Analytics
@@ -104,10 +100,6 @@ significant performance improvements, which include the following benefits:
 
 The process editor in PAW does not include the ability to define a connection
 as a data source.
-
-The following diagram shows the new Planning Analytic Workspace:
-
-![]({% asset_path 2018-06-13-new-features-and-performance-improvements-with-tm1-planning-analytics/Paw.png %})
 
 ### Conclusion
 

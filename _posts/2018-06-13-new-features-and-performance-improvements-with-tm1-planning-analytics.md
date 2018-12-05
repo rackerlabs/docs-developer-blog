@@ -71,10 +71,6 @@ on the same published websheet as TM1 Data.
 The TM1 Web Functional for Excel workbook also includes new keyboard shortcuts
 for easy navigation.
 
-The following diagram shows some features of TM1 Web:
-
-![]({% asset_path 2018-06-13-new-features-and-performance-improvements-with-tm1-planning-analytics/Web.png %})
-
 ### New feature with hierarchies
 
 Planning Analytics creates multiple hierarchies inside dimensions. This
@@ -86,10 +82,6 @@ benefits:
 - Reduced cube processing time
 - Analysis with dimension attributes
 - Structured dimensions
-
-The following diagram shows the new dimension architecture:
-
-![]({% asset_path 2018-06-13-new-features-and-performance-improvements-with-tm1-planning-analytics/Arch.png %})
 
 ### Planning Analytics Workspace (PAW)
 

@@ -52,8 +52,7 @@ Download the Couchbase version 5.5 binary executable on the first of the cluster
 nodes.
 
 The following image uses the `WGET` utility to download the required RPM Package
-Manager (RPM) file from the server. At the time of publication, version 5.5.0
-has not been officially released, so the example uses the beta version.
+Manager (RPM) file from the server.
 
 ![]({% asset_path 2018-12-05-rolling-upgrade-of-couchbase-server-using-graceful-failover-option/Picture1-1.png %})
 

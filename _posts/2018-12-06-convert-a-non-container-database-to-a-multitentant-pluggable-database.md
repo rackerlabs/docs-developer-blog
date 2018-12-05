@@ -252,5 +252,7 @@ because the original files are always intact.
 
 </br>
 
+Learn more about [Rackspace application services](https://www.rackspace.com/application-management).
+
 If you have any questions on the topic, comment in the field below.
 

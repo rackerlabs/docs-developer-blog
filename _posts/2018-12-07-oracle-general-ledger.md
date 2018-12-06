@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Importing and posting journals in Oracle General Ledger"
+title: "Import and post journals in Oracle General Ledger"
 date: 2018-12-07 00:00
 comments: true
 author: Shobhit Mittal
@@ -29,27 +29,27 @@ In this example, you'll complete the steps that appear in the following image:
 
 **Image source**: Author.
 
-### 1. Import data from the third-party tool to the staging table in Oracle
+### 1. Import data from the third-party tool to the staging table in Oracle.
 
 You can insert data from the third-party tool into a staging table in several
 ways, such as by using direct table entries or SQL*Loader. Use the method that
 works best for your situation.
 
-### 2. Validate the data in the staging table
+### 2. Validate the data in the staging table.
 
 In addition to validating your custom data, you should ensure
 that the following conditions are met:
 
 - The accounting period is valid and open.
 - The accounting date or GL date falls within an open or future period.
-- A set of books and chart of accounts are configured.
+- A set of books and a chart of accounts are configured.
 - A valid code combination is available to use.
 
-### 3. Insert data in the GL_INTERFACE table
+### 3. Insert data in the GL_INTERFACE table.
 
-The base table that's available for entries is `GL_INTERFACE`. This data in
-this table must have the format that this section describes. This is the
-format that the import program uses to make records in the GL system.
+The base table that's available for entries is `GL_INTERFACE`. The data in
+this table must have the format that this section describes. The import
+program uses this format to make records in the GL system.
 
 The following columns are required:
 
@@ -314,7 +314,7 @@ solution:
          PRINT('ERROR: in function INSERT_INTERFACE_DATA:'||sqlerrm,'logerrr');
     END INSERT_INTERFACE_DATA;
 
-### 4. Run the Journal Import program
+### 4. Run the Journal Import program.
 
 The Journal Import program receives data from `GL_INTERFACE`, validates it,
 and then converts it to journal entries that are compatible with the GL system.
@@ -384,7 +384,7 @@ After you've verified all of the entries, you can post the journals. Use the
 **Journal Import Execution Report** to check for any errors corresponding to
 the Request ID of the program and the Group ID.
 
-### 5. Run the Journal Post program
+### 5. Run the Journal Post program.
 
 Posting the journal updates the balance in the corresponding details and summary accounts.
 
@@ -415,9 +415,8 @@ Use the following code to submit your automatic posting program:
 
 This program submits another program that only handles posting the batches.
 
-You can track errors and unprocessed batches by using one of the following
-methods either by checking the details of the Posting Execution Report, or by
-running the following query:
+You can track errors and unprocessed batches by checking the details of the
+Posting Execution Report or running the following query:
 
     SELECT count(*)
      FROM GL_JE_BATCHES

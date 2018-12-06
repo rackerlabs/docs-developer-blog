@@ -222,7 +222,7 @@ much fewer during off-peak hours.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/2018-12-05-rolling-upgrade-of-couchbase-server-using-graceful-failover-option/">
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/rolling-upgrade-of-couchbase-server-using-graceful-failover-option/">
         <img src="{% asset_path shareT.png %}">
       </a>
     </td>
@@ -230,7 +230,7 @@ much fewer during off-peak hours.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/2018-12-05-rolling-upgrade-of-couchbase-server-using-graceful-failover-option/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/rolling-upgrade-of-couchbase-server-using-graceful-failover-option/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
@@ -238,7 +238,7 @@ much fewer during off-peak hours.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/2018-12-05-rolling-upgrade-of-couchbase-server-using-graceful-failover-option&summary=&source=">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/rolling-upgrade-of-couchbase-server-using-graceful-failover-option&summary=&source=">
         <img src="{% asset_path shareL.png %}">
       </a>
     </td>

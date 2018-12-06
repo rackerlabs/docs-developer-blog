@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Power BI: A suite of business analytics tools"
-date: 2018-12-04 00:00
+date: 2018-12-06 00:00
 comments: true
 author: Ramandeep Kaur
 published: true
@@ -29,7 +29,7 @@ tools.
 
 The following image shows the Power BI workflow:
 
-![]({% asset_path 2018-12-04-microsoft-power-bi/picture1.png %})
+![]({% asset_path 2018-12-06-microsoft-power-bi/picture1.png %})
 
 Source: [Microsoft Power BI
 Overview](https://www.slideshare.net/Netwoven/power-bi-overview-41399411).
@@ -206,7 +206,7 @@ explore your dashboard data to make timely and important business decisions.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/upgrade-netscaler-application-controller/">
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/microsoft-power-bi/">
         <img src="{% asset_path shareT.png %}">
       </a>
     </td>
@@ -214,7 +214,7 @@ explore your dashboard data to make timely and important business decisions.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/upgrade-netscaler-application-controller/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/microsoft-power-bi/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
@@ -222,7 +222,7 @@ explore your dashboard data to make timely and important business decisions.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/upgrade-netscaler-application-controller&summary=&source=">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/microsoft-power-bi&summary=&source=">
         <img src="{% asset_path shareL.png %}">
       </a>
     </td>

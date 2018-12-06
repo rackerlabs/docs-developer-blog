@@ -420,13 +420,12 @@ methods:
 
 - Checking the details of the Posting Execution Report.
 - Running the following query:
--
-    <pre>
+
+
       SELECT count(\*)
        FROM GL\_JE\_BATCHES
                WHERE GROUP\_ID = g\_group\_id
         AND STATUS != 'P';
-    </pre>
 
 ### Conclusion
 

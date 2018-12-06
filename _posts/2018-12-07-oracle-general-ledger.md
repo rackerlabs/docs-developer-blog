@@ -398,7 +398,7 @@ The following code shows an example Auto Posting Set:
       WHERE AUTOPOST_SET_NAME = 'XXX_SET'
         AND ENABLED_FLAG = 'Y';
 
-Use the following code to submit your automatic posting program:**
+Use the following code to submit your automatic posting program:
 
     fnd_request.submit_request('SQLGL',
                                'GLPAUTOP', '', '',
@@ -421,12 +421,12 @@ methods:
 1. Checking the details of the Posting Execution Report.
 2. Running the following query:
 
-<code>
+    <code>
       SELECT count(*)
        FROM GL_JE_BATCHES
                WHERE GROUP_ID = g_group_id
         AND STATUS != 'P';
-</code>
+    </code>
 
 ### Conclusion
 

@@ -37,8 +37,8 @@ works best for your situation.
 
 ### 2. Validate the data in the staging table
 
-In addition to validating your custom data, you should ensure that the
-following conditions are met:
+In addition to validating your custom data, you should ensure
+that the following conditions are met:
 
 - The accounting period is valid and open.
 - The accounting date or GL date falls within an open or future period.

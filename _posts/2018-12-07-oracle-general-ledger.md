@@ -421,10 +421,10 @@ methods:
 1. Checking the details of the Posting Execution Report.
 2. Running the following query:
 
-      SELECT count(\*)
-       FROM GL\_JE\_BATCHES
-               WHERE GROUP\_ID = g\_group\_id
-        AND STATUS != 'P';
+    SELECT count(\*)
+     FROM GL\_JE\_BATCHES
+             WHERE GROUP\_ID = g\_group\_id
+      AND STATUS != 'P';
 
 
 ### Conclusion

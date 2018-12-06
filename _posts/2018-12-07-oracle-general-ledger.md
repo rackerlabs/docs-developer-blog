@@ -419,7 +419,7 @@ You can track errors and unprocessed batches by using one of the following
 methods either by checking the details of the Posting Execution Report, or by
 running the following query:
 
-    SELECT count(\*)
+    SELECT count(*)
      FROM GL_JE_BATCHES
              WHERE GROUP_ID = g_group_id
       AND STATUS != 'P';

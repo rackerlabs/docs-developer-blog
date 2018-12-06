@@ -430,8 +430,8 @@ methods:
 
 Companies use a wide range of legacy systems to manage different business
 functions. EBS GL is one of the crucial modules. Companies often have a
-requirement to import data from legacy systems into GL. This blog helps you
-get started with an automated, flexible, and easy-to-manage solution.
+requirement to import data from legacy systems into GL. This blog helps
+you get started with an automated, flexible, and easy-to-manage solution.
 
 <table>
   <tr>If you liked this blog, share it by using the following icons:</tr>

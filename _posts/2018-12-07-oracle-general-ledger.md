@@ -422,9 +422,9 @@ methods:
 2. Running the following query:
     <pre>
       <code>
-        SELECT count(\*)<br />
-         FROM GL\_JE\_BATCHES<br />
-                 WHERE GROUP_ID = g\_group\_id<br />
+        SELECT count(*)<br />
+         FROM GL_JE_BATCHES<br />
+                 WHERE GROUP_ID = g_group_id<br />
           AND STATUS != 'P';
       </code>
     </pre>

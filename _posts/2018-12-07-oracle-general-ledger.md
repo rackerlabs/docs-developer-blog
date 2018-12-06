@@ -416,10 +416,13 @@ Use the following code to submit your automatic posting program:
 This program submits another program that only handles posting the batches.
 
 You can track errors and unprocessed batches by using one of the following
-methods:
+methods either by checking the details of the Posting Execution Report, or by
+running the following query:
 
-- Checking the details of the Posting Execution Report.
-- Running the following query:
+    SELECT count(\*)
+     FROM GL_JE_BATCHES
+             WHERE GROUP_ID = g_group_id
+      AND STATUS != 'P';
 
     <pre>
       SELECT count(\*)
@@ -427,6 +430,11 @@ methods:
                WHERE GROUP_ID = g_group_id
         AND STATUS != 'P';
     </pre>
+
+      SELECT count(\*)<br />
+      &nbsp;FROM GL_JE_BATCHES<br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE GROUP_ID = g_group_id<br />
+      &nbsp;&nbsp;AND STATUS != 'P';
 
 ### Conclusion
 

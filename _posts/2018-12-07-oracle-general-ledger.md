@@ -13,7 +13,8 @@ categories:
 Originally published by TriCore: October 6, 2017
 
 This blog covers the basic requirements to import journal entries from any
-third-party tool into Oracle&reg; E-Business Suite (EBS) General Ledger (GL).
+third-party tool into Oracle&reg;
+E-Business Suite (EBS) General Ledger (GL).
 After you import journals into the system, you need to post them.
 
 <!-- more -->
@@ -313,7 +314,7 @@ solution:
          PRINT('ERROR: in function INSERT_INTERFACE_DATA:'||sqlerrm,'logerrr');
     END INSERT_INTERFACE_DATA;
 
-### Run the Journal Import program
+### 4. Run the Journal Import program
 
 The Journal Import program receives data from `GL_INTERFACE`, validates it,
 and then converts it to journal entries that are compatible with the GL system.
@@ -383,7 +384,7 @@ After you've verified all of the entries, you can post the journals. Use the
 **Journal Import Execution Report** to check for any errors corresponding to
 the Request ID of the program and the Group ID.
 
-### 4. Run the Journal Post program
+### 5. Run the Journal Post program
 
 Posting the journal updates the balance in the corresponding details and summary accounts.
 
@@ -420,10 +421,12 @@ methods:
 1. Checking the details of the Posting Execution Report.
 2. Running the following query:
 
+<code>
       SELECT count(*)
        FROM GL_JE_BATCHES
                WHERE GROUP_ID = g_group_id
         AND STATUS != 'P';
+</code>
 
 ### Conclusion
 

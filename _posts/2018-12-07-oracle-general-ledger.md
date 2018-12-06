@@ -424,18 +424,6 @@ running the following query:
              WHERE GROUP_ID = g_group_id
       AND STATUS != 'P';
 
-    <pre>
-      SELECT count(\*)
-       FROM GL_JE_BATCHES
-               WHERE GROUP_ID = g_group_id
-        AND STATUS != 'P';
-    </pre>
-
-      SELECT count(\*)<br />
-      &nbsp;FROM GL_JE_BATCHES<br />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE GROUP_ID = g_group_id<br />
-      &nbsp;&nbsp;AND STATUS != 'P';
-
 ### Conclusion
 
 Companies use a wide range of legacy systems to manage different business

@@ -24,9 +24,11 @@ This process is similar to any other Oracle interface, provided that the open
 interface is the table `GL_INTERFACE`. You use standard programs to import and
 post the journals corresponding to entries made in the `GL_INTERFACE`.
 
-This example follows the sequence of steps shown in the following image:
+This example includes the steps that appear in the following image:
 
-IMAGE (NO REFERENCE)
+![]({% asset_path 2018-12-07-oracle-general-ledger/picture1.png %})
+
+**Image source**: Author.
 
 ### 1. Import data from the third-party tool to the staging table in Oracle
 
@@ -91,11 +93,12 @@ processing the import:
 - `MANAGEMENT_SEGMENT_VALUE`
 - `FUNDS_RESERVED_FLAG`
 
-`GROUP_ID` is the key column that maintains a reference for each staging entry
-to journal entry. You use this column to identify your journal entries in GL
-after the import and post processes are complete.
+`GROUP_ID` is the key column. When you move records from staging to journals,
+`GROUP_ID` establishes the link between them. You use this column to identify
+your journal entries in GL after the import and post processes are complete.
 
-The following code provides an example:
+The following code sample shows a generic approach to implementing the
+solution:
 
     FUNCTION INSERT_INTERFACE_DATA RETURN CHAR
     IS

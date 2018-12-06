@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introduction to Load and Performance Testing with Gatling Tool"
-date: 2018-11-29 14:00
+date: 2018-12-06 14:00
 comments: true
 author: Ning Zhang
 published: true
@@ -43,42 +43,52 @@ A stress test is a test designed to increase the number of simultaneous requests
 
 Gatling is an open-source load and performance testing framework based on Scala, Akka and Netty, and allows you to run it on any system. It is designed for ease of use, maintainability and high performance on different local machines and cloud servers to create and run your tests. 
 
+### Gatling metrics
+
 Out of the box, Gatling generates detailed metrics dashboard of test results, which are stored as HTML files for deep analysis and metrics comparison, including indicators, active users, number of requests, and response time.
 
-#### Indicators:
+The following images show these dashboard metrics:
+
+**Indicators**
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-indicators.png %}
 
-#### Statistics:
+**Statistics**
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-statistics.png %}
 
-#### Active users over time:
+**Active users over time**
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-users.png %}
 
-#### Requests per second over time:
+**Requests per second over time**
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-requests-per-sec.png %}
 
-#### Response time percentiles over time:
+**Response time percentiles over time**
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-response-percentiles-per-sec.png %}
 
-#### Response time distribution:
+**Response time distribution**
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/charts-distrib.png %}
+
+**Jenkins Gatling plugin**
 
 In addition, Gatling performance tool has built-in integration with Continuous Integration pipelines. For instance, you can choose the useful [Jenkins Gatling plugin](https://plugins.jenkins.io/gatling), which enables you to keep track of a Gatling simulation providing performance trends across builds, and publish detailed reports for each build.
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/jenkins-dashboard.png %}
 
-### How to run a simple performance test with Gatling
+### Run a simple performance test with Gatling
 
-#### Installing
+Use the following steps to conduct a performance test with Gatling.
+
+#### Install Gatling
+
 Go to Gatling [download page](https://gatling.io/download/), and download the latest Gatling tool zip bundle. Unzip and put it in some location.
 
-#### Configuring your browser
+#### Configure your browser
+
 Before starting to record a test scenario using Gatling recorder, we need to configure our browser proxy settings with the following steps. (All steps are done with a Google Chrome browser on Mac in this demo.)
 1. Open the Google Chrome browser, and go to the settings.
 2. Open proxy settings, and click on **Advanced** button on the bottom of the page.
@@ -95,9 +105,12 @@ Before starting to record a test scenario using Gatling recorder, we need to con
     
 4. Close the browser window.
 
-#### Recording a test scenario
+#### Record a test scenario
+
+Use the following steps to record the test scenario:
 
 1. Gatling recorder `recorder.sh` is located under _/gatling-charts-highcharts-bundle-3.0.1.1/bin_. Note that `Java.exe` is required to open the recorder window.
+
 2. Before starting the recorder, enter some settings in the recorder window.
 * Enter the port number in the local host box (In my case **8000**)
 * Enter the package name and the class name
@@ -112,14 +125,16 @@ Before starting to record a test scenario using Gatling recorder, we need to con
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-recorder-2.png %}
 
-#### Editing the Gatling script
-After finishing the recording, the simulation results will be stored in the folder _/gatling-charts-highcharts-bundle-3.0.1.1/user-files/simulations/gatlingExample_ under the name _gatlingExampleSimulation.scala_. Here is the produced output:
+#### Edit the Gatling script
+
+After you finish the recording, find the simulation results stored in the folder _/gatling-charts-highcharts-bundle-3.0.1.1/user-files/simulations/gatlingExample_ under the name _gatlingExampleSimulation.scala_. Here is the produced output:
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-script.png %}
 
 The simulation script is written in Scala, and you can edit it based on the needs of your test scenario.
 
-#### Executing a Gatling script
+#### Execute a Gatling script
+
 Launch `gatling.sh` located in the bin directory, and you should see a menu with the simulation examples:
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-script-output.png %}
@@ -128,12 +143,14 @@ And select the id number of the simulation you want to execute. When the simulat
 
 ### Integrate Gatling with Maven
 
-This section will show you how to integrate Gatling tool with Maven via plugins, which has become essential in the world of CI/CD.
+This section shows you how to integrate the Gatling tool with Maven via plugins, which has become essential in the world of CI/CD.
 
 #### Plugin versions and download
+
 To use Gatling with Maven, the plugin `gatling-maven-plugin` is required. Since Gatling is written in Scala, you also need another plugin `scala-maven-plugin` for it. Check out available versions on [Maven Central](https://search.maven.org/search?q=g:io.gatling%20AND%20a:gatling-maven-plugin&core=gav).
 
 #### Setup and configurations
+
 After creating a Maven project on your local, the setup in pom.xml file looks more or less like this:
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/pom-xml.png %}
@@ -141,33 +158,33 @@ After creating a Maven project on your local, the setup in pom.xml file looks mo
 In **pom.xml**, you can configure things like the multiple simulations’ execution, includes/excludes filters, etc. Check the [Gatling documentation](https://gatling.io/docs/current/extensions/maven_plugin/#configuration) for more configuration examples.
 
 #### Usage
+
 To execute your tests, you can directly launch the gatling-maven-plugin with the test or execute goal:
 ```
 mvn gatling:test
 mvn gatling:execute
 ```
 
-
 ## Other performance testing tools
 
 The following list has the most widely used load and performance testing tools, whether those be open source, paid or a combination of both. 
 
-#### Apache JMeter
+### Apache JMeter
 
 Apache JMeter is a Java-based open source tool for load testing and measuring performance. It’s used for recording, building, monitoring, and debugging on different applications, servers, and networks. Also, it is of a great use in creating a functional or load test plan.
 Download link: [Apache JMeter download](http://jmeter.apache.org/download_jmeter.cgi)
 
-#### WebLOAD
+### WebLOAD
 
 WebLOAD is an enterprise-level load and performance testing tool for web applications. It has both a free version and a paid version. The free edition offers 50 virtual users, and the paid professional edition provides the choices for enterprises with heavy user load and complex testing requirements. WebLOAD Cloud has a new level of visibility, control, and collaboration – on premises or in the cloud, and it integrates with other open source software like Selenium and Jenkins.
 Free trial: [WebLOAD download](https://www.radview.com/webload-download/?utm_campaign=top-15-tools&utm_medium=top-15-tools&utm_source=softwaretestinghelp)
 
-#### LoadNinja
+### LoadNinja
 
 LoadNinjia is a cloud-based load testing and performance testing platform for web applications. It helps developers, QA teams, and performance engineers check if their web servers sustain a massive load and if the servers are robust and scalable. It also helps the engineer to focus more on creating applications that scale instead of focusing on developing load testing scripts.
 Free trial: [LoadNinja download](https://loadninja.com/)
 
-#### LoadView
+### LoadView
 
 LoadView is a fully managed, on-demand load testing tool that allows for completely hassle-free load and stress testing. It can run in real browsers as well as headless http tasks to test the load of your website or web application. All test results are recorded and available in real-time online graphs and detailed reports to help track the response time.
 Free trial: [LoadView download](https://userauth.dotcom-monitor.com/Account/FreeTrialSignUp?solutionType=StressTesting)

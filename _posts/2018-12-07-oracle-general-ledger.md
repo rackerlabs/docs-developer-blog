@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Oracle General Ledger Interface, Journal Import, and posting using PL and SQL"
+title: "Importing and posting journals in Oracle General Ledger"
 date: 2018-12-07 00:00
 comments: true
 author: Shobhit Mittal
@@ -12,19 +12,17 @@ categories:
 
 Originally published by TriCore: October 6, 2017
 
-SUMMARY
-
-<!-- more -->
-
 This blog covers the basic requirements to import journal entries from any
 third-party tool into Oracle&reg; E-Business Suite (EBS) General Ledger (GL).
 After you import journals into the system, you need to post them.
 
-This process is similar to any other Oracle interface, provided that the open
-interface is the table `GL_INTERFACE`. You use standard programs to import and
-post the journals corresponding to entries made in the `GL_INTERFACE`.
+<!-- more -->
 
-This example includes the steps that appear in the following image:
+This example uses the table `GL_INTERFACE` as the open interface. You use
+standard programs to import and post the journals corresponding to entries
+made in the `GL_INTERFACE` table.
+
+In this example, you'll complete the steps that appear in the following image:
 
 ![]({% asset_path 2018-12-07-oracle-general-ledger/picture1.png %})
 

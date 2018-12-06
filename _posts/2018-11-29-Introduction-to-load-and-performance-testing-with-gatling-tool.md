@@ -11,7 +11,7 @@ categories:
     - Automation
 ---
    
-This blog explores the fundamentals of the Load and Performance Testing as well as the basics of the Gatling Tool (https://gatling.io). Some popular testing tools are also introduced here for load and performance testing, stress testing and the web application monitoring.
+This blog explores the fundamentals of Load and Performance Testing as well as the basics of the Gatling Tool (https://gatling.io). Some popular testing tools are also introduced here for load and performance testing, stress testing and web application monitoring.
 
 <!-- more -->
 
@@ -19,15 +19,15 @@ This blog explores the fundamentals of the Load and Performance Testing as well 
 
 ### What is performance testing?
 
-Performance testing is a type of testing to determine the speed, responsiveness and stability of a computer, network, software program or device under a workload. The goal of Performance Testing is to ensure that software applications perform well under their expected workload. 
+Performance testing is a type of testing to determine the speed, responsiveness, and stability of a computer, network, software program, or device under a workload. The goal of performance testing is to ensure that software applications perform well under their expected workload. 
 
-The focus of performance testing is to measure a software application’s speed, stability, reliability and scalability.
+The focus of performance testing is to measure a software application’s speed, stability, reliability, and scalability.
 *	Speed – Determine how fast the application responds
 *	Stability – Determine if the application is stable under varying load condition
 *	Reliability – Determine if the application has the ability of fault tolerance and recoverability
-*	Scalability – Determine the maximum number of concurrent users which the application is capable to handle
+*	Scalability – Determine the maximum number of concurrent users that the application can handle
 
-It is important to check an application’s performance and ensure software’s high quality with acceptable load time and site speed. Performance testing is crucial for mission critical applications to ensure that they can run for a long period of time without deviations. In addition, performance testing helps development teams analyze application activities and predict traffic trends.
+It is important to check an application’s performance and ensure the software’s high quality by verifying that it has an acceptable load time and site speed. Performance testing is crucial for mission critical applications to ensure that they can run for a long time without deviations. In addition, performance testing helps development teams analyze application activities and predict traffic trends.
 
 
 ### Load testing vs stress testing
@@ -138,7 +138,7 @@ After creating a Maven project on your local, the setup in pom.xml file looks mo
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/pom-xml.png %}
 
-The configurations can also be done in pom.xml file, like the multiple simulations’ execution, includes/excludes filters, etc. Check the [Gatling documentation](https://gatling.io/docs/current/extensions/maven_plugin/#configuration) for more configuration examples.
+In **pom.xml**, you can configure things like the multiple simulations’ execution, includes/excludes filters, etc. Check the [Gatling documentation](https://gatling.io/docs/current/extensions/maven_plugin/#configuration) for more configuration examples.
 
 #### Usage
 To execute your tests, you can directly launch the gatling-maven-plugin with the test or execute goal:
@@ -150,21 +150,21 @@ mvn gatling:execute
 
 ## Other performance testing tools
 
-Below is a list of most widely used load and performance testing tools, whether those be open source, paid or a combination of both. 
+The following list has the most widely used load and performance testing tools, whether those be open source, paid or a combination of both. 
 
 #### Apache JMeter
 
-Apache JMeter is a Java-based open source tool for load testing and measuring performance. It’s used for recording, building, monitoring and debugging on different applications, servers and networks. Also, it is of a great use in creating a functional or load test plan.
+Apache JMeter is a Java-based open source tool for load testing and measuring performance. It’s used for recording, building, monitoring, and debugging on different applications, servers, and networks. Also, it is of a great use in creating a functional or load test plan.
 Download link: [Apache JMeter download](http://jmeter.apache.org/download_jmeter.cgi)
 
 #### WebLOAD
 
-WebLoad is an enterprise-level load and performance testing tool for web applications. It has both a free version and a paid version. The free edition offers 50 virtual users, and the paid professional edition provides the choices for enterprises with heavy user load and complex testing requirements. WebLOAD Cloud has a new level of visibility, control and collaboration – on premises or in the cloud, and it integrates with other open source software like Selenium and Jenkins.
+WebLOAD is an enterprise-level load and performance testing tool for web applications. It has both a free version and a paid version. The free edition offers 50 virtual users, and the paid professional edition provides the choices for enterprises with heavy user load and complex testing requirements. WebLOAD Cloud has a new level of visibility, control, and collaboration – on premises or in the cloud, and it integrates with other open source software like Selenium and Jenkins.
 Free trial: [WebLOAD download](https://www.radview.com/webload-download/?utm_campaign=top-15-tools&utm_medium=top-15-tools&utm_source=softwaretestinghelp)
 
 #### LoadNinja
 
-LoadNinjia is a cloud-based load testing and performance testing platform for web applications. It helps developers, QA teams, and performance engineers check if their web servers sustain a massive load and if the servers are robust and scalable, and also helps the engineer to focus more on creating applications that scale instead of focusing on developing load testing scripts.
+LoadNinjia is a cloud-based load testing and performance testing platform for web applications. It helps developers, QA teams, and performance engineers check if their web servers sustain a massive load and if the servers are robust and scalable. It also helps the engineer to focus more on creating applications that scale instead of focusing on developing load testing scripts.
 Free trial: [LoadNinja download](https://loadninja.com/)
 
 #### LoadView

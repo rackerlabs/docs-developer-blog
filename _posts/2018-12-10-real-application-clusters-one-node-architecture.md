@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Real Application Clusters single node architecture "
+title: "Real Application Clusters One Node architecture "
 date: 2018-12-10 00:00
 comments: true
 author: Himanshu Bansal
@@ -8,15 +8,15 @@ published: true
 authorIsRacker: true
 categories:
   - database
+  - Oracle
 ---
 
 This post discusses the Oracle&reg; Real Application Clusters (RAC) One Node
-feature in the Database Enterprise Edition, introduced with the 11g Release 2,
-provides enhanced high availability for single instance Oracle Databases,
-protecting them from both planned and unplanned downtime. The post also provides
-instructions for installing the Oracle Grid infrastructure, which is required to
-use One Node.
-
+feature in the Database Enterprise Edition, which was introduced with the 11g
+Release 2, provides enhanced high availability for single instance Oracle
+Databases, protecting them from both planned and unplanned downtime. The post
+also provides instructions for installing the Oracle Grid infrastructure, which
+is required to use One Node.
 
 <!-- more -->
 
@@ -122,18 +122,18 @@ software and run `./runInstaller`.
 Click **Skip software updates** on the first installation window, then click
 **Next**.  Select options as shown in the following image:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture1.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture1.png %})
 
 Then, click **Advanced Installation** in the next window.
 
 #### Step 2: Enter node information
 
-Enter the cluster and SCAN name and ensure they show the correct default nodes
-on the cluster node information screens as shown in the following images:
+Enter the cluster and SCAN name and ensure that they show the correct default
+nodes on the cluster node information screens as shown in the following images:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture2.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture2.png %})
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture3.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture3.png %})
 
 #### Step 3: Configure and test SSH connectivity
 
@@ -141,27 +141,27 @@ Click **SSH Connectivity** to configure and test the password-less SSH
 connectivity by typing in the OS password for the user `grid` and select **Setup**
 as shown in the following images:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture4.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture4.png %})
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture5.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture5.png %})
 
 #### Step 4: Select the network
 
 Choose the **Network Interface Name** and **Type** according to the subnet as
 shown in the following image. Associate one subnet with one interface only.
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture6.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture6.png %})
 
 Select **Oracle ASM** as the storage option and specify directories for the data
 storage as shown in the following image:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture7.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture7.png %})
 
 #### Step 5: Select the group
 
 Be very careful while selecting the group, as shown in the following image:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture8.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture8.png %})
 
 #### Step 6: Specify Grid directories
 
@@ -169,23 +169,23 @@ Specify the Oracle Grid infrastructure for cluster home base,the software
 directory for its HOME directory, and an inventory directory as shown in the
 following images:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture9.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture9.png %})
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture10.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture10.png %})
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture11.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture11.png %})
 
 #### Step 7: Complete installation
 
 After the setup checks are finished, check **Ignore All** and click **Next** to
 run the installation as shown in the following image:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture12.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture12.png %})
 
 After the installation completes, do not forget to run the `root.sh` file as
 shown in the following image:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture13.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture13.png %})
 
 #### Step 8: Post-installation checks
 
@@ -217,16 +217,16 @@ the following commands:
     # cd directory-where-you-staged-the-RDBMS-software
     # ./runInstaller
 
-**NOTE:** Ensure the installer is run as the intended software owner because
-the only supported method to change the software owner is to reinstall the
-database.
+**NOTE:** Ensure that the installer is run as the intended software owner user
+because the only supported method to change the software owner is to reinstall
+the database.
 
 #### Step 2: Choose Grid options
 
 After following the  database installation steps, when prompted for Grid
 Installation Options, select them as shown in the following image:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture14.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture14.png %})
 
 #### Step 3: Choose database configuration options
 
@@ -234,22 +234,22 @@ When prompted for the type of database configuration options and details, select
 them as shown in the following images and ensure that you select **Oracle
 Automatic Storage Method**, when asked for database storage:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture15.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture15.png %})
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture16.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture16.png %})
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture17.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture17.png %})
 
 #### Step 4: Select Disk Group
 
 The Disk Group is created after the Grid installation. Select it as shown in the
 following image:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture18.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture18.png %})
 
 Ignore any errors by checking **Ignore All** as shown in the following image:
 
-![]({% asset_path 2018-12-10-real-application-clusters-single-node-architecture/Picture19.png %})
+![]({% asset_path 2018-12-10-real-application-clusters-one-node-architecture/Picture19.png %})
 
 ### RAC One Node commands
 
@@ -294,7 +294,7 @@ Metalink Documents:
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/rolling-upgrade-of-couchbase-server-using-graceful-failover-option/">
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/real-application-clusters-one-node-architecture/">
         <img src="{% asset_path shareT.png %}">
       </a>
     </td>
@@ -302,7 +302,7 @@ Metalink Documents:
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/rolling-upgrade-of-couchbase-server-using-graceful-failover-option/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/real-application-clusters-one-node-architecture/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>
@@ -310,7 +310,7 @@ Metalink Documents:
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/rolling-upgrade-of-couchbase-server-using-graceful-failover-option&summary=&source=">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/real-application-clusters-one-node-architecture&summary=&source=">
         <img src="{% asset_path shareL.png %}">
       </a>
     </td>

@@ -89,7 +89,6 @@ Available categories include the following:
 - Oracle
 - Orchestration
 - OSAD
-- php5
 - Private Cloud
 - Python
 - SDK

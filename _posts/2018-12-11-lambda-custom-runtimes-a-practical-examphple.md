@@ -1,9 +1,13 @@
 ---
 layout: post
 title: "Lambda Custom Runtimes: A Practical ExamPHPle"
+ogTitle: "Lambda Custom Runtimes: A Practical ExamPHPle"
+metaDescription: Learn how to build an example PHP runtime using the new AWS Lambda custom runtime API and layering capabilities.
+ogDescription: Learn how to build an example PHP runtime using the new AWS Lambda custom runtime API and layering capabilities.
 date: 2018-12-11 00:00
 comments: true
 author: Michael Moussa
+twitterCreator: "@michaelmoussa"
 published: true
 authorIsRacker: true
 authorAvatar: https://s.gravatar.com/avatar/81ae346c8dd994251b697bea342c8fd7
@@ -12,7 +16,7 @@ categories:
   - aws
   - Developers
 ---
-This year's AWS re:Invent was a nonstop, high-powered firehose of exciting new features and products. Native PHP support on Lambda wasn't one of those features (hey, maybe someday!?), but the new Lambda custom runtime API and Layering capabilities gives us the ability to build a clean, supportable implementation of PHP on Lambda of our own. In this blog post, we'll take a brief look at the overall workflow and runtime lifecycle, and then I will show you one way to build a PHP runtime to start powering your PHP applications on AWS Lambda.
+This year's AWS re:Invent was a nonstop, high-powered firehose of exciting new features and products. Native PHP support on Lambda wasn't one of those features (hey, maybe someday!?), but the new Lambda custom runtime API and layering capabilities gives us the ability to build a clean, supportable implementation of PHP on Lambda of our own. In this blog post, we'll take a brief look at the overall workflow and runtime lifecycle, and then I will show you one way to build a PHP runtime to start powering your PHP applications on AWS Lambda.
 
 <!-- more -->
 
@@ -383,4 +387,3 @@ I look forward to seeing the number of PHP projects running on AWS Lambda grow -
 ---
 
 Are you excited about this and other recent AWS launch announcements? We'd love to help. Schedule [a free strategy session](https://go.rackspace.com/Ask-An-AWS-Expert.html) to discuss how Rackspace can assist you in taking advantage of new AWS products and services!
-

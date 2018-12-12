@@ -15,7 +15,7 @@ metaTitle: "AWS Security Hub - An Overview"
 metaDescription: "Initial thoughts on the Security Hub preview as announced at re:Invent 2018"
 ogTitle: "AWS Security Hub initial thoughts"
 ogDescription: "A discussion of the Security Hub preview as announced at re:Invent 2018"
-ogImage: ../_assets/img/2018-12-12-aws-security-hub-overview/custom_action.png
+ogImage: {% asset_path 2018-12-12-aws-security-hub-overview/custom_action.png %}
 
 ---
 AWS Security Hub was announced in Andy Jassy's re:Invent 2018 [Keynote(46:23)](https://youtu.be/ZOIkOnW640A?t=2783) and pitched as "a place to centrally manage security and compliance across your whole AWS environment (applause)" and then went on to announce an array of partners who were part of the initial integration effort (muted applause). While this announcement enjoyed just 3 minutes on centre stage, this is a significant development.
@@ -144,7 +144,7 @@ aws securityhub create-insight --name "bitcoin miner"  --filter '{"ResourceType"
 
 * There is no aws CLI option to create an `action` just now, so we'll need to got to the ** AWS Console -> SecurityHub -> Settings -> Custom actions. ** Click on 'Create custom action'
 
-![Custom Action](../_assets/img/2018-12-12-aws-security-hub-overview/custom_action.png)
+![Custom Action]({% asset_path 2018-12-12-aws-security-hub-overview/custom_action.png %})
 
 * It's now time to create our CloudWatch Events rule:
 
@@ -181,13 +181,13 @@ aws sns get-subscription-attributes --subscription-arn "arn:aws:sns:eu-west-1:98
 
 * So far, so good! Time for action...In the ** AWS Console -> Security Hub -> Insights ** panel, we find the `insight` which we created earlier:
 
-![Insight](../_assets/img/2018-12-12-aws-security-hub-overview/insight.png)
+![Insight]({% asset_path 2018-12-12-aws-security-hub-overview/insight.png %})
 
 * Clicking through on that `insight` we see the `finding` we previously turned up in our seach. We highlight this and select the `action` we created earlier from the dropdown. We are notified in a green across the top of the panel that this operation has been successful.
-![Action](../_assets/img/2018-12-12-aws-security-hub-overview/action.png)
+![Action]({% asset_path 2018-12-12-aws-security-hub-overview/action.png %})
 
 * While we wait for the email notification to arrive we can validate that CloudWatch Events has seen and processed the event triggered by our `action` by visiting ** AWS Console -> CloudWatch -> Events -> Rules ** and click on our "SecHub" rule:
-![Action](../_assets/img/2018-12-12-aws-security-hub-overview/cw_events.png)
+![Action]({% asset_path 2018-12-12-aws-security-hub-overview/cw_events.png %})
 
 If we view the metrics for this rule, we should should see `TriggeredRules` reporting a value of `1`. Before long, however, an email will appear in our Inbox with the full raw contents of the `finding`. 
 

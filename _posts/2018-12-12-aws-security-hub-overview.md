@@ -7,32 +7,35 @@ author: Nick Garratt
 published: true
 authorIsRacker: true
 authorAvatar: https://s.gravatar.com/avatar/749cf70eafe03795015019c1047be85f
-bio: ""
+bio: "Nick Garratt is a Principal Architect in the Rackspace Managed Public Clouds Product Architecture Team."
 categories:
-  - aws
+  - aws 
   - security
+
 ---
-# AWS Security Hub - An Overview
+AWS Security Hub was announced in Andy Jassy's [keynote(46:23)](https://youtu.be/ZOIkOnW640A?t=2783) and pitched as "a place to centrally manage security and compliance across your whole AWS environment (applause)" and then went on to announce an array of partners who were part of the initial integration effort (muted applause). While this announcement enjoyed just 3 minutes on centre stage, this is a significant development.
 
-## Introduction
+<!-- more -->
 
-AWS Security Hub was announced in Andy Jassy's [keynote(46:23)](https://youtu.be/ZOIkOnW640A?t=2783) pitched as "a place to centrally manage security and compliance across your whole AWS environment (applause)" and then went on to announce an array of partners who were part of the initial integration effort (muted applause). While this announcement enjoyed just 3 minutes on centre stage, this is a significant development.
+## Security Hub - why is this significant?
 
-## Why is this important?
-
-One of the notable developments included in this announcement is the creation by AWS and adoption by AWS and select AWS partners of a **standard format** for security events called the [‘AWS Security Finding’ format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html). This common format is a key enabler of the aggregation of ‘findings’ into Security Hub as it pushes the responsibility for conformance onto the findings emitter rather than requiring the aggregator to build and maintain multiple parsers for all findings sources. The AWS services GuardDuty, Macie and Inspector, if configured, will automatically have their findings aggregated in  SecurityHub once it is enabled. 
+One of the notable developments included in this announcement is the creation by AWS and adoption by AWS and select AWS partners of a **standard format** for security events called the [‘AWS Security Finding’ format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html). This common format is a key enabler of the aggregation of ‘findings’ into Security Hub as it pushes the responsibility for conformance onto the findings emitter rather than requiring the aggregator to build and maintain multiple parsers for all findings sources. The AWS services GuardDuty, Macie and Inspector, if configured, will automatically have their findings aggregated in SecurityHub once it is enabled. 
  
 Given that many of the security partners involved compete with one another to some extent or offer SOC services providing the black box magic of event ingestion and correlation into incidents, one can imagine that the incentive to standardise on a format which could level the playing field just a little bit must not have been great. The inexoriable change of the market and the dominant agent of that change together clearly made a compelling case!
 
-The standard findings format ensures that the attributes required for the _correlation_ of findings are present. [“Insights”](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-insights.html) are light weight correlation rules, essentially filter and grouping operations linked to an `action`. This `action` as set up in Security Hub is an identifier for an event which will be sent to CloudWatch Events if triggered. It is in CloudWatch Events where any notifications, automations or integrations will be configured. As it stands today, `actions` must be manually triggered from the `insight` and *cannot be associated and triggered automatically*.  One assumes that this will be addressed in future releases.
+## Coming together
+
+The standard findings format ensures that the attributes required for the *correlation* of findings are present. [“Insights”](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-insights.html) are light-weight correlation rules, essentially filter and grouping operations to linked to an `action`. This `action` as set up in Security Hub is simply an identifier for an event which will be sent to CloudWatch Events if triggered. It is in CloudWatch Events where any notifications, automations or integrations will be configured. As it stands today, `actions` must be manually triggered from the `insight` and *cannot be associated and triggered automatically*. One assumes that this will be addressed in future releases.
  
 Usefully, some standard findings are made available by AWS for such conditions as “S3 buckets with sensitive data and public read permissions" which on its own should spare a great deal of pain to AWS customers! 
 
-On the theme of aggregation, Security Hub supports a master/member model where the designate master account can invite member accounts to pool findings. Once accepted, the findings from the member account are aggregated in Security Hub in the master. The member has access to view their own findings, while the master has a view of findings from itself and all members. It should be notes that at this time, Security Hub is a _regional_ service.
+On the theme of aggregation, Security Hub supports a master/member model where the designate master account can invite member accounts to pool findings. Once accepted, the findings from the member account are aggregated in Security Hub in the master. The member has access to view their own findings, while the master has a view of findings from itself and all members. It should be notes that at this time, Security Hub is a *regional* service.
  
 Under the “Standards” menu, AWS provides the first of its automated compliance checks – “CIS AWS Foundations” -  with 43 automated rules as of 11th December 2018. 
  
 ## A brisk walk-through
+
+Let's take a brief look in practice at how these various concepts and components work together.
 
 * We've enabled GuardDuty for our test account to provide us with some findings to work with.
 * In the *Console -> GuardDuty->Settings* we've clicked 'Generate Sample Findings' which has generated a spread of 45 findings.
@@ -52,7 +55,7 @@ and indeed we do have a match output in the AWS Security Finding format:
         {
             "LastObservedAt": "2018-12-12T12:59:54.166Z",
             "FirstObservedAt": "2018-12-12T12:59:54.166Z",
-            "GeneratorId": "arn:aws:guardduty:eu-west-1:808288555766:detector/00b3cc1abf112994d0a265ad873033bc",
+            "GeneratorId": "arn:aws:guardduty:eu-west-1:9876123456789:detector/00b3cc1abf112994d0a265ad873033bc",
             "Severity": {
                 "Product": 5,
                 "Normalized": 50
@@ -87,7 +90,7 @@ and indeed we do have a match output in the AWS Security Finding format:
                         }
                     },
                     "Type": "AwsEc2Instance",
-                    "Id": "arn:aws:ec2:eu-west-1:808288555766:instance/i-99999999"
+                    "Id": "arn:aws:ec2:eu-west-1:9876123456789:instance/i-99999999"
                 }
             ],
             "WorkflowState": "NEW",
@@ -103,7 +106,7 @@ and indeed we do have a match output in the AWS Security Finding format:
                 "detectorId": "00b3cc1abf112994d0a265ad873033bc",
                 "action/dnsRequestAction/blocked": "true",
                 "aws/securityhub/ProductName": "GuardDuty",
-                "aws/securityhub/FindingId": "arn:aws:securityhub:eu-west-1::product/aws/guardduty/arn:aws:guardduty:eu-west-1:808288555766:detector/00b3cc1abf112994d0a265ad873033bc/finding/92b3d14048db77e93aae9a8693e937b8",
+                "aws/securityhub/FindingId": "arn:aws:securityhub:eu-west-1::product/aws/guardduty/arn:aws:guardduty:eu-west-1:9876123456789:detector/00b3cc1abf112994d0a265ad873033bc/finding/92b3d14048db77e93aae9a8693e937b8",
                 "action/actionType": "DNS_REQUEST",
                 "aws/securityhub/CompanyName": "AWS"
             },
@@ -112,12 +115,12 @@ and indeed we do have a match output in the AWS Security Finding format:
             "UpdatedAt": "2018-12-12T12:59:54.166Z",
             "Description": "EC2 instance i-99999999 is querying a domain name that is associated with Bitcoin-related activity.",
             "SchemaVersion": "2018-10-08",
-            "Id": "arn:aws:guardduty:eu-west-1:808288555766:detector/00b3cc1abf112994d0a265ad873033bc/finding/92b3d14048db77e93aae9a8693e937b8",
+            "Id": "arn:aws:guardduty:eu-west-1:9876123456789:detector/00b3cc1abf112994d0a265ad873033bc/finding/92b3d14048db77e93aae9a8693e937b8",
             "Types": [
                 "TTPs/Command and Control/CryptoCurrency:EC2-BitcoinTool.B!DNS",
                 "Effects/Resource Consumption/CryptoCurrency:EC2-BitcoinTool.B!DNS"
             ],
-            "AwsAccountId": "808288555766"
+            "AwsAccountId": "9876123456789"
         }
     ]
 }
@@ -129,7 +132,7 @@ and indeed we do have a match output in the AWS Security Finding format:
 ```bash
 aws securityhub create-insight --name "bitcoin miner"  --filter '{"ResourceType": [ { "Comparison": "CONTAINS", "Value": "AwsEc2Instance" } ], "Type": [{"Comparison": "CONTAINS", "Value": "TTPs/Command and Control/CryptoCurrency:EC2-BitcoinTool.B!DNS"}] }' --group-by AwsAccountId
 {
-    "InsightArn": "arn:aws:securityhub:eu-west-1:808288555766:insight/808288555766/custom/45be0f15-d947-4bf7-8c27-83eef7487141"
+    "InsightArn": "arn:aws:securityhub:eu-west-1:9876123456789:insight/9876123456789/custom/45be0f15-d947-4bf7-8c27-83eef7487141"
 }
 
 ```
@@ -141,32 +144,32 @@ aws securityhub create-insight --name "bitcoin miner"  --filter '{"ResourceType"
 * It's now time to create our CloudWatch Events rule:
 
 ```bash
-aws events put-rule --cli-input-json '{"Name": "SecHub", "EventPattern": "{\"source\":[\"aws.securityhub\"],\"resources\":[\"arn:aws:securityhub:eu-west-1:808288555766:action/custom/bitcoin-miner-dns\"]}","State": "ENABLED"}'
+aws events put-rule --cli-input-json '{"Name": "SecHub", "EventPattern": "{\"source\":[\"aws.securityhub\"],\"resources\":[\"arn:aws:securityhub:eu-west-1:9876123456789:action/custom/bitcoin-miner-dns\"]}","State": "ENABLED"}'
 {
-    "RuleArn": "arn:aws:events:eu-west-1:808288555766:rule/SecHub"
+    "RuleArn": "arn:aws:events:eu-west-1:9876123456789:rule/SecHub"
 }
 ```
 
 * For our `rule` `target`, we'll make use of an SNS topic which is already in use for other security notifications:
 
 ```bash
-aws events put-targets --rule SecHub --targets "Id"="1","Arn"="arn:aws:sns:eu-west-1:808288555766:security_events"
+aws events put-targets --rule SecHub --targets "Id"="1","Arn"="arn:aws:sns:eu-west-1:9876123456789:security_events"
 ```
 
 our subscription to this topic looks like this:
 
 ```
-aws sns get-subscription-attributes --subscription-arn "arn:aws:sns:eu-west-1:808288555766:security_events:14bc3d5c-0bc8-463d-a920-c52c87ba8730"
+aws sns get-subscription-attributes --subscription-arn "arn:aws:sns:eu-west-1:9876123456789:security_events:14bc3d5c-0bc8-463d-a920-c52c87ba8730"
 {
     "Attributes": {
         "PendingConfirmation": "false",
-        "Endpoint": "nick-sns@deepfade.com",
+        "Endpoint": "secevents@example.com",
         "Protocol": "email",
         "RawMessageDelivery": "false",
         "ConfirmationWasAuthenticated": "false",
-        "Owner": "808288555766",
-        "SubscriptionArn": "arn:aws:sns:eu-west-1:808288555766:security_events:14bc3d5c-0bc8-463d-a920-c52c87ba8730",
-        "TopicArn": "arn:aws:sns:eu-west-1:808288555766:security_events"
+        "Owner": "9876123456789",
+        "SubscriptionArn": "arn:aws:sns:eu-west-1:9876123456789:security_events:14bc3d5c-0bc8-463d-a920-c52c87ba8730",
+        "TopicArn": "arn:aws:sns:eu-west-1:9876123456789:security_events"
     }
 }
 ```
@@ -181,8 +184,13 @@ aws sns get-subscription-attributes --subscription-arn "arn:aws:sns:eu-west-1:80
 * While we wait for the email notification to arrive we can validate that CloudWatch Events has seen and processed the event triggered by our `action` by visiting *AWS Console->CloudWatch->Events->Rules* and click on our "SecHub" rule:
 ![Action](../_assets/img/2018-12-12-aws-security-hub-overview/cw_events.png)
 
-If we view the metrics for this rule, we should should see `TriggeredRules` reporting a value of `1`. Before long, however, and email will appear in our Inbox with the full raw contents of the `finding`. As a PoC, this is interesting, but not particulalry useful. CloudWatch Events provides a broad selection of targets enablish a high degree of versitility. What can you accomplish? 
+If we view the metrics for this rule, we should should see `TriggeredRules` reporting a value of `1`. Before long, however, and email will appear in our Inbox with the full raw contents of the `finding`. 
 
+## Where to from here?
+
+As a PoC, this is interesting, but not particulalry useful. CloudWatch Events provides a broad selection of targets enablish a high degree of versitility. What can you accomplish? Sign up for the Security Hub preview and share your thoughts and experiences below.
 
 ## Resources
+
+* Security Hub in Andy Jassy's [keynote(46:23)](https://youtu.be/ZOIkOnW640A?t=2783)
 * re:Invent [SEC397 breakout session](https://youtu.be/TdT8ds_C8Gs) on Security Hub

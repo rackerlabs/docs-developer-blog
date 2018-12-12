@@ -38,19 +38,33 @@ Add Jekyll front-matter (or metadata) to the top of the file you created in
 the previous step. for example:
 
 ```
-   ---
-   layout: post
-   title: "Blog entry title"
-   date: YYYY-MM-DD 23:59
-   comments: true
-   author: Author(s) name(s)
-   published: true
-   authorIsRacker: true
-   categories:
-     - This Category
-     - That Category
-     - Other Category
-   ---
+---
+layout: post
+title: "Blog entry title"
+date: YYYY-MM-DD 23:59
+comments: true
+author: Author(s) name(s)
+published: true
+authorIsRacker: true
+categories:
+    - This Category
+    - That Category
+    - Other Category
+#
+# The following properties are OPTIONAL and affect the text and image that
+# appear by default in link previews when sharing blog posts. To customize
+# any of the items, remove the `" #"` at the start of the line and fill in
+# the desired value.
+#
+# metaTitle:
+# metaDescription:
+# ogTitle:
+# ogDescription:
+# ogImage:
+# twitterCreator: "@your_twitter_handle" # NOTE: The quotes are required!
+# twitterDescription:
+# twitterTitle:
+---
 ```
 
 Make sure that the dates in the file name and front-matter match.

@@ -22,6 +22,7 @@ This blog explores the fundamentals of Load and Performance Testing as well as t
 Performance testing is a type of testing to determine the speed, responsiveness, and stability of a computer, network, software program, or device under a workload. The goal of performance testing is to ensure that software applications perform well under their expected workload. 
 
 The focus of performance testing is to measure a software application’s speed, stability, reliability, and scalability.
+
 *	Speed – Determine how fast the application responds
 *	Stability – Determine if the application is stable under varying load condition
 *	Reliability – Determine if the application has the ability of fault tolerance and recoverability
@@ -90,7 +91,9 @@ Go to Gatling [download page](https://gatling.io/download/), and download the la
 #### Configure your browser
 
 Before starting to record a test scenario using Gatling recorder, we need to configure our browser proxy settings with the following steps. (All steps are done with a Google Chrome browser on Mac in this demo.)
+
 1. Open the Google Chrome browser, and go to the settings.
+
 2. Open proxy settings, and click on **Advanced** button on the bottom of the page.
 
     {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-1.png %}
@@ -112,12 +115,18 @@ Use the following steps to record the test scenario:
 1. Gatling recorder `recorder.sh` is located under _/gatling-charts-highcharts-bundle-3.0.1.1/bin_. Note that `Java.exe` is required to open the recorder window.
 
 2. Before starting the recorder, enter some settings in the recorder window.
-* Enter the port number in the local host box (In my case **8000**)
-* Enter the package name and the class name
-* Check the **Follow Redirects?**, **Infer HTML resources?**, **Remove cache Headers?** and **Automatic Referers?**
-* Select the output folder path
-* Keep all other options as default
-* Click on the **Start** button
+
+    2.1 Enter the port number in the local host box (In my case **8000**)
+    
+    2.2 Enter the package name and the class name
+    
+    2.3 Check the **Follow Redirects?**, **Infer HTML resources?**, **Remove cache Headers?** and **Automatic Referers?**
+    
+    2.4 Select the output folder path
+    
+    2.5 Keep all other options as default
+    
+    2.6 Click on the **Start** button
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-recorder-1.png %}
 
@@ -160,6 +169,7 @@ In **pom.xml**, you can configure things like the multiple simulations’ execut
 #### Usage
 
 To execute your tests, you can directly launch the gatling-maven-plugin with the test or execute goal:
+
 ```
 mvn gatling:test
 mvn gatling:execute

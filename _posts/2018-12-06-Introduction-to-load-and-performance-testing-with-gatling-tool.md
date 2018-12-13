@@ -94,13 +94,13 @@ Before starting to record a test scenario using Gatling recorder, we need to con
 
 1. Open the Google Chrome browser, and go to the settings.
 
-2. Open proxy settings, and click on **Advanced** button on the bottom of the page.
+2. Open proxy settings, and click **Advanced** at the bottom of the page.
 
     {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-1.png %}
 
     {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-2.png %}
 
-3. Go to Proxies tab, check **Web Proxy (HTTP)** and **Secure Web Proxy (HTTPS)**, and type the address **127.0.0.1** and the port **8000**.
+3. Go to Proxies tab, check **Web Proxy (HTTP)** and **Secure Web Proxy (HTTPS)**, and type the address (**127.0.0.1**) and the port (**8000**).
 
     {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-3.png %}
 
@@ -116,21 +116,24 @@ Use the following steps to record the test scenario:
 
 2. Before starting the recorder, enter some settings in the recorder window.
 
-    2.1 Enter the port number in the local host box (In my case **8000**)
+    2.1 Enter the port number in the local host box (In my case **8000**).
     
-    2.2 Enter the package name and the class name
+    2.2 Enter the package name and the class name.
     
-    2.3 Check the **Follow Redirects?**, **Infer HTML resources?**, **Remove cache Headers?** and **Automatic Referers?**
+    2.3 Check **Follow Redirects?**, **Infer HTML resources?**, **Remove cache Headers?** and **Automatic Referers?**.
     
-    2.4 Select the output folder path
+    2.4 Select the output folder path.
     
-    2.5 Keep all other options as default
+    2.5 Keep all other options as default.
     
-    2.6 Click on the **Start** button
+    2.6 Click **Start**.
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-recorder-1.png %}
 
-3. Open the Google Chrome browser, go to the URL: http://computer-database.gatling.io/, and try some operations on this page. The executed events can be observed in the recorder window. Click on the **Stop & Save** button.
+<ol start=3>
+    <li>  Open the Google Chrome browser, go to the URL: http://computer-database.gatling.io/, and try some operations on this page. The executed events can be observed in the recorder window. Click <b>Stop & Save</b>.</li>
+</ol>
+
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-recorder-2.png %}
 
@@ -148,11 +151,11 @@ Launch `gatling.sh` located in the bin directory, and you should see a menu with
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-script-output.png %}
 
-And select the id number of the simulation you want to execute. When the simulation is done, the console will display a link to the HTML reports.
+Select the ID number of the simulation that you want to execute. When the simulation is done, the console displays a link to the HTML reports.
 
 ### Integrate Gatling with Maven
 
-This section shows you how to integrate the Gatling tool with Maven via plugins, which has become essential in the world of CI/CD.
+This section shows you how to integrate the Gatling tool with Maven by using plugins, which has become essential in the world of CI/CD.
 
 #### Plugin versions and download
 

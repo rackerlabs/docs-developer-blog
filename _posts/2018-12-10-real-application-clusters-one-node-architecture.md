@@ -277,16 +277,6 @@ normal day-to-day operations), and ease database management. Oracle RAC One Node
 is a best-in-class solution for the databases and deployments, including those
 in the cloud.
 
-**References:**
-
-http://www.oracle.com/technetwork/database/options/clustering/rac-one-node-wp-12c-1896130.pdf?ssSourceSiteId=ocomen
-
-Metalink Documents:
-881417.1  -	Correct Linux TCP & UDP Parameters for RAC 10G/11G
-1096952.1 - Master Note for Real Application Clusters (RAC) Oracle Clusterware and Oracle Grid Infrastructure
-810394.1  -	RAC and Oracle Clusterware Best Practices and Starter Kit (Platform Independent)
-169706.1  -	Oracle Database (RDBMS) on Unix AIX,HP-UX,Linux,Mac OS X,Solaris,Tru64 Unix Operating Systems Installation and Configuration Requirements Quick Reference (8.0.5 to 11.2) (Doc ID 169706.1)
-
 <table>
   <tr>If you liked this blog, share it by using the following icons:</tr>
   <tr>

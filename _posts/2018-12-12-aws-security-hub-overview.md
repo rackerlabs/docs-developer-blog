@@ -193,7 +193,9 @@ If we view the metrics for this rule, we should should see `TriggeredRules` repo
 
 ## Where to from here?
 
-As a PoC, this is interesting, but this is just a start. CloudWatch Events provides a broad selection of targets which enable a high degree of versatility. What can you accomplish? Sign up for the Security Hub preview and share your thoughts and experiences below.
+As a PoC, this is interesting, but this is merely a start. CloudWatch Events provides a broad selection of targets which enable a high degree of versatility, whether you want to push events to another system, generate a ticket in order to engage human specialists, or automate remediation. What can you accomplish? Sign up for the Security Hub preview and share your thoughts and experiences below.
+
+Something to watch is the extent to which the AWS Security Finding Format takes on a life of its own outside of AWS. Having been compelled to conform to a standard, does this development serve as a catalyst for further cooperation between vendors or the inspiration behind yet to be conceived OSS projects? There does not appear to have been much movement on Security Device Event Exchange and the Cisco extension [CICEE](https://www.cisco.com/c/en/us/td/docs/security/ips/specs/CIDEE_Specification.html?dtid=osscdc000283) in recent years, just perhaps this is the impetus which has been lacking.
 
 ## Resources
 

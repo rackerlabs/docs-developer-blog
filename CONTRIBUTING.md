@@ -126,9 +126,17 @@ containing your post. Within your post, use the following markup:
 ![Alt text here]({% asset_path YYYY-MM-DD-title-of-your-post/filename.png %})
 ```
 
+**To wrap text around an image on the right**, use code similar to the following:
+
+```
+<img class="blog-post right" src="{% asset_path 2015-06-17-built-an-app-on-openstack-at-qcon-ny-2015/qcon.png %}"/>Last week I went to QCon NY 2015 to be both a student and a teacher in their tutorial track. They follow the standard pattern of having 2 days of tutorials prior to the conference proper. To understand QCon a bit better, here's their mission statement.
+```
+
 #### Adding social media share icons
 
 To add social media share icons at the end of your blog, include the following code:
+
+Be sure to update the links with your blog name!  If your blog file is *2018-09-01-late-breaking-news.md*, you'd replace *applications-monitoring-creating-a-smoother-financial-close* with *late-breaking-news* in all three URLs.
 
 ```
 <table>

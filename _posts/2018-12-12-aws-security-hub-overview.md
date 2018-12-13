@@ -24,9 +24,9 @@ AWS Security Hub was announced in Andy Jassy's re:Invent 2018 [Keynote(46:23)](h
 
 ## Security Hub - why is this significant?
 
-One of the notable developments included in this announcement is the creation by AWS and adoption by AWS and select AWS partners of a **standard format** for security events called the ['AWS Security Finding' format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html). This common format is a key enabler of the aggregation of 'Findings' into Security Hub as it pushes the responsibility for conformance onto the findings emitter rather than requiring the aggregator to build and maintain multiple parsers for all findings sources. The AWS services GuardDuty, Macie and Inspector, if configured, will automatically have their findings aggregated in SecurityHub once it is enabled. 
+One of the notable developments included in this announcement is the creation by AWS and adoption by AWS and select AWS partners of a **standard format** for security events called the ['AWS Security Finding' format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html). This common format is a key enabler of the aggregation of 'Findings' into Security Hub as it pushes the responsibility for conformance onto the findings emitter rather than requiring the aggregator to build and maintain multiple parsers for all findings sources. The AWS services GuardDuty, Macie, and Inspector, if configured, will automatically have their findings aggregated in SecurityHub once it is enabled. 
  
-Given that many of the security partners involved compete with one another to some extent or offer SOC services providing the black box magic of event ingestion and correlation into incidents, one can imagine that the incentive to standardise on a format which could level the playing field just a little bit must not have been great. The inexorable change of the market and the dominant agent of that change together clearly made a compelling case!
+Given that many of the security partners involved compete with one another to some extent or offer Security Operations Centre (SOC) services providing the black box magic of event ingestion and correlation into incidents, one can imagine that the incentive to standardise on a format which could level the playing field just a little bit must not have been great. The inexorable change of the market and the dominant agent of that change together clearly made a compelling case!
 
 ## Coming together
 
@@ -45,14 +45,14 @@ Let's take a brief look in practice at how these various concepts and components
 * We've enabled GuardDuty for our test account to provide us with some findings to work with.
 * In the ** AWS Console -> GuardDuty -> Settings ** we've clicked 'Generate Sample Findings' which has generated a spread of 45 findings.
 * Since GuardDuty findings are automatically aggregated in SecurityHub, after a short delay, these same 45 findings are available for us to manipulate in SecurityHub.
-* Today we are concerned about resource theft for BitCoin mining, let's see what GuardDuty has identified for us in this regard:
+* Today, we are concerned about resource theft for BitCoin mining, so let's see what GuardDuty has identified for us in this regard:
 
 
 ``` bash
 aws securityhub get-findings --filter '{"ResourceType": [ { "Comparison": "CONTAINS", "Value": "AwsEc2Instance" } ], "Type": [{"Comparison": "CONTAINS", "Value": "TTPs/Command and Control/CryptoCurrency:EC2-BitcoinTool.B!DNS"}] }'
 ```
 
-and indeed we do have a match output in the AWS Security Finding format:
+And, indeed, we do have a match output in the **AWS Security Finding format**:
 
 ```JSON
 {
@@ -142,11 +142,11 @@ aws securityhub create-insight --name "bitcoin miner"  --filter '{"ResourceType"
 
 ```
 
-* There is no aws CLI option to create an `action` just now, so we'll need to got to the ** AWS Console -> SecurityHub -> Settings -> Custom actions. ** Click on 'Create custom action'
+* There is no aws CLI option to create an `action` just now, so we'll need to go to the ** AWS Console -> SecurityHub -> Settings -> Custom actions. ** Click on 'Create custom action'
 
 ![Custom Action]({% asset_path 2018-12-12-aws-security-hub-overview/custom_action.png %})
 
-* It's now time to create our CloudWatch Events rule:
+* It's now time to create our **CloudWatch Events** rule:
 
 ```bash
 aws events put-rule --cli-input-json '{"Name": "SecHub", "EventPattern": "{\"source\":[\"aws.securityhub\"],\"resources\":[\"arn:aws:securityhub:eu-west-1:9876123456789:action/custom/bitcoin-miner-dns\"]}","State": "ENABLED"}'
@@ -183,19 +183,19 @@ aws sns get-subscription-attributes --subscription-arn "arn:aws:sns:eu-west-1:98
 
 ![Insight]({% asset_path 2018-12-12-aws-security-hub-overview/insight.png %})
 
-* Clicking through on that `insight` we see the `finding` we previously turned up in our seach. We highlight this and select the `action` we created earlier from the dropdown. We are notified in a green across the top of the panel that this operation has been successful.
+* Clicking through on that `insight`, we see the `finding` we previously turned up in our seach. We highlight this and select the `action` we created earlier from the dropdown. We are notified in a green across the top of the panel that this operation has been successful.
 ![Action]({% asset_path 2018-12-12-aws-security-hub-overview/action.png %})
 
-* While we wait for the email notification to arrive we can validate that CloudWatch Events has seen and processed the event triggered by our `action` by visiting ** AWS Console -> CloudWatch -> Events -> Rules ** and click on our "SecHub" rule:
+* While we wait for the email notification to arrive, we can validate that CloudWatch Events has seen and processed the event triggered by our `action` by visiting ** AWS Console -> CloudWatch -> Events -> Rules ** and click on our **SecHub** rule:
 ![Action]({% asset_path 2018-12-12-aws-security-hub-overview/cw_events.png %})
 
 If we view the metrics for this rule, we should should see `TriggeredRules` reporting a value of `1`. Before long, however, an email will appear in our Inbox with the full raw contents of the `finding`. 
 
 ## Where to from here?
 
-As a PoC, this is interesting, but this is merely a start. CloudWatch Events provides a broad selection of targets which enable a high degree of versatility, whether you want to push events to another system, generate a ticket in order to engage human specialists, or automate remediation. What can you accomplish? Sign up for the Security Hub preview and share your thoughts and experiences below.
+As a PoC, this is interesting, but this is merely a start. CloudWatch Events provides a broad selection of targets, which enable a high degree of versatility, whether you want to push events to another system, generate a ticket in order to engage human specialists, or automate remediation. What can you accomplish? Sign up for the Security Hub preview and share your thoughts and experiences below.
 
-Something to watch is the extent to which the AWS Security Finding Format takes on a life of its own outside of AWS. Having been compelled to conform to a standard, does this development serve as a catalyst for further cooperation between vendors or the inspiration behind yet to be conceived OSS projects? There does not appear to have been much movement on Security Device Event Exchange and the Cisco extension [CICEE](https://www.cisco.com/c/en/us/td/docs/security/ips/specs/CIDEE_Specification.html?dtid=osscdc000283) in recent years, just perhaps this is the impetus which has been lacking.
+Something to watch is the extent to which the **AWS Security Finding format** takes on a life of its own outside of AWS. Having been compelled to conform to a standard, does this development serve as a catalyst for further cooperation between vendors or the inspiration behind yet to be conceived OSS projects? There does not appear to have been much movement on Security Device Event Exchange and the Cisco extension [CICEE](https://www.cisco.com/c/en/us/td/docs/security/ips/specs/CIDEE_Specification.html?dtid=osscdc000283) in recent years, just perhaps this is the impetus which has been lacking.
 
 ## Resources
 

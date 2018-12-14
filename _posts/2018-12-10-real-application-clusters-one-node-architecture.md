@@ -106,8 +106,23 @@ Before you install One Node, ensure that you perform the following tasks:
 
         oracleasm-support-2.1.8-1.el6.x86_64.rpm
         oracleasmlib-2.0.4-1.el6.x86_64.rpm
+        
+- Download the Grid and RDBMS installation software from the
+  [Oracle Downloads website](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html).
+  Choose the download binary depending on the platform on which you plan to install the software.
 
-- Create a directory for the Oracle Grid CRS Home on both nodes.
+- Create a directory for the Oracle Grid CRS Home on both nodes.  By default, Grid is installed in `/u02/app`.
+
+      [grid@BOSODBD01 grid]$ cd /u02/app  
+      [grid@BOSODBD01 app]$ ls -lrt
+      total 12
+      drwxr-xr-x. 3 root oinstall 4096 Sep 28 00:31 grid
+      drwxrwxr-x. 9 grid oinstall 4096 Sep 30 22:48 oracle
+      drwxrwx---. 6 grid oinstall 4096 Oct  7 21:11 oraInventory
+      [grid@BOSODBD01 grid]$ ls -lrt
+      total 4
+      drwxr-xr-x. 68 root oinstall 4096 Sep 28 00:36 11.2.0.4
+
 
 ### Install Grid
 
@@ -117,7 +132,7 @@ Perform the following steps to install Grid:
 
 Open a Virtual Network computing (VNC) connection and, as a Grid user, change
 directories (`cd`) into the folder where you staged the Grid infrastructure
-software and run `./runInstaller`.
+installation zip file, unzip the file, and run `./runInstaller`.
 
 Click **Skip software updates** on the first installation window, then click
 **Next**.  Select options as shown in the following image:
@@ -214,7 +229,7 @@ As the Oracle user (RDBMS software owner), start the installer by running
 the following commands:
 
     # su – oracle
-    # cd directory-where-you-staged-the-RDBMS-software
+    # cd directory-where-you-staged-the-RDBMS-installation-software
     # ./runInstaller
 
 **NOTE:** Ensure that the installer is run as the intended software owner user

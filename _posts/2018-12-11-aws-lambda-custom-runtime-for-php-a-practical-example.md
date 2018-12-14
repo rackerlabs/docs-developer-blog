@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Lambda Custom Runtimes: A Practical ExamPHPle"
-ogTitle: "Lambda Custom Runtimes: A Practical ExamPHPle"
+title: "AWS Lambda Custom Runtime for PHP: A Practical Example"
+ogTitle: "AWS Lambda Custom Runtime for PHP: A Practical Example"
 metaDescription: Learn how to build an example PHP runtime using the new AWS Lambda custom runtime API and layering capabilities.
 ogDescription: Learn how to build an example PHP runtime using the new AWS Lambda custom runtime API and layering capabilities.
+ogImage: https://657cea1304d5d92ee105-33ee89321dddef28209b83f19f06774f.ssl.cf1.rackcdn.com/og-image-f359598a46bb89db815e4f1cc496ea40f98dc9477c0a4af5c6b57e019d94d6f6.png
 date: 2018-12-11 00:00
 comments: true
 author: Michael Moussa
@@ -15,32 +16,37 @@ bio: "As a Senior Product Architect at Rackspace, Michael draws upon his 20 year
 categories:
   - aws
   - Developers
+canonical: https://aws.amazon.com/blogs/apn/aws-lambda-custom-runtime-for-php-a-practical-example/
 ---
-This year's AWS re:Invent was a nonstop, high-powered firehose of exciting new features and products. Native PHP support on Lambda wasn't one of those features (hey, maybe someday!?), but the new Lambda custom runtime API and layering capabilities gives us the ability to build a clean, supportable implementation of PHP on Lambda of our own. In this blog post, we'll take a brief look at the overall workflow and runtime lifecycle, and then I will show you one way to build a PHP runtime to start powering your PHP applications on AWS Lambda.
+
+
+This year's AWS re:Invent was a nonstop, high-powered firehose of exciting new features and products. Native PHP support on Lambda wasn't one of those features, but the new [AWS Lambda runtime API](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-api.html) and [layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) capabilities gives us the ability to build a clean, supportable implementation of PHP on Lambda of our own. In this post, we'll take a brief look at the overall workflow and runtime lifecycle, and then I will show you one way to build a PHP runtime to start powering your PHP applications on AWS Lambda.
 
 <!-- more -->
 
 Not a PHP developer? No problem! You can adapt the examples in this guide to build a custom runtime in your language of choice.
 
-## Overview of Lambda custom runtimes and layers
+## Overview of Lambda Custom Runtimes and Layers
 
-Before we get started, we should take a moment to consider how native language support on Lambda behaves and how the custom runtime API differs. At a high-level, selecting a natively supported language when creating your Lambda function defines the container that AWS will use to execute your function code. The container has the language runtime (Python, Node, etc.) built-in, as well as an implementation of the Lambda Runtime API that manages the execution lifecycle of the container and invocations of the function itself. The design of the custom runtime API separates these responsibilities and puts control of the runtime completely in our hands. The container's only responsibilities now are starting and shutting down our custom runtime.
+Before we get started, we should take a moment to consider how native language support on Lambda behaves and how the custom runtime API differs. At a high level, selecting a natively-supported language when creating your Lambda function defines the environment that AWS will use to execute your function code. The environment has the language runtime (Python, Node, etc.) built in, as well as an implementation of the Lambda Runtime API that manages the execution lifecycle of the environment and invocations of the function itself. The design of the custom runtime API separates these responsibilities and puts control of the runtime completely in our hands. The environment's only responsibilities now are starting and shutting down our custom runtime.
 
-As for the runtime itself, the lifecycle is composed of two phases - an Init phase and any number of Invoke phases. The Init phase spans the period of time between when the container starts our custom runtime and the time when our actual Lambda function code is executed. At the conclusion of the Init phase, our runtime sits in the Invoke phase, and will continuously ask for and execute additional work until the container shuts it down entirely.
+The lifecycle of the runtime itself is composed of an Init phase, and any number of Invoke phases. The Init phase spans the period of time between when the environment starts our custom runtime, and the time when our actual Lambda function code is executed. The Init phase code will execute only once during the environment lifecycle, during which we can prepare our custom runtime to handle all future Lambda function invocations. At the conclusion of the Init phase, our runtime sits in the Invoke phase, and will continuously ask for and execute additional work until the environment shuts it down entirely.
 
-In addition to being able to define custom runtimes for our Lambda functions, we now have the ability to incorporate reusable components into our Lambda functions in the form of layers. If you've written Lambda functions in the past using NodeJS, you should be familiar with the practice of packaging the entirety of a `node_modules` directory with every individual function you create, even if there are no differences between the contents of those `node_modules` across your overall application. This tends to be a slow process, which can result in very long build times for large applications consisting of many Lambda functions, especially if some of those Lambda functions didn't depend on _all_ of the `node_modules` in the first place. With the new layering capability, we can publish reusable layers to share among different Lambda functions. For example, we can publish one layer consisting solely of our custom runtime code and another layer consisting of library code or other dependencies, and then configure our Lambda functions to make the contents of those two previously published layers available to our function code as-needed.
+In addition to being able to define custom runtimes for our Lambda functions, we now have the ability to incorporate reusable components into our Lambda functions in the form of layers. If you've written Lambda functions in the past using Node.js, you should be familiar with the practice of packaging the entirety of a `node_modules` directory with every individual function you create, even if there are no differences between the contents of those `node_modules` across your overall application. This tends to be a slow process, which can result in very long build times for large applications consisting of many Lambda functions, especially if some of those Lambda functions didn't depend on _all_ of the `node_modules` in the first place. With the new layering capability, we can publish reusable layers to share among different Lambda functions. For example, we can publish one layer consisting solely of our custom runtime code ,and another layer consisting of library code or other dependencies, and then configure our Lambda functions to make the contents of those two previously-published layers available to our function code as needed.
 
-## Getting started
+## Getting Started
 
-We'll get to the actual code for the custom runtime a little bit later, but first, we need to make sure the underlying Lambda Execution Environment container will be able to execute the PHP code we'll be writing. Since there's no native support for PHP in Lambda, we'll need to provide the PHP binary for Lambda to use to execute our custom runtime code. The best way to go about this is to compile the desired version of PHP in an Amazon Linux environment compatible with the same environment in which the Lambda will be executing.
+We'll get to the actual code for the custom runtime later, but first, we need to make sure that the underlying Lambda Execution Environment is able to execute the PHP code we'll be writing. Since there's no native support for PHP in Lambda, we'll need to provide the PHP binary for Lambda to use to execute our custom runtime code. The best way to go about this is to compile the desired version of PHP in an Amazon Linux environment compatible with the same [environment in which the Lambda will be executing](https://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html).
 
-If you're already familiar with the process of launching an EC2 instance, launch one now using the same AMI from the underlying [Lambda Execution Environment](https://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html) (`amzn-ami-hvm-2017.03.1.20170812-x86_64-gp2` at the time of this writing), and ensure it has an IAM Instance Profile that will allow it to create IAM Roles and manage Lambda functions. Once it is ready, log into it using SSH.
+If you're already familiar with the process of launching an EC2 instance, launch one now using the same AMI from the underlying [Lambda Execution Environment](https://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html) (`amzn-ami-hvm-2017.03.1.20170812-x86_64-gp2` at the time of this writing), and ensure that it has an IAM Instance Profile that will allow it to create IAM Roles and manage Lambda functions. Once it is ready, log into it using SSH.
 
-If you haven't done that sort of thing before, there is a fantastic [step-by-step guide](https://aws.amazon.com/blogs/compute/scripting-languages-for-aws-lambda-running-php-ruby-and-go/) to do this for PHP 7.0.7 (however, since support for PHP 7.0.x has ended at the time of this writing, we'll be using PHP 7.3.0 for this example). Follow the instructions in the guide linked above up until the **Setting up PHP on the instance** step, and then read on.
+If you haven't done that sort of thing before, there is a fantastic [step-by-step guide](https://aws.amazon.com/blogs/compute/scripting-languages-for-aws-lambda-running-php-ruby-and-go/) to doing this for PHP 7.0.7 (however, since support for PHP 7.0.x has ended at the time of this writing, we'll be using PHP 7.3.0 for this example). Follow the instructions in the guide linked above up up to the **Setting up PHP on the instance** step, and then... read on!
 
-Now, let's compile PHP by running the following commands:
+<img style="display: none" src="{% asset_path 2018-12-11-aws-lambda-custom-runtime-for-php-a-practical-example/og-image.png %}" />
 
 ## Compiling PHP
+
+Now, let's compile PHP by running the following commands:
 
 ```bash
 # Update packages and install needed compilation dependencies
@@ -73,13 +79,13 @@ Copyright (c) 1997-2018 The PHP Group
 Zend Engine v3.3.0-dev, Copyright (c) 1998-2018 Zend Technologies
 ```
 
-## Preparing to write some code
+## Preparing to Write Some Code
 
 Now let's set up a working directory to package up and deploy our example:
 
 ```bash
-mkdir -p ~/examPHPle/{bin,src}/
-cd ~/examPHPle
+mkdir -p ~/php-example/{bin,src}/
+cd ~/php-example
 touch ./src/{hello,goodbye}.php
 touch ./bootstrap && chmod +x ./bootstrap
 cp ~/php-7-bin/bin/php ./bin
@@ -88,7 +94,7 @@ cp ~/php-7-bin/bin/php ./bin
 Which will give us this initial directory structure:
 
 ```
-/home/ec2-user/examPHPle/
+/home/ec2-user/php-example/
 ├── bin/
 │   └── php*
 ├── bootstrap*
@@ -99,9 +105,9 @@ Which will give us this initial directory structure:
 2 directories, 4 files
 ```
 
-We now have some empty PHP script files where our function code will live, as well as an empty, executable `bootstrap` file. Let's talk about `bootstrap` first. Since the Lambda container's responsibility will be limited to simply starting and shutting down our custom runtime API, it's up to us to define what is _actually_ going to happen in the Lambda environment once that runtime API starts up. The `bootstrap` script will be what handles these Init and Invoke phases.
+We now have some empty PHP script files where our function code will live, as well as an empty, executable `bootstrap` file. Let's talk about `bootstrap` first. Since the Lambda environment's responsibility will be limited to simply starting and shutting down our custom runtime API, it's up to us to define what is _actually_ going to happen in the Lambda environment once that runtime API starts up. The `bootstrap` script will be what handles these Init and Invoke phases.
 
-The `bootstrap` script will be the first one we work on, but first, we have one more setup task to complete. Implementing the custom runtime API will involve making a number of HTTP requests and parsing response headers, which can be very cumbersome to do in PHP using natively available utilities like the various `curl_*` functions. Rather than go that route, we'll use the [Composer](https://getcomposer.org) package manager to install the popular [Guzzle](https://github.com/guzzle/guzzle) PHP HTTP client and simplify our custom runtime API implementation. Since any non-trivial PHP application is almost certainly going to be making use of other open source libraries or frameworks, completing this step will give us the added bonus of having a mechanism available for incorporating additional dependencies as our application evolves.
+We’ll work on the `bootstrap` script first, but before we can do that we have one more setup task to complete. Implementing the custom runtime API will involve making a number of HTTP requests and parsing response headers, which can be very cumbersome to do in PHP using natively-available utilities like the various `curl_*` functions. Rather than go that route, we'll use the [Composer](https://getcomposer.org) package manager to install the popular [Guzzle](https://github.com/guzzle/guzzle) PHP HTTP client and simplify our custom runtime API implementation. Since any non-trivial PHP application is almost certainly going to be making use of other open source libraries or frameworks, completing this step will give us the added bonus of having a mechanism available for incorporating additional dependencies as our application evolves.
 
 First, install Composer:
 
@@ -115,7 +121,7 @@ Which should output something like this:
 All settings correct for using Composer
 Downloading...
 
-Composer (version 1.8.0) successfully installed to: /home/ec2-user/examPHPle/composer.phar
+Composer (version 1.8.0) successfully installed to: /home/ec2-user/php-example/composer.phar
 Use it: php composer.phar
 ```
 
@@ -143,11 +149,11 @@ Writing lock file
 Generating autoload files
 ```
 
-## Building the custom runtime
+## Building the Custom Runtime
 
 We're now ready to implement the custom runtime API and build a couple of example Lambda functions!
 
-Let's start with the `bootstrap`. The `bootstrap` is the main engine that will drive our example, and it can be written in _any_ language that Lambda's underlying Amazon Linux environment is able to run. Since this is a PHP example, both the custom runtime and the `bootstrap` script itself are written in PHP, and they will be executed using the PHP binary we compiled earlier for Amazon Linux. Lambda will place the files from our various layers under `/opt`, so our `/home/ec2-user/examPHPle/bin/php` file will ultimately end up being `/opt/bin/php`. The `#!/opt/bin/php` shebang declaration at the top of our `bootstrap` will instruct the program loader to use our PHP binary to execute the remainder of the code.
+Let's start with the `bootstrap`. The `bootstrap` is the main engine that will drive our example; it can be written in any language that Lambda's underlying Amazon Linux environment is able to run. Since this is a PHP example, both the custom runtime and the `bootstrap` script itself are written in PHP, and they will be executed using the PHP binary we compiled earlier for Amazon Linux. Lambda will place the files from our various layers under `/opt`, so our `/home/ec2-user/php-example/bin/php` file will ultimately end up being `/opt/bin/php`. The `#!/opt/bin/php` shebang declaration at the top of our `bootstrap` will instruct the program loader to use our PHP binary to execute the remainder of the code.
 
 Here's what our initial `bootstrap` script looks like:
 
@@ -177,7 +183,7 @@ do {
 
 The overall flow of things is fairly straightforward. We obtain the next request that needs to be handled, execute the code to handle it, submit a response, then repeat the process. 
 
-You may have noticed that there is no error handling or abstractions of any kind in place. This is done purposely in the interest of brevity for this example. In a real, object-oriented application, we'd have graceful error handling in place and be delegating things like input parsing, sanitization, request routing, and so on to an application framework. Please consult the BYOL Runtime API documentation as you build your production custom runtimes in order to ensure you're handling all eventualities as gracefully as possible! Otherwise, an unhandled error will cause the custom runtime to be terminated prematurely.
+You may have noticed that there is no error handling or abstractions of any kind in place. For this example, this is done purposely in the interest of brevity. In a real, object-oriented application, we'd have graceful error handling in place and be delegating things like input parsing, sanitization, request routing, and so on to an application framework. Please consult the [Runtime API documentation](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-api.html) as you build your production custom runtimes in order to ensure that you're handling all eventualities as gracefully as possible! Otherwise, an unhandled error will cause the custom runtime to be terminated prematurely.
 
 Now that we've got the overall structure of the request processing loop in place, let's add the `getNextRequest()` and `sendResponse()` implementations to our `bootstrap`.
 
@@ -194,7 +200,7 @@ function getNextRequest()
 }
 ```
 
-Here, we're making a `GET` request to the runtime API to obtain the next Lambda invocation that needs to be serviced. Each invocation will provide an invocation ID in a header and a payload to supply request parameters to our functions. We'll retrieve those and return a simple associative array to make these values available to the caller.
+Here, we're making a `GET` request to the runtime API to obtain the next Lambda invocation that needs to be serviced. Each response will provide some information about the invocation [in the response headers](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-api.html#runtimes-api-next), but for now, we're just interested in the Invocation ID (`Lambda-Runtime-Aws-Request-Id`). We'll also grab the request payload to supply request parameters to our functions. We'll retrieve those and return a simple associative array to make these values available to the caller.
 
 ```php
 function sendResponse($invocationId, $response)
@@ -209,7 +215,7 @@ function sendResponse($invocationId, $response)
 
 To send the response, we `POST` back to the runtime API with whatever output text our functions return.
 
-## Coding our example functions
+## Coding Our Example Functions
 
 Now let's fill in the Lambda functions. We'll just have two simple functions - `hello()` and `goodbye()`, which each expect an array of `$data` having a `name` key with a value that they will say "Hello" or "Goodbye" to.
 
@@ -286,51 +292,51 @@ and then run:
 
 ```bash
 aws iam create-role \
-    --role-name LambdaExamPHPle \
+    --role-name LambdaPhpExample \
     --path "/service-role/" \
     --assume-role-policy-document file:///tmp/trust-policy.json
 ```
 
-Make note of the `Role.Arn` output value (e.g. `arn:aws:iam::XXXXXXXXXXXX:role/service-role/LambdaExamPHPle`), which you'll need for the next steps.
+Make note of the `Role.Arn` output value (e.g. `arn:aws:iam::XXXXXXXXXXXX:role/service-role/LambdaPhpExample`), which you'll need for the next steps.
 
 Now, let's create our `runtime` and `vendor` layers.
 
 ```bash
 aws lambda publish-layer-version \
-    --layer-name examPHPle-runtime \
+    --layer-name php-example-runtime \
     --content fileb://runtime.zip \
     --region us-east-1
 
 aws lambda publish-layer-version \
-    --layer-name examPHPle-vendor \
+    --layer-name php-example-vendor \
     --zip-file fileb://vendor.zip \
     --region us-east-1
 ```
 
-Make note of each command's `LayerVersionArn` output value (e.g. `arn:aws:lambda:us-east-1:XXXXXXXXXXXX:layer:examPHPle-runtime:1`), which you'll need for the next steps.
+Make note of each command's `LayerVersionArn` output value (e.g. `arn:aws:lambda:us-east-1:XXXXXXXXXXXX:layer:php-example-runtime:1`), which you'll need for the next steps.
 
 Now, let's create our two functions (be sure to replace the XXXXXXXXXXXX with your account number):
 
 ```bash
 aws lambda create-function \
-     --function-name examPHPle-hello \
+     --function-name php-example-hello \
      --handler hello \
      --zip-file fileb://./hello.zip \
      --runtime provided \
-     --role "arn:aws:iam::XXXXXXXXXXXX:role/service-role/LambdaExamPHPle" \
+     --role "arn:aws:iam::XXXXXXXXXXXX:role/service-role/LambdaPhpExample" \
      --region us-east-1 \
-     --layers "arn:aws:lambda:us-east-1:XXXXXXXXXXXX:layer:examPHPle-runtime:1" \
-              "arn:aws:lambda:us-east-1:XXXXXXXXXXXX:layer:examPHPle-vendor:1"
+     --layers "arn:aws:lambda:us-east-1:XXXXXXXXXXXX:layer:php-example-runtime:1" \
+              "arn:aws:lambda:us-east-1:XXXXXXXXXXXX:layer:php-example-vendor:1"
 
 aws lambda create-function \
-     --function-name examPHPle-goodbye \
+     --function-name php-example-goodbye \
      --handler goodbye \
      --zip-file fileb://./goodbye.zip \
      --runtime provided \
-     --role "arn:aws:iam::XXXXXXXXXXXX:role/service-role/LambdaExamPHPle" \
+     --role "arn:aws:iam::XXXXXXXXXXXX:role/service-role/LambdaPhpExample" \
      --region us-east-1 \
-     --layers "arn:aws:lambda:us-east-1:XXXXXXXXXXXX:layer:examPHPle-runtime:1" \
-              "arn:aws:lambda:us-east-1:XXXXXXXXXXXX:layer:examPHPle-vendor:1"
+     --layers "arn:aws:lambda:us-east-1:XXXXXXXXXXXX:layer:php-example-runtime:1" \
+              "arn:aws:lambda:us-east-1:XXXXXXXXXXXX:layer:php-example-vendor:1"
 ```
 
 ## Testing
@@ -339,7 +345,7 @@ And finally, let's invoke them!
 
 ```bash
 aws lambda invoke \
-    --function-name examPHPle-hello \
+    --function-name php-example-hello \
     --region us-east-1 \
     --log-type Tail \
     --query 'LogResult' \
@@ -347,7 +353,7 @@ aws lambda invoke \
     --payload '{"name": "World"}' hello-output.txt | base64 --decode
 
 aws lambda invoke \
-    --function-name examPHPle-goodbye \
+    --function-name php-example-goodbye \
     --region us-east-1 \
     --log-type Tail \
     --query 'LogResult' \
@@ -380,9 +386,9 @@ A quick `cat` of the `hello-output.txt` and `goodbye-output.txt` files will also
 
 ## Conclusion
 
-In this post, you got glimpse into what's possible with the new Lambda custom runtime API and layering capabilities. From here, you can choose to incorporate [API Gateway with Lambda Integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-lambda-integration.html), [use your Lambda Functions as Application Load Balancer Targets](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/lambda-functions.html), or even use these functions as behind-the-scenes PHP workers to perform tasks asynchronously.
+In this post, you got a glimpse into what's possible with the new Lambda custom runtime API and layering capabilities. From here, you can choose to incorporate [API Gateway with Lambda Integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-with-lambda-integration.html), [use your Lambda Functions as Application Load Balancer Targets](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/lambda-functions.html), or even use these functions as behind-the-scenes PHP workers to perform tasks asynchronously.
 
-I look forward to seeing the number of PHP projects running on AWS Lambda grow - will yours be one of them?
+The new runtime APIs for Lambda make it possible to create runtimes for any programming language. You can see other examples for [Rust](https://aws.amazon.com/blogs/opensource/rust-runtime-for-aws-lambda/) and [C++](https://aws.amazon.com/blogs/compute/introducing-the-c-lambda-runtime/) that AWS has already open sourced. I am excited about what these new capabilities could mean for PHP applications in 2019, and I look forward to seeing what you build with them. If you build something you'd like to share, leave a comment below, or reach out to me on [Twitter](https://twitter.com/michaelmoussa).
 
 ---
 

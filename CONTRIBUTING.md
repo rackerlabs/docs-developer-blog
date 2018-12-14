@@ -67,6 +67,25 @@ categories:
 ---
 ```
 
+**NOTE:** The "ogImage" _must_ be a fully-qualified URL. If you'd like to use an
+image asset that is being uploaded as part of your blog post, the pattern for the
+final URL is as follows:
+
+  `<rackspace CDN>/<image name>-<sha256 hash>.<image extension>`
+
+Where:
+
+  * `<rackspace CDN>` is `https://657cea1304d5d92ee105-33ee89321dddef28209b83f19f06774f.ssl.cf1.rackcdn.com`
+  * `<image name>` is the case-sensitive name of the image _not including the extension_.
+  * `<sha256 hash>` is the 64-character hex output from running the command `sha256sum /path/to/image`
+  * `<image extension>` is `jpg`, `png`, etc.
+
+Example:
+
+  * `https://657cea1304d5d92ee105-33ee89321dddef28209b83f19f06774f.ssl.cf1.rackcdn.com/default-og-image-46fb3587dedfdf950188fabbddd596d67e6b699374a7f4e36b43046d7a24fd09.jpg`
+
+If you'd like to use an image asset from your post that _shouldn't_ appear in the post itself, you can include `style="display: none"` on the `<img />` tag to hide it within the post while triggering the necessary plugin code to ensure it is made available on the CDN based on the above naming convention.
+
 Make sure that the dates in the file name and front-matter match.
 
 You can optionally add a picture from gravatar using the following metadata line:

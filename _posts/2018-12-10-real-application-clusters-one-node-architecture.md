@@ -113,18 +113,18 @@ Before you install One Node, ensure that you perform the following tasks:
 
 - Create a directory for the Oracle Grid CRS Home on both nodes.  By default, Grid is installed in `/u02/app`.
 
-      [grid@BOSODBD01 grid]$ cd /u02/app  
-      [grid@BOSODBD01 app]$ ls -lrt
+         [grid@BOSODBD01 grid]$ cd /u02/app  
+         [grid@BOSODBD01 app]$ ls -lrt
       
-      total 12
-      drwxr-xr-x. 3 root oinstall 4096 Sep 28 00:31 grid
-      drwxrwxr-x. 9 grid oinstall 4096 Sep 30 22:48 oracle
-      drwxrwx---. 6 grid oinstall 4096 Oct  7 21:11 oraInventory
+         total 12
+         drwxr-xr-x. 3 root oinstall 4096 Sep 28 00:31 grid
+         drwxrwxr-x. 9 grid oinstall 4096 Sep 30 22:48 oracle
+         drwxrwx---. 6 grid oinstall 4096 Oct  7 21:11 oraInventory
+       
+         [grid@BOSODBD01 grid]$ ls -lrt
       
-      [grid@BOSODBD01 grid]$ ls -lrt
-      
-      total 4
-      drwxr-xr-x. 68 root oinstall 4096 Sep 28 00:36 11.2.0.4
+         total 4
+         drwxr-xr-x. 68 root oinstall 4096 Sep 28 00:36 11.2.0.4
 
 
 ### Install Grid

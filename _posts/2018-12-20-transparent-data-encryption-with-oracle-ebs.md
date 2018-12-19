@@ -11,16 +11,16 @@ categories:
   - Oracle
 ---
 
-This blog discusses setting up Transparent Data Encryption (TDE) column level
-encryption in Oracle&reg; E-Business Suite&reg; (EBS) R12 environment. Column-level
-encryption can be setup on single or multiple-column tables, depending on the
-user requirement.
+This blog discusses setting up Transparent Data Encryption (TDE) column-level
+encryption in Oracle&reg; E-Business Suite&reg; (EBS) R12 environment. You can
+set up column-level encryption on single-column or multiple-column tables,
+depending on the user requirement.
 
 <!-- more -->
 
 ### Introduction
 
-TDE column-encryption functionality can be used to encrypt selected columns of
+YOu can use TDE column-encryption functionality to encrypt selected columns of
 tables. Because the encryption is transparent, you don't need to rewrite your
 application code and can use existing code. The term *transparent* also means
 that the database session can read encrypted data without any issues.
@@ -33,15 +33,15 @@ encryption in an EBS R12 environment.
 Your TDE encryption implementation can have an impact on the following aspects
 of your applications:
 
--	Performance: There are certain limitations in implementing TDE, which are
-documented in the Advance Security Guide. You should review this before
-implementing TDE.  You should also choose the columns to encrypt with care
-because the choice affects performance of Data Manipulation Language (DML)and
-other queries that use the encrypted columns.
+-	Performance: Certain limitations in implementing TDE are documented in the
+Advance Security Guide. You should review this before implementing TDE.  You
+should also choose the columns to encrypt with care because the choice affects
+the performance of Data Manipulation Language (DML) and other queries that use
+the encrypted columns.
 
--	Patching: You should be aware available EBS patches, especially patches that
+-	Patching: You should be aware of available EBS patches, especially patches that
 apply changes to columns and are encrypted using TDE. This includes such changes
-as the addition of indexes on encrypted column.
+as the addition of indexes on an encrypted column.
 
 ### Limitation of TDE
 
@@ -50,7 +50,7 @@ such as Streams or DataGuard, in logical-standby mode. If you are using these
 technologies, you cannot replicate encrypted columns. However, TDE encryption
 is supported when you use DataGuard in physical-standby mode. In this case, a
 wallet containing the master key must be copied from the primary server to a
-physical standby server, as shown in teh following image:
+physical standby server, as shown in the following image:
 
 ![]({% asset_path 2018-12-20-transparent-data-encryption-with-oracle-ebs/Picture1.png %})
 Image source: [http://docs.oracle.com/cd/E11882\_01/network.112/e40393/asotrans.htm#ASOAG9567](http://docs.oracle.com/cd/E11882\_01/network.112/e40393/asotrans.htm#ASOAG9567)
@@ -60,9 +60,9 @@ Image source: [http://docs.oracle.com/cd/E11882\_01/network.112/e40393/asotrans.
 
 Perform the following steps to implement TDE:
 
-1.	Obtain list of column/tables that need to be encrypted.
+1.	Obtain a list of columns and tables that need to be encrypted.
 
-2.	Create wallet folder at required location by running the following command:
+2.	Create a wallet folder at the required location by running the following command:
 
         $ mkdir TDEWallet
 
@@ -71,7 +71,7 @@ Perform the following steps to implement TDE:
 
         [oratactp@odbprod1 tactprd_odbprod1]$ cat sqlnet_ifile.ora
 
-4.	Set the `Master Key` by using the following commands, which creates a wallet
+4.	Set the `Master Key` by using the following commands, which create a wallet
    file at the wallet location specified in the previous step:
 
         $ Sqlplus  '/as sysdba'
@@ -95,7 +95,7 @@ Perform the following steps to implement TDE:
         ---------- ------------------------- -------------------- -------------------- --- ------------
         IBY        IBY_CREDITCARD            CCNUMBER             AES 192 bits key     NO SHA-1
 
-9.	You can open or close the wallet by using the following command:
+9.	You can open or close the wallet by using the following commands:
 
         SQL> ALTER SYSTEM SET ENCRYPTION WALLET CLOSE IDENTIFIED BY "****";
         SQL> SELECT * FROM v$encryption_wallet;
@@ -114,7 +114,7 @@ The following constraints apply to TDE implementations:
 
 -	Only columns defined as less than 3932 bytes length can be encrypted.
 
--	If the column is part of a foreign key or used in another Database Constraint,
+-	If the column is part of a foreign key or used in another database constraint,
    it cannot be encrypted.
 
 -	If there is a function-based index on the column, it cannot be encrypted.
@@ -123,19 +123,19 @@ The following constraints apply to TDE implementations:
    the index is no longer used after the column is encrypted. Instead, full table
    scans are performed.
 
--	If a table is partitioned and the partitions or sub-partitions are exchanged,
+-	If a table is partitioned and the partitions or subpartitions are exchanged,
    all table partitions must be similarly encrypted. The following tables
    currently fit this criterion:
-   -	EGO_MTL_SY_ITEMS_EXT_B
-   -	EGO_MTL_SY_ITEMS_EXT_TL
-   -	WF_LOCAL_ROLES
-   -	WF_LOCAL_ROLES_STAGE
-   -	WF_USER_ROLE_ASSIGNMENTS
-   -	WF_UR_ASSIGNMENTS_STAGE
-   -	WF_LOCAL_USER_ROLES
-   -	WF_LOCAL_USER_ROLES_STAGE
-   -	WF_LOCAL_ROLES_TL
-   -	WF_LOCAL_ROLES_TL_STAGE
+   -	EGO\_MTL\_SY\_ITEMS\_EXT\_B
+   -	EGO\_MTL\_SY\_ITEMS\_EXT\_TL
+   -	WF\_LOCAL\_ROLES
+   -	WF\_LOCAL\_ROLES\_STAGE
+   -	WF\_USER\_ROLE\_ASSIGNMENTS
+   -	WF\_UR\_ASSIGNMENTS\_STAGE
+   -	WF\_LOCAL\_USER\_ROLES
+   -	WF\_LOCAL\_USER\_ROLES\_STAGE
+   -	WF\_LOCAL\_ROLES\_TL
+   -	WF\_LOCAL\_ROLES\_TL\_STAGE
 
 ### Back out plan
 
@@ -152,8 +152,8 @@ complete sanity testing.
 
 By implementing TDE at the column level, you can prevent users from seeing
 sensitive data stored in columns, such as credit card numbers or Human Resources
-data. You don’t have to rewrite the application code after encryption, so
-existing code can be used and the database session can handle the encrypted data
+data. You don’t have to rewrite the application code after encryption.
+Existing code can be used, and the database session can handle the encrypted data
 without trouble.
 
 

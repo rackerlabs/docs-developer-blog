@@ -11,7 +11,6 @@ categories:
   - Oracle
 ---
 
-
 This blog discusses setting up Transparent Data Encryption (TDE) column level
 encryption in Oracle&reg; E-Business Suite&reg; (EBS) R12 environment. Column-level
 encryption can be setup on single or multiple-column tables, depending on the

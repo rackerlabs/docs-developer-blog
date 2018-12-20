@@ -6,7 +6,7 @@ comments: true
 author: Walter Bentley
 published: true
 categories:
-  - rackspace-private-cloud
+  - Private Cloud
   - OpenStack
 bio: 'Walter Bentley is a Rackspace Private Cloud Solutions Architect with a background in Production Systems Administration and Solutions Architecture. In the past, always being the requester, consumer and advisor to companies to use technologies such as OpenStack, now promoter of OpenStack technology and Cloud educator. Twitter @djstayflypro'
 ---
@@ -24,11 +24,11 @@ Consider a technology stack as something similar to lego blocks. Generally the i
 ####What is Heat?
 As mentioned before Heat is a main line project part of OpenStack and composed of an orchestration engine used to launch multiple composite cloud applications based on templates in the form of text files.  These text files should be treated like code…this is how the term "Infrastructure as Code" was born.  The template format supported by Heat is called **HOT** (aka Heat Orchestration Template).  As with all other OpenStack components, the functionality offered by Heat is available via a ReST API and/or python CLI.
 
-The template standard, HOT, is built around a standardized template definition called YAML.  Honestly, it is one of the easiest template formats to read and learn.  See the following link for more details around the HOT template specification and structure:  
+The template standard, HOT, is built around a standardized template definition called YAML.  Honestly, it is one of the easiest template formats to read and learn.  See the following link for more details around the HOT template specification and structure:
 
 [HOT Template Specification](http://docs.openstack.org/developer/heat/template_guide/hot_spec.html)
 
-Once a template is executed within your RPC environment, it is then defined as a stack.  Execution of that stack will provision the resources configured in the template and report on the status.  Please keep in mind that removing a stack will also remove the resources provisioned, such as instances created, unless you tell Heat to abandon that stack.  
+Once a template is executed within your RPC environment, it is then defined as a stack.  Execution of that stack will provision the resources configured in the template and report on the status.  Please keep in mind that removing a stack will also remove the resources provisioned, such as instances created, unless you tell Heat to abandon that stack.
 
 Below is a simple example of how to create a new Heat stack via the CLI:
 
@@ -67,7 +67,7 @@ Using Heat, you can quickly bridge the gap around automating many Infrastructure
 Thus far, working with Heat has been a very positive experience. Dependable, Heat even has an added quality assurance feature: it qualifies the template before officially executing it. I look forward to seeing what additional functionality will be built into Heat and any other new OpenStack projects. Personally, I have my eye on Ceilometer, knowing the power it can create when paired with Heat *(orchestration + resource consumption metrics = autoscale)*.
 
 Also, please make sure to watch my Webinar on Heat to see three short demos of how you can use Heat running on Rackspace Private Cloud:
-[https://www.brighttalk.com/webcast/11427/129795](https://www.brighttalk.com/webcast/11427/129795) 
+[https://www.brighttalk.com/webcast/11427/129795](https://www.brighttalk.com/webcast/11427/129795)
 
 **More information about the Heat CLI and API can be found below:**
 

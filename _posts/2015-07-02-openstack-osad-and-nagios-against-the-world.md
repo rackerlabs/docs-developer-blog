@@ -6,7 +6,7 @@ comments: true
 author: Walter Bentley
 published: true
 categories:
-  - rackspace-private-cloud
+  - Private Cloud
   - OSAD
   - OpenStack
   - Ansible
@@ -16,7 +16,7 @@ Through the course of technology, infrastructure and application monitoring have
 
 This evolution, while late in my mind, is the right direction…not just for the System Admin who gets the 2AM email alert or the application owner who on a monthly basis sadly report to his leadership 97% SLA on his app.  Truly knowing how your application is affecting your infrastructure is one of the keys to a successful cloud.
 
-With monitoring now being in an elevated position, that then leaves you to think: what should I use for monitoring?  While there are plenty of software solutions in the market, many of which solve for different problems.  
+With monitoring now being in an elevated position, that then leaves you to think: what should I use for monitoring?  While there are plenty of software solutions in the market, many of which solve for different problems.
 
 <!-- more -->
 
@@ -43,9 +43,9 @@ Since I have such a deep-seated love for OSAD (OpenStack Ansible Deployment) use
 
 Base prerequisites are:
 
-* OpenStack OSAD cloud (technically, the Nagios configs can work against any OpenStack deployment with tweaks; playbooks tested against v10.6)   
+* OpenStack OSAD cloud (technically, the Nagios configs can work against any OpenStack deployment with tweaks; playbooks tested against v10.6)
 * Monitoring server to run Nagios and NConf
-	
+
 Let’s get started!  Early disclaimer, the steps below will take some time and should not be rushed.
 
 ---
@@ -63,7 +63,7 @@ Take a look at the roles, and familiarize yourself with the steps. Find below al
 	SNMP_COMMUNITY: the SNMP community string used for the OSAD nodes and containers
 	SYS_LOCATION: additional SNMP information (optional)
 	SYS_CONTACT: additional SNMP information (optional)
-	
+
 The variables needed for the nagios-server variable file are:
 
 	DB_NAME: name of the NConf database to be created
@@ -86,15 +86,15 @@ In order to leverage the dynamic inventory capabilities that come with OSAD, the
 	$ cp ~/nagios-openstack/hosts /opt/os-ansible-deployment/rpc_deployment/playbooks
 
 #####Step 4: Execute the following playbook to install and configure SNMP on your OSAD cloud:
-	
-	$ cd /opt/os-ansible-deployment/rpc_deployment/ 
+
+	$ cd /opt/os-ansible-deployment/rpc_deployment/
     $ ansible-playbook -i inventory/dynamic_inventory.py playbooks/base.yml
-    
+
 *In the event the SNMP service does not start the first time, please execute the following commands:*
 
 	$ ansible all_containers -m shell -a "service snmpd start"
 	$ ansible hosts -m shell -a "service snmpd start"
-    
+
 #####Step 5: Execute the following playbook to install and configure Nagios onto your monitoring server:
 
     $ cd playbooks
@@ -138,10 +138,10 @@ In a browser go to the following URLs:
 	http://<monitoring server IP>/nagios3
 	http://<monitoring server IP>/nconf
 
-    
+
 #####Step 8: Time to configure Nagios for monitoring OSAD:
 
-Unfortunately, this part does require manual configuration as each installation will differ too much to automate.  In the big picture, this will just help you sharpen your Nagios skills.  Do not worry, a copy of the Nagios directory was already taken. This step will take some time and should not be rushed.  
+Unfortunately, this part does require manual configuration as each installation will differ too much to automate.  In the big picture, this will just help you sharpen your Nagios skills.  Do not worry, a copy of the Nagios directory was already taken. This step will take some time and should not be rushed.
 
 First step here would be to customize the Nagios configuration files located in the `/etc/nagios3/rpc-nagios-configs` directory on your monitoring server.  All the configuration files are important but, the most critical ones are the advanced_services.cfg and hosts.cfg files.
 
@@ -175,7 +175,7 @@ Same goes for the hosts.cfg file.  Please update the OSAD node names and IP addr
 Please also add the following to the bottom of the resources.cfg file located in the root of the Nagios directory (`/etc/nagios3`):
 
 	$USER10$=<random SNMP community string of your choice, keep it simple>
-	
+
 If you are having trouble making the updates to the configs using an editor, do not stress out as the next step will make this process a bit easier.
 
 #####Step 9: Import Nagios configuration into NConf:
@@ -189,14 +189,14 @@ As the NConf tutorial suggests, first run the commands with the '-s' parameters 
 	$ bin/add_items_from_nagios.pl -c misccommand -f /path/to/misccommands.cfg -s
 	$ bin/add_items_from_nagios.pl -c checkcommand -f /path/to/checkcommands.cfg -s
 	$ bin/add_items_from_nagios.pl -c contact -f /path/to/contacts.cfg -s
-	$ bin/add_items_from_nagios.pl -c contactgroup -f /path/to/contactgroups.cfg -s	
+	$ bin/add_items_from_nagios.pl -c contactgroup -f /path/to/contactgroups.cfg -s
 	$ bin/add_items_from_nagios.pl -c host-template -f /path/to/host_templates.cfg -s
     $ bin/add_items_from_nagios.pl -c service-template -f /path/to/service_templates.cfg -s
 	$ bin/add_items_from_nagios.pl -c hostgroup -f /path/to/hostgroups.cfg -s
 	$ bin/add_items_from_nagios.pl -c host -f /path/to/hosts.cfg -s
 	$ bin/add_items_from_nagios.pl -c advanced-service -f /path/to/advanced-services.cfg -s
 
-Now your can edit all the Nagios configs within the NConf web console. 
+Now your can edit all the Nagios configs within the NConf web console.
 
 #####Step 10: Execute the post Nagios playbook:
 

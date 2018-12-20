@@ -6,9 +6,9 @@ comments: true
 author: Ian Cordasco
 published: true
 categories:
-  - ansible
-  - openstack
-  - rackspace-private-cloud
+  - Ansible
+  - Openstack
+  - Private Cloud
 ---
 
 As someone who works daily on libraries that power OpenStack, OpenStack

@@ -20,7 +20,7 @@ depending on the user requirement.
 
 ### Introduction
 
-YOu can use TDE column-encryption functionality to encrypt selected columns of
+You can use TDE column-encryption functionality to encrypt selected columns of
 tables. Because the encryption is transparent, you don't need to rewrite your
 application code and can use existing code. The term *transparent* also means
 that the database session can read encrypted data without any issues.
@@ -40,7 +40,7 @@ the performance of Data Manipulation Language (DML) and other queries that use
 the encrypted columns.
 
 -	Patching: You should be aware of available EBS patches, especially patches that
-apply changes to columns and are encrypted using TDE. This includes such changes
+apply changes to columns and are encrypted using TDE. This includes changes such
 as the addition of indexes on an encrypted column.
 
 ### Limitation of TDE
@@ -139,14 +139,14 @@ The following constraints apply to TDE implementations:
 
 ### Back out plan
 
-If column encryption not required, run the following commands as a back out plan:
+If column encryption is not required, run the following commands as a back out plan:
 
     SQL> ALTER TABLE IBY.IBY_CREDITCARD modify (CCNUMBER decrypt); << repeat this for all columns/tables which were encrypted.
 
     Comment ENCRYPTION_WALLET_LOCATION from sqlnet_ifile.ora
 
-After executing the preceding commands, restart  the environment and perform
-complete sanity testing.
+After executing the preceding commands, restart  the environment and perform a
+complete sanity test.
 
 ### Conclusion
 

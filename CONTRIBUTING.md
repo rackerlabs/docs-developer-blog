@@ -123,7 +123,6 @@ Available categories include the following:
 - OSAD
 - Private Cloud
 - Python
-- Rackspace-private-cloud
 - SDK
 - Security
 

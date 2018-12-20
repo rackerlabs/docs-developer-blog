@@ -6,7 +6,7 @@ comments: true
 author: Walter Bentley
 published: true
 categories:
-  - rackspace-private-cloud
+  - Private Cloud
   - Ansible
   - OpenStack
   - architecture

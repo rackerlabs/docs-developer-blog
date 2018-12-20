@@ -95,27 +95,26 @@ You can optionally add a picture from gravatar using the following metadata line
 Available categories include the following:
 
 - Ansible
-- architecture
+- Architecture
 - Automation
-- aws
+- AWS
 - Azure
 - Chef
 - Cloud Files
 - Cloud Monitoring
-- Cloud Networks
+- Cloud-networks
 - Cloud Servers
 - Configuration Management
-- database
+- Database
 - Developers
 - DevOps
 - Docker
 - Events
 - General
-- java
-- jclouds
+- Java
+- Jclouds
 - Jenkins
 - Mailgun
-- mysql-server
 - Neutron
 - NodeJS
 - OpenStack
@@ -124,6 +123,7 @@ Available categories include the following:
 - OSAD
 - Private Cloud
 - Python
+- Rackspace-private-cloud
 - SDK
 - Security
 

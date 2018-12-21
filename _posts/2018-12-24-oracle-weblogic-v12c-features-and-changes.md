@@ -145,18 +145,18 @@ The WebLogic Server 12c Release 2 brings enhancements that focus on availability
 manageability, support for modern standards and technologies, cloud enablement,
 and portability.
 
-The enhancements and new features leverage a best-in-class Java EE application
-server, taking it to the next level, including additional support for new
-and emerging specifications, standards, and technologies. They also offer the
-ability to more efficiently isolate and manage applications and resources and
-provide maximum availability of applications and data. The good news is that
-not only can your custom Java applications take advantage of these new
-capabilities, but many of the Oracle Fusion Middlewear (FMW) components, such as
-the Oracle SOA Suite, Oracle Service Bus, Oracle BPM Suite, WebCenter Content
-and Portal, Forms & Reports, and OBIEE can also reap the benefits available in
-this latest release of WebLogic Server. Version 12.2.1 of WebLogic Server and
-FMW are available for download now. Take them for a test drive so that you can
-experience these benefits for yourself.
+The enhancements and new features leverage a best-in-class Java EE (Enterprise
+Edition) application server, taking it to the next level, including additional
+support for new and emerging specifications, standards, and technologies. They
+also offer the ability to more efficiently isolate and manage applications and
+resources and provide maximum availability of applications and data. The good
+news is that not only can your custom Java applications take advantage of these
+new capabilities, but many of the Oracle Fusion Middlewear (FMW) components,
+such as the Oracle SOA Suite, Oracle Service Bus, Oracle BPM Suite, WebCenter
+Content and Portal, Forms & Reports, and OBIEE can also reap the benefits
+available in this latest release of WebLogic Server. Version 12.2.1 of WebLogic
+Server and FMW are available for download now. Take them for a test drive so
+that you can experience these benefits for yourself.
 
 <table>
   <tr>If you liked this blog, share it by using the following icons:</tr>

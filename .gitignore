@@ -2,3 +2,4 @@
 .tweet-cache/
 _site/
 .idea/*
+.DS_Store

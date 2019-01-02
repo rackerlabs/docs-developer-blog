@@ -15,7 +15,7 @@ ogTitle: "Oracle Data Visualization Desktop"
 ogDescription: "How to use the Oracle Data Visualization Desktop ato analyze data"
 ---
 
-This blog covers how to use Oracle&reg;'s Data Visualization Desktop (DVD) to
+This blog covers how to use the Oracle&reg; Data Visualization Desktop (DVD) to
 analyze data.
 
 <!-- more -->
@@ -23,10 +23,11 @@ analyze data.
 ### Introduction
 
 Oracle's DVD version 12.2.4.3, released in May 2018, makes it easy to visualize
-data. You can upload datafiles or connect to database using available data sources.
+data. You can upload datafiles or connect to database by using available data
+sources.
 
-DVD is a single user desktop application that provides visualization functionality
-to business users. DVD is better than Oracle Business Intelligence Enterprise
+DVD is a single-user desktop application that provides visualization functionality
+to business users. DVD is better than the Oracle Business Intelligence Enterprise
 Edition (OBIEE) 12C analyzer and is a user-friendly tool.
 
 
@@ -35,7 +36,7 @@ Edition (OBIEE) 12C analyzer and is a user-friendly tool.
 DVD offers the following benefits:
 
 -	A personal, single-user desktop application: Install on personal systems and
-   analyze the data can be analyzed there.
+   analyze the data there.
 
 -	Offline availability: Shared and imported projects are always available.
 
@@ -51,24 +52,25 @@ DVD offers the following benefits:
 -	No remote server infrastructure: Easily manage the standalone application
    on your personal system.
 
--	No administration tasks: Admin tasks like start, stop and upgrade are not
-   required.
+-	No administration tasks: Administrative tasks like start, stop, and upgrade
+   are not required.
 
 ### Installation
 
 DVD installation has the following minimum system requirements:
 
-- Operating System: Microsoft Windows x64 (64-bit) 7 SP1+, 8.1, or 10; Windows
-  Server 2012 R2; MacOS Sierra (10.12), High Sierra (10.13)
+- Operating system: Microsoft&reg; Windows&reg; x64 (64-bit) 7 SP1+, 8.1, or 10;
+  Windows Server&reg; 2012 R2; MacOS&reg; Sierra (10.12) or High Sierra (10.13)
 
-- CPU: Intel(R) Core (TM)2 Duo CPU E8400 @ 3.00GHz, 2992 Mhz 2 Cores, 2 Logical
-  Processors or faster
 
-- Memory: 4.00 GB Memory or more
+- CPU: Intel&reg; Core&trade;2 Duo CPU E8400 @ 3.00 GHz, 2992 Mhz 2 Cores, 2
+  logical processors or faster
 
-- Minimum free disk space: 2GB plus space for any uploaded data files
+- Memory: 4.00 GB memory or more
 
-- User privileges: Admin privileges to install
+- Minimum free disk space: 2 GB plus space for any uploaded data files
+
+- User privileges: Administrative privileges to install
 
 To install DVD, download and run the installation file from
 [Oracle](https://www.oracle.com/technetwork/middleware/oracle-data-visualization/downloads/oracle-data-visualization-desktop-2938957.html).
@@ -88,10 +90,10 @@ DVD features include the following items:
 -	Data source editor changes
 -	Updates to projects and visualizations including map backgrounds
 
-### Create a project and choose a Data Set
+### Create a project and choose a data set
 
-By using DVD, you can analyze data from various data sources like Microsoft&reg;
-Excel&reg;, database, and Oracle applications by creating a project and data
+By using DVD, you can analyze data from various data sources such as Microsoft
+Excel&reg;, database, and Oracle applications, by creating a project and data
 sets to fetch data.
 
 To create a project, use the following steps, as shown in the following image:
@@ -111,14 +113,16 @@ the following image:
 
 ![]({% asset_path 2019-01-03-oracle-data-visualization-desktop/Picture3.png %})
 
-**From a File**: You can upload an excel file (assuming the first row of the
+**From a File**: You can upload an Excel file (assuming the first row of the
 spreadsheet is column headings).
+
 **From Oracle Applications**: You can connect to live OBIEE instances, where
 OBIEE reports as direct sources.
-**From Database**: You can connect to various databases like, Oracle, DB2&reg;,
+
+**From Database**: You can connect to various databases such as Oracle, DB2&reg;,
 MySQL&reg;, MongoDB&reg;, and so on.
 
-### Connect to Database
+### Connect to a database
 
 When you select **From Database**, you see the available database connection
 types as shown in the following image:
@@ -132,7 +136,7 @@ shown in the following image:
 
 After the data source is connected, click on **Create Data Set** on the home page
 and select the tables to use by clicking on the available schemas in the database.
-Once the Data Set is created, you can modify the columns or add new columns in
+After the Data Set is created, you can modify the columns or add new columns in
 the Data Set.
 
 You can use *Shift+click* or *Ctrl+click* to select multiple columns. Click
@@ -144,7 +148,7 @@ in the following image:
 ![]({% asset_path 2019-01-03-oracle-data-visualization-desktop/Picture6.png %})
 
 The visualize canvas has a color section, which allows you to make the
-visualization more attractive by adding colors to measure values as shown in
+visualization more attractive by adding colors to measure values, as shown in
 the following image:
 
 ![]({% asset_path 2019-01-03-oracle-data-visualization-desktop/Picture7.png %})
@@ -156,7 +160,7 @@ dashboard:
 
 Each canvas at the bottom of the dashboard can have multiple visuals of data.
 
-The canvas and visuals can be duplicated and you can change the visualization
+You can duplicate the canvas and visuals, and you can change the visualization
 depending on your needs. You can also add an image to canvas such as adding
 client logs to dashboard.
 
@@ -166,7 +170,7 @@ The following images show the canvas view:
 
 ![]({% asset_path 2019-01-03-oracle-data-visualization-desktop/Picture10.png %})
 
-### Importing and Sharing
+### Importing and sharing
 
 DVD has options to share the project files with other users and to import
 project files shared by external users. When you share the project, you need to
@@ -202,26 +206,20 @@ Follow these instructions to share a project:
 
 Following are the major differences between Oracle DVD and 12C OBIEE VA:
 
-#### Oracle DVD
-
-- DVD runs on 64bit system only
-- Easy installation as it’s standalone.
-- More than 30 visual elements are available.
-- It’s a Desktop application and login not required.
-
-#### 12C OBIEE VA
-
-- Runs on 32/64 bit systems and browser compatibility is required.
-- Installation & configuration required at server level.
-- Seventeen visual elements available.
-- It’s accessible using browser and login is required.
+| Oracle DVD                            | 12C OBIEE VA                                                    |
+|---------------------------------------|-----------------------------------------------------------------|
+| DVD runs on 64bit system only         | Runs on 32/64 bit systems and browser compatibility is required |
+| Easy installation as it’s standalone  | Installation & configuration required at server level           |
+| 30 + visual elements are available    | Seventeen visual elements are available                         |
+| Desktop application - no login needed | It’s accessible by using browser and a login is required        |
 
 ### Conclusion
 
-Oracle DVD is a simple BI tool used to analyze the data, which doesn’t need to
-connect data warehouse instances. Easy to install on desktop, you can analyze
-data by connecting with various data sources. It’s a user-friendly tool and can
-be used by anyone with minimal knowledge of analysis.
+Oracle DVD is a simple business intelligence (BI) tool that is used to analyze
+data, and it doesn’t need to connect data warehouse instances. Easy to install
+on a desktop, DVD enables you to analyze data by connecting with various data
+sources. It’s a user-friendly tool and can be used by anyone with minimal
+knowledge of analysis.
 
 
 <table>

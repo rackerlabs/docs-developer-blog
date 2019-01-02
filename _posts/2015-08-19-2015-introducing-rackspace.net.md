@@ -37,7 +37,7 @@ Here's a peek at the first few releases:
 * [v0.1][rackspacenet-0.1] - Cloud Networks. This coincides with the release of [OpenStack.NET v1.5.0][openstacknet-1.5] with support for OpenStack Networking v2.
 * v0.2 - RackConnect Public IPs
 * v0.3 - Cloud Servers
-* v0.4 - Cloud Identity
+* v0.4 - Rackspace Identity
 
 ## Cloud Networks Support
 

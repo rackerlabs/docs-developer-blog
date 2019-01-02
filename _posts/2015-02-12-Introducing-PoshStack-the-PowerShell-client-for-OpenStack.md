@@ -31,7 +31,7 @@ Get-ComputeServers -Account MyAccount
 ```
 
 ##But does it...
-Support cloud identity (Keystone)? Yes.
+Support Rackspace Identity (Keystone)? Yes.
 
 Handle cloud compute (Nova)? Yup.
 

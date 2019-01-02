@@ -11,7 +11,7 @@ categories:
 ---
 
 ## New Services Supported
-Since the release of [Gophercloud v1.0](https://github.com/rackspace/gophercloud) in October 2014, we've been working hard to bring the library into parity with the other Rackspace SDKs. In addition to the services supported at the time of the release ([Cloud Identity](https://developer.rackspace.com/docs/cloud-identity/getting-started/), [Cloud Servers](https://developer.rackspace.com/docs/cloud-servers/getting-started/), [Cloud Files](https://developer.rackspace.com/docs/cloud-files/getting-started/), and [Cloud Block Storage](https://developer.rackspace.com/docs/cloud-block-storage/getting-started/)), Gophercloud now supports the following Rackspace services:
+Since the release of [Gophercloud v1.0](https://github.com/rackspace/gophercloud) in October 2014, we've been working hard to bring the library into parity with the other Rackspace SDKs. In addition to the services supported at the time of the release ([Rackspace Identity](https://developer.rackspace.com/docs/cloud-identity/getting-started/), [Cloud Servers](https://developer.rackspace.com/docs/cloud-servers/getting-started/), [Cloud Files](https://developer.rackspace.com/docs/cloud-files/getting-started/), and [Cloud Block Storage](https://developer.rackspace.com/docs/cloud-block-storage/getting-started/)), Gophercloud now supports the following Rackspace services:
 
 - [Cloud Load Balancers](https://github.com/rackspace/gophercloud/tree/master/rackspace/lb/v1)
 - [CDN](https://github.com/rackspace/gophercloud/tree/master/rackspace/cdn/v1)

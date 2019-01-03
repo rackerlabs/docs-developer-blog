@@ -206,7 +206,7 @@ Follow these instructions to share a project:
 
 Following are the major differences between Oracle DVD and 12C OBIEE VA:
 
-| **Oracle DVD  ** | &nbsp; &nbsp; &nbsp; &nbsp; | **12C OBIEE VA** |
+| **Oracle DVD** | &nbsp; &nbsp; &nbsp; &nbsp; | **12C OBIEE VA** |
 |---|---|---|
 | DVD runs on 64bit system only | &nbsp; &nbsp; &nbsp; &nbsp; | Runs on 32/64 bit systems and browser compatibility is required |
 | Easy installation as it’s standalone | &nbsp; &nbsp; &nbsp; &nbsp; | Installation & configuration required at server level           |

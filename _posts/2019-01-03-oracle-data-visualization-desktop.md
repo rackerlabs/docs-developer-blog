@@ -208,9 +208,9 @@ Following are the major differences between Oracle DVD and 12C OBIEE VA:
 
 | **Oracle DVD** | &nbsp; &nbsp; &nbsp; &nbsp; | **12C OBIEE VA** |
 |---|---|---|
-| DVD runs on 64bit system only | &nbsp; &nbsp; &nbsp; &nbsp; | Runs on 32/64 bit systems and browser compatibility is required |
+| DVD runs on 64-bit system only | &nbsp; &nbsp; &nbsp; &nbsp; | Runs on 32- or 64-bit systems and browser compatibility is required |
 | Easy installation as it’s standalone | &nbsp; &nbsp; &nbsp; &nbsp; | Installation & configuration required at server level           |
-| 30 + visual elements are available | &nbsp; &nbsp; &nbsp; &nbsp; | Seventeen visual elements are available                         |
+| More than 30 visual elements are available | &nbsp; &nbsp; &nbsp; &nbsp; | Seventeen visual elements are available                         |
 | Desktop application - no login is needed | &nbsp; &nbsp; &nbsp; &nbsp; | It’s accessible by using browser and a login is required        |
 
 </br>

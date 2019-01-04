@@ -469,6 +469,4 @@ the __chef-cookbooks__ directory, changing into the particular Chef Cookbook
 directory you want to change the default attributes of, changing into the
 __attributes__ directory, and finally opening the __default.rb__ file.
 
-For questions, I encourage you to visit the [Rackspace Private Cloud Community Forums](https://community.rackspace.com/products/f/45).
-
 For comments, feel free to get in touch with me [@jameswthorne](https://twitter.com/jameswthorne).

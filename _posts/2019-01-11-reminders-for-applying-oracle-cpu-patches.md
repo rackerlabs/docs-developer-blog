@@ -51,7 +51,7 @@ synchronized the file system, but we couldn't see the changes made to the
 
 ### Deduction:
 
-From our analysis, we draw the followoing conclusions:
+From our analysis, we draw the following conclusions:
 
 1. The file synchronization in the prepare phase is only for the **APPL\_TOP**.
 
@@ -106,13 +106,13 @@ b) Use the sync\_mode option to specify the method to use to sync the patch file
 
    **syntax:** `adop phase=prepare sync_mode=(delta|patch)`
 
-   **sync\_mode patch** – reapplies patches which were already applied to run
+   *sync\_mode patch* – reapplies patches which were already applied to run
    file system (default mode).
-   **sync\_mode delta** – copies all customizations and file changes. This mode
+   *sync\_mode delta* – copies all customizations and file changes. This mode
    uses the synchronization command from the file **delta\_sync\_drv.txt** and
    is a new feature from `AD-TXK delta 8`.
 
- ### ADOP phase=fs_clone
+### ADOP phase=fs_clone command
 
  The `fs_clone` command recreates or reclones the entire patch file system
  including setting all configurations and customizations on the patch file
@@ -128,7 +128,7 @@ b) Use the sync\_mode option to specify the method to use to sync the patch file
    patch file system to be preserved before it can be recreated from run file
    system (dafult=0 no backups are taken).
 
-### Key Takeaways
+### Key takeaways
 
 Even though the prepare phase runs at the start of every patching cycle, the
 technology stack patches (applied by the `opatch/Smart update` utility) are not

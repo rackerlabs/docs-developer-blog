@@ -46,7 +46,7 @@ encountered a conflict. The patch was pointing to a version mismatch of the WLS.
 Research showed that the CPU patches previously applied to WLS and FMW Web Tier
 and Oracle common home directories were not included in run and patch file system.
 On further investigation into the ADOP logfiles, we noticed the prepare file
-synchronized the file system, but we couldn't see the changes made to the
+synchronized the file system, however we couldn't see the changes made to the
 **Oracle\_home** and **FMW\_home** directories during the patching cycle.
 
 ### Deduction:
@@ -116,9 +116,9 @@ b) Use the `sync_mode` option to specify the method to use to sync the patch fil
 
  The `fs_clone` command recreates or reclones the entire patch file system
  including setting all configurations and customizations on the patch file
- system the same as the run file system. This is as resource intensive as if
- you took a full backup of the run file system and then created a patch file
- system.
+ system in the same manner as the run file system. Doing this is as resource
+ intensive as taking a full backup of the run file system and then creating a
+ patch file system.
 
 `fs_clone` has the following useful commands:
 
@@ -136,10 +136,10 @@ technology stack patches (applied by the `opatch/Smart update` utility) are not
 synced in the prepare stage.
 
 Prepare does not synchronize any changes done manually like:
--	Compiling user-defined JSPs
--	Copying third party libraries
--	Copying and compiling user-defined concurrent programs
--	Copying and generating user-defined forms
+-	Compiling user-defined JSPs.
+-	Copying third party libraries.
+-	Copying and compiling user-defined concurrent programs.
+-	Copying and generating user-defined forms.
 
 You must add the custom patching actions (like those described previously) in the
 custom synchronization driver, `adop_sync.drv`, in the prepare phase.

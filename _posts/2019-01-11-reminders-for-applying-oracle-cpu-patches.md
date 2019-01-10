@@ -15,17 +15,17 @@ ogTitle: "Reminders for applying Oracle CPU patches"
 ogDescription: "Reminders and takeaways when applying CPU patches to R12.2 environments"
 ---
 
-This blog reviews the importance of running an ADOP (Ad Online Patching Utility)
-cycle with `fs_clone` after any changes or technology patches are made to the
-Weblogic Server (WLS) or Oracle&reg; Fusion Middleware Homes (FMW) on your patch
-file system. The blog explores a problem scenario and explains how to handle
-any related issues easily.
+This blog reviews the importance of running an ADOP (Application DBA Online
+Patching Utility) cycle with `fs_clone` after any changes or technology patches
+are made to the Weblogic Server (WLS) or Oracle&reg; Fusion Middleware (FMW)
+home directories on your patch file system. The blog explores a problem scenario
+and explains how to handle related issues easily.
 
 <!-- more -->
 
-### The ADOP online patch cycle phases
+### The ADOP cycle phases
 
-The following image shows the phases of the ADOP online patch cycle:
+The following image shows the phases of the ADOP cycle:
 
 ![]({% asset_path 2019-01-11-reminders-for-applying-oracle-cpu-patches/Picture1.png %})
 
@@ -45,7 +45,7 @@ encountered a conflict. The patch was pointing to a version mismatch of the WLS.
 
 Research showed that the CPU patches previously applied to WLS and FMW Web Tier
 and Oracle common home directories were not included in run and patch file system.
-On further investigation into the ADOP logfiles, we noticed the the prepare file
+On further investigation into the ADOP logfiles, we noticed the prepare file
 synchronized the file system, but we couldn't see the changes made to the
 **Oracle\_home** and **FMW\_home** directories during the patching cycle.
 
@@ -55,7 +55,7 @@ From our analysis, we draw the following conclusions:
 
 1. The file synchronization in the prepare phase is only for the **APPL\_TOP**.
 
-   The logfiles we reviewed showed propagating file system changes from run
+   The log files we reviewed showed propagating file system changes from run
    **APPL\_TOP** to patch **APPL\_TOP**.
 
 2. After Weblogic patches were applied, `fs_clone` was not run before initiating
@@ -65,9 +65,9 @@ From our analysis, we draw the following conclusions:
 
 ### Recommendation
 
-In the Prepare Phase, the patch file system is usually synchronized with the run
+In the prepare phase, the patch file system is usually synchronized with the run
 file system by creating a new database edition. This is a default incremental
-synchronization of files which are changed on the application top.
+synchronization of files that are changed on the application top.
 
 To synchronize the applied patches, invoke `txkADOPPreparePhaseSynchronize.pl`
 to the **$APPL\_TOP** of run file system from the last patching cycle or invoke
@@ -77,17 +77,17 @@ to the **$APPL\_TOP** of run file system from the last patching cycle or invoke
 The file system synchronization method is selected automatically based on the
 Configuration Change Detector (`adConfigChangeDetector.pl -detectConfigChanges`).
 
-Different file synchronization methods includes the following options:
+Different file synchronization methods include the following options:
 
 **Option 1** – identify patches from the database that were applied in the last
-ADOP. Merge and apply these silently. This process takes less time since
+ADOP. Merge and apply these silently. This process takes less time because
 the system applies only the unapplied patches.
 
-**Option 2** – Recreate or re-clone the run file system **$APPL\_TOP** to
+**Option 2** – Recreate or reclone the run file system **$APPL\_TOP** to
 the patch file system **$APPL\_TOP**. This is extremely unsynchronized and
 consumes more resources.
 
-**Option 3** – Use the third party software of your choice (such as `rsync`) to
+**Option 3** – Use the third-party software of your choice (such as `rsync`) to
 synchronize the file system.
 
 ### Parameters passed with prepare
@@ -96,37 +96,38 @@ synchronize the file system.
 
 a) Use the `Skipsyncerror` option in the ADOP prepare phase to ignore errors and
    warnings as a workaround for synchronization errors and failures, which might
-   happen if the patch application failed in a previous patching cycle. The default
-   value is “NO”
+   happen if the patch application failed in a previous patching cycle. The
+   default value is **NO**.
 
    **syntax:** `adop phase=prepare skipsyncerror=yes`
 
-b) Use the sync\_mode option to specify the method to use to sync the patch file
+b) Use the `sync_mode` option to specify the method to use to sync the patch file
    system with a run file system.
 
    **syntax:** `adop phase=prepare sync_mode=(delta|patch)`
 
-   *sync\_mode patch* – reapplies patches which were already applied to run
+   `sync_mode patch` – Reapplies patches which were already applied to run
    file system (default mode).
-   *sync\_mode delta* – copies all customizations and file changes. This mode
+   `sync_mode delta` – Copies all customizations and file changes. This mode
    uses the synchronization command from the file **delta\_sync\_drv.txt** and
    is a new feature from `AD-TXK delta 8`.
 
-### ADOP phase=fs_clone command
+### ADOP fs_clone command
 
  The `fs_clone` command recreates or reclones the entire patch file system
  including setting all configurations and customizations on the patch file
- system the same as the run file system. This is as resource-intensive as if
- you took a full backup of run file system and then created a patch file system.
+ system the same as the run file system. This is as resource intensive as if
+ you took a full backup of the run file system and then created a patch file
+ system.
 
 `fs_clone` has the following useful commands:
 
-- `adop phase=fs_clone force=yes ` - restarts a failed clone from beginning
+- `adop phase=fs_clone force=yes ` - Restarts a failed clone from beginning
    (default=NO).
 
-- `adop phase=fs_clone s_fs_backup_count=1` - sets the number of backups of the
-   patch file system to be preserved before it can be recreated from run file
-   system (dafult=0 no backups are taken).
+- `adop phase=fs_clone s_fs_backup_count=1` - Sets the number of backups of the
+   patch file system to be preserved before it can be recreated from the run
+   file system (default=0 no backups are taken).
 
 ### Key takeaways
 
@@ -143,7 +144,7 @@ Prepare does not synchronize any changes done manually like:
 You must add the custom patching actions (like those described previously) in the
 custom synchronization driver, `adop_sync.drv`, in the prepare phase.
 
-In the file, `adop_sync.drv`, there are the following categories of commands:
+In the file, `adop_sync.drv`, the following categories of commands exist:
 
 -	Run one time only
 -	Run at each file system synchronization

@@ -93,5 +93,5 @@ We confirm that Redis is indeed running and accepting connections. In order to d
     +PONG
 
 
-If you have feedback, please contact us via twitter [@rackspace](https://twitter.com/rackspace), chat with us in #rackspace on Freenode, or post in our [developer forum](https://community.rackspace.com/developers/default).
+If you have feedback, please contact us via twitter [@rackspace](https://twitter.com/rackspace) or chat with us in #rackspace on Freenode.
 

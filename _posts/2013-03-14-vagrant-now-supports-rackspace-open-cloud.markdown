@@ -136,10 +136,6 @@ detailed instructions please have a look at the project’s
 [README](https://github.com/mitchellh/vagrant-rackspace/blob/master/README.md)
 and [Vagrant's documentation](http://docs-v1.vagrantup.com/v1/docs/index.html).
 
-As always, if you get stuck or need additional help, feel free to contact us
-or let us know using our new
-[community forums](https://community.rackspace.com/).
-
 ### 1. Download and install Vagrant 1.1
 
 **NOTE: These instructions are out of date. Make sure you are using the latest version of Vagrant.**

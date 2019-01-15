@@ -32,7 +32,7 @@ Below are two typical Chef Environment files to install Rackspace Private
 Cloud v4.1.x, one with nova-network and one with Quantum Networking.
 
 The Chef Environment file will differ slightly depending on which OpenStack
-Networking model you chose. 
+Networking model you chose.
 
 In this scenario, each of the following Chef Environment files represent an OpenStack environment where the controller and compute nodes each use three network interfaces (eth0, eth1, and eth2).
 
@@ -139,7 +139,7 @@ Above is what you would see if you created a new Chef Environment file with the 
 
 There isn't much going on here.
 
-When using Rackspace Private Cloud, the  __override_attributes__ JSON block is the main part to configure in the Chef Environment file. Inside this JSON block is where you will override the default attributes already set in the Chef Cookbooks to match your environment. 
+When using Rackspace Private Cloud, the  __override_attributes__ JSON block is the main part to configure in the Chef Environment file. Inside this JSON block is where you will override the default attributes already set in the Chef Cookbooks to match your environment.
 
 So, let's break down the various JSON blocks within the __override_attributes__ JSON block that apply to this scenario.
 
@@ -198,7 +198,7 @@ JSON block. However, adhering to the intended convention will make everything
 easier to understand. A more appropriate name for the __public__ attribute would
 be __fixed__ because an OpenStack instance will always be assigned, or __"fixed"__, an
 IP address from the nova-network you specified. In addition, the __public__ attribute is
-commonly confused with the __public__ attribute in the __osops_networks__ JSON block, 
+commonly confused with the __public__ attribute in the __osops_networks__ JSON block,
 which you will read about later, and has no relation to it.
 
 When the chef-client command is run on the compute node, it will use the
@@ -227,11 +227,11 @@ The __nova__ JSON block has one attribute: __network__.
 
 Inside the __network__ JSON block is one attribute: __provider__.
 
-The __provider__ attribute specifies what OpenStack Networking model to 
-use. The two possible values are __nova-network__ and __quantum__, but 
+The __provider__ attribute specifies what OpenStack Networking model to
+use. The two possible values are __nova-network__ and __quantum__, but
 in this scenario __quantum__ will be used. When using Quantum Networking,
-there are additional configuration steps required after running 
-__chef-client__ on each node. Some of these configuration steps are 
+there are additional configuration steps required after running
+__chef-client__ on each node. Some of these configuration steps are
 mentioned in the following section.
 
 The quantum JSON Block
@@ -257,7 +257,7 @@ The __quantum__ JSON block has one attribute: __ovs__.
 
 Inside of the __ovs__ JSON block are three attributes: __provider_networks__, __network_type__, and __network__.
 
-The __provider_networks__ attribute is an array and contains two attributes: __label__ and __bridge__. The __label__ attribute contains a value that specifies the name of a label which points to the Open vSwitch Bridge created in the subsequent attribute, __bridge__. 
+The __provider_networks__ attribute is an array and contains two attributes: __label__ and __bridge__. The __label__ attribute contains a value that specifies the name of a label which points to the Open vSwitch Bridge created in the subsequent attribute, __bridge__.
 
 The __bridge__ attribute contains a value that specifies the name of the Open vSwitch Bridge interface that the `ovs-vsctl add-br` command will create when the __chef-client__ command is run on each node. These attributes are found in the __/etc/quantum/plugins/openvswitch/ovs_quantum_plugin.ini__ file on the controller and compute nodes. As mentioned above, __eth2__ is the network interface that is connected to a managed network switch as a trunk port containing all of the VLANs you want available in the OpenStack environment. __eth2__ is connected to the __br-eth2__ Open vSwitch Bridge by running `ovs-vsctl add-port br-eth2 eth2` on each node after __chef-client__ is run. At this point, the `quantum net-create` command can be used to create Quantum Provider Networks for each VLAN in the trunk. OpenStack instances can then be attached to these Quantum Provider Networks.
 
@@ -321,7 +321,7 @@ The __quantum__ attribute is not tied to any OpenStack services, and has been ad
 
 Below is a rough list of what services map to the default __nova__, __public__, and __management__ attributes:
 
-__rsyslog__ and __ntpd__ do not map to any attribute. __rsyslog__ binds 
+__rsyslog__ and __ntpd__ do not map to any attribute. __rsyslog__ binds
 to __0.0.0.0__ and __ntpd__ binds to all interfaces.
 
 #### nova
@@ -401,7 +401,5 @@ Rackspace Private Cloud Chef Cookbooks are downloaded there), changing into
 the __chef-cookbooks__ directory, changing into the particular Chef Cookbook
 directory you want to change the default attributes of, changing into the
 __attributes__ directory, and finally opening the __default.rb__ file.
-
-For questions, I encourage you to visit the [Rackspace Private Cloud Community Forums](https://community.rackspace.com/products/f/45).
 
 For comments, feel free to get in touch with me [@jameswthorne](https://twitter.com/jameswthorne).

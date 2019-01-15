@@ -40,7 +40,7 @@ No more! In this post we're going to review what you can do and help you automat
 
 _"Security groups are named collections of network access rules that enable Rackspace Public Cloud users to specify the types of traffic that are allowed to pass through PublicNet and ServiceNet ports on a Cloud Servers instance."_
 
-[https://community.rackspace.com/products/f/25/t/6733](https://community.rackspace.com/products/f/25/t/6733)
+[https://support.rackspace.com/how-to/cloud-networks-faq/](https://support.rackspace.com/how-to/cloud-networks-faq/)
 
 Servers can be secured with Rules that work similarly to Access Control Lists which filter traffic based on TCP/IP ports, on TCP, UDP or ICMP protocols, for both IPv4 and IPv6 traffic. Optionally, you can filter by source IP address or range.
 

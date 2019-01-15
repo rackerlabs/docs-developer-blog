@@ -9,7 +9,8 @@ categories: []
 ---
 **Important Update: Oct 17, 2015**
 
-In addition to the dates listed below, this tool will also work for general scheduled reboots, as well as specific maintenance periods including ["IMPORTANT NOTICE – First and Next Gen Server Vulnerability - October 17, 2015"](https://community.rackspace.com/general/f/53/t/6120)
+In addition to the dates listed below, this tool will also work for general
+scheduled reboots and for specific maintenance periods.
 
 **Original Post**
 
@@ -17,8 +18,7 @@ In the wake of
 [recently announced vulnerabilities](http://xenbits.xen.org/xsa/) to the
 Xen hypervisor that our Cloud Servers platform is built on top of, a reboot
 will be necessary in some instances on both our First Generation and Next
-Generation Cloud Servers. The details of our announcement are available at
-[https://community.rackspace.com/general/f/53/t/4978](https://community.rackspace.com/general/f/53/t/4978) and via
+Generation Cloud Servers. The details of our announcement are available in
 [https://status.rackspace.com/](https://status.rackspace.com/).
 
 In order to complete the patching of our systems, we have scheduled

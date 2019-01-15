@@ -80,7 +80,7 @@ Any public website is scanned by bots that are attempting to get access. Brute f
 
 ##Data Protection
 
-Did you know you can [encrypt data at rest](https://community.rackspace.com/products/f/5/t/66.aspx) with [Cloud Block Storage](http://www.rackspace.com/knowledge_center/article/cloud-block-storage-overview)? It's also important to use SSL when transmitting across the network. Again, you can also use an isolated network with Cloud Networks to further protect your sensitive data. You can even [link Cloud Networks and RackConnect togather](http://www.rackspace.com/knowledge_center/article/rackconnect-with-cloud-networks-faq) to take advantage of bare metal servers for certain applications.
+Did you know you can encrypt data with [Cloud Block Storage](https://support.rackspace.com/how-to/cloud-block-storage-overview/)? It's also important to use SSL when transmitting across the network. Again, you can also use an isolated network with Cloud Networks to further protect your sensitive data. You can even [link Cloud Networks and RackConnect togather](http://www.rackspace.com/knowledge_center/article/rackconnect-with-cloud-networks-faq) to take advantage of bare metal servers for certain applications.
 
 ##In Conclusion
 

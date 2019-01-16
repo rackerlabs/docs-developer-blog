@@ -256,7 +256,8 @@ knowledge of analysis.
 
 </br>
 
-Learn more about our [database services](https://www.rackspace.com/dba-services).
+Learn more about Rackspace's [Business Intelligence solutions](https://www.rackspace.com/business-intelligence) 
+and our [database services](https://www.rackspace.com/dba-services).
 
 If you have any questions on the topic, comment in the field below.
 

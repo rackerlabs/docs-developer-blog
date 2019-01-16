@@ -260,4 +260,3 @@ Learn more about Rackspace's [Business Intelligence solutions](https://www.racks
 and our [database services](https://www.rackspace.com/dba-services).
 
 If you have any questions on the topic, comment in the field below.
-

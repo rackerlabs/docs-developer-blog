@@ -95,5 +95,5 @@ fix this problem.
 
 In conclusion, mark July 20, 2015 on your calendar as the last day of
 XML support for the Rackspace Cloud Servers API.  If you have questions
-or comments about this transition, feel free to post a comment in the
-[Compute Feedback Forum](https://feedback.rackspace.com/forums/298152-compute).
+or comments about this transition, feel free to reach out to your Account
+Manager.

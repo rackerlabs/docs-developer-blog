@@ -30,7 +30,7 @@ To start with, you need to identify the area where the problem is occurring.
 Possible areas that can trigger the problem include the operating system,
 database, memory shortages, and so on. After you have identified a problem area,
 you can proceed with tuning the area for maximum benefits. This blog focusses
-on only performance tuning.
+only on performance tuning.
 
 Oracle has given DBAs a few tools to help with diagnosing problems and
 troubleshooting performance issues. These tools include the Automatic Database
@@ -121,7 +121,7 @@ The following screenshots show some examples:
 In Oracle eBusiness Suite databases, the issue of long running requests mostly
 crops up where a few concurrent requests keep on running. To resolve this, you
 need to gather more information about the database session associated with the
-concurrent requests. The following image shows to steps to collect this
+concurrent requests. The following image shows steps to collect this
 information:
 
 ![]({% asset_path 2019-01-18-database-performance-tuning/Picture9.png %})

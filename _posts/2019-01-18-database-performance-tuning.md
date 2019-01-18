@@ -122,6 +122,7 @@ In Oracle eBusiness Suite databases, the issue of long running requests mostly
 crops up where a few concurrent requests keep on running. To resolve this, you
 need to gather more information about the database session associated with the
 concurrent requests. The following image shows steps to collect this
+
 information:
 
 ![]({% asset_path 2019-01-18-database-performance-tuning/Picture9.png %})

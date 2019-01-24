@@ -29,10 +29,10 @@ a clone system. In case of a disaster, you need to make a few changes to XML
 files, such as host names, and the system will be ready to run. To keep the
 system in sync, run any synchronizing scripts, such as`rsync`, which update the DR
 site with any changes. Apply patches to the DR DB databases as well as to the
-PROD site application nodes.
+DR site application nodes.
 
-In the following steps, notice that the physical standby database is configured
-with the primary database server and that they both are in sync.
+In the following steps, notice that the physical standby database is already
+configured with the primary database server and that they both are in sync.
 
 ### DR configuration steps
 
@@ -97,7 +97,7 @@ Run the following code to clean up the `fnd_nodes`:
     SQL> exec ad_zd_fixer.clear_valid_nodes_info;
 
 Run `auto-config` on the DR DB nodes in the following sequence: node1, node2,
-mode1.
+node1.
 
 Run `preclone` on the PROD applications tier and copy the applications files
 from the RUN file system (FS) node1 to the corresponding DR applications tier
@@ -196,7 +196,7 @@ Run the following code to shut down services on the DR DB, startup the mount,
 and convert the DR DR to physical standby mode:
 
     SQL> alter database convert to physical standby;
-    SQL> edit database "TESTDR" set state=apply-on;
+    DGMGRL> edit database "TESTDR" set state=apply-on;
 
 Validate the synchronization.  You should expect to see results similar to the
 following example:

@@ -24,14 +24,14 @@ PoshStack answers those questions with a resounding "Yes. Windows admins can use
 ##Oooo... tell me more...
 Sitting atop the robust OpenStack .NET SDK, PoshStack allows Windows administrators to engineer OpenStack solutions from the command line or the PowerShell Integrated Scripting Environment (ISE), without needing to write code in C# (or any other low-level .NET language). PoshStack allows users to leverage PowerShell's object-oriented approach to scripting to rock the OpenStack world.
 
-And because PoshStack follows the [guidelines for PowerShell naming] (https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx), developers and administrators can quickly get up to speed. Retrieving a list of servers is as simple as:  
+And because PoshStack follows the [guidelines for PowerShell naming] (https://msdn.microsoft.com/en-us/library/ms714428(v=vs.85).aspx), developers and administrators can quickly get up to speed. Retrieving a list of servers is as simple as:
 
 ```
 Get-ComputeServers -Account MyAccount
 ```
 
 ##But does it...
-Support Rackspace Identity (Keystone)? Yes.
+Support Identity (Keystone)? Yes.
 
 Handle cloud compute (Nova)? Yup.
 

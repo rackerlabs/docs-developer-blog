@@ -78,7 +78,7 @@ To add the backend servers, perform the following steps:
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture2.png %})
 
-<ol start=3>
+<ol start=4>
     <li>Choose a naming convention for the first server and enter its IP address.
    This example uses `Web-01`.</li>
     <li>Click <b>Create</b>.</li>
@@ -86,7 +86,7 @@ To add the backend servers, perform the following steps:
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture3.png %})
 
-<ol start=5>
+<ol start=6>
     <li>Repeat steps 3 and 4 for the other backend web servers.</li>
 </ol>
 

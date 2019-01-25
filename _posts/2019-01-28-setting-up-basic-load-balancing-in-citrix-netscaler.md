@@ -17,7 +17,7 @@ ogDescription: "Setting up basic load balancing in Citrix NetScaler"
 The NetScaler Application Delivery Controller (ADC) is a Citrix&reg; Systems
 core networking product. ADC improves the delivery speed and quality of
 applications for an end user. The product helps business customers perform
-tasks such as traffic optimization, L4-L7 load balancing and web app
+tasks such as traffic optimization, L4-L7 load balancing, and web app
 acceleration while maintaining data security.
 
 <!-- more -->
@@ -26,26 +26,26 @@ acceleration while maintaining data security.
 
 NetScaler ADC monitors server health and allocates network and application
 traffic to additional servers for efficient use of resources. It also performs
-several kinds of caching and compression. It can be used as a proxy server,
-process Secure Socket Layer (SSL) requests instead of servers (SSL Offloading).
+several kinds of caching and compression. It can be used as a proxy server to
+process Secure Socket Layer (SSL) requests instead of servers (SSL offloading).
 
 This blog covers the basic Hyper Text Transfer Protocol (HTTP) site load
 balancing configuration.
 
 ### Typical load balancing traffic flow
 
-The following step comprise the typical load balancing traffic flow for NetScaler:
+The following steps comprise the typical load balancing traffic flow for NetScaler:
 
 1.	A user enters a URL into their browser.
-2.	The URL's Domanin Name Server (DNS) record points to one of the public Virtual
-   Internet Protocols (VIP) on the NetScaler and identifies the traffic's
+2.	The URL's Domain Name Server (DNS) record points to one of the public Virtual
+   Internet Protocols (VIP) on NetScaler and identifies the traffic's
    protocol (such as HTTP port 80 traffic).
 3.	NetScaler then passes that traffic to one of the servers in the server pool,
    based on the balancing method defined (such as round robin, persistence, and
    so on).
 4.	The servers send back the page or application that the user requested by
    using a Load Balancing Virtual IP (LBVIP).
-5.	The LBVIP routes the traffic to internet by setting the source to `LBVIP`.
+5.	The LBVIP routes the traffic to the Internet by setting the source to `LBVIP`.
 6.	The web page or application displays on the user computer.
 
 The following image shows this traffic flow:
@@ -60,7 +60,7 @@ Before configuring NetScaler load balancing, perform the following steps:
 
 1. Load the necessary license to NetScaler.
 2. Configure the `MGMT` port for management access.
-3. Configure DNS servers and Subnet IP Address (SNIP) in the same server subnet
+3. Configure DNS servers and the Subnet IP Address (SNIP) in the same server subnet
    and allow the Virtual Local Area Network (LAN) in the switch trunk port that
    is connected to NetScaler.
 
@@ -68,7 +68,7 @@ Before configuring NetScaler load balancing, perform the following steps:
 
 To configure NetScaler load balancing, perform the following steps:
 
-#### A. Add backend servers
+#### Add backend servers
 
 To add the backend servers, perform the following steps:
 
@@ -92,7 +92,7 @@ To add the backend servers, perform the following steps:
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture4.png %})
 
-#### B. Create a service group
+#### Create a service group
 
 To create a service group, perform the following steps:
 
@@ -110,7 +110,7 @@ To create a service group, perform the following steps:
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture6.png %})
 
 <ol start=5>
-    <li>Click <b>No Service Group members</b>.</li>
+    <li>Click <b>No Service Group Member</b>.</li>
 </ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture7.png %})
@@ -120,7 +120,7 @@ To create a service group, perform the following steps:
     <li>Select all the servers with the search arrow or add servers directly by
     IP base instead of creating them individually.</li>
     <li>Set the server listening port (For example, the HTTP protocol is TCP port 80).</li>
-    <li>Click **Create**.</li>
+    <li>Click <b>Create</b>.</li>
 </ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture8.png %})
@@ -131,9 +131,9 @@ To create a service group, perform the following steps:
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture9.png %})
 
-#### C. Change the monitoring
+#### Change the monitoring
 
-To change the monitoring, perform teh following steps:
+To change the monitoring, perform the following steps:
 
 1. Change the monitoring from `SNIP` to `Backend servers`.
 
@@ -142,24 +142,24 @@ To change the monitoring, perform teh following steps:
 <ol start=2>
     <li>Click <b>No service Group Monitor Binding</b> and select the required
     monitoring binding. In this case, choose the HTTP NetScaler that has a
-    monitor for HTTP pre-configured.</li>
+    monitor for HTTP preconfigured.</li>
     <li>Click the search arrow, select <b>http-ecv > Bind</b>.</li>
     <li>Click <b>Done</b>.</li>
 </ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture11.png %})
 
-#### D. Create a virtual server
+#### Create a virtual server
 
-To create a virtual server, perform teh following steps:
+To create a virtual server, perform the following steps:
 
 1. Create a virtual server by choosing **Configuration > Traffic Management >
    Load Balancing > Virtual Servers**.
 2. Click **Add**.
 3. Give the virtual server a name.
 4. Set the protocol to `HTTP`.
-5. Specify the IP address, which should be the VIP (the NetScaler presents to
-   the outside world).
+5. Specify the IP address, which should be the VIP that NetScaler presents to
+   the outside world.
 6. Set the port to `80`.
 7. Click **OK**.
 
@@ -167,7 +167,7 @@ To create a virtual server, perform teh following steps:
 
 <ol start=8>
     <li>Add the previously created group by clicking <b>No load balancing Virtual
-   Servers Service Group Binding/b> and click <b>Select</b>.</li>
+   Servers Service Group Binding</b> and click <b>Select</b>.</li>
 </ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture13.png %})
@@ -176,7 +176,7 @@ To create a virtual server, perform teh following steps:
     <li>Click <b>Bind</b> and click <b>Done</b>.</li>
 </ol>
 
-    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture14.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture14.png %})
 
 <ol start=10>
     <li>Save your work and wait for the VIP to come up.</li>
@@ -186,7 +186,7 @@ To create a virtual server, perform teh following steps:
 
 ### Test the configuration
 
-To test the configuration, use a different web ‘Welcome’ pages on each of the
+To test the configuration, use different web **Welcome** pages on each of the
 servers. When you refresh the page, you can see that the NetScaler is doing its
 job and balancing the requests across both back-end web servers as shown in the
 following image:
@@ -197,11 +197,12 @@ following image:
 
 Use a load balancer to distribute the load across multiple web and application
 servers. Load balancers can also do SSL offloading to expose the application or
-URL to internet in a secure way by installing SSL certificate. If you have only
-one backend server with SSL offloading, you should install the SSL certificate
-on the server and expose to internet with all the  appropriate security measures
-and patches. You should open only the required ports on firewall for the LBVIPs
-or the backend server with SSL offloading when you expose it to internet.
+URL to the Internet in a secure way by installing an SSL certificate. If you
+have only one back-end server with SSL offloading, you should install the SSL
+certificate on the server and expose the server to the Internet with all the
+appropriate security measures and patches. You should open only the required
+ports on the firewall for the LBVIPs or the back-end server with SSL offloading
+when you expose it to the Internet.
 
 <table>
   <tr>If you liked this blog, share it by using the following icons:</tr>

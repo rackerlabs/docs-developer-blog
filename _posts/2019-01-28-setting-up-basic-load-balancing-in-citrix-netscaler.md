@@ -76,17 +76,17 @@ To add the backend servers, perform the following steps:
 2. Select **Login > Configuration > Traffic Management > Load Balancing > Servers**.
 3. Click **Add**.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture2.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture2.png %})
 
 3. Choose a naming convention for the first server and enter its IP address.
    This example uses `Web-01`.
 4. Click **Create**.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture3.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture3.png %})
 
 5. Repeat steps 3 and 4 for the other backend web servers.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture4.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture4.png %})
 
 #### B. Create a service group
 
@@ -96,16 +96,16 @@ To create a service group, perform the following steps:
    **Traffic Management > Load Balancing > Service Groups**.
 2. Click **Add**.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture5.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture5.png %})
 
 3. Name the service group and set the protocol to `HTTP`.
 4. Click **OK**.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture6.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture6.png %})
 
 5. Click **No Service Group members**.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture7.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture7.png %})
 
 6. Click `Server Based`.
 7. Select all the servers with the search arrow or add servers directly by IP
@@ -113,11 +113,11 @@ To create a service group, perform the following steps:
 8. Set the server listening port (For example, the HTTP protocol is TCP port 80).
 9. Click **Create**.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture8.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture8.png %})
 
 10. Click **OK**.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture9.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture9.png %})
 
 #### C. Change the monitoring
 
@@ -125,7 +125,7 @@ To change the monitoring, perform teh following steps:
 
 1. Change the monitoring from `SNIP` to `Backend servers`.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture10.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture10.png %})
 
 2. Click **No service Group Monitor Binding** and select the required monitoring
    binding. In this case, choose the HTTP NetScaler that has a monitor for HTTP
@@ -133,7 +133,7 @@ To change the monitoring, perform teh following steps:
 3. Click the search arrow, select **http-ecv > Bind**.
 4. Click **Done**.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture11.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture11.png %})
 
 #### D. Create a virtual server
 
@@ -149,20 +149,20 @@ To create a virtual server, perform teh following steps:
 6. Set the port to `80`.
 7. Click **OK**.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture12.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture12.png %})
 
 8. Add the previously created group by clicking **No load balancing Virtual
    Servers Service Group Binding** and click **Select**.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture13.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture13.png %})
 
 9. Click **Bind** and click **Done**.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture14.png %})
+    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture14.png %})
 
 10. Save your work and wait for the VIP to come up.
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture15.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture15.png %})
 
 ### Test the configuration
 
@@ -171,7 +171,7 @@ servers. When you refresh the page, you can see that the NetScaler is doing its
 job and balancing the requests across both back-end web servers as shown in the
 following image:
 
-         ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture16.png %})
+   ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture16.png %})
 
 ### Conclusion
 

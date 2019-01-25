@@ -78,13 +78,17 @@ To add the backend servers, perform the following steps:
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture2.png %})
 
-3. Choose a naming convention for the first server and enter its IP address.
-   This example uses `Web-01`.
-4. Click **Create**.
+<ol start=3>
+    <li>Choose a naming convention for the first server and enter its IP address.
+   This example uses `Web-01`.</li>
+    <li>Click <b>Create</b>.</li>
+</ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture3.png %})
 
-5. Repeat steps 3 and 4 for the other backend web servers.
+<ol start=5>
+    <li>Repeat steps 3 and 4 for the other backend web servers.</li>
+</ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture4.png %})
 
@@ -98,24 +102,32 @@ To create a service group, perform the following steps:
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture5.png %})
 
-3. Name the service group and set the protocol to `HTTP`.
-4. Click **OK**.
+<ol start=3>
+    <li>Name the service group and set the protocol to <b>HTTP</b>.</li>
+    <li>Click <b>OK</b>.</li>
+</ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture6.png %})
 
-5. Click **No Service Group members**.
+<ol start=5>
+    <li>Click <b>No Service Group members</b>.</li>
+</ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture7.png %})
 
-6. Click `Server Based`.
-7. Select all the servers with the search arrow or add servers directly by IP
-   base instead of creating them individually.
-8. Set the server listening port (For example, the HTTP protocol is TCP port 80).
-9. Click **Create**.
+<ol start=6>
+    <li>Click <b>Server Based</b>.</li>
+    <li>Select all the servers with the search arrow or add servers directly by
+    IP base instead of creating them individually.</li>
+    <li>Set the server listening port (For example, the HTTP protocol is TCP port 80).</li>
+    <li>Click **Create**.</li>
+</ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture8.png %})
 
-10. Click **OK**.
+<ol start=10>
+    <li>Click <b>OK</b>.</li>
+</ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture9.png %})
 
@@ -127,11 +139,13 @@ To change the monitoring, perform teh following steps:
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture10.png %})
 
-2. Click **No service Group Monitor Binding** and select the required monitoring
-   binding. In this case, choose the HTTP NetScaler that has a monitor for HTTP
-   pre-configured.
-3. Click the search arrow, select **http-ecv > Bind**.
-4. Click **Done**.
+<ol start=2>
+    <li>Click <b>No service Group Monitor Binding</b> and select the required
+    monitoring binding. In this case, choose the HTTP NetScaler that has a
+    monitor for HTTP pre-configured.</li>
+    <li>Click the search arrow, select <b>http-ecv > Bind</b>.</li>
+    <li>Click <b>Done</b>.</li>
+</ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture11.png %})
 
@@ -151,16 +165,22 @@ To create a virtual server, perform teh following steps:
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture12.png %})
 
-8. Add the previously created group by clicking **No load balancing Virtual
-   Servers Service Group Binding** and click **Select**.
+<ol start=8>
+    <li>Add the previously created group by clicking <b>No load balancing Virtual
+   Servers Service Group Binding/b> and click <b>Select</b>.</li>
+</ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture13.png %})
 
-9. Click **Bind** and click **Done**.
+<ol start=9>
+    <li>Click <b>Bind</b> and click <b>Done</b>.</li>
+</ol>
 
     ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture14.png %})
 
-10. Save your work and wait for the VIP to come up.
+<ol start=10>
+    <li>Save your work and wait for the VIP to come up.</li>
+</ol>
 
    ![]({% asset_path 2019-01-28-setting-up-basic-load-balancing-in-citrix-netscaler/Picture15.png %})
 

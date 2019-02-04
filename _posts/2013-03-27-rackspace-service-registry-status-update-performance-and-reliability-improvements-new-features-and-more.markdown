@@ -1,12 +1,13 @@
 ---
 layout: post
-title: 'Rackspace Service Registry Status Update - Performance and Reliability Improvements, New Features and More'
+title: 'Rackspace Service registry status update: Performance and reliability improvements, new features, and more'
 date: '2013-03-27 08:00'
 comments: true
 author: Tomaz Muraus
-categories: []
+categories:
+  - General
 ---
-Back in November we announced the [Rackspace Service Registry preview](http://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/).
+Back in November we announced the [Rackspace Service registry preview](http://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/).
 Since then we have been busy listening to user feedback, using that data along
 with other metrics and inputs to improve our service in different ways.
 
@@ -17,7 +18,7 @@ more reliable and user-friendly.
 
 <!-- more -->
 
-## Performance and Reliability Improvements
+### Performance and reliability improvements
 
 We spent a lot of time making the whole service faster and more reliable. This
 includes improvements ranging from data model adjustments, adding new services
@@ -27,7 +28,7 @@ Besides spending a lot of time on the code changes we also spent a lot of time
 tweaking and upgrading our infrastructure. One of the bigger upgrades we have
 performed recently has been an upgrade from Cassandra 1.1 to Cassandra 1.2.
 
-When we initially started working on Rackspace Service Registry, Cassandra 1.2
+When we initially started working on Rackspace Service registry, Cassandra 1.2
 hasn’t been stable yet and that is why we started with 1.1. We have primarily
 upgraded to 1.2 so we can, among other things, take an advantage of an
 optimized and more efficient [tombstone removal](http://www.datastax.com/dev/blog/tombstone-removal-improvement-in-1-2)
@@ -65,7 +66,7 @@ When we do, we will make sure to share observations from our single-region
 Cassandra cluster running on Rackspace Cloud Servers with you in another
 blog post.
 
-## Configuration Namespaces
+### Configuration namespaces
 
 The [configuration storage](http://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/overview.html#what-is-rackspace-service-registry-configuration-storage)
 feature allows users to store arbitrary key/value pairs in our system and get
@@ -107,7 +108,7 @@ in the configuration key we encourage you can take an advantage of the new
 first-class namespaces feature which, among other things, makes organizing
 and retrieving a subset of configuration values easier and more efficient.
 
-## Folding Sessions into Services: a Simplification
+### Folding sessions into services: a simplification
 
 When we first released service into preview in November, it included a concept
 called a session. The whole idea behind the session concept was to allow users
@@ -164,7 +165,7 @@ libraries and 2.0.x for Java client library).
 
 For more information, please see the [release notes page](http://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/release-notes.html#release-notes-v20-march-2013).
 
-## External Bindings and API Integration
+### External bindings and API integration
 
 We’ve been evaluating other APIs, projects and services with the goal of
 integrating them with Rackspace Service Registry. We will highlight the first
@@ -172,12 +173,12 @@ of these integrations in an upcoming blog post. In the meantime you can have
 a look at our [repository](https://github.com/racker/java-service-registry-client/tree/master/service-registry-curator)
 which contains a couple of [examples](https://github.com/racker/java-service-registry-client/tree/master/service-registry-examples/src/main/java/com/rackspacecloud/client/service_registry/examples).
 
-## Client Library and Command Line Client Improvements
+### Client library and command line client improvements
 
 Our Node.js, Python and Java client libraries have received a lot of
 improvements. A few of them are listed below.
 
-### Events Feed Poller in the Node.js client library
+#### Events feed poller in the node.js client library
 
 Node.js client library now exposes a higher level interface for working with
 the events feed called [EventsFeedPoller](https://github.com/racker/node-service-registry-client/blob/master/lib/events_feed_poller.js).
@@ -195,26 +196,26 @@ Here is a short example which demonstrates its usage:
 In this example we listen for all of the available events and simply print
 the event payload to the standard output.
 
-### Improvements in the Java Client
+#### Improvements in the Java client
 
 The Java client received a lot of improvements and new features ranging from
 the [EventsClient](https://github.com/racker/java-service-registry-client/blob/master/service-registry-client/src/main/java/com/rackspacecloud/client/service_registry/clients/EventsClient.java)
-for working with the Service Registry events feed to better notification of
+for working with the Service registry events feed to better notification of
 HeartBeater state changes using [standard Java events](https://github.com/racker/java-service-registry-client/blob/master/service-registry-client/src/main/java/com/rackspacecloud/client/service_registry/HeartBeater.java#L106).
 
-### Command Line Client Now Supports Storing Credentials in the .raxrc Configuration File
+#### Command line client now supports storing credentials in the .raxrc configuration file
 
 The [Command Line Client](https://github.com/racker/python-service-registry-cli)
-now supports storing service credentials in the ~/.raxrc file. This means you
-don’t need to pass **--username** and **--api-key** argument to every command anymore.
+now supports storing service credentials in the **~/.raxrc** file. This means you
+don’t need to pass `--username` and `--api-key` argument to every command anymore.
 You simply [store this information in the ~/.raxrc file](https://github.com/racker/python-service-registry-cli#settings-credentials).
 
 In fact, the Cloud Monitoring command line tool uses the same configuration
 file format.  This means you can use a single configuration file if you already
 use Cloud Monitoring and want to use the same credentials with Rackspace
-Service Registry.
+Service registry.
 
-## Conclusion
+### Conclusion
 
 During the past couple months we have listened to our customers. We have used
 their feedback and other metrics to improve our service in many different ways.
@@ -223,15 +224,15 @@ step in the right direction because it reflects a common use case better and
 makes the whole API easier to use.
 
 In future blog posts we will go more in depth and show how we are developing
-bindings so that you can use the Rackspace Service Registry with APIs you may
+bindings so that you can use the Rackspace Service registry with APIs you may
 already be familiar with.
 
-Note: Service Registry is currently in closed preview available free of charge.
+Note: Service registry is currently in closed preview available free of charge.
 If you don’t have access yet you can request it by filling out
 [this survey](https://surveys.rackspace.com/Survey.aspx?s=f3d6e51580ab4510a564487fafdafdfd).
 
 _This is a guest post from Tomaz Muraus. Tomaz is a Racker and a project
-lead for the [Rackspace Service Registry](http://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/) product. He is also a project chair
+lead for the [Rackspace Service registry](http://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/) product. He is also a project chair
 of [Apache Libcloud](http://libcloud.apache.org/), an open-source project
 which deals with cloud interoperability. Before working on Service Registry
 he worked on the [Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/)

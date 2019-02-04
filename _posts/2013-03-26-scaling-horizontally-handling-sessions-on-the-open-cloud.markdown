@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Scaling Horizontally: Handling Sessions on the Open Cloud'
+title: 'Scaling horizontally: Handling sessions on the open cloud'
 date: '2013-03-28 12:00'
 comments: true
 published: true
@@ -8,18 +8,29 @@ author: Hart Hoover
 categories:
   - Cloud Servers
 ---
+
 {% img right pillars/pillar.png 160 160 %}
-Wayne Walls wrote a great article on the Rackspace Blog around [horizontal scaling](http://www.rackspace.com/blog/pillars-of-cloudiness-no-3-scaling-horizontally/), a pillar of cloud application design. When designing applications in the cloud, typically you need more than one server performing specific tasks.
+Wayne Walls wrote a great article on the Rackspace Blog around
+[horizontal scaling](http://www.rackspace.com/blog/pillars-of-cloudiness-no-3-scaling-horizontally/),
+a pillar of cloud application design. When designing applications in the cloud,
+typically you need more than one server performing specific tasks.
 
 {% tweet https://twitter.com/DEVOPS_BORAT/status/274366602252804096 align='center' %}
 
-These groups of servers or roles or tiers are sometimes load balanced or exist as a pool of servers polling a message queue for work.<!-- more --> In this article, I will focus on the former - load balanced servers.
+These groups of servers or roles or tiers are sometimes load balanced or exist
+as a pool of servers polling a message queue for work.
 
-##Traditional Session Handling
+<!-- more -->
+
+In this article, I focus on the former - load balanced servers.
+
+### Traditional session handling
 
 {% img center 2013-03-28-scaling-horizontal/arch1.png %}
 
-In traditional application design shown in the example above, you would need to do something to manage sessions across these three servers. The most popular ways are typically:
+In traditional application design shown in the preceding example, you would need
+to do something to manage sessions across these three servers. The most popular
+ways are typically:
 
 * Store a cookie on the end user's system
 * Store sessions in Memcached
@@ -37,7 +48,7 @@ Storing sessions in a database means extra load on that database - something you
 
 So what can be done about sessions? You need a session to live SOMEWHERE and you need it to be trusted. Enter Representational State Transfer ([REST](http://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)) applications and authentication tokens.
 
-##Using a ReSTful Application
+### Using a ReSTful application
 
 Some of you may be reading this and thinking "Sessions and REST? That makes no sense." You would be correct. We're basically solving for sessions while scaling... by not using sessions.
 
@@ -45,7 +56,7 @@ RESTful web services are stateless, meaning your application will not store any 
 
 When your customer or user logs in, they authenticate with Stormpath and receive a token. This token then allows them to interact with any server in your web tier - the token is sent each time. There is no need for a "master" server and "slave" servers, because each server is the same. This allows you to scale horizontally very easily. An example of ReST in action? The Rackspace Open Cloud itself!
 
-##How The Open Cloud Uses Authentication Tokens
+### How the open cloud uses authentication tokens
 
 When you authenticate against our Identity service, you receive an authentication token to use for subsequent requests. The token is good for 24 hours and allows you to interact with many cloud services. Each time you perform an API request with that token, a check is made to make sure the token is still valid. The underlying infrastructure doesn't care where the request came from and doesn't care about a session - each request is handled separately. This allows us to scale our API services horizontally to meet demand.
 

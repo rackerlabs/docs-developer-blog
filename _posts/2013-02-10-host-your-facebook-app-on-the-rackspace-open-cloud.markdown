@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Host Your Facebook App On The Rackspace Open Cloud
+title: Host your Facebook app on the Rackspace open cloud
 date: '2013-02-10 22:20'
 comments: true
 published: true
@@ -11,10 +11,13 @@ categories:
   - Cloud Monitoring
   - Cloud Files
 ---
+
 We live our lives on the web. And [social media and networking has established itself a dominant force](http://blog.nielsen.com/nielsenwire/social/2012/), becoming the most visited sites on the web – and among the most popular social media sites, [Facebook has become the colossus](http://www.internetworldstats.com/facebook.htm), amassing more than an estimated 930 million users.
 
 One aspect that sets Facebook apart is the applications – games, quizzes, you name it. While they may have a brief shelf-life, they can achieve massive popularity in a very short period of time. At Rackspace, we can help you plan for this unpredictable demand by hosting your Facebook app on our open cloud platform.
+
 <!-- more -->
+
 First, Facebook requires the use of SSL encryption to secure applications running on its platform. You can achieve this by using a Rackspace Cloud Load Balancer with SSL termination.
 The network diagram below shows one possible configuration for hosting your Facebook app on the [Rackspace open cloud](http://www.rackspace.com/cloud/):
 
@@ -34,13 +37,13 @@ The above diagram comprises the following components:
 
 6. [Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/): You can't watch your application 24x7 - we know you've got a business to run. But Facebook is a 24x7 global platform, so your users never sleep. Cloud Monitoring allows you to define a series of "checks" on your infrastructure; including resources outside of Rackspace (you can check anything with an IP address or URL). By choosing when and how alerts should be triggered, you can get on with more important things, safe in the knowledge that we're watching your infrastructure around the clock. If something goes wrong, you'll know about it. And, importantly, we will too; with our [Managed Cloud](http://www.rackspace.com/cloud/managed_cloud/) you can use Cloud Monitoring to automatically raise a support ticket to Rackspace, so we can start working on the problem right away.
 
-##Rackspace Support
+### Rackspace Support
 
 We also offer our users our trademark [Fanatical Support](http://www.rackspace.com/whyrackspace/support/) when they host their Facebook app on the Rackspace open cloud. Our Managed Cloud offering makes sure support techs are available to help you 24x7x365 via phone, chat or ticket. They also provide support for your operating system and many applications, so you can focus on running your business, not your IT. To learn more about this please see our Managed Service spheres of support. (Please note that Memcached is currently outside our sphere of support - we can help install it, but can't offer full support on an ongoing basis).
 
 Don't need our Managed Cloud? No problem. All Rackspace cloud customers automatically receive Fanatical Support. Our techs are here for you 24x7x365 via phone, chat and ticket. They'll provide OS-level support, but won't be able to login to your server to perform advanced trouble shooting, or provide application-level support.
 
-Other Tools
+### Other tools
 
 A number of leading cloud application providers bring you apps, software and functionality to complement your cloud infrastructure, including the following:
 
@@ -48,8 +51,6 @@ A number of leading cloud application providers bring you apps, software and fun
    -   Enhanced application and performance monitoring with [New Relic](https://newrelic.com)
    -   Performance and load testing of your application up to web-scale level with [SOASTA](https://www.soasta.com)
    -   Easy browser-based management of your Cloud Files storage with [Cyberduck](https://cyberduck.io)
-
-That should get you started in hosting your Facebook app on
 
 That should get you started in hosting your Facebook app on the Rackspace open cloud!
 

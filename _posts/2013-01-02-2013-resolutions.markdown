@@ -1,12 +1,13 @@
 ---
 layout: post
-title: '2013: An Open Cloud Resolution'
+title: '2013: An open cloud resolution'
 date: '2013-01-02 09:19'
 comments: true
 author: Hart Hoover
 categories:
   - OpenStack
 ---
+
 It's a new year, and that means that many people are making resolutions to better themselves. Some make resolutions to read more books. Some make resolutions to exercise. Some people have more, um, interesting resolutions:
 
 {% tweet https://twitter.com/missmayn/status/285929750436933634 align='center' %}

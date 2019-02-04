@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Gluecon 2013 Day 2: CEOs Who Code, Enterprise Software Evolution and API Secrets Revealed'
+title: 'Gluecon 2013 Day 2: CEOs who code, enterprise software evolution, and API secrets revealed'
 date: '2013-05-30 11:03'
 comments: true
 author: Wayne Walls
@@ -10,54 +10,95 @@ categories:
   - DevOps
 ---
 {% img right 2013-05-24-gluecon/glue_logo.png %}
-The second day of Gluecon 2013 started off with a bang with a great keynote presentation from [Lew Cirne]( https://twitter.com/sweetlew), CEO of [New Relic]( http://newrelic.com/) and [Stephen O’Grady](https://twitter.com/sogrady) of Redmonk.  Day two was packed with compelling topics including enterprise software history, CEOs who love to code, why to API and a further introduction to Google Compute Engine.  <!-- more -->
 
-In his  keynote, “The New Kingmakers,” O’Grady shared a bit of history around enterprise software. He made the argument that 20 to 30 years ago software was built to be bought.  The major software players of those days put requirements in place that end users had to work around. But a shift began in the late 90s and we started to think about software in a whole new way:  it was built to be used.  O’Grady walked us through a timeline that helped augment his statements:
+The second day of Gluecon 2013 started off with a bang with a great keynote
+presentation from [Lew Cirne](https://twitter.com/sweetlew), CEO of
+[New Relic](http://newrelic.com/) and [Stephen O’Grady](https://twitter.com/sogrady)
+of Redmonk. Day two was packed with compelling topics including enterprise
+software history, CEOs who love to code, why to API and a further introduction
+to Google Compute Engine.
 
-##The era of enterprise software: 1975 to 1998##
+<!-- more -->
 
-“Enterprise software” sales peaked in 1998, here is why:
+In his  keynote, “The New Kingmakers,” O’Grady shared a bit of history around
+enterprise software. He made the argument that 20 to 30 years ago software was
+built to be bought. The major software players of those days put requirements
+in place that end users had to work around. But a shift began in the late 90s,
+and we started to think about software in a whole new way. It was built to be
+used. O’Grady walked us through a timeline that helped augment his statements.
 
-*  At that time, software was built to sell to those with the money (CIOs, etc), not to those who use it (it was built to be bought, not to be used)
-*  Linux was created in 1991
-*  Netscape Navigator was created in 1994, causing us to rethink the definition of an application
-*  Apache was created 1995 and many vendors gave up because they couldn’t make their software better than Apache
-*  MySQL was created in 1995 and became the most popular database on the planet (it simple, easy to use)
-*  PHP was created in 1995
-*  Google was founded in 1998 as a company that made money with software rather than from software
-*  This transitioned software from being built to be bought to being built to be used
-*  They were using the open source software that was being built and not beholden to the enterprise for software
+### The era of enterprise software: 1975 to 1998
+
+Enterprise software sales peaked in 1998, here is why:
+
+*  At that time, software was built to sell to those with the money (CIOs, etc),
+   not to those who use it (it was built to be bought, not to be used).
+*  Linux was created in 1991.
+*  Netscape Navigator was created in 1994, causing us to rethink the definition
+   of an application.
+*  Apache was created 1995, and many vendors gave up because they couldn’t make
+   their software better than Apache.
+*  MySQL was created in 1995 and became the most popular database on the planet
+   because it's simple and easy to use.
+*  PHP was created in 1995.
+*  Google was founded in 1998 as a company that made money with software rather
+   than from software.
+*  This transitioned software from being built to be bought to being built to
+   be used.
+*  They were using the open source software that was being built and not
+   beholden to the enterprise for software.
 
 Why is this shift so important?  Developers have never been more empowered than they are today:
 
--  More languages for choice and project fit
--  Standards and styles, such as REST, created a simple alternative for web services and increased availability of APIs
--  Oracle and other enterprises are facing more competition due to a change in procurement (more developers, less CIOs)
+-  There are more languages for choice and project fit.
+-  Standards and styles, such as REST, created a simple alternative for web
+   services and increased availability of APIs.
+-  Oracle and other enterprises are facing more competition due to a change in
+   procurement (more developers, less CIOs).
 
-##Cirne's Lessons##
+### Cirne's Lessons
 
-Then New Relic’s Cirne took the keynote stage.  I was drawn in by the title of is talk: “Confessions of a Tech CEO Who Still Loves to Code Every Day.” I often read articles on the web about two types of co-founders: technical and business. Those articles are usually based on one of them asking what they should be doing when their counterpart is in the weeds doing what they do best.  If you’re a technical co-founder, you should be cutting code like there’s no tomorrow, innovating on your product and managing feature creep. If you’re a business co-founder, do everything else.  Those two sentences pretty much sum up the more than ten articles I’ve read about this particular topic.  Cirne shared with the audience four lessons he learned while being a CEO coder.
+Then, New Relic’s Cirne took the keynote stage.  I was drawn in by the title of
+his talk: “Confessions of a Tech CEO Who Still Loves to Code Every Day.” I often
+read articles on the web about two types of co-founders: technical and business.
+Those articles are usually based on one of them asking what they should be doing
+when their counterpart is in the weeds doing what they do best.  If you’re a
+technical co-founder, you should be cutting code like there’s no tomorrow,
+innovating on your product and managing feature creep. If you’re a business
+co-founder, do everything else.  Those two sentences pretty much sum up the more
+than ten articles that I’ve read about this particular topic. Cirne shared with
+the audience four lessons that he learned while being a CEO coder.
 
-- Lesson 1: Surround yourself with exception people
-	- They need to love to do what they do, have complementary skill sets and can execute while you are away developing product
-	- Mondays at 9:30 a.m. Cirne has a standing meeting with his leaders, perhaps an occasional meeting with others – they handle the rest of the execution
--  Lesson 2: Do what you love
-	-  Find complementary skills so that you can do what you love and are good at
-	-  Trust those around you to fill in the gaps and provide time to do what you love
--  Lesson 3: Don’t be afraid to re-invent often
-	-  Even your own platform, API or career
-	-  In his last company, he said ”yes” to all people when they dangled checks in front of him
-	-  At New Relic, Cirne chose to skip customization, reduce friction on the front-end interface/experience
--  Lesson 4: Disrupt yourself
-	-  Apple launched Nano and killed the Mini (the No. 1 product on the market)
-	-  This requires supporting people around you (team, board of directors)
+- Lesson 1: Surround yourself with exceptional people.
+	- They need to love to do what they do, have complementary skill sets, and be
+	  able to execute while you are away developing products.
+	- On Mondays at 9:30 a.m., Cirne has a standing meeting with his leaders,
+	  perhaps an occasional meeting with others. They handle the rest of the execution.
+-  Lesson 2: Do what you love.
+	-  Find complementary skills so that you can do what you love and are good at.
+	-  Trust those around you to fill in the gaps and provide time to do what you love.
+-  Lesson 3: Don’t be afraid to re-invent often.
+	-  Even your own platform, API or career.
+	-  In his last company, he said ”yes” to all people when they dangled checks in front of him.
+	-  At New Relic, Cirne chose to skip customization, reduce friction on the
+	   front-end interface/experience.
+-  Lesson 4: Disrupt yourself.
+	-  Apple launched Nano and killed the Mini (the No. 1 product on the market).
+	-  This requires supporting people around you (team, board of directors).
 
-##API != Business Model##
+### API != Business Model
 
-After a quick lunch break -- and I have to admit, the food selection was stupendous -- it was time to head to a few afternoon sessions. The first session was “20 API Business Models” by [John Musser](https://twitter.com/johnmusser) from Programmable Web. I was intrigued by session title, as I never thought of an API as a business model, so I couldn’t wait to hear what Musser had to say.
+After a quick lunch break -- and I have to admit, the food selection was
+stupendous -- it was time to head to a few afternoon sessions. The first session
+was “20 API Business Models” by [John Musser](https://twitter.com/johnmusser)
+from Programmable Web. I was intrigued by session title, as I never thought of
+an API as a business model, so I couldn’t wait to hear what Musser had to say.
 
-As he got started, Musser set the stage with a very clear message: an API strategy is not a business model.  Alright, so that took care of that question.  He then spent most of the remainder of his time talking about the secrets to why one should API.  For starters...
-	
+As he got started, Musser set the stage with a very clear message: an API
+strategy is not a business model. Alright, so that took care of that question.
+He then spent most of the remainder of his time talking about the secrets to
+why one should API.  For starters...
+
 -  Drives innovation
 -  Marketing channels
 -  BizDev/LeadGen
@@ -74,23 +115,24 @@ As he got started, Musser set the stage with a very clear message: an API strate
 -  Extends products
 -  Increases stickiness
 
-A pretty compelling list as to why you should care about APIs.  He then moved onto the seven secrets.
+A pretty compelling list as to why you should care about APIs.  He then moved
+onto the seven secrets.
 
-###Secrets Listed###
+#### Secrets Listed
 
--  Secret No. 1: Who is the API for? This is a huge question
+-  Secret No. 1: Who is the API for? This is a huge question.
 	-  Internal – you
 	-  Private – your partners and customers
 	-  Open – everyone else
 	-  What is the API?
--  Secret No. 2: APIs only succeed if they offer something of “value”
+-  Secret No. 2: APIs only succeed if they offer something of actual value.
 	-  Service (e.g. Twillio)
 	-  Data (e.g. weather)
 	-  Audience (e.g. Facebook/Twitter)
 	-  Function (e.g. Salesforce)
 	-  Marketplace (e.g. eBay)
 	-  Access (e.g. Sabre for airline schedules)
--  Secret No. 3: You need to know who, what and why
+-  Secret No. 3: You need to know who, what and why.
 	-  History of API business models: 2005
 	-  Free, developer pays, developer gets paid, indirect
 	-  2013 – a lot more derivative models from the four core models of 2005, offering richer models and options
@@ -109,7 +151,7 @@ A pretty compelling list as to why you should care about APIs.  He then moved on
 		-  Revenue share: CPC (e.g. shopping.com)
 		-  APIs are now a billion dollar business – Expedia generates $2 billion per year in revenue, 90 percent of what they do is business through APIs
 		-  Recurring revenue share: every month as long as the customer remains
--  Secret No. 5: You need to bake your business model into your API
+-  Secret No. 5: You need to bake your business model into your API.
 	-  Category 4: Indirect
 		-  Content acquisition (e.g. eBay, Twitter)
 		-  eBay third party apps account for $6.9 billion in Gross Merchandise Volume (GMV) in 2008
@@ -121,20 +163,28 @@ A pretty compelling list as to why you should care about APIs.  He then moved on
 			-  “We find that if our customers use any single integration, they are three times as likely to convert to paid” – Sunir Shah, Freshbooks, August 25, 2010
 			-  Switching costs becomes higher
 			-  API business model continuum: direct (AWS) to hybrid (Expedia, MailChimp, Salesfoce) to indirect (Netflix)
--  Secret No. 6: API business models are not one-size-fits-all
+-  Secret No. 6: API business models are not one-size-fits-all.
 	-  Mobile apps drive API usage
 	-  Evernote: 99 percent internal calls (eats its own dog food)
 	-  Netflix platform: 800-plus devices that use its API platform
 -  Secret No. 7: Internal use may be the biggest API use case
 
-##Google Compute Engine Explained##
+### Google Compute Engine Explained
 
-Finally, I checked out what Google Compute Engine was up to.  I have had a chance to play around with its service since Google announced general availaibilty at Google I/O, but I was sure there would be some nuggets I could learn from [Joe Beda’s](https://twitter.com/jbeda) session “Start Small & Go Big: Getting the Most From Google Compute Engine.” 
+Finally, I checked out what Google Compute Engine was up to.  I have had a
+chance to play around with its service since Google announced general
+availaibilty at Google I/O, but I was sure there would be some nuggets I could
+learn from [Joe Beda’s](https://twitter.com/jbeda) session “Start Small & Go Big:
+Getting the Most From Google Compute Engine.”
 
-A lot of the information presented was covered during the product launch, but here is a short list of items that I found particularly useful from a cloud consumer point of view:
+A lot of the information presented was covered during the product launch, but
+here is a short list of items that I found particularly useful from a cloud
+consumer point of view:
 
--  Cloud Datastore is now available via REST API – Google App Engine is no longer a requirement to access this data storage service
--  Start Up Scripts to bootstrap, install chef/puppet, install packages, etc. – equivalent to rc.local from the outside
+-  Cloud Datastore is now available via REST API – Google App Engine is no
+longer a requirement to access this data storage service.
+-  Start Up Scripts to bootstrap, install chef/puppet, install packages, etc. –
+   equivalent to rc.local from the outside
 	-  Can grab metadata and expose as environment variables, used within the startup script, etc.
 	-  Can monitor startup scripts without SSHing to the VM using gcutil
 	-  Avoid custom images whenever possible
@@ -142,4 +192,6 @@ A lot of the information presented was covered during the product launch, but he
 -  Can promote ephemeral IPs to static
 -  Cloud Console is its web-based dashboard interface – shows REST API calls that will be executed (great for developers to learn APIs while using a web console).
 
-Overall, day two of Gluecon was another great day filled with engaging content and fresh, new ideas. I look forward to next year to see how the conversations evolve even further.
+Overall, day two of Gluecon was another great day filled with engaging content
+and fresh, new ideas. I look forward to next year to see how the conversations
+evolve even further.

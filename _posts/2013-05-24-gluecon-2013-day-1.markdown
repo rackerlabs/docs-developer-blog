@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Gluecon 2013 Day 1: Distributed Systems, APIs and Automation'
+title: 'Gluecon 2013 Day 1: Distributed systems, APIs, and automation'
 date: '2013-05-24 8:00'
 comments: true
 author: Wayne Walls
@@ -9,54 +9,110 @@ categories:
   - Developers
   - DevOps
 ---
+
 {% img right 2013-05-24-gluecon/glue_logo.png %}
-[Gluecon 2013](http://www.gluecon.com/2013/) is off to a dazzling start in Broomfeild, Colo. at the beautiful [Omni Interlocken Resort](http://www.omnihotels.com/FindAHotel/DenverInterlocken.aspx). 
 
-Just a quick scan of the two-day conference [agenda](http://www.gluecon.com/2013/agenda/) made it apparent that this was going to be a hands-on conference where developers could speak their minds about APIs, tools, distributed systems and a bunch of other topics. There were more than 20 sessions chock full of great discussion. The developer vibe was strong and the standard developer “uniform” of jeans and t-shirts dominated the expo floor and sessions. <!-- more -->
+[Gluecon 2013](http://www.gluecon.com/2013/) is off to a dazzling start in
+Broomfeild, Colorado at the beautiful
+[Omni Interlocken Resort](http://www.omnihotels.com/FindAHotel/DenverInterlocken.aspx).
 
-Today while sitting at lunch I was engaged a conversation about paxos, OAuth scopes and eventually consistency in nosql data stores. This is going to be a great two days.
+Just a quick scan of the two-day conference [agenda](http://www.gluecon.com/2013/agenda/)
+made it apparent that this was going to be a hands-on conference where developers
+could speak their minds about APIs, tools, distributed systems, and a bunch of
+other topics. There were more than 20 sessions chock full of great discussion.
+The developer vibe was strong and the standard developer “uniform” of jeans and
+t-shirts dominated the expo floor and sessions. <!-- more -->
 
-A morning keynote by [Adrian Cockcroft](https://twitter.com/adrianco), Cloud Architect at Netflix was one of the most informative sessions of day 1. During his talk, Cockcroft shared a lot of information about how Netflix designed its business around DevOps; shared infrastructure information; and, last but not least, preached the story of developer empowerment. Here are a few snippets from Adrian's session that caught some traction on Twitter and I thought were insightful:
+<!-- more -->
+
+Today, while sitting at lunch, I engaged in a conversation about paxos, OAuth
+scopes, and eventually consistency in nosql data stores. This is going to be a
+great two days.
+
+A morning keynote by [Adrian Cockcroft](https://twitter.com/adrianco), Cloud
+Architect at Netflix was one of the most informative sessions of day one. During
+his talk, Cockcroft shared a lot of information about how Netflix designed its
+business around DevOps; shared infrastructure information; and, last but not
+least, preached the story of developer empowerment. Here are a few snippets from
+Adrian's session that caught some traction on Twitter that I thought were insightful:
 
 
 ---
 
 
-**How to get cloud native?** 
+**How to get cloud native?**
 
-*  Free your developers 
-*  Decentralize and automate all the things
-*  Integrate devops into the business, yes, reorg is part of it
+*  Free your developers.
+*  Decentralize and automate all the things.
+*  Integrate devops into the business (yes, reorg is part of it).
 
 **So we're cloud native, what has changed?**
 
-*  Master copies are in the cloud
-*  Dynamic micro-services
-*  Services are distributed 
+*  Master copies are in the cloud.
+*  Dynamic micro-services used.
+*  Services are distributed.
 
-** Quotes **
+**Quotes**
+
 > "Developers are the bottleneck. Anything that slows devs down is a hurdle to agility."
 
 > "There is no ’version‘ of Netflix, it's always changing."
 
 **Infrastructure Tidbits**
 
-*  Netflix uses a multi-DNS solution: Route53, Ultra, Dyn. This is to route around failures, the "cloud of broken streams."
+*  Netflix uses a multi-DNS solution: Route53, Ultra, Dyn. This is to route
+   around failures, the "cloud of broken streams."
 
-*  Netflix uses multiple vendors for CDN (CloudFront is good for gigabits -> Akamai/Limelight terabits -> Netflix Openconnect) Opted to ship hardware CDN equip to ISPs; it’s easy and helps out ISPs by localizing content
+*  Netflix uses multiple vendors for CDN (CloudFront is good for gigabits ->
+   Akamai/Limelight terabits -> Netflix Openconnect) Opted to ship hardware CDN
+   equip to ISPs; it’s easy and helps out ISPs by localizing content.
 
 
 ---
 
 
-One of the large lessons from Adrian's keynote was getting your organization to "Cloud Native" is not a trivial task. Netflix went through technical, business and organizational changes to get where it is today, and no one should expect it to happen overnight if you're in the midst of adopting these changes. 
+One of the large lessons from Adrian's keynote was getting your organization to
+"Cloud Native" is not a trivial task. Netflix went through technical, business
+and organizational changes to get where it is today, and no one should expect
+it to happen overnight if you're in the midst of adopting these changes.
 
-In the distributed systems area, many sessions focused around the fact many people are building distributed systems today whether they know it or not. It's becoming more commonplace to split services out and run micro-services. You can find plenty to read on this concept on Google with a quick search for ["complex adaptive systems."](http://lmgtfy.com/?q=complex+adaptive+systems) I feel this will be a big part of the future of cloud applications as developers continue to work on application resiliency and stop caring about the underlying hardware except in specialized cases.
+In the distributed systems area, many sessions focused around the fact many
+people are building distributed systems today whether they know it or not. It's
+becoming more commonplace to split services out and run micro-services. You can
+find plenty to read on this concept on Google with a quick search for
+["complex adaptive systems."](http://lmgtfy.com/?q=complex+adaptive+systems). I
+feel this will be a big part of the future of cloud applications as developers
+continue to work on application resiliency and stop caring about the underlying
+hardware except in specialized cases.
 
-Another hot topic has been the debugging distributed systems. Anyone who has deployed one today knows it is orders of magnitude harder than static centralized systems. As always, there is a tradeoff, and that's part of reason so many came to Gluecon - to hear from the experts and see what lessons have been learned by early adopters. 
+Another hot topic has been the debugging distributed systems. Anyone who has
+deployed one today knows it is orders of magnitude harder than static centralized
+systems. As always, there is a tradeoff, and that's part of reason so many came
+to Gluecon - to hear from the experts and see what lessons have been learned by
+early adopters.
 
-APIs also came up in nearly every session during Gluecon’s first day. The two main themes about APIs from my perspectives are: developers are lazy, they want to automate all the things (using third party APIs) and any code they don't have to write is good code. This came up as the quote "services are the new processes for app developers" was discussed. I 110 percent agree. Who wants to do non-value added work if there’s already code out there that does what you need? Why reinvent the wheel? 
+APIs also came up in nearly every session during Gluecon’s first day. The two
+main themes about APIs from my perspectives are: developers are lazy, they want
+to automate all the things (using third party APIs) and any code they don't have
+to write is good code. This came up as the quote "services are the new processes
+for app developers" was discussed. I 110 percent agree. Who wants to do non-value
+added work if there’s already code out there that does what you need? Why reinvent
+the wheel?
 
-Lastly, there was a huge focus on tooling. Writing apps, maintaining apps and updating applications all come with a bevy of responsibilities. Most developers and systems engineers have a full tool belt when it comes to making their job easier. It’s the “work smarter, not harder” mentality. In the changing landscape of cloudy applications, this means more scale across a larger footprint of resources. The tools of yesteryear may not be able to keep up. We are in a age where writing web scale applications is not enough and we must have tools that scale to keep up with the new world of applications. Andy Gross (@agv0) from Basho said it quite eloquently, “sharpen our tools and build new ones.” Great advice for any company that is playing in the legacy application space and looking to move into the world of cloudy distributed applications.
+Lastly, there was a huge focus on tooling. Writing apps, maintaining apps, and
+updating applications all come with a bevy of responsibilities. Most developers
+and systems engineers have a full tool belt when it comes to making their job
+easier. It’s the “work smarter, not harder” mentality. In the changing landscape
+of cloudy applications, this means more scale across a larger footprint of
+resources. The tools of yesteryear may not be able to keep up. We are in a age
+where writing web scale applications is not enough and we must have tools that
+scale to keep up with the new world of applications. Andy Gross (@agv0) from
+Basho said it quite eloquently, “sharpen our tools and build new ones.” Great
+advice for any company that is playing in the legacy application space and
+looking to move into the world of cloudy distributed applications.
 
-In review, the big takeaways from Day 1 at Gluecon were the continued emergence of distributed systems; APIs are ruling the world; developers are lazy (automate all the things); and in a world where apps are scaling, we need tools that scale as well. I’m looking forward to what Day 2 brings. Check back tomorrow for a full breakdown!
+In review, the big takeaways from Day one at Gluecon were the continued emergence
+of distributed systems; APIs are ruling the world; developers are lazy (automate
+all the things); and in a world where apps are scaling, we need tools that scale
+as well. I’m looking forward to what Day two brings. Check back tomorrow for a
+full breakdown!

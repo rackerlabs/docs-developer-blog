@@ -254,4 +254,7 @@ database performance overall.
 
 Learn more about our [database services](https://www.rackspace.com/dba-services).
 
+Rackspace has extensive knowledge of Oracle products. Learn more about how we
+can maximize your [Oracle investment](https://www.rackspace.com/oracle).
+
 If you have any questions on the topic, comment in the field below.

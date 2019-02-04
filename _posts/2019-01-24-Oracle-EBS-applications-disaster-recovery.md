@@ -249,5 +249,11 @@ them to the PROD site.
 
 Learn more about our [database services](https://www.rackspace.com/dba-services).
 
+We are the experts on Oracle products, so let Rackspace help you maximize your [Oracle investment](https://www.rackspace.com/oracle).
+
+If you want more information on Rackspace disaster recovery solutions, download
+this [white paper](https://www.rackspace.com/sites/default/files/white-papers/Rackspace%20Disaster%20Recovery.pdf).
+
+
 If you have any questions on the topic, comment in the field below.
 

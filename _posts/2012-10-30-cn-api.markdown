@@ -2,41 +2,87 @@
 comments: true
 date: 2012-10-30T15:24:25.000Z
 layout: post
-title: 'Cloud Networks: Example Architecture and API'
+title: 'Cloud Networks - example architecture and API'
 author: Hart Hoover
 categories:
   - Cloud Networks
 ---
 
-Today’s [launch of Rackspace Cloud Networks](http://www.rackspace.com/blog/cloud-networks-the-next-chapter-in-the-open-cloud/), marks the fourth product release by Rackspace that is powered by an [OpenStack](http://openstack.org) project. When Rackspace founded OpenStack with NASA two years ago the vision was for a community of extremely talented engineers, architects, developers and industry professionals all coming together to build amazing technology. This year alone, Rackspace has launched the following products all powered by OpenStack:
+Today’s [launch of Rackspace Cloud Networks](http://www.rackspace.com/blog/cloud-networks-the-next-chapter-in-the-open-cloud/),
+marks the fourth product release by Rackspace that is powered by an
+[OpenStack](http://openstack.org) project. When Rackspace founded OpenStack with
+NASA two years ago the vision was for a community of extremely talented
+engineers, architects, developers and industry professionals all coming together
+to build amazing technology. This year alone, Rackspace has launched the
+following products all powered by OpenStack:
 
 <!-- more -->
 
-	
+
   * Cloud Servers (Nova)
 
-	
+
   * Cloud Databases (Red Dwarf)
 
-	
+
   * Cloud Block Storage (Cinder)
 
-	
+
   * Cloud Networks (Quantum)
-
-
 
 
 ### History of Cloud Networks
 
 
-Networking in OpenStack was rather simplistic in its early days, as there were only three network managers included in the first four releases of OpenStack: Flat Networking, Flat DHCP and VPN / CloudPipe. There was no network segmentation, there was a networking single point of failure (SPOF) and creating complex applications was not a trivial task.
+Networking in OpenStack was rather simplistic in its early days, as there were
+ only three network managers included in the first four releases of OpenStack:
+ Flat Networking, Flat DHCP and VPN / CloudPipe. There was no network segmentation,
+ there was a networking single point of failure (SPOF) and creating complex
+ applications was not a trivial task.
 
-As the OpenStack project grew, it became clear to the community that networking was an area that desperately needed some attention. As more and more services were pulled out of OpenStack Compute, it was only a matter of time before the networking component became its own separate project. With technical leadership from companies such as Nicira, Cisco, Juniper, Dell and Rackspace, the stage was set to implement an advanced networking manager that would not only solve these legacy issues, but also create a project that was modular and scalable. This project was codenamed "[Quantum](https://launchpad.net/quantum)." Quantum became the innovation ground for virtual networking in OpenStack, but there was a key piece of the networking stack that was missing -- the network information services. How was IP address management (IPAM) and address discovery going to work? Rackspace took the lead in writing the code for this deficiency, and created another OpenStack project codenamed “[Melange](http://wiki.openstack.org/Melange).” Rackspace worked very closely with the Quantum community to tie these two projects together -- Quantum laid down the network piping and Melange handled the management of network information services.
+As the OpenStack project grew, it became clear to the community that networking
+was an area that desperately needed some attention. As more and more services
+were pulled out of OpenStack Compute, it was only a matter of time before the
+networking component became its own separate project. With technical leadership
+from companies such as Nicira, Cisco, Juniper, Dell and Rackspace, the stage was
+set to implement an advanced networking manager that would not only solve these
+legacy issues, but also create a project that was modular and scalable. This
+project was codenamed "[Quantum](https://launchpad.net/quantum)." Quantum became
+the innovation ground for virtual networking in OpenStack, but there was a key
+piece of the networking stack that was missing -- the network information services.
 
-Over the past few years, there has been tremendous growth in the Quantum project headed up by [Dan Wendlandt](http://www.linkedin.com/pub/dan-wendlandt/7/a41/69a), Project Technical Lead (PTL). Quantum and Melange began to merge into one project, all under the Quantum project umbrella, enabling it to accelerate its goal of being promoted to OpenStack Core. As with all OpenStack projects, there is a “promotion” process that all projects follow en route to becoming an OpenStack Core project. With networking being a foundational building block for achieving the [mission](http://wiki.openstack.org/) of OpenStack, it was clear Quantum was going to be on the fast track to being promoted. During the Essex release cycle, Quantum was promoted to be an [incubation project](http://wiki.openstack.org/Governance/Approved/Incubation) with the intention of being promoted to core for the Folsom release. I'm happy to say that when [Folsom](http://www.openstack.org/software/folsom/) was released Sept. 27, 2012, Quantum met all of the requirements and achieved all of the milestones necessary to officially be included as a core project.
+How was IP address management (IPAM) and address discovery going to work? Rackspace
+took the lead in writing the code for this deficiency, and created another
+OpenStack project codenamed “[Melange](http://wiki.openstack.org/Melange).”
+Rackspace worked very closely with the Quantum community to tie these two projects
+together -- Quantum laid down the network piping and Melange handled the management
+of network information services.
 
-Rackspace has worked closely with Quantum since its inception, and has built build Rackspace Cloud Networks on this technology, assisted by the Nicira Network Virtualization Plug-in (NVP). Quantum on its own is a capable network manager for OpenStack, but the true beauty lies in the modularity of it that allows management platforms to plug directly into it and enables more granular control of your virtual networks. The release of Cloud Networks marks the beginning of advanced networking in our public cloud and sets us up to add many more features in the near future. Cloud federation among OpenStack clouds is now one step closer, and the vision of the open cloud revolution is becoming clearer each day! Let's take a look at a sample architecture and an API example.
+Over the past few years, there has been tremendous growth in the Quantum project
+headed up by [Dan Wendlandt](http://www.linkedin.com/pub/dan-wendlandt/7/a41/69a),
+Project Technical Lead (PTL). Quantum and Melange began to merge into one project,
+all under the Quantum project umbrella, enabling it to accelerate its goal of
+being promoted to OpenStack Core. As with all OpenStack projects, there is a
+promotion process that all projects follow en route to becoming an OpenStack
+Core project. With networking being a foundational building block for achieving
+the [mission](http://wiki.openstack.org/) of OpenStack, it was clear Quantum was
+going to be on the fast track to being promoted. During the Essex release cycle,
+Quantum was promoted to be an [incubation project](http://wiki.openstack.org/Governance/Approved/Incubation)
+with the intention of being promoted to core for the Folsom release. I'm happy
+to say that when [Folsom](http://www.openstack.org/software/folsom/) was released
+Sept. 27, 2012, Quantum met all of the requirements and achieved all of the
+milestones necessary to officially be included as a core project.
+
+Rackspace has worked closely with Quantum since its inception, and has built
+build Rackspace Cloud Networks on this technology, assisted by the Nicira Network
+Virtualization Plug-in (NVP). Quantum on its own is a capable network manager
+for OpenStack, but the true beauty lies in the modularity of it that allows
+management platforms to plug directly into it and enables more granular control
+of your virtual networks. The release of Cloud Networks marks the beginning of
+advanced networking in our public cloud and sets us up to add many more features
+in the near future. Cloud federation among OpenStack clouds is now one step closer,
+and the vision of the open cloud revolution is becoming clearer each day! Let's
+take a look at a sample architecture and an API example.
 
 
 ### Architecture Example
@@ -44,30 +90,43 @@ Rackspace has worked closely with Quantum since its inception, and has built bui
 
 {% img center 2012-10-30-cn-api/cloud_networks_example.png %}
 
-In this reference architecture example, we have a simple load balanced configuration with an isolated application server with sensitive data. You can use Cloud Networks to isolate servers from each other and eventually extend an existing network into our cloud.
+In this reference architecture example, we have a simple load balanced
+configuration with an isolated application server with sensitive data. You can
+use Cloud Networks to isolate servers from each other and eventually extend an
+existing network into our cloud.
 
 
 ### API Example
 
 
-I will demonstrate how to create and use Cloud Networks with the [rackspace-novaclient](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os) as I did with [Cloud Block Storage](http://devops.rackspace.com/cbs-api.html). You can add networks and have new Cloud Servers use those networks.
+Let me demonstrate how to create and use Cloud Networks with the
+[rackspace-novaclient](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os)
+as I did with [Cloud Block Storage](http://devops.rackspace.com/cbs-api.html).
+You can add networks and have new Cloud Servers use those networks.
 
 First, let's create a new network:
 
-    
+
     $ nova network-create <network_label> <cidr>
 
 
 For example:
 
-    
+
     $ nova network-create privatenetwork 172.16.0.0/24
 
 
-We then need to attach a network to a server at boot time. In this example, I am giving this new 1GB Ubuntu 12.04 server access to the Public Network (UUID: 00000000-0000-0000-0000-000000000000) and the Service Network (UUID: 11111111-1111-1111-1111-111111111111):
+We then need to attach a network to a server at boot time. In this example, I
+am giving this new 1GB Ubuntu 12.04 server access to the Public Network (UUID:
+00000000-0000-0000-0000-000000000000) and the Service Network (UUID:
+11111111-1111-1111-1111-111111111111):
 
-    
+
     $ nova boot --nic net-id=00000000-0000-0000-0000-000000000000 --nic net-id=11111111-1111-1111-1111-111111111111 --image 5cebb13a-f783-4f8c-8058-c4182c724ccd --flavor 3 newserver
 
 
-It is highly recommended that you keep the Service Network available as it will allow your servers to talk to each other and other cloud products. More information on Cloud Networks can be found in our [Knowledge Center](http://www.rackspace.com/knowledge_center/taxonomy/term/1704) or in the [API documentation](http://docs.rackspace.com/servers/api/v2/cn-devguide/content/api_operations.html).
+It is highly recommended that you keep the Service Network available as it
+enables your servers to talk to each other and other cloud products. More
+information on Cloud Networks can be found in our
+[How-to](https://support.rackspace.com/how-to/cloud-networks/)
+or in the [API documentation](http://docs.rackspace.com/servers/api/v2/cn-devguide/content/api_operations.html).

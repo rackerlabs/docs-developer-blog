@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The New DevOps Blog
+title: The new DevOps blog
 date: '2012-12-06 12:07'
 comments: true
 author: Hart Hoover

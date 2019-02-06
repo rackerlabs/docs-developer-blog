@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rackspace SDK Update
+title: Rackspace SDK update
 date: '2013-06-18 09:21'
 comments: true
 author: Jesse Noller
@@ -9,17 +9,25 @@ categories:
   - SDK
   - jclouds
 ---
+
 {% img right 2013-06-17-rackspace-sdk-update/gear.png 200 %}
 
-We have some updates to share in regards to the [Rackspace SDKs][1]! Our SDKs are either maintained by contributing to existing projects (as in the case of jclouds or fog) or creating our own that we hope to extend to all OpenStack-based clouds. 
+We have some updates to share in regards to the [Rackspace SDKs][1]! Our SDKs
+are either maintained by contributing to existing projects (as in the case of
+jclouds or fog) or creating our own that we hope to extend to all OpenStack-based
+clouds.
 
 ###fog (Ruby)
 
 [fog][2] 1.12.1 was released on Monday.
 
-Among the Rackspace changes are the ability to upload large files, support for proxies when using Authentication v2.0, and a fix to address the lack of time zone on the last_modifed attribute.
+Among the Rackspace changes are the ability to upload large files, support for
+proxies when using Authentication v2.0, and a fix to address the lack of time
+zone on the last_modifed attribute.
 
-[Kyle Rames][3], the developer contributing to fog for Rackspace, has received some help from fellow Rackers. Chris Wuest has also made fog contributions and Zack Feldstein assisted with [knife-rackspace][4].
+[Kyle Rames][3], the developer contributing to fog for Rackspace, has received
+some help from fellow Rackers. Chris Wuest has also made fog contributions and
+Zack Feldstein assisted with [knife-rackspace][4].
 
 Not only that, but Kyle has been making these contributions as well:
 
@@ -30,33 +38,45 @@ Not only that, but Kyle has been making these contributions as well:
 
 ###pkgcloud (node.js)
 
-[pkgcloud][7] 0.8.2 released a little over a week ago. The last few updates to pkgcloud have been around Rackspace/OpenStack. You can read the changelog [here][8].
+[pkgcloud][7] 0.8.2 released a little over a week ago. The last few updates to
+pkgcloud have been around Rackspace/OpenStack. You can read the changelog [here][8].
 
-[Ken Perkins][9], a core maintainer for pkgcloud, is contributing a ton to make the node.js SDK spectacular. He's been driving in huge amounts of contributions, tests, support for Rackspace and more. The community is really taking notice!
+[Ken Perkins][9], a core maintainer for pkgcloud, is contributing a ton to make
+the node.js SDK spectacular. He's been driving in huge amounts of contributions,
+tests, support for Rackspace and more. The community is really taking notice!
 
 {% tweet https://twitter.com/rosskukulinski/status/345236875138703360 align='center' %}
 
 ###Pyrax (python)
 
-[Pyrax][10] 1.4.6 was released. Pyrax now supports all OpenStack clouds, as well as the ability to authenticate with an existing token. The addition of authenticating with an existing token was added at the specific request of [Team Charmander][11], the Rackspace team working on [Heat][12]. You can read the changelog for pyrax [here][13]. 
+[Pyrax][10] 1.4.6 was released. Pyrax now supports all OpenStack clouds, as well
+as the ability to authenticate with an existing token. The addition of
+authenticating with an existing token was added at the specific request of
+[Team Charmander][11], the Rackspace team working on [Heat][12]. You can read
+the changelog for pyrax [here][13].
 
-[Ed Leafe][14] has been focused on helping customers using Pyrax. He's a machine. Literally, we think he might be a robot!
+[Ed Leafe][14] has been focused on helping customers using Pyrax. He's a machine.
+Literally, we think he might be a robot!
 
 ###libcloud (Python)
 
-[Alex Gaynor][15] has been meeting with the current [libcloud][16] team to bring libcloud into the officially supported SDK family!
+[Alex Gaynor][15] has been meeting with the current [libcloud][16] team to bring
+libcloud into the officially supported SDK family!
 
 ###jclouds (Java)
 
-Zack Shoylev, [Everett Toews][17], [Jeremy Daggett][18], and others have been hard at work on [jclouds][19]. jclouds is also an official [Apache Software Foundation project][20]!
+Zack Shoylev, [Everett Toews][17], [Jeremy Daggett][18], and others have been
+hard at work on [jclouds][19]. jclouds is also an official [Apache Software Foundation project][20]!
 
-Zack is currently working on adding support for [Cloud Databases][21], Jeremy is working on Swift/Cloud Files, and Everett has been [advocating jclouds externally][22]:
+Zack is currently working on adding support for [Cloud Databases][21], Jeremy is
+working on Swift/Cloud Files, and Everett has been [advocating jclouds externally][22]:
 
 {% img center 2013-06-17-rackspace-sdk-update/everett.png 400 %}
 <p style="text-align: center; font-size: 80%">Everett Toews at Cloud Expo</p>
 
 ###php-opencloud (PHP)
-[Jamie Hannaford][23] recently added support for [Cloud Monitoring][24] to [php-opencloud][25]. We are still performing some tests before we formally release it.
+[Jamie Hannaford][23] recently added support for [Cloud Monitoring][24] to
+[php-opencloud][25]. We are still performing some tests before we formally release it.
 
 Keep checking back for more updates as we release them!
 

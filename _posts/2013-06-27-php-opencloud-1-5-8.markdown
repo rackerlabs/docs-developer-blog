@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'php-opencloud Now Supports Cloud Monitoring &amp; OpenStack Heat'
+title: 'php-opencloud now supports Cloud Monitoring &amp; OpenStack Heat'
 date: '2013-06-28 08:00'
 comments: true
 author: Hart Hoover
@@ -9,13 +9,23 @@ titlecase: false
 categories:
   - SDK
 ---
-Version 1.5.8 of [php-opencloud][1] is now available. In this release the PHP SDK now supports [OpenStack Heat][2] as well as [Rackspace Cloud Monitoring][3]. You can read the [release notes][4] for information related on what has changed. In this post, we will take a look at how to set up a Cloud Monitoring alarm using php-opencloud.<!-- more --> More documentation on configuring Cloud Monitoring is available in the php-opencloud [docs][5].
+Version 1.5.8 of [php-opencloud][1] is now available. In this release the PHP
+SDK now supports [OpenStack Heat][2] as well as [Rackspace Cloud Monitoring][3].
+You can read the [release notes][4] for information related on what has changed.
+In this post, we will take a look at how to set up a Cloud Monitoring alarm using
+php-opencloud.<!-- more --> More documentation on configuring Cloud Monitoring
+is available in the php-opencloud [docs][5].
 
-##Alarms
+### Alarms
 
-Alarms bind alerting rules, entities, and notification plans into a logical unit. Alarms are responsible for determining a state (```OK```, ```WARNING``` or ```CRITICAL```) based on the result of a Check, and executing a notification plan whenever that state changes. You create alerting rules by using the alarm DSL. For information about using the alarm language, refer to the [reference documentation](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/alerts-language.html).
+Alarms bind alerting rules, entities, and notification plans into a logical unit.
+Alarms are responsible for determining a state (```OK```, ```WARNING``` or
+```CRITICAL```) based on the result of a check, and executing a notification plan
+whenever that state changes. You create alerting rules by using the alarm DSL.
+For information about using the alarm language, refer to the
+[reference documentation](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/alerts-language.html).
 
-###Setup
+#### Setup
 
 ```php
 require_once 'path/to/lib/php-opencloud.php';
@@ -34,7 +44,8 @@ $connection = new OpenStack(
 $monitoringService = new Service($connection);
 ```
 
-Please be aware that Alarms are sub-resources of Entities, so you will need to associate an Alarm to its parent Entity before exploiting its functionality.
+Be aware that alarms are sub-resources of entities, so you need to associate an
+alarm to its parent entity before exploiting its functionality.
 
 ```php
 $entity = $monitoringService-resource('entity');
@@ -44,7 +55,8 @@ $alarm = $monitoringService->resource('alarm');
 $alarm->setParent($entity); // Associate
 ```
 
-###Create alarm
+#### Create alarm
+
 ```php
 $alarm->create(array(
 	'check_id' => 'chAAAA',
@@ -53,7 +65,8 @@ $alarm->create(array(
 ));
 ```
 
-###List alarms
+#### List alarms
+
 ```php
 $alarmList = $alarm->listAll();
 
@@ -62,7 +75,8 @@ while ($alarm = $alarmList->Next()) {
 }
 ```
 
-###Get, update and delete alarm
+#### Get, update and delete alarm
+
 ```php
 $alarm->id = 'newAlarmId';
 

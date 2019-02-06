@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Scheduled Images On The Open Cloud
+title: Scheduled Images on the Open Cloud
 date: '2013-07-02 08:00'
 comments: true
 author: Brian Rosmaita
@@ -8,11 +8,14 @@ published: true
 categories:
   - Cloud Servers
 ---
-So there's this feature in our first generation  Cloud Servers called "backup schedules;" you may
-have heard of it.  A lot of people liked it so much that they told us
-they didn't want to move to the Rackspace Open Cloud until we built
-something like it there.  So we did.  We're calling this feature
-"Scheduled Images." <!-- more -->
+
+So there's this feature in our first generation Cloud Servers called
+**backup schedules**. You may have heard of it.  A lot of people liked
+it so much that they told us that they didn't want to move to the
+Rackspace Open Cloud until we built something like it there.  So we did.
+We're calling this feature **Scheduled Images.**
+
+<!-- more -->
 
 First, let me explain what this feature does: it takes a daily snapshot of your server
 without any intervention by you.   Whether the resulting image is a
@@ -45,11 +48,11 @@ Scheduled images can be activated for any of your servers by using the
 Cloud Control Panel, the Cloud Servers API (with the Rackspace
 Scheduled Images Extension) or by using the python-novaclient (with
 the Rackspace Scheduled Images Novaclient extension). It's a very simple feature to understand and
-use.  
+use.
 
 The following links tell you pretty much everything you need to
 know to use it:
 
 *  [Rackspace Scheduled Images API Extension documentation](http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_extensions.html#scheduled_images)
-*  [Using the python-novaclient to manage scheduled images](http://www.rackspace.com/knowledge_center/article/using-python-novaclient-to-manage-scheduled-images)
-*  [The Scheduled Images FAQ](http://www.rackspace.com/knowledge_center/article/scheduled-images-faq)
+*  [Using the python-novaclient to manage scheduled images](https://support.rackspace.com/how-to/using-python-novaclient-to-manage-scheduled-images/)
+*  [The Scheduled Images FAQ](https://support.rackspace.com/how-to/scheduled-images-faq/)

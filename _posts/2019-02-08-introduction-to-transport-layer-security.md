@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Introduction to transport layer security"
-date: 2019-01-24 00:00
+date: 2019-02-08 00:00
 comments: true
-author: Ajay Sharma
+author: Brijesh Tiwari
 published: true
 authorIsRacker: true
 categories:
@@ -51,12 +51,14 @@ Perform the following tasks to enable TLS with EBS:
 - Get the certified .csr file from a certificate authority
 - Download and import certificates into EBS
 - Make configuration changes
+- Run Autoconfig
+- Verify URL
 
-#### Upgrade JDK and Web Home
+#### 1. Upgrade JDK and Web Home
 
 Upgrade to JDK7 or above and and upgrade Web Home to version 10.1.3.5.
 
-#### Apply mandatory patches
+#### 2. Apply mandatory patches
 
 Install the following patches (or the most recent released patch):
 
@@ -66,7 +68,7 @@ Install the following patches (or the most recent released patch):
 - Oracle Process Manager and Notification Server (OPMN) (27208670)
 - EBS (22724663, 22922530, and 22974534)
 
-#### OpenSSL configuration
+#### 3. Configure OpenSSL
 
 Create an OpenSSL configuration file by executing the following commands:
 
@@ -92,7 +94,7 @@ Create the following **new.cnf** file to use as a response file for OpenSSL:
     [ext]
     subjectAltName = DNS:*. corp.aspentech.com
 
-#### Generate a CSR file
+#### 4. Generate a CSR file
 
 Use the following steps to generate a **.csr** file:
 
@@ -108,11 +110,11 @@ Use the following steps to generate a **.csr** file:
 
 3. If the information is correct, send the .csr to a certificate authority (CA).
 
-#### Get the CSR from the CA
+#### 5. Get the CSR from the CA
 
 The CA should send you a server certificate and certificate chain files.
 
-#### Download and import the certificate files
+#### 6. Download and import the certificate files
 
 After receiving the server certificate and certificate chain files from the CA,
 perform the following steps:
@@ -240,7 +242,7 @@ If you are using end-to-end TLS, make the following changes:
 | s\_login\_page              | URL constructed with https protocol, s\_webentryhost, s\_webentrydomain, s\_active\_webport |
 | s\_external\_url            | URL constructed with https protocol, s\_webentryhost, s\_webentrydomain, s\_active\_webport |
 
-#### Make configuration changes
+#### 7. Make configuration changes
 
 Make the following specified changes to files:
 
@@ -315,11 +317,11 @@ Update these custom files by adding the following line:
      https.protocols=TLSv1,TLSv1.1,TLSv1.2
 
 
-#### Run Autoconfig
+#### 8. Run Autoconfig
 
 Run `adautocfg.sh` in the application tier **$ADMIN_SCRIPTS_HOME** directory.
 
-#### Perform final verification
+#### 9. Perform final verification
 
 Verify the URL, which should look like the following example:
 

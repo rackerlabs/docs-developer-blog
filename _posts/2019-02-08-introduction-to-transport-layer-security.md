@@ -215,7 +215,7 @@ Perform the following steps to update the JDK **cacerts** file:
 Make the following TLS-related parameter changes in the XML file:
 
 | Parameter                   |&nbsp;&nbsp;| Non-TLS Value                                     |&nbsp;&nbsp;| TLS Enabled Value                                       |
-|-----------------------------|------------|---------------------------------------------------|&nbsp;&nbsp;|---------------------------------------------------------|
+|-----------------------------|------------|---------------------------------------------------|------------|---------------------------------------------------------|
 | s\_url\_protocol            |&nbsp;&nbsp;| http                                              |&nbsp;&nbsp;| https                                                   |
 | s\_local\_url\_protocol     |&nbsp;&nbsp;| http                                              |&nbsp;&nbsp;| https                                                   |
 | s\_webentryurlprotocol      |&nbsp;&nbsp;| http                                              |&nbsp;&nbsp;| https                                                   |

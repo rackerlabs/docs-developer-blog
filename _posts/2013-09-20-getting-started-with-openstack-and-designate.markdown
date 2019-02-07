@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Getting Started with OpenStack and Designate
+title: Getting started with OpenStack and Designate
 date: '2013-09-20 09:18'
 comments: true
 author: Tim Simmons
@@ -14,13 +14,13 @@ categories:
 
 A few weeks ago my team at Rackspace began investigation into the DNS as a Service application of Openstack, [Designate][1]. I’d like to share the method that my team and I formulated for getting a development environment for Designate up and running quickly. This set-up doesn’t include an OpenStack installation so there is no integration with Keystone or Nova. It’s the simplest possible installation, a great way for anyone to get started in contributing to OpenStack. Credit to the folks working on Designate for the original document.<!-- more -->
 
-**Initial Setup**
------------------
+### Initial setup
+
 
 The first thing you need is an Ubuntu Server (12.04). I recommend spinning up a [Cloud Server][2] with Rackspace. It’s relatively inexpensive and very slick. Assuming you have access to a server we can start installation.
 
-**Installing Designate**
-------------------------
+### Install Designate
+
 
 **1) Install system package dependencies:**
 
@@ -54,7 +54,7 @@ The first thing you need is an Ubuntu Server (12.04). I recommend spinning up a 
 
     $ cd etc/designate
 
-    $ ls *.sample | while read f; do cp $f $(echo $f | sed 
+    $ ls *.sample | while read f; do cp $f $(echo $f | sed
 
     "s/.sample$//g"); done
 
@@ -84,8 +84,7 @@ $ sudo chmod 0440 /etc/sudoers.d/90-designate
 $ mkdir /var/log/designate
 ```
 
-**Configure Designate**
-------------------------
+### Configure Designate
 
 ```
 $ editor designate.conf
@@ -94,8 +93,7 @@ $ editor designate.conf
 Copy or mirror the configuration from this sample file [here][3].
 
 
-**Start the Central Services**
-------------------------
+#### Start the central services
 
 ```
 #Initialize and sync the Designate database:
@@ -120,32 +118,32 @@ $ designate-central
 
 You’ll now be seeing the log from the central service.
 
-**Start the API Service**
-------------------------
+### Start the API service
 
 Open up a new ssh window and log in to your server (or however you’re communicating with your server).
 
-```
-$ cd root/designate
-#Make sure your virtualenv is sourced 
-$ . .venv/bin/activate
-$ cd etc/designate
-#Start the API Service
-$ designate-api
-#You may have to run root/designate/bin/designate-api```
-```
+    $ cd root/designate
+    #Make sure your virtualenv is sourced
+    $ . .venv/bin/activate
+    $ cd etc/designate
+    #Start the API Service
+    $ designate-api
+    #You may have to run root/designate/bin/designate-api
+
 
 You’ll now be seeing the log from the API service.
 
-**Exercising the API**
-------------------------
+### Exercising the API
+
 
 Calls to the Designate API can be made using the following format:
 
-http://IP.Address:9001/v1/command
+    http://IP.Address:9001/v1/command
 
-In a web browser, curl statement, Rest client where “command” is any of the commands listed in the Designate Documentation
-You can find the IP Address of your server by running
+Enter in a web browser, curl statement, or ReST client any of the
+commands listed in the Designate Documentation.
+
+You can find the IP Address of your server by running:
 
 ```
  wget http://ipecho.net/plain -O - -q ; echo
@@ -160,7 +158,8 @@ A couple of notes on the API:
 
 Happy Designating! If you would like to contribute to Designate, come and [join us][5].
 
-###About the Author
+### About the author
+
 Tim Simmons is a Rackspace intern on the Cloud DNS team. Recently, the
 team evaluated the OpenStack DNSaaS solution, Designate. Tim took an
 active role in the investigation; he wrote a "Getting Started" guide

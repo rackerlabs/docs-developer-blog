@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Code for America Update
+title: Code for America update
 date: '2013-10-16 12:54'
 comments: true
 author: Glen Campbell

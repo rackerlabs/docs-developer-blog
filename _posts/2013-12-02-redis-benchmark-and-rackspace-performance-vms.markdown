@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Redis Benchmark &amp; Rackspace Performance VMs'
+title: 'Redis-Benchmark &amp; Rackspace performance VMs'
 date: '2013-12-09 12:30'
 comments: true
 author: Ken Perkins
@@ -38,7 +38,7 @@ In both cases, I used 1gb virtual machines, running
 `Ubuntu 13.04 (Raring Ringtail) (PVHVM beta)` in the ORD datacenter. Redis is
 version `2.6.7` and I ran the test 5 times on each machine.
 
-### Redis-Benchmark w/o Pipelining
+### Redis-Benchmark w/o pipelining
 
 <img src="{% asset_path 2013-12-02-redis-benchmark-rackspace-performance-vm/redis-benchmark-no-pipelining.png %}">
 
@@ -46,7 +46,7 @@ version `2.6.7` and I ran the test 5 times on each machine.
 
 <img src="{% asset_path 2013-12-02-redis-benchmark-rackspace-performance-vm/redis-benchmark-with-pipelining.png %}">
 
-#### The Raw Data
+#### The raw data
 
 <table class="stats">
  <tr>
@@ -110,7 +110,4 @@ I'm not claiming to be an expert on Redis performance, but it's obvious that
 **our new performance flavors kick ass**. We're seeing 35-45% faster results
 in the non-pipelined case, and 16-31% in the pipelined case. Not bad
 considering we made the pricing even more competitive.
-
-If you haven't already signed up for our [Developer Trial](https://developer.rackspace.com/devtrial)
-you should to give the new servers a spin, hopefully these numbers will help entice you!
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Zero to Peanut Butter Docker Time in 78 seconds
+title: Zero to Peanut Butter Docker time in 78 seconds
 date: '2013-11-11 12:00'
 comments: true
 author: Jesse Noller
@@ -17,7 +17,7 @@ Two cool things - [Performance Cloud Servers][1] and [Docker][2] - what I want t
 
 <!-- more -->
 
-#### First, what is Docker
+### First, what is Docker
 
 {% img center 2013-11-11-peanut-butter-docker-time/docker-transparent.png 400 %}
 
@@ -35,7 +35,7 @@ This is all pretty amazing - and not to mention the latest Nova release in [Open
 
 {% img center 2013-11-11-peanut-butter-docker-time/yodawg.jpg 500 %}
 
-#### Let's do this.
+### Let's do this.
 
 Ok, so I'm going to ride the command line like a cowboy - using the [rackspace-novaclient][8] configured like this:
 
@@ -93,7 +93,7 @@ If I'm doing my math right - which is always questionable - that's 42 seconds to
 
 {% img center 2013-11-11-peanut-butter-docker-time/mind_blown.gif %}
 
-#### Doing something neat-o
+### Doing something neat-o
 
 Ok. So using our new [Performance Cloud Servers][1] - and the awesome packaging/installation work of the Docker team, you can boot a Docker server in under two minutes. Let's go and check out the [Docker Registry][10] for something cool to deploy. Doing a quick search, let's just deploy [Ken Cochrane's] [example Django application][11]:
 
@@ -121,7 +121,7 @@ All of these fit into the 1GB Performance Cloud Server (~20,000 average IOPS/sec
 
 So many IOPS. So Docker. Wow.
 
-Any questions, comments or concerns? You can reach out to me ([Jesse Noller][1]) on [Twitter][2], [email the developer support team](mailto:sdk-support@rackspace.com), ping [@Rackspace](https://twitter.com/Rackspace) on Twitter, or even reach out to [help@rackspace.com](mailto:help@rackspace.com).
+Any questions, comments or concerns? You can reach out to me ([Jesse Noller][1]) on [Twitter][2], ping [@Rackspace](https://twitter.com/Rackspace) on Twitter, or even reach out to [help@rackspace.com](mailto:help@rackspace.com).
 
 
 [1]: http://developer.rackspace.com/blog/welcome-to-performance-cloud-servers-have-some-benchmarks.html

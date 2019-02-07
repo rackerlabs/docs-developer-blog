@@ -1,15 +1,33 @@
 ---
 layout: post
-title: 11 Things To Remember When Writing A User Guide
+title: 11 things to remember when writing a user guide
 date: '2013-09-11 13:00'
 comments: true
 author: Don Schenck
 published: true
-categories: []
+categories:
+  - General
 ---
-One of the more pressing needs in the world of open source software is the need for decent documentation. That covers a lot of territory; from well-commented code (yeah… right) to API guides to the rare – some say mythical – user guide.
 
-It's that last one, the user guide, that is often either not created or – perhaps worse – created as an afterthought by a developer whose writing skills are better aligned with Javascript than [Strunk][1]. When I joined the Developer Relations Group at Rackspace in July (be sure to check out the [Rackspace Developer Center][2] if you haven't already), I immediately decided to create a user guide for the [OpenStack SDK for Microsoft .NET][3]. While creating that document, I realized that many developers don't have a passion for writing documentation. Fair enough – I've never watched Game of Thrones. So, as a former sportswriter and an active coder (C# is my poison, mobile apps my passion), I have come up with a list of guidelines to help you craft a Pulitzer-worthy user guide. These suggestions (11 of them, yup, my list goes to 11!) were not developed through any sort of scientific process; rather, they are the result of more years of experience than I care to admit. <!-- more -->
+One of the more pressing needs in the world of open source software is the need
+for decent documentation. That covers a lot of territory; from well-commented
+code (yeah… right) to API guides to the rare – some say mythical – user guide.
+
+It's that last one, the user guide, that is often either not created or –
+perhaps worse – created as an afterthought by a developer whose writing skills
+are better aligned with Javascript than [Strunk][1]. When I joined the Developer
+Relations Group at Rackspace in July (be sure to check out the
+[Rackspace Developer Center][2] if you haven't already), I immediately decided
+to create a user guide for the [OpenStack SDK for Microsoft .NET][3]. While
+creating that document, I realized that many developers don't have a passion
+for writing documentation. Fair enough – I've never watched Game of Thrones.
+So, as a former sportswriter and an active coder (C# is my poison, mobile apps
+my passion), I have come up with a list of guidelines to help you craft a
+Pulitzer-worthy user guide. These suggestions (11 of them, yup, my list goes to 11!)
+were not developed through any sort of scientific process; rather, they are the
+result of more years of experience than I care to admit.
+
+<!-- more -->
 
 1. <h4>Assume your audience knows very little about the subject and nothing about your software.</h4>
 
@@ -58,14 +76,16 @@ It's that last one, the user guide, that is often either not created or – perh
 	You’re not writing their CRM system (“Don! That’s a TLA!”), you’re showing how to use your code. Don’t try to do everything, just enough to get them rolling. To that end…
 
 9.	<h4>Leave them wanting more.</h4>
-Your tendency will be toward showing off everything. Don’t.
+
+   Your tendency will be toward showing off everything. Don’t.
 
 	First of all, it’s a Getting Started guide, not a book. You can always create an advanced guide or cookbook. This is not the time nor place. You’re getting them started and moving them in the right direction so they can working on their own.
 
 	Also, there’s a concept in the world of design known as “discovery.” It’s where you don’t show or tell everything, but rather leave things for the user to discover. This is a very powerful and often-overlooked concept. It rewards and attracts the viewer as they discover some new feature. It creates an investment as the user realizes that they’re finding, learning and using new things. Steer them in the right direction and then turn them loose – they’ll end up doing things you never imagined.
 
 10.	<h4>Lists should be numbered.</h4>
-This is personal for me. If I were King of the World, all lists would be numbered. Honestly, it just makes life easier to refer to “item number four” instead of “Yeah, the idea of real-world example…” Do this all the time; I and the rest of the world will thank you.
+
+   This is personal for me. If I were King of the World, all lists would be numbered. Honestly, it just makes life easier to refer to “item number four” instead of “Yeah, the idea of real-world example…” Do this all the time; I and the rest of the world will thank you.
 
 11.	<h4>All lists should have an odd number.</h4>
 

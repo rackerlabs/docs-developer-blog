@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cloud Databases - Java Developer Highlights
+title: 'Cloud Databases: Java developer highlights'
 date: '2013-11-21 14:10'
 comments: true
 author: Zack Shoylev

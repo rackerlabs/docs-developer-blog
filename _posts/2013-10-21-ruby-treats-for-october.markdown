@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ruby Treats For October
+title: Ruby treats For October
 date: '2013-10-23 09:00'
 comments: true
 author: Kyle Rames
@@ -23,6 +23,7 @@ Highlights include:
 * Cloud Servers now retrieves **full details** for **flavor** and **image** calls.
 
 Auto scaling is our favorite new feature. To help you get started right away, we have created a [quick start guide](https://github.com/fog/fog/blob/master/lib/fog/rackspace/docs/auto_scale.md) and have included several [examples](https://github.com/fog/fog/tree/master/lib/fog/rackspace/examples/auto_scale).
+
 <!-- more -->
 
 
@@ -55,6 +56,7 @@ For example to list servers in the IAD data center you would execute the followi
 
     REGION=iad rumm show servers
 
-# About the Author
+### About the Author
+
 Kyle Rames is a developer advocate for the Rackspace Cloud specializing in all things Ruby. You can follow him on twitter [@krames](http://twitter.com/krames) and on Github as [krames](https://github.com/krames).
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hack4Good And Make The World Better
+title: Hack4Good and make the world better
 date: '2013-10-02 08:38'
 comments: true
 author: Vyjayanthi Vadrevu

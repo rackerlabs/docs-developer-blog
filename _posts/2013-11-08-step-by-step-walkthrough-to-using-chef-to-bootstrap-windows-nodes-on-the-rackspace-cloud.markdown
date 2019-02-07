@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Step-by-step walkthrough to using Chef to bootstrap Windows Nodes on the Rackspace Cloud
+title: Step-by-step walkthrough to using Chef to bootstrap Windows nodes on the Rackspace Cloud
 date: '2013-11-08 09:30'
 comments: true
 author: Nico Engelen
@@ -31,7 +31,7 @@ Read on, if you dare...
 
 <!-- more -->
 
-##Acknowledgements
+### Acknowledgements
 
 For the simplicity of this walkthrough, I am using a single CentOS server to
 act as Chef Server and Chef Workstation at the same time. I have also used the
@@ -45,7 +45,7 @@ I have therefore replaced all occurences of it with <IP_ADDR>. Please just
 replace that with the IP address that the nova show command is returning for
 you. Having said that, let's get cracking.
 
-##Prerequisites
+### Prerequisites
 
 You will obviously need a Rackspace Cloud Account for this. If you haven't
 got one yet, go sign up for it [here](http://developer.rackspace.com/devtrial/),
@@ -58,7 +58,7 @@ so you can spin up Cloud Servers from the command line. I called my server
 nova-serv but feel free to call it whatever you like. Once that's done,
 you're ready to go.
 
-##Spin up the Cloud Server instance
+### Spin up the Cloud Server instance
 
 First of all, let's spin up a new Rackspace Cloud Server, running CentOS 6.4
 with 512MB of RAM. While we're at it, let's also inject our SSH RSA public key
@@ -119,7 +119,7 @@ Check back after a few minutes and the build process shoud have completed
     | metadata               | {}                                         |
     +------------------------+--------------------------------------------+
 
-##Spin up the Windows Cloud Server we are bootstrapping later
+### Spin up the Windows Cloud Server we are bootstrapping later
 
 Create a bootstrap.cmd in the current directory and make put the following
 content in. Make sure to change the IP (<IP_ADDR>) and the hostname (chef-serv)
@@ -172,7 +172,7 @@ And now boot a Cloud Server from the Windows Server 2012 image injecting our boo
 	| metadata               | {}                                   |
 	+------------------------+--------------------------------------+
 
-##Installing Chef Server on our CentOS server
+### Install Chef Server on our CentOS server
 
 OK, let's get onto the CentOS server we spun up above, this should be trusting our SSH key so no need to enter a password.
 
@@ -295,7 +295,8 @@ Done. You should now have a Chef Server running as well as the chef-client insta
 	    -h, --help                       Show this message
 
 
-##Bootstrapping our Windows Server with knife
+### Bootstrap our Windows Server with knife
+
 Quickly log out to check on the status of our Cloud Windows Server build (I'll be back).
 
 	[root@chef-serv ~]# logout

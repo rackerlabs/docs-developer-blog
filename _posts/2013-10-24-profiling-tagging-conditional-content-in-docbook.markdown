@@ -1,11 +1,12 @@
 ---
 layout: post
-title: 'DocBook Tips: Profiling (Conditional Content)'
+title: 'DocBook tips: Profiling (conditional content)'
 date: '2013-10-24 10:00'
 comments: true
 author: Diane Fleming
 published: true
-categories: []
+categories:
+  - General
 ---
 
 Diane Fleming works heavily on the OpenStack API documentation - in this post

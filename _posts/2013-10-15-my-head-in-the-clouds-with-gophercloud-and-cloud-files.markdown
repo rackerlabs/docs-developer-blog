@@ -1,6 +1,6 @@
 ---
 layout: post
-title: My Head In the Clouds with Gophercloud and Cloud Files
+title: My head in the clouds with Gophercloud and Cloud Files
 date: '2013-10-15 12:00'
 comments: true
 author: Samuel A. Falvo II
@@ -12,8 +12,7 @@ categories:
 What ever happened to Gophercloud's Cloud Files support?
 And, when will Gophercloud finally become multi-vendor?
 I plan on completing these two items in that exact order
-in the coming months, but
-it will take some time.
+in the coming months, but it will take some time.
 
 <!-- more -->
 

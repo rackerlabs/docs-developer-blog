@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Neutron Networking: VLAN Provider Networks'
+title: 'Neutron networking: VLAN provider networks'
 date: '2013-11-25 10:00'
 comments: true
 author: James Denton
@@ -15,7 +15,7 @@ In this multi-part blog series I intend to dive into the various components of t
 
 In the previous installment, [Neutron Networking: Simple Flat Network](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html), I demonstrated an easy method of providing connectivity to instances using an untagged flat network. In this third installment, I’ll describe how to build multiple provider networks using 802.1q vlan tagging.<!-- more -->
 
-####Getting Started / VLAN vs Flat Design
+### Getting started: VLAN vs flat design
 
 One of the negative aspects of a flat network is that it’s one large broadcast domain. Virtual Local Area Networks, or VLANs, aim to solve this problem by creating smaller, more manageable broadcast domains. From a security standpoint, flat networks provide malicious users the potential to see the entire network from a single host.
 
@@ -27,19 +27,19 @@ The diagrams below are examples of traditional flat and vlan-segregated networks
 
 {% img center 2013-11-21-neutron-networking-vlan-provider-networks/VLAN_Provider_1.3.png %}
 
-####VLAN Tagging / What is it and how does it work?
+### VLAN tagging: What is it and how does it work?
 
 At a basic level on a Cisco switch there are two types of switchports: access ports and trunk ports. Switchports configured as access ports are placed into a single vlan and can communicate with other switchports in the same vlan. Switchports configured as trunks allow traffic from multiple vlans to traverse a single interface. The switch adds a tag to the Ethernet frame that contains the corresponding vlan ID as the frame enters the trunk. As the frame exits the trunk on the other side, the vlan  tag is stripped and the traffic forwarded to its destination. Common uses of trunk ports include uplinks to other switches and more importantly in our case, hypervisors serving virtual machines from various networks.
 
 {% img center 2013-11-21-neutron-networking-vlan-provider-networks/VLAN_Provider_1.4.png %}
 
-####VLAN Tagging / How does this apply to Neutron?
+### VLAN Tagging: How does this apply to Neutron?
 
 In the [previous installment](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html) I discussed flat networks and their lack of vlan tagging.  All hosts in the environment were connected to access ports in the same vlan, thereby allowing hosts and instances to communicate with one another on the same network. VLANs allow us to not only separate host and instance traffic, but to also create multiple networks for instances similar to the DMZ and INSIDE scenarios above.
 
 Neutron allows users to create multiple provider or tenant networks using vlan IDs that correspond to real vlans in the data center. A single OVS bridge can be utilized by multiple provider and tenant networks using different vlan IDs, allowing instances to communicate with other instances across the environment, and also with dedicated servers, firewalls, load balancers and other networking gear on the same Layer 2 vlan.
 
-####Networking / Layout
+### Networking: Layout
 
 For this installment, a Cisco ASA 5510 will once again serve as the lead gateway device. In fact, I’ll be building upon the configuration already in place from the flat networking demonstration in the [previous installment](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html). 10.240.0.0/24 will continue to serve as the management network for hosts and the flat provider network, and two new provider networks will be created:
 
@@ -51,7 +51,7 @@ A single interface on the servers will be used for both management and provider 
 
 {% img center 2013-11-21-neutron-networking-vlan-provider-networks/VLAN_Provider_1.5.png %}
 
-####Networking / Configuration of Network Devices
+### Networking: Configuration of network devices
 
 The Cisco ASA was chosen for this example since it’s readily available at my location. Interface e0/0 should be configured with your WAN IP. Interface e0/1 will be split into sub-interfaces in my example, but you can leverage separate interfaces if you’ve got them. e0/1.100 must be configured with an IP address that will serve as the gateway for hosts and instances using the flat provider network:
 
@@ -70,7 +70,7 @@ interface Ethernet0/1.100
   ip address 10.240.0.1 255.255.255.0
 ```
 
-e0/1.200 and e0/1.300 will be utilized for the new INSIDE and DMZ vlans, respectively:
+e0/1.200 and e0/1.300 is used for the new INSIDE and DMZ vlans, respectively:
 
 ```
 interface Ethernet0/1.200
@@ -100,7 +100,7 @@ interface GigabitEthernet0/1
 end
 ```
 
-Server switchports will look similar, but vlan 100 will need to be the native vlan (untagged) due to its use as both a flat provider network and the management network:
+Server switchports looks similar, but vlan 100 needs to be the native vlan (untagged) due to its use as both a flat provider network and the management network:
 
 ```
 interface GigabitEthernet0/1
@@ -114,7 +114,7 @@ interface GigabitEthernet0/1
 end
 ```
 
-####Networking / Configuration of Servers
+### Networking: Configuration of servers
 
 If you followed the [previous installment](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html) and successfully configured a bridge in OVS and a flat provider network, the proper server network configuration should already be in place. If you haven’t, there’s a good chance your servers have their IP configured directly on eth0. To utilize Neutron, the hosts must have a network bridge configured. This can be accomplished one of two ways:
 
@@ -154,7 +154,7 @@ TIP: Do not set br-eth0 to auto. Because of the order that processes are started
 ifup br-eth0
 ```
 
-####Networking / Open vSwitch Configuration
+### Networking: Open vSwitch configuration
 
 Creating the network bridge in Open vSwitch is a requirement for proper management of traffic. The previous installment covered this, so it may not be necessary to configure if it’s still in place.
 
@@ -166,7 +166,7 @@ ovs-vsctl add-port br-eth0 eth0
 ```
 The creation and configuration of the bridge enables the instances to communicate on the network. At a minimum, bridges must be configured on the compute and network nodes. Since we're running the network services on the controller instead of using a dedicated network node, the compute and controller nodes should have the bridge configured.
 
-#####Changes to Environment (RPC v4)
+#### Changes to environment (RPC v4)
 
 When using RPC v4, most configuration changes are handled via Chef. A few changes must be made to the environment file to utilize the bridge for Neutron networking. **If using RPC v4.2 (Havana), all quantum references should be changed to neutron.**
 
@@ -251,7 +251,7 @@ The resulting file would look something like this:
 
 Save the changes to the file and run chef-client on all the hosts to populate the changes.
 
-#####Changes to Environment (Other)
+#### Changes to environment (other)
 
 When using something other than RPC v4, such as the vanilla OpenStack, configuration changes must be made to the appropriate configuration files and services restarted manually.
 
@@ -270,7 +270,7 @@ bridge_mappings = ph-eth0:br-eth0
 
 The label ‘ph-eth0’ represents the provider bridge, in this case the bridge ‘br-eth0’. It will be used during the creation of networks in Neutron. It’s possible to have more than one provider bridge, especially when you have multiple switching infrastructures for various networks and services. Restart all Neutron and Open vSwitch services on all hosts for the changes to take effect.
 
-####Networking / OVS Confirmation
+### Networking: OVS confirmation
 
 Remember the bridge (br-eth0) we created in OVS earlier? At a high level, it can be looked at as our bridge to the physical network infrastructure. Neutron requires an ‘Integration Bridge’ that serves as the bridge to our virtual instances. The integration bridge connects vNICs and Neutron DHCP and L3 agents with virtual networks. Overriding the default value of ‘br-int’ is not recommended, as the bridge must be named the same on each host (controller/network/compute). RPC v4 creates this bridge during the chef-client run.
 
@@ -305,7 +305,7 @@ The bridge will need to be created manually in OVS if you are not using Chef:
 ovs-vsctl add-br br-int
 ```
 
-####Networking / Building a vlan provider network in Neutron
+### Networking: Building a vlan provider network in Neutron
 
 With the network devices and OVS configured, it’s time to build a vlan provider network in Neutron. Creating a vlan provider network requires at least two values: the name of the network and the provider bridge label. However, I recommend specifying the vlan segmentation ID to ensure parity with the infrastructure that was previously configured.
 
@@ -424,7 +424,7 @@ Created a new subnet:
 
 ```
 
-####Networking / Testing Connectivity
+### Networking: Testing connectivity
 
 Now that the networks have been built in Neutron, it’s time to test connectivity by spinning up some instances. Like the hosts, my instances are running [Ubuntu 12.04 LTS](http://cloud-images.ubuntu.com/precise/current/).
 
@@ -621,7 +621,7 @@ ubuntu@inside-instance:~$
 
 Because the Cisco ASA is the gateway device, all NAT translations should be configured there to provide external connectivity to/from these instances. Neutron floating IPs cannot be used in this example as they require the use of a Neutron router.
 
-####Summary
+### Summary
 
 With a limited amount of networking hardware one can create a functional private cloud based on [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) powered by [OpenStack](http://www.openstack.org). While the use of vlan provider networks allows for more flexibility over a ‘flat’ design, it still requires interaction with hardware routers and switches for every network and subnet that gets created. In the case where the use of the L3 agent isn’t possible or necessary, vlan-based configurations can still provide users with a secure and scalable cloud experience.
 

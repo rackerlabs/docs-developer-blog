@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'New Features in Cloud Servers: Key Pairs and Manual Disk Partitioning'
+title: 'New features in Cloud Servers: Key pairs and manual disk partitioning'
 date: '2013-09-05 08:00'
 comments: true
 author: Trey Hoehne
@@ -15,7 +15,7 @@ that end we would like to save you some time with a couple of new features
 available for building Cloud Servers, Server Key Pairs and the Disk
 Partition option. <!-- more -->
 
-##Server Key Pairs
+### Server key pairs
 
 Previously, managing server access for new builds was accomplished one
 of two ways: key injection at boot via the API with [Server Personality][1]
@@ -80,17 +80,16 @@ If you’re not using the novaclient or you’re interacting with the API
 via one of the SDKS, here is the full [documentation][2] on available actions
 for Server Key Pairs in the API.
 
-##Server Disk Partition
+### Server disk partition
 
 This feature has been available via the API for some time but was
 recently added to the Customer Control Panel as the Disk Partition
-option. The full details are available in the API [documentation][3] and the
-[knowledge center][4] but in a nutshell this feature determines how your
-server’s disk is partitioned on build.
+option. In a nutshell, this feature determines how your server’s disk is
+partitioned on build.
 
 A Linux image is built with a default 20GB root partition; this root
 partition is then expanded to encompass the extra disk that comes with
-the available server flavors. 
+the available server flavors.
 
 The larger the disk, the more time it takes to format and expand the
 root partition to utilize that extra space. This is great if you know
@@ -117,4 +116,3 @@ Here at Rackspace we're always happy to bring you new and useful features to mak
 [1]: http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Server_Personality-d1e2543.html
 [2]: http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ServersKeyPairs-d1e2545.html
 [3]: http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_extensions.html#diskconfig_attribute
-[4]: http://www.rackspace.com/knowledge_center/article/understanding-and-using-automatic-and-manual-disk-partitioning-in-the-rackspace-cloud

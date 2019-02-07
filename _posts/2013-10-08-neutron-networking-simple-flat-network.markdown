@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Neutron Networking: Simple Flat Network'
+title: 'Neutron Networking: Simple flat network'
 date: '2013-10-08 17:00'
 comments: true
 author: James Denton
@@ -17,7 +17,7 @@ In the previous installment, [Neutron Networking: The Building Blocks of an Open
 
 _New to OpenStack? Rackspace offers a complete open-source package, [Rackspace Private Cloud Software](http://www.rackspace.com/cloud/private/), that you're welcome to use at no cost. Download and follow along._
 
-####Getting Started / What is a flat network?####
+### Getting started: What is a flat network?
 
 For those coming from previous Essex- or Folsom-based Rackspace Private Cloud installations, flat networking in Neutron resembles the Flat DHCP model in Nova networking. For those new to the game, a flat network is one in which all instances reside on the same network (which may also be shared by the hosts). No vlan tagging takes place, and Neutron handles the assignment of IPs to instances using DHCP. Therefore, it’s possible to use unmanaged SOHO network switches to build a simple Neutron-based cloud, since there’s no need to configure switchports.
 
@@ -26,13 +26,13 @@ For those coming from previous Essex- or Folsom-based Rackspace Private Cloud in
 _The diagram above represents a simple Neutron networking configuration that utilizes a flat provider network for connectivity of instances to the Internet._
 
 
-####Networking / Layout####
+### Networking: Layout
 
 In the following diagram, a Cisco ASA 5510 is serving as the lead gateway device, with a Cisco 2960G access switch connecting the firewall and servers together via VLAN 1. 10.240.0.0/24 was chosen as the management network for hosts, but will also serve as a provider network for instances. We’ll be using a single interface on the servers for both management and provider network connectivity.
 
 ![](http://i.imgur.com/iogcVgo.png "Sample Flat Layout")
 
-####Networking / Configuration of Physical Devices####
+### Networking: Configuration of physical devices
 
 The Cisco ASA was chosen for this example as it’s readily available at my location. Any router or firewall should be sufficient as long as you’re able to disable DHCP on the inside interface (you don’t want it to conflict with Neutron, after all).
 
@@ -89,7 +89,7 @@ exit 0
 ```
 
 
-####Networking / Open vSwitch Configuration####
+### Networking: Open vSwitch configuration
 
 Briefly mentioned in the previous installment, [Neutron Networking: The Building Blocks of an OpenStack Cloud](http://developer.rackspace.com/blog/neutron-networking-the-building-blocks-of-an-openstack-cloud.html), was Open vSwitch – the virtual switching infrastructure utilized by Neutron. Creating the bridge in Open vSwitch is a requirement for proper management of traffic.
 
@@ -102,7 +102,7 @@ ovs-vsctl add-port br-eth0 eth0
 
 The creation and configuration of the bridge enables the instances to communicate on the network.
 
-#####Changes to Environment (RPC v4)#####
+#### Changes to environment (RPC v4)
 
 When using RPC v4, most configuration changes are handled via Chef. A few changes must be made to the environment file to utilize the bridge for Neutron networking.
 
@@ -178,7 +178,7 @@ The resulting file would look something like this:
 
 Save the changes to the file and run chef-client on all the hosts to populate the changes.
 
-#####Changes to Environment (Other)#####
+#### Changes to environment (other)
 
 When using something other than RPC v4 (such as the OpenStack source), configuration changes must be made to the appropriate configuration files and services restarted manually.
 
@@ -197,7 +197,7 @@ bridge_mappings = ph-eth0:br-eth0
 
 The label ‘ph-eth0’ represents our provider interface, in this case the bridge ‘br-eth0’. It will be used during the creation of networks in Neutron. It’s possible to have more than one provider bridge, especially when you have multiple switching infrastructures for various networks and services. Restart all Neutron and Open vSwitch services on all hosts for the changes to take effect.
 
-####Networking / OVS Confirmation####
+### Networking:OVS confirmation
 
 Remember the bridge (br-eth0) we created in OVS earlier? At a high level, it can be looked at as our bridge to the physical network infrastructure. Neutron requires an ‘Integration Bridge’ that serves as the bridge to our virtual instances. The integration bridge connects vNICs and Neutron DHCP and L3 agents with virtual networks. Overriding the default value of ‘br-int’ is not recommended, as the bridge must be named the same on each host (controller/compute).
 RPC v4 creates this bridge during the chef-client run.
@@ -233,7 +233,7 @@ The bridge will need to be created manually in OVS if you are not using Chef:
 ovs-vsctl add-br br-int
 ```
 
-####Networking / Building a flat provider network in Neutron####
+### Networking: Building a flat provider network in Neutron
 
 Now that the infrastructure is in place and the bridges are configured, it’s time to build a flat provider network in Neutron. Creating a flat provider network requires only two values: the name of the network and the provider bridge label. There are additional flags that can be specified, but these aren’t required for basic connectivity.
 
@@ -299,7 +299,7 @@ Created a new subnet:
 +------------------+-------------------------------------------------------+
 ```
 
-####Networking / Testing Connectivity####
+### Networking: Testing connectivity
 
 Now that the network has been built in Neutron, it’s time to test connectivity by spinning up an instance. Like the hosts, my instance is Ubuntu 12.04 LTS.
 
@@ -417,7 +417,7 @@ PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
 64 bytes from 8.8.8.8: icmp_req=3 ttl=46 time=14.4 ms
 ```
 
-####Summary####
+### Summary
 
 With a limited amount of networking hardware one can create a functional private cloud based on Rackspace Private Cloud powered by OpenStack. While the flat network model provides basic connectivity, it is best used in cases where scalability is not a concern, or where switches may be unmanageable.
 

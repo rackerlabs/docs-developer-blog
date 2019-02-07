@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Neutron Networking: The Building Blocks of an OpenStack Cloud'
+title: 'Neutron networking: The building blocks of an OpenStack Cloud'
 date: '2013-10-03 08:56'
 comments: true
 author: James Denton
@@ -17,7 +17,7 @@ In this first installment, I’ll briefly highlight Neutron features and termino
 _New to OpenStack? Rackspace offers a complete open-source package, [Rackspace Private Cloud Software](http://www.rackspace.com/cloud/private/), that you're welcome to use at no cost. Download and follow along._
 
 
-####Getting Started / What is Neutron?####
+### Getting started: What is Neutron?#
 
 Search the Internet for “Quantum Networking” and you’re bound to be overwhelmed with articles on the building blocks of our universe rather than the building blocks of OpenStack. The recent name change from Quantum to Neutron makes relevant information easier to find, but it’s clear that the community is in dire need of real-world networking examples.
 
@@ -31,7 +31,7 @@ Before we can dig into the configuration of Neutron, it’s important to underst
 
 Thanks to its pluggable infrastructure, third-party and community developers can create plugins to extend the use and capabilities of Neutron within a cloud. There are plugins for LBaaS (load-balancing as a service), VPNaaS (VPN-as-a-service), Layer 2, Layer 3 and more.
 
-####Open vSwitch / How does it fit?####
+### Open vSwitch: How does it fit?
 
 Open vSwitch is an open source, software-based virtual switch that is utilized by Neutron. It can operate both as a soft switch running within the hypervisor, and as the control stack for physical switching devices. The Neutron openvswitch plugin consists of two components:
 
@@ -42,12 +42,12 @@ Open vSwitch is an open source, software-based virtual switch that is utilized b
 For OpenStack, Open vSwitch is installed as a kernel module or userspace-only process. Much like a physical switch, Open vSwitch is responsible for the proper tagging and forwarding of traffic based on OVS port configuration. Aside from building the initial bridge(s), Neutron handles most all other interaction with OVS via the openvswitch plugin. It is possible to manipulate OVS outside of Neutron for further networking requirements, but these scenarios are outside the scope of this article.
 
 
-####Basic Connectivity / Provider and Tenant Networks####
+### Basic Connectivity: Provider and tenant networks
 
 One of the core requirements of a networking service for OpenStack is to provide connectivity to and from instances.
 
 There are two categories of networks that can be created within Neutron:
- 
+
 - Provider Networks
 - Tenant Networks
 
@@ -61,7 +61,7 @@ Both network types can be used to provide connectivity to and from instances. Ho
 
 _This diagram represents a simple Neutron networking configuration that uses a tagged provider network for connectivity to the Internet, as well as two isolated GRE-based tenant networks for private communication between instances._
 
-####Summary####
+### Summary
 
 There’s so much more to Neutron than what’s been covered here, but the foundation has been laid for building simple networks for instance connectivity. With some basic configuration of physical network devices, and a little API magic, one can build a functioning cloud based on [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) powered by [OpenStack](http://www.openstack.org).
 

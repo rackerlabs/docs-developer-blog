@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Rackspace Cloud Intelligence: Insights in Monitoring'
+title: 'Rackspace Cloud Intelligence: Insights in monitoring'
 date: '2013-11-20 15:55'
 comments: true
 author: Mary Stufflebeam
@@ -67,8 +67,7 @@ started with two powerful sets of algorithms: [anomaly detection][5] and
 promising implications. Putting this combination to work requires
 careful engineering.
 
-Anomaly Detection
------------------
+### Anomaly Detection
 
 Our anomaly detection identifies abnormal spikes, dips, and jumps on the
 metrics that you have configured in the cloud. An anomaly means more than
@@ -94,8 +93,7 @@ maintain steady states with intermittent periods of activity. We also apply
 some additional analysis to the output of Bollinger Bands to filter out
 periodic behavior or otherwise normal behavior.
 
-Pattern Recognition
--------------------
+### Pattern Recognition
 
 Our pattern recognition algorithm finds similar behaviors across different
 server instances in your environment. We start by smoothing the time series
@@ -127,8 +125,7 @@ less noise. Then it becomes a simple sorting exercise to find the ones with
 the best similarity score. From there, we display the patterns in order of
 relevance based on the score and how recently the pattern occurred.
 
-Usability
----------
+### Usability
 
 Making these algorithms useful is about more than statistics and machine
 learning. The output has to be meaningful and actionable to users for every
@@ -141,9 +138,7 @@ eye out for more news soon about Rackspace Cloud Intelligence.
 Get started today. Set up checks in
 <a href="https://mycloud.rackspace.com/">Cloud Monitoring</a> to get more
 awesome metrics.
-Then check out the data visualizations that are already available on the beta
-[intelligence.rackspace.com](http://intelligence.rackspace.com/) and sign up
-to be a part of our <a href="https://www.surveymonkey.com/s/CloudIntelligence-EAList">Early Access program</a>.
+
 
 
 [1]: https://blog.twitter.com/2013/observability-at-twitter

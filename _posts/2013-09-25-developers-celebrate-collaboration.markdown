@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Developers: Celebrate Collaboration, Innovation At Yahoo! Hack USA'
+title: 'Developers: Celebrate collaboration, innovation at Yahoo! Hack USA'
 date: '2013-09-25 13:58'
 comments: true
 author: Troy Toman

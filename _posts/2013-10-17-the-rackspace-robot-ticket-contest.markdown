@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Rackspace Robot Ticket Contest
+title: The Rackspace robot ticket contest
 date: '2013-10-17 10:23'
 comments: true
 author: Jesse Noller

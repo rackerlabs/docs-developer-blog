@@ -150,7 +150,7 @@ node:
     orapki wallet create -wallet /u01/app/TATII1/inst/apps/TATII1_nchlatiebsa01/certs/Apache -pwd WalletPasswd123 -auto_login
 
 The preceding command creates the **ewallet.p12** and **cwallet.sso** inside the
-wallet folder (**/u01/app/TATII1/inst/apps/TATII1_nchlatiebsa01/certs/Apache**).
+wallet folder (**/u01/app/TATII1/inst/apps/TATII1\_nchlatiebsa01/certs/Apache**).
 
 ##### Copy certificates
 
@@ -168,7 +168,7 @@ server, intermediate):
 Perform the following steps to add the contents of **ca.crt** to
 **b64InternetCertificate.txt**:
 
-1. Go to version 10.1.2 **ORACLE_HOME/sysman/config/**.
+1. Go to version 10.1.2 **ORACLE\_HOME/sysman/config/**.
 2. Execute the following command:
 
         Cat root.crt >> b64InternetCertificate.txt
@@ -177,10 +177,10 @@ Perform the following steps to add the contents of **ca.crt** to
 
 Perform the following steps to copy the wallet to OPMN:
 
-1. Navigate to the **$INST_TOP/certs/opmn** directory.
+1. Navigate to the **$INST\_TOP/certs/opmn** directory.
 2.	Create a new directory named **BAK**.
-3.	Move **ewallet.p12** and **cwallet.sso** from **$INST_TOP/certs/Apache** to **BAK**.
-4.	Copy **ewallet.p12** and **cwallet.sso** from **BAK** to **$INST_TOP/certs/opmn**.
+3.	Move **ewallet.p12** and **cwallet.sso** from **$INST\_TOP/certs/Apache** to **BAK**.
+4.	Copy **ewallet.p12** and **cwallet.sso** from **BAK** to **$INST\_TOP/certs/opmn**.
 
 The results should be similar to the following example:
 
@@ -196,7 +196,7 @@ The results should be similar to the following example:
 
 Perform the following steps to update the JDK **cacerts** file:
 
-1.	Navigate to **$OA_JRE_TOP/lib/security**.
+1.	Navigate to **$OA\_JRE\_TOP/lib/security**.
 2.	Backup the existing **cacerts** file.
 3.	Copy **root.crt** and **server.crt** to this directory and issue the following
    command to ensure that **cacerts** has write permissions:
@@ -249,7 +249,7 @@ Make the following specified changes to files:
 (If the file is not present in the custom folder, then create a custom folder
 and copy the file.)
 
-##### For **FND_TOP>/admin/template/custom/opmn_xml_1013.tmp**:
+##### For FND\_TOP>/admin/template/custom/opmn\_xml\_1013.tmp:
 
 Replace this line in the template:
 
@@ -259,7 +259,7 @@ With the following:
 
      <ssl enabled="true" openssl-certfile="%s_web_ssl_directory%/Apache/opmn.crt" openssl-keyfile="%s_web_ssl_directory%/Apache/server.key" openssl-password="dummy" openssl-lib="%s_weboh_oh%/lib" ssl-versions="TLSv1.0,TLSv1.1,TLSv1.2" ssl-ciphers="AES128-SHA,AES256-SHA"/>
 
-###### For **FND_TOP>/admin/template/custom/httpd_conf_1013.tmp**:
+###### For FND\_TOP>/admin/template/custom/httpd\_conf\_1013.tmp:
 
 Modify the following section:
 
@@ -274,7 +274,7 @@ To the following:
         LoadModule ssl_module libexec/mod_ssl.so
      </IfDefine>
 
-###### For **FND_TOP>/admin/template/custom/ssl_conf_1013.tmp**:
+###### For FND\_TOP>/admin/template/custom/ssl\_conf\_1013.tmp:
 
 Comment out the following line in the template:
 
@@ -304,12 +304,12 @@ With the following replacement line:
 
 ###### For the following files:
 
-- **<FND_TOP>/admin/template/custom/oc4j_properties_1013.tmp**
-- **<FND_TOP>/admin/template/custom/oafm_oc4j_properties_1013.tmp**
-- **<FND_TOP>/admin/template/custom/forms_oc4j_properties_1013.tmp**
+- **<FND\_TOP>/admin/template/custom/oc4j\_properties\_1013.tmp**
+- **<FND\_TOP>/admin/template/custom/oafm\_oc4j\_properties\_1013.tmp**
+- **<FND\_TOP>/admin/template/custom/forms\_oc4j\_properties\_1013.tmp**
 
-Copy the original files from **<FND_TOP>/admin/template** to
-**<FND_TOP>/admin/template/custom**, if the custom directory or any of the
+Copy the original files from **<FND\_TOP>/admin/template** to
+**<FND\_TOP>/admin/template/custom**, if the custom directory or any of the
 customized template files do not already exist.
 
 Update these custom files by adding the following line:
@@ -319,7 +319,7 @@ Update these custom files by adding the following line:
 
 #### 8. Run Autoconfig
 
-Run `adautocfg.sh` in the application tier **$ADMIN_SCRIPTS_HOME** directory.
+Run `adautocfg.sh` in the application tier **$ADMIN\_SCRIPTS\_HOME** directory.
 
 #### 9. Perform final verification
 

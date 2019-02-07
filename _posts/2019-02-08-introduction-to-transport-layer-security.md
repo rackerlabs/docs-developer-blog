@@ -214,33 +214,33 @@ Perform the following steps to update the JDK **cacerts** file:
 
 Make the following TLS-related parameter changes in the XML file:
 
-| Parameter                   | Non-TLS Value                                     | TLS Enabled Value                                       |
-|-----------------------------|---------------------------------------------------|---------------------------------------------------------|
-| s\_url\_protocol            | http                                              | https                                                   |
-| s\_local\_url\_protocol     | http                                              | https                                                   |
-| s\_webentryurlprotocol      | http                                              | https                                                   |
-| s\_active\_webport          | same as s\_webport                                | same as s\_webssl\_port                                 |
-| s\_webssl\_port             | not applicable                                    | default is 4443                                         |
-| s\_https\_listen\_parameter | not applicable                                    | same as s\_webssl\_port                                 |
-| s\_login\_page              | URL constructed with http protocol and s\_webport | URL constructed with https protocol and s\_webssl\_port |
-| s\_external\_url            | URL constructed with http protocol and s\_webport | URL constructed with https protocol and s\_webssl\_port |
+| Parameter                   |&nbsp;&ndsp;| Non-TLS Value                                     |&nbsp;&ndsp;| TLS Enabled Value                                       |
+|-----------------------------|------------|---------------------------------------------------|&nbsp;&ndsp;|---------------------------------------------------------|
+| s\_url\_protocol            |&nbsp;&ndsp;| http                                              |&nbsp;&ndsp;| https                                                   |
+| s\_local\_url\_protocol     |&nbsp;&ndsp;| http                                              |&nbsp;&ndsp;| https                                                   |
+| s\_webentryurlprotocol      |&nbsp;&ndsp;| http                                              |&nbsp;&ndsp;| https                                                   |
+| s\_active\_webport          |&nbsp;&ndsp;| same as s\_webport                                |&nbsp;&ndsp;| same as s\_webssl\_port                                 |
+| s\_webssl\_port             |&nbsp;&ndsp;| not applicable                                    |&nbsp;&ndsp;| default is 4443                                         |
+| s\_https\_listen\_parameter |&nbsp;&ndsp;| not applicable                                    |&nbsp;&ndsp;| same as s\_webssl\_port                                 |
+| s\_login\_page              |&nbsp;&ndsp;| URL constructed with http protocol and s\_webport |&nbsp;&ndsp;| URL constructed with https protocol and s\_webssl\_port |
+| s\_external\_url            |&nbsp;&ndsp;| URL constructed with http protocol and s\_webport |&nbsp;&ndsp;| URL constructed with https protocol and s\_webssl\_port |
 
 
 If you are using end-to-end TLS, make the following changes:
 
-| Parameter                   | TLS Value                                                                                   |
-|-----------------------------|---------------------------------------------------------------------------------------------|
-| s\_url\_protocol            | https                                                                                       |
-| s\_local\_url\_protocol     | https                                                                                       |
-| s\_webentryurlprotocol      | https                                                                                       |
-| s\_webssl_port              | TLS port of EBS                                                                             |
-| s\_https\_listen\_parameter | TLS port of EBS                                                                             |
-| s\_active\_webport          | TLS termination point external port                                                         |
-| s\_webentryhost             | TLS termination point hostname                                                              |
-| s\_webentrydomain           | TLS termination point domain name                                                           |
-| s\_enable\_sslterminator    | Remove the '#' to use ssl\_terminator.conf                                                  |
-| s\_login\_page              | URL constructed with https protocol, s\_webentryhost, s\_webentrydomain, s\_active\_webport |
-| s\_external\_url            | URL constructed with https protocol, s\_webentryhost, s\_webentrydomain, s\_active\_webport |
+| Parameter                   |&nbsp;&ndsp;| TLS Value                                                                                   |
+|-----------------------------|------------|---------------------------------------------------------------------------------------------|
+| s\_url\_protocol            |&nbsp;&ndsp;| https                                                                                       |
+| s\_local\_url\_protocol     |&nbsp;&ndsp;| https                                                                                       |
+| s\_webentryurlprotocol      |&nbsp;&ndsp;| https                                                                                       |
+| s\_webssl_port              |&nbsp;&ndsp;| TLS port of EBS                                                                             |
+| s\_https\_listen\_parameter |&nbsp;&ndsp;| TLS port of EBS                                                                             |
+| s\_active\_webport          |&nbsp;&ndsp;| TLS termination point external port                                                         |
+| s\_webentryhost             |&nbsp;&ndsp;| TLS termination point hostname                                                              |
+| s\_webentrydomain           |&nbsp;&ndsp;| TLS termination point domain name                                                           |
+| s\_enable\_sslterminator    |&nbsp;&ndsp;| Remove the '#' to use ssl\_terminator.conf                                                  |
+| s\_login\_page              |&nbsp;&ndsp;| URL constructed with https protocol, s\_webentryhost, s\_webentrydomain, s\_active\_webport |
+| s\_external\_url            |&nbsp;&ndsp;| URL constructed with https protocol, s\_webentryhost, s\_webentrydomain, s\_active\_webport |
 
 #### 7. Make configuration changes
 

@@ -214,35 +214,13 @@ Perform the following steps to update the JDK **cacerts** file:
 
 Make the following TLS-related parameter changes in the XML file:
 
-| Parameter                   |&nbsp;&nbsp;| Non-TLS Value                                     |&nbsp;&nbsp;| TLS Enabled Value                                       |
-|-----------------------------|------------|---------------------------------------------------|------------|---------------------------------------------------------|
-| s\_url\_protocol            |&nbsp;&nbsp;| http                                              |&nbsp;&nbsp;| https                                                   |
-| s\_local\_url\_protocol     |&nbsp;&nbsp;| http                                              |&nbsp;&nbsp;| https                                                   |
-| s\_webentryurlprotocol      |&nbsp;&nbsp;| http                                              |&nbsp;&nbsp;| https                                                   |
-| s\_active\_webport          |&nbsp;&nbsp;| same as s\_webport                                |&nbsp;&nbsp;| same as s\_webssl\_port                                 |
-| s\_webssl\_port             |&nbsp;&nbsp;| not applicable                                    |&nbsp;&nbsp;| default is 4443                                         |
-| s\_https\_listen\_parameter |&nbsp;&nbsp;| not applicable                                    |&nbsp;&nbsp;| same as s\_webssl\_port                                 |
-| s\_login\_page              |&nbsp;&nbsp;| URL constructed with http protocol and s\_webport |&nbsp;&nbsp;| URL constructed with https protocol and s\_webssl\_port |
-| s\_external\_url            |&nbsp;&nbsp;| URL constructed with http protocol and s\_webport |&nbsp;&nbsp;| URL constructed with https protocol and s\_webssl\_port |
+![]({% asset_path 2019-02-08-introduction-to-transport-layer-security/Picture3.png %})
 
-</br>
 </br>
 
 If you are using end-to-end TLS, make the following changes:
 
-| Parameter                   |&nbsp;&nbsp;| TLS Value                                                                                   |
-|-----------------------------|------------|---------------------------------------------------------------------------------------------|
-| s\_url\_protocol            |&nbsp;&nbsp;| https                                                                                       |
-| s\_local\_url\_protocol     |&nbsp;&nbsp;| https                                                                                       |
-| s\_webentryurlprotocol      |&nbsp;&nbsp;| https                                                                                       |
-| s\_webssl_port              |&nbsp;&nbsp;| TLS port of EBS                                                                             |
-| s\_https\_listen\_parameter |&nbsp;&nbsp;| TLS port of EBS                                                                             |
-| s\_active\_webport          |&nbsp;&nbsp;| TLS termination point external port                                                         |
-| s\_webentryhost             |&nbsp;&nbsp;| TLS termination point hostname                                                              |
-| s\_webentrydomain           |&nbsp;&nbsp;| TLS termination point domain name                                                           |
-| s\_enable\_sslterminator    |&nbsp;&nbsp;| Remove the '#' to use ssl\_terminator.conf                                                  |
-| s\_login\_page              |&nbsp;&nbsp;| URL constructed with https protocol, s\_webentryhost, s\_webentrydomain, s\_active\_webport |
-| s\_external\_url            |&nbsp;&nbsp;| URL constructed with https protocol, s\_webentryhost, s\_webentrydomain, s\_active\_webport |
+![]({% asset_path 2019-02-08-introduction-to-transport-layer-security/Picture4.png %})
 
 </br>
 

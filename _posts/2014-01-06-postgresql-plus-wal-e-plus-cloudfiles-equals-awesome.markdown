@@ -5,7 +5,8 @@ date: '2014-01-6 12:00'
 comments: true
 author: Alex Gaynor
 published: true
-categories: []
+categories:
+  - General
 ---
 
 If you're a big PostgreSQL fan like I am, you may have heard of a tool called

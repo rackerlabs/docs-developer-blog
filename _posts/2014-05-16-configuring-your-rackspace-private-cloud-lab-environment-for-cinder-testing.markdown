@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Configuring Your Rackspace Private Cloud Lab Environment for Cinder testing
+title: Configuring Your Rackspace Private Cloud lab environment for Cinder testing
 date: '2014-05-16 15:13'
 comments: true
 author: Jason Grimm
@@ -8,23 +8,27 @@ published: true
 categories:
   - OpenStack
 ---
-In the knowledge center article titled "KNOWLEDGE CENTER ARTICLE: INSTALLING AND TESTING CINDER IN YOUR RACKSPACE PRIVATE CLOUD LAB ENVIRONMENT" I walk through the entire process of installing, configuring and testing the OpenStack Cinder service in your RPC lab environment.
+
+This post covers environment pre-configuration tasks for testing of the cinder
+service and provides a few more informal tips and recommendations outside of
+strictly the procedural steps.
+
+This is specifically for sandbox and testing / development environments –
+configurations described here, such as: compute and cinder running on the
+controller, using a loopback device for cinder-volumes and so on are not
+supported and should not be used in production.
 
 <!-- more -->
 
-This post only covers environment pre-configuration tasks for testing of the cinder service as well as a few more informal tips and recommendations outside of just the procedural steps.
-
-This is specifically for sandbox and testing / development environments – configurations described here, such as: compute and cinder running on the controller, using a loopback device for cinder-volumes and so on are not supported and should not be used in production.
-
-## Environment Configuration
-
-If your cinder node deployment went according to plan you should be able to login to your newly deployed node and check to make sure everything is running okay.
+If your cinder node deployment went according to plan you should be able to
+login to your newly deployed node and check to make sure everything is running okay.
 
 ### Check Cinder services
 
 1) SSH into the controller / compute node
 
 2) Check the cinder services from the operating system
+
 ```
   root@controller-1:~# service cinder-volume status
 
@@ -38,12 +42,15 @@ If your cinder node deployment went according to plan you should be able to logi
 
   cinder-scheduler start/running, process 27019
 ```
+
 3) Source the credentials file
+
 ```
   # cd /root
 
   # . openrc
 ```
+
 4) Check the cinder services from the cinder CLI
 
 ```
@@ -164,6 +171,7 @@ root@controller-1:~/.ssh# nova secgroup-list-rules mysecuritygroup
 3) Create a new router and verify.
 
 _TIP: Neutron uses net namespaces, if this is not preferred you can remove neutron and put in nova-network. Everything in this article works the same except for the sections on setting up networking and SSH'ing to your instances ._
+
 ```
 root@controller-1:~/.ssh# neutron router-create router-1
 
@@ -398,7 +406,7 @@ Added interface 63391343-81f0-4338-8466-e178f837c1bb to router router-1.
 
 Assuming all of this looks good we can move on to testing cinder.
 
-## Conclusion
+### Conclusion
 
 In this article we covered the basics of the pre-configuration tasks required to test cinder in your environment.
 
@@ -406,9 +414,9 @@ Please refer back to the full instructions in the knowledge center article – "
 
 Look for future cinder related posts with more advanced topics such as using NetApp, EMC or SolidFire cinder drivers, providing Cinder HA to your instances and using multiple cinder devices to provide workload separation and performance tiering for your instances.
 
-## Reference Material
+### Reference material
 
 You may also find the following references helpful as you explore cinder functionality further.
 
-- [RPC installation documentation](http://www.rackspace.com/knowledge\_center/article/installing-openstack-with-rackspace-private-cloud-tools)
-- [RPC block storage configuration](http://www.rackspace.com/knowledge\_center/article/configuring-openstack-block-storage)
+- [RPC How-to documentation](https://support.rackspace.com/how-to/rpc-openstack/)
+- [How-to Block Storage documentation](https://support.rackspace.com/how-to/cloud-block-storage-all-articles/)

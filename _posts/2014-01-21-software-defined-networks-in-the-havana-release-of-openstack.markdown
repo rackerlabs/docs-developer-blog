@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Software Defined Networks in the Havana release of OpenStack
+title: Software-defined networks in the Havana release of OpenStack
 date: '2014-01-21 11:00'
 comments: true
 author: Phil Hopkins
@@ -18,10 +18,10 @@ categories:
  flexible network implementations. This can present a challenge to OpenStack
  administrators who may not have a clear understanding of the technologies
  that OpenStack uses to create these virtual networks. This is the first in a
- series of articles that will look closely how OpenStack Neutron implements
- these virtual networks. Through the course of these articles we will look in
- detail how virtual networks are created in Neutron, how data in different
- networks in kept separate and security features built into the security
+ series of articles that looks closely how OpenStack Neutron implements
+ these virtual networks. Through the course of these articles, we will look in
+ detail at how virtual networks are created in Neutron, how data in different
+ networks in kept separate, and security features built into the security
  group functionality.
 
  <!-- more -->
@@ -54,24 +54,24 @@ enable the creation of separate networks and isolate them. Additionally use
 of iptables rules on the compute node are used to apply security group rules
 on each network, enabling traffic filtering into and out of each VM.
 
-Continuing this series will look at how several Linux technologies are used
-to the filter traffic in and out of the VMs.  We will look at how a path
+Continuing, this series looks at how several Linux technologies are used
+to the filter traffic in and out of the VMs.  We look at how a path
 from the VM to the OVS process is created so that iptables can be used to
 filter this traffic and specifically why the path changed from the Folsom
 release using Nova security group rules to the current technique. Then the
 iptables rules that are created to do this filtering will be examined to see
 how they perform this function.
 
-Subsequent articles will review the OVS process in detail to see how the
+Subsequent articles review the OVS process in detail to see how the
 traffic enters the OVS process and exactly how the packets are manipulated
-to keep each network separate. This example with use GRE tunnels to separate
+to keep each network separate. This example uses GRE tunnels to separate
 the network traffic going between the network and compute nodes, however
 alternate technologies such as VLANS or VXLANs could be used. Once the
 concepts of traffic separation using GRE tunnels is understood the reader
 should easily be able to make the transition to either or these alternate
 techniques.
 
-The traffic then moves to the network node where we will look at the use of
+The traffic then moves to the network node, where we look at the use of
 OVS to direct each network's traffic to the proper DHCP server or gateway.
 We will see how network namespaces are used to isolate each endpoint as well
 as use of Linux routing and NAT rules inside of a namespace to allocate an

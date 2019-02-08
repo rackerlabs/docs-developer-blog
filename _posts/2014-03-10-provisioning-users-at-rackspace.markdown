@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Provisioning Users at Rackspace
+title: Provisioning users at Rackspace
 date: '2014-03-10 10:30'
 comments: true
 author: Topher Marie
@@ -22,15 +22,13 @@ give access to this machine have public/private key pairs already setup.
 
 <!-- more -->
 
-Create and log in to the new server
-----
+### Create and log in to the new server
 
 After creating the new server in RackSpace’s user interface they give me the
 Root Admin Password. Copy this password down, we’re going to need it for a
 little bit until we get our users set up.
 
-Create the user
------------
+### Create the user
 
 We can create the users without actually logging into the machine using the
 following ssh command. Note that I’m specifically NOT creating a real password
@@ -48,8 +46,7 @@ information.)
 
 It will prompt you for the root password from above, of course.
 
-Set the user's public key
---------------
+### Set the user's public key
 
 Again, assume that I’ve got public keys for each user I want to add.
 Creating the private/public key pair should ideally be done by the end user,
@@ -71,8 +68,7 @@ ssh root@162.209.88.33 "chown -R beta ~beta/.ssh; chmod -R go-rwx ~beta/.ssh"
 All right, now we have the user all prepared for public key authentication.
 I’ll want to do this for each user that belongs on that machine of course.
 
-Configure the system to use public key authentication
---------------
+### Configure the system to use public key authentication
 
 Let’s login directly to the machine as root (using the initial password above).
 
@@ -87,6 +83,7 @@ that can login as well. Otherwise you'll be locked out with no way to fix
 things.
 
 Good? Ok, edit the file
+
 ```sh
 /etc/ssh/sshd_config
 ```
@@ -108,8 +105,7 @@ service sshd restart
 
 That’s it. Now I’ve provisioned my users to a single machine.
 
-More user management
---------------
+### More user management
 
 There are some sticky parts here. It’s a little more labor than I really
 like. I need to get public keys from each of my users, of course. I have to

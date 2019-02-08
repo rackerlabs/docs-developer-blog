@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beginning to Understand Neutron Provider and Tenant Networks in OpenStack
+title: Beginning to understand Neutron provider and tenant networks in OpenStack
 date: '2014-02-03 09:23'
 comments: true
 author: James Thorne
@@ -10,10 +10,10 @@ categories:
   - Neutron
 ---
 
-OpenStack is composed of many different projects. The core projects 
-provide compute, storage, and network resources. The Neutron project 
-provides network resources to the OpenStack environment and can be 
-difficult to get started with. To help get the gears turning, I will 
+OpenStack is composed of many different projects. The core projects
+provide compute, storage, and network resources. The Neutron project
+provides network resources to the OpenStack environment and can be
+difficult to get started with. To help get the gears turning, I will
 be discussing some of the functionality Neutron Networking is capable of.
 
 <!-- more -->
@@ -38,7 +38,7 @@ accessible from your OpenStack environment. Then from the command line on
 one of the OpenStack nodes, Neutron Provider Networks (Neutron Provider
 Networks always map to a physical network with a gateway that exists on
 a router or firewall) are created mapping to the different VLANs in the trunk.
-As OpenStack instances are provisioned, one or more of those Neutron Provider 
+As OpenStack instances are provisioned, one or more of those Neutron Provider
 Networks can be attached to the instance. The virtual network interfaces within
 the instances will then be assigned IP addresses associated with the subnet on
 that particular VLAN and the instances can begin communicating.

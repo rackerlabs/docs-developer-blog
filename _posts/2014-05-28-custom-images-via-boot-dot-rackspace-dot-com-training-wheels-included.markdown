@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Custom Images via boot.rackspace.com - Training Wheels Included
+title: 'Custom images via boot.rackspace.com:Training wheels included'
 date: '2014-05-28 12:42'
 comments: true
 author: Mike Metral
@@ -25,24 +25,26 @@ installation on a Cloud Server!
 
 <!-- more -->
 
-In this post, I will walk you through each of the steps required to get you up &
+In this post, I walk you through each of the steps required to get you up &
 running a custom version of __Ubuntu 12.04__ via boot.rackspace.com.
 
-## Assumptions
+### Assumptions
 
-* An existing [Public Cloud](http://mycloud.rackspace.com) account
-* [python-novaclient](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os) is installed
+* You have an existing [Public Cloud](http://mycloud.rackspace.com) account.
+* [python-novaclient](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os) is installed.
 
-## Notes
-* Versions of Ubuntu greater than 12.04 have not been thorougly tested with this tutorial.
-  Therefore, it is recommended you too use Ubuntu 12.04.
+### Notes
 
-## How-To Steps
+Versions of Ubuntu greater than 12.04 have not been thorougly tested with this tutorial.
+Therefore, I recommend that you too use Ubuntu 12.04.
+
+### How-to steps
+
 __1. Boot the boot.rackspace.com ISO__
 
-This command will boot a Cloud Server with a small 1 MB iPXE based ISO. In turn, it
-will set up the server’s assigned networking within the virtual BIOS and
-netboot into a menu of operating system options hosted over HTTP on
+This command boots a Cloud Server with a small 1 MB iPXE based ISO. In turn, it
+sets up the server’s assigned networking within the virtual BIOS and
+netboots into a menu of operating system options hosted over HTTP on
 boot.rackspace.com. (Note: Example image ID updated on 9/14/2018.)
 
 ```
@@ -52,8 +54,8 @@ nova boot --image=7c526505-bc72-4e3c-8d9a-e700c0acf299 --flavor=performance1-2 m
 __2. Connect to the boot.rackspace.com VM via the Console__
 
 * Log into [mycloud.rackspace.com](http://mycloud.rackspace.com)
-* Once the VM is 'Active,' click on the 'Actions' available in the Server
-  Details, and select 'Connect Via Console'
+* Once the VM is **Active**, click on the **Actions** available in the **Server
+  Details**, and select **Connect Via Console**.
 
 {% img custom-images-via-boot-dot-rackspace-dot-com-training-wheels-included/connect_via_console.png %}
 
@@ -73,18 +75,18 @@ __6. Proceed through the install & setup accordingly__
 
 * In addendum to custom modifications, make sure to do the following:
     * During partioning:
-        * Select 'Guided - use entire disk'
-        * Use the 'Virtual disk 1 (xvda) - 42.9 GB`
-    * Select OpenSSH server during the software install process
-    * Install the GRUB boot loader to the master boot record
+        * Select **Guided - use entire disk**.
+        * Use the **Virtual disk 1 (xvda) - 42.9 GB** choice.
+    * Select OpenSSH server during the software install process.
+    * Install the GRUB boot loader to the master boot record.
 
 {% img custom-images-via-boot-dot-rackspace-dot-com-training-wheels-included/install.png %}
 
 __7. Reboot from local hdd__
 
-Once the installation is complete, the VM will reboot and the console will
-disconnect. Reconnect to the console, but this time, select to boot
-from the Local HDD as we've already installed the OS and because iPXE by
+Once the installation is complete, the VM reboots and the console
+disconnects. Reconnect to the console, but this time, select to boot
+from the Local HDD because we've already installed the OS and because iPXE by
 default does a netboot.
 
 {% img custom-images-via-boot-dot-rackspace-dot-com-training-wheels-included/localboot.png %}
@@ -92,18 +94,18 @@ default does a netboot.
 __8. Instance configuration required by Rackspace__
 
 To configure the instance, you must first get to the prompt. You can do
-this via the console from the browser, or by SSH'ing into the VM (SSH may be easier to work
-with)
+this via the console from the browser or by SSH'ing into the VM (SSH may be easier to work
+with).
 
 {% img custom-images-via-boot-dot-rackspace-dot-com-training-wheels-included/os_console.png %}
 
-Install curl
+Run the following command to install curl:
 
 ```
 sudo apt-get update && sudo apt-get install curl -y
 ```
 
-Now proceed to install XenServer Tools & Nova Agent
+Now proceed to install XenServer Tools and the Nova Agent.
 
 * XenServer Tools
     * The XenTools are needed for communication between the host and the guest
@@ -118,7 +120,7 @@ curl -skS -L http://git.io/nUeUrA | sudo bash
       detection of the Operating System type and sets the appropriate
       networking configuration. It also handles password resets, configuration
       of any licensing for Red Hat and Windows, versioning, and the ability to
-      handle updates of itself
+      handle updates of itself.
 
 ```
 curl -skS -L http://git.io/_tdvZw | sudo bash
@@ -135,8 +137,8 @@ EOF
 
 __9. Make custom OS modifications__
 
-This is the opportunity to install, configure and set up any custom system level
-modifications you want to persist for future instances of the image
+This is the opportunity to install, configure, and set up any custom system level
+modifications that you want to persist for future instances of the image.
 
 __10. Once modifications are complete, cleanup your image__
 
@@ -151,22 +153,22 @@ to have a clean, pristine image:
 
 __11. After modifications and cleanup is done, snapshot your image__
 
-In the Server Details, select 'Create Image' to snapshot the image as-is and
-give it a name, i.e. 'my_ubuntu_1204'
+In the **Server Details**, select **Create Image** to snapshot the image as-is and
+give it a name, such as `my_ubuntu_1204`.
 
 {% img custom-images-via-boot-dot-rackspace-dot-com-training-wheels-included/create_image.png %}
 
 __12. Set metadata for the image__
 
 * Set vm_mode to:
-    * "xen" for a Paravirtualized (PV) Instance. For most Linux VMs, PV is typically
+    * `xen` for a Paravirtualized (PV) Instance. For most Linux VMs, PV is typically
     the best option.
-    * "hvm" for HVM Mode, typically used for FreeBSD, Linux PVHVM and Windows. When
+    * `hvm` for HVM Mode, typically used for FreeBSD, Linux PVHVM and Windows. When
     using with Linux, make sure you're using one of the newer 3.x kernels for the
     best experience.
 
 * If using Nova Agent:
-    * Set `xenapi_use_agent=true`
+    * Set `xenapi_use_agent=true`.
 
 * If using Cloud-Init exclusively, the Agent isn't needed, so make sure to
 disable it so that the build isn't actively polling for responses from the Nova
@@ -186,13 +188,15 @@ nova boot --image="my_ubuntu_1204" --flavor=performance1-2 my_ubuntu_1204_test
 
 __14. Log in to the VM via console and/or SSH & enjoy your new custom image \:)__
 
-## Notes
-* Once you save/snapshot your custom image, you __must__ use a Performance Flavor
-  to boot the VM
-* After snapshotting & testing the boot of the custom image, it is safe to
-  delete the initial boot.rackspace.com ISO VM
+### Notes
 
-## About the Author
+* Once you save/snapshot your custom image, you __must__ use a Performance Flavor
+  to boot the VM.
+* After snapshotting & testing the boot of the custom image, it is safe to
+  delete the initial boot.rackspace.com ISO VM.
+
+### About the author
+
 Mike Metral is a Solution Architect at Rackspace in the Private Cloud Product
 organization. Mike joined Rackspace in 2012 with the intent of helping
 OpenStack become the open standard for cloud management. At Rackspace, Mike has
@@ -205,7 +209,8 @@ distributed systems, cloud and mobile computing. You can follow Mike on Twitter
 [@mikemetral](http://twitter.com/mikemetral) and Github as
 [metral](http://github.com/metral)
 
-## Reference Material / Official Documentation
+### Reference Material / Official Documentation
+
 * [Developing With Cloud Images for Fun and Profit](http://developer.rackspace.com/blog/announcing-cloud-images.html)
 * [Introducing boot.rackspace.com](http://developer.rackspace.com/blog/introducing-boot-dot-rackspace-dot-com.html)
 * [Source for boot.rackspace.com](https://github.com/rackerlabs/boot.rackspace.com)

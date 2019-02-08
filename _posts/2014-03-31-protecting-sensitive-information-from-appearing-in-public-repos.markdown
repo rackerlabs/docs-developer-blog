@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Protecting Sensitive Information From Appearing in Public Repos
+title: Protecting sensitive information from appearing in public repos
 date: '2014-04-15 10:30'
 comments: true
 author: Sri Rajan
@@ -84,7 +84,7 @@ git-crypt enables transparent encryption and decryption of files in a git reposi
 git-crypt is not designed to encrypt an entire repository. Also note that git-crypt usese git's smudge and clean features (ref ([Git Attributes](http://git-scm.com/docs/gitattributes)), which was not the original intent of those features.  git-crypt does not itself provide any authentication. It assumes that either the master copy of your repository is stored securely, or that you are using git's existing facilities to ensure integrity (signed tags, remembering commit hashes, etc.). It maybe worth noting that git-crypt uses deterministic encryption which is something that should be taken into consideration.
 
 
-### Accidents Happen
+### Accidents happen
 
 
 There will always be cases where you accidentally commit a file with such information or you find that in an audit. There are few things you can do here
@@ -106,7 +106,7 @@ Here's an example of searching for the string rackspace_api_key on GitHub.
 A pre-commit scanner that checks for these things and possibly has a list of the keys and passwords to check as well will be a good add-on. An importantly don't check in the code for the scanner/hook on a public site as this has the very keys you need to protect :-)
 
 
-### Authors and Credits
+### Authors and credits
 
 * Sriram(Sri) Rajan - Principal Engineer, Rackspace
 * Christian Ashby- Senior Solutions Engineer, Rackspace

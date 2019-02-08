@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Developing with Cloud Images for Fun and Profit
+title: Developing with Cloud Images for fun and profit
 date: '2014-04-01 11:00'
 comments: true
 author: Brian Rosmaita
@@ -18,14 +18,14 @@ Well, this product creates several opportunities for developers.
 
 {% img 2014-03-27-announcing-cloud-images/Rackspace_Cloud_Images_vert_clr.png %}
 
-## API only
+### API only
 
 Cloud Images is currently accessible via the API only, so there's an
 opportunity to create interfaces and tools to facilitate use of Cloud
 Images itself.  See the [Rackspace Cloud Images Developer Guide](http://docs.rackspace.com/images/api/v2/ci-devguide/content/index.html)
 for more information.
 
-## Image sharing
+### Image sharing
 
 Cloud Images allows users to share VM images with each other using the
 OpenStack Images API v2.  The v2 implementation was designed to
@@ -59,7 +59,7 @@ marketplace should function.
 See the [Cloud Images API documentation](http://docs.rackspace.com/images/api/v2/ci-devguide/content/image-sharing.html) for a more detailed overview of
 image sharing and the associated API calls.
 
-## New image creation
+### New image creation
 
 It's great to have an image sharing infrastructure, but of course that
 would be pretty pointless without there being cool images to share.
@@ -78,15 +78,15 @@ prepared to boot in the Rackspace cloud](http://www.rackspace.com/knowledge_cent
 import feature of Cloud Images to make it a bootable image, and then
 share that image.
 
-## And more
+### And more
 
 Check out our [Cloud Images FAQ](http://www.rackspace.com/knowledge_center/article/cloud-images-frequently-asked-questions) to get a more extensive overview
 of the product and what it can do.
 
-## References
+### References
 
 - Rackspace Cloud Images Developer Guide: http://docs.rackspace.com/images/api/v2/ci-devguide/content/index.html
 - Image Sharing Overview: http://docs.rackspace.com/images/api/v2/ci-devguide/content/image-sharing.html
 - boot.rackspace.com: http://developer.rackspace.com/blog/introducing-boot-dot-rackspace-dot-com.html
-- Preparing an Image for the Rackspace Cloud: http://www.rackspace.com/knowledge_center/article/preparing-an-image-for-import-into-the-rackspace-open-cloud
-- Cloud Images FAQ: http://www.rackspace.com/knowledge_center/article/cloud-images-frequently-asked-questions
+- Preparing an Image for the Rackspace Cloud: https://support.rackspace.com/how-to/preparing-an-image-for-import-into-the-rackspace-opencloud/
+- Cloud Images FAQ: https://support.rackspace.com/how-to/cloud-images-faq/

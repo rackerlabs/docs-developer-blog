@@ -1,11 +1,12 @@
 ---
 layout: post
-title: Balloon Mapping and Outreach
+title: Balloon mapping and outreach
 date: '2014-03-17 9:30'
 comments: true
 author: 'Anne Gentle, Dana Bauer'
 published: true
-categories: []
+categories:
+  - General
 ---
 
 "What's the difference between data and a map?" This question came from
@@ -30,8 +31,7 @@ about the health of the trees? Is that data? Yes. Could you use the data you col
 
 The balloon mapping techniques were developed by an DIY science community called the [Public Lab](http://publiclab.org/). You can read more about open source tools and techniques for data collection and mapping on the Public Lab website. (You can even purchase your own [balloon and kite mapping kits](http://store.publiclab.org/collections/mapping).)
 
-Hackers and Hacking
-===================
+### Hackers and Hacking
 
 Events like UT Girl Engineering Day inspire us to try out new things. At a recent
 Rackspace hackday Anne put together a [Python script](https://gist.github.com/annegentle/9467910) that
@@ -46,8 +46,7 @@ probably would have gone along with us either way.) We're good hackers.
 We love to get out in the world and show how hacking really works,
 innovating and playing at the same time.
 
-Communities and Outreach
-========================
+### Communities and Outreach
 
 Over the past year, Rackspace has sponsored dozens of workshops,
 meetups, hackdays, and small conferences as part of our outreach program

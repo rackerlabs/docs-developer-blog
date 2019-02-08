@@ -1,17 +1,18 @@
 ---
 layout: post
-title: 'Cloud Block Storage Volume Cloning Announced!'
+title: 'Cloud Block Storage volume cloning announced!'
 date: '2014-03-19 10:01'
 comments: true
 author: Jose Malacara
 published: true
-categories: []
+categories:
+  - General
 ---
 
-Today our Control Panel team announced support for Cloud Block Storage Volume
-Cloning. Some of our savvier users may have noticed that volume cloning was
+Today our Control Panel team announced support for Cloud Block Storage volume
+cloning. Some of our savvier users may have noticed that volume cloning was
 silently released as an API-only feature back in early November. Volume
-Cloning (ergo volume copy) allows for the creation of a new volume from an
+cloning (ergo volume copy) allows for the creation of a new volume from an
 existing one. While this is a pretty big feature, it would have been easy to
 miss, as its simply the addition of a source_volid parameter to the existing
 create volume call.

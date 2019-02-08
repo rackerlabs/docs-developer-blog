@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Testing Cinder in Your Rackspace Private Cloud Lab Environment
+title: Testing Cinder in your Rackspace Private Cloud lab environment
 date: '2014-05-21 10:22'
 comments: true
 author: Jason Grimm
@@ -10,21 +10,21 @@ categories:
   - Private Cloud
 ---
 
-In the knowledge center article titled "KNOWLEDGE CENTER ARTICLE: INSTALLING AND TESTING CINDER IN YOUR RACKSPACE PRIVATE CLOUD LAB ENVIRONMENT" I walk through the entire process of installing, configuring and testing the OpenStack Cinder service in your RPC lab environment.
+This post covers testing the cinder service and provides a few
+informal tips and recommendations outside of strictly procedural steps.
 
 <!-- more -->
 
-This post only covers the testing of the cinder service as well as a few more informal tips and recommendations outside of just the procedural steps.
+This is specifically for sandbox and testing / development environments –
+configurations described here, such as: compute and cinder running on the
+controller, using a loopback device for cinder-volumes and so on are not
+supported and should not be used in production.
 
-This is specifically for sandbox and testing / development environments – configurations described here, such as: compute and cinder running on the controller, using a loopback device for cinder-volumes and so on are not supported and should not be used in production.
-
-Table of Contents
-
-# Testing cinder
+### Testing cinder
 
 Finally we're ready to test our cinder service and configuration.
 
-## Basic volume creation
+#### Basic volume creation
 
 1) First let's test the creation of a basic volume and verify.
 
@@ -119,7 +119,7 @@ root@controller-1:~# lvdisplay
 
  Block device      252:2
 ```
-## Creating bootable volumes
+#### Creating bootable volumes
 
 2) Next let's test creating a volume from a bootable image.
   a) First, let's make sure we have an image present
@@ -233,6 +233,8 @@ root@controller-1:~# cinder list
 
 +--------------------------------------+-----------+----------------+------+-------------+--------+
 ```
+
+#### Boot an instance
 
 3) Once created let's boot an instance using this newly created bootable volume.
 
@@ -412,6 +414,8 @@ root@controller-1:~/.ssh# nova show 6d96a99f-dd44-41f5-96d7-35a7e830c174
 +--------------------------------------+----------------------------------------------------------+
 ```
 
+#### Verify instance
+
 4) SSH to the instance to verify that it is up and running.
 
 ```
@@ -452,8 +456,10 @@ eth0   Link encap:Ethernet HWaddr FA:16:3E:85:16:59
      RX bytes:40193 (39.2 KiB) TX bytes:40421 (39.4 KiB)
 
      Interrupt:11 Base address:0xc000
+```
 
-## create an image-based volume at boot time
+#### Create an image-based volume at boot time
+
 ```
 
 You can reduce this process to a single command by combining volume creation with the instance boot as follows.
@@ -692,17 +698,18 @@ root@controller-1:~# nova list
 +--------------------------------------+------+---------+------------+-------------+---------------------------+
 ```
 
-## Conclusion
+### Conclusion
 
 In this article we covered the basics of testing cinder in your RPC lab environment.
 
-Please refer back to the full instructions in the knowledge center article – "KNOWLEDGE CENTER ARTICLE: INSTALLING AND TESTING CINDER IN YOUR RACKSPACE PRIVATE CLOUD LAB ENVIRONMENT" or at my other cinder related posts for additional help.
+Look for future cinder related posts with more advanced topics such as using NetApp,
+EMC or SolidFire cinder drivers, providing Cinder HA to your instances and using
+multiple cinder devices to provide workload separation and performance tiering
+for your instances.
 
-Look for future cinder related posts with more advanced topics such as using NetApp, EMC or SolidFire cinder drivers, providing Cinder HA to your instances and using multiple cinder devices to provide workload separation and performance tiering for your instances.
-
-## Reference Material
+### Reference Material
 
 You may also find the following references helpful as you explore cinder functionality further.
 
-- [RPC installation documentation](http://www.rackspace.com/knowledge\_center/article/installing-openstack-with-rackspace-private-cloud-tools)
-- [RPC block storage configuration](http://www.rackspace.com/knowledge\_center/article/configuring-openstack-block-storage)
+- [RPC How-to documentation](https://support.rackspace.com/how-to/rpc-openstack/)
+- [How-to Block Storage documentation](https://support.rackspace.com/how-to/cloud-block-storage-all-articles/)

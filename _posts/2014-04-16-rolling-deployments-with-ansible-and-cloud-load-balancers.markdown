@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Rolling Deployments with Ansible and Cloud Load Balancers
+title: Rolling deployments with Ansible and Cloud Load Balancers
 date: '2014-04-22 10:00'
 comments: true
 author: Jesse Keating
@@ -9,11 +9,15 @@ categories:
   - ansible
 ---
 
-Recently a fellow Racker wrote a great post about [zero downtime deployments][0]. I strongly believe in the principals he described. In his example, he used Node.js to build a deployment script to accomplish the goal, and I want to explore how this could be done with [Ansible][1] and the Rackspace Cloud.
+Recently a fellow Racker wrote a great post about [zero downtime deployments][0].
+I strongly believe in the principals he described. In his example, he used Node.js
+to build a deployment script to accomplish the goal, and I want to explore how
+this could be done with [Ansible][1] and the Rackspace Cloud.
 
 <!-- more -->
 
-#### Theory Review
+### Theory review
+
 Lets review the theory. Assume you have 4 app servers behind a cloud load balancer. A zero downtime rolling deploy would mean taking half of the app servers out of the load balancer rotation, updating app code on them, validating app code on them, and re-inserting them back into the load balancer before moving on to repeat the steps with the second half of the app servers.
 
 1. Mark two nodes as `draining`
@@ -24,7 +28,8 @@ Lets review the theory. Assume you have 4 app servers behind a cloud load balanc
 
 Then, simply repeat this process for the remaining two.
 
-#### Ansible Example
+### Ansible example
+
 Lets write an Ansible playbook to accomplish the steps we outlined above. This example assumes a [Cloud LoadBalancer][2] named `app-lb1` configured with four active web servers.
 
 First we're going to use the [rax_clb][3] module to discover data about the load balancer. We do this by making a call to ensure that `state=present`. This will create the load balancer if it doesn't exist, but thanks to idempotence it will return data about the load balancer if it already exists.
@@ -147,8 +152,9 @@ Now that we have our playbook we can run it!
 $ ansible-playbook app-deploy.yaml
 {% endhighlight %}
 
-### Final Thoughts
-I'll repeat the same concerns Ken did regarding your applications:
+### Final thoughts
+
+I'll repeat the same concerns that Ken did regarding your applications:
 
 1. Does your app have an integrated versioning/cache-busting approach?
 2. Are your app-servers stateless or do they require sticky sessions?
@@ -156,7 +162,10 @@ I'll repeat the same concerns Ken did regarding your applications:
 4. Do you have the ability to roll-back effortlessly?
 5. Can your app have different versions served to clients concurrently?
 
-I hope this example of how to accomplish a basic rolling update with Ansible can start the move to a zero downtime deployment capability. This capability is a great enabler for your team, ops, devs, product managers, etc.. will all benefit from the ability to deploy code at any time without interruption.
+I hope this example of how to accomplish a basic rolling update with Ansible
+can start the move to a zero downtime deployment capability. This capability is
+a great enabler for your team, ops, devs, product managers, etc.. will all
+benefit from the ability to deploy code at any time without interruption.
 
   [0]: http://developer.rackspace.com/blog/zero-downtime-deployments-with-pkgcloud-and-cloud-load-balancers.html
   [1]: http://www.ansible.com

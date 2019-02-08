@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Exploring Apache jclouds with Groovy: A Python Developers point of view'
+title: 'Exploring Apache jclouds with Groovy: A Python developer's point of view'
 date: '2014-03-05 11:00'
 comments: true
 author: John Yi

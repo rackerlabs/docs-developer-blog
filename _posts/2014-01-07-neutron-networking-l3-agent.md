@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Neutron Networking: Neutron Routers and the L3 Agent'
+title: 'Neutron networking: Neutron routers and the L3 agent'
 date: '2014-01-07 15:20'
 comments: true
 author: James Denton
@@ -11,11 +11,11 @@ categories:
   - Cloud Networks
 ---
 
-In this multi-part blog series I intend to dive into the various components of the OpenStack Neutron project and provide working examples of networking configurations for clouds built with [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) powered by [OpenStack](http://www.openstack.org) on Ubuntu 12.04 LTS. 
+In this multi-part blog series I intend to dive into the various components of the OpenStack Neutron project and provide working examples of networking configurations for clouds built with [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) powered by [OpenStack](http://www.openstack.org) on Ubuntu 12.04 LTS.
 
 In the previous installment, [Neutron Networking: VLAN Provider Networks](http://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html), I provided guidance on configuring networks in Neutron using VLAN tagging. In this fourth installment, I'll describe how to combine flat or VLAN provider networks with GRE-based tenant networks using the L3 agent and Neutron routers.<!-- more -->
 
-####Getting Started / Prerequisites
+### Getting started and prerequisites
 
 Beginning with v4.2, Rackspace Private Cloud is powered by OpenStack Havana. This walkthrough assumes a working installation of at least v4.2.1. In prior releases the L3 agent was not supported, however, many of the concepts covered in this post can be altered to fit a Grizzly-based install using Rackspace Private Cloud or vanilla OpenStack.
 
@@ -25,17 +25,17 @@ In the last two installments I covered the concept of provider networks, or netw
 
 [Neutron Networking: VLAN Provider Networks](http://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html)
 
-####Neutron L3 Agent / What is it and how does it work?
+### Neutron L3 agent: What is it and how does it work?
 
 Neutron has an API extension to allow administrators and tenants to create "routers" that connect to L2 networks. Known as the "neutron-l3-agent", it uses the Linux IP stack and iptables to perform L3 forwarding and NAT. In order to support multiple routers with potentially overlapping IP addresses, neutron-l3-agent defaults to using Linux [network namespaces](http://www.opencloudblog.com/?p=42) to provide isolated forwarding contexts. Like the DHCP namespaces that exist for every network defined in Neutron, each router will have its own namespace with a name based on its UUID.
 
-####Network Design / Implementing Neutron Routers
+### Network design: Implementing Neutron routers
 
 While deploying instances using provider networks is suitable in many cases, there is a limit to the scalability of such environments. Multiple flat networks require corresponding bridge interfaces, and using VLANs may require manual switch and gateway configuration. All routing is handled by an upstream routing device such as a router or firewall, and said device may also be responsible for NAT as well. Any benefits are quickly outweighed by manual control and configuration processes.
 
 Using the neutron-l3-agent allows admins and tenants to create routers that handle routing between directly-connected LAN interfaces (usually tenant networks, GRE or VLAN) and a single WAN interface (usually a FLAT or VLAN provider network). While it is possible to leverage a single bridge for this purpose (as is often the documented solution), the ability to use already-existing provider networks is my preferred solution.
 
-####Neutron L3 Agent / Floating IPs
+### Neutron L3 agent: Floating IPs
 
 One of the limitations of strictly using provider networks to provide connectivity to instances is that a method to provide public connectivity directly to instances must be handled by a device outside of Neutron's control. In the previous walkthoughs, the Cisco ASA in the environment handled both 1:1 static NAT and a many-to-one PAT for outbound connectivity.
 
@@ -79,7 +79,7 @@ A port is associated with the instance indicated by the "device_id" field of the
 +-----------------------+------------------------------------------------------------------------+
 ```
 
-####Networking / Layout
+### Networking: Layout
 
 For this installment, a Cisco ASA 5510 will once again serve as the lead gateway device. In fact, I’ll be building upon the configuration already in place from the flat and/or VLAN networking demonstration in the previous installments:
 
@@ -91,12 +91,12 @@ For this installment, a Cisco ASA 5510 will once again serve as the lead gateway
 - VLAN 10 - MGMT - 10.240.0.0/24
 - VLAN 20 – GATEWAY_NET – 192.168.100.0/22
 
-A single interface on the servers will be used for both management and provider network connectivity. Neutron works with Open vSwitch to build peer-to-peer tunnels between hosts that serve to carry encapsulated *tenant* network traffic. 
+A single interface on the servers will be used for both management and provider network connectivity. Neutron works with Open vSwitch to build peer-to-peer tunnels between hosts that serve to carry encapsulated *tenant* network traffic.
 
 {% img center 2014-01-07-neutron-networking-l3-agent/l3_agent_1.2.png %}
 
 
-####Networking / L3 Agent Configuration
+### Networking: L3 agent configuration
 
 Before you can utilize the L3 agent, there are a couple of configuration options that must be added or edited. These include specifying the external bridge and external network in l3_agent.ini. There are some caveats to the L3 agent you should be aware of:
 
@@ -109,16 +109,16 @@ Before you can utilize the L3 agent, there are a couple of configuration options
 - By default, there is a single 'neutron-l3-agent' process running on the controller/network node. Only one external providernetwork is allowed per agent. However, it is possible to build several Neutron routers using the same external provider network as the gateway network and different tenant networks. Overlapping tenant networks are allowed, but not behind the same router.
 
 
-#####Changes to Environment
+#### Changes to environment
 
 Changes to a standard Rackspace Private Cloud deployment are handled by Chef. Using the 'knife' utility, add the following override attribute to the environment file:
 
 'neutron : ovs : external_bridge'
 
 ```
-"neutron": {       
-  "ovs": { 
-    ...        
+"neutron": {
+  "ovs": {
+    ...
     "external_bridge": ""
 ```
 
@@ -130,9 +130,9 @@ Run chef-client on the controller/network node to update the configuration. Chef
 external_network_bridge =
 ```
 
-Setting the bridge to null results in the router gateway interface being placed in the OVS bridge specified in the provider network. 
+Setting the bridge to null results in the router gateway interface being placed in the OVS bridge specified in the provider network.
 
-####Networking / Building a router in Neutron
+### Networking: Building a router in Neutron
 
 With the L3 agent properly configured, it's now time to build a router in Neutron. The configuration will mirror that of the diagram below, and assume a tagged VLAN provider network of 192.168.100.0/22 exists:
 
@@ -142,7 +142,7 @@ neutron net-create --provider:physical_network=ph-eth0 --provider:network_type=v
 neutron subnet-create GATEWAY_NET 192.168.100.0/22 --name GATEWAY_SUBNET --gateway=192.168.100.1 --allocation-pool start=192.168.101.1,end=192.168.103.254
 ```
 
-A router can be created with the 'router-create' command: 
+A router can be created with the 'router-create' command:
 
 ```
 root@controller01:~# neutron router-create NEUTRON-ROUTER
@@ -187,7 +187,7 @@ qdhcp-9ce7f51f-dac6-453f-80ce-3391769d9990
     inet 192.168.101.2/22 brd 192.168.103.255 scope global qg-8860da83-31
     inet6 fe80::f816:3eff:fe57:b47/64 scope link
        valid_lft forever preferred_lft forever
-       
+
 [root@controller01 ~]# ip netns exec qrouter-ba605e63-3c54-402b-9bd7-3eba85d00080 ping 192.168.100.1
 PING 192.168.100.1 (192.168.100.1) 56(84) bytes of data.
 64 bytes from 192.168.100.1: icmp_seq=1 ttl=255 time=2.22 ms
@@ -201,11 +201,11 @@ PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
 
 Upstream NAT for the router IP is important, since all traffic from an instance without a floating IP will be SNAT'd by the Neutron router. A dynamic NAT has been configured on the Cisco ASA in this example.
 
-####Networking / Attaching Tenant Networks
+### Networking: Attaching tenant networks
 
 Now that connectivity has been established for the router it's time to attach tenant networks to complete our network. Without a Neutron router, traffic within a GRE-based tenant network is limited to itself. A Neutron router will allow directly-connected tenant networks to communicate amongst each other and external networks (including the Internet), as well as provide the ability to connect to instances directly from an outside network using floating IPs.
 
-Below are two tenant networks I've created. Note that it is no longer necessary to implement the default route workaround as documented in prior releases and walkthroughs, as the Neutron router will serve as the gateway and provide connectivty to the metadata service. 
+Below are two tenant networks I've created. Note that it is no longer necessary to implement the default route workaround as documented in prior releases and walkthroughs, as the Neutron router will serve as the gateway and provide connectivty to the metadata service.
 
 ```
 [root@controller01 ~]# neutron net-create --provider:network_type=gre --provider:segmentation_id=10 --shared APPS_NET
@@ -350,8 +350,8 @@ NXST_FLOW reply (xid=0x4):
 ...
 ```
 
-####Testing / Instance Creation and Communication Tests
-     
+### Testing: Instance creation and communication tests
+
 To test connectivty I will spin up two instances - one per network.
 
 ```
@@ -425,12 +425,16 @@ To test connectivty I will spin up two instances - one per network.
 | OS-EXT-STS:power_state               | 0                                                |
 | OS-EXT-AZ:availability_zone          | nova                                             |
 | config_drive                         |                                                  |
-+--------------------------------------+--------------------------------------------------+```
++--------------------------------------+--------------------------------------------------+
 ```
 
-Because these instances are behind a Neutron router and are without floating IPs, there is no direct connectivity to them outside of the corresponding router or DHCP namespace or a multi-homed instance. You can confirm successful DHCP and metadata communication via the console-log, however:
+Because these instances are behind a Neutron router and are without floating IPs,
+there is no direct connectivity to them outside of the corresponding router or
+DHCP namespace or a multi-homed instance. You can confirm successful DHCP and
+metadata communication via the console-log, however:
 
 ```
+
 [root@controller01 ~]# nova console-log APPS_INSTANCE
 ...
 cloud-init start-local running: Wed, 18 Dec 2013 17:24:34 +0000. up 2.32 seconds

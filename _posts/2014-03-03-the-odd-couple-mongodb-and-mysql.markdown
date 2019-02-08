@@ -1,11 +1,12 @@
 ---
 layout: post
-title: 'The Odd Couple: MongoDB and MySQL'
+title: 'The odd couple: MongoDB and MySQL'
 date: '2014-03-03 14:10'
 comments: true
 author: Alex Brandt
 published: true
-categories: []
+categories:
+  - Database
 ---
 
 The choices and combinations we have available during datastore selection
@@ -22,7 +23,7 @@ problems—sometimes against the wishes of DBAs or IT Departments.
 
 <!-- more -->
 
-### Choosing the Right Tool for the Job
+### Choosing the right tool for the job
 
 There are five broad categories of datastores in today's world: column-family, document, graph, key-value and relational.  Polyglot persistence literally means using many languages to store or persist your data.
 In more practical terms this means we might use Cypher, JSON, SQL or a number of other query languages to access our data from within the same application.
@@ -47,7 +48,7 @@ As Sadalage and Fowler state above, relational datastores excel at enforcing rel
 
 Below, I discuss one use case, CraigsList data archival with MongoDB, and speculate about how they may have accomplished this.
 
-### The Players: MongoDB, MySQL and CraigsList
+### The players: MongoDB, MySQL and CraigsList
 
 #### MongoDB
 
@@ -89,7 +90,7 @@ By using MongoDB for archived data, CraigsList was able to effectively segment i
 As a thought experiment, I want to speculate about one possible implementation for using MongoDB and MySQL side-by-side in a CraigsList-esque application.
 It highly unlikely that this is how CraigsList is actually doing their data storage, but it is an interesting way to look at how multiple datastores could work together for a familiar, highly transactional, website.
 
-### How is it Done?
+### How is it done?
 
 Developers and engineers inevitably run into problems when they perform a schema update on a bulky SQL database.
 This can be avoided by simply having less data to "fix up" after the schema update is applied.

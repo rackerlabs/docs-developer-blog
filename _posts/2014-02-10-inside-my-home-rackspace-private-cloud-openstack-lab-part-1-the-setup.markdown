@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Inside My Home Rackspace Private Cloud, OpenStack Lab, Part 1: The Setup'
+title: 'Inside my home Rackspace Private Cloud, OpenStack lab, Part 1: The setup'
 date: '2014-02-10 18:00'
 comments: true
 author: Kevin Jackson
@@ -16,7 +16,7 @@ This first post is about the tech involved and how it is set up. In subsequent p
 
 <!-- more -->
 
-### The Servers
+### The servers
 
 Let’s first take a look at the servers I’m using:
 5 x [HP MicroServer N40L](http://www.amazon.co.uk/gp/product/B00AHQUX86/)
@@ -89,6 +89,7 @@ Overall, it looks like this:
 
 Hopefully, having this detailed background info will aid you in setting up your own OpenStack environment big or small.
 
-In the next post I’ll cover QNAP Dnsmasq Configuration providing DHCP, DNS and TFTP for my network, which allows me to PXE boot my N40L servers to kick Ubuntu and Rackspace Private Cloud.
+In the next post, I’ll cover QNAP Dnsmasq Configuration providing DHCP, DNS and TFTP for my network, which allows me to PXE boot my N40L servers to kick Ubuntu and Rackspace Private Cloud.
+
 *This is a guest post from [Kevin Jackson](https://twitter.com/itarchitectkev) - it was originally published on his blog [right here](http://openstackr.wordpress.com/2014/02/02/home-rackspace-private-cloud-openstack-lab-part-1/).*
 

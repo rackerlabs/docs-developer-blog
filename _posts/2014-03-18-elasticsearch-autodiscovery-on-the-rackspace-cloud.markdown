@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Elasticsearch Autodiscovery on the Rackspace Cloud
+title: Elasticsearch autodiscovery on the Rackspace Cloud
 date: '2014-03-18 13:30'
 comments: true
 author: Ryan Richard
@@ -11,9 +11,18 @@ categories:
 ---
 
 
-[Elasticsearch](http://www.elasticsearch.org/) is a powerful distributed schema-less datastore and its main focus is indexing/search functionality. One benefit of Elasticsearch is simple cluster management via [multicast](http://en.wikipedia.org/wiki/Multicast), which is provided out of the box.
+[Elasticsearch](http://www.elasticsearch.org/) is a powerful distributed
+schema-less datastore and its main focus is indexing/search functionality. One
+benefit of Elasticsearch is simple cluster management via
+[multicast](http://en.wikipedia.org/wiki/Multicast), which is provided out of
+the box.
 
-Unfortunately, multicast is often blocked by cloud vendors due to security concerns of a mutli-tenancy network (imagine exposing your software to the rest of the cloud via multicast). This is where [Rackspace Cloud Networks](http://www.rackspace.com/knowledge_center/article/getting-started-with-cloud-networks) can help out. One of the primary goals of Cloud Networks is to allow"personal" L2 networks in a mutli-tenancy environment. This means we get multicast!
+Unfortunately, multicast is often blocked by cloud vendors due to security
+concerns of a mutli-tenancy network (imagine exposing your software to the rest
+of the cloud via multicast). This is where
+[Rackspace Cloud Networks](http://www.rackspace.com/knowledge_center/article/getting-started-with-cloud-networks)
+can help out. One of the primary goals of Cloud Networks is to allow personal
+L2 networks in a mutli-tenancy environment. This means we get multicast!
 
 <!-- more -->
 
@@ -35,7 +44,7 @@ nova boot --flavor performance1-1 --image 80fbcb55-b206-41f9-9bc2-2dd7aac6c061 -
 
 The above steps can be performed in the Cloud Control Panel as well.
 
-### Server Configuration**
+### Server configuration
 
 Install Elasticsearch your preferred way. I prefer this [Chef cookbook](https://github.com/elasticsearch/cookbook-elasticsearch), but you'll need to add some attributes to configure the multicast address in the next section if your using Chef.
 
@@ -53,7 +62,7 @@ ip route add 224.0.0.0/4 dev eth2
 
 Feel free to replace the multicast network with a smaller one. Be sure to add the route and sysctl settings to the appropriate places to allow it persist across reboots.
 
-### Elasticsearch Configuration
+### Elasticsearch configuration
 
 In your elasticsearch.yml file, set:
 
@@ -69,16 +78,14 @@ You can check /usr/local/var/log/elasticsearch/elasticsearch.log to make sure yo
 [INFO ][cluster.service         ] [es-blog2] detected_master [es-blog1][89ltAR7psngnHl3PA][inet[/1.1.1.1:9300]]{max_local_storage_nodes=1}, added {[es-blog1][89ltAR7psngnHl3PA][inet[/1.1.1.2:9300]]{max_local_storage_nodes=1},}, reason: zen-disco-receive(from master [[es-blog1][89ltAR7psngnHl3PA][inet[/1.1.1.2:9300]]{max_local_storage_nodes=1}])
 ```
 
-### Follow-up
+### Conclusion
 
-By default, Elasticsearch will send "transport" (inter-cluster communication) data out eth0. Since you have your own L2 network, I would recommend setting transport.host: _eth2:ipv4_ as well.
+By default, Elasticsearch sends *transport* (inter-cluster communication) data
+out eth0. Since you have your own L2 network, I would recommend setting
+transport.host: _eth2:ipv4_ as well.
 
-Lastly, be sure to read the documentation regarding the architecture for Elasticsearch, how to handle failure scenarios and how to configure Elasticsearch to avoid split-brain scenarios.
+Lastly, be sure to read the documentation regarding the architecture for
+Elasticsearch, how to handle failure scenarios, and how to configure Elasticsearch
+to avoid split-brain scenarios.
 
-### Upcoming DevOps Automation Webinar
-
-Are you interested in learning more about how you can automate your application and infrastructure using DevOps? Join this webinar featuring the[ Rackspace DevOps Automation](http://www.rackspace.com/devops/) Team.
-
-* **Date/Time**: Tue, April 1, 2014
-* [Sign up for DevOps Webinar Now!](https://cc.readytalk.com/r/y0s9wosu5lp4&eom)
 

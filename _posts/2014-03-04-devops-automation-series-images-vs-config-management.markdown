@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'DevOps Automation Series: Images vs. Config Management'
+title: 'DevOps automation series: Images vs. config management'
 date: '2014-03-04 15:00'
 comments: true
 author: Matthew Thode
@@ -94,15 +94,3 @@ the file changes). If you add or remove an instance whose value causes one of
 the variables to change then it updates automatically. This allows you to be
 more dynamic and flexible with your deployments.
 
-* * *
-
-### Upcoming DevOps Webinar!
-
-Are you interested in learning more about how you can automate your
-application and infrastructure using DevOps? Join this webinar featuring the
-Rackspace DevOps Automation Team and learn how to effectively deliver applications
-on API-driven infrastructure.
-
-* Date/Time: Tue, April 1, 2014
-
-[Sign up now!](https://cc.readytalk.com/r/y0s9wosu5lp4&eom)

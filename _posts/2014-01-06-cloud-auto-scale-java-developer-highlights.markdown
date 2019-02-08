@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cloud Auto Scale - Java Developer Highlights
+title: 'Cloud Auto Scale: Java developer highlights'
 date: '2014-01-15 10:30'
 comments: true
 author: Zack Shoylev
@@ -101,7 +101,7 @@ Here is one way to execute the Webhook (and corresponding scaling policy):
 
     result = AutoscaleUtils.execute(webhook.getAnonymousExecutionURI().get());
 
-If you look at the execute code, you will see that you do not have to do anything to authorize the call. It is usually a good idea to create multiple Webhooks when a policy can be executed from multiple applications (for example). Thus specific Webhooks can be later deleted without affecting the policy.
+If you look at the execute code, notice that you do not have to do anything to authorize the call. It is usually a good idea to create multiple Webhooks when a policy can be executed from multiple applications (for example). Thus specific Webhooks can be later deleted without affecting the policy.
 
 The full examples code is also [available](https://github.com/jclouds/jclouds-examples/tree/master/rackspace).
 

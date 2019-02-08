@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PowerShell 101 From a Linux Guy
+title: PowerShell 101 from a Linux guy
 date: '2014-04-23 10:00'
 comments: true
 author: Sriram(Sri) Rajan
@@ -9,11 +9,21 @@ categories:
   - automation
 ---
 
-Having spent my last 7 years concentrating mainly on Linux and related technologies, I spent 3 days with PowerShell and here are the some observations and anecdotes.  Why PowerShell?  Curiosity for one and I wanted to learn it from a perspective of how to use it in configuration management tools like Chef. As an disclaimer, I'm not an expert in PowerShell and spending 3 days is just scraping the surface but I did learn quite a bit in that time. Also my prediction is that PowerShell will be real force (if not already) in Windows environments. It is a mindset change for several Windows administrators who have grown up on GUIs but that is about to change in the coming years. And if you are Linux administrator, you are likely to feel more comfortable interacting the PowerShell way. I definitely did.
+Having spent my last 7 years concentrating mainly on Linux&reg; and related
+technologies, I spent 3 days with PowerShell and here are the some observations
+and anecdotes.  Why PowerShell?  Curiosity for one and I wanted to learn it
+from a perspective of how to use it in configuration management tools like Chef.
+As an disclaimer, I'm not an expert in PowerShell and spending 3 days is just
+scraping the surface but I did learn quite a bit in that time. Also my prediction
+is that PowerShell will be real force (if not already) in Windows environments.
+It is a mindset change for several Windows administrators who have grown up on
+GUIs but that is about to change in the coming years. And if you are Linux
+administrator, you are likely to feel more comfortable interacting the PowerShell
+way. I definitely did.
 
 <!-- more -->
 
-## Observations
+### Observations
 
  * PowerShell was born in 2006 and so it has been around for some time. From the [buzz](http://www.google.co.uk/trends/explore#q=powershell), it seems to be gaining more attention in the last 2-3 years.
 
@@ -31,7 +41,7 @@ Having spent my last 7 years concentrating mainly on Linux and related technolog
 $PSVersionTable
 {% endcodeblock %}
 
-## Man up
+### Man up
 
 Help on powershell is quite good and for the Linux folks "man" works
 {% codeblock lang:powershell %}
@@ -76,7 +86,7 @@ Get-Command -Verb "Block"
 {% endcodeblock %}
 
 
-## Objectification of Commands
+### Objectification of commands
 
 PowerShell commands generate objects as opposed to text which is what *nix shells tend to do, although some individual *nix commands may have options for things like json. This can be quite powerful, especially since this is implemented quite well across all commands and cmdlets. So you can pipe the objects to other utilities to change formats from lists to tables., csv, etc. Lot of these are available as default and there is also XML but let's not go there.  If you go back to Linux, all of this is text and you end up relying a lot on awk, sed, perl, regex vodoo. *nix admins may argue text is unstructured but simpler in model but having them as objects does lend some good use-cases.
 
@@ -104,7 +114,7 @@ For e.g.
 {% endcodeblock %}
 
 
-## Searching and filtering
+### Searching and filtering
 
 Because of the objects, you can do some fancy querying and filtering.
 
@@ -152,7 +162,8 @@ TotalMilliseconds : 27.3214
 
 
 
-## Variables and Loops
+### Variables and loops
+
  * Variables - You can do simple assignments, arrays, hash tables or the output of another command.
 {% codeblock lang:powershell %}
 $value = "hello world"
@@ -236,6 +247,7 @@ ls .\SOFTWARE\Microsoft\Windows\CurrentVersion
 
 
 ## Quick reference
+
 Bash/Linux | PowerShell
 --- | ---
 ls | ls

@@ -25,14 +25,15 @@ to enable TLS in Oracle&reg; E-Business Suite&reg; (EBS) R12.
 
 TLS is an upgraded version of SSL and provides secure communications between the
 client and server. Because TLS uses a symmetric cryptography algorithm to encrypt
-the data, the data transfer is more secure and stable than by using SSL.
+the data, the data transfer is more secure and stable than the transfer is by
+using SSL.
 
 ### Why to use TLS with EBS?
 
 As you likely know, EBS uses inbound, outbound, and loopback connections and
-shares business critical information with EBS users. Thus, there are more chances
-of  data theft, data tampering, and message forgery. However, by enabling TLS
-with EBS, we can avoid all of these problems.
+shares business critical information with EBS users. Thus, more chances
+of  data theft, data tampering, and message forgery are possible. However, by
+enabling TLS with EBS, you can avoid all of these problems.
 
 The following image illustrates the connection flow in EBS:
 
@@ -44,23 +45,23 @@ Image source: Enabling TLS in Oracle E-Business Suite Release 12.1 (Doc ID 37670
 
 Perform the following tasks to enable TLS with EBS:
 
-- Upgrade JDK and Web Home
-- Apply mandatory patches
-- Configure OpenSSL
-- Generate a .csr file
-- Get the certified .csr file from a certificate authority
-- Download and import certificates into EBS
-- Make configuration changes
-- Run Autoconfig
-- Verify URL
+- Upgrade the Java Development Kit (JDK&reg;) and Web Home.
+- Apply mandatory patches.
+- Configure OpenSSL&reg;.
+- Generate a **.csr** file.
+- Get the certified .csr file from a certificate authority (CA).
+- Download and import the certificates into EBS.
+- Make configuration changes.
+- Run AutoConfig.
+- Verify the URL.
 
 #### 1. Upgrade JDK and Web Home
 
-Upgrade to JDK7 or above and and upgrade Web Home to version 10.1.3.5.
+Upgrade to JDK 7 or above, and upgrade Web Home to version 10.1.3.5.
 
 #### 2. Apply mandatory patches
 
-Install the following patches (or the most recent released patch):
+Install the following patches (or the most recently released patch):
 
 - Oracle Opatch (6880880)
 - Oracle Critical Patch Updates (CPU)
@@ -94,7 +95,7 @@ Create the following **new.cnf** file to use as a response file for OpenSSL:
     [ext]
     subjectAltName = DNS:*. corp.aspentech.com
 
-#### 4. Generate a CSR file
+#### 4. Generate a .csr file
 
 Use the following steps to generate a **.csr** file:
 
@@ -106,11 +107,11 @@ Use the following steps to generate a **.csr** file:
          ........................................................................................+++
          writing new private key to 'server.key'
 
-2. Verify the .csr  on **https://www.sslshopper.com/csr-decoder.html**
+2. Verify the **.csr** on **https://www.sslshopper.com/csr-decoder.html**
 
-3. If the information is correct, send the .csr to a certificate authority (CA).
+3. If the information is correct, send the **.csr** to a CA.
 
-#### 5. Get the CSR from the CA
+#### 5. Get the certificate from the CA
 
 The CA should send you a server certificate and certificate chain files.
 
@@ -121,8 +122,8 @@ perform the following steps:
 
 ##### Download files
 
-Download the file onto your desktop, unzip the archive into new folder, and
-create a wallet. There should be two files, as shown in the following image:
+Download the archive file onto your desktop, unzip the archive into new folder, and
+create a wallet. You should see two files, as shown in the following image:
 
 ![]({% asset_path 2019-02-08-introduction-to-transport-layer-security/Picture2.png %})
 
@@ -130,12 +131,12 @@ The file that starts with `a2e` is the main file, and the one that starts with
 `gd` is the intermediate file.
 
 Open the main file and save the **root** (or main) certificate as a **.crt**
-file. Similarly, open the intermediate file and save this also as a **.crt**
+file. Similarly, open the intermediate file and save it also as a **.crt**
 file. Upload all files to the server.
 
 ##### Create an Apache directory
 
-Execute the following commands to create an Apache directory. If an Apache
+Execute the following commands to create an Apache&reg; directory. If an Apache
 directory already exists, backup the old Apache directory first.
 
     cd $INST_TOP/certs/
@@ -144,18 +145,18 @@ directory already exists, backup the old Apache directory first.
 
 ##### Create a wallet directory
 
-Execute the following command to create an empty wallet directory on application
+Execute the following command to create an empty wallet directory on the application
 node:
 
     orapki wallet create -wallet /u01/app/TATII1/inst/apps/TATII1_nchlatiebsa01/certs/Apache -pwd WalletPasswd123 -auto_login
 
-The preceding command creates the **ewallet.p12** and **cwallet.sso** inside the
+The preceding command creates the **ewallet.p12** and **cwallet.sso** files inside the
 wallet folder (**/u01/app/TATII1/inst/apps/TATII1\_nchlatiebsa01/certs/Apache**).
 
 ##### Copy certificates
 
-Run the following commands to import the certificates (in the sequence: root,
-server, intermediate):
+Run the following commands to import the certificates, in the sequence: root,
+server, intermediate:
 
     orapki wallet add -wallet /u01/app/TATII1/inst/apps/TATII1_nchlatiebsa01/certs/Apache -trusted_cert -cert  "/home/appti1/ITK1054693/root.crt" -pwd WalletPasswd123
 
@@ -197,7 +198,7 @@ The results should be similar to the following example:
 Perform the following steps to update the JDK **cacerts** file:
 
 1.	Navigate to **$OA\_JRE\_TOP/lib/security**.
-2.	Backup the existing **cacerts** file.
+2.	Back up the existing **cacerts** file.
 3.	Copy **root.crt** and **server.crt** to this directory and issue the following
    command to ensure that **cacerts** has write permissions:
 
@@ -208,7 +209,7 @@ Perform the following steps to update the JDK **cacerts** file:
         $ keytool -import -alias ApacheRootCA -file root.crt -trustcacerts -v -keystore cacerts
         $ keytool -import -alias ApacheServer -file server.crt -trustcacerts -v -keystore cacerts
 
-5. When prompted enter the keystore password. The default password is `changeit`.
+5. When prompted, enter the keystore password. The default password is `changeit`.
 
 ##### Update parameters
 
@@ -226,7 +227,7 @@ If you are using end-to-end TLS, make the following changes:
 
 #### 7. Make configuration changes
 
-Make the following specified changes to files:
+Make the following changes to files:
 
 (If the file is not present in the custom folder, then create a custom folder
 and copy the file.)
@@ -237,7 +238,7 @@ Replace this line in the template:
 
       <ssl enabled="true" wallet-file="%s_web_ssl_directory%/opmn"/>
 
-With the following:
+With the following replacement line:
 
      <ssl enabled="true" openssl-certfile="%s_web_ssl_directory%/Apache/opmn.crt" openssl-keyfile="%s_web_ssl_directory%/Apache/server.key" openssl-password="dummy" openssl-lib="%s_weboh_oh%/lib" ssl-versions="TLSv1.0,TLSv1.1,TLSv1.2" ssl-ciphers="AES128-SHA,AES256-SHA"/>
 
@@ -262,7 +263,7 @@ Comment out the following line in the template:
 
     #SSLWallet file:%s_web_ssl_directory%/Apache
 
-Add the following lines into the template:
+Add the following lines to the template:
 
     SSLCertificateFile %s_web_ssl_directory%/Apache/server.crt
     SSLCertificateKeyFile %s_web_ssl_directory%/Apache/server.key
@@ -299,11 +300,11 @@ Update these custom files by adding the following line:
      https.protocols=TLSv1,TLSv1.1,TLSv1.2
 
 
-#### 8. Run Autoconfig
+#### 8. Run AutoConfig
 
 Run `adautocfg.sh` in the application tier **$ADMIN\_SCRIPTS\_HOME** directory.
 
-#### 9. Perform final verification
+#### 9. Perform the final verification
 
 Verify the URL, which should look like the following example:
 

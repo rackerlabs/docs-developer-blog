@@ -225,6 +225,8 @@ Make the following TLS-related parameter changes in the XML file:
 | s\_login\_page              |&nbsp;&nbsp;| URL constructed with http protocol and s\_webport |&nbsp;&nbsp;| URL constructed with https protocol and s\_webssl\_port |
 | s\_external\_url            |&nbsp;&nbsp;| URL constructed with http protocol and s\_webport |&nbsp;&nbsp;| URL constructed with https protocol and s\_webssl\_port |
 
+</br>
+</br>
 
 If you are using end-to-end TLS, make the following changes:
 
@@ -241,6 +243,8 @@ If you are using end-to-end TLS, make the following changes:
 | s\_enable\_sslterminator    |&nbsp;&nbsp;| Remove the '#' to use ssl\_terminator.conf                                                  |
 | s\_login\_page              |&nbsp;&nbsp;| URL constructed with https protocol, s\_webentryhost, s\_webentrydomain, s\_active\_webport |
 | s\_external\_url            |&nbsp;&nbsp;| URL constructed with https protocol, s\_webentryhost, s\_webentrydomain, s\_active\_webport |
+
+</br>
 
 #### 7. Make configuration changes
 

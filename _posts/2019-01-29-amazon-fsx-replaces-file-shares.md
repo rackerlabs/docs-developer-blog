@@ -17,36 +17,91 @@ categories:
   - Developers
 ---
 
-Windows File Server have been one of the longest running methods for sharing files in corporate america for decades. Amazon brings its expertise in Serverless to provide a solution for the Total Cost of Ownership traditional on-premise options in the past.
+Windows File Server have been one of the longest running methods for sharing files in corporate america for decades. Amazon brings its expertise in Serverless to provide a solution for the problem of the large Total Cost of Ownership that on-premise options have had in the past.
 
 ## History
 
-Since before Microsoft Windows 95 graced the hearts of many, corporate america was using file shares to allow companies of all sizes manage the files their various business organizations needed. Early on these were largely Word and Excel documents but expanded to a wide variety of applications over the years. File Shares was an easy system to setup and everybody else could easily access the files they needed. Just setup an H: drive on your Microsoft Windows workstation and you were off and running. There was no specialized application, no Slack or Office365 or Google Drive. Just use Windows Explorer.
+Since before Microsoft Windows 95 graced the hearts of many, corporate America was using file shares to allow companies of all sizes manage the files their various business organizations needed. Early on these were largely Word and Excel documents but expanded to a wide variety of applications over the years. File shares were an easy system to setup and everybody could access the files they needed. Just setup an H: drive on your Microsoft Windows workstation and you were off and running. There was no specialized application, no Slack or Office365 or Google Drive. Just use Windows Explorer.
 
-In college I setup a file share for my suite mates to use to share mp3 files. We also shared Quake 2 and class notes. It was convenient and built-in with Windows meaning everybody had it.
+I'm setup file shares in my home, my parent's home, college, small businesses and used them in any company with a Windows laptop.
 
-One of my more recent projects - which leveraged AWS, containers, and other modern architecture - still started with users dropping files in a Windows File Server share. That was the most appropriate interface we had available. Users didn't upload files to an internal portal, or use some desktop client, we just mounted a drive on their machine and asked them to copy files there. Training for this new system was done via an email. 
+One of my more recent projects - which leveraged AWS, containers, and other modern architecture - we still started with users dropping files in a Windows File Server share. That was the most appropriate interface we had available. Users didn't upload files to an internal portal, or use some desktop client, we just mounted a drive on their machine and asked them to copy files there. Training for this new system was done via an email. 
 
 It is also highly compatible. The SMB protocol has been implemented on a number of other systems including Linux and MacOS, making it a great legacy method for sharing files.
 
 However, while file shares are easy to setup, there is a lot to manage. You need to manage the hardware, like provisioning new drives, setting them up, adding them to pools. Software maintenance takes the form of regular patches to Windows, ensuring proper licensing, and scheduling regular backups.
 
 ```arnold
-Old, but not obsolete
+I'm old, not obsolete.
 - Terminator, Terminator Genisys
 ```
 
 ## Amazon FSx
 
-Amazon AWS FSx is Windows File Server on Amazon's world-class serverless infrastructure. Just pick your total size and your throughput and you now have a DFS compatible Windows File Share system accessibly from anywhere within the associated VPC.  There's no hardware to manage, to software to manage, you just pick your values and go.
+**Amazon FSx for Windows File Server** is Windows File Server on Amazon's world-class serverless infrastructure. Just pick your total size and your throughput and you now have a DFS compatible Windows File Share system accessible from anywhere within the associated VPC.  There's no hardware to manage, no software to manage, you just pick your values and go.
 
-The system is 100% compatible with SMB 3.1.1 (earlier is supported but not recommended) and is a drop-in replacement for your existing Windows File Server.
+The system is 100% compatible with SMB 3.1.1 (earlier is supported but not recommended) and is a drop-in replacement for your existing Windows File Server. This is because AWS made a conscience decision to not re-implement any APIs, they're spinning up Windows Servers for you and managing everything. Another full managed-service offering.
 
-Authentication is supported using an AWS Active Directory service.
+Authentication is supported using an AWS Active Directory service. You can use an AWS managed AD service. AD Connector support is coming soon.
+
+By default, your shares are **not** Multi-AZ. So, if high availability is a must, you can use DFS Namespaces across a few FSx instances. In fact, using Namespaces could get you 3 EB (3 million TBs) of storage (64TB per 50,000 shares).
+
+Currently this is only accessibly from within the associated VPCs, so machines on-prem or your laptops and workstations don't have access yet. CloudFormation templates also don't exist yet, so management is via the Console or through client API's like Python, Node, or others.  We should see soon CloudFormation support, AD Connector support, and VPN support, resolving many of the initial limitations of FSx. 
+
+## Conclussion
+
+Technologies that are built well tend to last. File Share did exactly what we needed, at the time, and still serves a powerfull role in corporate networks.
+
+While there are some key features lacking here in the beginning, Amazon FSx for Windows File Server is going to be a strong offering once we're past some of these initial growing pains. Yet, this does work well for a lot of legacy software running in EC2 instances that have been using file shares for deployment artifacts, shared content files, and many other use cases. Adoption in this space is available now and yields a high return on value. 
+
+```arnold
+I'm old, not obsolete.
+- Terminator, Terminator Genisys
+```
+
+<table>
+  <tr>If you liked this blog, share it by using the following icons:</tr>
+  <tr>
+   <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/amazon-fsx-replaces-file-shares/">
+        <img src="{% asset_path shareT.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/amazon-fsx-replaces-file-shares/">
+        <img src="{% asset_path shareFB.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50 >
+    </td>
+    <td>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/amazon-fsx-replaces-file-shares&summary=&source=">
+        <img src="{% asset_path shareL.png %}">
+      </a>
+    </td>
+  </tr>
+</table>
+
+</br>
+
+If you have any questions on the topic, comment in the field below.
+
+Learn more about [Rackspace application services](https://www.rackspace.com/application-management).
 
 
-No more managing hardware. that just goes away.
+
+------
+
+
 No more software management. Patches, licenses, backups, and updates all go away.
+No more managing hardware. that just goes away.
 
 Provides: 
 100% Windows compatability

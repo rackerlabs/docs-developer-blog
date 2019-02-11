@@ -5,6 +5,7 @@ ogTitle: "Amazon's new FSx is a strong replacement for self-managed Windows File
 metaDescription: After decades of use Windows File Server are still around and being leveraged daily by corporate networks for sharing files. Now Amazon offers a managed serverless solution to reduce TCO for customers.
 ogDescription: After decades of use Windows File Server are still around and being leveraged daily by corporate networks for sharing files. Now Amazon offers a managed serverless solution to reduce TCO for customers.
 date: 2019-01-30 00:00
+desiredDate: ASAP
 comments: true
 author: Matthew Bonig
 twitterCreator: "@mattbonig"

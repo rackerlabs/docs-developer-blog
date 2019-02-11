@@ -217,36 +217,36 @@ To continue the installation on node1, perform the following steps as prompted:
     ![]({% asset_path 2019-02-13-install-and-configure-Forms-and-Reports-for-high-availability-on-OEL/Picture2.png %})
 
 <ol start=13>
-    <li> On <b>Clusters</b> page, keep the default values and click <b>Next</b>.
+    <li>On <b>Clusters</b> page, keep the default values and click <b>Next</b>.</li>
+    <li>On the <b>Server Templates</b> page, keep the default values and click <b>Next</b>.</li>
+    <li>On the <b>Dynamic Templates</b> page, keep the default values and click <b>Next</b>.</li>
+    <li>On the <b>Assign Servers to Clusters</b> page, assign the servers as shown
+    in the following table:</li>
 </ol>
-14. On the **Server Templates** page, keep the default values and click **Next**.
-15. On the **Dynamic Templates** page, keep the default values and click **Next**.
-16. On the **Assign Servers to Clusters** page, assign the servers as shown
-    in the following table:
 
     ![]({% asset_path 2019-02-13-install-and-configure-Forms-and-Reports-for-high-availability-on-OEL/Picture3.png %})
 
 <ol start=17>
     <li>In <b>Coherence clusters</b>, keep the defaults and click <b>Next</b>.</li>
+    <li>On the <b>Machine</b> Page, change the settings as shown in the following table:</li>
 </ol>
-18. On the **Machine** Page, change the settings as shown in the following table:
 
     ![]({% asset_path 2019-02-13-install-and-configure-Forms-and-Reports-for-high-availability-on-OEL/Picture4.png %})
 
 <ol start=19>
-    <li> On the **Assign Servers to Machine** page, add the AdminServer, <b>WLS\_FORMS1</b>,
+    <li> On the <b>Assign Servers to Machine</b> page, add the AdminServer, <b>WLS\_FORMS1</b>,
     and <b>WLS\_REPORTS1</b> to the Machine node1 and add <b>WLS\_FORMS1</b> and
     <b>WLS\_REPORTS1</b> to the Machine Node2.</li>
+    <li>On the <b>Virtual Target</b> page, select <b>Don’t configure</b>, and click <b>Next</b>.</li>
+    <li>On the <b>Partitions</b> page, select <b>Don’t configure</b>, and click <b>Next</b>.</li>
+    <li>On the <b>System Components</b> page, keep <b>forms1</b> and <b>ohs1</b>. Add two more
+    entries (<b>forms2</b> and <b>ohs2</b>) as shown in the following table:</li>
 </ol>
-20. On the **Virtual Target** page, select **Don’t configure** and click **Next**.
-21. On the **Partitions** page, select **Don’t configure** and click **Next**.
-22. On the **System Components** page, keep `forms1` and `ohs1`. Add two more
-    entries (`forms2` and `ohs2`) as shown in the following table:
 
     ![]({% asset_path 2019-02-13-install-and-configure-Forms-and-Reports-for-high-availability-on-OEL/Picture5.png %})
 
 <ol start=23>
-    <li>On the <b>OHS Server</b> page, select <b>System Component</b> ohs1 and provide
+    <li>On the <b>OHS Server</b> page, select <b>System Component</b> <b>ohs1</b> and provide
     the following details:</li>
     <ul>
     <li>Admin Host: Node1 IP Address</li>
@@ -256,7 +256,7 @@ To continue the installation on node1, perform the following steps as prompted:
     <li>SSL Listen Port: 4443</li>
     <li>Servername: http://<Node1 IP Address>:7777</li>
     </ul>
-    <li>Select <b>System Component</b> ohs2 and provide the following details:</li>
+    <li>Select <b>System Component</b> <b>ohs2</b> and provide the following details:</li>
     <ul>
     <li>Admin Host: Node2 IP Address</li>
     <li>Admin Port: 7779</li>
@@ -266,12 +266,14 @@ To continue the installation on node1, perform the following steps as prompted:
     <li>Servername: http://<Node2 IP Address>:7777</li>
     </ul>
 </ol>
-
-24. On the **Assign System Components to machines** pages, assign `forms1` and
-    `ohs1` to **Machine Node1** and `forms2` and `ohs2` to **Machine Node2**.
-25. On the **Configuration Summary** page, verify the summary and click **Create**.
-26. After the domain creation completes, click **Next**.
-27. At the end of the **Configuration** page, click **Finish**.
+<ol start=24>
+    <li>On the <b>Assign System Components to machines</b> pages, assign <b>forms1</b> and
+    <b>ohs1</b> to <b>Machine Node1</b> and assign <b>forms2</b> and <b>ohs2</b>
+    to <b>Machine Node2</b>.</li>
+    <li>On the <b>Configuration Summary</b> page, verify the summary and click <b>Create</b>.</li>
+    <li>After the domain creation completes, click <b>Next</b>.</li>
+    <li>At the end of the <b>Configuration</b> page, click <b>Finish</b>.</li>
+</ol>
 
 ### Conduct post-installation tasks on node1
 

@@ -175,10 +175,8 @@ To continue the installation on node1, perform the following steps as prompted:
 
 1. On the **Templates** page, select **Create a new Domain** and set the
    **Domain Location** to **/u02/app/middleware/user\_projects/domains/DEV\_domain**.
-
 2. On the next page, select **Create Domain using Product Templates** and select
    the following templates:
-
    - Oracle Forms - 12.2.1.3.0 [forms]
    - Oracle Reports Application - 12.2.1 [reports]
    - Oracle Enterprise manager - 12.2.1.3.0 [em]
@@ -188,7 +186,6 @@ To continue the installation on node1, perform the following steps as prompted:
    - Oracle Reports Bridge - 12.2.1 [ReportsBridgeComponent]
    - Oracle JRF - 12.2.1.3.0 [oracle_common]
    - WebLogic Coherence Cluster Extension - 12.2.1.3.0 [wlserver]
-
 3. On the **Application Location** page, set **Application Location** to
    **/u02/app/middleware/user\_projects/applications/DEV\_domain**.
 4. On the **Administrator Account** page, set the **Name** and **Password** for
@@ -219,7 +216,9 @@ To continue the installation on node1, perform the following steps as prompted:
 
     ![]({% asset_path 2019-02-13-install-and-configure-Forms-and-Reports-for-high-availability-on-OEL/Picture2.png %})
 
-13. On **Clusters** page, keep the default values and click **Next**.
+<ol start=13>
+    <li> On <b>Clusters</b> page, keep the default values and click <b>Next</b>.
+</ol>
 14. On the **Server Templates** page, keep the default values and click **Next**.
 15. On the **Dynamic Templates** page, keep the default values and click **Next**.
 16. On the **Assign Servers to Clusters** page, assign the servers as shown
@@ -227,14 +226,18 @@ To continue the installation on node1, perform the following steps as prompted:
 
     ![]({% asset_path 2019-02-13-install-and-configure-Forms-and-Reports-for-high-availability-on-OEL/Picture3.png %})
 
-17. In **Coherence clusters**, keep the defaults and click **Next**.
+<ol start=17>
+    <li>In <b>Coherence clusters</b>, keep the defaults and click <b>Next</b>.</li>
+</ol>
 18. On the **Machine** Page, change the settings as shown in the following table:
 
     ![]({% asset_path 2019-02-13-install-and-configure-Forms-and-Reports-for-high-availability-on-OEL/Picture4.png %})
 
-19. On the **Assign Servers to Machine** page, add the AdminServer, **WLS\_FORMS1**,
-    and **WLS\_REPORTS1** to the Machine node1 and add **WLS\_FORMS1** and
-    **WLS\_REPORTS1** to the Machine Node2.
+<ol start=19>
+    <li> On the **Assign Servers to Machine** page, add the AdminServer, <b>WLS\_FORMS1</b>,
+    and <b>WLS\_REPORTS1</b> to the Machine node1 and add <b>WLS\_FORMS1</b> and
+    <b>WLS\_REPORTS1</b> to the Machine Node2.</li>
+</ol>
 20. On the **Virtual Target** page, select **Don’t configure** and click **Next**.
 21. On the **Partitions** page, select **Don’t configure** and click **Next**.
 22. On the **System Components** page, keep `forms1` and `ohs1`. Add two more
@@ -242,24 +245,27 @@ To continue the installation on node1, perform the following steps as prompted:
 
     ![]({% asset_path 2019-02-13-install-and-configure-Forms-and-Reports-for-high-availability-on-OEL/Picture5.png %})
 
-23. On the **OHS Server** page, select **System Component** `ohs1` and provide
-    the following details:
-
-    - Admin Host: Node1 IP Address
-    - Admin Port: 7779
-    - Listen Address: Node1 IP Address
-    - Listen Port: 7777
-    - SSL Listen Port: 4443
-    - Servername: http://<Node1 IP Address>:7777
-
-    Select **System Component** `ohs2` and provide the following details:
-
-    - Admin Host: Node2 IP Address
-    - Admin Port: 7779
-    - Listen Address: Node2 IP Address
-    - Listen Port: 7777
-    - SSL Listen Port: 4443
-    - Servername: http://<Node2 IP Address>:7777
+<ol start=23>
+    <li>On the <b>OHS Server</b> page, select <b>System Component</b> ohs1 and provide
+    the following details:</li>
+    <ul>
+    <li>Admin Host: Node1 IP Address</li>
+    <li>Admin Port: 7779</li>
+    <li>Listen Address: Node1 IP Address</li>
+    <li>Listen Port: 7777</li>
+    <li>SSL Listen Port: 4443</li>
+    <li>Servername: http://<Node1 IP Address>:7777</li>
+    </ul>
+    <li>Select <b>System Component</b> ohs2 and provide the following details:</li>
+    <ul>
+    <li>Admin Host: Node2 IP Address</li>
+    <li>Admin Port: 7779</li>
+    <li>Listen Address: Node2 IP Address</li>
+    <li>Listen Port: 7777</li>
+    <li>SSL Listen Port: 4443</li>
+    <li>Servername: http://<Node2 IP Address>:7777</li>
+    </ul>
+</ol>
 
 24. On the **Assign System Components to machines** pages, assign `forms1` and
     `ohs1` to **Machine Node1** and `forms2` and `ohs2` to **Machine Node2**.

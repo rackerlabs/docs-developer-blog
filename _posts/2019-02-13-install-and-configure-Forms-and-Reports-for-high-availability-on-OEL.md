@@ -256,7 +256,7 @@ To continue the installation on node1, perform the following steps as prompted:
     <li>SSL Listen Port: 4443</li>
     <li>Servername: http://<Node1 IP Address>:7777</li>
     </ul>
-    <li>Select <b>System Component</b> <b>ohs2</b> and provide the following details:</li>
+    <li>On the <b>OHS Server</b> page, select <b>System Component</b> <b>ohs2</b> and provide the following details:</li>
     <ul>
     <li>Admin Host: Node2 IP Address</li>
     <li>Admin Port: 7779</li>
@@ -265,8 +265,6 @@ To continue the installation on node1, perform the following steps as prompted:
     <li>SSL Listen Port: 4443</li>
     <li>Servername: http://<Node2 IP Address>:7777</li>
     </ul>
-</ol>
-<ol start=24>
     <li>On the <b>Assign System Components to machines</b> pages, assign <b>forms1</b> and
     <b>ohs1</b> to <b>Machine Node1</b> and assign <b>forms2</b> and <b>ohs2</b>
     to <b>Machine Node2</b>.</li>

@@ -14,7 +14,6 @@ authorAvatar: https://s.gravatar.com/avatar/17fefeb3c1832175bf6fbe9841368292?s=1
 bio: "As a Senior Software Engineer at Rackspace, Matthew draws upon his 15 years of web application development experience to help architect highly-available, fault-tolerant, scalable, and secure AWS environments composed of a wide range of services in the AWS portfolio, including Compute, Storage, Database, Networking, Developer Tools, and more. He is an AWS certified Solutions Architect. His hobbies include hiking the foothills of Colorado and walks with his wife and dogs."
 categories:
   - aws
-  - Developers
 ---
 
 Windows File Server have been one of the longest running methods for sharing files in corporate america for decades. Amazon brings its expertise in serverless to provide a solution for the problem of the large Total Cost of Ownership that on-premise options have had in the past.

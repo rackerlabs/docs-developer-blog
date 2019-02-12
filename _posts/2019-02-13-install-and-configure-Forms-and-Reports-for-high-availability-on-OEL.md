@@ -557,7 +557,7 @@ Perform the following steps to configure Forms and Reports:
 
         vi /u01/app/middleware/forms/templates/config/forms.conf
 
-   Add following lines:
+        Add following lines:
 
         <Location /forms>
            SetHandler weblogic-handler
@@ -570,7 +570,7 @@ Perform the following steps to configure Forms and Reports:
 
         vi /u01/app/middleware/reports/conf/reports_ohs.conf
 
-   Add following lines:
+       Add following lines:
 
         <Location /reports>
            SetHandler weblogic-handler

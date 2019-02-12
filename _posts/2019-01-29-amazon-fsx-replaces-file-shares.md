@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Amazon's new FSx is a strong replacement for self-managed Windows File Server"
+title: "TESTAmazon's new FSx is a strong replacement for self-managed Windows File Server"
 ogTitle: "Amazon's new FSx is a strong replacement for self-managed Windows File Server"
 metaDescription: After decades of use Windows File Server are still around and being leveraged daily by corporate networks for sharing files. Now Amazon offers a managed serverless solution to reduce TCO for customers.
 ogDescription: After decades of use Windows File Server are still around and being leveraged daily by corporate networks for sharing files. Now Amazon offers a managed serverless solution to reduce TCO for customers.
@@ -58,7 +58,6 @@ While there are some key features lacking here in the beginning, Amazon FSx for 
 I'm old, not obsolete.
 - Terminator, Terminator Genisys
 ```
-
 <table>
   <tr>If you liked this blog, share it by using the following icons:</tr>
   <tr>
@@ -94,3 +93,4 @@ I'm old, not obsolete.
 If you have any questions on the topic, comment in the field below.
 
 Learn more about [Rackspace application services](https://www.rackspace.com/application-management).
+

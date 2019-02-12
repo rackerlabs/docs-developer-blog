@@ -226,7 +226,7 @@ To continue the installation on node1, perform the following steps as prompted:
     in the following table:</li>
 </ol>
 
-   ![]({% asset_path 2019-02-13Pictyre
+   ![]({% asset_path 2019-02-13-install-and-configure-Forms-and-Reports-for-high-availability-on-OEL/Picture3.png %})
 
 <ol start=17>
     <li>In <b>Coherence clusters</b>, keep the defaults and click <b>Next</b>.</li>

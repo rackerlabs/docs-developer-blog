@@ -358,36 +358,45 @@ Perform the following configuration steps to configure reports on node1:
           <webcommandaccess>L2</webcommandaccess>
       </rwservlet>
 
-5. Restart the managed server **WLS\_REPORTS1** from the console.
-
-6. Run the following command to create the stand alone reports server, **my_rersrv**:
-
+<ol start=5>
+    <li>Restart the managed server <b>WLS_REPORTS1</b> from the console.</li>
+    <li>Run the following command to create the stand alone reports server, <b>my_rersrv</b>:</li>
+</ol>
         [oracle@host03]$ /u01/app/middleware/oracle_common/common/bin/wlst.sh
 
-7. Run the following command to connect to the AdminServer(the AdminServer and
-   **WLS_REPORTS** must be running):
-
+<ol start=7>
+    <li>Run the following command to connect to the AdminServer(the AdminServer and
+     <b>WLS_REPORTS</b> must be running):</li>
+</ol>
         wlst> connect('weblogic','<weblogic password', 't3://<Node1 Hostname>:7001')
 
-8. Run the following command to create the **ReportsServerInstance**:
+<ol start=8>
+    <li>Run the following command to create the <b>ReportsServerInstance</b>:</li>
+</ol>
 
         wls:/forms_domain/serverConfig/> createReportsServerInstance(instanceName='my_repsrv',machine='UnixMachine_1')
 
-9. Run the following command to disable the single sign on for the Reports Server:
+<ol start=9>
+    <li>Run the following command to disable the single sign on for the Reports Server:</li>
+</ol>
 
         vi /u02/app/middleware/user_projects/domains/DEV_domain/config/fmwconfig/components/ReportsServerComponent/my_repsrv/rwserver.conf
 
         Change:  <!--job jobType="report" engineId="rwEng" securityId="rwJaznSec"/-->
         To:      <job jobType="report" engineId="rwEng"/>
 
-10. Run the following commands to start the standalone reports server and save
-    the NodeManager password:
+<ol start=10>
+    <li>Run the following commands to start the standalone reports server and save
+    the NodeManager password:</li>
+</ol>
 
         cd /u02/app/middleware/user_projects/domains/DEV_domain/bin
         ./startComponent.sh my_repsrv storeUserConfig
 
-11. When prompted to try the nodemanager user password, enter Node Manager
-    password: **xxx**.
+<ol start=11>
+    <li>When prompted to try the nodemanager user password, enter Node Manager
+    password:<b>xxx</b>.</li>
+</ol>
 
 ### Join node2 to the clustered domain on node1
 
@@ -477,36 +486,47 @@ Perform the following configuration steps to configure reports on node2:
           <webcommandaccess>L2</webcommandaccess>
       </rwservlet>
 
-5. Restart the managed server **WLS\_REPORTS1** from the console.
-
-6. Run the following command to create the stand alone reports server, **my_rersrv2**:
+<ol start=5>
+    <li>Restart the managed server <b>WLS_REPORTS1</b> from the console.</li>
+    <li>Run the following command to create the stand alone reports server, <b>my_rersrv2</b>:</li>
+</ol>
 
         [appfmw@fmwNode2]$ /u01/app/middleware/oracle_common/common/bin/wlst.sh
 
-7. Run the following command to connect to the AdminServer (the AdminServer and
-   **WLS_REPORTS** must be running):
+<ol start=7>
+    <li>Run the following command to connect to the AdminServer (the AdminServer and
+    <b>WLS_REPORTS</b> must be running):</li>
+</ol>
 
         wlst> connect('weblogic','<weblogic password', 't3://<Node1 Hostname>:7001')
 
-8. Run the following command to create the **ReportsServerInstance**:
+<ol start=8>
+    <li>Run the following command to create the <b>ReportsServerInstance</b>:</li>
+</ol>
 
         wls:/forms_domain/serverConfig/> createReportsServerInstance(instanceName='my_repsrv2',machine='UnixMachine_2')
 
-9. Run the following command to disable the single sign on for the Reports Server:
+<ol start=9>
+    <li>Run the following command to disable the single sign on for the Reports Server:</li>
+</ol>
 
         vi /u02/app/middleware/user_projects/domains/DEV_domain/config/fmwconfig/components/ReportsServerComponent/my_repsrv/rwserver.conf
 
         Change:  <!--job jobType="report" engineId="rwEng" securityId="rwJaznSec"/-->
         To:      <job jobType="report" engineId="rwEng"/>
 
-10. Run the following commands to start the standalone reports server and save
-    the NodeManager password on node2:
+<ol start=10>
+    <li>Run the following commands to start the standalone reports server and save
+    the NodeManager password on node2:</li>
+</ol>
 
         cd /u02/app/middleware/user_projects/domains/DEV_domain/bin
         ./startComponent.sh my_repsrv storeUserConfig
 
-12. When prompted to try the nodemanager user password, enter Node Manager
-    password: **xxx**.
+<ol start=11>
+    <li>When prompted to try the nodemanager user password, enter Node Manager
+    password:<b>xxx</b>.</li>
+</ol>
 
 ### Configure Forms and Reports to use the HTTP server
 

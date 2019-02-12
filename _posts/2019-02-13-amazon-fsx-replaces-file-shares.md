@@ -19,6 +19,8 @@ categories:
 
 Windows File Server have been one of the longest running methods for sharing files in corporate america for decades. Amazon brings its expertise in serverless to provide a solution for the problem of the large Total Cost of Ownership that on-premise options have had in the past.
 
+<!-- more -->
+
 ### History
 
 Since before Microsoft Windows 95 graced the hearts of many, corporate America was using file shares to allow companies of all sizes manage the files their various business organizations needed. Early on these were largely Word and Excel documents but expanded to a wide variety of applications over the years. File shares were an easy system to setup and everybody could access the files they needed. Just setup an H: drive on your Microsoft Windows workstation, and you were off and running. There was no specialized application, no Slack or Office365 or Google Drive. Just use Windows Explorer.

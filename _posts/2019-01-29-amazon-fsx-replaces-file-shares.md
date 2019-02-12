@@ -63,7 +63,7 @@ I'm old, not obsolete.
   <tr>If you liked this blog, share it by using the following icons:</tr>
   <tr>
    <td>
-       <img src="{% asset_path line-tile.png %}" width=50 >
+       <img src="{% asset_path line-tile.png %}" width=50>
     </td>
     <td>
       <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/amazon-fsx-replaces-file-shares/">
@@ -71,7 +71,7 @@ I'm old, not obsolete.
       </a>
     </td>
     <td>
-       <img src="{% asset_path line-tile.png %}" width=50 >
+       <img src="{% asset_path line-tile.png %}" width=50>
     </td>
     <td>
       <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/amazon-fsx-replaces-file-shares/">
@@ -79,7 +79,7 @@ I'm old, not obsolete.
       </a>
     </td>
     <td>
-       <img src="{% asset_path line-tile.png %}" width=50 >
+       <img src="{% asset_path line-tile.png %}" width=50>
     </td>
     <td>
       <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/amazon-fsx-replaces-file-shares&summary=&source=">

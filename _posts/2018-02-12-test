@@ -58,3 +58,38 @@ While there are some key features lacking here in the beginning, Amazon FSx for 
 I'm old, not obsolete.
 - Terminator, Terminator Genisys
 ```
+<table>
+  <tr>If you liked this blog, share it by using the following icons:</tr>
+  <tr>
+   <td>
+       <img src="{% asset_path line-tile.png %}" width=50>
+    </td>
+    <td>
+      <a href="https://twitter.com/home?status=https%3A//developer.rackspace.com/blog/amazon-fsx-replaces-file-shares/">
+        <img src="{% asset_path shareT.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50>
+    </td>
+    <td>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/amazon-fsx-replaces-file-shares/">
+        <img src="{% asset_path shareFB.png %}">
+      </a>
+    </td>
+    <td>
+       <img src="{% asset_path line-tile.png %}" width=50>
+    </td>
+    <td>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//developer.rackspace.com/blog/amazon-fsx-replaces-file-shares&summary=&source=">
+        <img src="{% asset_path shareL.png %}">
+      </a>
+    </td>
+  </tr>
+</table>
+
+</br>
+
+If you have any questions on the topic, comment in the field below.
+
+Learn more about [Rackspace application services](https://www.rackspace.com/application-management).

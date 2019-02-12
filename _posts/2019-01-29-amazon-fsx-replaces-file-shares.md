@@ -31,11 +31,6 @@ It is also highly compatible. The SMB protocol has been implemented on a number 
 
 However, while file shares are easy to setup, there is a lot to manage. You need to manage the hardware, like provisioning new drives, setting them up, adding them to pools. Software maintenance takes the form of regular patches to Windows, ensuring proper licensing, and scheduling regular backups.
 
-```arnold
-I'm old, not obsolete.
-- Terminator, Terminator Genisys
-```
-
 ### Amazon FSx
 
 **Amazon FSx for Windows File Server** is Windows File Server on Amazon's world-class serverless infrastructure. Just pick your total size and your throughput, and you now have a DFS compatible Windows File Share system accessible from anywhere within the associated VPC.  There's no hardware to manage, no software to manage, you just pick your values and go.
@@ -54,10 +49,11 @@ Technologies that are built well tend to last. File Share did exactly what we ne
 
 While there are some key features lacking here in the beginning, Amazon FSx for Windows File Server is going to be a strong offering once we're past some of these initial growing pains. Yet, this does work well for a lot of legacy software running in EC2 instances that have been using file shares for deployment artifacts, shared content files, and many other use cases. Adoption in this space is available now and yields a high return on value. 
 
-```arnold
-I'm old, not obsolete.
+```
+arnold: I'm old, not obsolete.
 - Terminator, Terminator Genisys
 ```
+
 <table>
   <tr>If you liked this blog, share it by using the following icons:</tr>
   <tr>

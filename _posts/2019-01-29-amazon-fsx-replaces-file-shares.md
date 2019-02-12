@@ -36,7 +36,7 @@ I'm old, not obsolete.
 - Terminator, Terminator Genisys
 ```
 
-## Amazon FSx
+### Amazon FSx
 
 **Amazon FSx for Windows File Server** is Windows File Server on Amazon's world-class serverless infrastructure. Just pick your total size and your throughput, and you now have a DFS compatible Windows File Share system accessible from anywhere within the associated VPC.  There's no hardware to manage, no software to manage, you just pick your values and go.
 
@@ -48,7 +48,7 @@ By default, your shares are **not** Multi-AZ. So, if high availability is a must
 
 Currently, this is only accessible from within the associated Virtual Private Cloud (VPC.), so machines on-prem (e.g. your laptops and workstations) don't have access yet. CloudFormation templates also don't exist yet, so management is via the Console or through client API's like Python, Node, or others.  We should see soon CloudFormation support, AD Connector support, and VPN support, resolving many of the initial limitations of FSx. 
 
-## Conclusion
+### Conclusion
 
 Technologies that are built well tend to last. File Share did exactly what we needed at the time and still serves a powerful role in corporate networks.
 

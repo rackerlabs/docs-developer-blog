@@ -5,11 +5,10 @@ ogTitle: "Amazon's new FSx is a strong replacement for self-managed Windows File
 metaDescription: After decades of use Windows File Server are still around and being leveraged daily by corporate networks for sharing files. Now Amazon offers a managed serverless solution to reduce TCO for customers.
 ogDescription: After decades of use Windows File Server are still around and being leveraged daily by corporate networks for sharing files. Now Amazon offers a managed serverless solution to reduce TCO for customers.
 date: 2019-02-12 00:00
-desiredDate: ASAP
 comments: true
 author: Matthew Bonig
 twitterCreator: "@mattbonig"
-published: false
+published: true
 authorIsRacker: true
 authorAvatar: https://s.gravatar.com/avatar/17fefeb3c1832175bf6fbe9841368292?s=128
 bio: "As a Senior Software Engineer at Rackspace, Matthew draws upon his 15 years of web application development experience to help architect highly-available, fault-tolerant, scalable, and secure AWS environments composed of a wide range of services in the AWS portfolio, including Compute, Storage, Database, Networking, Developer Tools, and more. He is an AWS certified Solutions Architect. His hobbies include hiking the foothills of Colorado and walks with his wife and dogs."
@@ -20,7 +19,7 @@ categories:
 
 Windows File Server have been one of the longest running methods for sharing files in corporate america for decades. Amazon brings its expertise in serverless to provide a solution for the problem of the large Total Cost of Ownership that on-premise options have had in the past.
 
-## History
+### History
 
 Since before Microsoft Windows 95 graced the hearts of many, corporate America was using file shares to allow companies of all sizes manage the files their various business organizations needed. Early on these were largely Word and Excel documents but expanded to a wide variety of applications over the years. File shares were an easy system to setup and everybody could access the files they needed. Just setup an H: drive on your Microsoft Windows workstation, and you were off and running. There was no specialized application, no Slack or Office365 or Google Drive. Just use Windows Explorer.
 
@@ -51,7 +50,7 @@ Currently, this is only accessible from within the associated Virtual Private Cl
 
 ## Conclusion
 
-Technologies that are built well tend to last. File Share did exactly what we needed, at the time and still serves a powerfull role in corporate networks.
+Technologies that are built well tend to last. File Share did exactly what we needed at the time and still serves a powerful role in corporate networks.
 
 While there are some key features lacking here in the beginning, Amazon FSx for Windows File Server is going to be a strong offering once we're past some of these initial growing pains. Yet, this does work well for a lot of legacy software running in EC2 instances that have been using file shares for deployment artifacts, shared content files, and many other use cases. Adoption in this space is available now and yields a high return on value. 
 

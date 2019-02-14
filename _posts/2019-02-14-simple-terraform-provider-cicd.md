@@ -15,7 +15,7 @@ bio: "As a Senior Software Engineer at Rackspace, Matthew draws upon his 15 year
 categories:
   - aws
   - DevOps
-  - Community
+  - Automation
 ---
 
 Terraform has gained a lot of popularity in the last couple years. Rackspace prefers to use Terraform to quickly spin up new architecture in AWS and Azure. However, with Amazon's lightning-fast deployment of new features, it has become harder for the Provider maintainers to keep up. Developers are left waiting for new features to be developed and merged into the `master` branch before becoming available for general consumption.

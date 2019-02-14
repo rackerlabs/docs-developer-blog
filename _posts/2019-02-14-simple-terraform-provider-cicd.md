@@ -95,3 +95,4 @@ Now just transfer the related binary to whatever environment you need it in!
 ### Conclusion
 
 Using custom Terraform Providers, built from a forked or branched Github repository, is now simple and easy with a little AWS and Terraform.
+

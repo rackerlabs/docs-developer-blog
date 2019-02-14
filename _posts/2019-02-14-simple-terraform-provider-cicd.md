@@ -4,7 +4,7 @@ title: "A Simple AWS-based CICD for In-Development Terraform Providers"
 ogTitle: "A Simple AWS-based CICD for In-Development Terraform Providers"
 metaDescription: Rackspace has created a simple AWS-based CICD that anyone can use to build a custom Terraform Provider.
 ogDescription: Rackspace has created a simple AWS-based CICD that anyone can use to build a custom Terraform Provider.
-date: 2019-02-13 00:00
+date: 2019-02-14 00:00
 comments: true
 author: Matthew Bonig
 twitterCreator: "@mattbonig"
@@ -19,6 +19,8 @@ categories:
 ---
 
 Terraform has gained a lot of popularity in the last couple years. Rackspace prefers to use Terraform to quickly spin up new architecture in AWS and Azure. However, with Amazon's lightning-fast deployment of new features, it has become harder for the Provider maintainers to keep up. Developers are left waiting for new features to be developed and merged into the `master` branch before becoming available for general consumption.
+
+<!-- more -->
 
 Open Source to the rescue! Since the source for Terraform Providers are available via Github, any new feature doesn't have to be in the `master` (mainline) Provider before it can be leveraged by Terraform users.
 
@@ -60,7 +62,7 @@ Please review the README and feel free to open any issues or provide feedback.
 
 Let's take a look at an example of using this with the FSx PR I mentioned earlier. First, I would create a new Terraform module and include a main.tf:
 
-```hcl-terraform
+```
 module "FSx_pipeline" {
     source = "github.com/rackerlabs/simple-provider-cicd?ref=master"
     
@@ -75,17 +77,17 @@ module "FSx_pipeline" {
 ```
 
 Now just run your Terraform init/apply (don't forget to set a GITHUB_TOKEN first!):
-```bash
+```
 > tf init && GITHUB_TOKEN=ABCDE12345 tf apply
 ```
 
 When you're done, you should now have a CodePipeline build going:
 
-![]({% asset_path 2019-02-13-simple-terraform-provider-cicd/code-pipeline.png %})
+![]({% asset_path 2019-02-14-simple-terraform-provider-cicd/code-pipeline.png %})
 
 And when that's done, you'll have the binaries in S3:
 
-![]({% asset_path 2019-02-13-simple-terraform-provider-cicd/s3.png %})
+![]({% asset_path 2019-02-14-simple-terraform-provider-cicd/s3.png %})
 
 Now just transfer the related binary to whatever environment you need it in!
 

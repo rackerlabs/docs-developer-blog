@@ -43,9 +43,10 @@ While some organizations build scheduling automation through services like Lambd
  
 ### The solution
 
-AWS’ Instance Scheduler solution packages several AWS services together, including DynamoDB, Lambda and CloudWatch Events, into a deployable CloudFormation template, enabling users to automate custom start/stop schedules for their EC2 and RDS instances. Instance Scheduler does not feature a user interface, with schedule configuration performed via the DynamoDB interface or the command-line interface.
+The AWS Instance Scheduler solution packages several AWS services together, including DynamoDB, Lambda and CloudWatch Events, into a deployable CloudFormation template, enabling users to automate custom start/stop schedules for their EC2 and RDS instances. Instance Scheduler does not feature a user interface, with schedule configuration performed by using the DynamoDB interface or the command-line interface.
  
 Instance Scheduler supports:
+
 * Stopping and starting stand-alone EC2 instances
 * Stopping and starting RDS instances
 * Stopping and starting instances in multiple regions
@@ -53,6 +54,7 @@ Instance Scheduler supports:
 * Partial automation (stop-only or start-only schedule)
 
 It does not support:
+
 * Stopping or starting instances that are part of an auto-scaling group (native ASG scheduled actions can be used in this case)
 * Stopping or starting other managed services (e.g. Redshift, Elasticsearch, ElastiCache, etc.)
 
@@ -64,14 +66,14 @@ So what are Periods? Periods contain conditions that define the hours/days/month
 
 For example:
 
-Assume that instances need to run during office hours (Monday-Friday 9am-5pm ET) and also perform batch processing every night 2am-4am ET. To achieve this, we will define 2 periods:
+Assume that instances need to run during office hours (Monday-Friday 9am-5pm ET) and also perform batch processing every night 2am-4am ET. To achieve this, we define 2 periods:
 ![Periods]({% asset_path 2019-02-25-dramatically-cut-costs-with-aws-instance-scheduler/aws-instance-scheduler-periods.png %})
 The Period “office-hours” covers our office hours requirement and is responsible for starting the instances at 9am and stopping them at 5pm Monday-Friday. The Period “batch” starts the instances at 2am and stops them at 4am every day of the week. Now let’s define our Schedule:
 ![Periods]({% asset_path 2019-02-25-dramatically-cut-costs-with-aws-instance-scheduler/aws-instance-scheduler-schedule.png %})
 The Schedule “office-and-batch” contains the two running Periods we defined (“office-hours” and “batch”) and specifies the time zone. With the Schedule defined, we can associate our EC2 and RDS instances with it by adding a resource tag with a tag key of “Schedule” and a tag value of “office-and-batch.” Note that the tag value is identical to the name of the Schedule we defined.
 
 ### How much does Instance Scheduler cost? 
-The solution itself is free, however, since it utilizes a few AWS services under the hood (DynamoDB, Lambda, CloudWatch), and is deployed in your AWS account, you will still pay for these services. But, in our experience, unless you have a significantly large AWS environment, these costs are generally below $10 per month — and we’ve yet to see a customer that doesn’t save at least $10 in usage costs with Instance Scheduler. Essentially, it pays for itself.
+The solution itself is free, however, because it utilizes a few AWS services under the hood (DynamoDB, Lambda, CloudWatch), and is deployed in your AWS account, you will still pay for these services. But, in our experience, unless you have a significantly large AWS environment, these costs are generally below $10 per month — and we’ve yet to see a customer that doesn’t save at least $10 in usage costs with Instance Scheduler. Essentially, it pays for itself.
 
 Instance Scheduler provides a reasonable set of features, at a minimal cost, and meets most AWS customer use cases. If you need to schedule resources other than EC2 or RDS, support multiple cloud platforms, or require a UI, however, Instance Scheduler might not be right for you.
 

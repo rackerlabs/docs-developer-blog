@@ -64,9 +64,9 @@ So what are Periods? Periods contain conditions that define the hours/days/month
 For example:
 
 Assume that instances need to run during office hours (Monday-Friday 9am-5pm ET) and also perform batch processing every night 2am-4am ET. To achieve this, we will define 2 periods:
-![Periods]({% asset_path 2019-02-25-dramatically-cut-costs-with-aws-instance-scheduler\aws-instance-scheduler-periods.png %})
+![Periods]({% asset_path 2019-02-25-dramatically-cut-costs-with-aws-instance-scheduler/aws-instance-scheduler-periods.png %})
 The Period “office-hours” covers our office hours requirement and is responsible for starting the instances at 9am and stopping them at 5pm Monday-Friday. The Period “batch” starts the instances at 2am and stops them at 4am every day of the week. Now let’s define our Schedule:
-![Periods]({% asset_path 2019-02-25-dramatically-cut-costs-with-aws-instance-scheduler\aws-instance-scheduler-schedule.png %})
+![Periods]({% asset_path 2019-02-25-dramatically-cut-costs-with-aws-instance-scheduler/aws-instance-scheduler-schedule.png %})
 The Schedule “office-and-batch” contains the two running Periods we defined (“office-hours” and “batch”) and specifies the time zone. With the Schedule defined, we can associate our EC2 and RDS instances with it by adding a resource tag with a tag key of “Schedule” and a tag value of “office-and-batch.” Note that the tag value is identical to the name of the Schedule we defined.
 
 ### How much does Instance Scheduler cost? 

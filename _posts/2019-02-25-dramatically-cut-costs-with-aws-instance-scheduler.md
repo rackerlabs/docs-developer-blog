@@ -2,6 +2,7 @@
 layout: post
 title: "Dramatically Cut Costs with AWS Instance Scheduler"
 ogTitle: "Dramatically Cut Costs with AWS Instance Scheduler"
+metaTitle: "Dramatically Cut Costs with AWS Instance Scheduler"
 metaDescription: Introduction to AWS Instance Scheduler, a solution that enables customers to configure custom start and stop schedules for their EC2 and RDS instances.
 ogDescription: Introduction to AWS Instance Scheduler, a solution that enables customers to configure custom start and stop schedules for their EC2 and RDS instances.
 date: 2019-02-25 00:00
@@ -9,6 +10,8 @@ comments: true
 author: Maxim Rozin
 published: true
 authorIsRacker: true
+bio: "Maxim Rozin is a Product Engineer in Fanatical Support for AWS at Rackspace, where he has worked since 2009. He spent the last 17 years in IT and holds all 5 of the Associate and Professional level AWS certifications. When he is not at work, Maxim is likely snowboarding or hiking in the Alps."
+
 categories:
   - AWS
   - Automation

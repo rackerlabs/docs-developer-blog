@@ -24,6 +24,7 @@ When used in conjunction with tools like CloudFormation or Terraform, users are 
 However, what if some servers cannot be regularly re-provisioned from scratch? Does it mean they need to be up and running 24/7, even if only used during limited hours? 
 
 Fortunately not. 
+
 <!-- more -->
 
 Cloud providers like AWS offer the ability to stop and start instances as needed while preserving the data on these instances. A stopped instance doesn’t consume compute, network or power resources, so monthly costs are slashed drastically as compute charges cease (of course, storage/disk will still be charged). This is useful for environments that are only needed for certain portions of the day. 

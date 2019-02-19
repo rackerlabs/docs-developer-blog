@@ -39,19 +39,20 @@ in the following image:
 Use the following steps to recover the Cisco ASA password:
 
 <ol start=1>
-   <li>Reboot the ASA appliance. While booting, press the <b>Esc</b> key to
-   interrupt the normal boot sequence and select the <b>boot-to-ROMMON</b> mode
-   as shown in the following image. The hyper terminal emulator does not send
-   the <b>Esc</b> keystroke properly. If you use Hyper terminal, you should press
-   <b>Ctrl+Break</b>.</li>
+   <li>Reboot the ASA appliance as shown in the following image. While booting,
+   press the <b>Esc</b> key to interrupt the normal boot sequence and select the
+   <b>boot-to-ROMMON</b> mode. If you use Hyper terminal, you should press
+   <b>Ctrl+Break</b> because the hyper terminal emulator does not send the
+   <b>Esc</b> keystroke properly.</li>
 </ol>
 
    ![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture1.png %})
 
 <ol start=2>
    <li> Execute the following command to verify the current configuration
-   register value, <b>0x00000001</b><li>
+   register value, <b>0x00000001</b>:</li>
 </ol>
+
        Rommon #0> confreg
 
        Current configuration register :0x00000001
@@ -85,7 +86,7 @@ Use the following steps to recover the Cisco ASA password:
 
 <ol start=5>
    <li>Use the following command to load the <b>startup-config</b> in to the
-   <b>running-config</b>:<li>
+   <b>running-config</b>:</li>
 </ol>
 
        Ciscoasa# copy startup-config running-config
@@ -97,6 +98,7 @@ Use the following steps to recover the Cisco ASA password:
    <li>Use the following commands to change the passwords in the default
    configurations:</li>
 </ol>
+
        Ciscoasa(config)# password [password]
        Ciscoasa(config)# enable password [password]
        Ciscoasa(config)# username [name] password [password]

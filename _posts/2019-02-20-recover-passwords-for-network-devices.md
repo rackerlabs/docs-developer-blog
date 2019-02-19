@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Recover passwords for network devices"
-date: 2019-02-14 00:00
+date: 2019-02-20 00:00
 comments: true
 author: Narayana Swamy Thota
 published: true
@@ -31,95 +31,93 @@ serial cable to your PC serial port and plug the other end of the cable into
 the **console** port at the back of the Cisco ASA. If you do not have a serial
 port, then you should use a USB-to-serial adapter cable.
 
+Connect to the console using a terminal emulator with the specifications shown
+in the following image:
+
+   ![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture3.png %})
+
 Use the following steps to recover the Cisco ASA password:
 
-1. Connect to the console using a terminal emulator with following specifications:
+<ol start=1>
+   <li>Reboot the ASA appliance. While booting, press the <b>Esc</b> key to
+   interrupt the normal boot sequence and select the <b>boot-to-ROMMON</b> mode
+   as shown in the following image. The hyper terminal emulator does not send
+   the <b>Esc</b> keystroke properly. If you use Hyper terminal, you should press
+   <b>Ctrl+Break</b>.</li>
+</ol>
 
-   - Set for 9600 baud rate
-   - 8 data bits
-   - No parity
-   - 1 stop bit
-   - No flow control
+   ![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture1.png %})
 
-2. Reboot the ASA appliance. While booting, press the **Esc** key to interrupt
-   the normal boot sequence and select the **boot-to-ROMMON** mode as shown in
-   the following image:
-
-   **Note:** The hyper terminal emulator does not send the **Esc** keystroke
-   properly. If you use Hyper terminal, you should press **Ctrl+Break**.
-
-![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture1.png %})
-
-<ol start=3>
+<ol start=2>
    <li> Execute the following command to verify the current configuration
    register value, <b>0x00000001</b><li>
 </ol>
 
-    Rommon #0> confreg
+       Rommon #0> confreg
 
-    Current configuration register :0x00000001
-    Configuration summary:
-    Boot default image from Flash
+       Current configuration register :0x00000001
+       Configuration summary:
+       Boot default image from Flash
 
-<ol start=4>
+<ol start=3>
    <li>Answer the following questions and notice that the register value changes:</li>
 </ol>
 
-    Do you wish to change this configuration? Y/N: Yes
-    Disable system configuration? Y/N: Yes
+       Do you wish to change this configuration? Y/N: Yes
+       Disable system configuration? Y/N: Yes
 
-    Current configuration register:0x00000041
-    Configuration summary
-    Boot ROMMON
-    Ignore system configuration
+       Current configuration register:0x00000041
+       Configuration summary
+       Boot ROMMON
+       Ignore system configuration
 
-<ol start=5>
+<ol start=4>
    <li>To reload the appliance, execute the following command, which loads the
    default configuration instead of the startup configuration and has a blank
    enable mode password as shown in the following image:</li>
 </ol>
 
-    Rommon #1> boot
+       Rommon #1> boot
 
-    Ciscoasa> enable
-    Password: [Blank]
+       Ciscoasa> enable
+       Password: [Blank]
 
-![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture2.png %})
+   ![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture2.png %})
 
-<ol start=6>
+<ol start=5>
    <li>Use the following command to load the <b>startup-config</b> in to the
    <b>running-config</b>:<li>
 </ol>
 
-    Ciscoasa# copy startup-config running-config
+       Ciscoasa# copy startup-config running-config
 
-    Destination filename  [running-config] ?   --[Press Enter]
-    Ciscoasa# configure terminal
+       Destination filename  [running-config] ?   --[Press Enter]
+       Ciscoasa# configure terminal
 
-<ol start=7>
+<ol start=6>
    <li>Use the following commands to change the passwords in the default
    configurations:</li>
 </ol>
 
-    Ciscoasa(config)# password [password]
-    Ciscoasa(config)# enable password [password]
-    Ciscoasa(config)# username [name] password [password]
+       Ciscoasa(config)# password [password]
+       Ciscoasa(config)# enable password [password]
+       Ciscoasa(config)# username [name] password [password]
 
-<ol start=8>
+<ol start=7>
    <li>After you set the passwords, run the following command to roll back the
    configuration register value to <b>0x00000001</b>:</li>
 </ol>
 
-    Ciscoasa (config)# config-register 0x00000001
+       Ciscoasa (config)# config-register 0x00000001
 
-<ol start=9>
+<ol start=8>
    <li>Save the new passwords to the startup configuration by entering one the
    following commands:</li>
 </ol>
 
-    Ciscoasa# copy running-config startup-config
-    [or]
-    Ciscoasa# write memory
+       Ciscoasa# copy running-config startup-config
+       [or]
+       Ciscoasa# write memory
 
 
 ### Recover the Cisco router password
@@ -136,53 +134,50 @@ serial cable to your PC serial port and plug the other end of the cable into
 the **console** port at the back of the Cisco router. If you do not have a serial
 port, then you should use a USB-to-serial adapter cable.
 
+Connect to the console using a terminal emulator with the specifications shown
+in the following image:
+
+   ![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture3.png %})
+
 Use the following steps to recover the Cisco router password:
 
-1. Connect to the console using a terminal emulator with following specifications:
-
-   - Set for 9600 baud rate
-   - 8 data bits
-   - No parity
-   - 1 stop bit
-   - No flow control
-
-2. Access the router and record the configuration register value by using the
+1. Access the router and record the configuration register value by using the
    following command:
 
         > Show version
 
         Configuration register is 0x2102
 
-3. Use the following command to reboot the device. The router reboots and ignores
+2. Use the following command to reboot the device. The router reboots and ignores
    the NVRAM configuration. Press the **Ctrl+Break** key to enter the **ROMMON**
    mode:
 
-    rommon 1> confreg 0x2142
-    rommon 2>  reset
+       rommon 1> confreg 0x2142
+       rommon 2> reset
 
-4. In setup mode, type “No” after each setup question to skip the initial setup
+3. In setup mode, type “No” after each setup question to skip the initial setup
    procedure and run the following command:
 
         Router >enable
 
-5. Run the following commands to load the **startup-config** into **running-config**:
+4. Run the following commands to load the **startup-config** into **running-config**:
 
         Router# copy startup-config running-config
         Router# configure terminal
 
-6. Change the passwords in the default configuration by entering the following
+5. Change the passwords in the default configuration by entering the following
    commands:
 
         Router(config)# password [password]
         Router (config)# enable password [password]
         Router (config)# username [name] password [password]
 
-7. After you set the passwords, run the following command to roll back the
+6. After you set the passwords, run the following command to roll back the
    configuration register value to **0x2102**:
 
         Router(config)#config-register 0x2102
 
-8. Save the new passwords to the startup configuration by running one of the
+7. Save the new passwords to the startup configuration by running one of the
    following commands:
 
         Router# copy running-config startup-config
@@ -197,31 +192,28 @@ Now, you can login with the new password.
 Before you begin the Fortigate super admin password recovery, connect the PC to
 the firewall device by using the console port at the back of the unit.
 
+Connect to the console using a terminal emulator with the specifications shown
+in the following image:
+
+   ![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture3.png %})
+
 Use the following steps to recover the Fortigate super admin password:
 
-1. Connect to the console using a terminal emulator with following specifications:
-
-   - Set for 9600 baud rate
-   - 8 data bits
-   - No parity
-   - 1 stop bit
-   - No flow control
-
-2. The firewall should respond with its name or hostname. If it doesn’t, try
+1. The firewall should respond with its name or hostname. If it doesn’t, try
    pressing **ENTER**.
 
-3. Reboot the appliance.
+2. Reboot the appliance.
 
-4. When the firewall name and login prompt appears, enter the username,
+3. When the firewall name and login prompt appears, enter the username,
    **maintainer** (lower case format). You might have only 14 seconds to enter
    the username and password, so be prepared to copy and paste the credentials
    to save time.
 
-5. Enter the password, which is **bcpb** and the serial number of the firewall
+4. Enter the password, which is **bcpb** and the serial number of the firewall
    (where the letters of the serial number are in upper case format). For
    example: **bcpbFGT60C4G18817022**.
 
-6. If Virtual domains (VDOMs) are enabled, skip to step 7.  If VDOMs are not
+5. If Virtual domains (VDOMs) are enabled, skip to step 7.  If VDOMs are not
    enabled, enter the following commands to login with the **maintainer**
    account:
 

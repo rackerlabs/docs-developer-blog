@@ -52,7 +52,6 @@ Use the following steps to recover the Cisco ASA password:
    <li> Execute the following command to verify the current configuration
    register value, <b>0x00000001</b><li>
 </ol>
-
        Rommon #0> confreg
 
        Current configuration register :0x00000001
@@ -98,7 +97,6 @@ Use the following steps to recover the Cisco ASA password:
    <li>Use the following commands to change the passwords in the default
    configurations:</li>
 </ol>
-
        Ciscoasa(config)# password [password]
        Ciscoasa(config)# enable password [password]
        Ciscoasa(config)# username [name] password [password]

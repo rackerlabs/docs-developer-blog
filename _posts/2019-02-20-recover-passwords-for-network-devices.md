@@ -16,7 +16,7 @@ ogDescription: "Password recovery for network devices (Cisco ASA, Cisco Router, 
 
 
 This blog explains how to recover the *enable password* and the *enable secret*
-passwords of Cisco&reg; Adaptive Security Appliance (ASA) and Cisco Router.
+passwords of the Cisco&reg; Adaptive Security Appliance (ASA) and Cisco router.
 These passwords protect access to privileged execution and configuration modes.
 You can recover the *enable password* password, but the *enable secret* password
 is encrypted and must be replaced with a new one. You can also recover the
@@ -28,10 +28,10 @@ Fortinet&reg; Fortigate super admin password.
 
 Before you begin the Cisco ASA password recovery, connect the DB9-end of the
 serial cable to your PC serial port and plug the other end of the cable into
-the **console** port at the back of the Cisco ASA. If you do not have a serial
+the console port at the back of the Cisco ASA. If you do not have a serial
 port, then you should use a USB-to-serial adapter cable.
 
-Connect to the console using a terminal emulator with the specifications shown
+Connect to the console by using a terminal emulator with the specifications shown
 in the following image:
 
    ![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture3.png %})
@@ -41,8 +41,8 @@ Use the following steps to recover the Cisco ASA password:
 <ol start=1>
    <li>Reboot the ASA appliance as shown in the following image. While booting,
    press the <b>Esc</b> key to interrupt the normal boot sequence and select the
-   <b>boot-to-ROMMON</b> mode. If you use Hyper terminal, you should press
-   <b>Ctrl+Break</b> because the hyper terminal emulator does not send the
+   <b>boot-to-ROMMON</b> mode. If you use HyperTerminal&reg;, you should press
+   <b>Ctrl+Break</b> because the HyperTerminal emulator does not send the
    <b>Esc</b> keystroke properly.</li>
 </ol>
 
@@ -74,7 +74,7 @@ Use the following steps to recover the Cisco ASA password:
 <ol start=4>
    <li>To reload the appliance, execute the following command, which loads the
    default configuration instead of the startup configuration and has a blank
-   enable mode password as shown in the following image:</li>
+   enable-mode password as shown in the following image:</li>
 </ol>
 
        Rommon #1> boot
@@ -85,8 +85,8 @@ Use the following steps to recover the Cisco ASA password:
    ![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture2.png %})
 
 <ol start=5>
-   <li>Use the following command to load the <b>startup-config</b> in to the
-   <b>running-config</b>:</li>
+   <li>Use the following command to load the <b>startup-config</b> file in to the
+   <b>running-config</b> file:</li>
 </ol>
 
        Ciscoasa# copy startup-config running-config
@@ -111,7 +111,7 @@ Use the following steps to recover the Cisco ASA password:
        Ciscoasa (config)# config-register 0x00000001
 
 <ol start=8>
-   <li>Save the new passwords to the startup configuration by entering one the
+   <li>Save the new passwords to the <b>startup-config</b> file by entering one the
    following commands:</li>
 </ol>
 
@@ -123,18 +123,18 @@ Use the following steps to recover the Cisco ASA password:
 ### Recover the Cisco router password
 
 **Note:** The configuration register value is usually set to **0x2102** when
-this value for configuration register is set to the **NVRAM**. When the router
-boots, it looks for the startup-config file stored in the **NVRAM**. As part of
-the pasword recovery, you need to change the register value to **0x2142**. After
+the value for configuration register is set to the **NVRAM**. When the router
+boots, it looks for the **startup-config** file stored in the **NVRAM**. As part of
+the password recovery, you need to change the register value to **0x2142**. After
 the configuration completes, the router ignores or bypasses the **startup-config**
-file in **NVRAM** and enters **setup mode**.
+file in **NVRAM** and enters setup mode.
 
 Before you begin the Cisco ASA password recovery, connect the DB9-end of the
 serial cable to your PC serial port and plug the other end of the cable into
 the **console** port at the back of the Cisco router. If you do not have a serial
 port, then you should use a USB-to-serial adapter cable.
 
-Connect to the console using a terminal emulator with the specifications shown
+Connect to the console by using a terminal emulator with the specifications shown
 in the following image:
 
    ![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture3.png %})
@@ -155,12 +155,13 @@ Use the following steps to recover the Cisco router password:
        rommon 1> confreg 0x2142
        rommon 2> reset
 
-3. In setup mode, type “No” after each setup question to skip the initial setup
+3. In setup mode, type `No` after each setup question to skip the initial setup
    procedure and run the following command:
 
         Router >enable
 
-4. Run the following commands to load the **startup-config** into **running-config**:
+4. Run the following commands to load the **startup-config** file into the
+   **running-config** file:
 
         Router# copy startup-config running-config
         Router# configure terminal
@@ -181,18 +182,18 @@ Use the following steps to recover the Cisco router password:
    following commands:
 
         Router# copy running-config startup-config
-        [OR]
+        [or]
         Router# write memory
         Router# reload
 
-Now, you can login with the new password.
+Now, you can log in with the new password.
 
 ### Recover the Fortigate super admin password
 
 Before you begin the Fortigate super admin password recovery, connect the PC to
 the firewall device by using the console port at the back of the unit.
 
-Connect to the console using a terminal emulator with the specifications shown
+Connect to the console by using a terminal emulator with the specifications shown
 in the following image:
 
    ![]({% asset_path 2019-02-20-recover-passwords-for-network-devices/Picture3.png %})
@@ -205,16 +206,16 @@ Use the following steps to recover the Fortigate super admin password:
 2. Reboot the appliance.
 
 3. When the firewall name and login prompt appears, enter the username,
-   **maintainer** (lower case format). You might have only 14 seconds to enter
+   **maintainer** (lowercase format). You might have only 14 seconds to enter
    the username and password, so be prepared to copy and paste the credentials
    to save time.
 
-4. Enter the password, which is **bcpb** and the serial number of the firewall
-   (where the letters of the serial number are in upper case format). For
+4. Enter the password, which is **bcpb**, and the serial number of the firewall
+   (where the letters of the serial number are in uppercase format). For
    example: **bcpbFGT60C4G18817022**.
 
 5. If Virtual domains (VDOMs) are enabled, skip to step 7.  If VDOMs are not
-   enabled, enter the following commands to login with the **maintainer**
+   enabled, enter the following commands to log in with the **maintainer**
    account:
 
         config system admin
@@ -247,7 +248,7 @@ following commands:
 
 ### Conclusion
 
-If you lose the login details of any Network device, password recovery is useful.
+If you lose the login details of any network device, password recovery is useful.
 You can recover device passwords without disturbing the existing configuration
 file as long as the recovery feature is enabled on the appliance.
 

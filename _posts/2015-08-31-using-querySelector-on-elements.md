@@ -1,13 +1,14 @@
 ---
 layout: post
-title: Using querySelector and querySelectorAll on Elements
+title: Using querySelector and querySelectorAll on elements
 date: '2015-08-31 23:59'
 comments: true
 author: lvh
 authorIsRacker: true
 authorAvatar: "https://s.gravatar.com/avatar/1846c8040fcf70e9b55bb7bfcdb78bc4"
 published: true
-categories: []
+categories:
+  - General
 ---
 
 Modern browsers have APIs called `querySelector` and `querySelectorAll`. They
@@ -51,7 +52,7 @@ images that are descendants of `#my-id`:
 document.querySelector("#my-id").querySelectorAll("img")
 ```
 
-In the sample HTML page above, it will find `<img id="inside">` but not `<img
+In the preceding sample HTML page, it finds `<img id="inside">` but not `<img
 id="outside">`.
 
 With that in mind, what do these two expressions do?
@@ -72,7 +73,7 @@ document.querySelectorAll("#my-id div div").length === 1;
 document.querySelector("#my-id").querySelectorAll("div div").length === 3;
 ```
 
-What is going on here?
+### What is going on here?
 
 It turns out that [`element.querySelectorAll`][eqsa] doesn't match elements
 starting from `element`. Instead, it matches elements matching the query that
@@ -143,6 +144,8 @@ of the spec. They have also been implemented by at least two polyfills:
 
 * [Dom4][dom4-polyfill]
 * [dom-elements][dom-elements-polyfill]
+
+### Conclusion
 
 In conclusion, the DOM spec doesn't always necessarily do the most obvious
 thing. It's important to know pitfalls like these, because they're difficult

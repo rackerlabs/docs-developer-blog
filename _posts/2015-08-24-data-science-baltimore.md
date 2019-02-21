@@ -17,11 +17,11 @@ Pandas and Jupyter notebooks make this work quick. It may be surprising to see w
 
 <!-- more -->
 
-## Getting the raw data
+### Getting the raw data
 
 The first step is to get the raw data. Data.gov is a great resource for public datasets, because it's catalog has a wide variety of things to explore. In this case, we are exploring Baltimore City data. The [Baltimore City Employee Salaries FY2014](http://catalog.data.gov/dataset/baltimore-city-employee-salaries-fy2014-5924b) dataset is a simple csv compilation of job titles and salaries for 2014. The data is cataloged on data.gov, but the data itself can be downloaded right from the Baltimore city website at [data.baltimorecity.gov](https://data.baltimorecity.gov/api/views/2j28-xzd7/rows.csv?accessType=DOWNLOAD).
 
-## Using Jupyter notebooks
+### Using Jupyter notebooks
 
 Jupyter notebooks (previously ipython notebooks) are a great mechanism for exploring and sharing datasets.
 In this case, we spun up our own instance of Jupyter on Rackspace, but any instance of ipython notebooks will work. We are running a multi-user server, but this analysis doesn't really require it. Another option would be a [temporary server](https://lambdaops.com/ipythonjupyter-tmpnb-debuts/).
@@ -34,7 +34,7 @@ The Rackspace Jupyter server has one prerequisite not already installed - the re
 !pip install requests
 ```
 
-## Python and Pandas
+### Python and Pandas
 
 Python is a widely popular language for data science. [Pandas](http://pandas.pydata.org) is the "Python Data Analysis Library" and facilitates working with datasets. Pandas is especially good at columnar style data and provides a host of simple methods to help visualize and organize data. In this case, we will be grouping and sorting data using Pandas.
 

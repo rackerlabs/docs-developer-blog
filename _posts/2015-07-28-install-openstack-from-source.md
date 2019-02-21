@@ -10,7 +10,12 @@ categories:
   - OSAD
 ---
 
-Installing OpenStack has always been challenging. Due to the complexity and varity of design choices involved in setting up OpenStack, automated installers are rare. For those who need a small but realistic setup, to be used either for development or learning, a manual installation using the desired distribution's packages has been the typical solution. Distribution packages simplify the process, however they come with compromises.
+Installing OpenStack has always been challenging. Due to the complexity and
+varity of design choices involved in setting up OpenStack, automated installers
+are rare. For those who need a small but realistic setup, to be used either for
+development or learning, a manual installation using the desired distribution's
+packages has been the typical solution. Distribution packages simplify the process,
+however they come with compromises.
 
 <!-- more -->
 

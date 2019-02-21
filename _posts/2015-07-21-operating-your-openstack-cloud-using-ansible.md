@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Operating Your OpenStack Cloud using Ansible
+title: Operating your OpenStack Cloud using Ansible
 date: '2015-07-21 09:00'
 comments: true
 author: Walter Bentley

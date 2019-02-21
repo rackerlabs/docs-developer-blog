@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Jenkins Post-build Plugin Part 1
+title: Jenkins post-build plugin - part 1
 date: '2015-08-21 14:00'
 comments: true
 author: Priti Changlani
@@ -8,6 +8,7 @@ published: true
 categories:
   - jenkins
 ---
+
 This is the first part of a two-part tutorial series to develop a Jenkins plugin
 (specifically, Jenkins post-build plugin). Jenkins is a very popular continuous-integration tool and with the small amount of (scattered) information present
  out there, it is really hard for a beginner to dive in this amazing area of extending
@@ -20,35 +21,28 @@ Rackspace US, Inc. and a Computer Science graduate student at
 University of Florida. At Rackspace, I have worked as a Quality Engineer in teams like
 [Solum](https://github.com/stackforge/solum), [Repose](https://github.com/rackerlabs/repose)
 and [Containers](https://wiki.openstack.org/wiki/ContainersTeam). As part of my job, I enhanced the process of quality engineering
-as a
- whole and to that effect, I developed a Jenkins plugin - [API Coverage]
- (https://github.com/rackerlabs/api-coverage) for QEs to
- measure the
- ability of their
- test-suites to cover the entire API contract. In the process, I found
- many resources were
- hard to follow, and some were quite out of date. I
- realized the need for
- an updated, easy, and dedicated tutorial on this topic and therefore decided to write one
- myself.
+as a whole and to that effect, I developed a Jenkins plugin -
+[API Coverage](https://github.com/rackerlabs/api-coverage) for QEs to
+measure the ability of their test-suites to cover the entire API contract. In the
+process, I found many resources were hard to follow, and some were quite out of
+date. I realized the need for an updated, easy, and dedicated tutorial on this
+topic and therefore decided to write one myself.
 
-This part of the
-tutorial talks about Jenkins plugins as a
-whole - what projects are
-they, how they are created, what do they depend on, how do you run them and so on. We will
- concentrate more on the technical aspects of the plugins so that next time you have an
-  extension idea, you won't wait on Jenkins, but, instead, write a plugin yourself.
+This part of the tutorial talks about Jenkins plugins as a whole - what projects are
+they, how they are created, what do they depend on, how do you run them and so on.
+We will concentrate more on the technical aspects of the plugins so that next time
+you have an extension idea, you won't wait on Jenkins, but, instead, write a plugin yourself.
 
 Let's get started.
 
-1. [Setting Up](#setting-up)
-1. [Creating the Plugin](#creating-the-plugin)
-1. [Understanding the Project Structure](#understanding-the-project-structure)
+1. [Setting up](#setting-up)
+1. [Creating the plugin](#creating-the-plugin)
+1. [Understanding the project structure](#understanding-the-project-structure)
 1. [Debugging the plugin](#debugging)
 1. [More with Maven](#more-with-maven)
-1. [Introduction to Part 2](#intro-to-part-2)
+1. [Introduction to part 2](#intro-to-part-2)
 
-## <a name="setting-up"></a>Setting Up
+### <a name="setting-up"></a>Setting up
 
 Jenkins plugins are basically [Maven](https://maven.apache.org/) projects
 with Java modules, and, therefore, the main requirement is to
@@ -110,7 +104,7 @@ The changes in the `settings.xml` also enable us to use a shorter command for cr
 
     mvn org.jenkins-ci.tools:maven-hpi-plugin:<plugin-version>:create
 
-## <a name="creating-the-plugin"></a>Creating the Plugin
+### <a name="creating-the-plugin"></a>Creating the plugin
 
 To start with the plugin source code creation, use the terminal to type:
 
@@ -131,7 +125,7 @@ For the example here, we would name the plugin 'testExample'.
 You should now have a directory 'testExample' at the path where the above command
 was executed.
 
-## <a name="understanding-the-project-structure"></a>Understanding the Project Structure
+### <a name="understanding-the-project-structure"></a>Understanding the project structure
 
 <img class="blog-post right" src="{% asset_path 2015-08-21-jenkins-post-build-plugin-part-1/project_structure.png %}"/>
 Opening the project in IntelliJ IDEA should display the project structure in the left
@@ -139,33 +133,31 @@ pane.
 
 Notice how the `groupId` is appended with the `artifactId` and forms a directory under the
 `java` directory. The Java code resides here. Creating a project,
- by default, generates a `HelloWorldBuilder.java` file. The resources for this class,
- if any, should be included under the same directory structure under `resources`
- folder, that
- is, `resources/<groupId>/<artifactId>/<class name>`. This would hold true for all the
- future classes you may write for the plugin.
+by default, generates a `HelloWorldBuilder.java` file. The resources for this class,
+if any, should be included under the same directory structure under `resources`
+folder, that
+is, `resources/<groupId>/<artifactId>/<class name>`. This would hold true for all the
+future classes you may write for the plugin.
 
- In `pom.xml`, we will change the following two tag values from 'TODO Plugin' to our
- plugin name and
- description.
+In `pom.xml`, we will change the following two tag values from 'TODO Plugin' to our
+plugin name and description.
 
     <name>Test Example</name>
     <description>testExample</description>
 
 <img class="blog-post" src="{% asset_path 2015-08-21-jenkins-post-build-plugin-part-1/info.png%}"/>
+
 **Tip:**
-Go through the
-files under
-`resources/org/jenkinsci/plugins/testExample/HelloWorldBuilder`
-to see which part of the UI they render.
-The file `resources/index.jelly` renders the view on the 'Installed Plugins' page under
-'Manage
-Plugins'.
 
-## <a name="debugging"></a>Debugging the Plugin
+Go through the files under **resources/org/jenkinsci/plugins/testExample/HelloWorldBuilder**
+to see which part of the UI they render. The file **resources/index.jelly**
+renders the view on the **Installed Plugins** page under **Manage Plugins**.
 
-In IntelliJ IDEA, navigate to Run>Edit Configurations>Remote and set the Port to 8000,
-which is the default mvnDebug port. Click 'Apply'.
+### <a name="debugging"></a>Debugging the plugin
+
+In IntelliJ IDEA, navigate to **Run>Edit Configurations>Remote** and set the
+port to 8000, which is the default mvnDebug port. Click **Apply**.
+
 ![Debugger Configuration]({% asset_path 2015-08-21-jenkins-post-build-plugin-part-1/debug_config.png %})
 
 In the terminal, type the following command:
@@ -203,17 +195,16 @@ Use the following command to run the plugin:
     .
     INFO: Jenkins is fully up and running
 
-When you see the above info message, type
-http://localhost:8080/jenkins/pluginManager/installed in your browser and notice that
+When you see the preceding info message, type
+**http://localhost:8080/jenkins/pluginManager/installed** in your browser and notice that
 the plugin is now present in the installed plugin list. This is where the debugger,
-running in the background,
-performed its magic!
+running in the background, performed its magic!
 
 <img class="blog-post center" src="{% asset_path 2015-08-21-jenkins-post-build-plugin-part-1/plugin_installed.png %}"/>
 
 <img class="blog-post right" src="{% asset_path 2015-08-21-jenkins-post-build-plugin-part-1/maven-projects.png %}"/>
 
-## <a name="more-with-maven"></a>More with Maven
+### <a name="more-with-maven"></a>More with Maven
 
 A developer can do much more with Maven without having to remember all the commands.
 Clicking on 'Maven Projects' on the right side panel expands all the available options
@@ -227,17 +218,16 @@ a Maven plugin can be used as:
 
     mvn <plugin>:<action>
 
-Using the above, you just execute `mvn hpi:hpi` to generate the `.hpi` file.
+Using the preceding, you just execute `mvn hpi:hpi` to generate the **.hpi** file.
 
-Note: The `mvn hpi:hpi` command will not run any tests in the project.
+Note: The `mvn hpi:hpi` command does not run any tests in the project.
 
-## <a name="intro-to-part-2"></a>Introduction to Part 2
+### <a name="intro-to-part-2"></a>Introduction to part 2
 
-The auto-generated testExample project is an example of a Jenkins build plugin and you can
- see
-that the class `HelloWorldBuilder.java` extends the class `hudson.tasks.Builder`. However,
-in the upcoming part 2 of this tutorial, we will create a post-build plugin and, therefore,
-extend the class `hudson.tasks.Recorder` and make the `Extension` class
-`DescriptorImpl` extend the class `BuildStepDescriptor<Publisher>` instead of
-`BuildStepDescriptor<Builder>`.
+The auto-generated testExample project is an example of a Jenkins build plugin
+and you can see that the class `HelloWorldBuilder.java` extends the class
+`hudson.tasks.Builder`. However, in the upcoming part 2 of this tutorial, we will
+create a post-build plugin and, therefore, extend the class `hudson.tasks.Recorder`
+and make the `Extension` class `DescriptorImpl` extend the class
+`BuildStepDescriptor<Publisher>` instead of `BuildStepDescriptor<Builder>`.
 

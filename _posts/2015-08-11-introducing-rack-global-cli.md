@@ -1,13 +1,14 @@
 ---
 layout: post
 date: '2015-08-11 23:59'
-title: 'Introducing rack &ndash; A Rackspace Global Command-Line Interface'
+title: 'Introducing rack &ndash; A Rackspace global command-line interface'
 comments: true
 author: Ken Perkins
 authorIsRacker: true
 authorAvatar: 'https://pbs.twimg.com/profile_images/421780751701401600/0YpuLSd3_400x400.jpeg'
 published: true
-categories: []
+categories:
+  - General
 ---
 
 It's not every day that we get to release a new tool! Awesome Rackers across the company produce tools all the time, but we think today's news stands alone. We're thrilled to announce the first beta release of `rack`, a new [global command-line interface](https://developer.rackspace.com/docs/rack-cli) purpose-built for interacting with the Rackspace cloud.

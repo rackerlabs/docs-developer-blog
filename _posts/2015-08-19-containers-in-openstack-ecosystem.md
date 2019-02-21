@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Containers in the OpenStack Ecosystem
+title: Containers in the OpenStack ecosystem
 date: '2015-08-19 12:26'
 comments: true
 author: Mike Metral
@@ -37,7 +37,8 @@ In this approx. 1 hour webinar talk, we will specifically discuss:
 * Container Orchestration Engines
 * Container Networking
 
-## Link
+### Link
+
 * [Containers, Containers, Containers - Video](https://www.brighttalk.com/webcast/11427/160335)
 
 Feel free to leave comments or questions below! Enjoy.

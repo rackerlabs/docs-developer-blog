@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Built an App on OpenStack at QCon NY 2015
+title: Built an app on OpenStack at QCon NY 2015
 date: '2015-06-17 14:00'
 comments: true
 author: Everett Toews
@@ -18,13 +18,13 @@ A practitioner-driven conference, QCon is designed for technical team leads, arc
 
 <!-- more -->
 
-## Modern Container Orchestration
+### Modern container orchestration
 
 <img class="blog-post right" src="{% asset_path 2015-06-17-built-an-app-on-openstack-at-qcon-ny-2015/kubernetes.png %}"/>On the first day I was a student. I took a full day tutorial called Modern Container Orchestration: Kubernetes, CoreOS and More by [Kelsey Hightower](https://twitter.com/kelseyhightower). Great tutorial and very intensive. We deployed Kubernetes "by hand" (using Terraform) on Google Compute Engine (GCE) in order to understand the bits and pieces better before we might use a hosted solution like Google Container Engine. Then we created some apps, ran them on our Kubernetes cluster, and implemented patterns like Canary and Rolling Updates.
 
 [Abstract](https://qconnewyork.com/ny2015/tutorial/modern-container-orchestration-kubernetes-coreos-and-more) | [Slides](http://go-talks.appspot.com/github.com/kelseyhightower/intro-to-kubernetes-tutorial/slides/talk.slide#1) | [Code](https://github.com/kelseyhightower/intro-to-kubernetes-tutorial)
 
-## Build an Application on an OpenStack Cloud
+### Build an application on an OpenStack Cloud
 
 <img class="blog-post right" src="{% asset_path 2015-06-17-built-an-app-on-openstack-at-qcon-ny-2015/openstack.png %}"/>On the second day I was a teacher. I gave a half day tutorial called Build an Application on an OpenStack Cloud tutorial. The cloud being used was the Rackspace Cloud powered by OpenStack. The goal was to give the participants the foundation of building and deploying an application on OpenStack and to give them the confidence to use tools of a higher level of abstraction in the future. It was a similar approach to what Kelsey did as we deployed the app "by hand" (using the OpenStack CLI) on Rackspace in order to understand the bits and pieces better before they might use a tool like Ansible or Heat to automate the deployment.
 
@@ -36,6 +36,6 @@ Another great aspect of all of this was being able to include some of our awesom
 
 [Abstract](https://qconnewyork.com/ny2015/tutorial/build-application-openstack-cloud) | [Slides](http://everett-toews.github.io/app-on-openstack/presentation/) | [Code](https://github.com/everett-toews/app-on-openstack)
 
-## Conclusion
+### Conclusion
 
 Please feel free to run through the tutorial yourself! As I mentioned, the emphasis was more on the deployment and less on the app. I look forward to improving (or replacing) the app in future versions of this tutorial. Feedback is always welcome.

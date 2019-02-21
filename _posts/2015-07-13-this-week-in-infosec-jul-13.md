@@ -1,6 +1,6 @@
 ---
 layout: post
-title: This Week in Information Security (Week of July 13th)
+title: This week in Information Security (week of July 13th)
 date: '2015-07-13 23:59'
 comments: true
 author: Charles Neill
@@ -15,7 +15,7 @@ As always, you can find me on Twitter [__@ccneill__][twitter] if you have any th
 
 <!-- more -->
 
-# News / Opinions
+### News / opinions
 
 - [__Hacking of Government Computers Exposed 21.5 Million People__][opm] - It's been pretty much impossible to avoid hearing about the hacking of the Office of Personnel Management, which was first disclosed about a month ago (I first wrote about it [here][twiis_jun15]). Well, it just got worse. The OPM announced yesterday that 21.5 million more people who had applied for background checks for federal employment, as well as their spouses and cohabitants, had their personal information compromised by a related attack. This information included things like social security numbers, fingerprints, health and financial history, and more. The director of the OPM, Katherine Archuleta, has [resigned][opm_resignation] under political pressure from many in Congress. She had previously testified that this data was not encrypted because "it is not feasible to implement on networks that are too old." ([Reference][opm_encryption])
 
@@ -25,11 +25,11 @@ As always, you can find me on Twitter [__@ccneill__][twitter] if you have any th
 
 - [__"We take security seriously", otherwise known as "We didn't take it seriously enough"__][serious] - _(H/T Herb Jackson)_ - Troy Hunt, a security researcher at Microsoft, posted a blog post last week lambasting software companies for their commitment to security (or lack thereof). He provided examples of several companies saying that they "take security seriously," right after they were hacked. This caused quite a stir in the security community, and several [people][serious2] [criticized][serious3] the article for being unrealistic and unfair. At the end of the day, while these companies likely really do want to be as secure as possible, there is always some level of insoluble uncertainty with security, and it doesn't necessarily make sense to pay infinite dollars to prevent ANY attack, at the expense of running your actual business profitably.
 
-# Security Research
+### Security research
 
 - [__A month with BADONIONS__][badonions] - Tor is widely used to provide privacy for individuals, governments, and everyone in between, but recent research shows that there are at least a number of bad actors operating exit nodes and sniffing Tor traffic. This researcher set up a honeypot and accessed it with unique passwords for each Tor exit node they used, and monitored for re-use of those passwords. She discovered that roughly 16 Tor exits that she tested attempted to log into the page with the password she used, meaning they were actively sniffing and attacking Tor users. This underscores the need, [as mentioned on the Tor website][tor_disclaimer], to use encryption at all times while using the Tor network.
 
-# Vulnerabilities
+### Vulnerabilities
 
 - [__Adobe Flash explot that was leaked by Hacking Team goes wild; patch now!__][flash_0day] - __PATCHED__ - As mentioned above, the disclosures following a massive data dump from Italian firm Hacking Team included a previously-undisclosed Adobe Flash exploit. This exploit has quickly found its way into malicious malware kits and the popular Metasploit framework, and it has been observed in the wild. It was even [able to exploit Google Chrome][flash_0day_chrome], which is considered the hardest browser to attack in some respsects due to its unique security controls, in at least one real-world case. You can find patches for your system [here][flash_0day_patches].
 
@@ -37,19 +37,19 @@ As always, you can find me on Twitter [__@ccneill__][twitter] if you have any th
 
 - [__Django Security releases issued: 1.8.3, 1.7.9, 1.4.21__][django] - __PATCHED__ - A number of vulnerabilities have been patched in the popular Django framework, including 2 denial-of-service issues and a possible header injection issue. All previous versions of Django 1.8, 1.7, and 1.4 are affected. Patches are listed at the bottom of this advisory.
 
-# Reference / Tutorials
+### Reference / tutorials
 
 - [__Using Encryption and Authentication Correctly__][enc_and_auth] - This tutorial describes how to properly use encryption together with message authentication to build secure systems that provide confidentiality, integrity, and authenticity. It looks at a number of examples of the right and wrong way to use encryption and keyed-hash message authentication code (HMAC). The code is mostly geared toward a PHP audience, but the information should be readily transferable to other languages. Great read!
 
 - [__Two-Factor-Authentication with SSH__][ssh_mfa] - In this post, the author explains how to set up two-factor authentication (2FA) for SSH logins on FreeBSD (though the process should be mostly applicable to other Linux/Unix distros). 2FA has gotten a lot of attention recently after several breaches (including the OPM breach discussed above) have highlighted the insecurity of single-factor/password authentication, and privileged SSH access is definitely something worth protecting with 2FA.
 
-# Tools
+### Tools
 
 - [__zxcvbn (Password strength testing tool)__][zxcvbn] - Dropbox has a library that can be used to evaluate the security of a given password, looking at things like common dictionary words, common character permutations, repetitions, and more. For example, while other password complexity systems might say a password like "hello!!!!!!!!!!" was secure, zxcvbn recognizes that this is just a dictionary word + a repeated character, which it estimates can be cracked almost instantly. This tool has been around for a while, but I was just made aware of it recently while reading a Stack Exchange answer about [real entropy in passwords][entropy]. You can see it in action [here][zxcvbn_demo].
 
 - [__Awesome Shell__][awesome_shell] - From the repository readme: "A curated list of awesome command-line frameworks, toolkits, guides and gizmos." I have to agree that this is an absolutely awesome list, and includes all kinds of useful tools and reference materials, like [fzf][fzf], a CLI fuzzy finder, [marker][marker], a shell command bookmark tool, and much more.
 
-# Random Link of the Week
+### Random link of the week
 
 - [__How to undo (almost) anything with Git__][git_fix] - Github recently posted a great article on their blog describing how to undo a number of "oops" scenarios when using Git, like pushing a bad commit or tracking a file you don't want to track. Note: these steps are not sufficient for removing e.g. API keys if you've checked them in at some point. If you need to do that, [Github has you covered there too][github_fix]
 

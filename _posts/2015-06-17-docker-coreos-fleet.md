@@ -16,11 +16,12 @@ categories:
   - docker
 ---
 
-In this post, we will look at Docker, CoreOS & Fleet and demonstrate how one could use all of them in an application scenario.
+In this post, we look at Docker, CoreOS & Fleet and demonstrate how one
+could use all of them in an application scenario.
 
 <!-- more -->
 
- * Before you start, you will need the following. A Rackspace cloud account. Get a free tier [Rackspace developer account](https://developer.rackspace.com/signup/)
+ * Before you start, you need the following: A Rackspace cloud account.
 
  * If you don't have an account, you can still follow this and do it on your own servers, but the process will need some customizations.
 

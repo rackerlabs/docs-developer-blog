@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Engineering Managed Cassandra with Rackspace/DSE
+title: Engineering managed Cassandra with Rackspace/DSE
 date: '2015-09-22 08:00'
 comments: true
 author: David Grier
@@ -29,7 +29,7 @@ We have templated some layouts (shown below) which are horizontally scalable to 
 
 
 
-### Small Reference Architecture (consolidated):
+### Small reference architecture (consolidated):
 
 ![DSE Small]({% asset_path 2015-09-22-engineering-managed-cassandra-with-rackspace-and-dse/cassandra_small.png %})
 
@@ -42,7 +42,7 @@ The main choke point in these builds is the firewall where it is potentially nec
 
 
 
-### Reference Architecture (Distributed):
+### Reference architecture (distributed):
 
 ![DSE Distributed]({% asset_path 2015-09-22-engineering-managed-cassandra-with-rackspace-and-dse/cassandra_dist.png %})
 

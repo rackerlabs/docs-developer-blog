@@ -1,7 +1,7 @@
 ---
 layout: post
 date: '2015-08-11 23:59'
-title: Install OpenStack from source Part 4
+title: Install OpenStack from source - part 4
 comments: true
 author: Phil Hopkins
 published: true
@@ -14,13 +14,13 @@ This is the fourth installment, in a series showing how to install OpenStack fro
 
 * [Install Keystone](https://developer.rackspace.com/blog/install-openstack-from-source/)
 * [Install Glance and Neutron](https://developer.rackspace.com/blog/install-openstack-from-source2/)
-* [Install Nova](https://developer.rackspace.com/blog/install-openstack-from-source3/) 
+* [Install Nova](https://developer.rackspace.com/blog/install-openstack-from-source3/)
 
 We installed the Identity service (keystone), Image service (glance), Networking service (neutron) and the Compute service (nova) onto the controller node. In this section, we turn our attention to the network node, to install the neutron agents to support network layers two and three.
 
 <!-- more -->
 
-Although these network functions could run on the controller node, in this example, for ease of understanding the various pieces of OpenStack, the network functions that are separate from those that must run on a compute node are placed on a separate machine. This architecture also makes it simpler to examine tenant network traffic for those trying to understand how neutron functions.
+These network functions could run on the controller node. In this example, for ease of understanding the various pieces of OpenStack, the network functions that are separate from those that must run on a compute node are placed on a separate machine. This architecture also makes it simpler to examine tenant network traffic for those trying to understand how neutron functions.
 
 Neutron supports two layer 2 technologies, Open vSwitch and Linux bridge. You want to review the OpenStack Networking guide for more information about each of these two technologies. For this installation, I have selected Open vSwitch, but Linux bridge would be an equally functional choice.
 
@@ -92,7 +92,7 @@ Now, clone the neutron git repo locally:
 
     git clone https://github.com/openstack/neutron.git -b stable/kilo
 
-Copy the downloaded (cloned) configuration files to their proper location in the `etc` directory:
+Copy the downloaded (cloned) configuration files to their proper location in the **etc** directory:
 
     cp neutron/etc/* /etc/neutron/
     cp -R neutron/etc/neutron/plugins/ml2/* /etc/neutron/plugins/ml2
@@ -106,7 +106,7 @@ Use the python installer to install the code:
 
     restart openvswitch-switch
 
-Next, build the `neutron.conf` file. Like we did on the controller node, we are not going to use the `neutron.conf` file that came when we cloned the neutron repo. Instead, it is built from scratch:
+Next, build the **neutron.conf** file. Like we did on the controller node, we are not going to use the **neutron.conf** file that came when we cloned the neutron repo. Instead, it is built from scratch:
 
     rm /etc/neutron/neutron.conf
     cat > /etc/neutron/neutron.conf << EOF
@@ -125,7 +125,7 @@ Next, build the `neutron.conf` file. Like we did on the controller node, we are 
     [agent]
     root_helper=sudo /usr/local/bin/neutron-rootwrap /etc/neutron/rootwrap.conf
     EOF
-    
+
 Again neutron supports multiple networking layer 2 technologies through the ML2 plugin. First, we configure the neutron ML2 plugin agent to use GRE tunnels for project network isolation, then configure the dhcp and l3 agent files. The ml2 plugin configuration file:
 
     cat > /etc/neutron/plugins/ml2/ml2_conf.ini << EOF
@@ -150,14 +150,14 @@ Again neutron supports multiple networking layer 2 technologies through the ML2 
     tunnel_types = gre
     EOF
 
-Now configure the `dhcp.conf` files. The neutron dhcp agent provides IPs to our VMs, network namespaces are enabled, as well as the information supporting the metadata agent:
+Now configure the **dhcp.conf** files. The neutron dhcp agent provides IPs to our VMs, network namespaces are enabled, as well as the information supporting the metadata agent:
 
     sed -i 's/# interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver/interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver/g' /etc/neutron/dhcp_agent.ini
     sed -i 's/# dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq/dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq/g' /etc/neutron/dhcp_agent.ini
     sed -i 's/# use_namespaces = True/use_namespaces = True/g' /etc/neutron/dhcp_agent.ini
     sed -i 's/# enable_isolated_metadata = False/enable_isolated_metadata = True/g' /etc/neutron/dhcp_agent.ini
     sed -i 's/# enable_metadata_network = False/enable_metadata_network = True/g' /etc/neutron/dhcp_agent.ini
-    
+
 Set the l3 agent config file to use the proper driver for Open vSwitch and to use network namespaces:
 
     sed -i 's/# interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver/interface_driver = neutron.agent.linux.interface.OVSInterfaceDriver/g' /etc/neutron/l3_agent.ini
@@ -211,9 +211,9 @@ For the neutron l3 agent:
 
     start on runlevel [2345]
     stop on runlevel [!2345]
-    
+
     script
-      exec start-stop-daemon --start --chuid neutron --exec /usr/local/bin/neutron-l3-agent -- --config-file=/etc/neutron/neutron.conf --config-file=/etc/neutron/l3_agent.ini --log-file=/var/log/neutron/l3-agent.log 
+      exec start-stop-daemon --start --chuid neutron --exec /usr/local/bin/neutron-l3-agent -- --config-file=/etc/neutron/neutron.conf --config-file=/etc/neutron/l3_agent.ini --log-file=/var/log/neutron/l3-agent.log
     end script
     EOF
 
@@ -270,13 +270,13 @@ If by chance one or more of the agents don't start or stay running, use the foll
     sudo -u neutron neutron-metadata-agent --config-file=/etc/neutron/neutron.conf --config-file=/etc/neutron/metadata_agent.ini --log-file=/var/log/neutron/metadata-agent.log
     sudo -u neutron neutron-dhcp-agent --config-file=/etc/neutron/neutron.conf --config-file=/etc/neutron/dhcp_agent.ini --log-file=/var/log/neutron/dhcp-agent.log
     sudo -u neutron neutron-l3-agent --config-file=/etc/neutron/neutron.conf --config-file=/etc/neutron/l3_agent.ini --config-file=/etc/neutron/fwaas_driver.ini --log-file=/var/log/neutron/l3-agent.log
-    
+
 
 To verify that the agents communicated with the controller processes, log in on the controller node as root and run the following, which should show that the controller received messages from the agents running on the network node:
 
     source adminrc
     neutron agent-list
-    
+
 You should see output similar to:
 
     root@controller:~# neutron agent-list
@@ -290,5 +290,5 @@ You should see output similar to:
     +--------------------------------------+--------------------+----------+-------+----------------+---------------------------+
 
 There should be a line for each of the four agents running on the network node and they should all have a "smiley face" in the alive column.
-    
-Now that the network node is up and running, in the next article of this series, we start configuring the compute node and start the nova-compute agent and neutron `openvswitch` agents there. 
+
+Now that the network node is up and running, in the next article of this series, we start configuring the compute node and start the nova-compute agent and neutron `openvswitch` agents there.

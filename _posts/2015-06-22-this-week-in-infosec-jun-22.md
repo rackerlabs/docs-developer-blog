@@ -1,6 +1,6 @@
 ---
 layout: post
-title: This Week in Information Security (Week of June 22nd)
+title: This week in Information Security (week of June 22nd)
 date: '2015-06-23 23:59'
 comments: true
 author: Charles Neill
@@ -9,19 +9,19 @@ categories:
   - Security
 ---
 
-Welcome to another installment of This Week in Information Security! This week we have news of a critical vulnerability in millions of Samsung phones, a high-profile compromise of the password management tool LastPass, and a new method for stealing encryption keys via radios, without physically touching the machine in question. We also have tutorials about the basics of cryptography and using the Linux command line, and more!
+Welcome to another installment of *This week in Information Security*! This week we have news of a critical vulnerability in millions of Samsung phones, a high-profile compromise of the password management tool LastPass, and a new method for stealing encryption keys via radios, without physically touching the machine in question. We also have tutorials about the basics of cryptography and using the Linux command line, and more!
 
 As always, you can find me on Twitter [__@ccneill__][twitter] if you have any thoughts on this post.
 
 <!-- more -->
 
-# News / Opinions
+### News / opinions
 
 - [__LastPass Hacked__][lastpass] - In a post on their blog released last week, LastPass admitted that their servers had been compromised, exposing users' "email addresses, password reminders, server per user salts, and authentication hashes." Due to their usage of [PBKDF2-SHA256][pbkdf2] with 100k rounds, this compromise isn't as bad as it could be; cracking the obtained hashes will be harder than if something like vanilla MD5 were used. This doesn't mean the hashes are "uncrackable," but LastPass at least did their due dilligence in using one of the best hashing mechanisms available for their passwords. Nonetheless, users are urged to replace their master password for LastPass and to update their passwords on other services if they reused that password elsewhere.
 
 - [__Who Has Your Back?__][effreport] - Responding to the revelations of Edward Snowden, and numerous calls by government officials to limit encryption (and, consequently, user privacy), the Electronic Frontier Foundation (EFF) has released a roundup of a few prevalent companies' policies with regards to releasing their users' information to law enforcement agencies. Their evaluation criteria included things like requiring law enforcement to obtain a warrant to acquire user data, publicly disclosing the company's data retention policies, and publicly advocating against government backdoors in encryption. Several companies got all 5 stars, though others were worryingly lacking. You can find their full evaluation criteria [here][effreport2] and a summary of the report's findings [here][effreport3].
 
-# Security Research
+### Security research
 
 - [__Stealing Keys from PCs using a Radio__][radio] - Researchers from Tel Aviv University have released research showing that RSA and ElGamal keys can be recovered using simple, cheap hardware to detect and analyze electromagnetic signals produced by the decryption of a crafted ciphertext. The researchers were able to capture these signals from 50cm away using relatively inexpensive equipment and believe they could increase the range with improved hardware. They constructed a system they call "PITA" to capture signals and store them on an SD card for later decryption, which is small enough to fit inside a small piece of pita bread. A PDF of their technical paper with more details can be found [here][radio2].
 
@@ -29,7 +29,7 @@ As always, you can find me on Twitter [__@ccneill__][twitter] if you have any th
 
 {% youtube _dj_90TnVbo %}
 
-# Vulnerabilities
+### Vulnerabilities
 
 - [__Remote Code Execution as System User on Samsung Phones__][samsung] - __UNFIXED__ - A flaw in Samsung's Swift keyboard allows attackers with a privileged network position to execute arbitrary code as the system user on an estimated 600 million Samsung phones via a man-in-the-middle attack, due to the absence of transport layer encryption or cryptographic signatures for packages when downloading language updates. The only protection is a SHA1 checksum provided in a manifest file that is downloaded (without transport encryption) to tell the vulnerable phone which version of the language package to download based on the model of the phone. This is easily bypassed by replacing the legitimate SHA1 value in the manifest with the SHA1 checksum for the attacker's malicious payload. The attack can be carried out with little or no active user interaction and is executed when the phone is restarted. Users are vulnerable regardless of whether or not they use the Swift keyboard by default, and there is no way to disable or uninstall the keyboard. [Samsung's blog post on the subject][samsung2] claims that the KNOX security platform bundled with many recent Samsung phones will mitigate the issue via kernel protections (though this would seem to be contradicted by the video below). The blog also claims that Samsung will release patches for the issue over-the-air via KNOX, though no dates are included and releases will likely vary by device and carrier. Here's a video of the attack in action:
 
@@ -39,13 +39,13 @@ For now, the vulnerability author recommends not connecting to untrusted WiFi ne
 
 - [__Results of my recent PostScript Charstring security research unveiled__][fonts] - __FIXED__ - Research recently released from Google into the Adobe Type Manager Font Driver, code that is widely used in Windows platforms for rendering fonts, has revealed multiple vulnerabilities ranging from denial of service attacks to remote code execution served through an HTML file. Patches for the numerous vulnerabilities are available from Microsoft ([[MS15-021][fonts2]], [[MS15-044][fonts3]) and Adobe ([[APSB15-10][fonts4]). Patching as soon as possible is advised.
 
-# Reference / Tutorials
+### Reference / tutorials
 
 - [__Crypto 101__][crypto101] - Crypto 101 is an in-depth tutorial into the basics of cryptography, which is made available for free. The PyCon 2013 presentation that started the Crypto 101 project is included below, and you can get a PDF of the book [here][crypto101book]. Check out [their Github repository][crypto101repo] for the book's source, learning exercises, and more. Also, I can't help but call out that this project is hosted for free by Rackspace! If you find this project helpful, consider donating to them (links on their home page, crypto101.io).
 
 {% youtube 3rmCGsCYJF8 %}
 
-# Random Link of the Week
+### Random link of the week
 
 - [__The Art of Command Line__][commandline] - This is a great collection of tips, tools, and examples for learning [bash][bash] and becoming a command line aficionado. It is intended to be useful for both beginners and experts, and provides both general (e.g. 'Know regular expressions well, and the various flags to grep/egrep. The -i, -o, -A, and -B options are worth knowing.') and specific ('For interactive selection of values from the output of another command, use [percol][percol].') tips.
 

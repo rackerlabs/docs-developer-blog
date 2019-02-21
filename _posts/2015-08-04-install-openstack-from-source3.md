@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Install OpenStack from source Part 3
+title: Install OpenStack from source - part 3
 date: '2015-08-04 23:59'
 comments: true
 author: Phil Hopkins
@@ -10,7 +10,7 @@ categories:
   - OSAD
 ---
 
-In  [article one of this series](https://developer.rackspace.com/blog/install-openstack-from-source/) we started installing OpenStack from source, and, in [article two of this series](https://developer.rackspace.com/blog/install-openstack-from-source2/), we continued the process by installing glance and neutron onto the controller node.
+In  [article one of this series](https://developer.rackspace.com/blog/install-openstack-from-source/), we started installing OpenStack from source, and, in [article two of this series](https://developer.rackspace.com/blog/install-openstack-from-source2/), we continued the process by installing glance and neutron onto the controller node.
 
 <!-- more -->
 
@@ -36,7 +36,7 @@ As we have done before, create the MySQL nova database and set the permissions s
     mysql -u root -pmysql -e "GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'localhost' IDENTIFIED BY 'nova';"
     mysql -u root -pmysql -e "GRANT ALL PRIVILEGES ON nova.* TO 'nova'@'%' IDENTIFIED BY 'nova';"
 
-The Python module tox can be used to build a full nova.conf file, but, in reality it is way too big and complex for what we need. The folllowing creates a usable nova.conf file for our needs. I recommend that you read it carefully and familiarize yourself with the parameters that are being set.
+The Python module tox can be used to build a full **nova.conf** file, but, in reality it is way too big and complex for what we need. The folllowing creates a usable nova.conf file for our needs. I recommend that you read it carefully and familiarize yourself with the parameters that are being set.
 
     cat > /etc/nova/nova.conf << EOF
     [DEFAULT]
@@ -68,13 +68,13 @@ The Python module tox can be used to build a full nova.conf file, but, in realit
     novncproxy_base_url = http://$MY_PUBLIC_IP:6080/vnc_auto.html
     vncserver_proxyclient_address= $MY_PRIVATE_IP
     vncserver_listen  =0.0.0.0
-    
+
     [database]
     connection = mysql://nova:nova@$MY_PRIVATE_IP/nova
-    
+
     [glance]
     host = 10.0.1.4
-    
+
     [keystone_authtoken]
     auth_uri = http://$MY_PRIVATE_IP:5000
     auth_host = $MY_PRIVATE_IP
@@ -83,7 +83,7 @@ The Python module tox can be used to build a full nova.conf file, but, in realit
     admin_tenant_name = service
     admin_user = nova
     admin_password = nova
-    
+
     [neutron]
     url=http://10.0.1.4:9696
     admin_username = neutron
@@ -91,13 +91,13 @@ The Python module tox can be used to build a full nova.conf file, but, in realit
     admin_tenant_name = service
     admin_auth_url = http://10.0.1.4:5000/v2.0
     auth_strategy = keystone
-    
+
     [oslo_concurrency]
     lock_path = /var/lock/nova
-    
+
     [oslo_messaging_rabbit]
     rabbit_host = 10.0.1.4
-    
+
     EOF
 
 Rotate the nova log files:
@@ -128,34 +128,34 @@ Note: These scripts are just copied from the scripts that the Ubuntu packaged ve
 Nova api:
 
     cat > /etc/init/nova-api.conf << EOF
-    
+
     start on runlevel [2345]
     stop on runlevel [!2345]
-    
+
     exec start-stop-daemon --start --chuid nova --exec /usr/local/bin/nova-api -- --config-file=/etc/nova/nova.conf
     EOF
 
 Nova cert:
 
     cat > /etc/init/nova-cert.conf << EOF
-    
+
     start on runlevel [2345]
     stop on runlevel [!2345]
-    
+
     exec start-stop-daemon --start --chuid nova --exec /usr/local/bin/nova-cert -- --config-file=/etc/nova/nova.conf
     EOF
 
 Nova consoleauth:
 
     cat > /etc/init/nova-consoleauth.conf << EOF
-    
+
     start on runlevel [2345]
     stop on runlevel [!2345]
-    
+
     respawn
-    
+
     chdir /var/run
-    
+
     exec start-stop-daemon --start --chuid nova --exec /usr/local/bin/nova-consoleauth -- --config-file=/etc/nova/nova.conf
     EOF
 
@@ -164,19 +164,19 @@ Nova conductor:
     cat > /etc/init/nova-conductor.conf << EOF
     description "Nova conductor"
     author "Chuck Short <zulcss@ubuntu.com>"
-    
+
     start on runlevel [2345]
     stop on runlevel [!2345]
-    
+
     chdir /var/run
-    
+
     pre-start script
             mkdir -p /var/run/nova
             chown nova:root /var/run/nova/
             mkdir -p /var/lock/nova
             chown nova:root /var/lock/nova/
     end script
-    
+
     exec start-stop-daemon --start --chuid nova --exec /usr/local/bin/nova-conductor -- --config-file=/etc/nova/nova.conf
     EOF
 
@@ -185,12 +185,12 @@ Nova scheduler:
     cat > /etc/init/nova-scheduler.conf << EOF
     description "Nova scheduler"
     author "Soren Hansen <soren@linux2go.dk>"
-    
+
     start on runlevel [2345]
     stop on runlevel [!2345]
-    
+
     chdir /var/run
-    
+
     pre-start script
             mkdir -p /var/run/nova
             chown nova:root /var/run/nova/
@@ -215,13 +215,13 @@ Check to see if the nova processes are running:
 
 There should be at least one line of output for each nova process. Rerun this, after 30 seconds or so, to verify that the processes stay running and that there are not problems.
 
-If one or more of the nova services does not start (or stay) running use the appropriate command below to test and get output that can be used to debug problems with the service that is not starting.
+If one or more of the nova services does not start (or stay) running, use the appropriate command below to test and get output that can be used to debug problems with the service that is not starting.
 
     sudo -u nova nova-api --config-file=/etc/nova/nova.conf
     sudo -u nova nova-cert --config-file=/etc/nova/nova.conf
     sudo -u nova nova-consoleauth --config-file=/etc/nova/nova.conf
     sudo -u nova nova-conductor --config-file=/etc/nova/nova.conf
     sudo -u nova nova-scheduler --config-file=/etc/nova/nova.conf
-    
+
 We now have the major OpenStack processes running on the controller node, and in the next article, our focus moves to the network node. We will install various neutron pieces that need to be running there, then move to the compute node and finally back to the controller node to install the Volume service (cinder) and the dashboard (horizon).
 

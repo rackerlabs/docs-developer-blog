@@ -1,6 +1,6 @@
 ---
 layout: post
-title: This Week in Information Security (Week of June 15th)
+title: This week in Information Security (week of June 15th)
 date: '2015-06-15 23:59'
 comments: true
 author: Charles Neill
@@ -9,13 +9,13 @@ categories:
   - Security
 ---
 
-Welcome back to This Week in Information Security! Sorry if you missed us last week, but posts should follow the schedule you're used to going forward. This week, we have news of two high-profile compromises, a few hair-raising hardware/firmware vulnerabilities, tools from DARPA for searching the "deep" and "dark" web, an opinion piece about vulnerability embargoes in open source software, and more. Finally, we wrap up the week with a fun, interactive article from Bloomberg about the meaning of code and the people and culture that produce it.
+Welcome back to *This week in Information Security*! Sorry if you missed us last week, but posts should follow the schedule you're used to going forward. This week, we have news of two high-profile compromises, a few hair-raising hardware/firmware vulnerabilities, tools from DARPA for searching the "deep" and "dark" web, an opinion piece about vulnerability embargoes in open source software, and more. Finally, we wrap up the week with a fun, interactive article from Bloomberg about the meaning of code and the people and culture that produce it.
 
 As always, you can find me on Twitter [@ccneill][twitter] if you have any thoughts on this post.
 
 <!-- more -->
 
-# News / Opinions
+### News / opinions
 
 - [__FBI official: Companies should help us 'prevent encryption above all else'__][fbi_encryption] - Last week Michael B. Steinbach, the assistant director of the FBI's Counterterrorism Division, gave testimony that puzzled many, claiming that the FBI was working with technology companies "to build technological solutions to prevent encryption above all else." This is just another in a long line of statements by law enforcement about the need to introduce a government "front door" into encryption standards. As I've mentioned in previous posts, cryptography experts argue that ["front doors" in encryption are very hard or impossible to get right][encryption_backdoors], and, generally speaking, [are not a good idea][cloudflare_golden_key]. We're still facing the consequences of [weakened][freak] [encryption][weakdh], or "[export-grade encryption][export_encryption]," that was introduced in the last episode of the "crypto wars" in the '90s.
 
@@ -25,13 +25,13 @@ As always, you can find me on Twitter [@ccneill][twitter] if you have any though
 
 - [__The hidden costs of embargoes__][embargoes] - Red Hat has released a blog post discussing the advantages and disadvantages of using "embargoes" to coordinate vulnerability releases with open source projects. They call out the fact that most open source projects don't really have processes or tools in place to deal with developing in the dark so to speak. Their code repositories, their CI/CD infrastructure, their bug reporting systems, etc. are mostly public, so developing a fix in private means potentially not leveraging the expertise of the community or existing testing infrastructure, which can lead to incomplete patches that have to be updated later. It is also worth noting that if one security researcher has found an issue, there is nothing preventing others from doing so. The blog post suggests that embargoes be used sparingly, and that most security bugs be treated just like other bugs. This way, a larger number of eyes can be focused on the problem at once, thus giving the project the greatest chance of releasing a fully functional patch quickly.
 
-# Security Research
+### Security research
 
 - [__Why Stegosploit isn't an exploit__][stegosploit] - Some of you may remember the research I mentioned last week about a tool called "Stegosploit" that claimed to be able to embed malicious exploit code into an image file, which could be triggered by a user simply viewing the image in their browser. A new article from researcher Christian Bundy says that this is at best an exaggeration, claiming that the exploit will only work if the attacker can embed the image within an HTML `<script>` tag. Anyone familiar with cross-site scripting will tell you that if you're able to inject a `<script>` tag into a legitimate site, you don't need an image to do nasty things - you've already won. If true, this means that Stegosploit isn't much more than a way to obfuscate attacks, rather than a truly novel way to smuggle them through a previously undiscovered channel.
 
 - [__How apps track your location without asking for permission__][mobile_location] - Researchers at Trustlook have released some interesting research showing how an Android app can acquire users' location data, even if the app doesn't explicitly ask for the well-known "Location" permission. It is possible to retrieve the [BSSIDs][bssid] of WiFi networks the user has scanned, as well as signal strength for those networks, even with WiFi disabled on the phone. The BSSID can be plugged into a service like [WiGLE][wigle], which tracks the BSSIDs of WiFi networks around the world, to get a surprisingly accurate picture of the user's location.
 
-# Vulnerabilities
+### Vulnerabilities
 
 - [__The Memory Sinkhole - Unleashing an x86 design flaw allowing universal privilege escalation__][x86] - Researcher Christopher Domas will present a talk at this year's Black Hat Conference detailing a flaw in the x86 architecture that could be used by attackers to gain privileged access to low-level bits of the processor that are normally off-limits. He claims that he will be releasing a proof-of-concept of the attack during the talk. It will be interesting to see if he is "allowed" to give a presentation that has such high potential for abuse, or if it will be cancelled at the last minute, like in the case of the Carnegie Mellon researchers who were [prevented from giving a talk about de-anonymizing Tor][tor] at last year's Black Hat conference.
 
@@ -55,11 +55,11 @@ Ruby will also match strings like this:
 
 Egor has a [great post from a few years ago][ruby_regex] about this issue. The Ruby on Rails security guide [calls out this issue][ruby_regex2] and suggests using "\A" and "\z", which will be treated as the beginning and end, respectively, of the whole string, rather than matching on one line in a multi-line string. The latest version of the gem (3.0.4) can be obtained [here][bson2].
 
-# Tools
+### Tools
 
 - [__MEMEX__][memex] - A few months ago, DARPA open sourced code from a project called MEMEX which is intended to provide developers with tools to create more advanced search engines than are common today. MEMEX has already been used to [combat human trafficking][memex2], helping to secure a conviction of a human trafficker in New York City. The tools are wide-ranging in their abilities, but some examples include [Formasaurus][memex3], a tool to detect types of HTML forms (e.g. login, search, contact, etc.) and [Splash][memex4] a lightweight, HTTP-based browser emulator written in Python.
 
-# Random Link of the Week
+### Random link of the week
 
 - [__What is code?__][whatiscode] - This is a long read from Bloomberg that seeks to answer the question "What is code?" with great pictures, examples, explanations, and a liberal sprinkling of humor throughout. Whether you're a seasoned developer, a project manager trying to manage a team of developers, or a recent graduate of a learn-to-code bootcamp program, this article will likely amuse you, and might even teach you something interesting along the way.
 

@@ -39,7 +39,7 @@ Here's a peek at the first few releases:
 * v0.3 - Cloud Servers
 * v0.4 - Identity
 
-## Cloud Networks Support
+### Cloud Networks support
 
 [Rackspace Cloud Networks][cloud-networks] enable you to create isolated networks and provision server instances with Rackspace networks or the isolated networks that you created.
 

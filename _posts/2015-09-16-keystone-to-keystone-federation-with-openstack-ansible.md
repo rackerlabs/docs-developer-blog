@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Keystone-to-Keystone Federation with the openstack-ansible Project
+title: Keystone-to-Keystone federation with the openstack-ansible project
 date: '2015-09-16 23:59'
 comments: true
 author: Miguel Grinberg
@@ -24,7 +24,7 @@ configure K2K federation between two [openstack-ansible](https://github.com/open
 Then, I want to touch on some of those rough edges I mentioned above, so that
 you have your expectations set at the right level.
 
-## What is OpenStack Federation?
+### What is OpenStack federation?
 
 In a standard, non-federated set up, users authenticate against the cloud's
 own identity APIs, usually implemented by the Keystone service. With Keystone
@@ -41,7 +41,7 @@ SAML2. As a result, an external IdP service that has a trust
 relationship with the SP cloud can offer access to resources in the SP cloud to
 all of its users, without those users needing explicit SP cloud accounts.
 
-## What is Keystone-to-Keystone Federation?
+### What is Keystone-to-Keystone federation?
 
 When you have an OpenStack cloud acting as IdP to another OpenStack cloud, you
 have K2K federation. In this situation, the Keystone service in the SP cloud
@@ -57,7 +57,7 @@ is the creation of a hybrid private/public cloud. Imagine a company that has
 an on-premise private cloud that can dynamically expand to a much larger public
 cloud when its local resources are all in use.
 
-## What is the openstack-ansible Project?
+### What is the openstack-ansible project?
 
 The [openstack-ansible](https://github.com/openstack/openstack-ansible) project
 is an open source initiative from Rackspace that provides
@@ -81,7 +81,7 @@ If one of the services starts to misbehave, just delete its container and run
 the Ansible playbooks to create a brand new container to take the
 place of the bad one. It's that simple.
 
-## Deploying an openstack-ansible All-in-One
+### Deploying an openstack-ansible all-in-one
 
 Describing the openstack-ansible configuration in detail is outside the scope
 of this article, but I want to quickly show you how you can do a single-node
@@ -91,7 +91,8 @@ about it from me.
 
 The openstack-ansible project is based on Ubuntu 14.04, so you need to install
 this operating system to prepare a host for the deployment. I have found that
-a host with 8GB of RAM and 60GGB of disk space is enough to host an all-in-one installation. A very good option for a single-node deployment is to use a
+a host with 8GB of RAM and 60GGB of disk space is enough to host an all-in-one
+installation. A very good option for a single-node deployment is to use a
 public cloud server. If you have access to the Rackspace public cloud, a node
 that uses the `performance1-8` flavor is a good choice.
 
@@ -122,7 +123,7 @@ Once the install finishes, your OpenStack cloud is ready to be used. Horizon is
 accessible on the public IP address of your server. If you haven't changed the
 default configuration, then the username is `admin` and the password is
 randomly generated and different every time. The configuration files for the
-installation can be found in the `/etc/openstack_deploy` directory. To find
+installation can be found in the **/etc/openstack\_deploy** directory. To find
 your admin password, you can run the following command:
 
     # grep keystone_auth_admin_password /etc/openstack_deploy/user_secrets.yml
@@ -202,7 +203,7 @@ command line. Below you can see an example session in which I use the
 In the following sections, I will describe how to connect two openstack-ansible
 installations through K2K federation.
 
-## K2K Configuration for openstack-ansible
+### K2K configuration for openstack-ansible
 
 As an OpenStack deployer, one of the nicest aspects of the openstack-ansible
 project is the ease of introducing configuration changes. In the Ansible model,
@@ -223,13 +224,13 @@ will use. You can follow the instructions from the previous section to stand up
 two single-node clouds. Before you continue, verify that you can access both
 clouds through their utility containers, as shown above.
 
-### Setting Up the IdP Cloud
+#### Setting up the IdP cloud
 
 To configure an openstack-ansible install as an identity provider for
 federation, the IdP configuration must be added. A good place to write this
-configuration is in the `/etc/openstack_deploy/user_variables.yml` file. Note
-that any files in the `/etc/openstack_deploy` directory that match the
-`user_*.yml` pattern are imported by the Ansible playbooks, so if you want, you
+configuration is in the **/etc/openstack\_deploy/user\_variables.yml** file. Note
+that any files in the **/etc/openstack\_deploy** directory that match the
+**user\_*.yml** pattern are imported by the Ansible playbooks, so if you want, you
 can also write it in a brand new file, as long as it matches the pattern.
 
 The IdP configuration is shown below:
@@ -293,7 +294,7 @@ this token provider and federation. Once the Fernet token fixes are backported
 these two lines can be omitted.
 
 Are you ready to convert one of your two test clouds to an identity provider?
-Just add the above snippet to `/etc/openstack_deploy/user_variables.yml`, and
+Just add the above snippet to **/etc/openstack\_deploy/user\_variables.yml**, and
 make sure you write the IP address or hostname of your other cloud in the
 `keystone_sp_host` variable. To make this configuration change effective, you
 just simply need to run the playbooks again. Since this change only affects
@@ -305,7 +306,7 @@ keystone, we will just run the keystone playbook to save a bit of time:
 Ansible will now run for a few minutes, and, when the playbook completes, your
 first cloud will be configured as an identity provider. Pretty simple, right?
 
-### Setting Up the SP Cloud
+#### Setting up the SP cloud
 
 The configuration of the service provider cloud is done similarly to that of
 the identity provider. Below you can see the SP configuration block:
@@ -405,7 +406,7 @@ shown above. For more information about federation mappings, you can consult the
 [appropriate section of the Keystone documentation](http://docs.openstack.org/developer/keystone/mapping_combinations.html).
 
 To configure your second cloud as a SP, add the above configuration to your
-`/etc/openstack_deploy/user_variables.yml` file, and, like in the IdP case,
+**/etc/openstack\_deploy/user\_variables.yml** file, and, like in the IdP case,
 run the Keystone playbook:
 
     # cd /opt/openstack-ansible/playbooks
@@ -417,7 +418,7 @@ default Fernet tokens.
 At this point, the K2K federation between your two clouds should be fully
 configured and functional.
 
-## The K2K Federation Authentication Flow
+### The K2K federation authentication flow
 
 If you followed the instructions above, you have one of your clouds configured
 as an IdP, and the other configured as a SP. Not only that, the Keystone
@@ -426,7 +427,7 @@ about the SP cloud, and the SP cloud knows about the IdP cloud.
 
 So how does federation work? To begin, the user must authenticate against the
 IdP cloud. This is the standard authentication, so, for command line usage, this
-is usually achieved by importing an `openrc` file.
+is usually achieved by importing an **openrc** file.
 
 To initiate a federated request, the IdP cloud must contact the SP cloud and
 provide information about the user. For this, the IdP generates an *assertion*,
@@ -477,7 +478,7 @@ the IdP host, this is what you need to do:
     export OS_TOKEN=1f6606af8cda4b27b787819f2eb3f2d4
     export OS_URL=<desired-service-endpoint>
 
-The output of the `federated-login.sh` shows a progress of all the actions
+The output of the **federated-login.sh** shows a progress of all the actions
 taken during the authentication process and, once the authentication is
 completed, displays the information that you need to access the SP cloud.
 
@@ -503,14 +504,14 @@ the openstack command line client can figure that out on its own from the
 service catalog. I will discuss this and other problems with the current state
 of K2K federation in the next section.
 
-## Current Limitations of K2K
+### Current limitations of K2K
 
 Now that you've seen, and maybe even experienced, K2K federation, I'm sure you
 are scratching your head and wondering why things aren't more streamlined. In
 this section, I have compiled a short list of problems you may run into when
 using K2K federation with the Kilo release of OpenStack.
 
-### Horizon Support
+#### Horizon support
 
 For starters, you may be wondering if it is possible to log in from the Horizon
 dashboard and have a more friendly way to interact with a remote cloud. The
@@ -521,7 +522,7 @@ IdP implementation does not currently support websso, restricting Horizon to
 only connect to third party IdPs at this time. An example IdP that works well
 with Horizon is the Active Directory Federation Service from Microsoft (ADFS).
 
-### Command Line Client Support
+#### Command line client support
 
 In the previous section, you saw that to use the `openstack` command line client
 with federation you have to provide a token and the endpoint of the service
@@ -538,24 +539,24 @@ extension for Keystone is currently in progress, so this limitation is likely
 going to be a non-issue in the Liberty release. My hope is that with some
 additional variables added to the user's `openrc` file, the command line
 clients can perform the complete federated authentication, similar to the
-`federated-login.sh` wrapper scripts included with openstack-ansible, and with
+**federated-login.sh** wrapper scripts included with openstack-ansible, and with
 automated endpoint lookup. We'll see if this becomes a reality.
 
-### Fernet Tokens and Federation
+#### Fernet tokens and federation
 
 While working on the federation support for openstack-ansible, we noticed that
 there were problems with federated tokens when the Keystone service in the SP
 cloud is configured to use Fernet tokens. There is a fix made towards the
 Liberty release, but that fix has not been backported to Kilo yet. Hopefully by
 the time you read this, the fix will be publicly available. But if you see that
-the `federated-login.sh` wrapper script fails to obtain a token, you have
+the **federated-login.sh** wrapper script fails to obtain a token, you have
 to switch the Keystone service in both clouds to UUID tokens, which as you saw
-above, you can do by adding these variables to your `user_variables.yml` file:
+above, you can do by adding these variables to your **user\_variables.yml** file:
 
     keystone_token_provider: "keystone.token.providers.uuid.Provider"
     keystone_token_driver: "keystone.token.persistence.backends.sql.Token"
 
-## Final Words
+### Final words
 
 I hope this article was helpful in giving you an introduction to the K2K
 federation features in the Kilo release. And if you weren't familiar with the

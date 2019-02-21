@@ -5,7 +5,8 @@ date: '2015-07-16 13:00'
 comments: true
 author: Brian Curtin
 published: true
-categories: []
+categories:
+  - General
 ---
 
 Next week kicks off the 16th [OSCON](http://www.oscon.com/open-source-2015), an annual conference bringing together the free and open source software world, and Rackspace is a proud Silver Sponsor. Starting July 20 and running through July 24, technologists from around the globe descend on Portland, Oregon for a week of tutorials, talks, keynotes, an expo hall, and more, with Rackers taking part in all of it.
@@ -14,7 +15,7 @@ Next week kicks off the 16th [OSCON](http://www.oscon.com/open-source-2015), an 
 
 **Jarret Raim** and **Andrew Hartnett** pair up Tuesday from 9:00 to 12:30 to deliver their ["Stop building insecure systems: Cryptography 101"](http://www.oscon.com/open-source-2015/public/schedule/detail/41322) tutorial, getting developers started toward safe and smart use of cryptography. They'll be covering principals and practices of authentication, encryption, and more knowledge gained while focusing on security for Rackspace.
 
-In the last several years, the security community observed significant changes in the means and methods used by attackers in the digital space. While non-targeted attacks continue to be a concern for all companies, a marked rise in the success of so-called Advanced Persistent Threat (APT) type attacks at large firms like Target and JP Morgan have forced all security practitioners to question our approach to securing systems. 
+In the last several years, the security community observed significant changes in the means and methods used by attackers in the digital space. While non-targeted attacks continue to be a concern for all companies, a marked rise in the success of so-called Advanced Persistent Threat (APT) type attacks at large firms like Target and JP Morgan have forced all security practitioners to question our approach to securing systems.
 
 Rackspace Managed Security’s Active Defense offer is designed to operate in this new world. As a managed service, Rackspace implements a set of tooling customized to your business, connects that tooling together with a sophisticated analytics platform and monitors the results in our 24x7x365 Security Operations Center – all backed by our trademarked Fanatical Support.
 

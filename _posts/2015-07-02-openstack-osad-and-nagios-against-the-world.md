@@ -46,108 +46,110 @@ Base prerequisites are:
 * OpenStack OSAD cloud (technically, the Nagios configs can work against any OpenStack deployment with tweaks; playbooks tested against v10.6)
 * Monitoring server to run Nagios and NConf
 
-Let’s get started!  Early disclaimer, the steps below will take some time and should not be rushed.
+Let’s get started!  Early disclaimer, the steps below will take some time and
+should not be rushed.
 
----
-#####Step 1: Clone Repo
+### Step 1: Clone repo
 
-Connect via SSH to the node used to deploy your OSAD cloud (most likely is the first Infrastructure node).  Within the root home directory, clone the repo below to pull down the roles you will need.
+Connect via SSH to the node used to deploy your OSAD cloud (most likely is the
+first Infrastructure node).  Within the root home directory, clone the following
+repo to pull down the roles that you need.
 
-	$ git clone --recursive https://github.com/wbentley15/nagios-openstack.git
+	 $ git clone --recursive https://github.com/wbentley15/nagios-openstack.git
 
-#####Step 2: Examine roles and populate variables
+### Step 2: Examine roles and populate variables
 
-Take a look at the roles, and familiarize yourself with the steps. Find below all the variables for which you will need to supply values. The variable files are located in the `group_vars` directory.  The 'all_containers' and 'hosts' files are meant to be identical, so please supply the same variables below for both.
+Take a look at the roles, and familiarize yourself with the steps. Find below all the variables for which you will need to supply values. The variable files are located in the **group_vars** directory.  The **all_containers** and **hosts** files are meant to be identical, so please supply the same variables below for both.
 
-	USER: user to be created on the OSAD nodes to match up against the default Nagios user created. The default user is 'nagios'
-	SNMP_COMMUNITY: the SNMP community string used for the OSAD nodes and containers
-	SYS_LOCATION: additional SNMP information (optional)
-	SYS_CONTACT: additional SNMP information (optional)
+- `USER`: user to be created on the OSAD nodes to match up against the default Nagios user created. The default user is 'nagios'
+- `SNMP_COMMUNITY`: the SNMP community string used for the OSAD nodes and containers
+- `SYS_LOCATION`: additional SNMP information (optional)
+- `SYS_CONTACT`: additional SNMP information (optional)
 
 The variables needed for the nagios-server variable file are:
 
-	DB_NAME: name of the NConf database to be created
-	DB_USER: root user for the local mysql server
-	DB_PASS: root user password for the local mysql server
+- `DB_NAME`: name of the NConf database to be created
+- `DB_USER`: root user for the local mysql server
+- `DB_PASS`: root user password for the local mysql server
 
-#####Step 2b: Add the IP address of the Nagios server
-Add the IP address of the Nagios server to the `hosts` file in the root of the playbook directory.
+### Step 2b: Add the IP address of the Nagios server
 
----
-#####Step 3: Move the playbooks and roles into the OSAD deployment directory
+Add the IP address of the Nagios server to the **hosts** file in the root of the playbook directory.
+
+### Step 3: Move the playbooks and roles into the OSAD deployment directory
 
 In order to leverage the dynamic inventory capabilities that come with OSAD, the playbooks and roles need to be local to the deployment directory.  Trust me, you will like this!
 
-	$ cd ~/nagios-openstack
-	$ mkdir /opt/os-ansible-deployment/rpc_deployment/playbooks/groups_vars
-	$ cp ~/nagios-openstack/group_vars/* /opt/os-ansible-deployment/rpc_deployment/playbooks/group_vars
-	$ cp -r ~/nagios-openstack/roles/* /opt/os-ansible-deployment/rpc_deployment/roles
-	$ cp ~/nagios-openstack/base* /opt/os-ansible-deployment/rpc_deployment/playbooks
-	$ cp ~/nagios-openstack/hosts /opt/os-ansible-deployment/rpc_deployment/playbooks
+	 $ cd ~/nagios-openstack
+	 $ mkdir /opt/os-ansible-deployment/rpc_deployment/playbooks/groups_vars
+	 $ cp ~/nagios-openstack/group_vars/* /opt/os-ansible-deployment/rpc_deployment/playbooks/group_vars
+	 $ cp -r ~/nagios-openstack/roles/* /opt/os-ansible-deployment/rpc_deployment/roles
+	 $ cp ~/nagios-openstack/base* /opt/os-ansible-deployment/rpc_deployment/playbooks
+	 $ cp ~/nagios-openstack/hosts /opt/os-ansible-deployment/rpc_deployment/playbooks
 
-#####Step 4: Execute the following playbook to install and configure SNMP on your OSAD cloud:
+### Step 4: Execute the following playbook to install and configure SNMP on your OSAD cloud:
 
-	$ cd /opt/os-ansible-deployment/rpc_deployment/
+	 $ cd /opt/os-ansible-deployment/rpc_deployment/
     $ ansible-playbook -i inventory/dynamic_inventory.py playbooks/base.yml
 
-*In the event the SNMP service does not start the first time, please execute the following commands:*
+In the event the SNMP service does not start the first time, please execute the following commands:
 
-	$ ansible all_containers -m shell -a "service snmpd start"
-	$ ansible hosts -m shell -a "service snmpd start"
+	 $ ansible all_containers -m shell -a "service snmpd start"
+	 $ ansible hosts -m shell -a "service snmpd start"
 
-#####Step 5: Execute the following playbook to install and configure Nagios onto your monitoring server:
+### Step 5: Execute the following playbook to install and configure Nagios onto your monitoring server:
 
     $ cd playbooks
     $ ansible-playbook -i hosts base-nagios.yml
 
-Then connect to the monitoring server via SSH and execute the following commands to set the 'nagiosadmin' user password (used to log into Nagios web dashboard) and to restart Nagios:
+Then connect to the monitoring server via SSH and execute the following commands to set the `nagiosadmin` user password (used to log into Nagios web dashboard) and to restart Nagios:
 
-	$ sudo htpasswd -c /etc/nagios3/htpasswd.users nagiosadmin
+	 $ sudo htpasswd -c /etc/nagios3/htpasswd.users nagiosadmin
     $ service nagios3 restart
 
-#####Step 6: Execute the following playbook to install and configure NConf onto your monitoring server:
+### Step 6: Execute the following playbook to install and configure NConf onto your monitoring server:
 
     $ ansible-playbook -i hosts base-nconf.yml
 
-#####Step 6b: NConf initial configuration
+### Step 6b: NConf initial configuration
 
 My attempt to automate this part was not successful, so you have to finish the NConf configuration using the NConf web console.  Browse to `http://<monitoring server IP>/nconf` and follow the prompts to complete the initial configuration.  I suggest using the following inputs and keeping the defaults for the others:
 
-	DBNAME: same as what you inputed in the variables file above
-	DBUSER: same as what you inputed in the variables file above
-	DBPASS: same as what you inputed in the variables file above
-	NCONFDIR: /var/www/html/nconf
-	NAGIOS_BIN: /usr/sbin/nagios3
+- `DBNAME`: same as what you inputed in the variables file above
+- `DBUSER`: same as what you inputed in the variables file above
+- `DBPASS`: same as what you inputed in the variables file above
+- `NCONFDIR`: /var/www/html/nconf
+- `NAGIOS_BIN`: /usr/sbin/nagios3
 
-#####Step 6c: Execute the post NConf playbook:
+### Step 6c: Execute the post NConf playbook:
 
-	ansible-playbook -i hosts post-nconf-install.yml
+	 ansible-playbook -i hosts post-nconf-install.yml
 
-#####Step 7: Execute the following playbook to configure the OSAD nodes to allow for monitoring via SSH:
+### Step 7: Execute the following playbook to configure the OSAD nodes to allow for monitoring via SSH:
 
-In order to monitor the OpenStack processes and APIs running on the local containers, you must run the service checks remotely over SSH.  Good news is the Nagios plugin to do this already exists (check_by_ssh).
+In order to monitor the OpenStack processes and APIs running on the local containers, you must run the service checks remotely over SSH.  Good news is the Nagios plugin to do this already exists (`check_by_ssh`).
 
     $ cd ..
     $ ansible-playbook -i inventory/dynamic_inventory.py playbooks/base-infra.yml
 
 
-#####Step 7b: Confirm the Nagios and NConf install:
+### Step 7b: Confirm the Nagios and NConf install:
 
 In a browser go to the following URLs:
 
-	http://<monitoring server IP>/nagios3
-	http://<monitoring server IP>/nconf
+-	http://<monitoring server IP>/nagios3
+-	http://<monitoring server IP>/nconf
 
 
-#####Step 8: Time to configure Nagios for monitoring OSAD:
+### Step 8: Time to configure Nagios for monitoring OSAD:
 
 Unfortunately, this part does require manual configuration as each installation will differ too much to automate.  In the big picture, this will just help you sharpen your Nagios skills.  Do not worry, a copy of the Nagios directory was already taken. This step will take some time and should not be rushed.
 
-First step here would be to customize the Nagios configuration files located in the `/etc/nagios3/rpc-nagios-configs` directory on your monitoring server.  All the configuration files are important but, the most critical ones are the advanced_services.cfg and hosts.cfg files.
+First step here would be to customize the Nagios configuration files located in the **/etc/nagios3/rpc-nagios-configs** directory on your monitoring server.  All the configuration files are important but, the most critical ones are the advanced_services.cfg and hosts.cfg files.
 
-Within the advanced_services.cfg file, you will need to update each service check with the IP addresses of the containers within your OSAD install.  The fastest way to get that information is to execute the following command and capture the output on each Infrastructure node:  `lxc-ls --fancy`.  Below is an example:
+Within the **advanced_services.cfg** file, you will need to update each service check with the IP addresses of the containers within your OSAD install.  The fastest way to get that information is to execute the following command and capture the output on each Infrastructure node:  `lxc-ls --fancy`.  Below is an example:
 
-	define service {
+	 define service {
     	 service_description          infra1_check_ssh_process_glance-api
          check_command                check_by_ssh_process!<glance container IP>!glance-api
          check_period                 24x7
@@ -155,11 +157,11 @@ Within the advanced_services.cfg file, you will need to update each service chec
          host_name                    <OSAD node name>
          contact_groups               +admins,rpc-openstack-support
          use                          rpc-service
-	}
+	 }
 
-Same goes for the hosts.cfg file.  Please update the OSAD node names and IP addresses.
+Same goes for the **hosts.cfg** file.  Please update the OSAD node names and IP addresses.
 
-	define host {
+	 define host {
          host_name                     <OSAD node name>
          address                       <OSAD node IP>
          icon_image_alt                Ubuntu 14.04
@@ -170,48 +172,50 @@ Same goes for the hosts.cfg file.  Please update the OSAD node names and IP addr
          notification_period           24x7
          contact_groups                +admins,rpc-openstack-support
          use                           rpc-node
-	}
+	  }
 
-Please also add the following to the bottom of the resources.cfg file located in the root of the Nagios directory (`/etc/nagios3`):
+Please also add the following to the bottom of the **resources.cfg** file located in the root of the Nagios directory (**/etc/nagios3**):
 
-	$USER10$=<random SNMP community string of your choice, keep it simple>
+	 $USER10$=<random SNMP community string of your choice, keep it simple>
 
 If you are having trouble making the updates to the configs using an editor, do not stress out as the next step will make this process a bit easier.
 
-#####Step 9: Import Nagios configuration into NConf:
+### Step 9: Import Nagios configuration into NConf:
 
-Next, append the contents of the configuration files in the `/etc/nagios3/rpc-nagios-configs` directory to current Nagios configuration files (add to bottom).  Every host, host group, check, service, and contact group is uniquely named so that they don't conflict with current Nagios setup.  Then we will step thru the instructions found on the [NConf website](http://www.nconf.org/dokuwiki/doku.php?id=nconf:help:how_tos:import:import_nagios).
+Next, append the contents of the configuration files in the **/etc/nagios3/rpc-nagios-configs** directory to current Nagios configuration files (add to bottom).  Every host, host group, check, service, and contact group is uniquely named so that they don't conflict with current Nagios setup.  Then we will step thru the instructions found on the [NConf website](http://www.nconf.org/dokuwiki/doku.php?id=nconf:help:how_tos:import:import_nagios).
 
-As the NConf tutorial suggests, first run the commands with the '-s' parameters to simulate the import process.  Once you're able to run with no errors, remove the '-s' parameter to do the final import.  Connect to the monitoring server via SSH, run the following commands:
+As the NConf tutorial suggests, first run the commands with the `-s` parameters to simulate the import process.  Once you're able to run with no errors, remove the '-s' parameter to do the final import.  Connect to the monitoring server via SSH, run the following commands:
 
-	$ cd /var/www/html/nconf
-	$ bin/add_items_from_nagios.pl -c timeperiod -f /path/to/timeperiods.cfg -s
-	$ bin/add_items_from_nagios.pl -c misccommand -f /path/to/misccommands.cfg -s
-	$ bin/add_items_from_nagios.pl -c checkcommand -f /path/to/checkcommands.cfg -s
-	$ bin/add_items_from_nagios.pl -c contact -f /path/to/contacts.cfg -s
-	$ bin/add_items_from_nagios.pl -c contactgroup -f /path/to/contactgroups.cfg -s
-	$ bin/add_items_from_nagios.pl -c host-template -f /path/to/host_templates.cfg -s
+	 $ cd /var/www/html/nconf
+	 $ bin/add_items_from_nagios.pl -c timeperiod -f /path/to/timeperiods.cfg -s
+	 $ bin/add_items_from_nagios.pl -c misccommand -f /path/to/misccommands.cfg -s
+	 $ bin/add_items_from_nagios.pl -c checkcommand -f /path/to/checkcommands.cfg -s
+	 $ bin/add_items_from_nagios.pl -c contact -f /path/to/contacts.cfg -s
+	 $ bin/add_items_from_nagios.pl -c contactgroup -f /path/to/contactgroups.cfg -s
+	 $ bin/add_items_from_nagios.pl -c host-template -f /path/to/host_templates.cfg -s
     $ bin/add_items_from_nagios.pl -c service-template -f /path/to/service_templates.cfg -s
-	$ bin/add_items_from_nagios.pl -c hostgroup -f /path/to/hostgroups.cfg -s
-	$ bin/add_items_from_nagios.pl -c host -f /path/to/hosts.cfg -s
-	$ bin/add_items_from_nagios.pl -c advanced-service -f /path/to/advanced-services.cfg -s
+	 $ bin/add_items_from_nagios.pl -c hostgroup -f /path/to/hostgroups.cfg -s
+	 $ bin/add_items_from_nagios.pl -c host -f /path/to/hosts.cfg -s
+	 $ bin/add_items_from_nagios.pl -c advanced-service -f /path/to/advanced-services.cfg -s
 
 Now your can edit all the Nagios configs within the NConf web console.
 
-#####Step 10: Execute the post Nagios playbook:
+### Step 10: Execute the post Nagios playbook:
 
-	$ cd playbooks
+	 $ cd playbooks
     $ ansible-playbook -i hosts post-nagios-install.yml
 
-#####Step 11: Generate your first Nagios config:
+### Step 11: Generate your first Nagios config:
 
-Once you are satisfied with all of your custom Nagios configs (trust me, you will do this a couple of times), click on the 'Generate Nagios config' link on the sidebar of the NConf web console.  It will note if any errors were encountered.  From time to time, you will see warnings, but they are just that warnings, nothing urgent.
+Once you are satisfied with all of your custom Nagios configs (trust me, you will do this a couple of times), click on the **Generate Nagios config** link on the sidebar of the NConf web console.  It will note if any errors were encountered.  From time to time, you will see warnings, but they are just that warnings, nothing urgent.
 
 Last and not least, from the monitoring server, execute the following command to deploy the Nagios configurations to Nagios (may need to use sudo):
 
-	$ cd /var/www/html/nconf/ADD-ONS
-	$ ./deploy_local.sh
+	 $ cd /var/www/html/nconf/ADD-ONS
+	 $ ./deploy_local.sh
 
-*If you wanted to get fancy you can follow the instructions found on the [digitalcardboard blog](http://digitalcardboard.com/blog/2010/08/24/nagios-and-nconf-on-ubuntu-10-04-lucid-lynx) under the 'Configuring NConf to Deploy Nagios Configurations Automatically' section.*
+### Last thought
+
+If you wanted to get fancy you can follow the instructions found on the [digitalcardboard blog](http://digitalcardboard.com/blog/2010/08/24/nagios-and-nconf-on-ubuntu-10-04-lucid-lynx) under the **Configuring NConf to Deploy Nagios Configurations Automatically** section.
 
 **Go check out your work in Nagios now!**

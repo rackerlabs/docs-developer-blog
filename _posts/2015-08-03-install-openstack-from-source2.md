@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Install OpenStack from source Part 2
+title: Install OpenStack from source - part 2
 date: '2015-08-03 23:59'
 comments: true
 author: Phil Hopkins
@@ -11,7 +11,7 @@ categories:
   - database
 ---
 
-In the [first article of this series](https://developer.rackspace.com/blog/install-openstack-from-source/) we started installing OpenStack from source. We installed keystone and populated it with some basic information including a Services project and an admin user for our new OpenStack install. Additionally in an initial script we setup users and directories for the upcoming installs of the Image service (glance), Networking service (neutron), Compute service (nova) and Volume service (cinder). Now, let's continue and install and start the glance process on the controller node.
+In the [first article of this series](https://developer.rackspace.com/blog/install-openstack-from-source/), we started installing OpenStack from source. We installed keystone and populated it with some basic information including a Services project and an admin user for our new OpenStack install. Additionally, in an initial script we setup users and directories for the upcoming installs of the Image service (glance), Networking service (neutron), Compute service (nova) and Volume service (cinder). Now, let's continue and install and start the glance process on the controller node.
 
 <!-- more -->
 
@@ -64,7 +64,7 @@ Create the MySQL database for glance and populate the newly created database wit
     mysql -u root -pmysql -e "GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'glance';"
     glance-manage db_sync
 
-Although not needed in this environment we will install glance-image-sync and set it to run on a regular basis. If we had multiple glance API nodes this would sync the glance images between the nodes:
+Although not needed in this environment, we will install glance-image-sync and set it to run on a regular basis. If we had multiple glance API nodes this would sync the glance images between the nodes:
 
     git clone https://github.com/rcbops/glance-image-sync
     pushd glance-image-sync
@@ -104,7 +104,7 @@ If you do not get the Identity service signing certificates for the Image servic
     chmod 600 /var/lib/glance/cacert.pem
     chmod 600 /var/lib/glance/signing_cert.pem
 
-We are almost ready to start glance but we must first create the glance upstart scripts:
+We are almost ready to start glance, but we must first create the glance upstart scripts:
 
 Note: These scripts are just copied from the scripts that the Ubuntu packaged version of glance installs.
 
@@ -142,13 +142,13 @@ Wait about 15 seconds and run the following to verify that glance is running:
 
     ps aux|grep glance
 
-If glance started we should see a line from the last command showing information about the running process. If that didn't happen and glance didn't start or stay running use the following to manually start glance for troubleshooting:
+If glance started, we should see a line from the last command showing information about the running process. If that didn't happen and glance didn't start or stay running use the following to manually start glance for troubleshooting:
 
     sudo -u glance glance-api --config-file=/etc/glance/glance-api.conf --config-file=/etc/glance/glance-api-paste.ini > /dev/null 2>&1 &
 
     sudo -u glance glance-registry --config-file=/etc/glance/glance-registry.conf --config-file=/etc/glance/glance-registry-paste.ini > /dev/null 2>&1 &
 
-Note: Setting the value `debug = True` in the file `/etc/glance/glance.conf` will increade the logging output, for help in debugging failures.
+**Note:** Setting the value `debug = True` in the file `/etc/glance/glance.conf` will increade the logging output, for help in debugging failures.
 
 Next, install an image into glance for use once we have OpenStack fully installed as a basis for VMs. There is a small cloud image based on Ubuntu that is available, named cirros. With glance running download the cirros image and load it into glance:
 
@@ -161,7 +161,7 @@ Next, install an image into glance for use once we have OpenStack fully installe
 
 Our second process is now running and we can now turn our attention to installing the Networking service (neutron). This is the first of three neutron installs that we will have to do, the neutron server on the controller node and the neutron agents on the network and compute nodes.
 
-Since the nova, neutron and glance processes need root or sudo privileges to accomplish various tasks we need to create special sudo permissions for these process users. OpenStack also limits the extent of these privileges through use of a rootwrap configuration. Run the following script to set up the sudo permissions:
+Since the nova, neutron and glance processes need root or sudo privileges to accomplish various tasks, we need to create special sudo permissions for these process users. OpenStack also limits the extent of these privileges through use of a rootwrap configuration. Run the following script to set up the sudo permissions:
 
     for SERVICE in neutron nova cinder
     do
@@ -228,7 +228,7 @@ Place the neutron endpoint information into the keystone service catalog:
 
     SERVICE_TENANT_ID=`keystone tenant-get service | awk '/ id / { print $4 }'`
 
-Finally we must configure neutron. If the basic configuration file is supplied in the package close process,  remove it, since it is very long and difficult to edit. Next, the following sequence will replace it with a simpler one (the original is still in the cloned neutron directory if we ever need to look at it in the future):
+Finally, we must configure neutron. If the basic configuration file is supplied in the package close process, remove it, because it is very long and difficult to edit. Next, the following sequence will replace it with a simpler one (the original is still in the cloned neutron directory if we ever need to look at it in the future):
 
     rm /etc/neutron/neutron.conf
 
@@ -312,13 +312,13 @@ As we did for glance, build the neutron database tables:
     neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade head
 
 
-Before we start the neutron process we need to give the startup script some options information so it will read the ml2 configuration file:
+Before we start the neutron process, we need to give the startup script some options information so it will read the ml2 configuration file:
 
     cat > /etc/default/neutron-server << EOF
     NEUTRON_PLUGIN_CONFIG="/etc/neutron/plugins/ml2/ml2_conf.ini"
     EOF
 
-And finally create the upstart scripts that are used to start the neutron server process:
+And, finally, create the upstart scripts that are used to start the neutron server process:
 
     cat > /etc/init/neutron-server.conf << EOF
     # vim:set ft=upstart ts=2 et:
@@ -336,13 +336,13 @@ And finally create the upstart scripts that are used to start the neutron server
 
     EOF
 
-Start neutron server running and verify that it stays running. The second line will give information about the running neutron process (again wait for about 15 seconds before running the second command):
+Start neutron server running and verify that it stays running. The second line gives information about the running neutron process (again wait for about 15 seconds before running the second command):
 
     start neutron
     ps aux|grep neutron
 
-If neutron will not start use the following line to manually start neutron. If the neutron process has errors in starting it will give you output to aid in debugging the problem.
+If neutron will not start, use the following line to manually start neutron. If the neutron process has errors in starting, it gives you output to aid in debugging the problem.
 
     sudo -u neutron neutron-server --config-file=/etc/neutron/neutron.conf --config-file=/etc/neutron/plugins/ml2/ml2_conf.ini --log-file /var/log/neutron/server.log
 
-In the next article of this series we install several nova processes onto the controller node.
+In the next article of this series, we install several nova processes onto the controller node.

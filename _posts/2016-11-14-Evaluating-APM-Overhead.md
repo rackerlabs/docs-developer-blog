@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Evaluating APM Overhead"
+title: "Evaluating APM overhead"
 date: 2016-11-14 00:00
 comments: false
 author: Josh Mattson

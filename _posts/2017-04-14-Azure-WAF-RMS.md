@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Understanding an Azure Application Gateway with WAF
+title: Understanding the Azure application gateway with WAF
 date: 2017-04-14 10:22
 comments: false
 author: Jimmy Rudley

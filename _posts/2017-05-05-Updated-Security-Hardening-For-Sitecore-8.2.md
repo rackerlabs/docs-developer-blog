@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Updated Security Hardening for Sitecore 8.2+"
+title: "Updated security hardening for Sitecore 8.2+"
 date: 2017-05-05 00:00
 comments: false
 author: Grant Killian, Jimmy Rudley, Kelly Rusk, Bruce Lee
@@ -14,7 +14,7 @@ Last year, we shared [the foundation Rackspace uses for Sitecore security harden
 
 <!-- more -->
 
-### Four Additional Security Measures from Sitecore
+### Four additional security measures from Sitecore
 
 [The original post on this topic](https://developer.rackspace.com/blog/Security-Hardening-for-Sitecore-Environments/) covers 9 steps that Sitecore recommends you take to improve the security of an implementation.  Recently, there have been 4 additions to this list:
 
@@ -28,7 +28,7 @@ In reality, Sitecore has added a few other notes but the preceding recommendatio
 Here is how we at Rackspace use PowerShell to approach the four additions to Sitecore's recommended practices:
 
 These 4 steps continue [the list begun last year](https://developer.rackspace.com/blog/Security-Hardening-for-Sitecore-Environments/).  For the examples in this post, key PowerShell variables are initialized as follows:
-    
+
     $site = get-website -name 'SitecoreClientSite'
     $webConfigPath = "{0}\web.config" -f $site.physicalPath
 
@@ -39,28 +39,28 @@ New Recommendation Number 1. [Disable WebDav](https://doc.sitecore.net/sitecore_
 	$webDavConfigPath = "{0}\App_Config\Include\Sitecore.WebDAV.config" -f $site.physicalPath
 	$webDavConfigDisabledPath = "{0}\App_Config\Include\Sitecore.WebDAV.config.disabled" -f $site.physicalPath
 	Rename-Item $webDavConfigPath $webDavConfigDisabledPath
-    
+
 New Recommendation Number 2. [Disable SQL Server access from XSLT](https://doc.sitecore.net/sitecore_experience_platform/setting_up_and_maintaining/security_hardening/configuring/disable_sql_server_access_from_xslt)
 
-> XSLT renderings are another dated technology that most new Sitecore implementations avoid, but the features remain part of the Sitecore platform.  Sitecore recommends disabling the ability for XSLT renderings to interact with SQL Server; it's a precautionary best practice to reduce the security surface area.  To do this, remove the xslExtensions of type "Sitecore.Xml.Xsl.SqlHelper" from the XML defined in App_Config/Sitecore.config as shown in the following PowerShell example: 
+> XSLT renderings are another dated technology that most new Sitecore implementations avoid, but the features remain part of the Sitecore platform.  Sitecore recommends disabling the ability for XSLT renderings to interact with SQL Server; it's a precautionary best practice to reduce the security surface area.  To do this, remove the xslExtensions of type "Sitecore.Xml.Xsl.SqlHelper" from the XML defined in App_Config/Sitecore.config as shown in the following PowerShell example:
 
 	$sitecoreConfigPath = "{0}\App_Config\Sitecore.config" -f $site.physicalPath
-	$configXML = [xml](get-content $sitecoreConfigPath) 
-	foreach( $item in  $configXML.sitecore.xslExtensions.extension )             
+	$configXML = [xml](get-content $sitecoreConfigPath)
+	foreach( $item in  $configXML.sitecore.xslExtensions.extension )
 	{
-        if( $item.type -eq "Sitecore.Xml.Xsl.SqlHelper, Sitecore.Kernel" )                                                 
+        if( $item.type -eq "Sitecore.Xml.Xsl.SqlHelper, Sitecore.Kernel" )
         {
-              $configXML.sitecore.xslExtensions.RemoveChild($item);   
+              $configXML.sitecore.xslExtensions.RemoveChild($item);
         }
 	}
     $configXML.Save($sitecoreConfigPath)
-	
+
 New Recommendation Number 3. [Enforce a strong password policy](https://doc.sitecore.net/sitecore_experience_platform/setting_up_and_maintaining/security_hardening/security_considerations)
 
 > Sitecore relies on the .Net Membership class for out-of-the-box security of user credentials and account management.  There are a [variety of properties exposed by the .Net Membership object](https://msdn.microsoft.com/en-us/library/system.web.security.membership_properties%28v=vs.110%29.aspx), and Sitecore recommends implementations alter these settings in a way that is consistent with each organization.  The Membership settings Sitecore installs with are developer-friendly (that's a nice way of saying *not security best practice*), with specific attributes set as follows:
 
-* minRequiredPasswordLength="1" 
-* minRequiredNonalphanumericCharacters="0" 
+* minRequiredPasswordLength="1"
+* minRequiredNonalphanumericCharacters="0"
 * maxInvalidPasswordAttempts="256"
 
 > This is low-hanging fruit for a security audit -- single character passwords are laughable for "real" implementations.  Sitecore recognizes this, and their newest documentation suggests tuning these settings for increased security.  At Rackspace, we consult with customers on best-fit but we have automated the full spectrum of options exposed in the web.config file for .Net Membership.  I'll share the full set of commands here, but know that it makes the most sense to be selective about which attributes to employ on each Sitecore implementation.  If you have a comprehensive [RegEx validation defined](https://msdn.microsoft.com/en-us/library/system.web.security.membership.passwordstrengthregularexpression%28v=vs.110%29.aspx), for instance, you probably do not need an explicit value set for a *minRequiredPasswordLength*.
@@ -98,6 +98,6 @@ While it's straight-forward to change the *hashAlgorithmType* attribute to use S
 
 I should mention, there are more sophisticated ways of resetting and obtaining a Sitecore password, but they exceed the scope of this piece focussing on Sitecore's new security hardening recommendations.  There are SQL Server stored procs to reset a password, which could be folded into a process that updates the .Net Membership hashing algorithm etc.  I'll leave that as an exercise for the reader, should they want to pursue this further . . .
 
-To conclude, I'll direct you to a unified PowerShell script that combines [our previous security hardening guidance](https://developer.rackspace.com/blog/Security-Hardening-for-Sitecore-Environments/) with the measures covered in this write-up.  The [full PowerShell is on GitHub and can help you jumpstart this process in your own projects](https://gist.github.com/grant-killian/a6b00ccbfe28b40b76181fbb369f5c02).  
+To conclude, I'll direct you to a unified PowerShell script that combines [our previous security hardening guidance](https://developer.rackspace.com/blog/Security-Hardening-for-Sitecore-Environments/) with the measures covered in this write-up.  The [full PowerShell is on GitHub and can help you jumpstart this process in your own projects](https://gist.github.com/grant-killian/a6b00ccbfe28b40b76181fbb369f5c02).
 
 Finally, remember that that these security best practices are just a good starting point for a secure Sitecore implementation.  Our [Rackspace Sitecore team](https://www.rackspace.com/digital/sitecore) engages with customers on their particular situations and helps make them successful with the Sitecore platform.  When it comes to security, one size doesn't fit all, but it's nice to have a solid foundation to build on.

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Code Dive: Openstack Live Migrations Part 1 - Nova API"
+title: "Code dive: Openstack live migrations part 1 - Nova API"
 date: 2018-05-03 00:00
 comments: false
 author: Brooks Kaminski
@@ -17,7 +17,7 @@ The OpenStack live migration process is one of the most vital processes in the c
 
 ### Assumptions
 
-- The `Virt Driver` in use is XenAPI, so we will spend some time in that code base.  
+- The `Virt Driver` in use is XenAPI, so we will spend some time in that code base.
 - I use ellipses to skip some basic *set* and *get* instructions for clarity (no need to re-invent the wheel here).
 - Finally, while I go deep into the entire process, there may be sections where skipping through code is beneficial, such as skipping past RPC sections once we cover this once, skipping over the majority of the Scheduler Process, and Networking Configuration.  This skipping allows us to focus more on the process as a whole and to not get too in-depth with Neutron and Nova-Scheduler information.
 
@@ -27,7 +27,7 @@ Throughout the article, I share some code and explain what's going on or highlig
 
 ![Nova-API Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-1/Nova-API-1.png %})
 
-Let's first examine the nova-client instruction: 
+Let's first examine the nova-client instruction:
 
 {% highlight python %}
     nova live-migration [--block-migrate] <server> [<host>]
@@ -57,7 +57,7 @@ The *osapi\_compute* service is defined in *nova.openstack.compute.wsgi.py* with
 
 ![Nova-API Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-1/Nova-API-3.png %})
 
-The Route list is defined to tell our request where to go. A migration request is a server action, so it triggers the `action` request, which sends us into `server_controller`, which resolves down to `migrate_server` / `nova.api.openstack.compute`. The request for a live_migration sends the specific request of *os\_migrateLive* to identify the correct method to use and then continues. 
+The Route list is defined to tell our request where to go. A migration request is a server action, so it triggers the `action` request, which sends us into `server_controller`, which resolves down to `migrate_server` / `nova.api.openstack.compute`. The request for a live_migration sends the specific request of *os\_migrateLive* to identify the correct method to use and then continues.
 
 *nova.api.openstack.compute.routes* ->
 {% highlight python %}
@@ -86,10 +86,10 @@ Here the API sets a couple of important variables. It looks at the first if the 
 {% highlight python %}
 class MigrateServerController():
     ...
-    from nova import compute 
+    from nova import compute
     ...
     self.compute_api = compute.API()
-    
+
     @wsgi.action('os-migrateLive')
     def _migrate_live(self, req, id, body):
       ...
@@ -107,7 +107,7 @@ class MigrateServerController():
 	self.compute_api.live_migrate(context, instance, block_migration,
                                           disk_over_commit, host, force, async)
 {% endhighlight %}
-                                          
+
 #### Exploration 5
 
 ![Nova-API Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-1/Nova-API-5.png %})
@@ -148,20 +148,20 @@ This almost simple chunk of code sets up a new dictionary with the scheduled hos
     ...
     def live_migrate_instance(self, context, instance, host_name, block_migration, disk_over_commit, request_spec=None, async=False):
     scheduler_hint = {'host': host_name}
-    
+
     if async:
             self.conductor_compute_rpcapi.live_migrate_instance(context, instance, scheduler_hint, block_migration,disk_over_commit, request_spec)
         else:
             self.conductor_compute_rpcapi.migrate_server(context, instance, scheduler_hint, True, False, None, block_migration, disk_over_commit, None, request_spec=request_spec)
-{% endhighlight %}  
+{% endhighlight %}
 
-  
-#### Exploration 7          
+
+#### Exploration 7
 
 ![Nova-API Exploration Flow]({% asset_path 2018-04-20-Code-Dive-Openstack-Live-Migrations-Part-1/Nova-API-7.png %})
 
 At this point, we run into the problem mentioned previously regarding the RPC service, which enters a land of extreme abstraction. While my knowledge of how these RPC services work is limited, essentially it defines a namespace and sends a message to that namespace through a chosen messenger service. Thus far, we have remained in the Nova API services, but now we are passing a message for Conductor nodes themselves to pick up and begin to work within their own managers. The RPC call for this looks like the following, with the `kw` variable here being the payload passed through messenger.
-    
+
 *nova.conductor.rpcapi.ComputeTaskAPI.live\_migrate\_instance* ->
 {% highlight python %}
     def live_migrate_instance():
@@ -178,7 +178,7 @@ At this point, we run into the problem mentioned previously regarding the RPC se
         cctxt.cast(context, 'live_migrate_instance', **kw)
 {% endhighlight %}
 
-The main takeaway at this point in the process is that we will now officially be running on Conductor nodes, and from here the Conductor Manager runs the code that is called (*live\_migrate\_instance*). This code is *nova.conductor.manager* with the *ComputeTaskManager* having an `@profiler` decorator for direction. From here, Conductor conducts and coordinates with various other services to complete the migration process. This is an example of Conductor handling a larger amount of work than just communicating between database and compute node, however, Since so much work is necessary during a live migration, it is nice to have a centralized location (or "command center") where information is passed back and forth during the beginning of this process. 
+The main takeaway at this point in the process is that we will now officially be running on Conductor nodes, and from here the Conductor Manager runs the code that is called (*live\_migrate\_instance*). This code is *nova.conductor.manager* with the *ComputeTaskManager* having an `@profiler` decorator for direction. From here, Conductor conducts and coordinates with various other services to complete the migration process. This is an example of Conductor handling a larger amount of work than just communicating between database and compute node, however, Since so much work is necessary during a live migration, it is nice to have a centralized location (or "command center") where information is passed back and forth during the beginning of this process.
 
 While this chunk of code all runs within seconds in a production environment, it may take our poor human brains some time to digest this information, so let's take a small  break and continue this discussion in our next article.
 

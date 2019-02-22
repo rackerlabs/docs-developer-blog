@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Scantron - A Distributed nmap Scanning Framework"
+title: "Scantron - A distributed nmap scanning framework"
 date: 2018-08-21 00:00
 comments: true
 author: Brennon Thomas
@@ -15,7 +15,7 @@ categories:
 
 ![scantron robot]({% asset_path 2018-08-21-scantron-a-distributed-nmap-scanner/scantron_300x300.jpg %})
 
-# Background
+### Background
 
 The Threat and Vulnerability Analysis team at Rackspace is charged with providing internal vulnerability scanning, penetration testing, and red/purple teaming capabilities to reduce cyber-based threats, risk, and exposure for the company.  One of our tasks, as part of meeting certain compliance objectives, is to ensure systems are not exposed from various networking "perspectives" without going through a bastion first.
 
@@ -42,7 +42,7 @@ We use Scantron to answer questions like:
 
 Having the data in Splunk allows us to provide dashboards for system owners, quickly carve out mini missions for penetration tests, and provide an ingestible data source for our Threat Intelligence team.
 
-# What is Scantron?
+### What is scantron?
 
 The juicy technical details can be found in the project's [Racker Labs GitHub page](https://github.com/rackerlabs/scantron).
 
@@ -65,7 +65,7 @@ Scantron relies heavily on utilizing SSH port forwards (`-R` or `-L`) as an umbi
 
 I was originally using the [python-nmap](https://xael.org/pages/python-nmap-en.html) library to wrap the nmap commands, but it lacked the `--resume` [nmap switch](https://nmap.org/book/man-output.html) that can be used to resume scans that have a normal (-oN) or gnmap (-oG) output file, and I didn't feel like customizing the library.  This switch was critical for some of the longer running scans that crashed sometimes.  Instead, nmap scans are kicked off using Python's `subprocess` module.
 
-# Inspiration
+### Inspiration
 
 Scantron's inspiration comes from these individuals and projects and definitely warrants a shout out.
 
@@ -76,7 +76,7 @@ Scantron's inspiration comes from these individuals and projects and definitely 
 * rainmap (<https://svn.nmap.org/rainmap/>) / (<https://github.com/axtl/rainmap>)
 * rainmap-lite (<https://github.com/cldrn/rainmap-lite>)
 
-# Summary
+### Summary
 
 I want to thank my current teammates, a former teammate (for getting the beta into production), Global Enterprise Security leadership, and Rackspace for supporting this work and allowing it to be open-sourced.  Any bugs, feature requests, and issues can be submitted through the official GitHub repo for the project: <https://github.com/rackerlabs/scantron>.
 

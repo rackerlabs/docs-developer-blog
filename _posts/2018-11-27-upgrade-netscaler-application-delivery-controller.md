@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Upgrade NetScaler Application Delivery Controller"
+title: "Upgrade the NetScaler Application Delivery Controller"
 date: 2018-11-27 00:00
 comments: true
 author: Karthik Siva

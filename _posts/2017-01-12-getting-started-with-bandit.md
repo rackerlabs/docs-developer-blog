@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Getting Started with Bandit
+title: Getting started with Bandit
 date: 2017-01-16 10:00
 comments: false
 author: Ian Cordasco

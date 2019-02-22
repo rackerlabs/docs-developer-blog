@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Making App Password Changes Easier"
+title: "Making app password changes easier"
 date: 2018-08-06 23:59
 comments: true
 author: Rodney Beede
@@ -12,7 +12,7 @@ categories:
 ---
 
  A common technical challenge for developers, operations, and IT security is the management of service account credentials used by applications.  Service accounts are needed to authorize different components for communication and sharing data.  This is true whether the application runs in the cloud or on-premise.  The problem is that these credentials have the following issues:
- 
+
 * They are setup one time.
 * They never expire.
 * They are hard-coded into configuration files.
@@ -83,11 +83,11 @@ While handy for you from an operations or IT security tool standpoint, this is c
   * Avoid writing an old credential when rewriting the configuration file to disk.
 
 If the script can't handle the preceding requirements, situations like the following one could happen:
-    
+
   1. **awa.conf** has its DS_PASSWORD updated to a new password by **scriptRunA**.
   1. At the same time, a different script or tool, **scriptrunZ**, also changes the API_PASSWORD.
   1. Unfortunately, **scriptRunA** overwrites the updated credential with an previous password for API_PASSWORD
-    
+
 ##### Solution
 
 Place each credential in a secure dedicated file (for example, file **ACL**), as shown in the following example:
@@ -188,7 +188,7 @@ try {
 } catch InvalidUserAuthError {
   // retry with other cred in rotation
   cred = getWidgetCredential(2)  // reads from disk everytime
-  
+
   try {
      restRequest = call_api(config['remotewidget']['API_ENDPOINT'], cred)
   } catch InvalidUserAuthError {

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Static Content From A Storage Account With A Default Document"
+title: "Static content from a storage account with a default document"
 date: 2018-06-01 00:00
 comments: true
 author: Jimmy Rudley

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: OpenStack Bulk Job Runner
+title: OpenStack bulk job runner
 date: 2017-03-29 00:00
 comments: false
 author: Kevin Carter
@@ -20,9 +20,7 @@ same time these steps, and linked script, can help you
 identify all repositories governed under a single project and run some
 type of bulk job(s) across them.
 
-----
-
-##### Getting a list of all repositories under a given project's governance.
+### Getting a list of all repositories under a given project's governance
 
 First, clone OpenStack Infra's **project-config** repository.
 
@@ -82,10 +80,7 @@ done
 Once cloned, change to the directory of a cloned repository and run whatever
 bulk job is needed, commit the changes, and submit them for review.
 
-----
-
-
-##### Running bulk jobs using a script.
+### Running bulk jobs using a script
 
 Here's a [simple script](https://github.com/cloudnull/random_scripts/blob/master/openstacky-things/bulk-job-doer.sh)
 which pulls all of this together and can serve as a basic template for

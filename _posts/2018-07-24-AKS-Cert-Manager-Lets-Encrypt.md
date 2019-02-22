@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AKS - Cert Manager Certificate Rate Limit"
+title: "AKS - Cert Manager certificate rate limit"
 date: 2018-07-24 00:00
 comments: true
 author: Jimmy Rudley
@@ -25,8 +25,8 @@ Message:               Failed to finalize order: acme: urn:ietf:params:acme:erro
 I am puzzled. I was being rate limited for a domain I just submitted a request for? It turns out that ``Let's Encrypt`` looks at **Azure.com**. Here is the snippet from the rate limit document:
 
 ```
-The main limit is Certificates per Registered Domain, (20 per week). 
-A registered domain is, generally speaking, the part of the domain you purchased from your domain name registrar. 
+The main limit is Certificates per Registered Domain, (20 per week).
+A registered domain is, generally speaking, the part of the domain you purchased from your domain name registrar.
 For instance, in the name www.example.com, the registered domain is example.com. In new.blog.example.co.uk, the registered domain is example.co.uk. We use the Public Suffix List to calculate the registered domain.
 ```
 

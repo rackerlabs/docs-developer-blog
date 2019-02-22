@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "AWS Security Hub - An Overview"
+title: "AWS security hub - An overview"
 date: 2018-12-12 00:00
 comments: true
 author: Nick Garratt
@@ -9,36 +9,36 @@ authorIsRacker: true
 authorAvatar: https://s.gravatar.com/avatar/749cf70eafe03795015019c1047be85f
 bio: "Nick Garratt is a Principal Architect in the Rackspace Managed Public Clouds Product Architecture Team."
 categories:
-  - aws 
+  - aws
   - security
-metaTitle: "AWS Security Hub - An Overview"
+metaTitle: "AWS security hub - An overview"
 metaDescription: "Initial thoughts on the Security Hub preview as announced at re:Invent 2018"
-ogTitle: "AWS Security Hub initial thoughts"
+ogTitle: "AWS security hub initial thoughts"
 ogDescription: "A discussion of the Security Hub preview as announced at re:Invent 2018"
-ogImage: 
+ogImage:
 
 ---
 AWS Security Hub was announced in Andy Jassy's re:Invent 2018 [Keynote(46:23)](https://youtu.be/ZOIkOnW640A?t=2783) and pitched as "a place to centrally manage security and compliance across your whole AWS environment (applause)" and then went on to announce an array of partners who were part of the initial integration effort (muted applause). While this announcement enjoyed just 3 minutes on centre stage, this is a significant development.
 
 <!-- more -->
 
-## Security Hub - why is this significant?
+### Security hub - why is this significant?
 
-One of the notable developments included in this announcement is the creation by AWS and adoption by AWS and select AWS partners of a **standard format** for security events called the ['AWS Security Finding' format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html). This common format is a key enabler of the aggregation of 'Findings' into Security Hub as it pushes the responsibility for conformance onto the findings emitter rather than requiring the aggregator to build and maintain multiple parsers for all findings sources. The AWS services GuardDuty, Macie, and Inspector, if configured, will automatically have their findings aggregated in SecurityHub once it is enabled. 
- 
+One of the notable developments included in this announcement is the creation by AWS and adoption by AWS and select AWS partners of a **standard format** for security events called the ['AWS Security Finding' format](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html). This common format is a key enabler of the aggregation of 'Findings' into Security Hub as it pushes the responsibility for conformance onto the findings emitter rather than requiring the aggregator to build and maintain multiple parsers for all findings sources. The AWS services GuardDuty, Macie, and Inspector, if configured, will automatically have their findings aggregated in SecurityHub once it is enabled.
+
 Given that many of the security partners involved compete with one another to some extent or offer Security Operations Centre (SOC) services providing the black box magic of event ingestion and correlation into incidents, one can imagine that the incentive to standardise on a format which could level the playing field just a little bit must not have been great. The inexorable change of the market and the dominant agent of that change together clearly made a compelling case!
 
-## Coming together
+### Coming together
 
 The standard findings format ensures that the attributes required for the *correlation* of findings are present. ['Insights'](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-insights.html) are light-weight correlation rules, essentially filter and grouping operations to linked to an 'action'. This 'action' as set up in Security Hub is simply an identifier for an event which will be sent to CloudWatch Events if triggered. It is in CloudWatch Events where any notifications, automations, or integrations will be configured. As it stands today, `actions` must be manually triggered from the 'insight' and *cannot be associated and triggered automatically*. One assumes that this will be addressed in future releases.
- 
-Usefully, some standard findings are made available by AWS for such conditions as 'S3 buckets with sensitive data and public read permissions' which on their own should spare a great deal of pain to AWS customers! 
+
+Usefully, some standard findings are made available by AWS for such conditions as 'S3 buckets with sensitive data and public read permissions' which on their own should spare a great deal of pain to AWS customers!
 
 On the theme of aggregation, Security Hub supports a master/member model where the designate master account can invite member accounts to pool findings. Once accepted, the findings from the member account are aggregated in Security Hub in the master. The member has access to view their own findings, while the master has a view of findings from itself and all members. It should be notes that at this time, Security Hub is a *regional* service.
- 
-Under the 'Standards' menu, AWS provides the first of its automated compliance checks – 'CIS AWS Foundations' -  with 43 automated rules as of 11th December 2018. 
- 
-## A brisk walk-through
+
+Under the 'Standards' menu, AWS provides the first of its automated compliance checks – 'CIS AWS Foundations' -  with 43 automated rules as of 11th December 2018.
+
+### A brisk walk-through
 
 Let's take a brief look in practice at how these various concepts and components work together. We'll be working with a single test account rather than trying to demonstrate master/member.
 
@@ -189,15 +189,15 @@ aws sns get-subscription-attributes --subscription-arn "arn:aws:sns:eu-west-1:98
 * While we wait for the email notification to arrive, we can validate that CloudWatch Events has seen and processed the event triggered by our `action` by visiting ** AWS Console -> CloudWatch -> Events -> Rules ** and click on our **SecHub** rule:
 ![Action]({% asset_path 2018-12-12-aws-security-hub-overview/cw_events.png %})
 
-If we view the metrics for this rule, we should should see `TriggeredRules` reporting a value of `1`. Before long, however, an email will appear in our Inbox with the full raw contents of the `finding`. 
+If we view the metrics for this rule, we should should see `TriggeredRules` reporting a value of `1`. Before long, however, an email will appear in our Inbox with the full raw contents of the `finding`.
 
-## Where to from here?
+### Where to from here?
 
 As a PoC, this is interesting, but this is merely a start. CloudWatch Events provides a broad selection of targets, which enable a high degree of versatility, whether you want to push events to another system, generate a ticket in order to engage human specialists, or automate remediation. What can you accomplish? Sign up for the Security Hub preview and share your thoughts and experiences below.
 
 Something to watch is the extent to which the **AWS Security Finding format** takes on a life of its own outside of AWS. Having been compelled to conform to a standard, does this development serve as a catalyst for further cooperation between vendors or the inspiration behind yet to be conceived OSS projects? There does not appear to have been much movement on Security Device Event Exchange and the Cisco extension [CICEE](https://www.cisco.com/c/en/us/td/docs/security/ips/specs/CIDEE_Specification.html?dtid=osscdc000283) in recent years, just perhaps this is the impetus which has been lacking.
 
-## Resources
+### Resources
 
 * Security Hub in Andy Jassy's re:Invent 2018 [keynote(46:23)](https://youtu.be/ZOIkOnW640A?t=2783)
 * re:Invent 2018 [SEC397 breakout session](https://youtu.be/TdT8ds_C8Gs) on Security Hub

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Developing an Effective Monitoring Strategy"
+title: "Developing an effective monitoring strategy"
 date: 2018-1-2 00:00
 comments: false
 author: Josh Mattson
@@ -42,7 +42,7 @@ Depending on your environment's architecture, you might also need to include thi
 
 Finally, it's important to additionally look _outside_ of your application's environment.  Does your application depend on any third parties?  For example, does your e-commerce environment (hosted in AWS) talk to an inventory and fullfilment application located within your corporate datacenter that is managed by a separate team?  You might not be able to directly monitor these ancillary applications, but it's very important to keep them in mind in order to be effective.
 
-### Use Monitoring Tools
+### Use monitoring tools
 
 Now that we've identified which components are critical to ensure that the application can serve its business purpose, we can start to identify tools that can help us to meet this goal.  Unfortunately, few platforms exist that truly standout for monitoring all necessary parts of your stack.  That said, there is still great value in having a single pane of glass to simplify monitoring, alerting, and reporting.  It's important to consider the value of a single pane of glass when evaluating potential tools and trade-offs that you might be willing to make.  For example, if you are hosting an application within Azure, hardware monitoring is likely unnecessary, but having the ability to monitor Azure inventory and status may be worthwhile.  Similarly, you may be willing to give up end user experience monitoring if you're hosting an application that isn't internet facing and is either only serving internal users or simply responding to API calls.
 
@@ -50,7 +50,7 @@ Ultimately, you need to determine which of the areas identified in your initial 
 
 Consider _which_ metrics and what kind of data is important to you and your application.  The tools you choose will look very different for a small PHP e-commerce environment than for a highly distributed containerized Python application.  Ensure that the monitoring platform candidates you're selecting can provide the required metrics.  Many tools in the market can accomplish these needs, but it's also important to consider the work required to gather these metrics.  Some tools may be able to collect the metrics you require out of the box, and others require extensive customization or even modifications to your application's code.
 
-### Consider  Monitoring vs. Alerting
+### Consider  monitoring vs. alerting
 
 This is an important distinction that is often lost during these kinds of discussions.  Monitoring refers to collecting metrics that are available for review.  Contrast this to alerting, which is proactive notification via various means (such as email, SMS, ticketing system integration, and so on) of an ongoing or likely performance issue.  A best practice with monitoring vs. alerting is to monitor as much as is needed in order to have _full_ visibility in to your application's performance and alert on only on critical (or potentially) critical situations.  A term we often discuss with customers is 'alert fatigue' in which monitoring systems generate so many non-critical alerts, which require no action, that eventually the operational teams become immunized to the alerts and begin to ignore them.  This, as you can imagine, easily leads to missed situations in which your application's performance is severely degraded (or worse, a complete outage).  With alerting, less is more.
 

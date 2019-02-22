@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "AWS Application Load Balancer Authentication with SAML IdP"
-ogTitle: "AWS Application Load Balancer Authentication with SAML IdP"
+title: "AWS application load balancer authentication with SAML IdP"
+ogTitle: "AWS application load balancer authentication with SAML IdP"
 metaDescription: A step-by-step guide to setting up authentication for your application against a SAML IdP using the AWS ALB.
 ogDescription: A step-by-step guide to setting up authentication for your application against a SAML IdP using the AWS ALB.
 date: 2018-12-31 00:00
@@ -23,7 +23,7 @@ In this post, we'll walk through the entire process of setting up ALB authentica
 
 <!-- more -->
 
-## Getting started
+### Getting started
 
 Let's first take a high-level look at what we're trying to achieve. We have an application with functionality that requires a user to be authenticated. When our application is accessed, we'd like to redirect users who haven't already authenticated over to our SAML IdP. There, they can log in against an existing database of users, and the IdP will post a response to a callback URL that we provide to let us know that the user authenticated successfully. If so, they can proceed to the application; otherwise, they will continue to be denied access.
 
@@ -38,7 +38,7 @@ Of course, throughout this walkthrough, you should replace instances of `app.exa
 
 **NOTE:** While this post makes a few assumptions about your current environment, a precise match is not absolutely necessary. For instance, if you don't have the ability to create a subdomain for authentication (`auth.app.example.com`), you can adapt the instructions below to work with the Amazon Cognito domain URL that is available when creating the user pool. Or, perhaps you have an application, but don't have an existing ALB. If so, rather than modifying an existing ALB, just create a new one taking the information in this post into consideration.
 
-## Creating the Cognito user pool
+### Creating the Cognito user pool
 
 [Amazon Cognito](https://aws.amazon.com/cognito/) lets us avoid having to implement the necessary logic to negotiate the user authentication flow, manage state, and capture available user information. Let's begin by [creating a new user pool](https://console.aws.amazon.com/cognito/users/?region=us-east-1#/pool/new/create):
 
@@ -66,7 +66,7 @@ Finally, we **Create pool**, and make note of the **Pool Id**, which we'll will 
 
 Before we move on to creating the app client, we'll need to create an **Identity provider** to associate to it when configuring the app client.
 
-## Setting up the SAML identity provider
+### Setting up the SAML identity provider
 
 Start by clicking **Identity providers** on the left menu under the **Federation** and selecting **SAML**. Then, supply either the metadata document URL (e.g. `https://example.com/FederationMetadata/2007-06/FederationMetadata.xml`) or upload the metadata document if your SAML IdP does not publish it anywhere publicly accessible. Consult your IdP's documentation, or if you're using your own company's ADFS like I did for this example, check with one of your system administrators.
 
@@ -78,7 +78,7 @@ You should now see the provider listed under **Active SAML Providers**.
 
 ![Active SAML providers]({% asset_path 2018-12-31-aws-application-load-balancer-authentication-with-saml-idp/active-providers.png %})
 
-Next, we can set up **Attribute mapping** between the claims exposed via ADFS responses I mentioned earlier and attributes within the user pool. To do so, click **Attribute mapping** under **Federation** in the left menu. 
+Next, we can set up **Attribute mapping** between the claims exposed via ADFS responses I mentioned earlier and attributes within the user pool. To do so, click **Attribute mapping** under **Federation** in the left menu.
 
 Here, we can add several SAML attributes that we want Cognito to capture from the ADFS claims and store permanently. In the screenshot below, I'm capturing the **name** and **emailaddress** claims and mapping them to the standard **Name** and **Email** attributes. If you created any custom attributes earlier, they would appear in the **User pool attribute** dropdown with the `custom:` prefix.
 
@@ -100,7 +100,7 @@ To see which claims are available to you, have a look at your IdP's `FederationM
 
 Let's move on to creating our app client!
 
-## Configuring the app client
+### Configuring the app client
 
 We'll need an app client to represent our application within. Click **App clients** on the left menu under **General settings**, then click **Add an app client** to begin creating one. For this example, we just need to enter a name. The rest of the settings can be left at their defaults.
 
@@ -116,7 +116,7 @@ Pay special attention to the **Callback URL**. A small typo, or omission of the 
 
 We're almost done with Cognito. The last item on our agenda is choosing a domain.
 
-## Choosing the Cognito domain name
+### Choosing the Cognito domain name
 
 The domain in this case isn't the domain of the application - it's the domain for the sign-up and sign-in pages used by Cognito itself. In this tutorial, we're going to use the custom subdomain (`auth.app.example.com`) mentioned at the start. If you don't have the ability to go that route, enter a **Domain prefix** in the **Amazon Cognito domain** section. If it's available, you can use it to create an `https://<your domain prefix>.auth.us-east-1.amazoncognito.com` domain instead.
 
@@ -138,7 +138,7 @@ Make note of the **Alias target** and add an **A** record for `auth.app.example.
 
 ![Auth A record Route 53]({% asset_path 2018-12-31-aws-application-load-balancer-authentication-with-saml-idp/auth-a-record.png %})
 
-## Configuring ADFS
+### Configuring ADFS
 
 This post assumes you're merely a consumer of the SAML IdP and not the administrator. Before proceeding, you should contact your ADFS administrator and ask them to add the new ADFS configuration for your application. They will need the following information to do so:
 
@@ -152,7 +152,7 @@ Substitute the example values provided above with the actual values from your Co
 
 We're now ready to configure the Application Load Balancer.
 
-## ALB authentication
+### ALB authentication
 
 This tutorial assumes you already have an ALB pointing to your existing application, so I won't cover how to create one - only how to add authentication. ALB authentication is only available for HTTPS listeners, so if your application isn't already sitting behind an ALB listening for HTTPS requests, you will need to rectify that before proceeding.
 
@@ -174,7 +174,7 @@ This setup assumes that _all_ endpoints under your application require authentic
 
 ![Port 80 redirect]({% asset_path 2018-12-31-aws-application-load-balancer-authentication-with-saml-idp/alb-port-80-redirect.png %})
 
-## Testing it out
+### Testing it out
 
 After the Cognito user pool is created, the ALB listeners are configured, and the ADFS administrator confirms that the configuration for the application has been added, it's time for a test drive. Head over to any `https://app.example.com/` page that requires authentication, and you will be redirected to the SAML IdP's login screen. For example:
 
@@ -190,6 +190,6 @@ Finally, if we return to our Cognito user pool and select **Users and groups** u
 
 ![Cognito user]({% asset_path 2018-12-31-aws-application-load-balancer-authentication-with-saml-idp/cognito-user.png %})
 
-## Conclusion
+### Conclusion
 
 In this post, we covered the basics of creating a Cognito user pool to support ALB authentication with an ADFS SAML IdP. This merely scratches the surface of what's possible in terms of application user authentication and identity management with Cognito, and I encourage you to dig into the [Cognito Developer Resources](https://aws.amazon.com/cognito/dev-resources/) that are available in order to explore further. To learn more about ALB authentication itself beyond just ADFS SAML IdPs, you can start with [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html). You can also check out the [Authentication on Application Load Balancer](https://www.exampleloadbalancer.com/auth_demo.html) demo, which features links to various other resources that may be helpful.

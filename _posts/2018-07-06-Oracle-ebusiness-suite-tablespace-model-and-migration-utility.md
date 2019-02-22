@@ -65,7 +65,7 @@ Before starting an OATM migration, take the following actions:
 
 This section provides the installation steps.
 
-#### Step 1: Apply the patch and settings
+#### First, apply the patch and settings
 
 Perform the following steps to begin the installation:
 
@@ -77,7 +77,7 @@ Perform the following steps to begin the installation:
 
 -  Place database in ``no archive log`` mode.
 
-#### Step 2: Update the database parameters
+#### Second, update the database parameters
 
 Before starting the OATM migration, increase the following parameter values:
 
@@ -96,13 +96,13 @@ To do this, run the following code:
 
 Shut down the database and restart it to confirm the parameter settings.
 
-#### Step 3: Resize the temporary tablespace and clean the database
+#### Third, resize the temporary tablespace and clean the database
 
 To complete the installation, resize the temporary (temp) tablespace to 50
 gigabytes (GB) or higher, and then clean up the database, including the tools,
 undo, and other tablespaces.
 
-### Invoke the OATM migration utility
+### Fourth, invoke the OATM migration utility
 
 To conduct the migration, perform the steps in this section.
 

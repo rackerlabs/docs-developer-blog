@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Unattended, Unlocked, Unprotected Terminals - User Security Training with USB Rubber Ducky"
+title: "Unattended, unlocked, unprotected terminals - User security training with USB Rubber Ducky"
 date: 2018-08-21 00:00
 comments: false
 author: Rodney Beede

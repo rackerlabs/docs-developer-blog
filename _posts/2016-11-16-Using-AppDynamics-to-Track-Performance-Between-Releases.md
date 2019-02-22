@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using AppDynamics to Track Performance Between Releases"
+title: "Using AppDynamics to track performance between releases"
 date: 2016-11-16 00:00
 comments: false
 author: Josh Mattson

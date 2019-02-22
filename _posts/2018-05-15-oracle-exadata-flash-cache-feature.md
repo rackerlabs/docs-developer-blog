@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Oracle Exadata Flash Cache Feature"
+title: "Oracle Exadata Flash Cache feature"
 date: 2018-05-15 00:00
 comments: false
 author: Jay Pathak

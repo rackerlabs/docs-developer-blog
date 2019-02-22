@@ -10,9 +10,9 @@ categories:
   - database
   - Oracle
 metaTitle: "Oracle Data Visualization Desktop"
-metaDescription: "How to use the Oracle Data Visualization Desktop ato analyze data"
+metaDescription: "How to use the Oracle Data Visualization Desktop to analyze data"
 ogTitle: "Oracle Data Visualization Desktop"
-ogDescription: "How to use the Oracle Data Visualization Desktop ato analyze data"
+ogDescription: "How to use the Oracle Data Visualization Desktop to analyze data"
 ---
 
 This blog covers how to use the Oracle&reg; Data Visualization Desktop (DVD) to
@@ -256,7 +256,7 @@ knowledge of analysis.
 
 </br>
 
-Learn more about Rackspace's [Business Intelligence solutions](https://www.rackspace.com/business-intelligence) 
+Learn more about Rackspace's [Business Intelligence solutions](https://www.rackspace.com/business-intelligence)
 and our [database services](https://www.rackspace.com/dba-services).
 
 If you have any questions on the topic, comment in the field below.

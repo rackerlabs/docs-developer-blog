@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "OpenStack-Ansible Inventory Happenings"
+title: "OpenStack-Ansible inventory happenings"
 date: 2017-02-28 23:59
 comments: false
 author: Nolan Brubaker
@@ -20,7 +20,7 @@ release. Learn what's happened since and what's in store for the future.
 
 <!-- more -->
 
-# Background
+### Background
 
 The OpenStack-Ansible project (also known as OSA) was first introduced with
 the Icehouse release of OpenStack. It included an Ansible dynamic
@@ -32,7 +32,7 @@ OpenStack services.
 We also included some scripts to manage the generated inventory file, so
 that maintenance tasks like removing a host could be done more easily.
 
-# Recent developments
+### Recent developments
 
 The function of the dynamic inventory has largely remained the same, but
 a few key changes have happened over the life of the OSA project:
@@ -46,7 +46,7 @@ a few key changes have happened over the life of the OSA project:
  - Beginning in Newton and continued in Ocata, the code has been
  refactored to be easier to understand.
 
-# Future plans
+### Future plans
 
 In Pike, we hope to make the biggest change to the inventory system yet:
 providing a plugin system for reading and writing to different backends.

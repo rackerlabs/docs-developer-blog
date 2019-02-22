@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Automate Azure Basic Web App Backups"
+title: "Automate Azure basic Web App backups"
 date: 2018-06-01 00:00
 comments: true
 author: Jimmy Rudley

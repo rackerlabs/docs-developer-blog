@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ansible Filter Plugins"
+title: "Ansible filter plugins"
 date: 2017-12-19 00:00
 comments: false
 author: Josh Mattson
@@ -15,7 +15,7 @@ categories:
 
 <!-- more -->
 
-### Filters: The Basics
+### Filters basics
 
 Jinja2 comes with a [significant number](http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters) of filters that are, at their core, simply a way to transform data.  Ansible has also extended and expanded upon these filters to perform more common tasks related to systems orchestration and management.
 
@@ -26,7 +26,7 @@ Let's look at a very simple example to illustrate the concept.  Suppose that we 
 
 This is obviously a very simple example, but it illustrates the power of filter plugins.
 
-### Creating Custom Filter Plugins
+### Creating custom filter plugins
 
 The built-in plugins within Jinja2 and Ansible are all well and good, but we've found situations where we have a much more specific use case.  To use a real world example, we maintain several thousand APM agents for our customers environments, and it can be a challenge to ensure that we are providing timely updates to these agents while being cognizant of customer preferences for timing, change control, and so on.
 
@@ -69,7 +69,7 @@ To see our custom filter plugin in action, here is how we use it in our playbook
 
 `{{ item.appAgentVersion | appd_version_parse }}'
 
-### Final Thoughts
+### Final thoughts
 
 Custom filter plugins provide a very powerful and, most importantly, repeatable way for you to manipulate data that you frequently have to with.  For a final example, prior to Ansible 2.4, Ansible had no way to convert from epoch time to human readable.  At the time, we were running Ansible 2.2 but this was a need that we had to record facts around installation times, maintenance execution times, etc.  Here is another simple fliter plugin that will convet epoch time to human readable format to further illustrate the concept:
 

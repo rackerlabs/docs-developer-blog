@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Security Automation: Lessons Learned"
+title: "Security automation: Lessons learned"
 date: 2018-01-26 00:00
 comments: false
 author: Charles Neill
@@ -19,9 +19,9 @@ security automation goals.
 
 <!-- more -->
 
-## What didn't work
+### What didn't work
 
-### 1) Behavior-driven development (BDD) frameworks
+#### 1) Behavior-driven development (BDD) frameworks
 
 I first approached this space through the lens of several frameworks that try
 to leverage behavior-driven development principles to automate security tests.
@@ -36,7 +36,7 @@ meaning in its written form ("ensure the page doesn't exhibit any XSS issues").
 Someone smarter than me may come along and figure out how to make this work,
 but I suspect that it is a hammer looking for a nail.
 
-### 2) Installing many tools and managing their local environments
+#### 2) Installing many tools and managing their local environments
 
 After realizing that existing frameworks didn't quite meet my needs, I started
 writing something to manage a sort of local environment for installing all these
@@ -45,7 +45,7 @@ all these different Python virtual environments, Ruby versions, and so on
 quickly grew unwieldy, and I realized that this was not the problem I really
 wanted to spend time solving.
 
-### 3) Maintaining Jenkinsfiles for each project in a central repository
+#### 3) Maintaining Jenkinsfiles for each project in a central repository
 
 As I rethought my automation approach, I decided to focus on leveraging Jenkins
 since it is a common component of many teams' build processes. I created a
@@ -60,7 +60,7 @@ libraries helped cut down on the boilerplate code required in each pipeline,
 it would've required something like using or building a templating engine to
 really make this an effective approach.
 
-### 4) Asking development teams to run security tools themselves
+#### 4) Asking development teams to run security tools themselves
 
 For security automation to be optimally useful to developers, it needs to be
 easy to run the tools, get results, interpret those results, make changes, and
@@ -81,16 +81,16 @@ Once I had decided that there was no easy plug-and-play solution, I embarked
 on writing my own automation framework to try to overcome some of the obstacles
 pointed out above.
 
-## Lessons learned
+### Lessons learned
 
-### 1) Use the right tools for the job
+#### 1) Use the right tools for the job
 
 Trying to orchestrate the execution of numerous security tools, all written
 in different languages, requiring different inputs, and providing different
 output formats, can be a complicated process. Using the right tools and
 mental models can help you overcome these obstacles. More on this below.
 
-### 1a) Wrappers & JSON output schema
+##### 1a) Wrappers & JSON output schema
 
 Having a wrapper that converts tool output into a common format (preferably
 JSON) makes it easier to interpret results in a standard way and to operate
@@ -100,7 +100,7 @@ than relying on a hidden "internal" data model, turn all your tool outputs into
 a standard JSON format and operate on that. _(Don't forget to document your
 output format!)_
 
-### 1b) Containerization 
+##### 1b) Containerization
 
 Using containerization can help you avoid the pitfalls of managing the runtime
 environments required for different tools. For example, you might need to run
@@ -111,14 +111,14 @@ Build small container images that you can quickly spin up, regardless of
 environment and update quickly as new versions of the tool and language are
 released.
 
-### 1c) Open source prisons
+##### 1c) Open source prisons
 
 Don't blindly use off-the-shelf tools before evaluating critically whether
 they really meet your needs. There are a number of "security automation
 frameworks" out there, but I've found that many of them boil down to an
 opinionated way of executing a set of tools that the author of the framework
 thinks are important. Many of these "frameworks" are really prisons of the
-author's own design. 
+author's own design.
 
 This is not to say "never evaluate off-the-shelf tools". In fact, much of what
 I have learned in my security automation journey has come from trying existing
@@ -126,7 +126,7 @@ open source tools and finding them wanting. You can learn a lot from going down
 the same path others have taken before you. Just be careful not to shape your
 goals based on what is easily available to you already.
 
-### 2) Document relentlessly
+#### 2) Document relentlessly
 
 If you don't document the heck out of your solution, no one will know how to
 use it, and adoption will be slow and painful. If you don't keep your docs
@@ -149,7 +149,7 @@ __What should you document?__
   you develop mitigation strategies)
 
 
-### 3) Compartmentalize different activities
+#### 3) Compartmentalize different activities
 
 There are many different kinds of security tests you might want to automate.
 Get a clear idea of what tools and processes will be relevant for you. You might
@@ -182,7 +182,7 @@ all the affected endpoints (common for host scanning tools)? Is there a file or
 git commit that is associated with multiple findings? Thinking about this early
 can save you headaches in the long term.
 
-### 4) Clarify your outputs
+#### 4) Clarify your outputs
 
 What are you looking to get out of this "security automation" of yours? Faster
 test results? More fine-grained analysis of defects? Cross-referencing issues
@@ -202,7 +202,7 @@ If you can't answer the "why" or "so what" with a succinct, convincing
 statement, leave it out! Also, if you can't identify a particular stakeholder
 who this output is designed for, axe it!
 
-## Conclusions
+### Conclusions
 
 Thoughtfully assembling a pipeline of security tooling is a challenging
 problem. This post doesn't attempt to give you all the answers (your questions

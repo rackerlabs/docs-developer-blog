@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introduction to Load and Performance Testing with Gatling Tool"
+title: "Introduction to load and performance testing with the Gatling tool"
 date: 2018-12-06 14:00
 comments: true
 author: Ning Zhang
@@ -10,16 +10,16 @@ bio: "Ning Zhang is a Software Developer in Test in the Rackspace Private Cloud 
 categories:
     - Automation
 ---
-   
+
 This blog explores the fundamentals of Load and Performance Testing as well as the basics of the Gatling Tool (https://gatling.io). Some popular testing tools are also introduced here for load and performance testing, stress testing and web application monitoring.
 
 <!-- more -->
 
-## Everything you need to know about load and performance testing
+Without further ado, here is everything you need to know about load and performance testing.
 
 ### What is performance testing?
 
-Performance testing is a type of testing to determine the speed, responsiveness, and stability of a computer, network, software program, or device under a workload. The goal of performance testing is to ensure that software applications perform well under their expected workload. 
+Performance testing is a type of testing to determine the speed, responsiveness, and stability of a computer, network, software program, or device under a workload. The goal of performance testing is to ensure that software applications perform well under their expected workload.
 
 The focus of performance testing is to measure a software application’s speed, stability, reliability, and scalability.
 
@@ -42,7 +42,7 @@ A stress test is a test designed to increase the number of simultaneous requests
 
 ## Gatling tool for your performance testing
 
-Gatling is an open-source load and performance testing framework based on Scala, Akka and Netty, and allows you to run it on any system. It is designed for ease of use, maintainability and high performance on different local machines and cloud servers to create and run your tests. 
+Gatling is an open-source load and performance testing framework based on Scala, Akka and Netty, and allows you to run it on any system. It is designed for ease of use, maintainability and high performance on different local machines and cloud servers to create and run your tests.
 
 ### Gatling metrics
 
@@ -105,7 +105,7 @@ Before starting to record a test scenario using Gatling recorder, we need to con
     {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-3.png %}
 
     {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/configuring-browser-4.png %}
-    
+
 4. Close the browser window.
 
 #### Record a test scenario
@@ -117,15 +117,15 @@ Use the following steps to record the test scenario:
 2. Before starting the recorder, enter some settings in the recorder window.
 
     2.1 Enter the port number in the local host box (In my case **8000**).
-    
+
     2.2 Enter the package name and the class name.
-    
+
     2.3 Check **Follow Redirects?**, **Infer HTML resources?**, **Remove cache Headers?** and **Automatic Referers?**.
-    
+
     2.4 Select the output folder path.
-    
+
     2.5 Keep all other options as default.
-    
+
     2.6 Click **Start**.
 
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-recorder-1.png %}
@@ -180,7 +180,7 @@ mvn gatling:execute
 
 ## Other performance testing tools
 
-The following list has the most widely used load and performance testing tools, whether those be open source, paid or a combination of both. 
+The following list has the most widely used load and performance testing tools, whether those be open source, paid or a combination of both.
 
 ### Apache JMeter
 

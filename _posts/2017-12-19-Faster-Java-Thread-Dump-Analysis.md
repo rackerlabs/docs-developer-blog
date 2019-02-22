@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Faster Java Thread Dump Analysis"
+title: "Faster Java thread dump analysis"
 date: 2017-12-19 00:00
 comments: false
 author: Josh Mattson
@@ -25,10 +25,10 @@ Execute this command, wait 5-15 seconds, then repeat until you have three thread
 
 ### Off to fastthread.io
 
-With these thread dumps in hand, we can point your browser to [http://fastthread.io](http://fastthread.io) and upload your thread dumps.  fastthread will give you a thorough analysis and point to potential problem spots that warrant further investigation.  
+With these thread dumps in hand, we can point your browser to [http://fastthread.io](http://fastthread.io) and upload your thread dumps.  fastthread will give you a thorough analysis and point to potential problem spots that warrant further investigation.
 
 ![Thread Dump Analysis Summary]({% asset_path 2017-12-19-Faster-Java-Thread-Dump-Analysis/summary.png %})
 
 ![Blocked Threads]({% asset_path 2017-12-19-Faster-Java-Thread-Dump-Analysis/blocked_threads.png %})
 
-In the above two images, you can see a small representation of some of the visual analysis that fastthread can provide.
+In the preceding images, you can see a small representation of some of the visual analysis that fastthread can provide.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Oracle Exadata Smart Scan feature"
-date: 2019-02-13 00:00
+date: 2019-03-05 00:00
 comments: true
 author: Nitin Dutt Sharma
 published: true

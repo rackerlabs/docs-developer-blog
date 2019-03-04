@@ -15,9 +15,9 @@ ogTitle: "Understand the Oracle Exadata Smart Scan feature"
 ogDescription: "This blog delves into the details of the Oracle Exadata Smart Scan feature with usage samples."
 ---
 
-This blog delves into the details of the Oracle&reg; Exadata Smart Scan feature,
-including an explanation of how SQL processing differs with Exadata and usage
-examples.
+This blog delves into the details of the Oracle&reg; Exadata&reg; Smart Scan
+feature, including an explanation of how SQL processing differs with Exadata and
+usage examples.
 
 <!-- more -->
 
@@ -37,30 +37,30 @@ are the primary ones:
 
 - **Storage servers**: Storage servers, or cells, that run Exadata storage server
   software, which manages I/O requests coming from database servers and requests
-  for data that needs to be returned to a user.
+  for data returned to a user.
 
 - **InfiniBand network**: The internal Exadata network is built on InfiniBand,
   which is primarily designed for high-performance computing environments.
 
-Exadata comes with a smart software known as the Exadata Storage Software (ESS),
+Exadata comes with software known as the Exadata Storage Software (ESS),
 which enhances the performance of a database. ESS, the storage management server
-that is installed on each storage cell, manages the storage servers and
-communicates with database servers for any storage-related requests.
+installed on each storage cell, manages the storage servers and communicates
+with database servers for any storage-related requests.
 
 ### Key features of ESS
 
 Following are the key features of ESS:
 
-- **Flash cache**:  The Flash cache is a high-performance cache on Cell servers
+- **Flash cache**:  The Flash cache is a high-performance cache on cell servers
   that caches recently accessed objects.
 
 - **Flash log**: The Flash log provides a high-performance, low-latency, and
   reliable temporary store for redo-log writes.
 
 - **EHCC**: Exadata Hybrid Columnar Compression (EHCC) enables the highest
-  levels of data compression. HCC organizes data into sets of rows called
-  *compression units*. Data is organized by column within a compression unit
-  and then compressed.
+  levels of data compression. EHCC organizes data into sets of rows called
+  *compression units*. Within a compression unit, EHCC organizes the data by
+  column and then compresses the data.
 
 - **Storage indexes**: Storage indexes are in-memory structures on the storage
   servers that are designed to reduce the time spent reading data from a disk
@@ -70,7 +70,7 @@ Following are the key features of ESS:
   cells are designed to process some workload internally to reduce the overall
   burden on the compute or database nodes. This process is called cell offloading.
 
-- **Smart Scan**: Smart Scan allows most part of SQL processing to happen in
+- **Smart Scan**: Smart Scan allows most of the SQL processing to happen in
   the storage tier instead of the database tier, which dramatically improves
   query performance. Smart Scan reduces the volume of data sent to the database
   tier thereby reducing CPU usage on database nodes.
@@ -90,7 +90,7 @@ following diagram:
 Image source: *need source*
 
 1. A client submits a query.
-2. This triggers a full table scan.
+2. This action triggers a full table scan.
 3. The database maps the request to the file and corresponding extents, which
    contain the table being scanned.
 4. Similar to a full scan, the database issues the I/O operations to read all
@@ -100,10 +100,10 @@ Image source: *need source*
 7. Lastly, the requested rows are returned to the client.
 
 If it is a big table, all the blocks from that table are read, transferred
-across the storage network, and copied into memory. Many unwanted rows are read
-into memory to complete the requested SQL operation. The large volume of
-transmitted data consumes bandwidth, impacts response time, and creates an
-unnecessary burden on the database tier.
+across the storage network, and copied into memory. The process reads many
+unwanted rows are read into memory to complete the requested SQL operation. The
+large volume of transmitted data consumes bandwidth, impacts response time, and
+creates an unnecessary burden on the database tier.
 
 #### Exadata server SQL processing
 
@@ -116,25 +116,25 @@ diagram:
 
 1. A client submits a query.
 2. The database server constructs an Intelligent Database (iDB) message, which
-   includes the query criteria. This iDB message is sent to all storage servers
+   includes the query criteria. This iDB message goes to all storage servers
    in a rack.
 3. The **cellsrv** component of the ESS scans the data blocks to identify the
    matching rows and columns that satisfy the request.
 4. Every storage server executes the query criteria in paralel and sends only the
-   relevant rows, or the net result to the database server by using interconnect.
+   relevant rows, or the net result, to the database server by using interconnect.
 5. The database consolidates the result and returns the rows to the client.
 
 ### Smart Scan requirements
 
 Following are the requirements to use Smart Scan:
 
-- Smart Scan can be used for only full table scans or full index scans.
+- You can use Smart Scan for only full table scans or full index scans.
 - Queries must perform direct-path reads.
-- The database initialization parameter `CELL_OFFLOAD_PROCESSING` must be set
+- You must set the database initialization parameter `CELL_OFFLOAD_PROCESSING`
    to `TRUE`.
-- Segments must be saved in disk groups that are completely stored on Exadata
+- You must save segments in disk groups that are completely stored on Exadata
   cells.
-- The ASM Disk Groups that store the segment data must have the following
+- The ASM disk groups that store the segment data must have the following
   attribute settings:
   –	`compatible.rdbms` = `11.2.0.0.0` (or later)
   –	`compatible.asm` = `11.2.0.0.0` (or later)
@@ -176,7 +176,7 @@ Run the following query to verify that the statistics are at or near zero:
 
     10 rows selected.
 
-#### Step 3: Execute select query with Smart Scan disabled
+#### Step 3: Execute a select query with Smart Scan disabled
 
 Run the following select query with the optimizer hint that disables Smart Scan:
 
@@ -246,7 +246,7 @@ Run the following query to verify that the statistics are at or near zero:
 
     10 rows selected.
 
-#### Step 7: Execute select query without Smart Scan disabled
+#### Step 7: Execute a select query without Smart Scan disabled
 
 Run the following select query without the optimizer hint that disables Smart Scan:
 
@@ -259,7 +259,7 @@ Run the following select query without the optimizer hint that disables Smart Sc
 
 #### Step 8: Verify statistics
 
-Run the following query to verify that the statistics. Note that the query still
+Run the following query to verify the statistics. Note that the query still
 performs approximately 759 MB of I/O (physical read total bytes) as in step 4.
 However, this time only 1.7 MB is returned to the DB server (cell physical IO
 interconnect bytes). This is the result of a Smart Scan in action. In this case,
@@ -289,7 +289,7 @@ IO bytes that are eligible for predicate offload equals the physical read total
 
 The Smart Scan feature in Exadata enables SQL processing to happen at the
 storage tier, instead of the database tier, to improve query performance. Smart
-Scan reduces the volume of data sent to the database tier there by reducing the
+Scan reduces the volume of data sent to the database tier thereby reducing the
 CPU usage on database nodes.
 
 <table>

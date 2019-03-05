@@ -87,8 +87,6 @@ following diagram:
 
 ![]({% asset_path 2019-03-05-oracle-exadata-smart-scan-feature/Picture1.png %})
 
-Image source: *need source*
-
 1. A client submits a query.
 2. This action triggers a full table scan.
 3. The database maps the request to the file and corresponding extents, which
@@ -120,8 +118,9 @@ diagram:
    in a rack.
 3. The **cellsrv** component of the ESS scans the data blocks to identify the
    matching rows and columns that satisfy the request.
-4. Every storage server executes the query criteria in paralel and sends only the
-   relevant rows, or the net result, to the database server by using interconnect.
+4. Every storage server executes the query criteria in parallel and sends only
+   the relevant rows, or the net result, to the database server by using
+   interconnect.
 5. The database consolidates the result and returns the rows to the client.
 
 ### Smart Scan requirements

@@ -118,7 +118,7 @@ Rackspace Support team. The issue is given a critical ticket status and
 automatically queued in the Rackpsace’s ticketing system. That ticket references
 a knowledge base article that contains the SOP for troubleshooting and resolving
 the issue. Thus, issues are proactively identified and resolved on time by our
-24/7/365 **Fanatical Support**&reg; teams.
+24/7/365 Support teams to provide you with a Fanatical Experience.
 
 #### Value
 

@@ -7,7 +7,7 @@ author: Hart Hoover
 categories:
   - General
 ---
-[Rackspace](http://www.rackspace.com) and [AppFog](http://appfog.com) are throwing a Happy Hour on Thursday, February 7 at AppsWorld in San Francisco, and we’re asking developers to create an app that helps us choose the beers that will be served at the party. You could win an iPad! All you need to do is [RSVP](http://www.cvent.com/events/rackspace-appfog-happy-hour/event-summary-07b1437cd7ba4459819e587870b0f854.aspx) to the party, [register for the contest](http://get.appfog.com/appsandbeers), and then create an app (deployed on AppFog and Rackspace) that allows people to vote for which beers will be served at the happy hour. 
+[Rackspace](http://www.rackspace.com) and [AppFog](http://appfog.com) are throwing a Happy Hour on Thursday, February 7 at AppsWorld in San Francisco, and we’re asking developers to create an app that helps us choose the beers that will be served at the party. You could win an iPad! All you need to do is [RSVP](http://www.cvent.com/events/rackspace-appfog-happy-hour/event-summary-07b1437cd7ba4459819e587870b0f854.aspx) to the party, [register for the contest](http://get.appfog.com/appsandbeers), and then create an app (deployed on AppFog and Rackspace) that allows people to vote for which beers will be served at the happy hour.
 
 That’s right, your votes determine which beers we drink! We’ve selected six beers for the contest: Widmer Hefeweizen, Sierra Nevada Pale Ale, Stella Artois, Lagunitas IPA, Newcastle Brown Ale, and Guinness Stout.
 
@@ -21,7 +21,7 @@ We invite you to visit us at Apps World at booth #107 to learn more on how we ar
 ###Thursday Feb 7
 
 **11:00-11:30	Intro to OpenStack - Niki Acosta, Cloud Evangelista**
-  
+
 OpenStack, the open source cloud operating system, is changing the way that companies and providers are deploying and consuming cloud technologies. Founded by Rackspace and NASA, and backed by leading technology companies like Ubuntu, HP, IBM, Red Hat, and others, it is being called the "Linux of Cloud." In this session, Rackspace Cloud Evangelista Niki Acosta will provide an overview of the technology and explain why it's taking the IT industry by storm.
 
 **12:30-1:00 Rightscale: Managing the Dynamic World of Cloud - Paul Mourani, Rightscale**
@@ -58,4 +58,4 @@ Too many companies are betting their business on closed platforms. Join Hart Hoo
 
 **3:10-3:40 How Lean is Your StartUp? - Adam Hansen, SMB Advocate and Startup Liaison**
 
-Learn how the Open Cloud and Rackspace Startup Program can help you get your startup from beta to enterprise by utilizing our Fanatical Support.  Learn the basics of cloud computing and how to apply those gems to building out your application.
+Learn how the Open Cloud and Rackspace Startup Program can help you get your startup from beta to enterprise as we provide a Fanatical Experience for you.  Learn the basics of cloud computing and how to apply those gems to building out your application.

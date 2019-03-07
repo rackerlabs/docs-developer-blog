@@ -39,9 +39,9 @@ The above diagram comprises the following components:
 
 ### Rackspace Support
 
-We also offer our users our trademark [Fanatical Support](http://www.rackspace.com/whyrackspace/support/) when they host their Facebook app on the Rackspace open cloud. Our Managed Cloud offering makes sure support techs are available to help you 24x7x365 via phone, chat or ticket. They also provide support for your operating system and many applications, so you can focus on running your business, not your IT. To learn more about this please see our Managed Service spheres of support. (Please note that Memcached is currently outside our sphere of support - we can help install it, but can't offer full support on an ongoing basis).
+We also provide a Fanatical Experience to our users when they host their Facebook app on the Rackspace open cloud. Our Managed Cloud offering makes sure support techs are available to help you 24x7x365 via phone, chat or ticket. They also provide support for your operating system and many applications, so you can focus on running your business, not your IT. To learn more about this please see our Managed Service spheres of support. (Please note that Memcached is currently outside our sphere of support - we can help install it, but can't offer full support on an ongoing basis).
 
-Don't need our Managed Cloud? No problem. All Rackspace cloud customers automatically receive Fanatical Support. Our techs are here for you 24x7x365 via phone, chat and ticket. They'll provide OS-level support, but won't be able to login to your server to perform advanced trouble shooting, or provide application-level support.
+Don't need our Managed Cloud? No problem. We provide a Fanatical Experience to all Rackspace cloud customers. Our techs are here for you 24x7x365 via phone, chat and ticket. They'll provide OS-level support, but won't be able to login to your server to perform advanced trouble shooting, or provide application-level support.
 
 ### Other tools
 
@@ -55,4 +55,3 @@ A number of leading cloud application providers bring you apps, software and fun
 That should get you started in hosting your Facebook app on the Rackspace open cloud!
 
 _This post was authored by Garry Prior who joined Rackspace in April 2012 as a Senior Product Manager in the UK, and played a key role in launching the open cloud product set in our International business.  Prior to joining Rackspace Garry held various product management/development roles during eight years at UK mobile operator O2.  Outside of Rackspace, Garry also founded and runs a mobile-web based business called Taxi for two.  He is married with two young kids and lives just outside of London, UK._
-

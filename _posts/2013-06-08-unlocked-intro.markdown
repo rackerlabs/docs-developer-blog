@@ -36,17 +36,17 @@ cloud know-how and best practices to advance the level of cloud expertise inside
 our organization. The Cloud Savvy program arms us with in-depth cloud knowledge
 to better help our customers design their cloud applications the right way the
 first time. The feedback from the Cloud Savvy program has been off the charts -
-Rackers are more confident in their cloud IQs and our customers receive more
-Fanatical Support in the cloud than ever before.
+Rackers are more confident in their cloud IQs and our customers receive a
+Fanatical Experience.
 
 As the Cloud Savvy content matured and we saw significant impact within our
 customers, we realized there was a new opportunity in front of us – a new avenue
-that allows us to extend our Fanatical Support. Fanatical Support doesn't start
-after you become a customer; we want you to experience it from the start. From
-consultation to deployment to growing your business -- it's about being helpful
-and doing the right thing to get you on the right path to the cloud.  It was an
-easy choice to share our knowledge and experience with the world, and we hope
-you’ll find value in the lessons we bring to you via our Unlocked roadshow.
+that allows us to provide a Fanatical Experience. Fanatical Experience doesn't
+start after you become a customer; we want you to experience it from the
+start. From consultation to deployment to growing your business -- it's about
+being helpful and doing the right thing to get you on the right path to the
+cloud.  It was an easy choice to share our knowledge and experience with the
+world, and we hope you’ll find value in the lessons we bring to you via our Unlocked roadshow.
 
 ### Why should you attend Unlocked: The Hybrid Cloud
 
@@ -78,5 +78,3 @@ have about hybrid clouds. You can also play the Unlock the Cloud game for a
 chance to win some sweet prizes! If you don't have a Cloud Expo pass yet and
 would like to attend, Rackspace has plenty of passes, so please reach out to
 us on [Twitter](https://twitter.com/Rackspace) or leave a comment!
-
-

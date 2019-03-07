@@ -17,7 +17,7 @@ Next week kicks off the 16th [OSCON](http://www.oscon.com/open-source-2015), an 
 
 In the last several years, the security community observed significant changes in the means and methods used by attackers in the digital space. While non-targeted attacks continue to be a concern for all companies, a marked rise in the success of so-called Advanced Persistent Threat (APT) type attacks at large firms like Target and JP Morgan have forced all security practitioners to question our approach to securing systems.
 
-Rackspace Managed Security’s Active Defense offer is designed to operate in this new world. As a managed service, Rackspace implements a set of tooling customized to your business, connects that tooling together with a sophisticated analytics platform and monitors the results in our 24x7x365 Security Operations Center – all backed by our trademarked Fanatical Support.
+Rackspace Managed Security’s Active Defense offer is designed to operate in this new world. As a managed service, Rackspace implements a set of tooling customized to your business, connects that tooling together with a sophisticated analytics platform and monitors the results in our 24x7x365 Security Operations Center – all provided as a Fanatical Experience for you.
 
 Jarret and **Laurens van Houtven** continue the security focus on Wednesday from 13:40 to 14:20 with a conversation on the [Evolution of information security threats](http://www.oscon.com/open-source-2015/public/schedule/detail/45327). Laurens and Jarret will walk through the many ways attacks have changed in recent time, along with the efforts necessary to maintain a successful defense against them and what Rackspace is doing to solve the problems in this area.
 

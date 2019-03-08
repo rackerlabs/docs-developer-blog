@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Transfer SQL plans by using an SQL plan baseline"
+title: "Transfer SQL plans by using a SQL plan baseline"
 date: 2019-03-11 00:00
 comments: true
 author: Manoj Chawla
@@ -9,33 +9,34 @@ authorIsRacker: true
 categories:
   - database
   - Oracle
-metaTitle: "Transfer SQL plans by using an SQL plan baseline"
+metaTitle: "Transfer SQL plans by using a SQL plan baseline"
 metaDescription: "This blog shows how to transfer the good execution plan from an instance (where query works fine) to another instance where query behaves poorly by using the SQL plan baseline feature."
-ogTitle: "Transfer SQL plans by using an SQL plan baseline"
+ogTitle: "Transfer SQL plans by using a SQL plan baseline"
 ogDescription: "This blog shows how to transfer the good execution plan from an instance (where query works fine) to another instance where query behaves poorly by using the SQL plan baseline feature."
 ---
 
-A particular SQL query might perform poorly on one database (such as production),
-but it works fine on the other database (such as development). This might occur
-if the same query has a different execution plan on each instance. This blog
-shows how to transfer the execution plan from an instance, where query works
-fine, to another instance, where query behaves poorly, by using the SQL plan
-baseline feature that was first introduced in 11g version of Oracle Database.
+A particular SQL query might perform poorly on one database (such as production)
+but work fine on another database (such as development). This situation might
+occur if the same query has a different execution plan on each instance. This
+blog shows how to transfer the execution plan from an instance, where query
+works fine, to another instance, where query behaves poorly, by using the SQL
+plan baseline feature that Oracle&reg; Database&reg; first introduced in
+version 11g.
 
 <!-- more -->
 
 ### Introduction to SQL Plan Management
 
-Oracle&reg; SQL Plan Management (SPM) is a feature in Oracle Database that
+Oracle SQL Plan Management (SPM) is a feature in Oracle Database that
 captures all the historical execution plans for a query. With that, you can
 create a baseline for the good plan from the execution plans available in SPM
-and enable that baseline to ensure that system picks only the good plan from
+and enable that baseline to ensure that the system picks only the good plan from
 the baseline.
 
-To take advantage of this, you must identify the `sql_id` of the query that is
-performing well on one instance and performing poorly on another instance. You
-We must also capture the good execution plan id, the `plan_hash_value`, of the
-query on the instance where it works well.
+To take advantage of this feature, you must identify the `sql_id` of the query
+that is performing well on one instance and performing poorly on another
+instance. You must also capture the good execution plan ID, the `plan_hash_value`,
+of the query on the instance where it works well.
 
 ### Copy the SQL base plan from one instance to another
 
@@ -52,7 +53,7 @@ the target instance:
    source instance.
 5. Transfer the staging table from the source instance to the target instance
    by using the export/import utility.
-6. Unpack the SQL plan on the target instance from staging table to SPM.
+6. Unpack the SQL plan on the target instance from the staging table to SPM.
 7. Verify that baseline created on target instance is fixed and accepted for the
    query to select it on next run.
 8. Test the SQL that had a performance issue on the target instance and verify
@@ -60,13 +61,14 @@ the target instance:
 
 ### Example execution
 
-Executing the preceding steps should result in output similar to the following
+Executing the preceding steps results in output similar to the following
 examples.
 
-#### Step 1: Run query on source instance
+#### Step 1: Run query on the source instance
 
 Run the SQL on the source instance and identify the `sql_id` and `plan_hash_value`.
-Examine the cursor cache to get the values.  In this case, they are:
+Examine the cursor cache to get the values.  In this case, they are the
+following values:
 
 - `sql_id`: 9xva48wpnsmp6
 - `plan_hash_value`: 1572948408)
@@ -116,7 +118,7 @@ cursor cache to SPM as a baseline:
     PL/SQL procedure successfully completed.
 
 Execute the following defined queries to verify that you created the SQL baseline
-on the source instance.  Note of the following details for later reference.
+on the source instance.  Note the following details for later reference.
 
     SQL> select count(*) from dba_sql_plan_baselines ;
 
@@ -130,7 +132,7 @@ on the source instance.  Note of the following details for later reference.
     ------------------------------ ------------------------------
     SQL_d344aac395f978a4           SQL_PLAN_d6j5asfazky54868c96c3
 
-#### Step 3: Create staging table on source instance
+#### Step 3: Create a staging table on the source instance
 
 Execute the following query to create a staging table on the source instance:
 
@@ -296,7 +298,7 @@ the new baseline:
 
 ### How the SQL plan is selected
 
-The following image shows how an sql plan is selected when a baseline plan exists:
+The following image shows how a SQL plan is selected when a baseline plan exists:
 
 ![]({% asset_path 2019-03-11-transfer-sql-plans-by-using-sql-plan-baseline/Picture1.png %})
 

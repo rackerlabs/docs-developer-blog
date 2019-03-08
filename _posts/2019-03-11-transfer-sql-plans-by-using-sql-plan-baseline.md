@@ -348,4 +348,3 @@ and [Rackspace Application services](https://www.rackspace.com/application-manag
 
 If you have any questions on the topic, comment in the field below.
 
-

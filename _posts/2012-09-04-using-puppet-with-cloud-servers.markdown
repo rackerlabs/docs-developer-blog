@@ -7,6 +7,9 @@ title: Using Puppet with Cloud Servers
 author: Hart Hoover
 categories:
   - Cloud Servers
+  - jclouds
+  - cloud files
+  - java
 ---
 
 Many of our customers use configuration management packages to manage their cloud infrastructure. These packages include Opscode's [Chef](http://www.opscode.com/chef/), [CFEngine](http://cfengine.com/), Red Hat's [Spacewalk](http://spacewalk.redhat.com/), and Puppet Labs' [Puppet](http://puppetlabs.com/puppet/what-is-puppet/). Here, I'll dive into Puppet to show you how easy it is to manage Cloud Servers using a configuration management solution. We're going to create two servers: a puppetmaster and a client server running puppet.
@@ -18,7 +21,7 @@ Many of our customers use configuration management packages to manage their clou
 
 First, we need to create the Cloud Servers that will serve as our puppetmaster and client. I'm using the [novaclient](http://devops.rackspace.com/getting-started-using-python-novaclient-to-manage-cloud-servers.html) to create Ubuntu 12.04 servers for this purpose:
 
-    
+
     nova boot --image 5cebb13a-f783-4f8c-8058-c4182c724ccd --flavor 3 --file /root/.ssh/authorized_keys=/Users/hart.hoover/.ssh/id_rsa.pub master
     nova boot --image 5cebb13a-f783-4f8c-8058-c4182c724ccd --flavor 3 --file /root/.ssh/authorized_keys=/Users/hart.hoover/.ssh/id_rsa.pub client
 
@@ -53,7 +56,7 @@ vim /etc/puppet/puppet.conf
 
 Under the "[master]" header, add the following and restart the service:
 
-    
+
     dns_alt_names = puppet, master.local, puppet.cloudsrvr.info
     service puppetmaster start
 
@@ -74,7 +77,7 @@ service puppet stop
 
 Once puppet is installed, we need to configure the client to know how to connect to the puppetmaster. We do this by editing the /etc/puppet/puppet.conf file. Under the "[agent]" header add the following:
 
-    
+
     server = puppet.cloudsrvr.info
 
 
@@ -84,7 +87,7 @@ At this point take a server image of your client. You can use this image to scal
 
 Start puppet:
 
-    
+
     service puppet start
 
 
@@ -95,7 +98,7 @@ Start puppet:
 
 On the puppetmaster, you now should see your client server connections. We have to tell the puppetmaster to accept the certificate from the client.
 
-    
+
     puppet cert --list
     "client" (1E:D3:74:DD:9B:22:D0:6C:35:21:2F:90:F0:EF:DC:3C)
     puppet cert --sign client
@@ -127,7 +130,7 @@ class { 'mysql::server':
 
 Next, let's test to make sure our client server can get the changes. On the client server run the following:
 
-    
+
     puppetd --test --noop
     info: Caching catalog for client
     info: /Service[mysqld]: Provider upstart does not support features enableable; not managing attribute enable
@@ -155,7 +158,7 @@ Next, let's test to make sure our client server can get the changes. On the clie
 
 This command basically performs a dry-run of Puppet - in this case installing MySQL. The error displayed is from MySQL attempting to start. Since this is a dry run MySQL isn't actually installed. Let's run it and install MySQL!
 
-    
+
     puppet agent --test
 
 

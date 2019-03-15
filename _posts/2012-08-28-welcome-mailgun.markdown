@@ -7,6 +7,9 @@ author: Hart Hoover
 title: 'Welcome, Mailgun!'
 categories:
   - Mailgun
+  - jclouds
+  - cloud files
+  - java
 ---
 
 
@@ -19,7 +22,7 @@ Mailgun also allows you to [track your email responses](http://blog.mailgun.net/
 
 Mailgun really shines when using it via the API, but if you are trying to move a legacy application to the cloud you can configure your mail transfer agent (MTA) to relay through Mailgun's service. To set this up in Postfix, add the following settings to /etc/postfix/main.cf:
 
-    
+
     mydestination = localhost.localdomain, localhost
     relayhost = smtp.mailgun.org
     smtp_sasl_auth_enable = yes

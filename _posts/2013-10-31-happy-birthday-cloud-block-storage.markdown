@@ -10,7 +10,7 @@ categories:
 ---
 
 We launched [Cloud Block Storage](http://www.rackspace.com/cloud/block-storage/)
- into unlimited availability a year ago and we
+into unlimited availability a year ago and we
 now have thousands of customers using the product. The team that designed
 Cloud Block Storage wanted to create a different kind of block storage in the
 cloud. When we spoke with our customers about what they wanted in a cloud
@@ -29,7 +29,7 @@ quickly exceeded 1PB of storage for SATA volumes and the majority of our top
 customers are now running high-I/O workloads like MongoDB and Cassandra on SSD
 volumes.
 
-### Design Decisions
+### Design decisions
 
 Let’s take a quick look at the some of the key product design decisions that
 helped us accomplish these goals:
@@ -48,7 +48,6 @@ helped us accomplish these goals:
 * Simple pricing. One price for SATA, one price for SSD, no charge for IOPS.
 * No need to track ongoing IOPS usage or pre-calculate the IOPS you will need. If you need hundreds of IOPS, use SATA. If you need thousands, use SSD.
 * Simple and intuitive Control Panel experience. Create up to 1 TB of new storage in as little as three clicks from the time you log into the Control Panel.
-* Full SDK support for Cloud Block Storage for [Java, Python, Ruby, PHP, and .Net](http://developer.rackspace.com)
 
 #### Designed to give customers choice of standard volumes or SSD volumes for higher performance:
 

@@ -15,28 +15,58 @@ categories:
   - neutron
 ---
 
-Our cloud is [open](http://www.rackspace.com/cloud/openstack/). We believe our company should be too. One of our [Core Values](http://rackertalent.com/people/core-values/) at Rackspace is full disclosure and transparency, and we want to build a community for our developers that is open, transparent and helps them build amazing applications on the open cloud.
+Our cloud is [open](http://www.rackspace.com/cloud/openstack/). We believe our
+company should be too. One of our [Core Values](http://rackertalent.com/people/core-values/)
+at Rackspace is full disclosure and transparency, and we want to build a
+community for our developers that is open, transparent and helps them build
+amazing applications on the open cloud.
 
 <!-- more -->
 
-Today, we have [The Official Rackspace Blog](http://www.rackspace.com/blog/), which covers Cloud Industry Insights, Product & Development and Partner & Customer Updates. For the latest information on all of the things that fall into these buckets, the Rackspace Blog is the go-to place. We also have [Racker Talent](http://rackertalent.com), the one-stop shop for insight into Rackspace’s unique culture and career opportunities.
+Today, we have [the Official Rackspace Blog](http://www.rackspace.com/blog/),
+which covers Cloud Industry Insights, Product & Development and Partner & Customer
+Updates. For the latest information on all of the things that fall into these
+buckets, the Rackspace Blog is the go-to place. We also have
+[Racker Talent](http://rackertalent.com), the one-stop shop for insight into
+Rackspace’s unique culture and career opportunities.
 
-Today, we add a third, and incredibly important pillar to the Rackspace blogosphere: devops.rackspace.com, a blog that aims to deliver meaty technical content. It will be all tech, all the time: code snippets, sample code, best practices, infrastructure automation, software development kits (SDKs) and technical guidance from industry experts.
+Today, we add a third, and incredibly important, pillar to the Rackspace
+blogosphere: [The Rackspace Developer blog](https://developer.rackspace.com/blog/),
+a blog that aims to deliver meaty technical content. It is all tech, all
+the time: code snippets, sample code, best practices, infrastructure automation,
+and technical guidance from industry experts.
 
-When a developer or engineer builds on our platform today, they can get counsel from our teams.  Currently serving over 190,000 customers, we have learned many lessons and wanted to create a forum to share those lessons. It's ingrained in our philosophy to share in order to provide a Fanatical Experience, and now we have a space to talk to developers about designing, building, creating architecture, and configuring applications to their full potential on our open cloud platform.
+When a developer or engineer builds on our platform today, they can get counsel
+from our teams.  Currently serving over 190,000 customers, we have learned many
+lessons and wanted to create a forum to share those lessons. It's ingrained in
+our philosophy to share in order to provide a Fanatical Experience&trade;, and
+now we have a space to talk to developers about designing, building, creating
+architecture, and configuring applications to their full potential on our open
+cloud platform.
 
-Part of enabling developers and engineers to succeed on our [OpenStack](http://openstack.org) platform is the understanding that it’s not just about the platform; it's about providing a world-class Fanatical Experience that includes world-class products and a world-class platform experience. Rackspace has made major strides in strengthening its product suite with OpenStack and through the inclusion of many OpenStack projects into the Rackspace cloud [portfolio](http://www.rackspace.com/cloud/public/). The next step to enabling success is to provide you with tools to compete and innovate.
+Part of enabling developers and engineers to succeed on our
+[OpenStack](http://openstack.org) platform is the understanding that it’s not
+just about the platform. It's also about providing a world-class Fanatical Experience
+that includes world-class products and a world-class platform experience.
+Rackspace has made major strides in strengthening its product suite with
+OpenStack and through the inclusion of many OpenStack projects into the Rackspace
+cloud [portfolio](http://www.rackspace.com/cloud/public/). The next step to
+enabling success is to provide you with tools to compete and innovate.
 
-So welcome to devops.rackspace.com, a central location where developers and engineers can find:
+So welcome to the [Rackspace Developer Center](https://developer.rackspace.com/),
+a central location where developers and engineers can find:
 
-* A technical focused blog that highlights major wins, cool uses of our products, partner integration, and success stories across the platform
-* CLI tools and SDKs (code snippets, documentation and sample applications)
+* A technical focused blog that highlights major wins, cool uses of our products,
+  partner integration, and success stories across the platform
+* Technical documentation, including APIs, and sample applications
 * Best practice reference architectures built around real-world solutions
-* An events calendar to help you get face time with the experts posting on this blog
-* Developer and Engineer moderated support forums to allow customers and developers to help each other succeed
 
-We believe all of this meets the goal of full transparency. This is the first step of many, and it’s the birth of a full-fledged technically focused blog. We established devops.rackspace.com to help developers and engineers build amazing businesses and applications and to empower you to get the job done right.
+We believe all of this meets the goal of full transparency. This is the first
+step of many, and it’s the birth of a full-fledged technically-focused blog. We
+established the [Rackspace Developer blog](https://developer.rackspace.com/blog/)
+to help developers and engineers build amazing businesses and applications and
+to empower you to get the job done right.
 
-Be sure to check back tomorrow as we kick off with our first post, "Getting to know python-novaclient, a beginners guide."  After reading this post, you will be prepared to start interfacing with the Rackspace open cloud API from the command line to boot servers, take snapshots, and many other cloudy tasks without having to leave your beautiful terminal.
+Keep an eye on the blog for for interesting and useful posts!
 
 --Wayne

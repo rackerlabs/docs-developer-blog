@@ -5,9 +5,10 @@ date: '2014-10-17 23:59'
 comments: true
 author: Don Schenck
 published: true
-categories: []
+categories:
+  - General
 bio: >-
-  Don Schenck is a Rackspace OpenStack .NET SDK Developer Advocate. Prior to
+  Don Schenck is a Rackspace Developer Advocate. Prior to
   Rackspace, Don worked across a broad range of industries, from helping
   pharmaceutical companies track and improve quality to building software to
   control machines that cut and bend reinforcing steel. Most recently, Don was
@@ -15,28 +16,54 @@ bio: >-
   @DonSchenck
 ---
 
-From October 9-12, 2014, I attended the seventh annual Ruby DCamp at Prince William Forest Park at Triangle, Virginia. Rackspace was a Platinum sponsor of the "non conference", which is a collision between Ruby developers and communal living. Without a doubt, a unique combination.
+From October 9-12, 2014, I attended the seventh annual Ruby DCamp at Prince
+William Forest Park at Triangle, Virginia. Rackspace was a Platinum sponsor of
+the "non conference", which is a collision between Ruby developers and communal
+living. Without a doubt, a unique combination.
 
 <!-- more -->
 
 {% img 2014-10-17-rubydcamp14/rubydcamp_main_hall.jpg %}
 
-The conference runs Friday through Sunday, with about a third of the attendees arriving Thursday night (which is when I arrived). You can immediately tell it's going to be different; folks are just sitting around, chatting. You want dinner? ... "The burgers are in the walk-in fridge -- help yourself to one and fix it up."
+The conference runs Friday through Sunday, with about a third of the attendees
+arriving Thursday night (which is when I arrived). You can immediately tell it's
+going to be different; folks are just sitting around, chatting. You want dinner?
+... "The burgers are in the walk-in fridge -- help yourself to one and fix it up."
 
-That idea -- do what you see needs to be done -- is what sets this conference apart. For example, the food isn't catered; people randomly form into a kitchen crew, and the meal gets made. You want a fire in the fireplace? Grab some firewood and get to work.
+That idea -- do what you see needs to be done -- is what sets this conference
+apart. For example, the food isn't catered; people randomly form into a kitchen
+crew, and the meal gets made. You want a fire in the fireplace? Grab some
+firewood and get to work.
 
 {% img 2014-10-17-rubydcamp14/rubydcamp_cooking.jpg %}
 
-The result is a very quickly-built sense of community. Given that the attendees are Rubyists, many of them are already members of the virtual Ruby community. Pulling them into the physical world to become a true community underscores and highlights the importance of collaboration, cooperation, trade-offs, negotiations ... pretty much everything that comprises a successful open-source community.
+The result is a very quickly-built sense of community. Given that the attendees
+are Rubyists, many of them are already members of the virtual Ruby community.
+Pulling them into the physical world to become a true community underscores and
+highlights the importance of collaboration, cooperation, trade-offs, negotiations
+... pretty much everything that comprises a successful open-source community.
 
-Friday was a Code Retreat with Conways' Game Of Life as the coding challenge. The emphasis of the Code Retreat was Test-Driven Development (TDD). The day was broken into six, 45-minute coding sessions, with contraints being added before each session. Pair programming was used, but you could not pair with the same person more than once. Pairing with someone you knew was discouraged.
+Friday was a Code Retreat with Conways' Game Of Life as the coding challenge.
+The emphasis of the Code Retreat was Test-Driven Development (TDD). The day was
+broken into six, 45-minute coding sessions, with contraints being added before
+each session. Pair programming was used, but you could not pair with the same
+person more than once. Pairing with someone you knew was discouraged.
 
-One particularly interesting constraint was "No talking". That made for an exciting 45 minutes.
+One particularly interesting constraint was "No talking". That made for an
+exciting 45 minutes.
 
-Saturday and Sunday followed the non-conference format, with discussion and coding topics being suggested and put to a vote. There were two tracks: "Hack" and "Yack" -- coding and discussion. Coding topics ranged from "How To Create A Gem" to hardware hacking. Discussion topics included "Geek Parenting" and "Imposter Syndrome", to name just a few.
+Saturday and Sunday followed the non-conference format, with discussion and
+coding topics being suggested and put to a vote. There were two tracks: "Hack"
+and "Yack" -- coding and discussion. Coding topics ranged from "How To Create A
+Gem" to hardware hacking. Discussion topics included "Geek Parenting" and
+"Imposter Syndrome", to name just a few.
 
 {% img 2014-10-17-rubydcamp14/rubydcamp_topics.jpg %}
 
-With a relaxed setting and an open-but-organized format, Ruby DCamp both promotes community and demonstrates how communities can be built to build successful open-source software. The emphasis on the human aspect of software development brings life to the technology behind it.
+With a relaxed setting and an open-but-organized format, Ruby DCamp both promotes
+community and demonstrates how communities can be built to build successful
+open-source software. The emphasis on the human aspect of software development
+brings life to the technology behind it.
 
-Ruby DCamp is the brainchild of Evan Light, a long-time Rubyist and developer at Optoro.
+Ruby DCamp is the brainchild of Evan Light, a long-time Rubyist and developer
+at Optoro.

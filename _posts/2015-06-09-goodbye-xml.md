@@ -55,11 +55,7 @@ your script to process JSON instead of XML. We strongly recommend,
 however, that you change your script to use one of the many available
 SDKs for various programming languages. The advantage to using an SDK
 is that it will expose a well-defined interface to your script, thereby
-making your script easier to maintain. You can find a list of SDKs that
-you can use to connect to the Rackspace cloud right here on our
-developers' website:
-
-[https://developer.rackspace.com/sdks/](https://developer.rackspace.com/sdks/)
+making your script easier to maintain.
 
 #### If you like to do it by hand ...
 
@@ -67,21 +63,21 @@ If you prefer to do things by hand, you'll need to modify your scripts
 so that instead of sending XML, they'll send JSON request bodies. The
 correct format for JSON requests can be found in the [Compute API
 documentation](http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_preface.html).
-Be sure that your scripts specify "Content-type: application/json"
+Be sure that your scripts specify `Content-type: application/json`
 in the request header.
 
 You'll also need to change your scripts to parse JSON responses. Again,
 the response format you can expect can be found in the [Compute API
 documentation](http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_preface.html).
-Make sure that your request either contains no "Accept" header, or that
-it explicitly specifies "Accept: application/json" in the request
+Make sure that your request either contains no `Accept" header`, or that
+it explicitly specifies `Accept: application/json` in the request
 header.
 
-How easy a transition this will be depends upon what scripting language
+How easy a transition this is depends upon what scripting language
 you are using. Some languages (Python, for example) handle JSON
-serialization/deserialization much more easily than others. If you need
+serialization and deserialization much more easily than others. If you need
 to do a major rewrite of your scripts, we strongly recommend considering
-using an SDK instead of a "raw" language ... it will make upgrades much
+using an SDK instead of a *raw* language ... it makes upgrades much
 easier on you.
 
 ### Could I be using XML without knowing it?

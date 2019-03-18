@@ -50,7 +50,7 @@ Technologies that are built well tend to last. File Share did exactly what we ne
 
 While there are some key features lacking here in the beginning, Amazon FSx for Windows File Server is going to be a strong offering once we're past some of these initial growing pains. Yet, this does work well for a lot of legacy software running in EC2 instances that have been using file shares for deployment artifacts, shared content files, and many other use cases. Adoption in this space is available now and yields a high return on value. 
 
-**Update - March 2019**: FSx now [supports](https://aws.amazon.com/about-aws/whats-new/2019/02/amazon-fsx-for-windows-file-server-now-supports-on-premises-access/) through AWS Direct Connect or VPN connections, making it very viable in the enterprise.
+**Update - March 2019**: FSx now [supports](https://aws.amazon.com/about-aws/whats-new/2019/02/amazon-fsx-for-windows-file-server-now-supports-on-premises-access/) on-premise access through AWS Direct Connect or VPN connections, making it very viable in the enterprise.
 
 ```
 I'm old, not obsolete.

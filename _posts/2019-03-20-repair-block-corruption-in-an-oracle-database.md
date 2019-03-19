@@ -16,7 +16,7 @@ ogDescription: "This post discusses how to repair multiple or single block corru
 ---
 
 This post discusses how to repair multiple or single block corruption of
-data files, including system datafiles, in an Oracle&reg; database. Block
+data files, including system data files, in an Oracle&reg; database. Block
 corruption is a common source of database outages.
 
 <!-- more -->
@@ -29,7 +29,7 @@ loss of key business data.
 This is one of the real time issues that you need to face and fix in production
 databases.
 
-### find and fix block corruption
+### Find and fix block corruption
 
 The following image shows a possible block corruption:
 
@@ -43,8 +43,8 @@ To find the corruption, execute the following commands:
 
     SQL> select * from V$DATABASE_BLOCK_CORRUPTION;
 
-    FILE#    BLOCK#    BLOCKS    CORRUPTION_CHANGE#  CORRUPTIO
-    ----- ---------- ----------  ------------------  ---------
+    FILE#    BLOCK#    BLOCKS    CORRUPTION_CHANGE#  CORRUPTION
+    ----- ---------- ----------  ------------------  ----------
      352     173191      9               0            ALL ZERO
 
     SQL> SELECT FILE_ID,RELATIVE_FNO,FILE_NAME,TABLESPACE_NAME FROM DBA_DATA_FILES WHERE FILE_ID=352;
@@ -58,20 +58,20 @@ To find the corruption, execute the following commands:
     OWNER      SEGMENT_NAME    SEGMENT_TYPE
     -------- ---------------  ------------------
     SYS         I_COL3          INDEX
-    SYS         C_OBJ#          CLUSTE
+    SYS         C_OBJ#          CLUSTER
 
 **Note**: In this case, SYS object segment I\_COL3 has a block corruption. The
 corrupted block, as reported by the `dbv` command, is shown as free in the
-dba\_free\_space view.
+`dba_free_space` view.
 
 #### Free the blocks
 
-To free the block for file 352 , execute the following commands:
+To free the blocks for file 352, execute the following commands:
 
     SQL> select * from V$DATABASE_BLOCK_CORRUPTION;
 
-    FILE#    BLOCK#    BLOCKS    CORRUPTION_CHANGE#  CORRUPTIO
-    ----- ---------- ----------  ------------------  ---------
+    FILE#    BLOCK#    BLOCKS    CORRUPTION_CHANGE#  CORRUPTION
+    ----- ---------- ----------  ------------------  ----------
      352     173191      9               0            ALL ZERO
 
     SQL> Select * from dba_free_space where file_id =352 and 173191 between block_id and block_id + blocks -1;
@@ -167,6 +167,8 @@ part of any segment.
 
 ##### 4. Reformat first corrupted block
 
+Repeat step 4 until all corrupted blocks are reformatted.
+
     create table scott.s (n number,c varchar2(4000)) nologging tablespace SYSTEM;
 
     select owner,table_name,tablespace_name from dba_tables where table_name='S';
@@ -228,8 +230,6 @@ part of any segment.
     Alter system checkpoint;
 
     DROP trigger corrupt_trigger;
-
-Repeat step 4 until all corrupted blocks are reformatted.
 
 ##### 5. Verify that the corrupted blocks are fixed
 

@@ -17,8 +17,8 @@ ogTitle: "Web proxy server and deployment"
 ogDescription: "This post discusses web proxy servers and how to deploy them."
 ---
 
-A proxy server is a computer system that sits between the client, who requests
-a web document, and the target server (another computer system), which serves
+A proxy server is a computer system that sits between the client that requests
+a web document and the target server (another computer system) that serves
 the document. In its simplest form, a proxy server facilitates communication
 between the client and the target server without modifying requests or replies.
 
@@ -44,15 +44,15 @@ Proxy servers have the following characteristics:
 - Can be any computer system or an application.
 - Are created when you install and run proxy software on a computer.
 - Enable you to cache your web content and return it quickly on subsequent
-  requests. This helps system administrators, who often struggle with delays
+  requests, which helps system administrators, who often struggle with delays
   and bandwidth usage issues.
 
 Proxy servers have the following advantages:
 
 - Obscure client IP addresses by using network address translation
-  (NAT) to remap the private IP address to another IP address. This hides
+  (NAT) to remap the private IP address to another IP address, which hides
   the client IP address.
-- Block malicious traffic by controlling inbound & outbound traffic.
+- Block malicious traffic by controlling inbound and outbound traffic.
 - Block sites, such as unauthorized sites, adult sites, and so on.
 - Log activity by maintaining log records of traffic.
 - Improve performance by caching the uniform resource locators (URLs). The
@@ -69,23 +69,24 @@ The following image shows basic web proxy architecture:
 *Image source*: [https://jagvindernetwokingvideos.blogspot.com/2013/07/proxy-server-installation-video-4.html](https://jagvindernetwokingvideos.blogspot.com/2013/07/proxy-server-installation-video-4.html)
 
 As shown in the preceding image, you can install a web proxy server between the
-switch and the router. Following are a few available web proxy servers:
+switch and the router. The following web proxy servers are a few of the ones
+that are available :
 
 - FreeProxy
-- Wingate
+- Wingate&reg;
 - UltraSurf
-- Apache HttpServer
+- Apache&reg; HttpServer
 - Freegaree
-- Anonymizer
+- Anonymizer&reg;
 - Provoxy
-- HAProxy
+- HAProxy&reg;
 - SquidProxy
 
 ### Proxy server installation prerequisites
 
 Before you install web proxy server software, ensure that the server has two
-network interface cards (NICs). One NIC should connect to an internal switch
-and the other NIC should connect to the router that is connected to the Internet.
+network interface cards (NICs). One NIC should connect to an internal switch,
+and the other NIC should connect to the router that connects to the Internet.
 
 ### Download, install, and deploy a Wingate proxy server
 
@@ -95,8 +96,8 @@ Use the following steps to download, install, and deploy a Wingate proxy server:
 
 2. Enter the 30-day trial license or your purchased license when prompted.
 
-3.	Configure the web proxy server with an IP address, a gateway, and Domain Name
-   Servers (DNS).
+3.	Configure the web proxy server with an IP address, a gateway, and a Domain
+   Name Server (DNS).
 
 ### Block a site
 
@@ -108,7 +109,7 @@ a proxy server:
    ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture3.png %})
 
 <ol start=2>
-    <li>Select <b>Wingate->Web Access Control->Access Rule</b> and click <b>Add rule</b>.</li>
+    <li>Select <b>Wingate>Web Access Control>Access Rule</b> and click <b>Add rule</b>.</li>
     <li>Fill in the rule name and the site to block (such as XYZ.com), and
     click <b>Add</b>, as shown in the following image:</li>
 </ol>

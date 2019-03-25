@@ -87,9 +87,6 @@ Before you install web proxy server software, ensure that the server has two
 network interface cards (NICs). One NIC should connect to an internal switch
 and the other NIC should connect to the router that is connected to the Internet.
 
-3.	Configure the web proxy server with an IP address, a gateway, and Domain Name
-   Servers (DNS).
-
 ### Download, install, and deploy a Wingate proxy server
 
 Use the following steps to download, install, and deploy a Wingate proxy server:
@@ -97,6 +94,9 @@ Use the following steps to download, install, and deploy a Wingate proxy server:
 1. Download the [Wingate software](www.wingate.com) and install it.
 
 2. Enter the 30-day trial license or your purchased license when prompted.
+
+3.	Configure the web proxy server with an IP address, a gateway, and Domain Name
+   Servers (DNS).
 
 ### Block a site
 

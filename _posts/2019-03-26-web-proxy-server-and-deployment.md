@@ -100,7 +100,7 @@ Use the following steps to download, install, and deploy a Wingate proxy server:
 
 ### Block a site
 
-The following steps demonstrate how to block a site from you r network by using
+The following steps demonstrate how to block a site from your network by using
 a proxy server:
 
 1. Start Wingate. The following window with a left-side navigation pane displays:
@@ -109,7 +109,7 @@ a proxy server:
 
 <ol start=2>
     <li>Select <b>Wingate->Web Access Control->Access Rule</b> and click <b>Add rule</b>.</li>
-    <li>Fill in the rule name and the site to block (such as XYZ.com)name, and
+    <li>Fill in the rule name and the site to block (such as XYZ.com), and
     click <b>Add</b>, as shown in the following image:</li>
 </ol>
 

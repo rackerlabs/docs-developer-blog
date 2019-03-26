@@ -66,8 +66,6 @@ The following image shows basic web proxy architecture:
 
 ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture2.png %})
 
-*Image source*: [https://jagvindernetwokingvideos.blogspot.com/2013/07/proxy-server-installation-video-4.html](https://jagvindernetwokingvideos.blogspot.com/2013/07/proxy-server-installation-video-4.html)
-
 As shown in the preceding image, you can install a web proxy server between the
 switch and the router. The following web proxy servers are a few of the ones
 that are available :
@@ -88,46 +86,67 @@ Before you install web proxy server software, ensure that the server has two
 network interface cards (NICs). One NIC should connect to an internal switch,
 and the other NIC should connect to the router that connects to the Internet.
 
+You should be prepared to configure the server with an IP address, a gateway,
+and a Domain Name Server (DNS).
+
 ### Download, install, and deploy a Wingate proxy server
 
 Use the following steps to download, install, and deploy a Wingate proxy server:
 
 1. Download the [Wingate software](www.wingate.com) and install it.
 
-2. Enter the 30-day trial license or your purchased license when prompted.
+2. Enter the 30-day trial license or your purchased license when prompted as
+   shown in the following image:
 
-3.	Configure the web proxy server with an IP address, a gateway, and a Domain
-   Name Server (DNS).
+   ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture3.png %})
+
+*Image source*: [https://www.indiamart.com/proddetail/linux-web-proxy-server-software-6220500388.html](https://www.indiamart.com/proddetail/linux-web-proxy-server-software-6220500388.html)
+
+The following image shows the network after deployment.  The left side shows
+the internal architecture, and the right side shows the external architecture.
+
+![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture4.png %})
+
+*Image source*: [https://docs.microsoft.com/en-us/iis/extensions/configuring-application-request-routing-arr/creating-a-forward-proxy-using-application-request-routing](https://docs.microsoft.com/en-us/iis/extensions/configuring-application-request-routing-arr/creating-a-forward-proxy-using-application-request-routing)
 
 ### Block a site
 
-The following steps demonstrate how to block a site from your network by using
-a proxy server:
+The following steps demonstrate how to block a social media site from your
+network by using a proxy server:
 
 1. Start Wingate. The following window with a left-side navigation pane displays:
 
-   ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture3.png %})
+   ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture5.png %})
 
 <ol start=2>
     <li>Select <b>Wingate>Web Access Control>Access Rule</b> and click <b>Add rule</b>.</li>
-    <li>Fill in the rule name and the site to block (such as XYZ.com), and
-    click <b>Add</b>, as shown in the following image:</li>
+    <li>To create an access rule, fill in the rule name and the site to block
+    (such as XYZ.com), and click <b>Add</b></li>
+    <li>To map to the social media category, navigate to <b>Classifiers</b>,
+    enter <b>www.xyz.com</b></li> in the empty dialog box, and click <b>OK</b>
+    as shown in the following image:
 </ol>
 
-   ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture3.png %})
+   ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture6.png %})
 
-<ol start=4>
+<ol start=5>
+   <li>Enable the time interval to block a website as shown in the following image:</li>
+</ol>
+
+   ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture7.png %})
+
+<ol start=6>
     <li>Enable the time interval to block a website as shown in the following image:</li>
 </ol>
 
-   ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture4.png %})
+   ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture8.png %})
 
-<ol start=5>
+<ol start=7>
     <li>Click <b>Finish</b> to block the site URL. When someone tries to access
     the site, a screen similar to the following one displays:</li>
 </ol>
 
-   ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture5.png %})
+   ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture9.png %})
 
 
 ### Conclusion

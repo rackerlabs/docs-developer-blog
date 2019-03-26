@@ -191,4 +191,3 @@ subsequent requests.
 Learn more about [Rackspace Application services](https://www.rackspace.com/application-management/managed-services).
 
 If you have any questions on the topic, comment in the field below.
-

@@ -142,11 +142,9 @@ network by using a proxy server:
    ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture8.png %})
 
 <ol start=7>
-    <li>Click <b>Finish</b> to block the site URL. When someone tries to access
-    the site, a screen similar to the following one displays:</li>
+    <li>Click <b>Finish</b> to block the site URL. When users try to access
+    the site, they see a <b>Blocked</b> message.</li>
 </ol>
-
-   ![]({% asset_path 2019-03-26-web-proxy-server-and-deployment/Picture9.png %})
 
 
 ### Conclusion

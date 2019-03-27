@@ -12,6 +12,7 @@ authorIsRacker: true
 categories:
     - AWS
     - Automation
+bio: "Originally from Sydney Australia, Andrew Coggins is a Solutions Architect at Rackspace, now based in Amsterdam, The Netherlands. He's worked with AWS as a Cloud Computing platform since 2011 and currently holds all 5 of the Associate and Professional AWS Certifications."
 ---
 
 One of the things I love about working with Cloud is the various ways you can fit together different services to perform complex business functions in a relatively straight-forward manner.

@@ -94,30 +94,30 @@ Click Attach policy and look for the "AmazonSSMAutomationRole.
 
 Next, click on the policy name and go to the json tab and paste in the following:
 
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "VisualEditor0",
-      "Effect": "Allow",
-      "Action": [
-        "logs:CreateLogStream",
-        "logs:CreateLogGroup",
-        "logs:PutLogEvents"
-      ],
-      "Resource": [
-        "arn:aws:logs:us-east-1:302078733055:log-group:/aws/lambda/s3sync:*",
-        "arn:aws:logs:us-east-1:302078733055:*"
-      ]
-    },
-    {
-      "Sid": "VisualEditor1",
-      "Effect": "Allow",
-      "Action": "ssm:*",
-      "Resource": "arn:aws:ssm:*:*:document/s3sync"
-    }
-  ]
-}
+	{
+	  "Version": "2012-10-17",
+	  "Statement": [
+	    {
+	      "Sid": "VisualEditor0",
+	      "Effect": "Allow",
+	      "Action": [
+		"logs:CreateLogStream",
+		"logs:CreateLogGroup",
+		"logs:PutLogEvents"
+	      ],
+	      "Resource": [
+		"arn:aws:logs:us-east-1:302078733055:log-group:/aws/lambda/s3sync:*",
+		"arn:aws:logs:us-east-1:302078733055:*"
+	      ]
+	    },
+	    {
+	      "Sid": "VisualEditor1",
+	      "Effect": "Allow",
+	      "Action": "ssm:*",
+	      "Resource": "arn:aws:ssm:*:*:document/s3sync"
+	    }
+	  ]
+	}
 
 The policy should be tightened up for security purposes, but our testing, this will be sufficient.
 

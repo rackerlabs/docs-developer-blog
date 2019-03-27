@@ -18,7 +18,7 @@ bio: "Originally from Sydney Australia, Andrew Coggins is a Solutions Architect 
 One of the things I love about working with Cloud is the various ways you can fit together different services to perform complex business functions in a relatively straight-forward manner.
 
 Before AWS’s Elastic File System was generally available, I had a customer who had a requirement to share files across an autoscale group of web servers. In this instance, the files were read-only. Deploying an NFS server was a possible solution but came with the downsides additional cost and a single point of failure. Instead, I recommended the following solution to them:
-![Process Flow]({% asset_path 2019-03-27-s3-events/s3_events.png %}) 
+![Process Flow]({% asset_path 2019-03-27-using-s3-events-to-automate-business-processes/s3_events.png %}) 
 In the diagram above, files are uploaded to S3 through another business process. The S3 bucket is configured with bucket notifications which in turn, triggers a lambda function. The lambda function triggers an SSM document which runs on each of the servers in the autoscale group. This SSM document is essentially a simple bash script to perform a one-way synchronise of the S3 bucket in question to a local directory. This Rube Goldberg machine of AWS services seems complex, but it’s surprisingly simple and fast. In our testing, files even up to a couple of mb in size were on all servers in close to a second.
 
 I’m now working with a customer in the automotive industry who is moving a legacy application to AWS. Their application makes use of a smart-ftp solution that allows business processes to be initiated by upload events to FTP. For various reasons this smart-ftp solution won’t be moving to AWS along with the rest of their application. Fortunately, the S3 rube Goldberg machine mentioned earlier is a great fit as they can swap out FTP in favour of S3. The process this time around will be slightly different. Instead of distributing the files out to a group of servers, the final SSM document will be a bash script which begins execution of an internal business process. The catch is, it won’t be triggered by every upload to S3. The internal business process can only begin once a file of a particular name is uploaded which signals a complete batch of files is uploaded and ready for processing. S3 events supports prefixes and suffixes, allowing the notification to only trigger once this file is uploaded.
@@ -89,7 +89,7 @@ Skip down to the function code and paste in the following code:
 	};
 
 Scroll down to Execution role and click “View the role on the IAM console”
-![Lambda Execution Role]({% asset_path 2019-03-27-s3-events/lambda_execution_role.png %})
+![Lambda Execution Role]({% asset_path 2019-03-27-using-s3-events-to-automate-business-processes/lambda_execution_role.png %})
 
 Click Attach policy and look for the "AmazonSSMAutomationRole. 
 
@@ -169,7 +169,7 @@ Next, we need an S3 Bucket. Name your bucket anything you like, as long as it’
 
 Click Add notification and name it s3sync.
 
-![S3 Events Configuration]({% asset_path 2019-03-27-s3-events/s3_events_config.png %})
+![S3 Events Configuration]({% asset_path 2019-03-27-using-s3-events-to-automate-business-processes/s3_events_config.png %})
 
 You will notice we have the ability to select a number of event types which is what gives this process a lot of flexibility when it comes to automating business processes through S3. For now though, select PUT. Scroll down to “Send to” and select the Lambda function we created earlier then click Save.
 

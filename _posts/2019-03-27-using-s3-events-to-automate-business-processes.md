@@ -21,11 +21,11 @@ Before AWS’s Elastic File System was generally available, I had a customer who
 
 ![Process Flow]({% asset_path 2019-03-27-using-s3-events-to-automate-business-processes/s3_events.png %})
 
-In the diagram above, files are uploaded to S3 through another business process. The S3 bucket is configured with bucket notifications which in turn, triggers a lambda function. The lambda function triggers an SSM document which runs on each of the servers in the autoscale group. This SSM document is essentially a simple bash script to perform a one-way synchronise of the S3 bucket in question to a local directory.
+In the diagram above, files are uploaded to S3 through another business process. The S3 bucket is configured with bucket notifications which in turn, triggers a lambda function. The lambda function triggers an [SSM document](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html) which runs on each of the servers in the autoscale group. This SSM document is essentially a simple bash script to perform a one-way synchronise of the S3 bucket in question to a local directory.
 
-This Rube Goldberg machine of AWS services seems complex, but it’s surprisingly simple and fast. In our testing, files even up to a couple of mb in size were on all servers in close to a second.
+This [Rube Goldberg](https://en.wikipedia.org/wiki/Rube_Goldberg_machine) machine of AWS services seems complex, but it’s surprisingly simple and fast. In for our testing, files even up to a couple of mb in size were on all servers in close to a second.
 
-I’m now working with a customer in the manufacturing industry who is moving a legacy application to AWS. Their application makes use of a smart-ftp solution that allows business processes to be initiated by upload events to FTP. For various reasons this smart-ftp solution won’t be moving to AWS along with the rest of their application. Fortunately, the S3 rube Goldberg machine mentioned earlier is a great fit as they can swap out FTP in favour of S3. The process this time around will be slightly different. Instead of distributing the files out to a group of servers, the final SSM document will be a bash script which begins execution of an internal business process. The catch is, it won’t be triggered by every upload to S3. The internal business process can only begin once a file of a particular name is uploaded which signals a complete batch of files is uploaded and ready for processing. S3 events supports prefixes and suffixes, allowing the notification to only trigger once this file is uploaded.
+I’m now working with a customer in the manufacturing industry who is moving a legacy application to AWS. Their application makes use of a smart-ftp solution that allows business processes to be initiated by upload events to FTP. For various reasons this smart-ftp solution won’t be moving to AWS along with the rest of their application. Fortunately, the S3 Rube Goldberg machine mentioned earlier is a great fit as they can swap out FTP in favour of S3. The process this time around will be slightly different. Instead of distributing the files out to a group of servers, the final SSM document will be a bash script which begins execution of an internal business process. The catch is, it won’t be triggered by every upload to S3. The internal business process can only begin once a file of a particular name is uploaded which signals a complete batch of files is uploaded and ready for processing. S3 events supports prefixes and suffixes, allowing the notification to only trigger once this file is uploaded.
 
 What previously would have been a single machine running 24/7 (and prone to failure) is now a serverless, reliable mechanism that will run at a fraction of the cost.
 
@@ -126,9 +126,9 @@ Next, click on the policy name and go to the json tab and paste in the following
 	}
 ```
 Replace the region _us-east-1_ and the account number _111111111111_ with your region and account number. 
-The policy should be tightened up for security purposes, but our testing, this will be sufficient.
+The policy should be tightened up for security purposes, but for our testing, this will be sufficient.
 
-Click **Review** and Save changes.
+Click **Review** and save changes.
 
 Next, we’ll create our SSM Document. Head over to the EC2 console and scroll down the left-hand panel to find Documents under _Systems Manager Shared Resources_.
 
@@ -187,7 +187,7 @@ The inbuilt policies _AmazonEC2RoleforSSM_ and _AmazonS3ReadOnlyAccess_ should b
 
 ## Testing
 
-Once you have some instances launched, upload a file to the S3 bucket then head over to the Lambda console and check the **monitoring** tab of your function. You should see the invocation count go up and hopefully, the **Error count** and **success rate (%)** show successes (and no errors). You may need to wait a few minutes for the monitoring graphs to update.
+Once you have some instances launched, upload a file to the S3 bucket then head over to the Lambda console and check the **monitoring** tab of your function. You should see the invocation count go up and hopefully, the **Error count** and **Success Rate (%)** show successes (and no errors). You may need to wait a few minutes for the monitoring graphs to update.
 
 Then you can head over to the EC2 console and go to **Run Command** under **Systems Manager Services**.
 

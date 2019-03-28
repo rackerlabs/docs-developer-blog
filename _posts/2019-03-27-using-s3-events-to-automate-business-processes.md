@@ -45,53 +45,54 @@ Click **Create Function**.
 
 Skip down to the function code and paste in the following code:
 ```javascript
-	var aws = require('aws-sdk');
-	var ssm = new aws.SSM();
-	console.log('Loading function');
+		var aws = require('aws-sdk');
+		var ssm = new aws.SSM();
+		console.log('Loading function');
 
-	exports.handler = function(event, context, callback) {
+		exports.handler = function(event, context, callback) {
 
-	    var s3bucket = event.Records[0].s3.bucket.name;
-	    var s3object = event.Records[0].s3.object.key;
-	    console.log('value1 = event.Records[0].s3.bucket.name');
-	    callback(null, s3bucket);
+				var s3bucket = event.Records[0].s3.bucket.name;
+				var s3object = event.Records[0].s3.object.key;
+				console.log('value1 = event.Records[0].s3.bucket.name');
+				callback(null, s3bucket);
 
-	var params = 
+		var params = 
 
-	{
-	  "CloudWatchOutputConfig": {
-	    "CloudWatchLogGroupName": "s3syncSSM",
-	    "CloudWatchOutputEnabled": true
-	  },
-	  "DocumentName": "s3sync",
-	  "Parameters": {
-	    "S3Bucket": [
-	      s3bucket
-	    ],
-	    "Directory": [
-	      "/home/s3sync"
-	    ]
-	  },
-	  "Targets": [
-	    {
-	      "Key": "tag:s3sync",
-	      "Values": [
-	        "true"
-	      ]
-	    }
-	  ],
-	  "Comment": "Synchronizing S3 Bucket",
-	  "TimeoutSeconds": 60,
-	  "OutputS3BucketName": "s3synclogs",
-	  "OutputS3Region": "us-east-1"
-	}
-	ssm.sendCommand(params, function(err, data) {
-	  if (err) console.log(err, err.stack); // an error occurred
-	  else     console.log(data);           // successful response
-	});
+		{
+			"CloudWatchOutputConfig": {
+				"CloudWatchLogGroupName": "s3syncSSM",
+				"CloudWatchOutputEnabled": true
+			},
+			"DocumentName": "s3sync",
+			"Parameters": {
+				"S3Bucket": [
+					s3bucket
+				],
+				"Directory": [
+					"/home/s3sync"
+				]
+			},
+			"Targets": [
+				{
+					"Key": "tag:s3sync",
+					"Values": [
+						"true"
+					]
+				}
+			],
+			"Comment": "Synchronizing S3 Bucket",
+			"TimeoutSeconds": 60,
+			"OutputS3BucketName": "s3synclogs",
+			"OutputS3Region": "us-east-1"
+		}
+		ssm.sendCommand(params, function(err, data) {
+			if (err) console.log(err, err.stack); // an error occurred
+			else     console.log(data);           // successful response
+		});
 
-	};
+		};
 ```
+
 Scroll down to Execution role and click **View the role on the IAM console**
 
 ![Lambda Execution Role]({% asset_path 2019-03-27-using-s3-events-to-automate-business-processes/lambda_execution_role.png %})
@@ -99,6 +100,7 @@ Scroll down to Execution role and click **View the role on the IAM console**
 Click **Attach policy** and look for the _AmazonSSMAutomationRole_. 
 
 Next, click on the policy name and go to the json tab and paste in the following:
+
 ```json
 	{
 	  "Version": "2012-10-17",

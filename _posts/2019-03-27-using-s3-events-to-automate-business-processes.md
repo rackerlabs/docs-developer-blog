@@ -44,54 +44,55 @@ Select **Create a new role with basic Lambda permissions**. We’ll go back and 
 Click **Create Function**.
 
 Skip down to the function code and paste in the following code:
-```javascript
-		var aws = require('aws-sdk');
-		var ssm = new aws.SSM();
-		console.log('Loading function');
 
-		exports.handler = function(event, context, callback) {
-
-				var s3bucket = event.Records[0].s3.bucket.name;
-				var s3object = event.Records[0].s3.object.key;
-				console.log('value1 = event.Records[0].s3.bucket.name');
-				callback(null, s3bucket);
-
-		var params = 
-
-		{
-			"CloudWatchOutputConfig": {
-				"CloudWatchLogGroupName": "s3syncSSM",
-				"CloudWatchOutputEnabled": true
-			},
-			"DocumentName": "s3sync",
-			"Parameters": {
-				"S3Bucket": [
-					s3bucket
-				],
-				"Directory": [
-					"/home/s3sync"
-				]
-			},
-			"Targets": [
-				{
-					"Key": "tag:s3sync",
-					"Values": [
-						"true"
-					]
-				}
-			],
-			"Comment": "Synchronizing S3 Bucket",
-			"TimeoutSeconds": 60,
-			"OutputS3BucketName": "s3synclogs",
-			"OutputS3Region": "us-east-1"
-		}
-		ssm.sendCommand(params, function(err, data) {
-			if (err) console.log(err, err.stack); // an error occurred
-			else     console.log(data);           // successful response
-		});
-
-		};
 ```
+				var aws = require('aws-sdk');
+				var ssm = new aws.SSM();
+				console.log('Loading function');
+
+				exports.handler = function(event, context, callback) {
+
+						var s3bucket = event.Records[0].s3.bucket.name;
+						var s3object = event.Records[0].s3.object.key;
+						console.log('value1 = event.Records[0].s3.bucket.name');
+						callback(null, s3bucket);
+
+				var params = 
+
+				{
+					"CloudWatchOutputConfig": {
+						"CloudWatchLogGroupName": "s3syncSSM",
+						"CloudWatchOutputEnabled": true
+					},
+					"DocumentName": "s3sync",
+					"Parameters": {
+						"S3Bucket": [
+							s3bucket
+						],
+						"Directory": [
+							"/home/s3sync"
+						]
+					},
+					"Targets": [
+						{
+							"Key": "tag:s3sync",
+							"Values": [
+								"true"
+							]
+						}
+					],
+					"Comment": "Synchronizing S3 Bucket",
+					"TimeoutSeconds": 60,
+					"OutputS3BucketName": "s3synclogs",
+					"OutputS3Region": "us-east-1"
+				}
+				ssm.sendCommand(params, function(err, data) {
+					if (err) console.log(err, err.stack); // an error occurred
+					else     console.log(data);           // successful response
+				});
+
+				};
+```	
 
 Scroll down to Execution role and click **View the role on the IAM console**
 
@@ -101,32 +102,32 @@ Click **Attach policy** and look for the _AmazonSSMAutomationRole_.
 
 Next, click on the policy name and go to the json tab and paste in the following:
 
-```json
-	{
-	  "Version": "2012-10-17",
-	  "Statement": [
-	    {
-	      "Sid": "VisualEditor0",
-	      "Effect": "Allow",
-	      "Action": [
-		"logs:CreateLogStream",
-		"logs:CreateLogGroup",
-		"logs:PutLogEvents"
-	      ],
-	      "Resource": [
-		"arn:aws:logs:us-east-1:111111111111:log-group:/aws/lambda/s3sync:*",
-		"arn:aws:logs:us-east-1:111111111111:*"
-	      ]
-	    },
-	    {
-	      "Sid": "VisualEditor1",
-	      "Effect": "Allow",
-	      "Action": "ssm:*",
-	      "Resource": "arn:aws:ssm:*:*:document/s3sync"
-	    }
-	  ]
-	}
-```
+
+				{
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Sid": "VisualEditor0",
+							"Effect": "Allow",
+							"Action": [
+					"logs:CreateLogStream",
+					"logs:CreateLogGroup",
+					"logs:PutLogEvents"
+							],
+							"Resource": [
+					"arn:aws:logs:us-east-1:111111111111:log-group:/aws/lambda/s3sync:*",
+					"arn:aws:logs:us-east-1:111111111111:*"
+							]
+						},
+						{
+							"Sid": "VisualEditor1",
+							"Effect": "Allow",
+							"Action": "ssm:*",
+							"Resource": "arn:aws:ssm:*:*:document/s3sync"
+						}
+					]
+				}
+
 Replace the region _us-east-1_ and the account number _111111111111_ with your region and account number. 
 The policy should be tightened up for security purposes, but for our testing, this will be sufficient.
 
@@ -140,39 +141,39 @@ Document type is **Command**
 
 For the content, remove the {} brackets and enter in the document below:
 
-```json
-{
-  "schemaVersion": "1.2",
-  "description": "Sync an S3 Bucket to local directory",
-  "parameters": {
-    "S3Bucket": {
-      "type": "String",
-      "description": "The S3 Bucket to sync"
-    },
-    "Directory": {
-      "type": "String",
-      "description": "The local directory to Synchronize to the S3 Bucket",
-      "default": "/home/s3sync"
-    }
-  },
-  "runtimeConfig": {
-    "aws:runShellScript": {
-      "properties": [
-        {
-          "runCommand": [
-            "#!/bin/bash -e",
-            "S3_ENDPOINT='s3://'{{S3Bucket}}",
-            "echo {{S3Bucket}}",
-            "echo $S3_ENDPOINT",
-            "mkdir -p {{Directory}}",
-            "aws s3 sync $S3_ENDPOINT {{Directory}}"
-          ]
-        }
-      ]
-    }
-  }
-}
-```
+
+				{
+					"schemaVersion": "1.2",
+					"description": "Sync an S3 Bucket to local directory",
+					"parameters": {
+						"S3Bucket": {
+							"type": "String",
+							"description": "The S3 Bucket to sync"
+						},
+						"Directory": {
+							"type": "String",
+							"description": "The local directory to Synchronize to the S3 Bucket",
+							"default": "/home/s3sync"
+						}
+					},
+					"runtimeConfig": {
+						"aws:runShellScript": {
+							"properties": [
+								{
+									"runCommand": [
+										"#!/bin/bash -e",
+										"S3_ENDPOINT='s3://'{{S3Bucket}}",
+										"echo {{S3Bucket}}",
+										"echo $S3_ENDPOINT",
+										"mkdir -p {{Directory}}",
+										"aws s3 sync $S3_ENDPOINT {{Directory}}"
+									]
+								}
+							]
+						}
+					}
+				}
+
 Click **Create Document**
 
 Next, we need an S3 Bucket. Name your bucket anything you like, as long as it’s unique. Then open the empty bucket and click on the Properties tab then find the events option and click on it.

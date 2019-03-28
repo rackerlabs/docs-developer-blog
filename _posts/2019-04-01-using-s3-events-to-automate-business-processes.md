@@ -182,7 +182,7 @@ Next, we need an S3 Bucket. Name your bucket anything you like, as long as it’
 
 Click Add notification and name it _s3sync_.
 
-![S3 Events Configuration]({% asset_path 2019-04-01-using-s3-events-to-automate-business-processes/ s3_events_config.png %})
+![S3 Events Configuration]({% asset_path 2019-04-01-using-s3-events-to-automate-business-processes/s3_events_config.png %})
 
 You will notice we have the ability to select a number of event types which is what gives this process a lot of flexibility when it comes to automating business processes through S3. For now though, select PUT. Scroll down to **Send to** and select the Lambda function we created earlier then click **Save**.
 

@@ -142,38 +142,39 @@ Document type is **Command**
 
 For the content, remove the {} brackets and enter in the document below:
 
-
+```json
+{
+	"schemaVersion": "1.2",
+	"description": "Sync an S3 Bucket to local directory",
+	"parameters": {
+		"S3Bucket": {
+			"type": "String",
+			"description": "The S3 Bucket to sync"
+		},
+		"Directory": {
+			"type": "String",
+			"description": "The local directory to Synchronize to the S3 Bucket",
+			"default": "/home/s3sync"
+		}
+	},
+	"runtimeConfig": {
+		"aws:runShellScript": {
+			"properties": [
 				{
-					"schemaVersion": "1.2",
-					"description": "Sync an S3 Bucket to local directory",
-					"parameters": {
-						"S3Bucket": {
-							"type": "String",
-							"description": "The S3 Bucket to sync"
-						},
-						"Directory": {
-							"type": "String",
-							"description": "The local directory to Synchronize to the S3 Bucket",
-							"default": "/home/s3sync"
-						}
-					},
-					"runtimeConfig": {
-						"aws:runShellScript": {
-							"properties": [
-								{
-									"runCommand": [
-										"#!/bin/bash -e",
-										"S3_ENDPOINT='s3://'{{S3Bucket}}",
-										"echo {{S3Bucket}}",
-										"echo $S3_ENDPOINT",
-										"mkdir -p {{Directory}}",
-										"aws s3 sync $S3_ENDPOINT {{Directory}}"
-									]
-								}
-							]
-						}
-					}
+					"runCommand": [
+						"#!/bin/bash -e",
+						"S3_ENDPOINT='s3://'{{S3Bucket}}",
+						"echo {{S3Bucket}}",
+						"echo $S3_ENDPOINT",
+						"mkdir -p {{Directory}}",
+						"aws s3 sync $S3_ENDPOINT {{Directory}}"
+					]
 				}
+			]
+		}
+	}
+}
+```
 
 Click **Create Document**
 

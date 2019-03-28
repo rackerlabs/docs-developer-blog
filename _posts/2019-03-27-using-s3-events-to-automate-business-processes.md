@@ -17,7 +17,7 @@ bio: "Originally from Sydney Australia, Andrew Coggins is a Solutions Architect 
 
 One of the things I love about working with Cloud is the various ways you can fit together different services to perform complex business functions in a relatively straight-forward manner.
 
-Before AWS’s Elastic File System was generally available, I had a customer who had a requirement to share files across an autoscale group of web servers. In this instance, the files were read-only. Deploying an NFS server was a possible solution but came with the downsides additional cost and a single point of failure. Instead, I recommended the following solution to them:
+Before AWS’s Elastic File System was generally available, I had a customer who had a requirement to share files across an autoscale group of web servers. In this instance, the files were read-only. Deploying an NFS server was a possible solution but came with the downsides of additional cost and a single point of failure. Instead, I recommended the following solution to them:
 
 ![Process Flow]({% asset_path 2019-03-27-using-s3-events-to-automate-business-processes/s3_events.png %})
 
@@ -25,7 +25,7 @@ In the diagram above, files are uploaded to S3 through another business process.
 
 This Rube Goldberg machine of AWS services seems complex, but it’s surprisingly simple and fast. In our testing, files even up to a couple of mb in size were on all servers in close to a second.
 
-I’m now working with a customer in the automotive industry who is moving a legacy application to AWS. Their application makes use of a smart-ftp solution that allows business processes to be initiated by upload events to FTP. For various reasons this smart-ftp solution won’t be moving to AWS along with the rest of their application. Fortunately, the S3 rube Goldberg machine mentioned earlier is a great fit as they can swap out FTP in favour of S3. The process this time around will be slightly different. Instead of distributing the files out to a group of servers, the final SSM document will be a bash script which begins execution of an internal business process. The catch is, it won’t be triggered by every upload to S3. The internal business process can only begin once a file of a particular name is uploaded which signals a complete batch of files is uploaded and ready for processing. S3 events supports prefixes and suffixes, allowing the notification to only trigger once this file is uploaded.
+I’m now working with a customer in the manufacturing industry who is moving a legacy application to AWS. Their application makes use of a smart-ftp solution that allows business processes to be initiated by upload events to FTP. For various reasons this smart-ftp solution won’t be moving to AWS along with the rest of their application. Fortunately, the S3 rube Goldberg machine mentioned earlier is a great fit as they can swap out FTP in favour of S3. The process this time around will be slightly different. Instead of distributing the files out to a group of servers, the final SSM document will be a bash script which begins execution of an internal business process. The catch is, it won’t be triggered by every upload to S3. The internal business process can only begin once a file of a particular name is uploaded which signals a complete batch of files is uploaded and ready for processing. S3 events supports prefixes and suffixes, allowing the notification to only trigger once this file is uploaded.
 
 What previously would have been a single machine running 24/7 (and prone to failure) is now a serverless, reliable mechanism that will run at a fraction of the cost.
 
@@ -37,7 +37,7 @@ Ordinarily, I’d deploy this all through Cloudformation or Terraform, but for t
 
 To begin, we need to go ahead and create our Lambda Function and an associated IAM policy.
 
-Firstly, go to the Lambda console and create a new Lambda function. Select **Author From Scratch**. Give the function a name such as _s3sync_ and select **Node.js** 8.10 as the runtime.
+Firstly, go to the Lambda console and create a new Lambda function. Select **Author From Scratch**. Give the function a name such as _s3sync_ and select **Node.js 8.10** as the runtime.
 
 Select **Create a new role with basic Lambda permissions**. We’ll go back and modify the permission later to give us the extra permissions we’ll need for executing SSM documents.
 
@@ -112,8 +112,8 @@ Next, click on the policy name and go to the json tab and paste in the following
 		"logs:PutLogEvents"
 	      ],
 	      "Resource": [
-		"arn:aws:logs:us-east-1:302078733055:log-group:/aws/lambda/s3sync:*",
-		"arn:aws:logs:us-east-1:302078733055:*"
+		"arn:aws:logs:us-east-1:111111111111:log-group:/aws/lambda/s3sync:*",
+		"arn:aws:logs:us-east-1:111111111111:*"
 	      ]
 	    },
 	    {
@@ -125,6 +125,7 @@ Next, click on the policy name and go to the json tab and paste in the following
 	  ]
 	}
 ```
+Replace the region _us-east-1_ and the account number _111111111111_ with your region and account number. 
 The policy should be tightened up for security purposes, but our testing, this will be sufficient.
 
 Click **Review** and Save changes.
@@ -132,41 +133,42 @@ Click **Review** and Save changes.
 Next, we’ll create our SSM Document. Head over to the EC2 console and scroll down the left-hand panel to find Documents under _Systems Manager Shared Resources_.
 
 Name the document _s3sync_
+
 Document type is **Command**
 
 For the content, remove the {} brackets and enter in the document below:
 
 ```json
 {
-"schemaVersion": "1.2",
-"description": "Sync an S3 Bucket to local directory",
-"parameters": {
-	"S3Bucket": {
-		"type": "String",
-		"description": "The S3 Bucket to sync"
-	},
-	"Directory": {
-		"type": "String",
-		"description": "The local directory to Synchronize to the S3 Bucket",
-		"default": "/home/s3sync"
-	}
-},
-"runtimeConfig": {
-	"aws:runShellScript": {
-		"properties": [
-			{
-				"runCommand": [
-					"#!/bin/bash -e",
-					"S3_ENDPOINT='s3://'{{S3Bucket}}",
-					"echo {{S3Bucket}}",
-					"echo $S3_ENDPOINT",
-					"mkdir -p {{Directory}}",
-					"aws s3 sync $S3_ENDPOINT {{Directory}}"
-				]
-			}
-		]
-	}
-}
+  "schemaVersion": "1.2",
+  "description": "Sync an S3 Bucket to local directory",
+  "parameters": {
+    "S3Bucket": {
+      "type": "String",
+      "description": "The S3 Bucket to sync"
+    },
+    "Directory": {
+      "type": "String",
+      "description": "The local directory to Synchronize to the S3 Bucket",
+      "default": "/home/s3sync"
+    }
+  },
+  "runtimeConfig": {
+    "aws:runShellScript": {
+      "properties": [
+        {
+          "runCommand": [
+            "#!/bin/bash -e",
+            "S3_ENDPOINT='s3://'{{S3Bucket}}",
+            "echo {{S3Bucket}}",
+            "echo $S3_ENDPOINT",
+            "mkdir -p {{Directory}}",
+            "aws s3 sync $S3_ENDPOINT {{Directory}}"
+          ]
+        }
+      ]
+    }
+  }
 }
 ```
 Click **Create Document**

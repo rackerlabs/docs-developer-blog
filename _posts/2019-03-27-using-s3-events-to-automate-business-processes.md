@@ -44,7 +44,7 @@ Select **Create a new role with basic Lambda permissions**. We’ll go back and 
 Click **Create Function**.
 
 Skip down to the function code and paste in the following code:
-
+```javascript
 	var aws = require('aws-sdk');
 	var ssm = new aws.SSM();
 	console.log('Loading function');
@@ -91,7 +91,7 @@ Skip down to the function code and paste in the following code:
 	});
 
 	};
-
+```
 Scroll down to Execution role and click **View the role on the IAM console**
 
 ![Lambda Execution Role]({% asset_path 2019-03-27-using-s3-events-to-automate-business-processes/lambda_execution_role.png %})
@@ -99,7 +99,7 @@ Scroll down to Execution role and click **View the role on the IAM console**
 Click **Attach policy** and look for the _AmazonSSMAutomationRole_. 
 
 Next, click on the policy name and go to the json tab and paste in the following:
-
+```json
 	{
 	  "Version": "2012-10-17",
 	  "Statement": [
@@ -124,7 +124,7 @@ Next, click on the policy name and go to the json tab and paste in the following
 	    }
 	  ]
 	}
-
+```
 The policy should be tightened up for security purposes, but our testing, this will be sufficient.
 
 Click **Review** and Save changes.
@@ -136,38 +136,39 @@ Document type is **Command**
 
 For the content, remove the {} brackets and enter in the document below:
 
-	{
-	          "schemaVersion": "1.2",
-	          "description": "Sync an S3 Bucket to local directory",
-	          "parameters": {
-	            "S3Bucket": {
-	              "type": "String",
-	              "description": "The S3 Bucket to sync"
-	            },
-	            "Directory": {
-	              "type": "String",
-	              "description": "The local directory to Synchronize to the S3 Bucket",
-	              "default": "/home/s3sync"
-	            }
-	          },
-	          "runtimeConfig": {
-	            "aws:runShellScript": {
-	              "properties": [
-	                {
-	                  "runCommand": [
-	                    "#!/bin/bash -e",
-	                    "S3_ENDPOINT='s3://'{{S3Bucket}}",
-	                    "echo {{S3Bucket}}",
-	                    "echo $S3_ENDPOINT",
-	                    "mkdir -p {{Directory}}",
-	                    "aws s3 sync $S3_ENDPOINT {{Directory}}"
-	                  ]
-	                }
-	              ]
-	            }
-	          }
-	        }
-
+```json
+{
+"schemaVersion": "1.2",
+"description": "Sync an S3 Bucket to local directory",
+"parameters": {
+	"S3Bucket": {
+		"type": "String",
+		"description": "The S3 Bucket to sync"
+	},
+	"Directory": {
+		"type": "String",
+		"description": "The local directory to Synchronize to the S3 Bucket",
+		"default": "/home/s3sync"
+	}
+},
+"runtimeConfig": {
+	"aws:runShellScript": {
+		"properties": [
+			{
+				"runCommand": [
+					"#!/bin/bash -e",
+					"S3_ENDPOINT='s3://'{{S3Bucket}}",
+					"echo {{S3Bucket}}",
+					"echo $S3_ENDPOINT",
+					"mkdir -p {{Directory}}",
+					"aws s3 sync $S3_ENDPOINT {{Directory}}"
+				]
+			}
+		]
+	}
+}
+}
+```
 Click **Create Document**
 
 Next, we need an S3 Bucket. Name your bucket anything you like, as long as it’s unique. Then open the empty bucket and click on the Properties tab then find the events option and click on it.
@@ -224,3 +225,4 @@ As I mentioned earlier, this is just a concept of what S3 events could be used f
 
 
 </br>
+

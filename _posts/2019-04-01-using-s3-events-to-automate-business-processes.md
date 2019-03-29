@@ -3,6 +3,8 @@ layout: post
 title: "Using S3 Events to Enable Business Processes"
 ogTitle: "Using S3 Events to Enable Business Processes"
 metaTitle: "Using S3 Events to Enable Business Processes"
+metaDescription: "In this blog post I discuss ways to utilise S3 events to automate business processes"
+ogDescription: "In this blog post I discuss ways to utilise S3 events to automate business processes"
 sharing: true
 date: 2019-04-01 23:59
 comments: true
@@ -17,15 +19,15 @@ bio: "Originally from Sydney Australia, Andrew Coggins is a Solutions Architect 
 
 One of the things I love about working with Cloud is the various ways you can fit together different services to perform complex business functions in a relatively straight-forward manner.
 
-Before AWS’s Elastic File System was generally available, I had a customer who had a requirement to share files across an autoscale group of web servers. In this instance, the files were read-only. Deploying an NFS server was a possible solution but came with the downsides of additional cost and a single point of failure. Instead, I recommended the following solution to them:
+Before AWS’s Elastic File System was generally available, I had a customer who had a requirement to share files across an Auto Scaling group of web servers. In this instance, the files were read-only. Deploying an NFS server was a possible solution but came with the downsides of additional cost and a single point of failure. Instead, I recommended the following solution to them:
 
 ![Process Flow]({% asset_path 2019-04-01-using-s3-events-to-automate-business-processes/s3_events.png %})
 
-In the diagram above, files are uploaded to S3 through another business process. The S3 bucket is configured with bucket notifications which in turn, triggers a lambda function. The lambda function triggers an [SSM document](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html) which runs on each of the servers in the autoscale group. This SSM document is essentially a simple bash script to perform a one-way synchronise of the S3 bucket in question to a local directory.
+In the diagram above, files are uploaded to S3 through another business process. The S3 bucket is configured with bucket notifications which in turn, triggers a Lambda function. The Lambda function triggers an [SSM document](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html) which runs on each of the servers in the autoscale group. This SSM document is essentially a simple Bash script to perform a one-way synchronisation of the S3 bucket in question to a local directory.
 
-This [Rube Goldberg](https://en.wikipedia.org/wiki/Rube_Goldberg_machine) machine of AWS services seems complex, but it’s surprisingly simple and fast. In for our testing, files even up to a couple of mb in size were on all servers in close to a second.
+This [Rube Goldberg](https://en.wikipedia.org/wiki/Rube_Goldberg_machine) machine of AWS services seems complex, but it’s surprisingly simple and fast. In for our testing, files even up to a couple of MB in size were on all servers in close to a second.
 
-I’m now working with a customer in the manufacturing industry who is moving a legacy application to AWS. Their application makes use of a smart-ftp solution that allows business processes to be initiated by upload events to FTP. For various reasons this smart-ftp solution won’t be moving to AWS along with the rest of their application. Fortunately, the S3 Rube Goldberg machine mentioned earlier is a great fit as they can swap out FTP in favour of S3. The process this time around will be slightly different. Instead of distributing the files out to a group of servers, the final SSM document will be a bash script which begins execution of an internal business process. The catch is, it won’t be triggered by every upload to S3. The internal business process can only begin once a file of a particular name is uploaded which signals a complete batch of files is uploaded and ready for processing. S3 events supports prefixes and suffixes, allowing the notification to only trigger once this file is uploaded.
+I’m now working with a customer in the manufacturing industry who is moving a legacy application to AWS. Their application makes use of a smart-ftp solution that allows business processes to be initiated by upload events to FTP. For various reasons this smart-ftp solution won’t be moving to AWS along with the rest of their application. Fortunately, the S3 Rube Goldberg machine mentioned earlier is a great fit as they can swap out FTP in favour of S3. The process this time around will be slightly different. Instead of distributing the files out to a group of servers, the final SSM document will be a Bash script which begins execution of an internal business process. The catch is, it won’t be triggered by every upload to S3. The internal business process can only begin once a file of a particular name is uploaded which signals a complete batch of files is uploaded and ready for processing. S3 events supports prefixes and suffixes, allowing the notification to only trigger once this file is uploaded.
 
 What previously would have been a single machine running 24/7 (and prone to failure) is now a serverless, reliable mechanism that will run at a fraction of the cost.
 
@@ -37,7 +39,7 @@ Ordinarily, I’d deploy this all through Cloudformation or Terraform, but for t
 
 To begin, we need to go ahead and create our Lambda Function and an associated IAM policy.
 
-Firstly, go to the Lambda console and create a new Lambda function. Select **Author From Scratch**. Give the function a name such as _s3sync_ and select **Node.js 8.10** as the runtime.
+Firstly, go to the Lambda console and create a new Lambda function. Select **Author From Scratch**. Give the function a name such as **s3sync** and select **Node.js 8.10** as the runtime.
 
 Select **Create a new role with basic Lambda permissions**. We’ll go back and modify the permission later to give us the extra permissions we’ll need for executing SSM documents.
 
@@ -98,7 +100,7 @@ Scroll down to Execution role and click **View the role on the IAM console**
 
 ![Lambda Execution Role]({% asset_path 2019-04-01-using-s3-events-to-automate-business-processes/lambda_execution_role.png %})
 
-Click **Attach policy** and look for the _AmazonSSMAutomationRole_. 
+Click **Attach policy** and look for the **AmazonSSMAutomationRole**. 
 
 Next, click on the policy name and go to the json tab and paste in the following:
 
@@ -107,7 +109,7 @@ Next, click on the policy name and go to the json tab and paste in the following
 	"Version": "2012-10-17",
 	"Statement": [
 		{
-			"Sid": "VisualEditor0",
+			"Sid": "logspermission",
 			"Effect": "Allow",
 			"Action": [
 	"logs:CreateLogStream",
@@ -120,7 +122,7 @@ Next, click on the policy name and go to the json tab and paste in the following
 			]
 		},
 		{
-			"Sid": "VisualEditor1",
+			"Sid": "ssmpermission",
 			"Effect": "Allow",
 			"Action": "ssm:*",
 			"Resource": "arn:aws:ssm:*:*:document/s3sync"
@@ -186,7 +188,7 @@ Click Add notification and name it _s3sync_.
 
 You will notice we have the ability to select a number of event types which is what gives this process a lot of flexibility when it comes to automating business processes through S3. For now though, select PUT. Scroll down to **Send to** and select the Lambda function we created earlier then click **Save**.
 
-Now, the only thing left to do is launch our EC2 resources and tag them appropriately. In the lambda function above we’ve hardcoded the tags to be **Name=s3sync, Value=true**. Go ahead and launch a linux instance with that tag. You’ll need to ensure that the IAM role associated with your EC2 instances gives the appropriate permission to associate it with SSM and access the S3 bucket we’re working with. 
+Now, the only thing left to do is launch our EC2 resources and tag them appropriately. In the Lambda function above we’ve hardcoded the tags to be **Name=s3sync, Value=true**. Go ahead and launch a linux instance with that tag. You’ll need to ensure that the IAM role associated with your EC2 instances gives the appropriate permission to associate it with SSM and access the S3 bucket we’re working with. 
 
 The inbuilt policies _AmazonEC2RoleforSSM_ and _AmazonS3ReadOnlyAccess_ should be sufficient for now.
 
@@ -196,7 +198,7 @@ Once you have some instances launched, upload a file to the S3 bucket then head 
 
 Then you can head over to the EC2 console and go to **Run Command** under **Systems Manager Services**.
 
-You should now see your document s3sync has run and hopefully completed successfully. If that’s the case, logging on to the server you launched earlier and checking the /home/s3sync directory will show the file you uploaded to S3. If so, congratulations! You’ve successfully deployed a fully automated S3/Lambda/SSM solution for keeping your S3 bucket in sync.
+You should now see your document s3sync has run and hopefully completed successfully. If that’s the case, logging on to the server you launched earlier and checking the ```/home/s3sync``` directory will show the file you uploaded to S3. If so, congratulations! You’ve successfully deployed a fully automated S3/Lambda/SSM solution for keeping your S3 bucket in sync.
 
 As I mentioned earlier, this is just a concept of what S3 events could be used for. In my case, this will be modified and adopted to replace a legacy business process. 
 

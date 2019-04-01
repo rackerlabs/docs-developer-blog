@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introduction to CPADMIN"
-date: 2019-03-20 00:00
+date: 2019-04-01 00:00
 comments: true
 author: Santosh Kumar
 published: true
@@ -17,7 +17,7 @@ ogDescription: "CPADMIN is user friendly and allows you to execute multiple task
 
 
 Oracle&reg; has launched CPADMIN, a concurrent processing command-line utility
-for E-Business Suite&reg; (EBS) versions R12.1.3 and EBS R12.2.x. CPADMIN is a
+for E-Business Suite&reg; (EBS) versions R12.1.3 and R12.2.x. CPADMIN is a
 menu-based utility that wraps multiple existing utilities for concurrent
 processes and allows you to work on several concurrent processes related tasks
 under a single menu.
@@ -56,7 +56,7 @@ You can use CPADMIN for the following tasks:
 Use the following steps to use the CPADMIN command-line utility to perform
 maintenance tasks:
 
-***Note:** Screenshots are taken from Oracle EBS version 12.1.3.
+**Note:** Screenshots are taken from Oracle EBS version 12.1.3.
 
 1. Set the environment.
 
@@ -64,12 +64,12 @@ maintenance tasks:
 
         $FND_TOP/bin/cpadmin.sh
 
-   The following screen display:
+    The following screen displays:
 
-   ![]({% asset_path 2019-04-02-introduction-to-cpadmin/Picture1.png %})
+    ![]({% asset_path 2019-04-02-introduction-to-cpadmin/Picture1.png %})
 
 <ol start=3>
-    <li>Enter <b>1</b> to show the <b>Administer Concurrent Managers</b> menu,
+    <li>Enter <b>1</b> to display the <b>Administer Concurrent Managers</b> menu,
     as shown in the following image:</li>
 </ol>
 

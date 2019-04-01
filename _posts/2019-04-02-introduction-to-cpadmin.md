@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introduction to CPADMIN"
-date: 2019-04-01 00:00
+date: 2019-04-02 00:00
 comments: true
 author: Santosh Kumar
 published: true

@@ -306,7 +306,7 @@ CPU usage on database nodes.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A/oracle-exadata-smart-scan-feature/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/oracle-exadata-smart-scan-feature/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>

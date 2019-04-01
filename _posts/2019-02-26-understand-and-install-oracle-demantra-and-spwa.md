@@ -202,7 +202,7 @@ The following benefits result from integrating of these products:
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//understand-and-install-oracle-demantra-and-spwa/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/understand-and-install-oracle-demantra-and-spwa/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>

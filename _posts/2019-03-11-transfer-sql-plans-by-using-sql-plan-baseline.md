@@ -326,7 +326,7 @@ plans and to avoid any performance issues.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A/transfer-sql-plans-by-using-sql-plan-baseline/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/transfer-sql-plans-by-using-sql-plan-baseline/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>

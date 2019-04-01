@@ -292,7 +292,7 @@ class of intelligent data protection and disaster recovery.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A/repair-block-corruption-in-an-oracle-database/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/repair-block-corruption-in-an-oracle-database/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>

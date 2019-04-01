@@ -19,6 +19,8 @@ bio: "Originally from Sydney Australia, Andrew Coggins is a Solutions Architect 
 
 One of the things I love about working with Cloud is the various ways you can fit together different services to perform complex business functions in a relatively straight-forward manner.
 
+<!-- more -->
+
 Before AWS’s Elastic File System was generally available, I had a customer who had a requirement to share files across an Auto Scaling group of web servers. In this instance, the files were read-only. Deploying an NFS server was a possible solution but came with the downsides of additional cost and a single point of failure. Instead, I recommended the following solution to them:
 
 ![Process Flow]({% asset_path 2019-04-01-using-s3-events-to-automate-business-processes/s3_events.png %})

@@ -169,7 +169,7 @@ subsequent requests.
        <img src="{% asset_path line-tile.png %}" width=50 >
     </td>
     <td>
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A/developer.rackspace.com/blog/web-proxy-server-and-deployment/">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//developer.rackspace.com/blog/web-proxy-server-and-deployment/">
         <img src="{% asset_path shareFB.png %}">
       </a>
     </td>

@@ -19,7 +19,7 @@ ogDescription: "CPADMIN is user friendly and allows you to execute multiple task
 Oracle&reg; has launched CPADMIN, a concurrent processing command-line utility
 for E-Business Suite&reg; (EBS) versions R12.1.3 and R12.2.x. CPADMIN is a
 menu-based utility that wraps multiple existing utilities for concurrent
-processes and allows you to work on several concurrent processes related tasks
+processes and allows you to work on several concurrent process-related tasks
 under a single menu.
 
 Newly released and user friendly, CPADMIN is the replacement for the
@@ -92,18 +92,18 @@ This patch consolidates Concurrent Processing RUP2 (19287293) along with all
 fixes released after RUP2.
 
 **Note:** Before you apply patch 22549247, ensure that you have applied patches
-17884289 and 8919491. For Oracle EBS 12.2.x, this feature has already been
+17884289 and 8919491. For Oracle EBS 12.2.x, this feature is already
 enabled.
 
 ### Conclusion
 
 CPADMIN is an interesting tool that consolidates different CP management
 functions into a single menu-based tool. It is simple to use, and you can run
-it in PuTTY&reg; to monitor the CM status and start or stop the manager from
-backend. You don’t need to open an application url to monitor a CM or to start
-or stop the manager. With this tool you can execute multiple tasks with a single
+it in PuTTY&reg; to monitor the CM status and start or stop the manager from the
+backend. You don’t need to open an application URL to monitor a CM or to start
+or stop the manager. With this tool, you can execute multiple tasks with a single
 command. CPADMIN replaces **cmclean.sql**, so you should use CPADMIN to perform
-that function. You can do multiple CP related tasks from backend, which you
+that function. You can do multiple CP-related tasks from the backend, which you
 previously could not perform.
 
 

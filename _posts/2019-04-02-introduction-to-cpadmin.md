@@ -102,7 +102,7 @@ functions into a single menu-based tool. It is simple to use, and you can run
 it in PuTTY&reg; to monitor the CM status and start or stop the manager from the
 backend. You don’t need to open an application URL to monitor a CM or to start
 or stop the manager. With this tool, you can execute multiple tasks with a single
-command. CPADMIN replaces **cmclean.sql**, so you should use CPADMIN to perform
+command. CPADMIN replaces **cmclean.sql**, so use CPADMIN to perform
 that function. You can do multiple CP-related tasks from the backend, which you
 previously could not perform.
 

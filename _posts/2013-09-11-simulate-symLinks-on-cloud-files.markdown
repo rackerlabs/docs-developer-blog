@@ -9,8 +9,6 @@ categories:
   - Cloud Files
 ---
 
-{% img right 2013-05-21-cloud-files/cloud_files_logo.png 250 %}
-
 Rackspace cloud files which is based on [Openstack Swift](http://docs.openstack.org/developer/swift/)
 provides reliable & fast, object storage and you can read more about the product
 [here](http://www.rackspace.com/cloud/files/technology/).

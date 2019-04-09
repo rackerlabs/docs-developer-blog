@@ -9,7 +9,7 @@ categories:
   - Cloud Monitoring
 ---
 
-{% img right 2013-04-22-cloud-monitoring-pagerduty/cloud_monitoring_pagerduty.png 160 160 %}[Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/)
+[Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/)
 now supports [PagerDuty](http://www.pagerduty.com)
 integration! With this new notification type, alarm notifications can
 automatically create new incidents and resolve them once Cloud Monitoring

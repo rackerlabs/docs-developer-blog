@@ -8,7 +8,6 @@ published: true
 categories:
   - Cloud Files
 ---
-{% img right 2013-05-21-cloud-files/cloud_files_logo.png 250 %}
 
 We've announced some [new features for Cloud Files][1] on the [Rackspace Blog][2]
 this week. Cloud Files now supports the following features:

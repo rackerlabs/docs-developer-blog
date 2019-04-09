@@ -8,7 +8,7 @@ published: true
 categories:
   - Cloud Files
 ---
-{% img right 2013-05-21-cloud-files/cloud_files_logo.png 250 %}
+
 I've been using Cloud Files for about two years, and I thought I'd share some
 of the tools that fit into my typical workflow. At
 [Work for Pie](https://workforpie.com), we're using Cloud Files for three

@@ -7,6 +7,8 @@ title: 'Getting started using rackspace-novaclient to manage Cloud Servers'
 author: Hart Hoover
 categories:
   - Cloud Servers
+  - nodejs
+  - mailgun
 ---
 
 Using the

@@ -19,21 +19,21 @@ ogDescription: "A look at Data Lakes as a source of future business value."
 In recent years, Data Lakes have moved from the technology boondocks to the prime beachfront real estate of the data sciences. Why is this happening and why are they important? The short answer... there's value in there.
 <!-- more -->
 
-## Data Has Value
+### Data Has Value
 
 Increasingly, it is apparent a company's data contains huge potential value. For many of the Internet giants like Google, Facebook, and others, their value is largely derived from their data.  But you don't have to be an Internet giant to get value from your data. Data is being used by industrial companies to predict machine failure, by financial institutions to better manage risk, by online retailers to increase customer retention, and by countless other institutions to discover new insights. It seems like a fairly simple formula: feed data to business analytics tools or machine learning (ML) systems and gain insights. In reality, it is not that simple; we must satisfy one essential prerequisite before we can tackle the analysis problem - we must actually have the data that contains the insights.
 
-## Isn't This Just Another Data Warehouse Solution?
+### Isn't This Just Another Data Warehouse Solution?
 
 You may be thinking, "isn't this the problem data warehouses solve?" Not really. Data warehouses are built to solve a defined set of business problems. Data warehouse data ingestion uses an extract, transform, load (ETL) workflow. Data is extracted from the source system, transformed into the data warehouse's structure, and then loaded into the data warehouse.  By this time, the data has already been structured, filtered, and otherwise manipulated to exclude data not relevant to the defined business problem set. In the ETL process, we have, either implicitly or explicitly, kept some data values and discarded others, augmented the data, formed relationships between data items, and disregarded others. What if a new business problem is discovered that needs the discarded information? Business environments are always changing, and future problems cannot be predicted. No matter how correct the ETL process is for the current business problem set, a huge amount of future potential value is being lost by making these decisions when populating the data warehouse.
 
-## Enter Data Lakes
+### Enter Data Lakes
 
 In order to retain as much potential value as possible, we cannot discard the original data. Why don't we just keep all the data in its raw format and decide how to use it later? We could just let the data flow like rivers into a central repository, forming a "lake" of "data." :) Put another way, extract and store the data, then transform and load it as needed (often called Extract, Load, and Transform, ELT – transposing the 'T' and the 'L' in ETL).
 
 Historically, the cost of storage and extracting meaningful structure at some future date far outweighed the potential value of the information it may contain. However, the cost of storage and cost of distilling useful structure out of the chaos has dropped, making it increasingly economical for more and more companies to do just that.
 
-### Any Collection of Raw Data is a Data Lake, Right?
+#### Any Collection of Raw Data is a Data Lake, Right?
 
 Ok, simple enough, just dump all of the raw data into a single location and we are done, right?  Far from it! Data ingestion must be done properly to protect customers, companies, and the data while making the it available to future data scientists and analysts. To do this, many important factors must be considered.
 
@@ -49,17 +49,17 @@ What about deduplication or matching records that do not share come identifying 
 
 Once the data is in the data lake and has the proper indexing and controls in place, it will need to be converted into a structured format before it can be used. Typically, this means applying the just-in-time schema as it is read. The various raw source formats are projected into a known structure so they can be consumed by ML, warehousing, or Business Intelligence (BI) systems.  (I prefer to call this process EtS-TL, Extract transform Store – Transform and Load, because some lossless data transformation is performed as the data enters the lake.  But discussion of nomenclature is a topic for another time.)
 
-### Using the Data
+#### Using the Data
 
 The data is now in the lake but cannot be used in its current form. The data transformation decisions that were delayed must now be decided. Once a schema is decided upon and the data extracted, then it must be cleaned in a schema-specific way. Invalid data for one schema/analysis may be perfectly valid for another. For example, consider a land ownership dataset that contains owner's name, property address, property values, payment delinquency, land use (e.g., residential, office building, or industrial), and property tax account numbers.  Determining if there is a correlation between land use and payment delinquency does not require the owner's name. At the same time, looking for a correlation between property values and land use does not require delinquency data. If a data item is missing from a row in one data slice, it does not invalidate the same row for another data slice. Data Lakes let you keep your data analytics options open, but they come with their own complexities and costs.
 
 Once all these steps are completed, we are at a point our data analytics tools, BI systems, or ML models can begin their work. However, by leveraging a data lake we have not inadvertently destroyed potential future value found in the data. Future business questions can be explored without requiring us to know the future.
 
-## Summary 
+### Summary 
 
 While Data Warehouses are filtered, prepared, and ready to use, data lakes are reservoirs, not intended to be consumed in their raw forms. Instead, the data in them must be prepared before it can be consumed. Like any reservoir, they must be managed properly to keep them available for future consumption. This is done through managing the inflow (storage file formats and data obfuscation), understanding the content (indexing and deduplication), securing from misuse (Identity and Access Management), and purification facilities (data extraction, application of schemas, and data cleaning).
 
-## The Tip of the Iceberg 
+### The Tip of the Iceberg 
 
 Luckily, in the cloud era, we do not need to roll our own tools and technologies to implement a data lake.  For example, AWS Lake Formation addresses the tools and technology issues directly associated with the data lake itself.  However, there are many tough questions remaining. Do you know how to properly use these tools? Do you have the expertise to set up proper network connectivity to allow ingestion of your data? Is a VPN sufficient, or do you needed a dedicated circuit (Direct Connect)? You are putting a goldmine of company data into the cloud. Are you sure you have secured it properly to prevent unauthorized access? Are you accessing the data in a cost-efficient way? Remember, transferring out is not free.
 

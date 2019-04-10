@@ -16,12 +16,12 @@ metaDescription: "A look at Data Lakes as a source of future business value."
 ogTitle: "What are Data Lakes and Why Should You Care?"
 ogDescription: "A look at Data Lakes as a source of future business value."
 ---
-In recent years, Data Lakes have moved from the technology boondocks to the prime beachfront real estate of the data sciences. Why is this happening and why are they important? The short answer... there's value in there.
+In recent years, Data Lakes have moved from the technology boondocks to the prime beachfront real estate of the data sciences. Why is this happening, and why are they important? The short answer... there's value in there.
 <!-- more -->
 
 ### Data Has Value
 
-Increasingly, it is apparent a company's data contains huge potential value. For many of the Internet giants like Google, Facebook, and others, their value is largely derived from their data.  But you don't have to be an Internet giant to get value from your data. Data is being used by industrial companies to predict machine failure, by financial institutions to better manage risk, by online retailers to increase customer retention, and by countless other institutions to discover new insights. It seems like a fairly simple formula: feed data to business analytics tools or machine learning (ML) systems and gain insights. In reality, it is not that simple; we must satisfy one essential prerequisite before we can tackle the analysis problem - we must actually have the data that contains the insights.
+Increasingly, it is apparent a company's data contains huge potential value. For many of the Internet giants like Google, Facebook, and others, their value is largely derived from their data.  But you don't have to be an Internet giant to get value from your data. Data is being used by industrial companies to predict machine failure, by financial institutions to better manage risk, by online retailers to increase customer retention, and by countless other institutions to discover new insights. It seems like a fairly simple formula: feed data to business analytics tools or machine learning (ML) systems and gain iinsights. In reality, it is not that simple. We must satisfy one essential prerequisite before we can tackle the analysis problem. We must actually have the data that contains the insights.
 
 ### Isn't This Just Another Data Warehouse Solution?
 
@@ -35,7 +35,7 @@ Historically, the cost of storage and extracting meaningful structure at some fu
 
 #### Any Collection of Raw Data is a Data Lake, Right?
 
-Ok, simple enough, just dump all of the raw data into a single location and we are done, right?  Far from it! Data ingestion must be done properly to protect customers, companies, and the data while making the it available to future data scientists and analysts. To do this, many important factors must be considered.
+Ok, simple enough. Just dump all of the raw data into a single location, and we are done, right?  Far from it! Data ingestion must be done properly to protect customers, companies, and the data while making the it available to future data scientists and analysts. To do this, we must consider many important factors.
 
 * How will future data scientists and analysts find what they are looking for? _The raw data must be indexed._
 
@@ -47,13 +47,13 @@ Ok, simple enough, just dump all of the raw data into a single location and we a
 
 What about deduplication or matching records that do not share come identifying key? Is _123 Main St, Some Town, USA_ the same location as _123 Main Street, Some Town, USA_? What about _Robert Smith_ and _Bob Smith_? As you can imagine, these are simple scenarios. Much more complex situations exist in real data sets.
 
-Once the data is in the data lake and has the proper indexing and controls in place, it will need to be converted into a structured format before it can be used. Typically, this means applying the just-in-time schema as it is read. The various raw source formats are projected into a known structure so they can be consumed by ML, warehousing, or Business Intelligence (BI) systems.  (I prefer to call this process EtS-TL, Extract transform Store – Transform and Load, because some lossless data transformation is performed as the data enters the lake.  But discussion of nomenclature is a topic for another time.)
+Once the data is in the data lake and has the proper indexing and controls in place, it needs to be converted into a structured format before it can be used. Typically, this means applying the just-in-time schema as it is read. The various raw source formats are projected into a known structure so they can be consumed by ML, warehousing, or Business Intelligence (BI) systems.  (I prefer to call this process EtS-TL, Extract transform Store – Transform and Load, because some lossless data transformation is performed as the data enters the lake.  But discussion of nomenclature is a topic for another time.)
 
 #### Using the Data
 
 The data is now in the lake but cannot be used in its current form. The data transformation decisions that were delayed must now be decided. Once a schema is decided upon and the data extracted, then it must be cleaned in a schema-specific way. Invalid data for one schema/analysis may be perfectly valid for another. For example, consider a land ownership dataset that contains owner's name, property address, property values, payment delinquency, land use (e.g., residential, office building, or industrial), and property tax account numbers.  Determining if there is a correlation between land use and payment delinquency does not require the owner's name. At the same time, looking for a correlation between property values and land use does not require delinquency data. If a data item is missing from a row in one data slice, it does not invalidate the same row for another data slice. Data Lakes let you keep your data analytics options open, but they come with their own complexities and costs.
 
-Once all these steps are completed, we are at a point our data analytics tools, BI systems, or ML models can begin their work. However, by leveraging a data lake we have not inadvertently destroyed potential future value found in the data. Future business questions can be explored without requiring us to know the future.
+Once all these steps are completed, we are at a point where our data analytics tools, BI systems, or ML models can begin their work. However, by leveraging a data lake, we have not inadvertently destroyed potential future value found in the data. Future business questions can be explored without requiring us to know the future.
 
 ### Summary 
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What are Data Lakes and Why Should You Care?"
+title: "What are Data Lakes, and why should you care"
 date: 2019-04-11 00:01
 comments: true
 author: Ash Hornbeck
@@ -11,12 +11,12 @@ bio: "Ash Hornbeck is a Sr. Product Architect on the Rackspace Managed Public Cl
 categories:
     - AWS
     - Database
-metaTitle: "What are Data Lakes and Why Should You Care?"
+metaTitle: "What are Data Lakes, and why should you care?"
 metaDescription: "A look at Data Lakes as a source of future business value."
-ogTitle: "What are Data Lakes and Why Should You Care?"
+ogTitle: "What are Data Lakes, and why should you care?"
 ogDescription: "A look at Data Lakes as a source of future business value."
 ---
-In recent years, Data Lakes have moved from the technology boondocks to the prime beachfront real estate of the data sciences. Why is this happening, and why are they important? The short answer... there's value in there.
+In recent years, Data Lakes have moved from the technology boondocks to the prime beachfront real estate of the data sciences. Why is this happening, and why are they important? The short answer ... there's value in there.
 
 <!-- more -->
 

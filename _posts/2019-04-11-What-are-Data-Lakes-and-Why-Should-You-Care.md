@@ -22,7 +22,7 @@ In recent years, Data Lakes have moved from the technology boondocks to the prim
 
 ### Data Has Value
 
-Increasingly, it is apparent a company's data contains huge potential value. For many of the Internet giants like Google, Facebook, and others, their value is largely derived from their data.  But you don't have to be an Internet giant to get value from your data. Data is being used by industrial companies to predict machine failure, by financial institutions to better manage risk, by online retailers to increase customer retention, and by countless other institutions to discover new insights. It seems like a fairly simple formula: feed data to business analytics tools or machine learning (ML) systems and gain iinsights. In reality, it is not that simple. We must satisfy one essential prerequisite before we can tackle the analysis problem. We must actually have the data that contains the insights.
+Increasingly, it is apparent a company's data contains huge potential value. For many of the Internet giants like Google, Facebook, and others, their value is largely derived from their data.  But you don't have to be an Internet giant to get value from your data. Data is being used by industrial companies to predict machine failure, by financial institutions to better manage risk, by online retailers to increase customer retention, and by countless other institutions to discover new insights. It seems like a fairly simple formula: feed data to business analytics tools or machine learning (ML) systems and gain insights. In reality, it is not that simple. We must satisfy one essential prerequisite before we can tackle the analysis problem. We must actually have the data that contains the insights.
 
 ### Isn't This Just Another Data Warehouse Solution?
 
@@ -46,7 +46,7 @@ Ok, simple enough. Just dump all of the raw data into a single location, and we 
 
 * How will you handle data privacy (e.g., GDPR), data sovereignty, and control access so that you are not in the headlines for another data breach? _Identity and access management must be implemented to apply appropriate permissions and access controls._
 
-What about deduplication or matching records that do not share come identifying key? Is _123 Main St, Some Town, USA_ the same location as _123 Main Street, Some Town, USA_? What about _Robert Smith_ and _Bob Smith_? As you can imagine, these are simple scenarios. Much more complex situations exist in real data sets.
+What about deduplication or matching records that do not share some identifying key? Is _123 Main St, Some Town, USA_ the same location as _123 Main Street, Some Town, USA_? What about _Robert Smith_ and _Bob Smith_? As you can imagine, these are simple scenarios. Much more complex situations exist in real data sets.
 
 Once the data is in the data lake and has the proper indexing and controls in place, it needs to be converted into a structured format before it can be used. Typically, this means applying the just-in-time schema as it is read. The various raw source formats are projected into a known structure so they can be consumed by ML, warehousing, or Business Intelligence (BI) systems.  (I prefer to call this process EtS-TL, Extract transform Store – Transform and Load, because some lossless data transformation is performed as the data enters the lake.  But discussion of nomenclature is a topic for another time.)
 

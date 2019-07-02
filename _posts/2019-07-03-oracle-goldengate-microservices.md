@@ -11,31 +11,31 @@ categories:
   - database
   - architecture
 metaTitle: "Oracle GoldenGate microservices architecture"
-metaDescription: "You can use OGG-MA to configure and manage data replication by using an HTML user interface."
+metaDescription: "You can use OGG MA to configure and manage data replication by using an HTML user interface."
 ogTitle: "Oracle GoldenGate microservices architecture"
-ogDescription: "You can use OGG-MA to configure and manage data replication by using an HTML user interface."
+ogDescription: "You can use OGG MA to configure and manage data replication by using an HTML user interface."
 ---
 
 Oracle&reg; GoldenGate&reg; supports two architectures: the classic architecture
-and the Oracle GoldenGate Microservices Architecture (OGG-MA).
+and the Oracle GoldenGate Microservices Architecture (OGG MA).
 
-Classic architecture has standard extract, replicat, pump and receiver functions
-and is managed by the GoldenGate Software Command Interpreter (ggsci).
+Classic architecture has standard `extract`, `replicat`, `pump`, and `receiver` functions
+and is managed by the GoldenGate Software Command Interpreter (GGSCI).
 
-OGG-MA is a restful application programmer interface (API) microservices-based
+OGG MA is a restful application program interface (API) microservices-based
 architecture that enables you to install, configure, monitor, and manage Oracle
-GoldenGate services through a web-based user interface. OGG-MA was introduced
-in version GoldenGate 12.3 and was designed from the perspective cloud
+GoldenGate services through a web-based user interface. OGG MA was introduced
+in version GoldenGate 12.3 and was designed from the perspective of cloud
 operations.
 
 <!-- more -->
 
 ### Oracle GoldenGate microservices components
 
-You can use OGG-MA to configure and manage data replication by using an HTML
+You can use OGG MA to configure and manage data replication by using an HTML
 user interface.
 
-OGG_MA has five main components. The following diagram illustrates how
+OGG MA has five main components. The following diagram illustrates how
 replication processes operate within a secure Rest API environment:
 
 ![]({% asset_path 2019-07-03-oracle-goldengate-microservices-architecture/Picture1.png %})
@@ -43,7 +43,7 @@ replication processes operate within a secure Rest API environment:
 **Image source**: [https://docs.oracle.com/goldengate/c1230/gg-winux/GGCON/img/logicalarch2.png](https://docs.oracle.com/goldengate/c1230/gg-winux/GGCON/img/logicalarch2.png)
 
 The following sections outline the roles and responsibilities of each component
-of OGG-MA, including the admin client.
+of OGG MA, including the admin client.
 
 #### Service manager
 
@@ -57,7 +57,7 @@ of OGG-MA, including the admin client.
    configuration information about your deployments, and allows you to maintain
    multiple local deployments.
 
--	By using the service manager, you can start and stop instances, and query
+-	By using the service manager, you can start and stop instances and query
    deployments and the other services.
 
 #### Administration server
@@ -69,19 +69,19 @@ of OGG-MA, including the admin client.
    replication components in your GoldenGate deployments.
 
 -	By using the administration server, you can create and manage your local
-   Extract Replicat processes without accessing the server where GoldenGate is
+   `extract replicat` processes without accessing the server where GoldenGate is
    installed.
 
 -	The key feature of the administration server is the Rest API service
    interface, which any HTTP or HTTPS client, such as microservices architecture
    service interfaces or perl and python clients, can address.
 
--	By using the administration server, you can add, delete or alter GoldenGate
+-	By using the administration server, you can add, delete, or alter GoldenGate
    processes, edit configuration files, add users, and assign roles.
 
 #### Distribution server
 
--	The distribution server is functions as a networked data distribution agent
+-	The distribution server functions as a networked data distribution agent
    that conveys and processes data and commands in a distributed networked
    deployment.
 
@@ -116,14 +116,14 @@ of OGG-MA, including the admin client.
 -	All GoldenGate processes send metrics to the performance metrics server.
 
 -	You can use the performance metrics server in both microservices architecture
-   and the classic architecture.
+   and classic architecture.
 
 -	By using the performance metrics server, you can query various metrics, view
    logs, process status, monitor system utilization, and so on.
 
 #### Admin client
 
--	The admin client is a command line utility (like the classic ggsci utility).
+-	The admin client is a command line utility (like the classic GGSCI utility).
 
 -	The admin client uses the Rest API published by the microservices
    architecture server to accomplish its tasks.
@@ -132,7 +132,7 @@ of OGG-MA, including the admin client.
 
 
 The admin client has more functions and is more usable in distributed
-configuration than ggsci as shown in the following table:
+configurations than GGSCI as shown in the following table:
 
 ![]({% asset_path 2019-07-03-oracle-goldengate-microservices-architecture/Picture2.png %})
 
@@ -160,8 +160,8 @@ local **OGG\_VAR\_HOME** can share the same read-only **OGG_HOME**.
 
 Microservices architecture is a new service-based architecture that simplifies
 the configuration, administration, and monitoring of large-scale and cloud
-deployments. This post introduced you to the OGG-MA and its components, which
-is expected to change the way you replicate data on-premise, in the cloud, and
+deployments. This post introduced you to the OGG MA and its components, which
+is expected to change the way you replicate data on-premise, in the cloud and
 in hybrid environments.
 
 Use the Feedback tab to make any comments or ask questions.

@@ -154,9 +154,7 @@ available to the end-user in read-only mode.
 
 #### Step 10
 
-Click **OK** to start the log shipping, as shown in the following image:
-
-![]({% asset_path 2019-08-09-Microsoft-SQL-Server-query-store/Picture8.png %})
+Click **OK** to start the log shipping.
 
 The following screen displays:
 

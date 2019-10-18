@@ -24,7 +24,7 @@ Lowering the barriers means:
 1. Not requiring your contributors to install and configure tools
 1. Providing a preview of the updates to make reviews easier
 
-I built a system for the [Apache jclouds](http://jclouds.apache.org/) community that lowers these barriers. But before getting into the details of exactly how I implemented this, let's take a look at the process of actually making a contribution.
+I built a system for the [Apache jclouds](https://jclouds.apache.org/) community that lowers these barriers. But before getting into the details of exactly how I implemented this, let's take a look at the process of actually making a contribution.
 
 ## The Process
 
@@ -36,12 +36,12 @@ There are 3 actors in this process:
 
 This is the process they go through:
 
-1. The contributor, wanting to make an improvement, clicks on the Fix This Page link at the bottom of any page on the jclouds [website](http://jclouds.apache.org/) ([screenshot]({% asset_path 2014-06-11-walk-n-doc/walk-n-doc-01.png%} )).
+1. The contributor, wanting to make an improvement, clicks on the Fix This Page link at the bottom of any page on the jclouds [website](https://jclouds.apache.org/) ([screenshot]({% asset_path 2014-06-11-walk-n-doc/walk-n-doc-01.png%} )).
 1. The contributor edits the page while GitHub automatically forks the [jclouds-site repo](https://github.com/jclouds/jclouds-site/) in the background, if necessary ([screenshot]({% asset_path 2014-06-11-walk-n-doc/walk-n-doc-02.png %})). Note that the contributor needs a GitHub account and will need to be logged in.
 1. The contributor proposes the edits while GitHub automatically create a branch for the commit ([screenshot]({% asset_path 2014-06-11-walk-n-doc/walk-n-doc-03.png %})).
 1. The contributor creates a pull request ([screenshot]({% asset_path 2014-06-11-walk-n-doc/walk-n-doc-04.png %})).
 1. The doc system automatically builds the entire jclouds website with the contributor's edits included and comments on the pull request when done ([screenshot]({% asset_path 2014-06-11-walk-n-doc/walk-n-doc-05.png %})).
-1. The doc system automatically uploads the staging jclouds website to [Rackspace Cloud Files](http://jclouds.apache.org/guides/rackspace/#files) and comments on the pull request with a link to the staging website when done ([screenshot]({% asset_path 2014-06-11-walk-n-doc/walk-n-doc-06.png %})).
+1. The doc system automatically uploads the staging jclouds website to [Rackspace Cloud Files](https://jclouds.apache.org/guides/rackspace/#files) and comments on the pull request with a link to the staging website when done ([screenshot]({% asset_path 2014-06-11-walk-n-doc/walk-n-doc-06.png %})).
 1. The contributor and the reviewer both click on the link to the staging website so they can both review the exact same rendered changes ([screenshot]({% asset_path 2014-06-11-walk-n-doc/walk-n-doc-07.png %})).
 1. If the reviewer requests changes, the contributor edits the file(s) within the pull request and proposes those edits in an additional commit. The process goes back to #5 ([screenshot]({% asset_path 2014-06-11-walk-n-doc/walk-n-doc-08.png %})).
 1. The reviewer rejoices when the changes look good and merges the pull request ([screenshot]({% asset_path 2014-06-11-walk-n-doc/walk-n-doc-09.png %})).
@@ -64,7 +64,7 @@ Many people have [GitHub](https://github.com/) accounts already and getting one 
 
 ### Markdown and HTML/CSS
 
-Simple [Markdown](http://daringfireball.net/projects/markdown/) documents with HTML/CSS make up the content of the jclouds website documentation. They are combined using [Jekyll](http://jekyllrb.com/), a template engine, so that contributors can focus on the content and not the layout of the entire website.
+Simple [Markdown](https://daringfireball.net/projects/markdown/) documents with HTML/CSS make up the content of the jclouds website documentation. They are combined using [Jekyll](https://jekyllrb.com/), a template engine, so that contributors can focus on the content and not the layout of the entire website.
 
 ### Web Browser
 
@@ -72,7 +72,7 @@ It doesn't get anymore ubiquitous than the web browser. The Markdown documents c
 
 ### Jenkins
 
-{% img right 2014-06-11-walk-n-doc/jenkins.png %}[Jenkins](http://jenkins-ci.org/), at the heart of the doc system, is responsible for building the website with Jekyll and uploading the staging jclouds website to Rackspace Cloud Files using jclouds. Installation and configuration of Jenkins itself is outside the scope of this post but it's relatively easy to get started using it. You need the [GitHub Plugin and configure a webhook](http://blog.cloudbees.com/2012/01/better-integration-between-jenkins-and.html) to fire when a pull request is made to your GitHub repo.
+{% img right 2014-06-11-walk-n-doc/jenkins.png %}[Jenkins](https://jenkins-ci.org/), at the heart of the doc system, is responsible for building the website with Jekyll and uploading the staging jclouds website to Rackspace Cloud Files using jclouds. Installation and configuration of Jenkins itself is outside the scope of this post but it's relatively easy to get started using it. You need the [GitHub Plugin and configure a webhook](https://blog.cloudbees.com/2012/01/better-integration-between-jenkins-and.html) to fire when a pull request is made to your GitHub repo.
 
 ### Jenkins Jobs
 
@@ -130,7 +130,7 @@ comment.py
 
 <script src="https://gist.github.com/everett-toews/4e7295ecfd33ac14d92e.js"></script>
 
-The jclouds community actually uses [CloudBees](http://www.cloudbees.com/) extensively as the place to host our Jenkins jobs. However, these jobs have been generalized and should run on Jenkins with the GitHub plugin.
+The jclouds community actually uses [CloudBees](https://www.cloudbees.com/) extensively as the place to host our Jenkins jobs. However, these jobs have been generalized and should run on Jenkins with the GitHub plugin.
 
 ## Coda
 

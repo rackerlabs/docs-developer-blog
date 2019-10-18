@@ -41,7 +41,7 @@ end
 
 The default OpsCode offering is *Chef Server*, a server that stores configuration management files ("cookbooks"), information about servers  that can connect to it ("nodes"), and stored data requires  to provision a sever successfully ("data bags").  Setting up a new client to a Chef Server requires creating a public/private key pair and then running `chef-client`, which pulls down recipes from the server and executes them on the client.
 
-[LittleChef](https://github.com/tobami/littlechef) is a library for running [Chef](http://www.opscode.com/) configuration management on infrastructure without requiring a centralized server.  It's built on top of [Fabric](http://fabfile.org), a Python library for automating system adminstration tasks across multiple servers.  It uses `rsync` to push cookbooks from a trusted deployment node to the client, and then runs `chef-solo` to execute these cookbooks on a client from the filesystem.
+[LittleChef](https://github.com/tobami/littlechef) is a library for running [Chef](https://www.opscode.com/) configuration management on infrastructure without requiring a centralized server.  It's built on top of [Fabric](https://fabfile.org), a Python library for automating system adminstration tasks across multiple servers.  It uses `rsync` to push cookbooks from a trusted deployment node to the client, and then runs `chef-solo` to execute these cookbooks on a client from the filesystem.
 
 ## Trust: Chef Server vs LittleChef
 
@@ -55,7 +55,7 @@ Using a push model such as LittleChef, you replace this trust relationship with 
 
 {% img center 2013-03-13-transitioning-to-littlechef/2013-03-03-littlechef-trust-model.png %}
 
-While the deployment node *might* be your developer machine, I wouldn't recommend this as your only solution as your team grows.  LittleChef enables a better workflow for testing recipes on remote nodes; push then commit rather than a upload possibly bad configuration to the server.  Production deploys should happen from a controlled box with an automated process, using automation tools such as [Jenkins](http://jenkins-ci.org/), [Deployinator](https://github.com/etsy/deployinator), or [Dreadnot](https://github.com/racker/dreadnot) (what my team uses).
+While the deployment node *might* be your developer machine, I wouldn't recommend this as your only solution as your team grows.  LittleChef enables a better workflow for testing recipes on remote nodes; push then commit rather than a upload possibly bad configuration to the server.  Production deploys should happen from a controlled box with an automated process, using automation tools such as [Jenkins](https://jenkins-ci.org/), [Deployinator](https://github.com/etsy/deployinator), or [Dreadnot](https://github.com/racker/dreadnot) (what my team uses).
 
 The data bag decryption key no longer being on the client is bit of a red herring: the data bag decryption key is copied to the client during deploys and removed afterwards.  Besides, if you are writing formerly encrypted data unencrypted into your configuration files the client still has access to all the same secret information.
 
@@ -67,7 +67,7 @@ My team recently transitioned from using Chef Server to using LittleChef.  Both 
 
 My team currently maintains less than 100 servers across all of our environments (including our development and logging infrastructure).  This is not a lot and our architecture is relatively basic, with only a few different types of servers: our stack is Apache, MySQL, Django for web application development, Twisted for web service calls.  This low level of complexity allows developers to work closely with the deployment environment and understand every aspect of the application as it goes from development to production.
 
-This small number of nodes lets us avoid maintaining a chef server and troubleshooting issues with services like `solr`, `couchdb`, `rabbitmq`, MySQL, or PostgreSQL (depending on which version of [Chef Server](http://www.opscode.com/blog/2013/02/15/the-making-of-erchef-the-chef-11-server/) you're running).  The easiest server to maintain is the one that you're not running!
+This small number of nodes lets us avoid maintaining a chef server and troubleshooting issues with services like `solr`, `couchdb`, `rabbitmq`, MySQL, or PostgreSQL (depending on which version of [Chef Server](https://www.opscode.com/blog/2013/02/15/the-making-of-erchef-the-chef-11-server/) you're running).  The easiest server to maintain is the one that you're not running!
 
 ### Cloud Deployment
 
@@ -91,7 +91,7 @@ The [Knife Solo](https://github.com/matschaffer/knife-solo) library duplicates m
 
 ### Attributes in Roles, Not Environment Files
 
-My team set certain attributes in environment files, which is [not currently supported](http://tickets.opscode.com/browse/CHEF-3356) in Chef Solo (though a patch is being worked on).  To fix this, we moved these attributes into roles and added this role to each node in the environment.
+My team set certain attributes in environment files, which is [not currently supported](https://tickets.opscode.com/browse/CHEF-3356) in Chef Solo (though a patch is being worked on).  To fix this, we moved these attributes into roles and added this role to each node in the environment.
 
 While this was a bit of a hack, it's let us clean up some of our configurations.  For example, feature flags that were previously set to identical values in both our production and preproduction environment files now share the same role to ensure that they keep the same behavior.
 
@@ -99,4 +99,4 @@ While this was a bit of a hack, it's let us clean up some of our configurations.
 
 If you're deploying to the Rackspace Cloud, I've put together [littlechef-rackspace](https://github.com/tildedave/littlechef-rackspace), a library for creating a new server, deploying Chef with LittleChef, and provisioning it with a specified runlist.  It's still pretty basic (only supports server creation) but I'm going to be adding more features to it soon.
 
-_Dave King is a senior software developer on the [Cloud Control Panel](http://www.rackspace.com/blog/cool-features-in-the-new-rackspace-cloud-control-panel/) team.  He works on delivering a simple but powerful user experience to Rackspace customers._
+_Dave King is a senior software developer on the [Cloud Control Panel](https://www.rackspace.com/blog/cool-features-in-the-new-rackspace-cloud-control-panel/) team.  He works on delivering a simple but powerful user experience to Rackspace customers._

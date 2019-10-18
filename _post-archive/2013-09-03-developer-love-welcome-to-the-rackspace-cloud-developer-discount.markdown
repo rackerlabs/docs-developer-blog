@@ -54,15 +54,15 @@ on Github and share it with the world. Remember - we
 [respect you and your data][12] and we will always support you.
 
 
-[1]: http://www.openstack.org/
+[1]: https://www.openstack.org/
 [2]: https://developer.rackspace.com/#home-sdks
 [3]: https://github.com/rackspace/vagrant-rackspace
-[4]: http://rackspace.github.io/rumm/
+[4]: https://rackspace.github.io/rumm/
 [5]: https://github.com/rackerlabs
 [6]: https://github.com/rackspace
 [7]: mailto:sdk-support@rackspace.com
 [8]: https://developer.rackspace.com/devtrial/
-[9]: http://saltstack.com/community.html
+[9]: https://saltstack.com/community.html
 [10]: https://github.com/ansible/ansible
-[11]: http://www.docker.io/
-[12]: http://www.rackspace.com/blog/government-surveillance-and-your-data/
+[11]: https://www.docker.io/
+[12]: https://www.rackspace.com/blog/government-surveillance-and-your-data/

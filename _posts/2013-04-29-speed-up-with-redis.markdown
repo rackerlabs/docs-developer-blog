@@ -14,15 +14,15 @@ In any case, we advise that customers use caching... EVERYWHERE. Adding Redis to
 
 ##What's Redis?
 
-From the "[Introduction to Redis](http://redis.io/topics/introduction)" page at [redis.io](http://redis.io):
+From the "[Introduction to Redis](https://redis.io/topics/introduction)" page at [redis.io](https://redis.io):
 
 > Redis is an open source, BSD licensed, advanced key-value store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets and sorted sets. You can run atomic operations on these types, like appending to a string; incrementing the value in a hash; pushing to a list; computing set intersection, union and difference; or getting the member with highest ranking in a sorted set.
 
-Want to try Redis? Check out [http://try.redis.io/](http://try.redis.io/)
+Want to try Redis? Check out [https://try.redis.io/](https://try.redis.io/)
 
 ##Why Redis?
 
-There is a [ton](http://www.quora.com/Redis-vs-Memcached-which-one-should-I-use-for-a-web-based-application) of [debate](http://stackoverflow.com/questions/2873249/is-memcached-a-dinosaur-in-comparison-to-redis) out there on whether to use Redis or Memcached as a cache. Both are great, but Redis provides a few features over Memcached:
+There is a [ton](https://www.quora.com/Redis-vs-Memcached-which-one-should-I-use-for-a-web-based-application) of [debate](https://stackoverflow.com/questions/2873249/is-memcached-a-dinosaur-in-comparison-to-redis) out there on whether to use Redis or Memcached as a cache. Both are great, but Redis provides a few features over Memcached:
 
 * Persistence: if you restart the memcached service, you have to warm up your cache again.
 * Key/Value vs. Objects: Redis is more advanced in what it can store
@@ -30,7 +30,7 @@ There is a [ton](http://www.quora.com/Redis-vs-Memcached-which-one-should-I-use-
 
 ##How do I set this up?
 
-You can [install Redis](http://redis.io/download) on a Cloud Server if you like, but I recommend setting up a Redis instance at [RedisToGo](http://redistogo.com/). The instances are configured with Redis already, and RedisToGo makes Redis easy to scale. Other features of RedisToGo:
+You can [install Redis](https://redis.io/download) on a Cloud Server if you like, but I recommend setting up a Redis instance at [RedisToGo](https://redistogo.com/). The instances are configured with Redis already, and RedisToGo makes Redis easy to scale. Other features of RedisToGo:
 
 * Graphs of connections and memory use
 * Monitoring notifications on memory use and connection limits
@@ -39,9 +39,9 @@ You can [install Redis](http://redis.io/download) on a Cloud Server if you like,
 * Hourly backups
 * Paid plans persist data to disk on a RAM flush
 
-Once Redis is installed and online, you need to configure your application to use it. The example below uses [Predis](https://github.com/nrk/predis/), a PHP client library. There are [plenty of clients](http://redistogo.com/documentation?language=en) to use with Redis, so you can pick and choose based on your preferred language.
+Once Redis is installed and online, you need to configure your application to use it. The example below uses [Predis](https://github.com/nrk/predis/), a PHP client library. There are [plenty of clients](https://redistogo.com/documentation?language=en) to use with Redis, so you can pick and choose based on your preferred language.
 
-The example below is from on a fantastic tutorial by [Jim Westgren](http://www.jimwestergren.com/wordpress-with-redis-as-a-frontend-cache/) and is specific to WordPress-based sites, but WordPress specific code can be stripped out for use with just about any website. Enjoy!
+The example below is from on a fantastic tutorial by [Jim Westgren](https://www.jimwestergren.com/wordpress-with-redis-as-a-frontend-cache/) and is specific to WordPress-based sites, but WordPress specific code can be stripped out for use with just about any website. Enjoy!
 
 ```php
 <?php
@@ -97,7 +97,7 @@ $redis = new Predis\Client('');
 
 // init vars
 $domain = $_SERVER['HTTP_HOST'];
-$url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$url = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 $url = str_replace('?r=y', '', $url);
 $url = str_replace('?c=y', '', $url);
 $dkey = md5($domain);
@@ -174,9 +174,9 @@ if ($debug) {
 
 if ($cached && $display_powered_by_redis) {
 	// You should move this CSS to your CSS file and change the: float:right;margin:20px 0;
-	echo "<style>#redis_powered{float:right;margin:20px 0;background:url(http://images.staticjw.com/jim/3959/redis.png) 10px no-repeat #fff;border:1px solid #D7D8DF;padding:10px;width:190px;}
+	echo "<style>#redis_powered{float:right;margin:20px 0;background:url(https://images.staticjw.com/jim/3959/redis.png) 10px no-repeat #fff;border:1px solid #D7D8DF;padding:10px;width:190px;}
 	#redis_powered div{width:190px;text-align:right;font:10px/11px arial,sans-serif;color:#000;}</style>";
-	echo "<a href=\"http://www.jimwestergren.com/wordpress-with-redis-as-a-frontend-cache/\" style=\"text-decoration:none;\"><div id=\"redis_powered\"><div>Page generated in<br/> ".t_exec($start, $end)." sec</div></div></a>";
+	echo "<a href=\"https://www.jimwestergren.com/wordpress-with-redis-as-a-frontend-cache/\" style=\"text-decoration:none;\"><div id=\"redis_powered\"><div>Page generated in<br/> ".t_exec($start, $end)." sec</div></div></a>";
 }
 
 // time diff

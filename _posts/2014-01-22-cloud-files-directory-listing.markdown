@@ -46,8 +46,8 @@ After `httpie` and `jq` have been installed, copy the code below and save it as 
         AUTHTOKEN=`echo ${TOKENS} | jq -r '.access.token.id'`
         PUBLICURL=`echo ${TOKENS} | jq -r '.access.serviceCatalog[] | select(.name == "cloudFiles").endpoints[].publicURL'`
 
-        HTML="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
-        HTML+="<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n"
+        HTML="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n"
+        HTML+="<html xmlns=\"https://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\n"
         HTML+="\t<head>\n"
         HTML+="\t\t<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" />\n"
         HTML+="\t\t<title>Container index</title>\n"

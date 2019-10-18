@@ -51,7 +51,7 @@ The following steps are explained in more detail in the following sections:
 
 Use the following steps to register an OSSO agent (mod_sso):
 
-1. Log in to the [oamconsole](http://<oam_server>:7002/oamconsole) and click
+1. Log in to the [oamconsole](https://<oam_server>:7002/oamconsole) and click
    **Setup**.
 
 
@@ -75,7 +75,7 @@ Use the following steps to register an OSSO agent (mod_sso):
       Enter the following <b>Name</b> and <b>Base URL</b> and select <b>Token Version</b> v1.4:
 
       Name: OSSO_11G_DEVDISCO
-      Base URL: http://<discoverer_server>:8090 (Dev Disco url)
+      Base URL: https://<discoverer_server>:8090 (Dev Disco url)
     </li>
     <li>
       Click <b>Apply</b>.
@@ -203,9 +203,9 @@ instance.
 
 Validate the SSO configuration by accessing the following launchers:
 
-[Discoverer viewer launcher](http://<discoverer_server>.corp.zynga.com:8090/discoverer/viewer)
+[Discoverer viewer launcher](https://<discoverer_server>.corp.zynga.com:8090/discoverer/viewer)
 
-[Discoverer launcher](http://<discoverer_server>.corp.zynga.com:8090/discoverer/plus)
+[Discoverer launcher](https://<discoverer_server>.corp.zynga.com:8090/discoverer/plus)
 
 Browse to the URL, enter your SSO login, and click **Login** as shown in the
 following image:

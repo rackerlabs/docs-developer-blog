@@ -68,7 +68,7 @@ apt-get install linux-image-extra-`uname -r`
 apt-get install software-properties-common git
 
 # Add the Docker repository key to your local keychain
-curl http://get.docker.io/gpg | apt-key add -
+curl https://get.docker.io/gpg | apt-key add -
 
 # Add the Docker repository to your apt sources list.
 echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list
@@ -117,7 +117,7 @@ ADD ./foreground.sh /etc/apache2/foreground.sh
 ADD ./supervisord.conf /etc/supervisord.conf
 RUN echo %sudo	ALL=NOPASSWD: ALL >> /etc/sudoers
 RUN rm -rf /var/www/
-ADD http://wordpress.org/latest.tar.gz /wordpress.tar.gz
+ADD https://wordpress.org/latest.tar.gz /wordpress.tar.gz
 RUN tar xvzf /wordpress.tar.gz
 RUN mv /wordpress /var/www/
 RUN chown -R www-data:www-data /var/www/
@@ -209,12 +209,12 @@ your service, this helps you as well!
 If you want to learn more about Docker, the [documentation][8] is a great place
 to start. Docker is also actively looking for [contributions to the project][9]!
 
-[1]: http://slumlordhosting.com
-[2]: http://www.rackspace.com/cloud/servers/
-[3]: http://docker.io
-[4]: http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-raring
+[1]: https://slumlordhosting.com
+[2]: https://www.rackspace.com/cloud/servers/
+[3]: https://docker.io
+[4]: https://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-raring
 [5]: https://github.com/jbfink/docker-wordpress
 [6]: https://github.com/hhoover/slumlord-wordpress
 [7]: https://github.com/jbarbier/SaaS_Memcached
-[8]: http://docs.docker.io/en/latest/
+[8]: https://docs.docker.io/en/latest/
 [9]: https://github.com/dotcloud/docker

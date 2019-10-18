@@ -225,11 +225,11 @@ If you have any questions or comments, let us know.
 Happy emailing!
 
 [1]: https://api.mailgun.net/v2/address
-[2]: http://mailgun.github.io/validator-demo/
-[3]: http://en.wikipedia.org/wiki/Robustness_principle
-[4]: http://tools.ietf.org/html/rfc2822
-[5]: http://tools.ietf.org/html/rfc5322
-[6]: http://stackoverflow.com/a/719543
+[2]: https://mailgun.github.io/validator-demo/
+[3]: https://en.wikipedia.org/wiki/Robustness_principle
+[4]: https://tools.ietf.org/html/rfc2822
+[5]: https://tools.ietf.org/html/rfc5322
+[6]: https://stackoverflow.com/a/719543
 [7]: https://en.wikipedia.org/wiki/Parsing
 [8]: https://github.com/mailgun/validator-demo/tree/gh-pages
-[9]: http://cr.yp.to/smtp/vrfy.html
+[9]: https://cr.yp.to/smtp/vrfy.html

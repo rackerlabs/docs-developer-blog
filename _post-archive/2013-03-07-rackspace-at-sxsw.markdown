@@ -7,7 +7,7 @@ author: Hart Hoover
 categories:
   - Events
 ---
-Rackspace is bringing the Open Cloud Experience to the SXSW Interactive Festival! Come join us over the next few days and learn all about the Open Cloud. We’ll be headquartered at [Champions Sports Bar & Restaurant](http://www.championsaustin.com/) at the [Courtyard Marriott](http://goo.gl/maps/YiQT4), so be sure to stop in and see us.<!-- more -->
+Rackspace is bringing the Open Cloud Experience to the SXSW Interactive Festival! Come join us over the next few days and learn all about the Open Cloud. We’ll be headquartered at [Champions Sports Bar & Restaurant](https://www.championsaustin.com/) at the [Courtyard Marriott](https://goo.gl/maps/YiQT4), so be sure to stop in and see us.<!-- more -->
 
 Here’s a brief overview of where you can find us during SXSW. If you want to find us on Twitter, be sure to keep an eye on the hash-tag [#SXRackspace](https://twitter.com/search?q=%23SXRackspace&src=hash)!
 
@@ -77,18 +77,18 @@ The Rackspace SXSW street team and volunteers will be handing out Tech Tac Toe g
 
 ##StartupBus Comes To Rackspace
 
-Last year, [StartupBus made a quick stop at our San Antonio headquarters on its way to SXSW](http://www.rackspace.com/blog/startupbus-roll-into-rackspace/). This year, we’re the main stop! Yes, [StartupBus’](http://startupbus.com/americas/) new destination is our Castle headquarters. Rackspace will host StartupBus March 6 and March 7 for working sessions, semifinals and finals.
+Last year, [StartupBus made a quick stop at our San Antonio headquarters on its way to SXSW](https://www.rackspace.com/blog/startupbus-roll-into-rackspace/). This year, we’re the main stop! Yes, [StartupBus’](https://startupbus.com/americas/) new destination is our Castle headquarters. Rackspace will host StartupBus March 6 and March 7 for working sessions, semifinals and finals.
 
 ##StartupCrawl
 
-Working with Capital Factory, Rackspace is a sponsor of [StartupCrawl 2013](http://sxswstartupcrawl.eventbrite.com/) – it’s a bar crawl, but for startups. From 4 p.m. to 10 p.m. Thursday, March 7, stop by some of the best startups on the Austin tech scene for a free beer or drink, to drop off a resume, check out the office or just say hello before SXSW Interactive gets into full swing. Shuttles will take you from startup to startup and then back to the beginning – the shuttles run 5 p.m. to 9:30 p.m. Every startup will have its own unique beverage, activity, t-shirt or all of the above.
+Working with Capital Factory, Rackspace is a sponsor of [StartupCrawl 2013](https://sxswstartupcrawl.eventbrite.com/) – it’s a bar crawl, but for startups. From 4 p.m. to 10 p.m. Thursday, March 7, stop by some of the best startups on the Austin tech scene for a free beer or drink, to drop off a resume, check out the office or just say hello before SXSW Interactive gets into full swing. Shuttles will take you from startup to startup and then back to the beginning – the shuttles run 5 p.m. to 9:30 p.m. Every startup will have its own unique beverage, activity, t-shirt or all of the above.
 
 ##SXSW Interactive Accelerator
 
-Rackspace is also a category sponsor in the Innovative Web Technologies category for the [SXSW Interactive Accelerator](http://sxsw.com/interactive/startupvillage/accelerator), a cutting-edge showcase for the hottest emerging startups to present their new technologies to a panel of industry experts, early adopters and representatives from the venture capital community. That accelerator runs March 8 through March 12 at the Hilton Austin Downtown.
+Rackspace is also a category sponsor in the Innovative Web Technologies category for the [SXSW Interactive Accelerator](https://sxsw.com/interactive/startupvillage/accelerator), a cutting-edge showcase for the hottest emerging startups to present their new technologies to a panel of industry experts, early adopters and representatives from the venture capital community. That accelerator runs March 8 through March 12 at the Hilton Austin Downtown.
 
 ##Lean Startup Conference & After Party
 
-Join Dave McClure, Eric Ries and 1,000 tech startups and influencers for a day of case studies and keynotes about what it actually takes to build a killer startup. The event will feature some of the most important entrepreneurs and innovators in tech today The [Lean Startup Conference](http://leanstartupsxsw.co/) runs 9:30 a.m. to 6 p.m. Saturday, March 9 at the Hilton Austin Downtown. Following the conference is a Lean Startup After-party with 500 Startups, scheduled for 6 p.m. to 10:30 p.m. at Champions.
+Join Dave McClure, Eric Ries and 1,000 tech startups and influencers for a day of case studies and keynotes about what it actually takes to build a killer startup. The event will feature some of the most important entrepreneurs and innovators in tech today The [Lean Startup Conference](https://leanstartupsxsw.co/) runs 9:30 a.m. to 6 p.m. Saturday, March 9 at the Hilton Austin Downtown. Following the conference is a Lean Startup After-party with 500 Startups, scheduled for 6 p.m. to 10:30 p.m. at Champions.
 
-To stay on top of all of the things Rackspace has happening at SXSW, check out our SXSW [page](http://try.rackspace.com/sxsw/). For Twitter updates, keep an eye out for the hash-tag [#SXRackspace](https://twitter.com/search?q=%23SXRackspace&src=hash)! We'll see you there!
+To stay on top of all of the things Rackspace has happening at SXSW, check out our SXSW [page](https://try.rackspace.com/sxsw/). For Twitter updates, keep an eye out for the hash-tag [#SXRackspace](https://twitter.com/search?q=%23SXRackspace&src=hash)! We'll see you there!

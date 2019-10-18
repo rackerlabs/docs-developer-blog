@@ -33,7 +33,7 @@ One of the overarching goals of the [Rackspace Service registry](https://dfw.reg
    [node.js](https://github.com/racker/node-service-registry-client),
    [python](https://github.com/racker/python-service-registry-client),
    [twisted-python](https://github.com/racker/python-twisted-service-registry-client)).
-2. We published an [integration guide](http://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/integration-instructions.html).
+2. We published an [integration guide](https://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/integration-instructions.html).
 3. Based on feedback, we removed features that were not useful.
 
 We can do better though.  We want it to be super easy to integrate the RSR into your software.
@@ -42,7 +42,7 @@ well established.
 
 One API that we use in several places at Rackspace is
 [Netflix Curator](https://github.com/netflix/curator).  Curator is a value-added wrapper around
-[Apache Zookeeper](http://zookeeper.apache.org/).  Curator recently added some API interfaces that allows programmers
+[Apache Zookeeper](https://zookeeper.apache.org/).  Curator recently added some API interfaces that allows programmers
 to use it as a [simple service registry](https://github.com/Netflix/curator/wiki/Service-Discovery).  We think that
 is a good place to implement application-specific coordination.  In this case we wanted to make it easier for
 programmers to use RSR.  We decided to create
@@ -58,7 +58,7 @@ If you are already using Curator to register your services, it should be easy to
 Just follow these steps:
 
 
-1. Make sure you have a [Rackspace Cloud](http://www.rackspace.com/cloud/) Account.  You need to know your user
+1. Make sure you have a [Rackspace Cloud](https://www.rackspace.com/cloud/) Account.  You need to know your user
    name and API key.
 2. Add the following dependencies to your project <code>pom.xml</code>:
    <script src="https://gist.github.com/gdusbabek/5338824.js?file=pom_snippet.xml" type="text/javascript"></script>

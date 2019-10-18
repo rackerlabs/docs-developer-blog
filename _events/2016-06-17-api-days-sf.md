@@ -6,7 +6,7 @@ date: 2016-06-17
 location:
   name: San Francisco, CA
   address: 169 11th Street 94103 San Francisco, CA
-website: http://sf.apidays.io/
+website: https://sf.apidays.io/
 attendees: []
 talks: []
 ---

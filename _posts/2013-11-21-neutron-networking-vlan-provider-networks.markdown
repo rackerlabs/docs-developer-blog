@@ -11,7 +11,7 @@ categories:
   - Cloud Networks
 ---
 
-In this multi-part blog series I intend to dive into the various components of the OpenStack Neutron project, and to also provide working examples of networking configurations for clouds built with [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) powered by [OpenStack](http://www.openstack.org) on Ubuntu 12.04 LTS.
+In this multi-part blog series I intend to dive into the various components of the OpenStack Neutron project, and to also provide working examples of networking configurations for clouds built with [Rackspace Private Cloud](https://www.rackspace.com/cloud/private/) powered by [OpenStack](https://www.openstack.org) on Ubuntu 12.04 LTS.
 
 In the previous installment, [Neutron Networking: Simple Flat Network](https://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html), I demonstrated an easy method of providing connectivity to instances using an untagged flat network. In this third installment, I’ll describe how to build multiple provider networks using 802.1q vlan tagging.<!-- more -->
 
@@ -426,7 +426,7 @@ Created a new subnet:
 
 ### Networking: Testing connectivity
 
-Now that the networks have been built in Neutron, it’s time to test connectivity by spinning up some instances. Like the hosts, my instances are running [Ubuntu 12.04 LTS](http://cloud-images.ubuntu.com/precise/current/).
+Now that the networks have been built in Neutron, it’s time to test connectivity by spinning up some instances. Like the hosts, my instances are running [Ubuntu 12.04 LTS](https://cloud-images.ubuntu.com/precise/current/).
 
 ```
 root@controller01:~# nova boot --flavor=m1.small --key_name=controller-id_rsa --image=3ee2e7d5-9d7a-4650-8f76-f8ad58a8c464 --nic net-id=ce316486-9c19-4c37-983b-e058cdcbd7fb INSIDE_INSTANCE
@@ -623,7 +623,7 @@ Because the Cisco ASA is the gateway device, all NAT translations should be conf
 
 ### Summary
 
-With a limited amount of networking hardware one can create a functional private cloud based on [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) powered by [OpenStack](http://www.openstack.org). While the use of vlan provider networks allows for more flexibility over a ‘flat’ design, it still requires interaction with hardware routers and switches for every network and subnet that gets created. In the case where the use of the L3 agent isn’t possible or necessary, vlan-based configurations can still provide users with a secure and scalable cloud experience.
+With a limited amount of networking hardware one can create a functional private cloud based on [Rackspace Private Cloud](https://www.rackspace.com/cloud/private/) powered by [OpenStack](https://www.openstack.org). While the use of vlan provider networks allows for more flexibility over a ‘flat’ design, it still requires interaction with hardware routers and switches for every network and subnet that gets created. In the case where the use of the L3 agent isn’t possible or necessary, vlan-based configurations can still provide users with a secure and scalable cloud experience.
 
 
 _Have questions or comments? Feel free to contact or follow me on Twitter [@jimmdenton](https://twitter.com/jimmdenton)_

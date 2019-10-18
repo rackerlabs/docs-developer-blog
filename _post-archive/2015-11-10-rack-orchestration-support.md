@@ -16,7 +16,7 @@ We're excited to announce that Cloud Orchestration is now accessible via [`rack`
 
 <!-- more -->
 
-Earlier this quarter, we [announced](https://developer.rackspace.com/blog/introducing-rack-global-cli/) `rack`, a new global command-line interface purpose-built for interacting with the Rackspace cloud. We're pleased to announce that you can now access our [Cloud Orchestration](http://www.rackspace.com/en-us/cloud/orchestration) service via `rack`.
+Earlier this quarter, we [announced](https://developer.rackspace.com/blog/introducing-rack-global-cli/) `rack`, a new global command-line interface purpose-built for interacting with the Rackspace cloud. We're pleased to announce that you can now access our [Cloud Orchestration](https://www.rackspace.com/en-us/cloud/orchestration) service via `rack`.
 
 [Rackspace Cloud Orchestration]((https://developer.rackspace.com/docs/cloud-orchestration/v1/)) is a RESTful API Service that can be used to create and manage cloud resources (for example: servers + software installation, databases, load balancers, and so forth) by declaring what you want deployed using a simple template language. Therefore, a template is used to describe resources, which, when deployed, are collectively termed a _stack_. For example, a template can be used to deploy a [LAMP](https://github.com/rackspace-orchestration-templates/lamp/blob/master/lamp.yaml) stack, whose resources include a Linux server with Apache, PHP and a MySQL database.
 

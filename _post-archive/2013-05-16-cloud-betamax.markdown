@@ -9,9 +9,9 @@ categories:
   - General
 ---
 {% img right 2013-05-16-cloud-betamax/betamax.gif 200 %}
-As part of the [Google I/O keynote yesterday](http://thenextweb.com/insider/2013/05/15/everything-announced-at-the-google-io-2013-keynote-in-one-handy-list/?), several new features for Google Compute Engine were announced. First, GCE is now available to everyone in a preview and available for signups. They also announced Cloud Datastore, a NoSQL database solution and several other features.
+As part of the [Google I/O keynote yesterday](https://thenextweb.com/insider/2013/05/15/everything-announced-at-the-google-io-2013-keynote-in-one-handy-list/?), several new features for Google Compute Engine were announced. First, GCE is now available to everyone in a preview and available for signups. They also announced Cloud Datastore, a NoSQL database solution and several other features.
 
-Google Compute Engine looks great, but it's the same old thing from a cloud standpoint. AWS and GCE are both single-vendor, lock-in prone providers. You can't run GCE in your own datacenter. You can't customize and install GCE on both a $200 [One-laptop-per-child](http://laptop.org) notebook and a $4,000 MacBook Pro. These platforms are not open.
+Google Compute Engine looks great, but it's the same old thing from a cloud standpoint. AWS and GCE are both single-vendor, lock-in prone providers. You can't run GCE in your own datacenter. You can't customize and install GCE on both a $200 [One-laptop-per-child](https://laptop.org) notebook and a $4,000 MacBook Pro. These platforms are not open.
 
 This year at SXSW, I spoke on why open matters. I used examples to explain how open can triumph over closed like the open Internet and AOL, or Linux vs. Windows. One of my favorite examples is the Betamax.<!-- more -->
 
@@ -27,4 +27,4 @@ Betamax was pushed by a single vendor, and while most saw it as a superior forma
 
 Once more and more companies were working on VHS, they were able to increase recording time on the tapes which led to a further advantage over a single vendor's proprietary format. In the same way, we've seen Android (more open) push Apple (more closed) forward with regard to features. Would the iPhone have cut-and-paste today if Android didn't have it first?
 
-[OpenStack](http://openstack.org) is an open standard, with many companies working together to push forward on features and interoperability. A single vendor cannot move as fast as an open community. Google Compute Engine, even with its new features, is still a single vendor.
+[OpenStack](https://openstack.org) is an open standard, with many companies working together to push forward on features and interoperability. A single vendor cannot move as fast as an open community. Google Compute Engine, even with its new features, is still a single vendor.

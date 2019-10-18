@@ -63,7 +63,7 @@ See what happened?  The lognormalizer command, which uses liblognorm, was able t
 
 A short description of the rule base is in order.  The prefix line contains a prefix that will be applied to all following rules.  A rule is defined by a line beginning with the word “rule”, followed by an “=” sign, an optional tag, then a “:”.  A space should then follow – but the space is actually part of the rule!  There will be a space after the prefix, so it needs to be there.
 
-Documentation on the rulebase file can be found here: http://www.liblognorm.com/files/manual/index.html
+Documentation on the rulebase file can be found here: https://www.liblognorm.com/files/manual/index.html
 Then navigate to How to use liblognorm → Rulebase.
 This will show you all the directives you can use.
 
@@ -102,7 +102,7 @@ Unfortunately only the standard rsyslog properties and constants can be assigned
 
 To get around this limitation (sort of), I created an ElasticSearch index with a timestamp.  Here is the command I used:
 
-	curl -XPUT http://elasticsearch.hostname:9200/logs -d '{"mappings":{"events":{"_timestamp":{"enabled": true, "store": "yes"},"prog":{"store":"yes"},"host":{"store":"yes"}}}}'
+	curl -XPUT https://elasticsearch.hostname:9200/logs -d '{"mappings":{"events":{"_timestamp":{"enabled": true, "store": "yes"},"prog":{"store":"yes"},"host":{"store":"yes"}}}}'
 
 This also “stores” the host and prog syslog fields, which should help with querying based on the host or program.  This will create an index called “logs”.  ElasticSearch by default inserts events into the “system” index so you will want to specify the index name in your omelasticsearch line in rsyslog.conf (or one of its includes):
 
@@ -112,7 +112,7 @@ We also enabled bulk mode, which allows rsyslog to send many events at once to E
 
 Now you can query it!
 
-	curl 'http://elasticsearch.hostname:9200/logs/_search?pretty=1&fields=_source,_timestamp&size=100' -d '{"sort":{"_timestamp": "desc"}}' | less
+	curl 'https://elasticsearch.hostname:9200/logs/_search?pretty=1&fields=_source,_timestamp&size=100' -d '{"sort":{"_timestamp": "desc"}}' | less
 
 The "pretty=1" and piping it to `less` are simply there to pretty print the JSON result and make it easy for you to browse the data set.  A real search program, of course, would not turn on pretty mode and the code would directly consume the JSON.
 
@@ -124,4 +124,4 @@ You can add parameters after the 'size=100' (which, of course, says to return th
 
 And that should get you started!  Hopefully this is helpful.
 
-[1]: http://www.rsyslog.com/doc/property_replacer.html
+[1]: https://www.rsyslog.com/doc/property_replacer.html

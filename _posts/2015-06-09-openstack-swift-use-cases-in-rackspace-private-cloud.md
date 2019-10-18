@@ -9,9 +9,9 @@ categories:
   - openstack
 ---
 
-OpenStack Swift is the object storage project within OpenStack. From the [OpenStack Swift documentation](http://docs.openstack.org/developer/swift/), "Swift is a highly available, distributed, eventually consistent object/blob store. Organizations can use Swift to store lots of data efficiently, safely, and cheaply."
+OpenStack Swift is the object storage project within OpenStack. From the [OpenStack Swift documentation](https://docs.openstack.org/developer/swift/), "Swift is a highly available, distributed, eventually consistent object/blob store. Organizations can use Swift to store lots of data efficiently, safely, and cheaply."
 
-[Rackspace Private Cloud 10](http://www.rackspace.com/cloud/private/openstack) introduced functionality into our [Ansible tooling](https://github.com/stackforge/os-ansible-deployment) to deploy, manage, and scale Swift. No longer is Swift a second class citizen in our tooling.
+[Rackspace Private Cloud 10](https://www.rackspace.com/cloud/private/openstack) introduced functionality into our [Ansible tooling](https://github.com/stackforge/os-ansible-deployment) to deploy, manage, and scale Swift. No longer is Swift a second class citizen in our tooling.
 
 Now that Swift can be easily deployed and used, what are some of the use cases for it in Rackspace Private Cloud?
 

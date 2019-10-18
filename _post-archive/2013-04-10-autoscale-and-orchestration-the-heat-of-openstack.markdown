@@ -20,8 +20,8 @@ OpenStack Nova APIs as part of the scaling up and down process.<!-- more -->
 At PyCon this year,
 <a href="https://github.com/emonty">Monty Taylor</a>,
 <a href="https://launchpad.net/~lifeless">Robert Collins</a>,
-<a href="http://fewbar.com/">Clint Byrum</a>,
-<a href="http://www.linkedin.com/in/devanandavdv">Devananda van der Veen</a>,
+<a href="https://fewbar.com/">Clint Byrum</a>,
+<a href="https://www.linkedin.com/in/devanandavdv">Devananda van der Veen</a>,
 and I caught up and chatted about what their views were of the
 current status of autoscaling support in OpenStack Heat. It seems that the two
 pieces we need the most -- LBaas and support for external monitoring systems
@@ -52,7 +52,7 @@ The timing was right to contribute what they have learned and align all of
 their continued efforts with adding value to Heat.
 
 Along these lines, we are building
-<a href="http://lists.openstack.org/pipermail/openstack-dev/2013-April/007126.html">two new teams</a>
+<a href="https://lists.openstack.org/pipermail/openstack-dev/2013-April/007126.html">two new teams</a>
 that will focus on Heat development: one contributing to features related to
 autoscaling (not necessarily limited to Heat) and the other contributing to the
 ongoing conversations regarding the separation of concerns between

@@ -14,7 +14,7 @@ categories:
 
 The goal of using a multi-cloud toolkit is avoiding cloud vendor lock-in. I
 examined why avoiding vendor lock-in is important in [
-Keep the Cloud Honest](http://blog.phymata.com/2013/07/31/keep-the-cloud-honest/).
+Keep the Cloud Honest](https://blog.phymata.com/2013/07/31/keep-the-cloud-honest/).
 Toolkits such as Apache jclouds (Java), Apache libcloud (Python), Fog (Ruby), and
 pkgcloud (node.js) enable this by allowing you to write code that will work the
 same across multiple clouds such as Amazon Web Services (AWS), DigitalOcean,

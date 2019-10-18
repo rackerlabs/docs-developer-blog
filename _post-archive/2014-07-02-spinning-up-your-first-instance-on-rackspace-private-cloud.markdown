@@ -9,13 +9,13 @@ categories:
   - OpenStack
   - Private Cloud
 ---
-Last week, I presented a live webinar on how to use the OpenStack Horizon Dashboard to [spin up your first instance on Rackspace Private Cloud](http://youtu.be/YZModLNABhU). The Horizon Dashboard is a simple and intuitive way to begin consuming your OpenStack environment. But, what if you want to administer and use your OpenStack environment using the OpenStack Python command line tools?
+Last week, I presented a live webinar on how to use the OpenStack Horizon Dashboard to [spin up your first instance on Rackspace Private Cloud](https://youtu.be/YZModLNABhU). The Horizon Dashboard is a simple and intuitive way to begin consuming your OpenStack environment. But, what if you want to administer and use your OpenStack environment using the OpenStack Python command line tools?
 
-In the following post, the second of several in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/), I am going to detail how to do everything I did in the webinar using the Horizon Dashboard with the OpenStack Python command line tools.
+In the following post, the second of several in the [RPC Insights series](https://www.rackspace.com/blog/welcome-to-rpc-insights/), I am going to detail how to do everything I did in the webinar using the Horizon Dashboard with the OpenStack Python command line tools.
 
 <!-- more -->
 
-In the webinar, I was working from a virtual Rackspace Private Cloud environment running on my workstation. That environment was created using these [multi-node Vagrantfiles](http://thornelabs.net/2013/12/17/deploy-rackspace-private-cloud-entirely-within-a-vagrantfile-on-virtualbox-or-vmware-fusion.html). The entirely of this post will assume you are using those multi-node Vagrantfiles as well. It is worth mentioning that most of the commands below will work just as well on other OpenStack environments. The main difference between other evironments will be the networking layout and configuration.
+In the webinar, I was working from a virtual Rackspace Private Cloud environment running on my workstation. That environment was created using these [multi-node Vagrantfiles](https://thornelabs.net/2013/12/17/deploy-rackspace-private-cloud-entirely-within-a-vagrantfile-on-virtualbox-or-vmware-fusion.html). The entirely of this post will assume you are using those multi-node Vagrantfiles as well. It is worth mentioning that most of the commands below will work just as well on other OpenStack environments. The main difference between other evironments will be the networking layout and configuration.
 
 Log into the OpenStack Controller Node
 --------------------------------------
@@ -43,14 +43,14 @@ source ~/openrc
 Upload Images to Glance
 -----------------------
 
-A base Rackspace Private Cloud install does not include any OpenStack images and without any images you will not be able to boot any OpenStack Instances. There are many [pre-built OpenStack images](http://docs.openstack.org/image-guide/content/ch_obtaining_images.html) available from all of the major Linux distributions.
+A base Rackspace Private Cloud install does not include any OpenStack images and without any images you will not be able to boot any OpenStack Instances. There are many [pre-built OpenStack images](https://docs.openstack.org/image-guide/content/ch_obtaining_images.html) available from all of the major Linux distributions.
 
 In this post you will be uploading the __CirrOS 0.3.2 x86_64 OpenStack cloud image__ into the Glance Repository.
 
 Upload the CirrOS OpenStack cloud image by running the following command:
 
 ```sh
-glance image-create --name cirros-0.3.2-x86_64 --is-public true --container-format bare --disk-format qcow2 --copy-from http://download.cirros-cloud.net/0.3.2/cirros-0.3.2-x86_64-disk.img
+glance image-create --name cirros-0.3.2-x86_64 --is-public true --container-format bare --disk-format qcow2 --copy-from https://download.cirros-cloud.net/0.3.2/cirros-0.3.2-x86_64-disk.img
 ```
 
 You can monitor the upload progress by running `glance image-list`.
@@ -255,6 +255,6 @@ At this point you have seen how to upload images to Glance, add rules to the def
 
 Being able to do all of these things using the Horizon Dashboard or the OpenStack Python command line tools gives you a fantastic foundation to administering and using your Rackspace Private Cloud.
 
-This concludes the second of several posts in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/).
+This concludes the second of several posts in the [RPC Insights series](https://www.rackspace.com/blog/welcome-to-rpc-insights/).
 
-Join us on July 30, 2014 at 10:00 AM CDT for a live webinar on [Using Rackspace Private Cloud to Host Your Web Tier Applications](http://go.rackspace.com/rpc-to-host-your-web-tier-applications.html).
+Join us on July 30, 2014 at 10:00 AM CDT for a live webinar on [Using Rackspace Private Cloud to Host Your Web Tier Applications](https://go.rackspace.com/rpc-to-host-your-web-tier-applications.html).

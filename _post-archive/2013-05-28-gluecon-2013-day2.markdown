@@ -13,7 +13,7 @@ categories:
 
 The second day of Gluecon 2013 started off with a bang with a great keynote
 presentation from [Lew Cirne](https://twitter.com/sweetlew), CEO of
-[New Relic](http://newrelic.com/) and [Stephen O’Grady](https://twitter.com/sogrady)
+[New Relic](https://newrelic.com/) and [Stephen O’Grady](https://twitter.com/sogrady)
 of Redmonk. Day two was packed with compelling topics including enterprise
 software history, CEOs who love to code, why to API and a further introduction
 to Google Compute Engine.

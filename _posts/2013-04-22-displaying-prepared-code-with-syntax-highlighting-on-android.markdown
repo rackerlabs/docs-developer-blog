@@ -14,7 +14,7 @@ I’m a fan of giving code snippets together with working demonstrations. I’m 
 When I was asked to explain some Android features to my colleagues, I planned to compose demo apps with prepared, read-only code snippets. But as you can imagine, just dumping Java code into a TextView was a mess. The formatting was all wrong and (at least for me personally) reading code without syntax highlighting is a pain. Fortunately, there is a way to fix this.<!-- more -->
 ##Using Spanned formatting
 
-This formatting solution still uses [TextView](http://developer.android.com/reference/android/widget/TextView.html), but rather than provide it with plain text content we pass my snippet as a [Spanned](http://developer.android.com/reference/android/text/Spanned.html) object. For small strings or dynamically-generated strings, we might programmatically compose our formatting from a [SpannableString](http://developer.android.com/reference/android/text/SpannableString.html), as in the following example:
+This formatting solution still uses [TextView](https://developer.android.com/reference/android/widget/TextView.html), but rather than provide it with plain text content we pass my snippet as a [Spanned](https://developer.android.com/reference/android/text/Spanned.html) object. For small strings or dynamically-generated strings, we might programmatically compose our formatting from a [SpannableString](https://developer.android.com/reference/android/text/SpannableString.html), as in the following example:
 
 <script src="https://gist.github.com/marcab/8fcd2df7f106b97c8071.js"></script>
 
@@ -59,4 +59,4 @@ Not bad, eh?
 
 Feel free to check out the [source code](https://github.com/marcab/list-accounts) for this demo.
 
-_John Davidson is an Android developer at Rackspace's San Francisco office working on mobile products and services.  Of the mobile platforms he's tried, he prefers Android for the freedom it gives its users and developers, which is also why he's a fan of [CyanogenMod](http://www.cyanogenmod.org/) and other Android-based projects.  He speaks a little Mandarin (poorly) but is studying to improve.  You can follow John on Twitter at [@DavidsonJohnR](http://twitter.com/DavidsonJohnR)_
+_John Davidson is an Android developer at Rackspace's San Francisco office working on mobile products and services.  Of the mobile platforms he's tried, he prefers Android for the freedom it gives its users and developers, which is also why he's a fan of [CyanogenMod](https://www.cyanogenmod.org/) and other Android-based projects.  He speaks a little Mandarin (poorly) but is studying to improve.  You can follow John on Twitter at [@DavidsonJohnR](https://twitter.com/DavidsonJohnR)_

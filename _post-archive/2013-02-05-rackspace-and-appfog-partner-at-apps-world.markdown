@@ -7,11 +7,11 @@ author: Hart Hoover
 categories:
   - General
 ---
-[Rackspace](http://www.rackspace.com) and [AppFog](http://appfog.com) are throwing a Happy Hour on Thursday, February 7 at AppsWorld in San Francisco, and we’re asking developers to create an app that helps us choose the beers that will be served at the party. You could win an iPad! All you need to do is [RSVP](http://www.cvent.com/events/rackspace-appfog-happy-hour/event-summary-07b1437cd7ba4459819e587870b0f854.aspx) to the party, [register for the contest](http://get.appfog.com/appsandbeers), and then create an app (deployed on AppFog and Rackspace) that allows people to vote for which beers will be served at the happy hour.
+[Rackspace](https://www.rackspace.com) and [AppFog](https://appfog.com) are throwing a Happy Hour on Thursday, February 7 at AppsWorld in San Francisco, and we’re asking developers to create an app that helps us choose the beers that will be served at the party. You could win an iPad! All you need to do is [RSVP](https://www.cvent.com/events/rackspace-appfog-happy-hour/event-summary-07b1437cd7ba4459819e587870b0f854.aspx) to the party, [register for the contest](https://get.appfog.com/appsandbeers), and then create an app (deployed on AppFog and Rackspace) that allows people to vote for which beers will be served at the happy hour.
 
 That’s right, your votes determine which beers we drink! We’ve selected six beers for the contest: Widmer Hefeweizen, Sierra Nevada Pale Ale, Stella Artois, Lagunitas IPA, Newcastle Brown Ale, and Guinness Stout.
 
-#[Register your app today!](http://get.appfog.com/appsandbeers)
+#[Register your app today!](https://get.appfog.com/appsandbeers)
 <!-- more -->
 
 We invite you to visit us at Apps World at booth #107 to learn more on how we are powering customers and delivering open technologies worldwide. Meet our team of developer advocates and open cloud experts to discover why over 197,000 companies rely on the Rackspace Cloud to bring their websites, apps, and ideas to life. And don’t forget to pick up your Rackspace t-shirt!

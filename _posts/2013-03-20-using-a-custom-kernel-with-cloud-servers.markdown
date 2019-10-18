@@ -30,10 +30,10 @@ $ sudo apt-get install build-essential pbuilder bc debiandoc-sgml libbogl-dev gl
 We will also need to add the following lines to `/etc/apt/sources.list`
 
 ```
-deb http://archive.ubuntu.com/ubuntu/ lucid main/debian-installer
-deb http://archive.ubuntu.com/ubuntu/ lucid-updates main/debian-installer
-deb http://archive.ubuntu.com/ubuntu/ lucid-backports main/debian-installer
-deb http://archive.ubuntu.com/ubuntu/ lucid-security main/debian-installer
+deb https://archive.ubuntu.com/ubuntu/ lucid main/debian-installer
+deb https://archive.ubuntu.com/ubuntu/ lucid-updates main/debian-installer
+deb https://archive.ubuntu.com/ubuntu/ lucid-backports main/debian-installer
+deb https://archive.ubuntu.com/ubuntu/ lucid-security main/debian-installer
 ```
 
 After which you will need to run
@@ -144,7 +144,7 @@ Building our own installer provides several advantages over the old method of do
 
 You can find an iso built with the exact steps above [here](https://86fbf08e343b5d5dc177-be6096dd7b17231f28632d8c229287b5.ssl.cf2.rackcdn.com/rax_mini_10.04.iso).
 
-The instructions were based on [Debian documentation](http://wiki.debian.org/DebianInstaller/Modify/CustomKernel), modified slightly for use on Ubuntu. If you need to run on your own custom kernel image (we used kernel images in the Ubuntu repo) then those instructions are likely to be more helpful.
+The instructions were based on [Debian documentation](https://wiki.debian.org/DebianInstaller/Modify/CustomKernel), modified slightly for use on Ubuntu. If you need to run on your own custom kernel image (we used kernel images in the Ubuntu repo) then those instructions are likely to be more helpful.
 
 ## Notes on choice of netboot image
 

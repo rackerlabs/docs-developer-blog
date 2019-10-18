@@ -10,7 +10,7 @@ categories:
   - Python
 ---
 
-In my [last post](http://devops.rackspace.com/using-puppet-with-cloud-servers.html), I discussed a manual install of Puppet between a puppetmaster and client. Here, I will take that a step further and use Apache [libcloud](http://libcloud.apache.org/) to bootstap a Puppet client node.
+In my [last post](https://devops.rackspace.com/using-puppet-with-cloud-servers.html), I discussed a manual install of Puppet between a puppetmaster and client. Here, I will take that a step further and use Apache [libcloud](https://libcloud.apache.org/) to bootstap a Puppet client node.
 
 <!-- more -->
 
@@ -26,7 +26,7 @@ UPDATE: Since libcloud has been updated since this post, you need to use pip wit
 
 	pip install apache-libcloud==0.11.3
 
-You may need to install other Python libraries like [paramiko](http://www.lag.net/paramiko/) for deployments.
+You may need to install other Python libraries like [paramiko](https://www.lag.net/paramiko/) for deployments.
 
 
 #### Create a shell script for installing Puppet
@@ -43,7 +43,7 @@ apt-get update
 apt-get -y upgrade
 
 # install PuppetLabs repo
-wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb
+wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
 dpkg -i puppetlabs-release-precise.deb
 
 # Install puppet
@@ -149,4 +149,4 @@ Your Puppet client will start getting manifests and modules from the puppetmaste
 #### Want to know more?
 
 
-For more information on Puppet, PuppetLabs has great [documentation](http://docs.puppetlabs.com/). Click [here](http://libcloud.apache.org/docs/) for more information on libcloud, or [here](https://twitter.com/libcloud) to follow libcloud on Twitter.
+For more information on Puppet, PuppetLabs has great [documentation](https://docs.puppetlabs.com/). Click [here](https://libcloud.apache.org/docs/) for more information on libcloud, or [here](https://twitter.com/libcloud) to follow libcloud on Twitter.

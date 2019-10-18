@@ -6,7 +6,7 @@ comments: false
 author: Josh Mattson
 published: true
 authorIsRacker: true
-authorAvatar: 'http://www.gravatar.com/avatar/791617263c70278859e1b26c15d13eab'
+authorAvatar: 'https://www.gravatar.com/avatar/791617263c70278859e1b26c15d13eab'
 categories:
     - DevOps
 ---

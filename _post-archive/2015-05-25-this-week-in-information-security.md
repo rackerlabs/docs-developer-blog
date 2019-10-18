@@ -54,26 +54,26 @@ As always, you can find me on Twitter [@ccneill][twitter] if you have any though
 
 [twitter]: https://twitter.com/ccneill
 
-[snowden]: http://cacm.acm.org/magazines/2015/5/186025-privacy-behaviors-after-snowden/fulltext
+[snowden]: https://cacm.acm.org/magazines/2015/5/186025-privacy-behaviors-after-snowden/fulltext
 [putty]: https://noncombatant.org/2014/03/03/downloading-software-safely-is-nearly-impossible/
-[putty2]: http://www.net-security.org/malware_news.php?id=3041
+[putty2]: https://www.net-security.org/malware_news.php?id=3041
 
 [timeshifter]: https://www.anfractuosity.com/projects/timeshifter/
-[starbucks]: http://sakurity.com/blog/2015/05/21/starbucks.html
+[starbucks]: https://sakurity.com/blog/2015/05/21/starbucks.html
 [racecond]: https://hackerone.com/reports/59179
-[racecond2]: http://josipfranjkovic.blogspot.com/2015/04/race-conditions-on-facebook.html
-[racecond3]: http://en.wikipedia.org/wiki/Double-spending
+[racecond2]: https://josipfranjkovic.blogspot.com/2015/04/race-conditions-on-facebook.html
+[racecond3]: https://en.wikipedia.org/wiki/Double-spending
 [racecond4]: https://defuse.ca/race-conditions-in-web-applications.htm
-[sec_questions]: http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/43783.pdf
+[sec_questions]: https://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/43783.pdf
 
 [logjam]: https://weakdh.org/
-[logjam2]: http://security.stackexchange.com/questions/89689/what-is-logjam-and-how-do-i-prevent-it
+[logjam2]: https://security.stackexchange.com/questions/89689/what-is-logjam-and-how-do-i-prevent-it
 [logjam3]: https://blog.cloudflare.com/logjam-the-latest-tls-vulnerability-explained/
-[netusb]: http://blog.sec-consult.com/2015/05/kcodes-netusb-how-small-taiwanese.html?m=1
+[netusb]: https://blog.sec-consult.com/2015/05/kcodes-netusb-how-small-taiwanese.html?m=1
 [ipsec]: https://www.altsci.com/ipsec/
 
 [crypto_answers]: https://gist.github.com/tqbf/be58d2d39690c3b366ad
 
-[regexr]: http://regexr.com/
+[regexr]: https://regexr.com/
 
-[ppt]: http://www.washingtonpost.com/posteverything/wp/2015/05/26/powerpoint-should-be-banned-this-powerpoint-presentation-explains-why/?tid=pm_pop_b
+[ppt]: https://www.washingtonpost.com/posteverything/wp/2015/05/26/powerpoint-should-be-banned-this-powerpoint-presentation-explains-why/?tid=pm_pop_b

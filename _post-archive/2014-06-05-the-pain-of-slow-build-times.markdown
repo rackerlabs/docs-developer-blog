@@ -55,15 +55,15 @@ applied to other software you want to package.
 This walk through assumes you have the following installed:
 
 ### Gems:
-* [berkshelf](http://berkshelf.com/) >= 3.1.0
+* [berkshelf](https://berkshelf.com/) >= 3.1.0
 * [test-kitchen](https://github.com/test-kitchen/test-kitchen) >= 1.2.0
 * kitchen-vagrant >= 0.15.0
 
 You can install these individually or via the
-[Chef Development Kit](http://www.getchef.com/downloads/chef-dk/)
+[Chef Development Kit](https://www.getchef.com/downloads/chef-dk/)
 
 ### System Packages:
-* [vagrant](http://www.vagrantup.com/) >= 1.5.0
+* [vagrant](https://www.vagrantup.com/) >= 1.5.0
 * [VirtualBox](https://www.virtualbox.org/) >= 4.3.0
 
 ### Python Modules:
@@ -274,7 +274,7 @@ Within the mycloud.rackspace.com control panel, right click on your
 
 Download the gpg key to your VM like this:
 
-    wget http://YOUR_CDN_URL/ruby-site.gpg.key
+    wget https://YOUR_CDN_URL/ruby-site.gpg.key
 
 Then run:
 
@@ -312,7 +312,7 @@ install our new packages
 
     apt_repository 'ruby-site' do
       uri 'https://YOUR_CDN_URL'
-      key 'http://YOUR_CDN_URL/ruby-site.gpg.key'
+      key 'https://YOUR_CDN_URL/ruby-site.gpg.key'
       arch 'amd64'
       components ['main']
       distribution 'precise'
@@ -348,10 +348,10 @@ Here are some resources for further reading. Much thanks to the
 contributors of these articles which were indispensible in the
 preparation of this post.
 
-* [Hosting APT repository on Rackspace CloudFiles](http://www.tomaz.me/2012/07/22/hosting-apt-repository-on-rackspace-cloud-files.html)
+* [Hosting APT repository on Rackspace CloudFiles](https://www.tomaz.me/2012/07/22/hosting-apt-repository-on-rackspace-cloud-files.html)
 * [Setting Up Signed Apt Repository With Reprepro](https://wiki.debian.org/SettingUpSignedAptRepositoryWithReprepro)
 * [OpenPGP Best Practices](https://we.riseup.net/riseuplabs+paow/openpgp-best-practices)
-* [Creating your own Signed APT Repository and Debian Packages](http://blog.jonliv.es/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/)
+* [Creating your own Signed APT Repository and Debian Packages](https://blog.jonliv.es/2011/04/26/creating-your-own-signed-apt-repository-and-debian-packages/)
 
 Also, here is a link to my GitHub repo that has the finished cookbook
 using these packages:

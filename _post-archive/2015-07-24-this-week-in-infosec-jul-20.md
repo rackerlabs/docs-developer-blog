@@ -63,23 +63,23 @@ Source: [@lavados' Twitter][row_hammering]
 
 [twitter]: https://twitter.com/ccneill
 
-[ashley_madison]: http://thehackernews.com/2015/07/adult-dating-website.html
+[ashley_madison]: https://thehackernews.com/2015/07/adult-dating-website.html
 
-[jeep]: http://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/
-[safety]: http://googleonlinesecurity.blogspot.com/2015/07/new-research-comparing-how-security.html
+[jeep]: https://www.wired.com/2015/07/hackers-remotely-kill-jeep-highway/
+[safety]: https://googleonlinesecurity.blogspot.com/2015/07/new-research-comparing-how-security.html
 [safety_pdf]: https://www.usenix.org/system/files/conference/soups2015/soups15-paper-ion.pdf
-[mongodb]: http://thehackernews.com/2015/07/MongoDB-Database-hacking-tool.html
+[mongodb]: https://thehackernews.com/2015/07/MongoDB-Database-hacking-tool.html
 [mongodb_report]: https://www.shodan.io/report/OID7V1zw
 
 [os_x]: https://www.sektioneins.de/en/blog/15-07-07-dyld_print_to_file_lpe.html
 [os_x_kernel]: https://github.com/sektioneins/SUIDGuard
 [os_x_security]: https://support.apple.com/en-us/HT201222
-[openssh]: http://arstechnica.com/security/2015/07/bug-in-widely-used-openssh-opens-servers-to-password-cracking/
-[openssh_security]: http://www.openssh.com/security.html
-[ie]: http://www.securityweek.com/four-rce-zero-day-flaws-plague-internet-explorer-zdi
-[windows_font]: http://blog.trendmicro.com/trendlabs-security-intelligence/hacking-team-leak-uncovers-another-windows-zero-day-ms-releases-patch/
+[openssh]: https://arstechnica.com/security/2015/07/bug-in-widely-used-openssh-opens-servers-to-password-cracking/
+[openssh_security]: https://www.openssh.com/security.html
+[ie]: https://www.securityweek.com/four-rce-zero-day-flaws-plague-internet-explorer-zdi
+[windows_font]: https://blog.trendmicro.com/trendlabs-security-intelligence/hacking-team-leak-uncovers-another-windows-zero-day-ms-releases-patch/
 [windows_font_patch]: https://technet.microsoft.com/library/security/MS15-078
-[windows_font_2]: http://j00ru.vexillium.org/?p=2520
+[windows_font_2]: https://j00ru.vexillium.org/?p=2520
 [last_week]: https://developer.rackspace.com/blog/this-week-in-infosec-jul-13/
 [wp_vuln]: https://wordpress.org/news/2015/07/wordpress-4-2-3/
 [wp_auto_update]: https://codex.wordpress.org/Configuring_Automatic_Background_Updates
@@ -91,4 +91,4 @@ Source: [@lavados' Twitter][row_hammering]
 
 [row_hammering]: https://twitter.com/lavados/status/619164699972792320
 [row_hammering2]: https://en.wikipedia.org/wiki/Row_hammer
-[gpz_dram]: http://googleprojectzero.blogspot.com/2015/03/exploiting-dram-rowhammer-bug-to-gain.html
+[gpz_dram]: https://googleprojectzero.blogspot.com/2015/03/exploiting-dram-rowhammer-bug-to-gain.html

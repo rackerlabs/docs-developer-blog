@@ -282,9 +282,9 @@ Your specific environment file will vary but there are a few sections of interes
 
       "image": {
 
-        "cirros-0.3.1-x86\_64": "http://download.cirros-cloud.net/0.3.1/cirros-0.3.1-x86\_64-disk.img",
+        "cirros-0.3.1-x86\_64": "https://download.cirros-cloud.net/0.3.1/cirros-0.3.1-x86\_64-disk.img",
 
-        "ubuntu-server-12.04.3-x86\_64": "http://cloud-images.ubuntu.com/releases/12.04.3/release/ubuntu-12.04-server-cloudimg-amd64-disk1.img"
+        "ubuntu-server-12.04.3-x86\_64": "https://cloud-images.ubuntu.com/releases/12.04.3/release/ubuntu-12.04-server-cloudimg-amd64-disk1.img"
 
       },
 

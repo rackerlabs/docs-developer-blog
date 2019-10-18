@@ -25,7 +25,7 @@ way. I definitely did.
 
 ### Observations
 
- * PowerShell was born in 2006 and so it has been around for some time. From the [buzz](http://www.google.co.uk/trends/explore#q=powershell), it seems to be gaining more attention in the last 2-3 years.
+ * PowerShell was born in 2006 and so it has been around for some time. From the [buzz](https://www.google.co.uk/trends/explore#q=powershell), it seems to be gaining more attention in the last 2-3 years.
 
  * Just like the Linux shell, if you know your commands and the switches, you can be quite effective. Part of the learning is exploring and getting the feel off the way things are structured and where to look for help.
 
@@ -272,12 +272,12 @@ for ((i=0; i < 10; i++)) ;  do  echo $i ; done | for ($i=0;$i -lt 10; $i++) { ec
 
 ## References and Further reading
 
- * [A Task-Based Guide to Windows PowerShell Cmdlets](http://technet.microsoft.com/en-us/scriptcenter/dd772285.aspx)
+ * [A Task-Based Guide to Windows PowerShell Cmdlets](https://technet.microsoft.com/en-us/scriptcenter/dd772285.aspx)
 
- * [Windows PowerShell Shortcut Keys](http://technet.microsoft.com/en-us/library/ee176868.aspx)
+ * [Windows PowerShell Shortcut Keys](https://technet.microsoft.com/en-us/library/ee176868.aspx)
 
- * [Windows PowerShell Blog](http://blogs.msdn.com/b/powershell/)
+ * [Windows PowerShell Blog](https://blogs.msdn.com/b/powershell/)
 
- * [Desired state configuration](http://blogs.technet.com/b/privatecloud/archive/2013/08/30/introducing-powershell-desired-state-configuration-dsc.aspx)
+ * [Desired state configuration](https://blogs.technet.com/b/privatecloud/archive/2013/08/30/introducing-powershell-desired-state-configuration-dsc.aspx)
 
  * [PoshNova- Microsoft PowerShell module for Rackspace Cloud](https://github.com/rackerlabs/PoshNova)

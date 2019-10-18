@@ -8,13 +8,13 @@ categories:
   - Cloud Servers
 ---
 
-With the announcement of the latest [iPhone](http://www.apple.com/iphone/), the tech world is in a frenzy once again. In previous posts, I discussed configuring [Puppet on Cloud Servers](http://devops.rackspace.com/using-puppet-with-cloud-servers.html) and bootstrapping new servers with [libcloud](http://libcloud.apache.org/) and [Puppet](http://puppetlabs.com/puppet/what-is-puppet/). Here, I will go through the process of creating a new server with the Rackspace Cloud iPhone app that automatically bootstraps with Opscode's [Chef](http://opscode.com) or Puppet. With Chef you have the option to use either your own Chef server or Opscode's Hosted Chef platform.
+With the announcement of the latest [iPhone](https://www.apple.com/iphone/), the tech world is in a frenzy once again. In previous posts, I discussed configuring [Puppet on Cloud Servers](https://devops.rackspace.com/using-puppet-with-cloud-servers.html) and bootstrapping new servers with [libcloud](https://libcloud.apache.org/) and [Puppet](https://puppetlabs.com/puppet/what-is-puppet/). Here, I will go through the process of creating a new server with the Rackspace Cloud iPhone app that automatically bootstraps with Opscode's [Chef](https://opscode.com) or Puppet. With Chef you have the option to use either your own Chef server or Opscode's Hosted Chef platform.
 
 <!-- more -->
 
 #### Install the app
 
-You can find the app in the [iTunes App Store](http://itunes.apple.com/us/app/rackspace-cloud/id327870903?mt=8). Once you install the app, log in with your username and password. After you sign in, click "Settings" on the account screen.
+You can find the app in the [iTunes App Store](https://itunes.apple.com/us/app/rackspace-cloud/id327870903?mt=8). Once you install the app, log in with your username and password. After you sign in, click "Settings" on the account screen.
 
 {% img center 2012-09-12-using-your-iphone-to-bootstrap-cloud-servers/app_settings.jpg %}
 
@@ -38,4 +38,4 @@ If you would rather use Chef as a configuration management platform, the Rackspa
 
 #### For more information...
 
-You can find the full list of features of the Rackspace Cloud app for iPhone on the Rackspace [mobile page](http://www.rackspace.com/cloud/mobile/).
+You can find the full list of features of the Rackspace Cloud app for iPhone on the Rackspace [mobile page](https://www.rackspace.com/cloud/mobile/).

@@ -13,7 +13,7 @@ categories:
 ---
 {% img right 2013-11-07-jclouds-is-an-apache-tlp/jclouds.jpg 200 %}
 
-The lower case j's have been dotted and the t's have been crossed. jclouds is an Apache Software Foundation (ASF) Top Level Project (TLP)! With the closing of [this issue](https://issues.apache.org/jira/browse/INFRA-6912) and the resolution being set to "Fixed", it's officially and infrastructurally done. We've even dropped the "incubator" prefix/suffix from our DNS entries and various source code artifacts. You can now find us at our permanent home [jclouds.apache.org](http://jclouds.apache.org/). Huzzah!
+The lower case j's have been dotted and the t's have been crossed. jclouds is an Apache Software Foundation (ASF) Top Level Project (TLP)! With the closing of [this issue](https://issues.apache.org/jira/browse/INFRA-6912) and the resolution being set to "Fixed", it's officially and infrastructurally done. We've even dropped the "incubator" prefix/suffix from our DNS entries and various source code artifacts. You can now find us at our permanent home [jclouds.apache.org](https://jclouds.apache.org/). Huzzah!
 
 <!-- more -->
 
@@ -35,7 +35,7 @@ jclouds also recognizes that not everyone will need such portable abstractions. 
 
 ## OpenStack
 
-Speaking of cloud-specific features, another open source project that is near and dear to my heart is [OpenStack](http://www.openstack.org/) (my first open source love). You can use jclouds to work with many of its key features. This allows you to move your code between any OpenStack provider.
+Speaking of cloud-specific features, another open source project that is near and dear to my heart is [OpenStack](https://www.openstack.org/) (my first open source love). You can use jclouds to work with many of its key features. This allows you to move your code between any OpenStack provider.
 
 We take an OpenStack first approach in our development when it comes to supporting a new feature in jclouds. When an OpenStack provider releases a new feature for general availability, it's the OpenStack API that we code to. For example, when Rackspace released Cloud Databases, we coded to OpenStack Trove (the code name for OpenStack Databases) first and Cloud Databases second.
 
@@ -57,10 +57,10 @@ After that we'll support:
 *   Heat (Orchestration)
 *   Glance (Images)
 
-To get started with jclouds and OpenStack see the [Quick Start guide](http://jclouds.apache.org/guides/openstack/).
+To get started with jclouds and OpenStack see the [Quick Start guide](https://jclouds.apache.org/guides/openstack/).
 
 ## Conclusion
 
-If you don't have an OpenStack cloud handy, I invite you to kick the tires on jclouds by using the [Rackspace Developer Trial](https://developer.rackspace.com/devtrial/). Use the [jclouds Getting Started Guide](http://jclouds.apache.org/guides/rackspace/) to get up and running quickly. Let us know what you think! You can reach out to me, Everett Toews, on Twitter [@everett_toews](https://twitter.com/everett_toews), [email the developer support team](mailto:sdk-support@rackspace.com), ping [@Rackspace](https://twitter.com/Rackspace) on Twitter, or even reach out to [help@rackspace.com](mailto:help@rackspace.com).
+If you don't have an OpenStack cloud handy, I invite you to kick the tires on jclouds by using the [Rackspace Developer Trial](https://developer.rackspace.com/devtrial/). Use the [jclouds Getting Started Guide](https://jclouds.apache.org/guides/rackspace/) to get up and running quickly. Let us know what you think! You can reach out to me, Everett Toews, on Twitter [@everett_toews](https://twitter.com/everett_toews), [email the developer support team](mailto:sdk-support@rackspace.com), ping [@Rackspace](https://twitter.com/Rackspace) on Twitter, or even reach out to [help@rackspace.com](mailto:help@rackspace.com).
 
 A heartfelt thanks to all of those involved in getting jclouds to where it is today. Our new home in Apache secures the future of jclouds in perpetuity. The increased visibility in the ASF has already had a positive impact on community contribution and engagement from cloud providers. There is no doubt in my mind this is a sign of things to come. It's a new beginning for jclouds and I for one am excited to be a part of it.

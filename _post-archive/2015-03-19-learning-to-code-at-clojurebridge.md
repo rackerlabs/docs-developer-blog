@@ -18,7 +18,7 @@ bio: >
   Follow him on Twitter @everett_toews.
 ---
 
-{% img right 2015-03-19-clojure-bridge/clojurebridge.png "ClojureBridge" %}[ClojureBridge](http://www.clojurebridge.org/) aims to increase diversity within the Clojure community by offering free, beginner-friendly Clojure programming workshops for women. On March 13-14, 2015 we held a ClojureBridge event at the Rackspace office in Austin, TX. It was put on by an amazing group of organizers to foster the adoption of Clojure by women in technology.
+{% img right 2015-03-19-clojure-bridge/clojurebridge.png "ClojureBridge" %}[ClojureBridge](https://www.clojurebridge.org/) aims to increase diversity within the Clojure community by offering free, beginner-friendly Clojure programming workshops for women. On March 13-14, 2015 we held a ClojureBridge event at the Rackspace office in Austin, TX. It was put on by an amazing group of organizers to foster the adoption of Clojure by women in technology.
 
 <!-- more -->
 
@@ -37,7 +37,7 @@ Checkout the Twitter timeline for [ClojureBridge Austin 2015](https://twitter.co
 
 ##The Programming Language
 
-{% img right 2015-03-19-clojure-bridge/clojure.png "Clojure" %}[Clojure](http://clojure.org/) is a dynamic programming language that targets the Java Virtual Machine. It is designed to be a general-purpose language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multithreaded programming. And it's a heckuva lot of fun. :)
+{% img right 2015-03-19-clojure-bridge/clojure.png "Clojure" %}[Clojure](https://clojure.org/) is a dynamic programming language that targets the Java Virtual Machine. It is designed to be a general-purpose language, combining the approachability and interactive development of a scripting language with an efficient and robust infrastructure for multithreaded programming. And it's a heckuva lot of fun. :)
 
 ## Conclusion
 

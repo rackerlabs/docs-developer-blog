@@ -16,11 +16,11 @@ categories:
   - configuration management
 ---
 
-With the [launch](http://www.rackspace.com/blog/monitor-any-cloud-or-web-infrastructure-with-new-rackspace-cloud-monitoring-now-in-unlimited-availability/) of Rackspace Cloud Monitoring (RCM) earlier this week, Rackspace has added an additional tool to your belt that shows you how your servers and applications are behaving. Cloud Monitoring makes it easy to configure monitors and alerts from the Control Panel, but today I want to focus on raxmon, one of the most flexible CLI tools available today for RCM.
+With the [launch](https://www.rackspace.com/blog/monitor-any-cloud-or-web-infrastructure-with-new-rackspace-cloud-monitoring-now-in-unlimited-availability/) of Rackspace Cloud Monitoring (RCM) earlier this week, Rackspace has added an additional tool to your belt that shows you how your servers and applications are behaving. Cloud Monitoring makes it easy to configure monitors and alerts from the Control Panel, but today I want to focus on raxmon, one of the most flexible CLI tools available today for RCM.
 
 <!-- more -->
 
-Raxmon is a CLI tool written in python and uses the libcloud library to interface with the RCM API. We will use the [rackspace-monitoring-cli](http://pypi.python.org/pypi/rackspace-monitoring-cli/0.4.5) package which gives us the raxmon binary. The source code is currently hosted on [github](https://github.com/racker/rackspace-monitoring-cli), so if you find the tool valuable you can start contributing today!
+Raxmon is a CLI tool written in python and uses the libcloud library to interface with the RCM API. We will use the [rackspace-monitoring-cli](https://pypi.python.org/pypi/rackspace-monitoring-cli/0.4.5) package which gives us the raxmon binary. The source code is currently hosted on [github](https://github.com/racker/rackspace-monitoring-cli), so if you find the tool valuable you can start contributing today!
 
 Here, I will walk you through the installation and setup of raxmon and the five simple steps to follow to create and deploy a monitor:
 	
@@ -60,7 +60,7 @@ url=https://identity.api.rackspacecloud.com/v2.0
 verify=true
 {% endcodeblock %}
 
-#####[Here](http://www.rackspace.com/knowledge_center/article/rackspace-cloud-essentials-1-generating-your-api-key) is where you can find your username and API key info
+#####[Here](https://www.rackspace.com/knowledge_center/article/rackspace-cloud-essentials-1-generating-your-api-key) is where you can find your username and API key info
 
 By now, you should have a working raxmon installation configured for use. Now we can move into monitor creation and deployment!
 
@@ -88,7 +88,7 @@ A check is the foundational building block of RCM. It determines the parts or pi
 **NOTES**:
 	 
   * Monitoring zones:  mzdfw - mzord - mziad - mzlon - mzhkg
-  * Available check types: remote.http, remote.tcp, remote.ping, remote.smtp, remote.mysql-banner, & [more](http://docs.rackspacecloud.com/cm/api/v1.0/cm-devguide/content/service-check-types.html#service-check-types-list)
+  * Available check types: remote.http, remote.tcp, remote.ping, remote.smtp, remote.mysql-banner, & [more](https://docs.rackspacecloud.com/cm/api/v1.0/cm-devguide/content/service-check-types.html#service-check-types-list)
 
 
 #### Create a Notification Type

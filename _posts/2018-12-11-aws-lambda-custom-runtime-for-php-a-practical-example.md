@@ -115,7 +115,7 @@ sudo yum install autoconf bison gcc gcc-c++ libcurl-devel libxml2-devel -y
 
 # Compile OpenSSL v1.0.1 from source, as Amazon Linux uses a newer version than the Lambda Execution Environment, which
 # would otherwise produce an incompatible binary.
-curl -sL http://www.openssl.org/source/openssl-1.0.1k.tar.gz | tar -xvz
+curl -sL https://www.openssl.org/source/openssl-1.0.1k.tar.gz | tar -xvz
 cd openssl-1.0.1k
 ./config && make && sudo make install
 cd ~
@@ -290,7 +290,7 @@ let's add the `getNextRequest()` and `sendResponse()` implementations to our
 function getNextRequest()
 {
     $client = new \GuzzleHttp\Client();
-    $response = $client->get('http://' . $_ENV['AWS_LAMBDA_RUNTIME_API'] . '/2018-06-01/runtime/invocation/next');
+    $response = $client->get('https://' . $_ENV['AWS_LAMBDA_RUNTIME_API'] . '/2018-06-01/runtime/invocation/next');
 
     return [
         'invocationId' => $response->getHeader('Lambda-Runtime-Aws-Request-Id')[0],
@@ -312,7 +312,7 @@ function sendResponse($invocationId, $response)
 {
     $client = new \GuzzleHttp\Client();
     $client->post(
-        'http://' . $_ENV['AWS_LAMBDA_RUNTIME_API'] . '/2018-06-01/runtime/invocation/' . $invocationId . '/response',
+        'https://' . $_ENV['AWS_LAMBDA_RUNTIME_API'] . '/2018-06-01/runtime/invocation/' . $invocationId . '/response',
         ['body' => $response]
     );
 }

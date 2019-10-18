@@ -8,9 +8,9 @@ categories:
   - General
 ---
 
-_This is a guest post from Tomaz Muraus. Tomaz is a Racker and a project lead for the Rackspace Service registry product. He is also a project chair of [Apache Libcloud](http://libcloud.apache.org/), an open-source project which deals with cloud interoperability. Before working on Service Registry he worked on the [Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/) product and before joining Rackspace, he worked at [Cloudkick](https://www.cloudkick.com/) helping customers manage and monitor their infrastructure. In his free time, he loves writting code, contributing to open-source projects, advocating for software freedom, going to the gym and cycling. Be sure to check out his GitHub [page](https://github.com/Kami)._
+_This is a guest post from Tomaz Muraus. Tomaz is a Racker and a project lead for the Rackspace Service registry product. He is also a project chair of [Apache Libcloud](https://libcloud.apache.org/), an open-source project which deals with cloud interoperability. Before working on Service Registry he worked on the [Cloud Monitoring](https://www.rackspace.com/cloud/monitoring/) product and before joining Rackspace, he worked at [Cloudkick](https://www.cloudkick.com/) helping customers manage and monitor their infrastructure. In his free time, he loves writting code, contributing to open-source projects, advocating for software freedom, going to the gym and cycling. Be sure to check out his GitHub [page](https://github.com/Kami)._
 
-In November, we launched Service registry into preview. You can read all about it in the blog post titled [Keep Track Of Your Services And Applications With The New Rackspace Service registry](http://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/).
+In November, we launched Service registry into preview. You can read all about it in the blog post titled [Keep Track Of Your Services And Applications With The New Rackspace Service registry](https://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/).
 
 That post describes some common use cases for Service registry and contains information on how you can use it to make your application more highly available and responsive to changes. In this series of posts we take a deep look at some common use cases and illustrate them with code samples.
 
@@ -40,13 +40,13 @@ You can then use this information for different purposes:
 
 In this example, we use the [Node.js Service registry client](https://github.com/racker/node-service-registry-client) to retrieve all of the services with the tag “api” and perform client side filtering on the returned list to find all the services that have been running for more than 14 days.
 
-This example only performs service retrieval and assumes that you already have multiple services registered in the Service Registry. You can find instructions on how to do that in the [Integration Instructions](http://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/integration-instructions.html) part of the documentation.
+This example only performs service retrieval and assumes that you already have multiple services registered in the Service Registry. You can find instructions on how to do that in the [Integration Instructions](https://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/integration-instructions.html) part of the documentation.
 
 <script src="https://gist.github.com/Kami/211c73c307339f356279.js"></script>
 
 ### When to use configuration storage or service metadata?
 
-Service registry offers another feature similar to service metadata storage called [Configuration Storage](http://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/overview.html). Outwardly, it may appear that these features serve identical purposes, but that is not true. They complement each other nicely and you get more out of the Service Registry if you use them together.
+Service registry offers another feature similar to service metadata storage called [Configuration Storage](https://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/overview.html). Outwardly, it may appear that these features serve identical purposes, but that is not true. They complement each other nicely and you get more out of the Service Registry if you use them together.
 
 The primary purpose for the service metadata field is to store different values related to a service instance which are unlikely to change during the service lifetime. Examples of such attributes include:
 
@@ -64,7 +64,7 @@ Configuration storage, on the other hand, is not linked to a particular service 
 * Connection retry delay
 * Service state
 
-Because this feature is geared toward values that change relatively often, you get notifications via the [events feed](http://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/concepts.html) when a value is updated or deleted. Your code can then consume those notifications to react to changes faster (e.g. re-initialize a connection pool with a new list of server addresses) without requiring a service restart.
+Because this feature is geared toward values that change relatively often, you get notifications via the [events feed](https://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/concepts.html) when a value is updated or deleted. Your code can then consume those notifications to react to changes faster (e.g. re-initialize a connection pool with a new list of server addresses) without requiring a service restart.
 
 Additionally, you may use namespaces to organize configuration values to suit your needs.
 

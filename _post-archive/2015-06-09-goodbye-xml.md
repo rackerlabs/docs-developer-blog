@@ -62,13 +62,13 @@ making your script easier to maintain.
 If you prefer to do things by hand, you'll need to modify your scripts
 so that instead of sending XML, they'll send JSON request bodies. The
 correct format for JSON requests can be found in the [Compute API
-documentation](http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_preface.html).
+documentation](https://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_preface.html).
 Be sure that your scripts specify `Content-type: application/json`
 in the request header.
 
 You'll also need to change your scripts to parse JSON responses. Again,
 the response format you can expect can be found in the [Compute API
-documentation](http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_preface.html).
+documentation](https://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_preface.html).
 Make sure that your request either contains no `Accept" header`, or that
 it explicitly specifies `Accept: application/json` in the request
 header.

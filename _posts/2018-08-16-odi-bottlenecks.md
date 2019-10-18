@@ -156,7 +156,7 @@ tab to make any comments or ask questions.
 The following documents were used as references for this blog post:
 
 - [Oracle Data Integrator Performance
-  Guide](http://www.oracle.com/us/products/middleware/data-integration/odi-performance-guide-wp-2147067.pdf)
+  Guide](https://www.oracle.com/us/products/middleware/data-integration/odi-performance-guide-wp-2147067.pdf)
 
 - [Performance Tuning Oracle Data Integrator
-  (ODI)](http://www.kpipartners.com/blog/bid/149359/Performance-Tuning-Oracle-Data-Integrator-ODI)
+  (ODI)](https://www.kpipartners.com/blog/bid/149359/Performance-Tuning-Oracle-Data-Integrator-ODI)

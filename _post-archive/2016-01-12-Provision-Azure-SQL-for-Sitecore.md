@@ -80,7 +80,7 @@ By default, our Azure SQL server has a firewall enabled, and we need to allow ou
 
 ```sh
 $wc=New-Object net.webclient
-$ip = $wc.downloadstring("http://checkip.dyndns.com") -replace "[^\d\.]".Trim()
+$ip = $wc.downloadstring("https://checkip.dyndns.com") -replace "[^\d\.]".Trim()
 ```
 
 Now that we have our public ip in the $ip variable, we need to set our two firewall rules.
@@ -131,7 +131,7 @@ Start-Sleep -s 5
 }
 ```
 
-The cmdlet **Get-AzureSqlDatabaseImportExportStatus** lets us check our import status. It expects a string and not a credential object. I found a [snippet of code](http://stackoverflow.com/questions/21741803/powershell-securestring-encrypt-decrypt-to-plain-text-not-working) that will convert the object back to a string. This will loop and check every 30 seconds until all the database imports are finished.
+The cmdlet **Get-AzureSqlDatabaseImportExportStatus** lets us check our import status. It expects a string and not a credential object. I found a [snippet of code](https://stackoverflow.com/questions/21741803/powershell-securestring-encrypt-decrypt-to-plain-text-not-working) that will convert the object back to a string. This will loop and check every 30 seconds until all the database imports are finished.
 
 ```sh
 #Get-AzureSqlDatabaseImportExportStatus expects a string for password.

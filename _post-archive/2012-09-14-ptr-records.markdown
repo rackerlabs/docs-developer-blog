@@ -7,7 +7,7 @@ title: Configuring PTR records using the Rackspace Cloud DNS API
 categories: []
 ---
 
-_This is a guest post by Mike Sisk, a Racker working on DevOps for Rackspace's new cloud products. You can read his blog at [http://mikesisk.com](http://mikesisk.com) or follow _[@msisk](http://twitter.com/msisk)_ on Twitter._
+_This is a guest post by Mike Sisk, a Racker working on DevOps for Rackspace's new cloud products. You can read his blog at [https://mikesisk.com](https://mikesisk.com) or follow _[@msisk](https://twitter.com/msisk)_ on Twitter._
 
 I'm going to show you how to setup a PTR record in Rackspace Cloud DNS for a Cloud Load Balancer using the command-line utility cURL.
 
@@ -15,7 +15,7 @@ I'm going to show you how to setup a PTR record in Rackspace Cloud DNS for a Clo
 
 I'm using a Rackspace Cloud production account below; when you try it with your account change the account number and authentication token to yours.
 
-A few notes about cURL: this is a command line utility found on Mac and most Linux machines. You can also use other tools called "REST Clients". One popular one is an extension for Firefox and Chrome located [here](http://restclient.net).
+A few notes about cURL: this is a command line utility found on Mac and most Linux machines. You can also use other tools called "REST Clients". One popular one is an extension for Firefox and Chrome located [here](https://restclient.net).
 
 Here's a quick reference to some of the options I'll be sending with cURL in the examples below:
 	
@@ -231,7 +231,7 @@ I just typed in the commands and pasted in the above JSON file between the singl
 This is what we get back from the above POST:
 
     
-    {"request":"{\n  \"recordsList\" : {\n    \"records\" : [ {\n      \"name\" : \"www.sisk.ws\",\n      \"type\" : \"PTR\",\n      \"data\" : \"66.216.68.19\",\n      \"ttl\" : 56000\n    }, {\n      \"name\" : \"www.sisk.ws\",\n      \"type\" : \"PTR\",\n      \"data\" : \"2001:4800:7901:0000:290c:0b6b:0000:0001\",\n      \"ttl\" : 56000\n    } ]\n  },\n  \"link\" : {\n    \"content\" : \"\",\n    \"href\" : \"https://dfw.loadbalancers.api.rackspacecloud.com/v1.0/636983/loadbalancers/47219\",\n    \"rel\" : \"cloudLoadBalancers\"\n  }\n}","status":"INITIALIZED","verb":"POST","jobId":"f99c1203-b42a-44c4-885f-c80bd7e3aba0","callbackUrl":"https://dns.api.rackspacecloud.com/v1.0/636983/status/f99c1203-b42a-44c4-885f-c80bd7e3aba0","requestUrl":"http://dns.api.rackspacecloud.com/v1.0/636983/rdns"}
+    {"request":"{\n  \"recordsList\" : {\n    \"records\" : [ {\n      \"name\" : \"www.sisk.ws\",\n      \"type\" : \"PTR\",\n      \"data\" : \"66.216.68.19\",\n      \"ttl\" : 56000\n    }, {\n      \"name\" : \"www.sisk.ws\",\n      \"type\" : \"PTR\",\n      \"data\" : \"2001:4800:7901:0000:290c:0b6b:0000:0001\",\n      \"ttl\" : 56000\n    } ]\n  },\n  \"link\" : {\n    \"content\" : \"\",\n    \"href\" : \"https://dfw.loadbalancers.api.rackspacecloud.com/v1.0/636983/loadbalancers/47219\",\n    \"rel\" : \"cloudLoadBalancers\"\n  }\n}","status":"INITIALIZED","verb":"POST","jobId":"f99c1203-b42a-44c4-885f-c80bd7e3aba0","callbackUrl":"https://dns.api.rackspacecloud.com/v1.0/636983/status/f99c1203-b42a-44c4-885f-c80bd7e3aba0","requestUrl":"https://dns.api.rackspacecloud.com/v1.0/636983/rdns"}
 
 
 Let's check the job status:
@@ -293,4 +293,4 @@ Looks good -- that's what we expect to see. To compare, let's see what it looks 
     217.119.166.108.in-addr.arpa domain name pointer 108-166-119-217.static.cloud-ips.com.
 
 
-For more information on the Rackspace Cloud DNS API, refer to our [API documentation](http://docs.rackspace.com/cdns/api/v1.0/cdns-devguide/content/index.html).
+For more information on the Rackspace Cloud DNS API, refer to our [API documentation](https://docs.rackspace.com/cdns/api/v1.0/cdns-devguide/content/index.html).

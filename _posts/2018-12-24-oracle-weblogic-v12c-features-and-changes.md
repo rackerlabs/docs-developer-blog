@@ -30,7 +30,7 @@ Management and Oracle Identity Mangement (OAM/OIM), Oracle E-Business Suite (EBS
 12.2, Oracle Enterprise Manager (OEM) 13c, and so on.
 
 The latest version of WebLogic Server is 12.2.1.3. You can download it from the
-[Weblogic download link](http://www.oracle.com/technetwork/middleware/weblogic/downloads/wls-main-097127.html)
+[Weblogic download link](https://www.oracle.com/technetwork/middleware/weblogic/downloads/wls-main-097127.html)
 
 ### Changes in WebLogic Server v12c
 

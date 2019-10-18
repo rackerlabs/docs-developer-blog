@@ -92,10 +92,10 @@ Recommendation Number 3. [Secure the file upload functionality](https://doc.site
     $xml.Save($webConfigPath)
 
     $sitecoreRoot = $site.physicalPath			
-    $downLoadURI = "http://Guid-Guid-Guid.rackcdn.com/SitecoreResources/UploadFilter.config" 
+    $downLoadURI = "https://Guid-Guid-Guid.rackcdn.com/SitecoreResources/UploadFilter.config" 
     $downLoadZipPath1 = "C:\rs-pkgs\SecurityHardening.UploadFilter.config"
     Invoke-WebRequest -Uri $downLoadURI -OutFile $downLoadZipPath
-    $downLoadURI = "http://Guid-Guid-Guid.rackcdn.com/SitecoreResources/Sitecore.UploadFilter.dll"
+    $downLoadURI = "https://Guid-Guid-Guid.rackcdn.com/SitecoreResources/Sitecore.UploadFilter.dll"
     $downLoadZipPath2 = "C:\rs-pkgs\Sitecore.UploadFilter.dll"
     Invoke-WebRequest -Uri $downLoadURI -OutFile $downLoadZipPath
     $WebsiteBin = "{0}\bin" -f $sitecoreRoot 
@@ -119,7 +119,7 @@ Recommendation Number 5. [Increase login security](https://doc.sitecore.net/site
 
 > Sitecore points to a couple main steps for this security hardening measure.  The first step is all about ensuring SSL is used for Sitecore login pages.  While Sitecore's documentation includes an ASP.Net example on how to do this, that would be added to the custom solution code for a project, at Rackspace we prefer a different approach.  
 
-For a Sitecore **Content Management (CM) server**, the Sitecore client login portal is set to require SSL at the IIS site level (such as https://CMServer.domain.com/sitecore).  An alternative would be to use an IIS URL Rewrite rule to redirect traffic from *http://CMServer/domain.com/sitecore/login.aspx* to *https://CMServer.domain.com/sitecore/login.aspx* at the IIS config level.  We'd do the same for  the */sitcore/admin/login.aspx* page.  
+For a Sitecore **Content Management (CM) server**, the Sitecore client login portal is set to require SSL at the IIS site level (such as https://CMServer.domain.com/sitecore).  An alternative would be to use an IIS URL Rewrite rule to redirect traffic from *https://CMServer/domain.com/sitecore/login.aspx* to *https://CMServer.domain.com/sitecore/login.aspx* at the IIS config level.  We'd do the same for  the */sitcore/admin/login.aspx* page.  
 
 For a Sitecore **Content Delivery (CD) server**, the client login is disabled since we do not anticipate non-admin users logging in to the Sitecore client on these servers.  Part of how we configure a CD server is to remove or restrict access to the client.  Sometimes teams like to use administrative utility pages on the CD servers, so we would leverage IP restrictions set at the IIS server level to allow access only from the loopback 127.0.0.1.  This ensures the admin pages are accessible when the browser is initiated from the CD server itself.  For most implementations, the CD servers are behind a load balancer.   SSL offloading is often configured at the load balancer appliance so that this relieves the web servers from the burden of encrypting and decrypting traffic sent via SSL.  In the case where access to the /sitecore/admin pages are necessary from locations remote from the local CD server, SSL should be used to protect logins passed via the /sitecore/admin/login.aspx.  Do consider if the requirement to access /sitecore/admin/ pages from a non-local browser outwieghs the benefit of SSL offloading configured at the load balancer.  We'd generally discourage opening this functionality to the non-local browser, but different clients have different needs.
 
@@ -129,7 +129,7 @@ Sitecore's documentation points out a method of handling this through .Net code 
 
 > The second step to this "Increase login security" measure is to turn off auto complete of user name for the login pages.  We apply the following Sitecore config patch to accomplish this:
 
-    <configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
+    <configuration xmlns:patch="https://www.sitecore.net/xmlconfig/">
       <sitecore>
         <settings>
       <setting name="Login.DisableAutoComplete">
@@ -161,7 +161,7 @@ Recommendation Number 6. [Limit access to certain file types](https://doc.siteco
 
 Recommendation Number 7. [Protect PhantomJS](https://doc.sitecore.net/sitecore_experience_platform/setting_up__maintaining/security_hardening/configuring/phantomjs_and_security_hardening)
 
-> [PhantomJS](http://phantomjs.org/) is a powerfull tool for "headless" browser automation.  Sitecore uses it for capturing screenshots of URLs.  The heart of PhantomJS is an .exe in the dataFolder\tools\phantomjs directory of the Sitecore installation.  This functionality isn't typically used on CD servers, so Sitecore recommends removing it entirely from those environments.  To do this, one deletes the phantomjs directory and removes the pipeline configuration for this activity:
+> [PhantomJS](https://phantomjs.org/) is a powerfull tool for "headless" browser automation.  Sitecore uses it for capturing screenshots of URLs.  The heart of PhantomJS is an .exe in the dataFolder\tools\phantomjs directory of the Sitecore installation.  This functionality isn't typically used on CD servers, so Sitecore recommends removing it entirely from those environments.  To do this, one deletes the phantomjs directory and removes the pipeline configuration for this activity:
 
     $dataFolderConfigPath = "{0}\App_Config\Include\DataFolder.config" -f $site.physicalPath
     [xml] $dataFolderConfigXML = Get-Content $dataFolderConfigPath
@@ -171,7 +171,7 @@ Recommendation Number 7. [Protect PhantomJS](https://doc.sitecore.net/sitecore_e
     
 Altering the Sitecore pipeline is accomplished via .config patching as follows:
 
-    <configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
+    <configuration xmlns:patch="https://www.sitecore.net/xmlconfig/">
       <sitecore>
         <pipelines>
           <getScreenShotForURL>
@@ -185,11 +185,11 @@ Recommendation Number 8. [Protect Media Requests](https://doc.sitecore.net/sitec
 
 > Sitecore has a mechanism to ensure the validity of dynamically scaled media requests.  
 
-[Read some details of this here](http://kirkegaard-at.blogspot.com/2015/06/media-hash-and-resizing.html).  If your Sitecore error logs contain messages such as *ERROR MediaRequestProtection: An invalid/missing hash value was encountered. The expected hash value...* then this is the feature giving you challenges.  I won't dive deep into this, but suffice it to say you should use Sitecore controls (sc:image) for rendering media or use a pattern of *Sitecore.Resources.Media.HashingUtils.ProtectAssetUrl(theMediaUrl)* instead of just the *MediaManager.GetMediaUrl* method for rendering media links.
+[Read some details of this here](https://kirkegaard-at.blogspot.com/2015/06/media-hash-and-resizing.html).  If your Sitecore error logs contain messages such as *ERROR MediaRequestProtection: An invalid/missing hash value was encountered. The expected hash value...* then this is the feature giving you challenges.  I won't dive deep into this, but suffice it to say you should use Sitecore controls (sc:image) for rendering media or use a pattern of *Sitecore.Resources.Media.HashingUtils.ProtectAssetUrl(theMediaUrl)* instead of just the *MediaManager.GetMediaUrl* method for rendering media links.
 
 > Returning to the task at hand, Sitecore recommends that you edit the Media.RequestProtection.SharedSecret setting in the App_Config/Include/Sitecore.Media.RequestProtection.config file.  This ensures a unique key to your implementation, instead of using the out-of-the-box key provided by the Sitecore installation.  Be sure to use the *same* key for all the Sitecore servers in the solution!  We accomplish this via patch .config as follows:
 
-    <configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
+    <configuration xmlns:patch="https://www.sitecore.net/xmlconfig/">
       <sitecore>
         <settings>
           <setting name="Media.RequestProtection.SharedSecret">
@@ -214,7 +214,7 @@ Recommendation Number 9. [Remove header information from responses sent by your 
     Remove-WebConfigurationProperty -PSPath $psPath -Filter $filter -Name . -AtElement @{name='X-Powered-By'}
     Write-Host "Missing change from the Sitecore recommendations regarding 'Remove the X-AspNetMvc-Version HTTP header' -- that's an implementation specific element that should come from source control etc.  But don't forget!" -ForegroundColor Red
 
-> Note the PowerShell writes a **red alert** to the output, reminding you of the need to apply the final measure in the solution code for the Sitecore site.  The Sitecore documentation suggests editing global.asax for this, but we recommend an approach more like how Akshay Sura does at [the bottom of this post](http://www.akshaysura.com/2016/08/02/secure-sitecore-headers-are-a-headache-but-nothing-we-cannot-solve/).  Consider using a custom HTTP Module instead of monkeying with Global.asax.  This guidance also applies for IOC initialization logic in Global.asax, too, but that's not especially a security related measure. 
+> Note the PowerShell writes a **red alert** to the output, reminding you of the need to apply the final measure in the solution code for the Sitecore site.  The Sitecore documentation suggests editing global.asax for this, but we recommend an approach more like how Akshay Sura does at [the bottom of this post](https://www.akshaysura.com/2016/08/02/secure-sitecore-headers-are-a-headache-but-nothing-we-cannot-solve/).  Consider using a custom HTTP Module instead of monkeying with Global.asax.  This guidance also applies for IOC initialization logic in Global.asax, too, but that's not especially a security related measure. 
 
 We've combined all of these 9 sections into a [single PowerShell script one can download](https://gist.github.com/grant-killian/a6b00ccbfe28b40b76181fbb369f5c02).  Be sure you understand what each section does.  For example, recommendation #7 doesn't apply to most Sitecore CM environments.
 

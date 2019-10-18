@@ -36,22 +36,22 @@ The videos should also be posted soon. There are a few more memorable quotes fro
 
 In case you missed us in San Francisco last week, be sure to join us for another round of PuppetConf next year. The dates for the 2014 conference are already set for September 23-24, and a Dev Day is scheduled for September 22, 2014.
 
-[1]: http://www.slideshare.net/PuppetLabs/whats-new-awesome
-[2]: http://www.slideshare.net/PuppetLabs/intro-to-systems-orchestration-with-mcollective
-[3]: http://www.slideshare.net/PuppetLabs/building-datadriven-infrastructure-with-puppet
-[4]: http://www.slideshare.net/PuppetLabs/forging-great-modules-standards-tools-and-patterns-puppetconf-2013
-[5]: http://www.slideshare.net/PuppetLabs/alessandro-franceschi-new
-[6]: http://www.slideshare.net/PuppetLabs/puppet-conf-2013-25538254
-[7]: http://www.slideshare.net/PuppetLabs/carlos-sanchez-25547313
-[8]: http://www.slideshare.net/PuppetLabs/puppet-conf-2013-final-with-comments
-[9]: http://www.slideshare.net/PuppetLabs/moses-andhaustalk-a-bout-stuff
-[10]: http://augeas.net
-[11]: http://augeasproviders.com
-[12]: http://www.slideshare.net/PuppetLabs/sadler-vampires-vs-werewolves
-[13]: http://www.slideshare.net/PuppetLabs/nobody-has-to-die-today-puppet-conf-2013
-[14]: http://www.slideshare.net/PuppetLabs/puppetconf-2013-how-do-we-better-sell-devops
-[15]: http://www.slideshare.net/PuppetLabs/stophiringstartgrowing-130823160712phpapp01
-[16]: http://www.slideshare.net/PuppetLabs/tag/puppetconf
-[17]: http://www.slideshare.net/PuppetLabs/moses-andhaustalk-a-bout-stuff
-[18]: http://www.slideshare.net/PuppetLabs/thur-945-gordonrowell12slides-25538241
-[19]: http://www.slideshare.net/PuppetLabs/building-datadriven-infrastructure-with-puppet
+[1]: https://www.slideshare.net/PuppetLabs/whats-new-awesome
+[2]: https://www.slideshare.net/PuppetLabs/intro-to-systems-orchestration-with-mcollective
+[3]: https://www.slideshare.net/PuppetLabs/building-datadriven-infrastructure-with-puppet
+[4]: https://www.slideshare.net/PuppetLabs/forging-great-modules-standards-tools-and-patterns-puppetconf-2013
+[5]: https://www.slideshare.net/PuppetLabs/alessandro-franceschi-new
+[6]: https://www.slideshare.net/PuppetLabs/puppet-conf-2013-25538254
+[7]: https://www.slideshare.net/PuppetLabs/carlos-sanchez-25547313
+[8]: https://www.slideshare.net/PuppetLabs/puppet-conf-2013-final-with-comments
+[9]: https://www.slideshare.net/PuppetLabs/moses-andhaustalk-a-bout-stuff
+[10]: https://augeas.net
+[11]: https://augeasproviders.com
+[12]: https://www.slideshare.net/PuppetLabs/sadler-vampires-vs-werewolves
+[13]: https://www.slideshare.net/PuppetLabs/nobody-has-to-die-today-puppet-conf-2013
+[14]: https://www.slideshare.net/PuppetLabs/puppetconf-2013-how-do-we-better-sell-devops
+[15]: https://www.slideshare.net/PuppetLabs/stophiringstartgrowing-130823160712phpapp01
+[16]: https://www.slideshare.net/PuppetLabs/tag/puppetconf
+[17]: https://www.slideshare.net/PuppetLabs/moses-andhaustalk-a-bout-stuff
+[18]: https://www.slideshare.net/PuppetLabs/thur-945-gordonrowell12slides-25538241
+[19]: https://www.slideshare.net/PuppetLabs/building-datadriven-infrastructure-with-puppet

@@ -66,7 +66,7 @@ integration process of our products.
 
 The Development team is responsible for unit tests to ensure that all small
 pieces of the code have been tested thoroughly.  The team is using the
-[Spock testing framework](http://spockframework.org/) to create unit test cases.
+[Spock testing framework](https://spockframework.org/) to create unit test cases.
 Spock is a testing and specification framework for Java and Groovy applications
 and is a more powerful alternative to the traditional JUnit stack, because it
 leverages Groovy features. Since our products normally interact with many internal
@@ -140,7 +140,7 @@ function of the code. These are usually found in the code requirements
 documentation, although some development methodologies work from use cases or
 user stories. Functional tests tend to answer the question such as "can the
 user do this" or "does this particular feature work." Functional test cases have
-positive test cases and negative cases. We are using [WireMock](http://wiremock.org/)
+positive test cases and negative cases. We are using [WireMock](https://wiremock.org/)
 to mock all the external systems with which our products interact. WireMock is
 a flexible API mocking tool for fast, robust, and comprehensive testing. We are
 developing a collection of mock web services, which enables the independent

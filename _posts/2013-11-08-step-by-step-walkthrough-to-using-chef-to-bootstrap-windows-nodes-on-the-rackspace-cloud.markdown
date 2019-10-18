@@ -13,9 +13,9 @@ categories:
 
 If you are a frequent reader of this blog you will have seen Hart's posts about "Cooking with Chef":
 
-* [Part one](http://devops.rackspace.com/cooking-with-chef.html): Introduction to Chef
-* [Part two](http://devops.rackspace.com/cooking-with-chef2.html): Cookbooks and Deploying with Knife
-* [Part three](http://devops.rackspace.com/cooking-with-chef3.html): Installing your own Open Source Chef
+* [Part one](https://devops.rackspace.com/cooking-with-chef.html): Introduction to Chef
+* [Part two](https://devops.rackspace.com/cooking-with-chef2.html): Cookbooks and Deploying with Knife
+* [Part three](https://devops.rackspace.com/cooking-with-chef3.html): Installing your own Open Source Chef
 
 Further to these there are also a lot of tutorials on the internet. Most of
 them seem to focus on using chef to deploy/manage Linux servers but you will
@@ -53,7 +53,7 @@ which includes a 300$ developer discount.
 
 Once you have an account, log into the Control Panel, spin up a Cloud Server
 running the Linux distribution of your choice and install the novaclient on it
-following these [instructions](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os)
+following these [instructions](https://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os)
 so you can spin up Cloud Servers from the command line. I called my server
 nova-serv but feel free to call it whatever you like. Once that's done,
 you're ready to go.
@@ -191,7 +191,7 @@ Now use rvm to install the latest ruby version available (1.9.3 at the time of w
 
     [root@chef-serv ~]# rvm install 1.9.3
 
-Next, we will download the Chef Server rpm package from [here](http://www.opscode.com/chef/install/ "Opscode download link for chef open-source"), install it and do the initial server configuration
+Next, we will download the Chef Server rpm package from [here](https://www.opscode.com/chef/install/ "Opscode download link for chef open-source"), install it and do the initial server configuration
 
     [root@chef-serv ~]# wget https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-server-11.0.8-1.el6.x86_64.rpm
     [root@chef-serv ~]# rpm --install ./chef-server-11.0.8-1.el6.x86_64.rpm

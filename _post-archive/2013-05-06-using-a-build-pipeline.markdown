@@ -8,9 +8,9 @@ published: true
 categories:
   - Jenkins
 ---
-As [discussed previously](http://devops.rackspace.com/the-new-devops-blog.html),
-this blog is hosted entirely in [Cloud Files](http://www.rackspace.com/cloud/files/).
-It is powered by [Octopress](http://octopress.org), which means it is static -
+As [discussed previously](https://devops.rackspace.com/the-new-devops-blog.html),
+this blog is hosted entirely in [Cloud Files](https://www.rackspace.com/cloud/files/).
+It is powered by [Octopress](https://octopress.org), which means it is static -
 perfect for hosting in an object store. Our "architecture" looks like this:
 
 {% img center 2013-05-06-using-a-build/workflow.png 500 500 %}
@@ -34,7 +34,7 @@ generating the site. Problems arose when Jenkins would sync those failures to ou
 public cloud files container. Since nothing would be there to sync, Jenkins would
 sync nothing - taking the site down in the process and giving you the reader a
 very bland 404 page. On top of that, I'd get an email from
-[Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/) plus a few more
+[Cloud Monitoring](https://www.rackspace.com/cloud/monitoring/) plus a few more
 from Rackers wondering if the site was down on purpose (Hint: it's never down
 on purpose).
 

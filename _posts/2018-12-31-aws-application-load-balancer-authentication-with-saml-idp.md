@@ -170,8 +170,8 @@ To see which claims are available to you, have a look at your IdP's
 
 ```xml
 <auth:ClaimType
-  xmlns:auth="http://docs.oasis-open.org/wsfed/authorization/200706"
-  uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
+  xmlns:auth="https://docs.oasis-open.org/wsfed/authorization/200706"
+  uri="https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
 >
   <auth:DisplayName>Email</auth:DisplayName>
   <auth:Description>Email address of the user.</auth:Description>
@@ -260,8 +260,8 @@ information to do so:
   * **Audience URN:** `urn:amazon:cognito:sp:us-east-1_XXXXXXXXX`
   * **Post binding:** `https://auth.app.example.com/saml2/idpresponse`
   * **Claims to provide:**
-    * `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
-    * `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    * `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+    * `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
 Substitute the example values provided above with the actual values from your
 Cognito user pool, custom domain, and `FederationMetadata.xml`.

@@ -28,7 +28,7 @@ forward to returning to London for the next Unlocked event (date TBD).
 <!-- more -->
 
 If you couldn’t make it or were not in attendance, we have made all our slides
-publically available on [blog.unlocked.io](http://unlocked.io). Here, you'll
+publically available on [blog.unlocked.io](https://unlocked.io). Here, you'll
 find the general sessions slides, included the keynote delivered by Nigel Beighton,
 vice president of technology and product for Rackspace UK; the Business Track
 presented by Rackspace Open Cloud Architect Leo Packham and Rackspace Cloud
@@ -57,7 +57,7 @@ be used as a template to deploy your next cloud application on any cloud provide
 of your choice!
 
 If you'd like more information, the full abstract can be found
-[here](http://www.oscon.com/oscon2013/public/schedule/detail/31425).
+[here](https://www.oscon.com/oscon2013/public/schedule/detail/31425).
 
 Join us at OSCON for “Butter up your application” on Tuesday, July 23 at 9:00 a.m.
 in room E142 at the Oregon Convention Center.
@@ -68,7 +68,7 @@ After the Rackspace Unlocked team returns from OSCON, we'll gear up for the next
 installment of Unlocked: The Hybrid Cloud. This time we’re heading to Austin.
 This event takes place at the W Hotel Austin and is another run of our Business
 and Technical tracks. If you have not registered yet, there is still time! Go
-over to [unlocked.io](http://unlocked.io) and secure your spot today! We have
+over to [unlocked.io](https://unlocked.io) and secure your spot today! We have
 some special guest from the ATX start-up community coming to present, and we
 have a few other tricks up our sleeves that we can't wait to share with the
 vibrant tech ecosystem in one of the world’s hotbeds of entrepreneurial and

@@ -47,7 +47,7 @@ other stuff in couple of simple commands.
 
 
 To test your backup spin up a new server and install chef per your OS
-[http://www.opscode.com/chef/install/](http://www.opscode.com/chef/install/)
+[https://www.opscode.com/chef/install/](https://www.opscode.com/chef/install/)
 
 If you want to try this on a existing server, you can use the following
 

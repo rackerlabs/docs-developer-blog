@@ -8,7 +8,7 @@ published: true
 categories: []
 ---
 {% img right 2013-05-23-logstash/data-visualization-logo.png 200 %}
-One of the cool things we do on the [Cloud Databases](http://www.rackspace.com/cloud/databases/) operations side of the house is come up with statistics that can help us gain insight to hardware performance to identify issues with systems. We use some really cool tools, but one of the most versatile tools we work with is [logstash](http://www.logstash.net/). The goal of this article is to get you started pushing metrics with logstash that you may already collect to [Graphite](http://graphite.wikidot.com/). Along the way, I'll be showing you how to get started with logstash, test your configuration locally and then start pushing your first metrics to Graphite with some different examples along the way.<!-- more -->
+One of the cool things we do on the [Cloud Databases](https://www.rackspace.com/cloud/databases/) operations side of the house is come up with statistics that can help us gain insight to hardware performance to identify issues with systems. We use some really cool tools, but one of the most versatile tools we work with is [logstash](https://www.logstash.net/). The goal of this article is to get you started pushing metrics with logstash that you may already collect to [Graphite](https://graphite.wikidot.com/). Along the way, I'll be showing you how to get started with logstash, test your configuration locally and then start pushing your first metrics to Graphite with some different examples along the way.<!-- more -->
 
 * Openjdk or a form of modern java installed
 * Sysstat package installed
@@ -145,7 +145,7 @@ output {
 }
 ```
 
-The example config file is exactly the same as before with the exception of the output filter; now it's pushing data to our Graphite endpoint. We're grabbing the "system-loadavg" type, and we are creating an array of metrics. We use a built-in variable @source_host set by logstash to set up the Graphite metric scope for this particular host - notice that we're only setting the metric scope and value. Then logstash will use the @timestamp when it pushes out each metric pair to Graphite. Assuming your Graphite install is functional, we could then pull data from our URL: http://10.10.10.10:9000/render/?target=hosts.MYHOST.load_avg.1m
+The example config file is exactly the same as before with the exception of the output filter; now it's pushing data to our Graphite endpoint. We're grabbing the "system-loadavg" type, and we are creating an array of metrics. We use a built-in variable @source_host set by logstash to set up the Graphite metric scope for this particular host - notice that we're only setting the metric scope and value. Then logstash will use the @timestamp when it pushes out each metric pair to Graphite. Assuming your Graphite install is functional, we could then pull data from our URL: https://10.10.10.10:9000/render/?target=hosts.MYHOST.load_avg.1m
 
 Some of the tools we use for system metrics are sar and sysstat. We track things like disk performance and network performance. Here's and example configuration file that logs network statistics from sar:
 
@@ -191,16 +191,16 @@ output {
 }
 ```
 
-The input section is the same concept as before but we're running a sar report and pruning the extra stuff like column headers. The filter section first passes our system-netstats through the split filter – this splits common multiline data and hands each line through the logstash data pipeline individually. The grok filter is then used to name each field in the input, and the output section creates an array of scope and value data pairs for our graphite endpoint. We can pull one of the stats collected for device eth0 with the URL: http://10.10.10.10:9000/render/?target=hosts.MYHOST.netstats.interfaces.eth0.rxpck_s
+The input section is the same concept as before but we're running a sar report and pruning the extra stuff like column headers. The filter section first passes our system-netstats through the split filter – this splits common multiline data and hands each line through the logstash data pipeline individually. The grok filter is then used to name each field in the input, and the output section creates an array of scope and value data pairs for our graphite endpoint. We can pull one of the stats collected for device eth0 with the URL: https://10.10.10.10:9000/render/?target=hosts.MYHOST.netstats.interfaces.eth0.rxpck_s
 
 
 As you can see, logstash has some great functionality that allows us to grab data and pass it on to Graphite. Using GNU utilities, you can leverage existing data collection through daemons such as sysstat and start collecting some great statistics and generate graphs with Graphite.
 
-Installing Graphite: <http://graphite.wikidot.com/installation>
-Logstash Getting Started: <http://logstash.net/docs/1.1.9/tutorials/getting-started-simple>
-Logstash Command Line Arguments: <http://logstash.net/docs/1.1.9/flags>
-Logstash configuration file details: <http://logstash.net/docs/1.1.9/configuration>
-Grok Plugin for Logstash: <http://logstash.net/docs/1.1.9/filters/grok>
+Installing Graphite: <https://graphite.wikidot.com/installation>
+Logstash Getting Started: <https://logstash.net/docs/1.1.9/tutorials/getting-started-simple>
+Logstash Command Line Arguments: <https://logstash.net/docs/1.1.9/flags>
+Logstash configuration file details: <https://logstash.net/docs/1.1.9/configuration>
+Grok Plugin for Logstash: <https://logstash.net/docs/1.1.9/filters/grok>
 Grok Patterns: <https://github.com/logstash/logstash/blob/v1.1.9/patterns/grok-patterns>
 
 _Erik Redding works at Rackspace as a Linux System Engineer for Cloud Databases_

@@ -15,13 +15,13 @@ In this multi-part walkthrough series, I intend to dive into the various compone
 
 In the previous installment, [Neutron Networking: The Building Blocks of an OpenStack Cloud](https://developer.rackspace.com/blog/neutron-networking-the-building-blocks-of-an-openstack-cloud.html), I laid the foundation of the Neutron networking model that included terminology, concepts, and a brief description of services and capabilities. In this second installment, I’ll describe how to build a simple flat network consisting of a few servers and limited networking gear. Future installments will include VLAN-based provider and tenant networks, GRE-based tenant networks, Open vSwitch troubleshooting, and more.<!-- more -->
 
-_New to OpenStack? Rackspace offers a complete open-source package, [Rackspace Private Cloud Software](http://www.rackspace.com/cloud/private/), that you're welcome to use at no cost. Download and follow along._
+_New to OpenStack? Rackspace offers a complete open-source package, [Rackspace Private Cloud Software](https://www.rackspace.com/cloud/private/), that you're welcome to use at no cost. Download and follow along._
 
 ### Getting started: What is a flat network?
 
 For those coming from previous Essex- or Folsom-based Rackspace Private Cloud installations, flat networking in Neutron resembles the Flat DHCP model in Nova networking. For those new to the game, a flat network is one in which all instances reside on the same network (which may also be shared by the hosts). No vlan tagging takes place, and Neutron handles the assignment of IPs to instances using DHCP. Therefore, it’s possible to use unmanaged SOHO network switches to build a simple Neutron-based cloud, since there’s no need to configure switchports.
 
-![](http://i.imgur.com/C7uzjps.png "Sample Flat Network")
+![](https://i.imgur.com/C7uzjps.png "Sample Flat Network")
 
 _The diagram above represents a simple Neutron networking configuration that utilizes a flat provider network for connectivity of instances to the Internet._
 
@@ -30,7 +30,7 @@ _The diagram above represents a simple Neutron networking configuration that uti
 
 In the following diagram, a Cisco ASA 5510 is serving as the lead gateway device, with a Cisco 2960G access switch connecting the firewall and servers together via VLAN 1. 10.240.0.0/24 was chosen as the management network for hosts, but will also serve as a provider network for instances. We’ll be using a single interface on the servers for both management and provider network connectivity.
 
-![](http://i.imgur.com/iogcVgo.png "Sample Flat Layout")
+![](https://i.imgur.com/iogcVgo.png "Sample Flat Layout")
 
 ### Networking: Configuration of physical devices
 

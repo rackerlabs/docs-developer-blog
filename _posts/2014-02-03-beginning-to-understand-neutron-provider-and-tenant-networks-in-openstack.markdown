@@ -95,5 +95,5 @@ Racker James Denton:
 
 [Neutron Networking: Neutron Routers and the L3 Agent](https://developer.rackspace.com/blog/neutron-networking-l3-agent.html)
 
-For questions and/or comments, feel free to get in touch with me [@jameswthorne](http://twitter.com/jameswthorne).
+For questions and/or comments, feel free to get in touch with me [@jameswthorne](https://twitter.com/jameswthorne).
 

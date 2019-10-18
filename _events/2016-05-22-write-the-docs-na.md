@@ -6,7 +6,7 @@ date: 2016-05-22
 location:
   name: Portland, OR
   address: 1332 W. Burnside Portland, OR 97209
-website: http://www.writethedocs.org/conf/na/2016/
+website: https://www.writethedocs.org/conf/na/2016/
 attendees: []
 talks: []
 ---

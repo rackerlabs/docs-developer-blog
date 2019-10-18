@@ -11,7 +11,7 @@ categories:
 ---
 _Egle Sigler is a Private Cloud Architect, who started working at Rackspace in 2008. She was one of the first to receive Rackspace OpenStack certification. Before working with OpenStack, Egle worked on MyRackspace customer control panel, software architecture and enterprise tools. In her spare time, Egle enjoys traveling, hiking, snorkeling and nature photography._
 
-No matter how “cloudy” your environment and processes are, at the end of the day they still need to run on physical infrastructure. Traditionally, physical infrastructure is static in nature and time consuming to work with for a number of reasons. When we were building out the next-generation development and testing platform for [Rackspace Private Cloud Software](http://www.rackspace.com/cloud/private/openstack_software/), we found ourselves face to face with the issues caused by constantly provisioning infrastructure.
+No matter how “cloudy” your environment and processes are, at the end of the day they still need to run on physical infrastructure. Traditionally, physical infrastructure is static in nature and time consuming to work with for a number of reasons. When we were building out the next-generation development and testing platform for [Rackspace Private Cloud Software](https://www.rackspace.com/cloud/private/openstack_software/), we found ourselves face to face with the issues caused by constantly provisioning infrastructure.
 
 <!-- more -->
 

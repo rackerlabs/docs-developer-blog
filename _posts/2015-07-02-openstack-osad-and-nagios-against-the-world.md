@@ -26,7 +26,7 @@ Your choice should be made around the following thoughts:
    * Keep your monitoring close to your infrastructure
    * Create good monitors
 
-To keep it simple, you can't do better than by going with [Nagios](http://www.nagios.com/products) Core.  Yes, while it may not be the flashiest dashboard visually, it is one of the most powerful and lightweight monitoring applications I have used.  With Nagios, you have ultimate control on many aspects of your monitoring ecosystem, ranging from being able to create custom plugins, all the way to explicitly defining execution windows for that host.  Administration can be handled directly from the flat files, or you can use many of the third party tools, such as [NConf](http://exchange.nagios.org/directory/Addons/Configuration/NConf/details).  With the launch of the new versions, XI, more and more of the features only found in the third party tools are built right in.  Some of the new features that stand out would be the advanced graphs, integration into Incident management tools, and cleaner SLA reports.
+To keep it simple, you can't do better than by going with [Nagios](https://www.nagios.com/products) Core.  Yes, while it may not be the flashiest dashboard visually, it is one of the most powerful and lightweight monitoring applications I have used.  With Nagios, you have ultimate control on many aspects of your monitoring ecosystem, ranging from being able to create custom plugins, all the way to explicitly defining execution windows for that host.  Administration can be handled directly from the flat files, or you can use many of the third party tools, such as [NConf](https://exchange.nagios.org/directory/Addons/Configuration/NConf/details).  With the launch of the new versions, XI, more and more of the features only found in the third party tools are built right in.  Some of the new features that stand out would be the advanced graphs, integration into Incident management tools, and cleaner SLA reports.
 
 Of course, with great capability comes great overhead, sometimes.  Typically, I have found that keeping your monitoring close to your infrastructure avoids limiting what you are monitoring due to firewall restrictions and so on.  I strongly recommend using SNMP (UDP port 161), rather than the NRPE agent.  No agent install needed.  Also, I normally stick with Perl written plugins to ease troubleshooting.  Creating ‘good’ monitors is essential to minimize false alerts, that in time turn to ignored alerts.  If you find a service check continuously sending off false alerts, FIX IT!  Do not let it linger for days.
 
@@ -113,7 +113,7 @@ Then connect to the monitoring server via SSH and execute the following commands
 
 ### Step 6b: NConf initial configuration
 
-My attempt to automate this part was not successful, so you have to finish the NConf configuration using the NConf web console.  Browse to `http://<monitoring server IP>/nconf` and follow the prompts to complete the initial configuration.  I suggest using the following inputs and keeping the defaults for the others:
+My attempt to automate this part was not successful, so you have to finish the NConf configuration using the NConf web console.  Browse to `https://<monitoring server IP>/nconf` and follow the prompts to complete the initial configuration.  I suggest using the following inputs and keeping the defaults for the others:
 
 - `DBNAME`: same as what you inputed in the variables file above
 - `DBUSER`: same as what you inputed in the variables file above
@@ -137,8 +137,8 @@ In order to monitor the OpenStack processes and APIs running on the local contai
 
 In a browser go to the following URLs:
 
--	http://<monitoring server IP>/nagios3
--	http://<monitoring server IP>/nconf
+-	https://<monitoring server IP>/nagios3
+-	https://<monitoring server IP>/nconf
 
 
 ### Step 8: Time to configure Nagios for monitoring OSAD:
@@ -182,7 +182,7 @@ If you are having trouble making the updates to the configs using an editor, do 
 
 ### Step 9: Import Nagios configuration into NConf:
 
-Next, append the contents of the configuration files in the **/etc/nagios3/rpc-nagios-configs** directory to current Nagios configuration files (add to bottom).  Every host, host group, check, service, and contact group is uniquely named so that they don't conflict with current Nagios setup.  Then we will step thru the instructions found on the [NConf website](http://www.nconf.org/dokuwiki/doku.php?id=nconf:help:how_tos:import:import_nagios).
+Next, append the contents of the configuration files in the **/etc/nagios3/rpc-nagios-configs** directory to current Nagios configuration files (add to bottom).  Every host, host group, check, service, and contact group is uniquely named so that they don't conflict with current Nagios setup.  Then we will step thru the instructions found on the [NConf website](https://www.nconf.org/dokuwiki/doku.php?id=nconf:help:how_tos:import:import_nagios).
 
 As the NConf tutorial suggests, first run the commands with the `-s` parameters to simulate the import process.  Once you're able to run with no errors, remove the '-s' parameter to do the final import.  Connect to the monitoring server via SSH, run the following commands:
 
@@ -216,6 +216,6 @@ Last and not least, from the monitoring server, execute the following command to
 
 ### Last thought
 
-If you wanted to get fancy you can follow the instructions found on the [digitalcardboard blog](http://digitalcardboard.com/blog/2010/08/24/nagios-and-nconf-on-ubuntu-10-04-lucid-lynx) under the **Configuring NConf to Deploy Nagios Configurations Automatically** section.
+If you wanted to get fancy you can follow the instructions found on the [digitalcardboard blog](https://digitalcardboard.com/blog/2010/08/24/nagios-and-nconf-on-ubuntu-10-04-lucid-lynx) under the **Configuring NConf to Deploy Nagios Configurations Automatically** section.
 
 **Go check out your work in Nagios now!**

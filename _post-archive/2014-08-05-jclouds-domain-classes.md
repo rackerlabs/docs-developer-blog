@@ -85,7 +85,7 @@ We want to
 1. Ensure object immutability.
 2. Utilize the fluent builder pattern.
 3. Ensure that "create" objects can only be used for create; update for update; and listed resources cannot be directly sent back to the service.
-4. Reuse code and keep domain classes [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself).
+4. Reuse code and keep domain classes [DRY](https://en.wikipedia.org/wiki/Don't_repeat_yourself).
 5. Allow using different validation strategies (for example, create vs update).
 
 We have been able to identify a pattern that addresses these issues. Here is some [sample code](https://github.com/jclouds/jclouds-labs-openstack/blob/master/openstack-neutron/src/main/java/org/jclouds/openstack/neutron/v2/domain/Router.java).

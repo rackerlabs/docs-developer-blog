@@ -32,7 +32,7 @@ The following [basic steps](#basicsteps) and [example](#example) show you how to
 <h2 id="basicsteps">Basic steps</h2>
 
 The simplest implementation of profiling requires three easy steps:
-Choose a [profiling attribute](http://www.sagehill.net/docbookxsl/Profiling.html#MarkProfileText), create profiles in your pom.xml file, and mark elements as conditional by using the selected profiling attribute.
+Choose a [profiling attribute](https://www.sagehill.net/docbookxsl/Profiling.html#MarkProfileText), create profiles in your pom.xml file, and mark elements as conditional by using the selected profiling attribute.
 
 <ol>
 <li><p>Choose the profiling attribute that makes sense for your document. Because you want to

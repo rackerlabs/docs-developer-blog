@@ -11,7 +11,7 @@ categories:
 ---
 
 In today's configuration management landscape, the general motto is "infrastructure
-as code", and as good [devopsians](http://www.youtube.com/watch?v=Md1MDHroXGU),
+as code", and as good [devopsians](https://www.youtube.com/watch?v=Md1MDHroXGU),
 we should be testing our code. This blog post takes a look at test-kitchen +
 OpenStack to make your life of testing chef cookbooks easier, faster and fun.
 
@@ -24,8 +24,8 @@ OpenStack to make your life of testing chef cookbooks easier, faster and fun.
 At ChefConf 2013, there was a lot of talk about testing your cookbooks. Up until
 this point, there were many ways to approach testing, and no one main harness
 stood out out. Enter [test-kitchen](https://github.com/opscode/test-kitchen),
-which leverages [vagrant](http://www.vagrantup.com/) by default to provide a
-simple and flexible test harness. Sprinkle a little [berkshelf](http://berkshelf.com/)
+which leverages [vagrant](https://www.vagrantup.com/) by default to provide a
+simple and flexible test harness. Sprinkle a little [berkshelf](https://berkshelf.com/)
 on top, and you've got magic.
 
 For this post, I'll be replacing the default Vagrant driver with OpenStack.
@@ -106,7 +106,7 @@ test-kitchen like [kitchen-rackspace](https://github.com/RoboticCheese/kitchen-r
 In closing, I think it's apparent that running workloads on servers is better
 than workstations. Who knew! But more importantly, the tools exist now to make
 this a easy and fun experience. Writing the actual tests is still up to
-[you](http://devopsreactions.tumblr.com/post/52368854242/writing-unit-tests) though.
+[you](https://devopsreactions.tumblr.com/post/52368854242/writing-unit-tests) though.
 For ideas on testing, the [chef-client](https://github.com/opscode-cookbooks/chef-client)
 has both the standard [minitest](https://github.com/opscode-cookbooks/chef-client/tree/master/files/default/tests/minitest)
 method and the newer

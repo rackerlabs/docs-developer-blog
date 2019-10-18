@@ -12,11 +12,11 @@ categories:
 
 {% img right 2013-05-24-gluecon/glue_logo.png %}
 
-[Gluecon 2013](http://www.gluecon.com/2013/) is off to a dazzling start in
+[Gluecon 2013](https://www.gluecon.com/2013/) is off to a dazzling start in
 Broomfeild, Colorado at the beautiful
-[Omni Interlocken Resort](http://www.omnihotels.com/FindAHotel/DenverInterlocken.aspx).
+[Omni Interlocken Resort](https://www.omnihotels.com/FindAHotel/DenverInterlocken.aspx).
 
-Just a quick scan of the two-day conference [agenda](http://www.gluecon.com/2013/agenda/)
+Just a quick scan of the two-day conference [agenda](https://www.gluecon.com/2013/agenda/)
 made it apparent that this was going to be a hands-on conference where developers
 could speak their minds about APIs, tools, distributed systems, and a bunch of
 other topics. There were more than 20 sessions chock full of great discussion.
@@ -80,7 +80,7 @@ In the distributed systems area, many sessions focused around the fact many
 people are building distributed systems today whether they know it or not. It's
 becoming more commonplace to split services out and run micro-services. You can
 find plenty to read on this concept on Google with a quick search for
-["complex adaptive systems."](http://lmgtfy.com/?q=complex+adaptive+systems). I
+["complex adaptive systems."](https://lmgtfy.com/?q=complex+adaptive+systems). I
 feel this will be a big part of the future of cloud applications as developers
 continue to work on application resiliency and stop caring about the underlying
 hardware except in specialized cases.

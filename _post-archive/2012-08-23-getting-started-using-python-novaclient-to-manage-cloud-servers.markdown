@@ -12,10 +12,10 @@ categories:
 ---
 
 Using the
-[Rackspace Cloud Control Panel](http://www.rackspace.com/knowledge_center/article/introducing-the-next-generation-cloud-control-panel)
+[Rackspace Cloud Control Panel](https://www.rackspace.com/knowledge_center/article/introducing-the-next-generation-cloud-control-panel)
 to manage your servers is awesome, but sometimes you just need to get a simple
 thing done quickly via the command line. Enter the OpenStack
-[rackspace-novaclient](http://pypi.python.org/pypi/rackspace-novaclient/1.0),
+[rackspace-novaclient](https://pypi.python.org/pypi/rackspace-novaclient/1.0),
 a CLI tool to manage your Cloud Servers.
 
 <!-- more -->
@@ -76,10 +76,10 @@ to manage your Cloud Servers from the command line. Here are a few examples:
 These are just a few of the many commands you can use with rackspace-novaclient's
 CLI tool for quick and easy server management. The great thing about
 rackspace-novaclient is that it works with both the Rackspace Public Cloud and
-[OpenStack Private Clouds](http://www.rackspace.com/cloud/private/). If you are
+[OpenStack Private Clouds](https://www.rackspace.com/cloud/private/). If you are
 using multiple OpenStack Compute environments, you can use a tool called [
-Supernova](http://rackerhacker.github.com/supernova/), written by
-[Major Hayden](http://rackerhacker.com). With Supernova, you are basically
+Supernova](https://rackerhacker.github.com/supernova/), written by
+[Major Hayden](https://rackerhacker.com). With Supernova, you are basically
 creating multiple **.novarc** files for use with different Compute environments
 and using a different CLI tool to manage those environments. Supernova also has
 other features like keyring support.

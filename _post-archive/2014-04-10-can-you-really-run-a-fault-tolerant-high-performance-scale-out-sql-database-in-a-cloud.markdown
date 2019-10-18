@@ -14,7 +14,7 @@ the industry’s first scale-out SQL database engineered for the cloud.
 ClustrixDB is uniquely and ideally suited to handle massive volumes of
 ACID-compliant transactional workloads while concurrently running real-time
 analytics on the same operational data. (See:
-[http://www.clustrix.com](http://www.clustrix.com)).
+[https://www.clustrix.com](https://www.clustrix.com)).
 
 Delivering a database like ClustrixDB with linearly-scaling performance,
 automated fault-tolerance and self-healing in a cloud would be a significant
@@ -207,9 +207,9 @@ For highly-concurrent transactional workloads and real-time analytics Rackspace�
 P.S. – We’re already wondering about comparing clusters of 8 x Perf2 32vCPU/120GB RAM nodes, and 32 x 8vCPU/30GB nodes.
 
 
-  [1]: http://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/Flavor.png
-  [2]: http://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/flavorII.png
-  [3]: http://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/OLTP.png
-  [4]: http://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/OLTP%20II.png
-  [5]: http://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/OLTP%20III.png
-  [6]: http://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/OLTP%20IV.png
+  [1]: https://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/Flavor.png
+  [2]: https://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/flavorII.png
+  [3]: https://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/OLTP.png
+  [4]: https://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/OLTP%20II.png
+  [5]: https://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/OLTP%20III.png
+  [6]: https://d2793c225face3f00d0b-0c03021b939a680b5f64562de26e5c4f.r83.cf1.rackcdn.com/OLTP%20IV.png

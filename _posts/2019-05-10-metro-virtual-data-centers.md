@@ -78,7 +78,7 @@ The following image shows the Data Guard configuration:
 
 ![]({% asset_path 2019-05-10-metro-virtual-data-centers/Picture1.png %})
 
-*Image source:* [http://neeraj-dba.blogspot.com/2011/10/dataguard-broker-and-its-benefits_05.html](http://neeraj-dba.blogspot.com/2011/10/dataguard-broker-and-its-benefits_05.html)
+*Image source:* [https://neeraj-dba.blogspot.com/2011/10/dataguard-broker-and-its-benefits_05.html](https://neeraj-dba.blogspot.com/2011/10/dataguard-broker-and-its-benefits_05.html)
 
 On the primary DB, the Log Writer (LGWR) process submits the redo data to one
 or more Log Network Server (LNSn) processes, which then initiates the network

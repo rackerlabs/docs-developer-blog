@@ -8,7 +8,7 @@ categories:
   - Mailgun
   - Cloud Monitoring
 ---
-The team over at Mailgun just posted a [case study](http://blog.mailgun.com/how-node-js-app-cloud-monitoring-uses-the-mailgun-api/) about how the Rackspace Cloud Monitoring team successfully migrated their email alerts to the [Mailgun email automation platform](http://www.mailgun.com/). It's a really interesting read that is as much about how to plan for and deploy 3rd party tools in a production application as it is about using Mailgun to automate and monitor email alerts.
+The team over at Mailgun just posted a [case study](https://blog.mailgun.com/how-node-js-app-cloud-monitoring-uses-the-mailgun-api/) about how the Rackspace Cloud Monitoring team successfully migrated their email alerts to the [Mailgun email automation platform](https://www.mailgun.com/). It's a really interesting read that is as much about how to plan for and deploy 3rd party tools in a production application as it is about using Mailgun to automate and monitor email alerts.
 <!-- more -->
 When it comes to Mailgun, the monitoring team implemented Mailgun in their node.js app to dynamically generate and deliver monitoring notifications. These notifications include details about the alert and need to be generated on the fly as soon as an alert is trigged. If you don't head over to the Mailgun blog to read the full post (you should!), here's how the team did it.
 
@@ -103,4 +103,4 @@ exports.sendMailGunEmail = function(address, subject, body, options, callback) {
 
 Look at how easy this was.  We’ve fully automated email creation, delivery, and analytics using Mailgun, something that is difficult with with a traditional DIY setup.
 
-In case you haven't heard, Rackspace customers receive a $19/month credit to use Mailgun. That means that when you signup for the [Mailgun standard plan](http://www.mailgun.com/pricing), you can send up to 19,000 emails per month, for free. Email sales@mailgunhq.com for details about how to receive your Mailgun discount.
+In case you haven't heard, Rackspace customers receive a $19/month credit to use Mailgun. That means that when you signup for the [Mailgun standard plan](https://www.mailgun.com/pricing), you can send up to 19,000 emails per month, for free. Email sales@mailgunhq.com for details about how to receive your Mailgun discount.

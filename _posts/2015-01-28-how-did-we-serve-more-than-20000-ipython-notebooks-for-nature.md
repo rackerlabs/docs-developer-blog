@@ -11,13 +11,13 @@ categories:
   - architecture
 ---
 
-The IPython/Jupyter notebook is a wonderful environment for computations, prose, plots, and interactive widgets that you can share with collaborators. People use the notebook [all](http://blog.quantopian.com/quantopian-research-your-backtesting-data-meets-ipython-notebook/) [over](http://nbviewer.ipython.org/github/GoogleCloudPlatform/ipython-soccer-predictions/blob/master/predict/wc-final.ipynb) [the](https://github.com/facebook/iTorch) [place](http://nbviewer.ipython.org/url/norvig.com/ipython/TSPv3.ipynb) across [many varied languages](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages). It gets used by [data scientists](http://nbviewer.ipython.org/gist/wrobstory/1eb8cb704a52d18b9ee8/Up%20and%20Down%20PyData%202014.ipynb), researchers, analysts, developers, and people in between.
+The IPython/Jupyter notebook is a wonderful environment for computations, prose, plots, and interactive widgets that you can share with collaborators. People use the notebook [all](https://blog.quantopian.com/quantopian-research-your-backtesting-data-meets-ipython-notebook/) [over](https://nbviewer.ipython.org/github/GoogleCloudPlatform/ipython-soccer-predictions/blob/master/predict/wc-final.ipynb) [the](https://github.com/facebook/iTorch) [place](https://nbviewer.ipython.org/url/norvig.com/ipython/TSPv3.ipynb) across [many varied languages](https://github.com/ipython/ipython/wiki/IPython-kernels-for-other-languages). It gets used by [data scientists](https://nbviewer.ipython.org/gist/wrobstory/1eb8cb704a52d18b9ee8/Up%20and%20Down%20PyData%202014.ipynb), researchers, analysts, developers, and people in between.
 
 <!-- more -->
 
-As I alluded to in a writeup on [Instant Temporary Notebooks](http://lambdaops.com/ipythonjupyter-tmpnb-debuts/), we (combination of IPython/Jupyter and Rackspace) were prepping for a big demo as part of a [Nature article on IPython Notebooks](http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261) by [Helen Shen](https://twitter.com/HelenShenWrites). The impetus behind the demo was to show off the IPython notebook to readers in an interactive format. What better way than to [provide a live notebook server to readers on demand](http://www.nature.com/news/ipython-interactive-demo-7.21492)?
+As I alluded to in a writeup on [Instant Temporary Notebooks](https://lambdaops.com/ipythonjupyter-tmpnb-debuts/), we (combination of IPython/Jupyter and Rackspace) were prepping for a big demo as part of a [Nature article on IPython Notebooks](https://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261) by [Helen Shen](https://twitter.com/HelenShenWrites). The impetus behind the demo was to show off the IPython notebook to readers in an interactive format. What better way than to [provide a live notebook server to readers on demand](https://www.nature.com/news/ipython-interactive-demo-7.21492)?
 
-[![Screenshot 2015-01-15 21.17.15.png](https://d23f6h5jpj26xu.cloudfront.net/nvqcj7okftoqw_small.png)](http://img.svbtle.com/nvqcj7okftoqw.png)
+[![Screenshot 2015-01-15 21.17.15.png](https://d23f6h5jpj26xu.cloudfront.net/nvqcj7okftoqw_small.png)](https://img.svbtle.com/nvqcj7okftoqw.png)
 
 To do this, we created a [temporary notebook service](https://tmpnb.org) in collaboration with the IPython/Jupyter team.
 
@@ -29,7 +29,7 @@ To do this, we created a [temporary notebook service](https://tmpnb.org) in coll
 
 When a user visits a tmpnb, they're actually hitting an [http proxy](https://github.com/jupyter/configurable-http-proxy) which routes initial traffic to tmpnb's orchestrator. From here a new user container is set up and a new route (e.g. `/user/fX104pghHEha/tree`) is assigned on the proxy.
 
-[![tmpnb-setup.gif](https://d23f6h5jpj26xu.cloudfront.net/z9gjan4yftabyq_small.gif)](http://img.svbtle.com/z9gjan4yftabyq.gif)
+[![tmpnb-setup.gif](https://d23f6h5jpj26xu.cloudfront.net/z9gjan4yftabyq_small.gif)](https://img.svbtle.com/z9gjan4yftabyq.gif)
 
 ## Planning the Notebook Demo
 

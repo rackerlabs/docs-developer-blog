@@ -45,4 +45,4 @@ ram_allocation_ratio=1.0
 reserved_host_memory_mb=0
 ```
 
-The above adds a special driver for bare metal provisioning and tells the scheduler how to manage capacity when dealing with bare metal servers. More information on bare metal provisioning with OpenStack and Nova can be found [here](http://docs.openstack.org/trunk/openstack-compute/admin/content/baremetal.html) or you can [follow the etherpads](https://etherpad.openstack.org/HavanaTripleO) [from the design sessions](https://etherpad.openstack.org/HavanaBaremetalNextSteps).
+The above adds a special driver for bare metal provisioning and tells the scheduler how to manage capacity when dealing with bare metal servers. More information on bare metal provisioning with OpenStack and Nova can be found [here](https://docs.openstack.org/trunk/openstack-compute/admin/content/baremetal.html) or you can [follow the etherpads](https://etherpad.openstack.org/HavanaTripleO) [from the design sessions](https://etherpad.openstack.org/HavanaBaremetalNextSteps).

@@ -32,7 +32,7 @@ good baseline of the performance differences between the vendors.
 
 Below are the setups used for each provider:
 
-* [ObjectRocket](http://www.objectrocket.com/): $149/month, Standard, 5gb, in the us-east zone.
+* [ObjectRocket](https://www.objectrocket.com/): $149/month, Standard, 5gb, in the us-east zone.
 * Hosted AWS Provider #1: $149/month, "Replica Set: Small", 5gb, in AWS us-east-1
 * Hosted AWS Provider #2: $160/month, AWS Dedicated "Mini", 1.7gb RAM, 20gb Storage, in AWS us-east-1.
 
@@ -61,7 +61,7 @@ in the AWS us-east-1 region.
 
 This workload exercises the ability for a data store to handle high in-place
 updates of data. MongoDB has well known limitations in this space, because of
-its [locking design](http://docs.mongodb.org/manual/faq/concurrency/) that
+its [locking design](https://docs.mongodb.org/manual/faq/concurrency/) that
 causes contention and performance degradation at high loads.
 
 {% img center 2013-02-27-benchmarking-hosted-mongodb-services/session-store-throughput.png "Session Store, Throughput (Higher is better)" %}
@@ -112,12 +112,12 @@ peak load it delivered read results around 430ms.
 ### Conclusion
 
 Don't just take our word for it, ObjectRocket is currently
-[offering 30 day free trials](http://objectrocket.com/pricing) so you can test
+[offering 30 day free trials](https://objectrocket.com/pricing) so you can test
 out your own application and workloads.
 
 P.S.: Rackspace is always hiring outstanding developers. For more information
 on software developer jobs at Rackspace, visit our
-[careers page](http://jobs.rackspace.com/go/software-developer-jobs/247407/)
+[careers page](https://jobs.rackspace.com/go/software-developer-jobs/247407/)
 
 ### Disclaimer
 

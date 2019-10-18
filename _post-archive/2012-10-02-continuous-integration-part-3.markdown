@@ -13,7 +13,7 @@ _
 
 Since 2006, the RPM Development Team has provided and maintained packages for the latest versions of PHP, MySQL and other common software on the Red Hat Enterprise Linux platform. Internally, we maintain a number of package sets for an audience of thousands of production servers. Until recently, these packages were only available internally to Rackspace customers. After a while we began thinking: Why not make this available publicly for everyone to benefit?
 
-The [IUS Community Project](http://iuscommunity.org) is an Open Source community created by the RPM Development Team that aims to provide up to date and regularly maintained RPM packages for the latest upstream versions of PHP, Python, MySQL and other common software specifically for Red Hat Enterprise Linux. IUS can be thought of as a better way to upgrade RHEL -- when you need to.
+The [IUS Community Project](https://iuscommunity.org) is an Open Source community created by the RPM Development Team that aims to provide up to date and regularly maintained RPM packages for the latest upstream versions of PHP, Python, MySQL and other common software specifically for Red Hat Enterprise Linux. IUS can be thought of as a better way to upgrade RHEL -- when you need to.
 
 <!-- more -->
 

@@ -8,7 +8,7 @@ categories:
   - OpenStack
 ---
 
-Puppet Labs just posted all of their videos from PuppetConf 2012 on their [website](http://puppetlabs.com/community/videos/puppetconf/). PuppetConf was held in late September in San Francisco. One of my favorites is this video on deploying OpenStack using Puppet from Robert Starmer, Principal Cloud Engineer at Cisco Systems.
+Puppet Labs just posted all of their videos from PuppetConf 2012 on their [website](https://puppetlabs.com/community/videos/puppetconf/). PuppetConf was held in late September in San Francisco. One of my favorites is this video on deploying OpenStack using Puppet from Robert Starmer, Principal Cloud Engineer at Cisco Systems.
 
 <!-- more -->
 

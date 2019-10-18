@@ -46,17 +46,17 @@ To prepare the operating system (OS) for the Weblogic Server installation, refer
 to the following documents. Ensure that the OS versions and required settings
 are complete on both the application nodes (node1 and node2).
 
-For the certification matrix, see this [Oracle reference document](http://www.oracle.com/technetwork/middleware/fusion-middleware/documentation/fmw-122110certmatrix-3050412.xlsx).
+For the certification matrix, see this [Oracle reference document](https://www.oracle.com/technetwork/middleware/fusion-middleware/documentation/fmw-122110certmatrix-3050412.xlsx).
 
 For Linux&reg; requirements like OS packages, kernal settings, and memory settings,
-see [these reference documents](http://docs.oracle.com/html/E73100_01/toc.htm#GUID-37C51062-3732-4A4B-8E0E-003D9DFC8C26)
+see [these reference documents](https://docs.oracle.com/html/E73100_01/toc.htm#GUID-37C51062-3732-4A4B-8E0E-003D9DFC8C26)
 and ensure that you apply the patches to both nodes.
 
 ### Install JDK 1.8
 
 Use these steps to install JDK 1.8:
 
-1. Download the Java Development Kit (JDK) from the [Oracle Technology Network Portal](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+1. Download the Java Development Kit (JDK) from the [Oracle Technology Network Portal](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 2. Execute the following commands to unzip **jdk-8u181-linux-x64.tar.gz**, which
    you downloaded:
 
@@ -256,7 +256,7 @@ To continue the installation on node1, perform the following steps as prompted:
     <li>Listen Address: Node1 IP Address</li>
     <li>Listen Port: 7777</li>
     <li>SSL Listen Port: 4443</li>
-    <li>Servername: http://<Node1 IP Address>:7777</li>
+    <li>Servername: https://<Node1 IP Address>:7777</li>
     </ul>
     <li>On the <b>OHS Server</b> page, select <b>System Component</b> <b>ohs2</b> and provide the following details:</li>
     <ul>
@@ -265,7 +265,7 @@ To continue the installation on node1, perform the following steps as prompted:
     <li>Listen Address: Node2 IP Address</li>
     <li>Listen Port: 7777</li>
     <li>SSL Listen Port: 4443</li>
-    <li>Servername: http://<Node2 IP Address>:7777</li>
+    <li>Servername: https://<Node2 IP Address>:7777</li>
     </ul>
     <li>On the <b>Assign System Components to machines</b> page, assign <b>forms1</b> and
     <b>ohs1</b> to <b>Machine Node1</b> and assign <b>forms2</b> and <b>ohs2</b>
@@ -292,7 +292,7 @@ Perform the following steps on node1:
 
 3. When prompted, enter username (**weblogic**) and the password to boot the WebLogic
    server.
-4. To verify the AdminServer, browse to **http://<Node1 Host Name>:7001/console**
+4. To verify the AdminServer, browse to **https://<Node1 Host Name>:7001/console**
    and log in with the credentials (**weblogic** and <weblogic password>) from the
    domain creation step. Check the server status and then shut down the AdminServer
    from the console.
@@ -318,7 +318,7 @@ Perform the following steps on node1:
         [appfmw@fmwNode1 ~]$ cd /u02/app/middleware/user_projects/domains/DEV_domain/bin
         [appfmw@fmwNode1 bin]$ nohup startNodeManager.sh &
 
-8. To start the managed servers on node1, browse to **http://<Node1 Host Name>:7001/console**
+8. To start the managed servers on node1, browse to **https://<Node1 Host Name>:7001/console**
    and enter the credentials (**weblogic**/<weblogic password from Domain creation>).
    Start all the managed servers on node1 from the console.
 
@@ -351,7 +351,7 @@ Perform the following configuration steps to configure reports on node1:
    Add the following <webcommandaccess> line (shown in place):
 
       <?xml version="1.0" encoding="UTF-8"?>
-      <rwservlet xmlns="http://xmlns.oracle.com/reports/rwservlet" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <rwservlet xmlns="https://xmlns.oracle.com/reports/rwservlet" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
           <server>rep_wls_reports_host03</server>
           <singlesignon>no</singlesignon>
           <inprocess>yes</inprocess>
@@ -479,7 +479,7 @@ Perform the following configuration steps to configure reports on node2:
    Add the following <webcommandaccess> line (shown in place):
 
       <?xml version="1.0" encoding="UTF-8"?>
-      <rwservlet xmlns="http://xmlns.oracle.com/reports/rwservlet" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <rwservlet xmlns="https://xmlns.oracle.com/reports/rwservlet" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
           <server>rep_wls_reports_host03</server>
           <singlesignon>no</singlesignon>
           <inprocess>yes</inprocess>

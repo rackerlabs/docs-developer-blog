@@ -123,7 +123,7 @@ is doing a reload and distribution.
 ### Test the configuration
 
 To test the configuration, insert your server name and in a web browser go to
-``http://<servername>/qlikview``, as shown in the following
+``https://<servername>/qlikview``, as shown in the following
 image:
 
 ![]({% asset_path 2018-08-07-using-iis-with-qlikview-and-cutom-users/Picture8.png %})

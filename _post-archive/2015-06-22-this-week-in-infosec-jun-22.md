@@ -57,13 +57,13 @@ For now, the vulnerability author recommends not connecting to untrusted WiFi ne
 [effreport2]: https://www.eff.org/who-has-your-back-government-data-requests-2015#evaluation-criteria
 [effreport3]: https://www.eff.org/who-has-your-back-government-data-requests-2015#results-summary
 
-[radio]: http://www.tau.ac.il/~tromer/radioexp/
-[radio2]: http://www.cs.tau.ac.il/~tromer/papers/radioexp.pdf
-[emailhacking]: http://thehackernews.com/2015/06/how-to-hack-email-account.html
+[radio]: https://www.tau.ac.il/~tromer/radioexp/
+[radio2]: https://www.cs.tau.ac.il/~tromer/papers/radioexp.pdf
+[emailhacking]: https://thehackernews.com/2015/06/how-to-hack-email-account.html
 
 [samsung]: https://www.nowsecure.com/blog/2015/06/16/remote-code-execution-as-system-user-on-samsung-phones/
-[samsung2]: http://global.samsungtomorrow.com/information-regarding-the-keyboard-security-issue-and-our-device-policy-update/
-[fonts]: http://j00ru.vexillium.org/?p=2520
+[samsung2]: https://global.samsungtomorrow.com/information-regarding-the-keyboard-security-issue-and-our-device-policy-update/
+[fonts]: https://j00ru.vexillium.org/?p=2520
 [fonts2]: https://technet.microsoft.com/library/security/MS15-021
 [fonts3]: https://technet.microsoft.com/library/security/MS15-044
 [fonts4]: https://helpx.adobe.com/security/products/acrobat/apsb15-10.html

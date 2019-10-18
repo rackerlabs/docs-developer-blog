@@ -92,7 +92,7 @@ If you have integrated EBS with Oracle Internet Directory (OID), execute the fol
 
 #### 3. Test SSO integration
 
-Log in to EBS at `http://<ebshost>.<domain>:<port>/OA_HTML/AppsLogin`.
+Log in to EBS at `https://<ebshost>.<domain>:<port>/OA_HTML/AppsLogin`.
 
 When this redirects you to the OAM SSO page, log in by using valid OID user credentials.
 After successful authentication, the system redirects you to your EBS home page.

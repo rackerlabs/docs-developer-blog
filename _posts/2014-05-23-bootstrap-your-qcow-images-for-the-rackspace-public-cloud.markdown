@@ -11,15 +11,15 @@ categories:
 
 In the world of Cloud Computing, hypervisors and disk image formats come in
 various shapes & sizes and are by no means made equal.
-In the [Rackspace Public Cloud](http://rackspace.com/cloud/servers), we utilize Citrix XenServer as our
+In the [Rackspace Public Cloud](https://rackspace.com/cloud/servers), we utilize Citrix XenServer as our
 hypervisor, which requires that our disk images be in the
-[VHD](http://en.wikipedia.org/wiki/VHD_\(file_format\)) format.
+[VHD](https://en.wikipedia.org/wiki/VHD_\(file_format\)) format.
 
 <!-- more -->
 
 However, it is very common for folks who utilize the popular
-[KVM](http://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) hypervisor to
-want to leverage an existing, custom [QCOW](http://en.wikipedia.org/wiki/Qcow)
+[KVM](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) hypervisor to
+want to leverage an existing, custom [QCOW](https://en.wikipedia.org/wiki/Qcow)
 image when working with our Public Cloud.
 
 To minimize the redundancy of recreating duplicate images, it would be beneficial
@@ -30,11 +30,11 @@ create that they wish to share across multiple cloud infrastructures.
 In this tutorial, I will walk you through the following steps:
 
 * Pull a vanilla
-[UEC](http://en.wikipedia.org/wiki/Ubuntu_Enterprise_Cloud#Cloud_computing)
-version of an [Ubuntu 14.04](http://cloud-images.ubuntu.com/trusty/current/) QCOW image
+[UEC](https://en.wikipedia.org/wiki/Ubuntu_Enterprise_Cloud#Cloud_computing)
+version of an [Ubuntu 14.04](https://cloud-images.ubuntu.com/trusty/current/) QCOW image
 * Modify the OS to work with the Rackspace Public Cloud
 * Convert it to the required VHD format XenServer expects
-* Upload the image to [Cloud Files](http://rackspace.com/cloud/files) for registration with [Cloud Images](http://www.rackspace.com/cloud/images/)
+* Upload the image to [Cloud Files](https://rackspace.com/cloud/files) for registration with [Cloud Images](https://www.rackspace.com/cloud/images/)
 * Utilize Cloud Images to register the image for future instantiation
 
 ## Notes
@@ -45,8 +45,8 @@ version of an [Ubuntu 14.04](http://cloud-images.ubuntu.com/trusty/current/) QCO
 
 ## Assumptions & Recommendations
 
-* An existing [Public Cloud](http://mycloud.rackspace.com) account
-* [python-novaclient](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os) is installed
+* An existing [Public Cloud](https://mycloud.rackspace.com) account
+* [python-novaclient](https://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os) is installed
 * [pyrax](https://github.com/rackspace/pyrax) is installed
     * __Note__: Public Cloud pyrax credentials are expected to be stored in ~/pyrax_rc, formatted as such:
 
@@ -99,7 +99,7 @@ Outputs: `trusty-server-cloudimg-amd64-disk1.img`
 * __Note:__ If you want to make custom changes to the OS, this is your chance to do
   so
   * Mount the QCOW image as done in the
-  [modify_qcow.sh](http://git.io/-4PHGQ), then via chroot, make any necessary changes you wish to persist
+  [modify_qcow.sh](https://git.io/-4PHGQ), then via chroot, make any necessary changes you wish to persist
 
 __3. Convert the QCOW to VHD__
 
@@ -142,10 +142,10 @@ served as the Chief Architect of the Service Provider Program. Prior to joining
 Rackspace, Mike held senior technical roles at Sandia National Laboratories
 performing research and development in Cyber Security with regards to
 distributed systems, cloud and mobile computing. You can follow Mike on Twitter
-[@mikemetral](http://twitter.com/mikemetral) and Github as
-[metral](http://github.com/metral)
+[@mikemetral](https://twitter.com/mikemetral) and Github as
+[metral](https://github.com/metral)
 
 ## Reference Material
-* [Convert a raw image to XenServer – VHD](http://blogs.citrix.com/2012/10/04/convert-a-raw-image-to-xenserver-vhd/)
-* [Cloud Images API Developer Guide](http://docs.rackspace.com/images/api/v2/ci-devguide/content/ch_image_preface.html)
+* [Convert a raw image to XenServer – VHD](https://blogs.citrix.com/2012/10/04/convert-a-raw-image-to-xenserver-vhd/)
+* [Cloud Images API Developer Guide](https://docs.rackspace.com/images/api/v2/ci-devguide/content/ch_image_preface.html)
 * [Pyrax Images Doc](https://github.com/rackspace/pyrax/blob/master/docs/images.md)

@@ -6,12 +6,12 @@ comments: false
 author: Josh Mattson
 published: true
 authorIsRacker: true
-authorAvatar: 'http://www.gravatar.com/avatar/791617263c70278859e1b26c15d13eab'
+authorAvatar: 'https://www.gravatar.com/avatar/791617263c70278859e1b26c15d13eab'
 categories:
     - DevOps
 ---
 
-Application Performance Management (APM) tools can provide incredibly valuable insight into the performance of your applications and ultimately your end users' experience.  This insight, however, does not come without its cost.  Because APM tools instrument code at runtime, there is always some level of performance overhead.  In contrast to some older APM tools, modern APM tools are designed to minimize the negative performance impact as much as possible to allow you to safely run them in production without your end users' experience suffering.  In this post, we'll evaluate the overhead introduced on an Adobe Experience Manager (AEM) environment by two popular APM tools: [AppDynamics](http://www.appdynamics.com) and [New Relic](http://www.newrelic.com)
+Application Performance Management (APM) tools can provide incredibly valuable insight into the performance of your applications and ultimately your end users' experience.  This insight, however, does not come without its cost.  Because APM tools instrument code at runtime, there is always some level of performance overhead.  In contrast to some older APM tools, modern APM tools are designed to minimize the negative performance impact as much as possible to allow you to safely run them in production without your end users' experience suffering.  In this post, we'll evaluate the overhead introduced on an Adobe Experience Manager (AEM) environment by two popular APM tools: [AppDynamics](https://www.appdynamics.com) and [New Relic](https://www.newrelic.com)
 
 <!-- more -->
 

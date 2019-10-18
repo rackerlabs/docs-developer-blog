@@ -13,7 +13,7 @@ One of the challenges that someone maintaining a group of webservers is faced wi
 
 If we look at the main webserver platforms in use today and look at the various CM systems, we're going to see a huge number of examples for Apache, similar for nginx, but IIS is rather thin on the ground. Lets change this!
 
-I'm going to use [SaltStack](http://www.saltstack.com/) in this example, as its my Configuration Management system of choice, however the same should be able to be done for Chef, Puppet or any other system.<!-- more -->
+I'm going to use [SaltStack](https://www.saltstack.com/) in this example, as its my Configuration Management system of choice, however the same should be able to be done for Chef, Puppet or any other system.<!-- more -->
 
 Our first step is going to create a state file for this. By default this is going to be in 
 

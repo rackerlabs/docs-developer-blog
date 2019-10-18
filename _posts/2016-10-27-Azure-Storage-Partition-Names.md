@@ -102,7 +102,7 @@ server 1. With my modified code to generate a unique prefix hash, the partitions
 now should be spread out on multiple partition servers since I did not follow a
 sequential naming pattern.
 
-I encourage you to read [the whitepaper](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf)
+I encourage you to read [the whitepaper](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf)
 and the [Azure storage performance checklist](https://azure.microsoft.com/en-us/documentation/articles/storage-performance-checklist/#subheading47)
 article for more insight into the Azure Storage system for designing partitioning strategies.
 

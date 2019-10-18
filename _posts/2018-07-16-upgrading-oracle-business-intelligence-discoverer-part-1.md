@@ -38,9 +38,9 @@ Certified E-Business Suite releases are:
 
 For more information about certification, see the following links:
 
--  http://www.oracle.com/technetwork/middleware/ias/downloads/fusion-certification-100350.html
+-  https://www.oracle.com/technetwork/middleware/ias/downloads/fusion-certification-100350.html
 
--  http://www.oracle.com/technetwork/middleware/downloads/fmw-11gr1certmatrix.xls
+-  https://www.oracle.com/technetwork/middleware/downloads/fmw-11gr1certmatrix.xls
 
 **Note**: If you are using Red Hat&reg; Linux (RHEL), you must be on version 6 or
 lower before you can install Discoverer 11.1.1.7.

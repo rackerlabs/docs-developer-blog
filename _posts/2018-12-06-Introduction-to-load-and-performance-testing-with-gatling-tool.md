@@ -176,7 +176,7 @@ Note that `Java.exe` is required to open the recorder window.
 {% img center 2018-11-29-Introduction-to-load-and-performance-testing-with-gatling-tool/gatling-recorder-1.png %}
 
 <ol start=3>
-    <li>  Open the Google Chrome browser, go to the URL: http://computer-database.gatling.io/, and try some operations on this page. The executed events can be observed in the recorder window. Click <b>Stop & Save</b>.</li>
+    <li>  Open the Google Chrome browser, go to the URL: https://computer-database.gatling.io/, and try some operations on this page. The executed events can be observed in the recorder window. Click <b>Stop & Save</b>.</li>
 </ol>
 
 
@@ -247,7 +247,7 @@ Apache JMeter is a Java-based open source tool for load testing and measuring
 performance. It’s used for recording, building, monitoring, and debugging on
 different applications, servers, and networks. Also, it is of a great use in
 creating a functional or load test plan.
-Download link: [Apache JMeter download](http://jmeter.apache.org/download_jmeter.cgi)
+Download link: [Apache JMeter download](https://jmeter.apache.org/download_jmeter.cgi)
 
 ### WebLOAD
 

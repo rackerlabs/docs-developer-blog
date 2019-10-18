@@ -65,8 +65,8 @@ Create the cinder configuration file
     connection = mysql://cinder:cinder@$MY_PRIVATE_IP/cinder?charset=utf8
 
     [keystone_authtoken]
-    auth_uri = http://$MY_PRIVATE_IP:5000/v2.0
-    identity_uri = http://$MY_PRIVATE_IP:35357/
+    auth_uri = https://$MY_PRIVATE_IP:5000/v2.0
+    identity_uri = https://$MY_PRIVATE_IP:35357/
     admin_user = cinder
     admin_password = cinder
     admin_tenant_name = service
@@ -105,9 +105,9 @@ Add a cinder service and a v2 endpoint in keystone:
       --description "OpenStack Block Storage" cinderv2
 
     openstack endpoint create \
-      --publicurl http://10.0.1.4:8776/v2/%\(tenant_id\)s \
-      --internalurl http://10.0.1.4:8776/v2/%\(tenant_id\)s \
-      --adminurl http://10.0.1.4:8776/v2/%\(tenant_id\)s \
+      --publicurl https://10.0.1.4:8776/v2/%\(tenant_id\)s \
+      --internalurl https://10.0.1.4:8776/v2/%\(tenant_id\)s \
+      --adminurl https://10.0.1.4:8776/v2/%\(tenant_id\)s \
       --region RegionOne \
       volumev2
 

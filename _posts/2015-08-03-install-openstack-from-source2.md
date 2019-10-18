@@ -152,7 +152,7 @@ If glance started, we should see a line from the last command showing informatio
 
 Next, install an image into glance for use once we have OpenStack fully installed as a basis for VMs. There is a small cloud image based on Ubuntu that is available, named cirros. With glance running download the cirros image and load it into glance:
 
-    wget http://cdn.download.cirros-cloud.net/0.3.3/cirros-0.3.3-x86_64-disk.img
+    wget https://cdn.download.cirros-cloud.net/0.3.3/cirros-0.3.3-x86_64-disk.img
 
     glance image-create --name=cirros-qcow2 \
                         --disk-format=qcow2 \
@@ -224,7 +224,7 @@ You should see in the output of the two previous commands that the neutron user 
 
 Place the neutron endpoint information into the keystone service catalog:
 
-    keystone endpoint-create --region RegionOne --service neutron --publicurl=http://$MY_PUBLIC_IP:9696 --internalurl=http://$MY_PRIVATE_IP:9696 --adminurl=http://$MY_PRIVATE_IP:9696
+    keystone endpoint-create --region RegionOne --service neutron --publicurl=https://$MY_PUBLIC_IP:9696 --internalurl=https://$MY_PRIVATE_IP:9696 --adminurl=https://$MY_PRIVATE_IP:9696
 
     SERVICE_TENANT_ID=`keystone tenant-get service | awk '/ id / { print $4 }'`
 
@@ -243,18 +243,18 @@ Finally, we must configure neutron. If the basic configuration file is supplied 
     dhcp_agents_per_network = 1
     notify_nova_on_port_status_changes = True
     notify_nova_on_port_data_changes = True
-    nova_url = http://$MY_PRIVATE_IP:8774/v2
+    nova_url = https://$MY_PRIVATE_IP:8774/v2
     nova_admin_username = nova
     nova_admin_tenant_id = $SERVICE_TENANT_ID
     #nova_admin_tenant_name = service
     nova_admin_password = nova
-    nova_admin_auth_url = http://$MY_PRIVATE_IP:35357/v2.0
+    nova_admin_auth_url = https://$MY_PRIVATE_IP:35357/v2.0
 
     [agent]
     root_helper=sudo /usr/local/bin/neutron-rootwrap /etc/neutron/rootwrap.conf
     [keystone_authtoken]
-    auth_uri = http://$MY_PRIVATE_IP:35357/v2.0/
-    identity_uri = http://$MY_PRIVATE_IP:5000
+    auth_uri = https://$MY_PRIVATE_IP:35357/v2.0/
+    identity_uri = https://$MY_PRIVATE_IP:5000
     admin_tenant_name = service
     admin_user = neutron
     admin_password = neutron

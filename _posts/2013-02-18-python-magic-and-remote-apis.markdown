@@ -8,7 +8,7 @@ categories:
   - Python
   - Developers
 ---
-_This is a guest post by Jesse Keating, a Racker working on DevOps for Rackspace's Cloud Server products. You can read his blog at [http://raxcloud.blogspot.com/](http://raxcloud.blogspot.com) or follow _[@iamjkeating](http://twitter.com/iamjkeating)_ on Twitter._
+_This is a guest post by Jesse Keating, a Racker working on DevOps for Rackspace's Cloud Server products. You can read his blog at [https://raxcloud.blogspot.com/](https://raxcloud.blogspot.com) or follow _[@iamjkeating](https://twitter.com/iamjkeating)_ on Twitter._
 
 I'm a pretty big fan of Python as a programming language. It allows me to
 program by discovery, that is poke and prod at things until the work. Not
@@ -18,7 +18,7 @@ break a program at that point, then run arbitrary python code within that
 context. Pretty indispensable to how I write software.
 
 Another thing I like about Python, which some may not, is the ability to do
-magic things. Not quite so magic as [xkcd](http://xkcd.com/353/) would like
+magic things. Not quite so magic as [xkcd](https://xkcd.com/353/) would like
 us to believe, but fun stuff indeed.
 <!-- more -->
 Recently one of the services at work grew a json API to bang against, and
@@ -27,7 +27,7 @@ utility scripts that would bang on the old xmlrpc interface to get some
 data, I wanted to see how much faster it was with json.
 
 First, if you have to do anything web stuff, you really should be using the
-[Requests](http://docs.python-requests.org/en/latest/) module. It is so, so
+[Requests](https://docs.python-requests.org/en/latest/) module. It is so, so
 much better than using urllib(2) directly.
 
 The API I wanted to program against had an Auth end point that would return

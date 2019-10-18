@@ -60,7 +60,7 @@ The following image provides a visualization of these concepts.
 ![3Vs (volume, variety, and velocity)]({% asset_path 2018-06-18-hadoop-eco-basics-1/picture1.png %})
 
 Image source: [3Vs (volume, variety and
-velocity)](http://whatis.techtarget.com/definition/3Vs)
+velocity)](https://whatis.techtarget.com/definition/3Vs)
 
 ### The Hadoop ecosystem
 

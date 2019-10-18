@@ -10,7 +10,7 @@ categories:
 
 {% img right 2013-03-01-crank-up-app-security/lockkey.png %}
 
-_Major Hayden is the Chief Security Architect and a Linux engineer who has experience working on large-scale OpenStack deployments and automation in Rackspace Cloud. He enjoys writing posts about Linux system administration and security on the Rackspace blog as well as his [personal blog](http://rackerhacker.com/). Follow him on Twitter [@rackerhacker](http://twitter.com/rackerhacker)_
+_Major Hayden is the Chief Security Architect and a Linux engineer who has experience working on large-scale OpenStack deployments and automation in Rackspace Cloud. He enjoys writing posts about Linux system administration and security on the Rackspace blog as well as his [personal blog](https://rackerhacker.com/). Follow him on Twitter [@rackerhacker](https://twitter.com/rackerhacker)_
 
 The password is dying, but I’m afraid it’s not dying fast enough.
 
@@ -29,7 +29,7 @@ With the need for increased security requirements in the workplace, it is impera
 Let’s look at the three primary ways of authenticating a user:
 
 * **What you know.** The standard password is an example of a user proving that they know information that should allow them to get into a system.
-* **What you have.** With this type of authentication, the user has to prove that they have something in their possession at the time of the request, such as a [RSA token](http://www.emc.com/security/rsa-securid.htm), [Google Authenticator](http://support.google.com/accounts/bin/answer.py?hl=en&answer=1066447) code or [YubiKey](http://www.yubico.com/).
+* **What you have.** With this type of authentication, the user has to prove that they have something in their possession at the time of the request, such as a [RSA token](https://www.emc.com/security/rsa-securid.htm), [Google Authenticator](https://support.google.com/accounts/bin/answer.py?hl=en&answer=1066447) code or [YubiKey](https://www.yubico.com/).
 * **What you are.** Biometric data, such as fingerprint recognition, retina scanning and even the cadence you use when typing your password can be used to determine your identity.
 
 Recognizing that a single password has a certain likelihood of being cracked, authenticating a user on two of these factors makes it one step harder for someone to exploit your system. Application developers would be remiss to not offer a two-factor authentication login option for users.
@@ -42,7 +42,7 @@ However, you can even take this a step further, requiring a user to “step up�
 
 As developers looking to make their applications more secure, they should always remain considerate to people’s workflows. Developers must demonstrate the value of the security to their customer, and make the different points of authentication jibe with the level of security that is needed for a particular function.
 
-Two-factor authentication can already be implemented for many applications via plugins or libraries. For Linux users, PAM modules are available for both the [YubiKey](http://code.google.com/p/yubico-pam/) and [Google Authenticator](http://code.google.com/p/google-authenticator/). WordPress, a popular CMS not just for bloggers [but also enterprises](http://en.wordpress.com/notable-users/), even has plugins that support [YubiKey](http://wordpress.org/extend/plugins/yubikey-plugin/) and [Google Authenticator](http://wordpress.org/extend/plugins/google-authenticator/).
+Two-factor authentication can already be implemented for many applications via plugins or libraries. For Linux users, PAM modules are available for both the [YubiKey](https://code.google.com/p/yubico-pam/) and [Google Authenticator](https://code.google.com/p/google-authenticator/). WordPress, a popular CMS not just for bloggers [but also enterprises](https://en.wordpress.com/notable-users/), even has plugins that support [YubiKey](https://wordpress.org/extend/plugins/yubikey-plugin/) and [Google Authenticator](https://wordpress.org/extend/plugins/google-authenticator/).
 
 In summary, authenticating users with multiple factors is beneficial for application developers and end users. For the end users, they get the peace of mind that an attacker must know (and have) multiple items that are personal to the user. For application developers, they can offer their application to larger businesses that have strict security requirements around user authentication.
 

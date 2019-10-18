@@ -65,7 +65,7 @@ The Python module tox can be used to build a full **nova.conf** file, but, in re
     enable_instance_password = False
     service_neutron_metadata_proxy = True
     neutron_metadata_proxy_shared_secret = openstack
-    novncproxy_base_url = http://$MY_PUBLIC_IP:6080/vnc_auto.html
+    novncproxy_base_url = https://$MY_PUBLIC_IP:6080/vnc_auto.html
     vncserver_proxyclient_address= $MY_PRIVATE_IP
     vncserver_listen  =0.0.0.0
 
@@ -76,7 +76,7 @@ The Python module tox can be used to build a full **nova.conf** file, but, in re
     host = 10.0.1.4
 
     [keystone_authtoken]
-    auth_uri = http://$MY_PRIVATE_IP:5000
+    auth_uri = https://$MY_PRIVATE_IP:5000
     auth_host = $MY_PRIVATE_IP
     auth_port = 35357
     auth_protocol = http
@@ -85,11 +85,11 @@ The Python module tox can be used to build a full **nova.conf** file, but, in re
     admin_password = nova
 
     [neutron]
-    url=http://10.0.1.4:9696
+    url=https://10.0.1.4:9696
     admin_username = neutron
     admin_password = neutron
     admin_tenant_name = service
-    admin_auth_url = http://10.0.1.4:5000/v2.0
+    admin_auth_url = https://10.0.1.4:5000/v2.0
     auth_strategy = keystone
 
     [oslo_concurrency]

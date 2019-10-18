@@ -16,9 +16,9 @@ bio: >
   thornelabs.net and can be followed on Twitter @jameswthorne.
 ---
 
-Last week, I presented a live webinar on [using Rackspace Private Cloud to support your software development lifecycle](http://youtu.be/s9GNgYUpXyU).
+Last week, I presented a live webinar on [using Rackspace Private Cloud to support your software development lifecycle](https://youtu.be/s9GNgYUpXyU).
 
-The following post, the fourth of several in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/), will be a summary of that live webinar. I will be discussing a general overview of the software development lifecycle, why Rackspace Private Cloud is a good fit for this use case, and demonstrating how to integrate Jenkins with GitHub.
+The following post, the fourth of several in the [RPC Insights series](https://www.rackspace.com/blog/welcome-to-rpc-insights/), will be a summary of that live webinar. I will be discussing a general overview of the software development lifecycle, why Rackspace Private Cloud is a good fit for this use case, and demonstrating how to integrate Jenkins with GitHub.
 
 <!-- more -->
 
@@ -45,7 +45,7 @@ As you may expect, there are a handful of different software development lifecyc
 SDLC Models
 -----------
 
-If you go to [Wikipedia](http://en.wikipedia.org/wiki/Software_development_process), search for __Software development process__, and go to the __Software development models__ section, you will see a handful of various models such as waterfall, spiral, iterative and incremental, agile, rapid application deployment, and code and fix.
+If you go to [Wikipedia](https://en.wikipedia.org/wiki/Software_development_process), search for __Software development process__, and go to the __Software development models__ section, you will see a handful of various models such as waterfall, spiral, iterative and incremental, agile, rapid application deployment, and code and fix.
 
 Of those models, I am going to touch on the Waterfall and Agile models.
 
@@ -56,11 +56,11 @@ Waterfall Model
 
 First, the Waterfall model.
 
-[Wikipedia](http://en.wikipedia.org/wiki/Waterfall_model) provides a good definition of the Waterfall model:
+[Wikipedia](https://en.wikipedia.org/wiki/Waterfall_model) provides a good definition of the Waterfall model:
 
 > The waterfall model is a sequential design process, used in software development processes, in which progress is seen as flowing steadily downwards (like a waterfall) through the phases of Conception, Initiation, Analysis, Design, Construction, Testing, Production/Implementation, and Maintenance.
 
-As stated by [Herbert Benington](http://en.wikipedia.org/wiki/Waterfall_model#cite_note-1):
+As stated by [Herbert Benington](https://en.wikipedia.org/wiki/Waterfall_model#cite_note-1):
 
 > The waterfall development model originates in the manufacturing and construction industries; highly structured physical environments in which after-the-fact changes are prohibitively costly, if not impossible. Since no formal software development methodologies existed at the time, this hardware-oriented model was simply adapted for software development.
 
@@ -68,7 +68,7 @@ Because a "hardware-oriented model was simply adapted for software development" 
 
 This is where the advocates of the Agile model criticize the Waterfall model. 
 
-Also from [Wikipedia](http://en.wikipedia.org/wiki/Waterfall_model):
+Also from [Wikipedia](https://en.wikipedia.org/wiki/Waterfall_model):
 
 > [those critics] argue the waterfall model is a bad idea in practice—believing it impossible for any non-trivial project to finish a phase of a software product's lifecycle perfectly before moving to the next phases and learning from them
 
@@ -85,7 +85,7 @@ As you may expect, the Agile model brings a more flexible approach to the softwa
 
 Instead of finishing one phase and going to the next, like you do in the Waterfall model, you break apart the entire cycle into smaller groups of works, or as the diagram above shows, sprints.
 
-Continuous integration comes into play here. [It was created for the Agile model](http://www.ibm.com/developerworks/rational/library/continuous-integration-agile-development/). Part of the idea is to not solve everything up front, but to focus on what you know and go through the Discover, Design, Develop, and Test phases for that particular feature and then implement it. Once that is complete, the same process is done for the next set of requirements or features.
+Continuous integration comes into play here. [It was created for the Agile model](https://www.ibm.com/developerworks/rational/library/continuous-integration-agile-development/). Part of the idea is to not solve everything up front, but to focus on what you know and go through the Discover, Design, Develop, and Test phases for that particular feature and then implement it. Once that is complete, the same process is done for the next set of requirements or features.
 
 Martin Fowler of ThoughtWorks provides a very good definition of continuous integration: 
 
@@ -166,7 +166,7 @@ I am going to show you how to setup your first Jenkins Project, how to automate 
 
 Even though I will be using GitHub, for the sake of the narrative, pretend I am demonstrating GitHub Enterprise and Jenkins. [GitHub Enterprise](https://enterprise.github.com) is a paid-for product from GitHub that allows you to essentially run GitHub within your own firewalls. No one but you has access to it. It makes sense to run it on top of Rackspace Private Cloud which is also behind your own firewalls. Jenkins can of course be run behind your own firewalls as well.
 
-The following sections will be a text based install of what was mentioned above. If you'd prefer to watch the process instead, please watch the webinar at timestamp 15:13 [here](http://www.youtube.com/watch?v=s9GNgYUpXyU#t=913).
+The following sections will be a text based install of what was mentioned above. If you'd prefer to watch the process instead, please watch the webinar at timestamp 15:13 [here](https://www.youtube.com/watch?v=s9GNgYUpXyU#t=913).
 
 ### Install Jenkins
 
@@ -192,7 +192,7 @@ Download and import the Jenkins package apt public key:
 
 Add the Jenkins repository to apt:
 
-    sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+    sudo sh -c 'echo deb https://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
 
 Update apt with the latest packages:
 
@@ -428,6 +428,6 @@ What's Next
 
 I have discussed a general overview of the software development lifecycle, discussed why Rackspace Private Cloud is a good fit for this use case, and demonstrated how to integrate Jenkins with GitHub.
 
-This concludes the fourth of several posts in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/).
+This concludes the fourth of several posts in the [RPC Insights series](https://www.rackspace.com/blog/welcome-to-rpc-insights/).
 
-Join us on September 10, 2014 at 10:00 AM CDT for a live webinar on [A Big Data Solution Running On Top of Rackspace Private Cloud](http://go.rackspace.com/big-data-solution-on-rpc.html).
+Join us on September 10, 2014 at 10:00 AM CDT for a live webinar on [A Big Data Solution Running On Top of Rackspace Private Cloud](https://go.rackspace.com/big-data-solution-on-rpc.html).

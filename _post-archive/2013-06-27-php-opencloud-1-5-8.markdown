@@ -23,7 +23,7 @@ Alarms are responsible for determining a state (```OK```, ```WARNING``` or
 ```CRITICAL```) based on the result of a check, and executing a notification plan
 whenever that state changes. You create alerting rules by using the alarm DSL.
 For information about using the alarm language, refer to the
-[reference documentation](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/alerts-language.html).
+[reference documentation](https://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/alerts-language.html).
 
 #### Setup
 
@@ -92,11 +92,11 @@ $alarm->update(array(
 $alarm->delete();
 ```
 
-More information on php-opencloud is available at <http://php-opencloud.com>
+More information on php-opencloud is available at <https://php-opencloud.com>
 
 
-[1]: http://php-opencloud.com/
+[1]: https://php-opencloud.com/
 [2]: https://wiki.openstack.org/wiki/Heat
-[3]: http://www.rackspace.com/cloud/monitoring/
+[3]: https://www.rackspace.com/cloud/monitoring/
 [4]: https://github.com/rackspace/php-opencloud/releases
 [5]: https://github.com/rackspace/php-opencloud/tree/master/docs/userguide/Cloud%20Monitoring

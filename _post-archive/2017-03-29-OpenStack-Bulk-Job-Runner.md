@@ -50,7 +50,7 @@ for project in projects:
 ```
 
 The previous snippet prints the github URL for all of the repositories. If
-this was fed into a bash variable using a [here document](http://tldp.org/LDP/abs/html/here-docs.html),
+this was fed into a bash variable using a [here document](https://tldp.org/LDP/abs/html/here-docs.html),
 you could simply loop over the results and clone the repositories.
 
 ``` bash

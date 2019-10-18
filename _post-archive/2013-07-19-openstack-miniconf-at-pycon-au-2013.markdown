@@ -37,7 +37,7 @@ Finally was the bar track! Many of the miniconf attendees, myself included, reti
 
 [1]: https://www.google.com.au/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;cad=rja&amp;ved=0CD4QtwIwAQ&amp;url=http%3A%2F%2Fwww.theonion.com%2Fvideo%2Fhp-on-that-cloud-thing-that-everyone-else-is-talki%2C28789%2F&amp;ei=bWbXUf7nIImJlQXD6oEY&amp;usg=AFQjCNEcXkmkrmnlbsB6LMJ536qQoxH9UQ&amp;sig2=RkUAKTpzWfXZk_nnqb4kJA&amp;bvm=bv.48705608,d.dGI
 [2]: https://github.com/tripleo/incubator
-[3]: http://www.rackspace.com/blog/how-rackspace-re-wrote-the-cloud-with-openstack-continuous-delivery/
+[3]: https://www.rackspace.com/blog/how-rackspace-re-wrote-the-cloud-with-openstack-continuous-delivery/
 [4]: https://pypi.python.org/pypi/testtools
-[5]: http://devstack.org
-[6]: http://www.wrestpoint.com.au/
+[5]: https://devstack.org
+[6]: https://www.wrestpoint.com.au/

@@ -33,7 +33,7 @@ Yes, you can actually see, touch, and sit in it now.  The Innovation Center, loc
 
 As of October 2015, Intel has placed ~12 developers into the Innovation Center to take part in the detailed training program created in order to on-board OpenStack focused developers.  From that point forward, roughly 10-15 additional developers will be brought in to work in the Innovation Center on a monthly basis.  The details around the OSIC engineering road map can be found in the following slide from the Tokyo OpenStack Summit:
 
-![OSIC Roadmap](http://www.hitchnyc.com/content/images/2016/01/osic-roadmap-n.png)
+![OSIC Roadmap](https://www.hitchnyc.com/content/images/2016/01/osic-roadmap-n.png)
 
 **Developer Cloud**
 
@@ -110,11 +110,11 @@ Unused nodes:
 --------
 **Who’s using the Developer Cloud?**
 
-Currently the Intel Bare Metal CI Team and Mirantis are the only OSIC customers using the cluster as of today.  Both of those teams use the bare metal server option as mentioned above.  The next consumers slated to come on board is the OpenStack Infrastructure team.  We're also moving the OSIC sign-up form from this [link](http://go.rackspace.com/developercloud) to http://www.osic.org, which will sit on the Developer cloud.
+Currently the Intel Bare Metal CI Team and Mirantis are the only OSIC customers using the cluster as of today.  Both of those teams use the bare metal server option as mentioned above.  The next consumers slated to come on board is the OpenStack Infrastructure team.  We're also moving the OSIC sign-up form from this [link](https://go.rackspace.com/developercloud) to https://www.osic.org, which will sit on the Developer cloud.
 
 We close out this update with two pretty pictures.  I'm rather confident that you wish that this was a screenshot of Horizon from your home labs, just like I do.  We can all dream right?  Please stay tuned for more updates to come and keep Stacking!
 
-{<2>}![Rackspace OSIC Cloud Region 1](http://www.hitchnyc.com/content/images/2016/01/osic-cloud1-n.png)
-{<3>}![Rackspace OSIC Cloud Region 2](http://www.hitchnyc.com/content/images/2016/01/osic-cloud2-n.png)
+{<2>}![Rackspace OSIC Cloud Region 1](https://www.hitchnyc.com/content/images/2016/01/osic-cloud1-n.png)
+{<3>}![Rackspace OSIC Cloud Region 2](https://www.hitchnyc.com/content/images/2016/01/osic-cloud2-n.png)
 
 Check out the last 8 minutes of the recorded OSIC session from the Tokyo OpenStack summit back in October 2015 to see the video of the OSIC launch at Castle: [https://www.openstack.org/summit/tokyo-2015/videos/presentation/intel-cloud-for-all-openstack-innovation-center](https://www.openstack.org/summit/tokyo-2015/videos/presentation/intel-cloud-for-all-openstack-innovation-center).

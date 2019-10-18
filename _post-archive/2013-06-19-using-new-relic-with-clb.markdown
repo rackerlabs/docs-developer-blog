@@ -51,8 +51,8 @@ I’ll post again once the next plugin is available so feel free to follow me on
 
 This is a post written and contributed by Jim Battenberg. Jim is a Cloud Evangelist for The Rackspace Cloud. His time in “the cloud” dates back to the late 90’s when the shared hosting, dedicated hosting and ASP markets first began implementing the core concepts of virtualization. During his nearly 20 years in the high-tech industry, his primary roles – spanning from startups to Fortune 50 companies – have been in the fields of Product Marketing, Product Management, Strategic Planning, Strategic Marketing, Corporate Communications IR/PR/AR/PA and Business Development. Jim holds both a BBA in Finance and an MBA in International Marketing from the University of Houston. Jim also likes yoga, poker and dubstep…and sometimes combines all 3! Follow him on twitter at [@jimbattenberg][3] or [LinkedIn][4].
 
-[1]: http://www.newrelic.com/platform
-[2]: http://newrelic.com/plugins/rackspace/91
-[3]: http://twitter.com/jimbattenberg
-[4]: http://www.linkedin.com/in/jimbattenberg
-[5]: http://yaml-online-parser.appspot.com/
+[1]: https://www.newrelic.com/platform
+[2]: https://newrelic.com/plugins/rackspace/91
+[3]: https://twitter.com/jimbattenberg
+[4]: https://www.linkedin.com/in/jimbattenberg
+[5]: https://yaml-online-parser.appspot.com/

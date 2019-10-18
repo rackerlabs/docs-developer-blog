@@ -252,4 +252,4 @@ Let's verify that keystone properly responds to requests:
     | 6  | nova-consoleauth | controller | internal | enabled | up    | 2015-09-30T18:03:52.000000 | -               |
     +----+------------------+------------+----------+---------+-------+----------------------------+-----------------+
 
-If you don't get valid responses from either keystone or the other client agents, look at both the nginx log files and the log files for keystone, or the failing api service for the appropriate agent. Lastly, verify that horizon responds properly. Open http://<server public IP> in your browser, and log in. If the login is successful everything is working.
+If you don't get valid responses from either keystone or the other client agents, look at both the nginx log files and the log files for keystone, or the failing api service for the appropriate agent. Lastly, verify that horizon responds properly. Open https://<server public IP> in your browser, and log in. If the login is successful everything is working.

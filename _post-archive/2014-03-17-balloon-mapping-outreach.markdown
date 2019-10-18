@@ -29,14 +29,14 @@ about the health of the trees? Is that data? Yes. Could you use the data you col
 
 {% img center /balloonfly.jpg %}
 
-The balloon mapping techniques were developed by an DIY science community called the [Public Lab](http://publiclab.org/). You can read more about open source tools and techniques for data collection and mapping on the Public Lab website. (You can even purchase your own [balloon and kite mapping kits](http://store.publiclab.org/collections/mapping).)
+The balloon mapping techniques were developed by an DIY science community called the [Public Lab](https://publiclab.org/). You can read more about open source tools and techniques for data collection and mapping on the Public Lab website. (You can even purchase your own [balloon and kite mapping kits](https://store.publiclab.org/collections/mapping).)
 
 ### Hackers and Hacking
 
 Events like UT Girl Engineering Day inspire us to try out new things. At a recent
 Rackspace hackday Anne put together a [Python script](https://gist.github.com/annegentle/9467910) that
 uploads all the photos from the camera rig (after bringing it to the
-ground) to Rackspace Cloud Files, then makes a [gallery page](http://b663f2e2acd8e525729a-b149944209b187022b4db26ecc44f059.r41.cf2.rackcdn.com/index.html) of all the photos on the fly.
+ground) to Rackspace Cloud Files, then makes a [gallery page](https://b663f2e2acd8e525729a-b149944209b187022b4db26ecc44f059.r41.cf2.rackcdn.com/index.html) of all the photos on the fly.
 
 While we were assembling the tools for the balloon launch,  Anne's seven-year-old asked Dana, "Are you a good
 hacker or a bad hacker?" Dana was explaining how she used a cranberry juice

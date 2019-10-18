@@ -168,7 +168,7 @@ Lastly we configure the metadata agent config file:
     sed -i "s/# nova_metadata_ip = 127.0.0.1/nova_metadata_ip = $MY_PRIVATE_IP/g" /etc/neutron/metadata_agent.ini
     sed -i 's/# nova_metadata_port = 8775/nova_metadata_port = 8775/g' /etc/neutron/metadata_agent.ini
     sed -i 's/# metadata_proxy_shared_secret =/metadata_proxy_shared_secret = openstack/g' /etc/neutron/metadata_agent.ini
-    sed -i "s|auth_url = http://localhost:5000/v2.0|auth_url = http://$MY_PRIVATE_IP:5000/v2.0|g" /etc/neutron/metadata_agent.ini
+    sed -i "s|auth_url = https://localhost:5000/v2.0|auth_url = https://$MY_PRIVATE_IP:5000/v2.0|g" /etc/neutron/metadata_agent.ini
     sed -i 's/%SERVICE_TENANT_NAME%/service/g' /etc/neutron/metadata_agent.ini
     sed -i 's/%SERVICE_USER%/neutron/g' /etc/neutron/metadata_agent.ini
     sed -i 's/%SERVICE_PASSWORD%/notneutron/g' /etc/neutron/metadata_agent.ini

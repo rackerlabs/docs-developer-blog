@@ -10,7 +10,7 @@ categories:
   - docker
 ---
 
-At first glance, [Ansible](http://www.ansible.com/) and [Docker](https://www.docker.com/) seem to be redundant. Both offer solutions to the configuration management problem through very different means, enabling you to reliably and repeatably manage complicated software deployments. While you certainly can use either on its own with great success, using both together can result in a fast, clean deployment process.
+At first glance, [Ansible](https://www.ansible.com/) and [Docker](https://www.docker.com/) seem to be redundant. Both offer solutions to the configuration management problem through very different means, enabling you to reliably and repeatably manage complicated software deployments. While you certainly can use either on its own with great success, using both together can result in a fast, clean deployment process.
 
 There are two ways that you can combine them, both useful for different reasons. You can use Ansible to orchestrate the deployment and configuration of your Docker containers on the host, or you can use Ansible to construct your Docker container images based on Ansible playbooks as a more powerful alternative to Dockerfiles.
 
@@ -23,13 +23,13 @@ There are two ways that you can combine them, both useful for different reasons.
 
 ## Deploying Docker containers with Ansible
 
-Docker containers provide a powerful way to deliver a consistent environment for your software, from your laptop to a cluster of production machines, but there are still ample responsibilities left for Ansible to take. Ansible can provision your [servers](http://docs.ansible.com/rax_module.html), your [networks](http://docs.ansible.com/rax_network_module.html), your [load balancers](http://docs.ansible.com/rax_clb_module.html), and [more](http://docs.ansible.com/list_of_cloud_modules.html#rackspace). If the server image you choose doesn't already have Docker installed, you'll need some way to do that. Sometimes, you'll also need to manage the Docker daemon's configuration or tweak [Linux kernel parameters](http://docs.docker.com/installation/ubuntulinux/#adjust-memory-and-swap-accounting).
+Docker containers provide a powerful way to deliver a consistent environment for your software, from your laptop to a cluster of production machines, but there are still ample responsibilities left for Ansible to take. Ansible can provision your [servers](https://docs.ansible.com/rax_module.html), your [networks](https://docs.ansible.com/rax_network_module.html), your [load balancers](https://docs.ansible.com/rax_clb_module.html), and [more](https://docs.ansible.com/list_of_cloud_modules.html#rackspace). If the server image you choose doesn't already have Docker installed, you'll need some way to do that. Sometimes, you'll also need to manage the Docker daemon's configuration or tweak [Linux kernel parameters](https://docs.docker.com/installation/ubuntulinux/#adjust-memory-and-swap-accounting).
 
 Most prominently, though, you can use Ansible to manage how and where each of your containers run: image versions, environment variables, volumes and links.
 
 ### The Ansible Docker module
 
-Ansible includes a [Docker module](http://docs.ansible.com/docker_module.html) that you use to manage the Docker containers that are active on each host. It supports an intimidating number of module parameters, but you need to know only a few to get started.
+Ansible includes a [Docker module](https://docs.ansible.com/docker_module.html) that you use to manage the Docker containers that are active on each host. It supports an intimidating number of module parameters, but you need to know only a few to get started.
 
 The minimum information that you can specify is the name of an image. It's good practice to also be explicit about the desired state, even though there's a default value. I also prefer to name my containers whenever I can, so that (1) the output of `docker ps` is as readable as possible and (2) the container is convenient to reference from other containers and tools later.
 
@@ -98,7 +98,7 @@ Still, there are several reasons why using an Ansible playbook can be beneficial
 
  * If you have existing infrastructure that's already using a pure Ansible approach, it's a simple way to kickstart a migration into containers.
  * Ansible allows you to use Jinja2 templates to create files from templates, enabling you to use variables to reduce duplication and to derive values from the environment.
- * Ansible's [extensive module library](http://docs.ansible.com/modules_by_category.html) helps you to simplify common administrative tasks.
+ * Ansible's [extensive module library](https://docs.ansible.com/modules_by_category.html) helps you to simplify common administrative tasks.
  * You can use roles published on [Ansible Galaxy](https://galaxy.ansible.com/) to benefit from expertise from the community.
 
 To do so, all that you need to do is write a Dockerfile that's based on one of [the official base images](https://github.com/ansible/ansible-docker-base) that ship with Ansible pre-installed and execute `ansible-playbook` with a `RUN` step:

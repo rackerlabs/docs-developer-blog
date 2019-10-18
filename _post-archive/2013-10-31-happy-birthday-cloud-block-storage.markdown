@@ -9,7 +9,7 @@ categories:
   - General
 ---
 
-We launched [Cloud Block Storage](http://www.rackspace.com/cloud/block-storage/)
+We launched [Cloud Block Storage](https://www.rackspace.com/cloud/block-storage/)
 into unlimited availability a year ago and we
 now have thousands of customers using the product. The team that designed
 Cloud Block Storage wanted to create a different kind of block storage in the
@@ -65,16 +65,16 @@ pricing on the applicable effective date.
 
 Cloud Block Storage Standard Volumes
 
-{% img http://ddf912383141a8d7bbe4-e053e711fc85de3290f121ef0f0e3a1f.r87.cf1.rackcdn.com/Images1/cbs-updates.1.png 781 134 'CBS Standard' 'CBS Standard' %}
+{% img https://ddf912383141a8d7bbe4-e053e711fc85de3290f121ef0f0e3a1f.r87.cf1.rackcdn.com/Images1/cbs-updates.1.png 781 134 'CBS Standard' 'CBS Standard' %}
 
 Cloud Block Storage SSD Volumes
 
-{% img http://ddf912383141a8d7bbe4-e053e711fc85de3290f121ef0f0e3a1f.r87.cf1.rackcdn.com/Images1/cbs-updates.2.png 781 134 'CBS SSD' 'CBS SSD' %}
+{% img https://ddf912383141a8d7bbe4-e053e711fc85de3290f121ef0f0e3a1f.r87.cf1.rackcdn.com/Images1/cbs-updates.2.png 781 134 'CBS SSD' 'CBS SSD' %}
 
 For additional pricing information, check out our Cloud Block Storage
-pricing pages here: [Dallas, Chicago, and Northern Virginia](http://www.rackspace.com/cloud/block-storage/pricing/),
-[London](http://www.rackspace.co.uk/cloud/block-storage/pricing) and
-[Sydney](http://www.rackspace.com.au/cloud/block-storage/pricing).
+pricing pages here: [Dallas, Chicago, and Northern Virginia](https://www.rackspace.com/cloud/block-storage/pricing/),
+[London](https://www.rackspace.co.uk/cloud/block-storage/pricing) and
+[Sydney](https://www.rackspace.com.au/cloud/block-storage/pricing).
 Note: the US and UK website pricing pages will be updated on Friday,
 November 1.
 

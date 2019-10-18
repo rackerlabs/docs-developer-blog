@@ -138,7 +138,7 @@ You’ll now be seeing the log from the API service.
 
 Calls to the Designate API can be made using the following format:
 
-    http://IP.Address:9001/v1/command
+    https://IP.Address:9001/v1/command
 
 Enter in a web browser, curl statement, or ReST client any of the
 commands listed in the Designate Documentation.
@@ -146,10 +146,10 @@ commands listed in the Designate Documentation.
 You can find the IP Address of your server by running:
 
 ```
- wget http://ipecho.net/plain -O - -q ; echo
+ wget https://ipecho.net/plain -O - -q ; echo
 ```
 
-If you'd like to see an instance in action, go here: <http://162.209.9.99:9001/v1/>
+If you'd like to see an instance in action, go here: <https://162.209.9.99:9001/v1/>
 
 A couple of notes on the API:
 
@@ -168,7 +168,7 @@ published here next week. Tim continues to play en essential role in our
 next generation DNS offering.
 
 [1]: https://wiki.openstack.org/wiki/Designate
-[2]: http://www.rackspace.com/cloud/servers/
+[2]: https://www.rackspace.com/cloud/servers/
 [3]: https://gist.github.com/TimSimmons/6596014
 [4]: https://designate.readthedocs.org/en/latest/rest.html
 [5]: https://designate.readthedocs.org/en/latest/getting-involved.html

@@ -78,8 +78,8 @@ Windows, Node.js, etherpad, and multi-region Cassandra blueprints right now and
 new ones are added frequently. Try it out, and let us know what you want
 to see on the list!
 
-[1]: http://www.rackspace.com/cloud/hybrid/
-[2]: http://www.opscode.com/chef/
+[1]: https://www.rackspace.com/cloud/hybrid/
+[2]: https://www.opscode.com/chef/
 [3]: https://puppetlabs.com/
-[4]: http://www.rackspace.com/cloud/managed_cloud/
+[4]: https://www.rackspace.com/cloud/managed_cloud/
 [5]: https://login.rackspace.com

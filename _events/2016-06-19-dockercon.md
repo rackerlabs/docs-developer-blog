@@ -8,7 +8,7 @@ date: 2016-05-25
 location:
   name: Seattle, WA
   address: 800 Convention Pl, Seattle, WA 98101
-website: http://2016.dockercon.com/
+website: https://2016.dockercon.com/
 attendees: []
 talks: []
 ---

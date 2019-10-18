@@ -6,7 +6,7 @@ date: 2016-03-17
 location:
   name: Boston, MA
   address: 1585 Massachusetts Ave, Cambridge, MA 02138
-website: http://blog.jupyter.org/2016/02/16/jupyterdays-boston-2016/
+website: https://blog.jupyter.org/2016/02/16/jupyterdays-boston-2016/
 attendees: []
 talks: []
 ---

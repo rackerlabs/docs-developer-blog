@@ -9,14 +9,14 @@ categories:
   - Private Cloud
   - Orchestration
   - AWS
-bio: "Miguel Grinberg is a software engineer with a background in web technologies and REST APIs. He is the author of the book \"Flask Web Development\" from O'Reilly Media, and has a blog at http://blog.miguelgrinberg.com, where he writes about a variety of topics including web development, robotics, photography and the occasional movie review. Miguel works as a Software Developer with the Rackspace Private Cloud team. He lives in Portland, Oregon with his wife, four kids, two dogs and a cat. Follow @miguelgrinberg on Twitter."
+bio: "Miguel Grinberg is a software engineer with a background in web technologies and REST APIs. He is the author of the book \"Flask Web Development\" from O'Reilly Media, and has a blog at https://blog.miguelgrinberg.com, where he writes about a variety of topics including web development, robotics, photography and the occasional movie review. Miguel works as a Software Developer with the Rackspace Private Cloud team. He lives in Portland, Oregon with his wife, four kids, two dogs and a cat. Follow @miguelgrinberg on Twitter."
 ---
 
 With this article I begin a series of hands-on developer oriented blog posts that
 explore OpenStack orchestration using
 [Heat](https://wiki.openstack.org/wiki/Heat).
 
-To make the most of this article, I recommend that you have an OpenStack installation where you can run the examples I present below. You can use our [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) distribution, [DevStack](http://devstack.org/), or any other OpenStack distribution that includes Heat.
+To make the most of this article, I recommend that you have an OpenStack installation where you can run the examples I present below. You can use our [Rackspace Private Cloud](https://www.rackspace.com/cloud/private/) distribution, [DevStack](https://devstack.org/), or any other OpenStack distribution that includes Heat.
 
 <!-- more -->
 
@@ -28,13 +28,13 @@ users to describe deployments of complex cloud applications in text files called
 *templates*. These templates are then parsed and executed by the Heat
 engine.
 
-Heat was born as the counterpart to the [CloudFormation](http://docs.amazonwebservices.com/AWSCloudFormation/latest/APIReference/Welcome.html?r=7078)
+Heat was born as the counterpart to the [CloudFormation](https://docs.amazonwebservices.com/AWSCloudFormation/latest/APIReference/Welcome.html?r=7078)
 service in AWS. It accepts AWS templates and provides a compatible API, but in recent OpenStack releases it has also began to grow outside of the shadow of CloudFormation, providing a nicer template syntax (the Heat Orchestration Template, or HOT) and new features not supported by its competitor.
 
 Installing the Heat Client
 --------------------------
 
-As is common with all OpenStack services, low-level access to Heat is available through a [REST API](http://developer.openstack.org/api-ref-orchestration-v1.html). In most cases, however, working with a client is more convenient. There are two official Heat clients; a stand-alone command line client and a web-based client included with Horizon, the OpenStack dashboard project.
+As is common with all OpenStack services, low-level access to Heat is available through a [REST API](https://developer.openstack.org/api-ref-orchestration-v1.html). In most cases, however, working with a client is more convenient. There are two official Heat clients; a stand-alone command line client and a web-based client included with Horizon, the OpenStack dashboard project.
 
 All the examples I present in this series of articles use the command line client, which you have to install on your computer. I am not going to show how to use the web-based client, but you should have no trouble figuring it out on your own as it is very simple.
 
@@ -88,7 +88,7 @@ You are probably anxious to see how Heat works, so let's dive right into it. Bel
           networks:
             - network: private-net
 
-As you can see in the example, HOT templates are written as structured [YAML](http://www.yaml.org/) text files. This particular example contains three top-level sections:
+As you can see in the example, HOT templates are written as structured [YAML](https://www.yaml.org/) text files. This particular example contains three top-level sections:
 
 - `heat_template_version` is a mandatory section that is used to specify the version of the template syntax that is used. Most templates you are going to see out there will have `2013-05-23` as version, the first release. There is also a newer version labeled `2014-10-16` and introduced with the Juno release that contains a few minor changes and additions.
 - `description` is optional, and it is used to provide a description of what the template does.
@@ -198,7 +198,7 @@ In this article you saw how to create and launch simple Heat templates and how t
 
 I hope this article served as a gentle introduction to Heat. There are two important links that will help you expand your understanding of HOT templates and complement what you have seen in this article:
 
-- [HOT Template Specification](http://docs.openstack.org/developer/heat/template_guide/hot_spec.html): a formal description of the HOT template syntax.
-- [OpenStack Resource Types](http://docs.openstack.org/developer/heat/template_guide/openstack.html): a detailed reference of all the supported resource types for HOT templates, including the properties and attributes that each provides.
+- [HOT Template Specification](https://docs.openstack.org/developer/heat/template_guide/hot_spec.html): a formal description of the HOT template syntax.
+- [OpenStack Resource Types](https://docs.openstack.org/developer/heat/template_guide/openstack.html): a detailed reference of all the supported resource types for HOT templates, including the properties and attributes that each provides.
 
 Starting with the next article in the series, I'm going to show you the different ways in which you can deploy complex applications, which is Heat's bread and butter. I hope to see you then!

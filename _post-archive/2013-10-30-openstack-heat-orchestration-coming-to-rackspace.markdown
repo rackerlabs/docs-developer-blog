@@ -11,7 +11,7 @@ categories:
   - OpenStack
 ---
 
-In the spirit of both furthering our position within the [OpenStack](http://www.openstack.org) cloud arena
+In the spirit of both furthering our position within the [OpenStack](https://www.openstack.org) cloud arena
 and making your life in the cloud much easier, Rackspace is excited to announce
 that over the next few months we will be expanding our capabilities around
 automating the orchestration of customers’ resource provisioning and application
@@ -68,8 +68,8 @@ give it a test run, check out our [developer discount](https://developer.rackspa
 
 More information about Heat:
 
-* [Heat Template Writing Guide](http://docs.openstack.org/developer/heat/template_guide/hot_guide.html)
-* [Heat Template Specification](http://docs.openstack.org/developer/heat/template_guide/hot_spec.html)
+* [Heat Template Writing Guide](https://docs.openstack.org/developer/heat/template_guide/hot_guide.html)
+* [Heat Template Specification](https://docs.openstack.org/developer/heat/template_guide/hot_spec.html)
 * [https://wiki.openstack.org/wiki/Heat](https://wiki.openstack.org/wiki/Heat)
 
 We want to enable you with the tools you need to do your job more effectively.

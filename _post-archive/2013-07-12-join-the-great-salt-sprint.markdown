@@ -32,8 +32,8 @@ Community members will be on hand to help drive these goals. Several locations h
 
 You can also partcipate virtually if there isn't a group near you. Rackspace is also very excited to host the San Antonio group at our [headquarters][4]. Attendence is free! More information can be found at [The Great Salt Sprint page][2] or you can sign up to participate on [Eventbrite][5].
 
-[1]: http://saltstack.com
-[2]: http://sprint.saltstack.com/
-[3]: http://www.openstack.org/
-[4]: http://www.youtube.com/watch?feature=player_embedded&v=J4b0UlAZcH4
-[5]: http://saltsprint.eventbrite.com/
+[1]: https://saltstack.com
+[2]: https://sprint.saltstack.com/
+[3]: https://www.openstack.org/
+[4]: https://www.youtube.com/watch?feature=player_embedded&v=J4b0UlAZcH4
+[5]: https://saltsprint.eventbrite.com/

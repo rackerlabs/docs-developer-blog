@@ -7,7 +7,7 @@ author: Hart Hoover
 categories:
   - General
 ---
-We've moved! The Rackspace DevOps Blog is now hosted on Rackspace [Cloud Files](http://www.rackspace.com/cloud/public/files/) (powered by [OpenStack Swift](http://www.openstack.org/software/openstack-storage/)) using [Octopress](http://octopress.org/). This blog was hosted on [WordPress](http://www.wordpress.org), using a mix of various Rackspace Open Cloud products:
+We've moved! The Rackspace DevOps Blog is now hosted on Rackspace [Cloud Files](https://www.rackspace.com/cloud/public/files/) (powered by [OpenStack Swift](https://www.openstack.org/software/openstack-storage/)) using [Octopress](https://octopress.org/). This blog was hosted on [WordPress](https://www.wordpress.org), using a mix of various Rackspace Open Cloud products:
 
 * Cloud Load Balancers
 * Cloud Servers
@@ -17,9 +17,9 @@ Wayne and I loved this setup and were pleased with performance and security. Wor
 <!-- more -->
 
 ##We wanted something more scalable.
-*Huh, what? Those products all scale!* Well, yes. The issue was WordPress scalability. If you want to scale WordPress you need to think about things like file synchronization across servers for uploads (or NFS or clustering) and MySQL replication. Sure we were doing some things right - we had [Varnish](https://www.varnish-cache.org/), we had [Memcached](http://memcached.org/), we were using [lsyncd and rsync](http://code.google.com/p/lsyncd/). But again, this is a simple blog - why is this so complicated?
+*Huh, what? Those products all scale!* Well, yes. The issue was WordPress scalability. If you want to scale WordPress you need to think about things like file synchronization across servers for uploads (or NFS or clustering) and MySQL replication. Sure we were doing some things right - we had [Varnish](https://www.varnish-cache.org/), we had [Memcached](https://memcached.org/), we were using [lsyncd and rsync](https://code.google.com/p/lsyncd/). But again, this is a simple blog - why is this so complicated?
 
-Hosting static pages on Cloud Files is stupid easy and extremely scalable. Our blog is distributed globally using [Akamai's CDN](http://www.rackspace.com/cloud/public/files/technology/?page=cdn) with no effort on our part.
+Hosting static pages on Cloud Files is stupid easy and extremely scalable. Our blog is distributed globally using [Akamai's CDN](https://www.rackspace.com/cloud/public/files/technology/?page=cdn) with no effort on our part.
 
 ##We wanted to fit into the Open Cloud philosophy
 WordPress is open source, but it isn't easy for Rackers around the company to contribute to our blog. Wayne and myself are the only people who can log into WordPress for posting. Here is the process for someone else to give us a story when we used WordPress:
@@ -44,9 +44,9 @@ We've introduced some automation, saved ourselves from some email, and made it e
 ##So how did we migrate?
 Migrating from WordPress to Octopress is not foolproof, although there are some tools out there that help.
 
-First, I cloned the [Octopress repository](https://github.com/imathis/octopress) from GitHub to my local machine and [set it up](http://octopress.org/docs/setup/). The process is pretty straightforward on that front. I renamed the theme from "classic" to "rackspace" and customized it for our needs using [this post from Aijaz Ansari](http://aijazansari.com/2012/08/27/how-to-customize-octopress-theme/) as a guide. I made a few other changes and added some sidebar and social content.
+First, I cloned the [Octopress repository](https://github.com/imathis/octopress) from GitHub to my local machine and [set it up](https://octopress.org/docs/setup/). The process is pretty straightforward on that front. I renamed the theme from "classic" to "rackspace" and customized it for our needs using [this post from Aijaz Ansari](https://aijazansari.com/2012/08/27/how-to-customize-octopress-theme/) as a guide. I made a few other changes and added some sidebar and social content.
 
-At this point I had a working Octopress installation, but I needed the existing content from WordPress. I used the ["export" function](http://codex.wordpress.org/Tools_Export_Screen) inside WordPress to get an XML file of our posts. To convert this to Markdown format for Octopress, I used a tool called [exitwp](https://github.com/thomasf/exitwp). It is extremely important to make sure you have body_replace tags [set in exitwp](https://github.com/thomasf/exitwp/blob/master/config.yaml) to automate the conversion as much as possible. I found I still had to go through each article and check for things I missed, as well as set an author for each post.
+At this point I had a working Octopress installation, but I needed the existing content from WordPress. I used the ["export" function](https://codex.wordpress.org/Tools_Export_Screen) inside WordPress to get an XML file of our posts. To convert this to Markdown format for Octopress, I used a tool called [exitwp](https://github.com/thomasf/exitwp). It is extremely important to make sure you have body_replace tags [set in exitwp](https://github.com/thomasf/exitwp/blob/master/config.yaml) to automate the conversion as much as possible. I found I still had to go through each article and check for things I missed, as well as set an author for each post.
 
 ##Setting up Cloud Files
 Once I had Octopress ready to be published, I needed a Cloud Files container to serve our content. I used the following API commands with Cloud Files:
@@ -62,7 +62,7 @@ curl -X PUT -H "X-Auth-Token: $TOKEN" https://storage101.dfw1.clouddrive.com/v1/
 curl -X POST - -H "X-Container-Meta-Web-Index: index.html" -H "X-Auth-Token: ${TOKEN}" https://storage101.dfw1.clouddrive.com/v1/MossoCloudFS/devops/
 {% endcodeblock %}
 
-Now we have a container called "devops" that serves our content. I set up [Jenkins](http://jenkins-ci.org/) on a Cloud Server to watch commits to our GitHub repository and deploy our blog to Cloud Files. Last but not least, I switched DNS from our old environment to the Cloud Files container.
+Now we have a container called "devops" that serves our content. I set up [Jenkins](https://jenkins-ci.org/) on a Cloud Server to watch commits to our GitHub repository and deploy our blog to Cloud Files. Last but not least, I switched DNS from our old environment to the Cloud Files container.
 
 ##Shouldn't this blog be called NoOps now?
 At this point, that case can probably be made. There is still some operational work to be done on the Jenkins end, but for the most part the blog is basically operations-free from our end. We want to focus on providing good content, not on operational day-to-day work for a blog and this setup allows us that freedom.

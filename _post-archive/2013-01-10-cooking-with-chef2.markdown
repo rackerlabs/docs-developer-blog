@@ -11,7 +11,7 @@ categories:
 ---
 {% img right 2013-01-09-cooking-with-chef/chef_logo.png "Chef Logo" %}
 
-Continuing the series on Chef that I started in [part one](http://devops.rackspace.com/cooking-with-chef.html), you should now have an account with Opscode and a working knife install. In this post, I will explain how cookbooks and roles work and we will deploy our first application with Chef.
+Continuing the series on Chef that I started in [part one](https://devops.rackspace.com/cooking-with-chef.html), you should now have an account with Opscode and a working knife install. In this post, I will explain how cookbooks and roles work and we will deploy our first application with Chef.
 <!-- more -->
 ##Cookbooks?
 
@@ -55,7 +55,7 @@ when "rhel"
   end
 ```
 
-As you can see again, the cookbook is making decisions on what to do based on the operating system of the instance. In the case of Red Hat, it makes a decision on which version of PHP to install packages based on the version of RHEL you are running. There are hundreds of [community cookbooks](http://community.opscode.com/cookbooks) available to choose from, or you can [write your own](http://wiki.opscode.com/display/chef/Guide+to+Creating+A+Cookbook+and+Writing+A+Recipe).
+As you can see again, the cookbook is making decisions on what to do based on the operating system of the instance. In the case of Red Hat, it makes a decision on which version of PHP to install packages based on the version of RHEL you are running. There are hundreds of [community cookbooks](https://community.opscode.com/cookbooks) available to choose from, or you can [write your own](https://wiki.opscode.com/display/chef/Guide+to+Creating+A+Cookbook+and+Writing+A+Recipe).
 
 Last but not least, look into the `templates` directory. This directory holds templates for your Apache configuration files. The template is filled in with information from your recipes and attributes files. Here is a snippet from the `apache2.conf` template, called `apache2.conf.erb`:
 

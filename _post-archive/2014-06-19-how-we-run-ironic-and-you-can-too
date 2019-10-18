@@ -9,14 +9,14 @@ categories:
   - openstack
 ---
 
-As you may already know, Rackspace just launched [OnMetal](http://www.rackspace.com/cloud/servers/onmetal/), which is built with OpenStack [Ironic](https://github.com/openstack/ironic) and [ironic-python-agent (IPA)](https://github.com/openstack/ironic-python-agent). I want to highlight the code, what our control plane looks like, and how we operate it. My hope is that this post can help others test and deploy Ironic with IPA.
+As you may already know, Rackspace just launched [OnMetal](https://www.rackspace.com/cloud/servers/onmetal/), which is built with OpenStack [Ironic](https://github.com/openstack/ironic) and [ironic-python-agent (IPA)](https://github.com/openstack/ironic-python-agent). I want to highlight the code, what our control plane looks like, and how we operate it. My hope is that this post can help others test and deploy Ironic with IPA.
 
 <!-- more -->
 
 Code
 ====
 
-We make a best effort to run the latest Ironic code available, with the addition of some patches that are currently in flight. We do this in a [similar fashion](https://www.youtube.com/watch?v=0D7PbIZLNSM) to Rackspace's [Nova team](http://www.slideshare.net/JesseKeating/scaling-openstack). The gist of it is:
+We make a best effort to run the latest Ironic code available, with the addition of some patches that are currently in flight. We do this in a [similar fashion](https://www.youtube.com/watch?v=0D7PbIZLNSM) to Rackspace's [Nova team](https://www.slideshare.net/JesseKeating/scaling-openstack). The gist of it is:
 
 1. fork from master
 2. apply necessary patches

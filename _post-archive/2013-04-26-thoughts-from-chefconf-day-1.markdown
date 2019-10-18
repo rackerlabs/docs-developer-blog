@@ -69,10 +69,10 @@ They now manage way over 17,000 nodes with a team of only 4 people. They are abl
 There were many other amazing sessions I was able to attend today, and I look forward to tomorrow.
 Stay tuned for another post containing more next week!
 
-[1]:	http://www.opscode.com/
-[2]:	http://www.opscode.com/blog/2013/04/25/introducing-the-new-opscode-brand-code-can/
-[3]:	http://www.barnesandnoble.com/w/the-phoenix-project-gene-kim/1115141434?ean=2940016781068
-[4]:	http://docs.opscode.com/
+[1]:	https://www.opscode.com/
+[2]:	https://www.opscode.com/blog/2013/04/25/introducing-the-new-opscode-brand-code-can/
+[3]:	https://www.barnesandnoble.com/w/the-phoenix-project-gene-kim/1115141434?ean=2940016781068
+[4]:	https://docs.opscode.com/
 [5]:	https://learnchef.opscode.com/
 [6]:	https://github.com/jkeiser/knife-essentials%23readme
 [7]:	https://twitter.com/ThePhilD

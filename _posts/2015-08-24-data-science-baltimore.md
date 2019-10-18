@@ -19,14 +19,14 @@ Pandas and Jupyter notebooks make this work quick. It may be surprising to see w
 
 ### Getting the raw data
 
-The first step is to get the raw data. Data.gov is a great resource for public datasets, because it's catalog has a wide variety of things to explore. In this case, we are exploring Baltimore City data. The [Baltimore City Employee Salaries FY2014](http://catalog.data.gov/dataset/baltimore-city-employee-salaries-fy2014-5924b) dataset is a simple csv compilation of job titles and salaries for 2014. The data is cataloged on data.gov, but the data itself can be downloaded right from the Baltimore city website at [data.baltimorecity.gov](https://data.baltimorecity.gov/api/views/2j28-xzd7/rows.csv?accessType=DOWNLOAD).
+The first step is to get the raw data. Data.gov is a great resource for public datasets, because it's catalog has a wide variety of things to explore. In this case, we are exploring Baltimore City data. The [Baltimore City Employee Salaries FY2014](https://catalog.data.gov/dataset/baltimore-city-employee-salaries-fy2014-5924b) dataset is a simple csv compilation of job titles and salaries for 2014. The data is cataloged on data.gov, but the data itself can be downloaded right from the Baltimore city website at [data.baltimorecity.gov](https://data.baltimorecity.gov/api/views/2j28-xzd7/rows.csv?accessType=DOWNLOAD).
 
 ### Using Jupyter notebooks
 
 Jupyter notebooks (previously ipython notebooks) are a great mechanism for exploring and sharing datasets.
 In this case, we spun up our own instance of Jupyter on Rackspace, but any instance of ipython notebooks will work. We are running a multi-user server, but this analysis doesn't really require it. Another option would be a [temporary server](https://lambdaops.com/ipythonjupyter-tmpnb-debuts/).
 
-For reference, the entire project is in [nbviewer](http://nbviewer.ipython.org/github/kgorman/notebooks/blob/master/Baltimore_Salaries.ipynb) or direcly in [Github](https://github.com/kgorman/notebooks/blob/master/Baltimore_Salaries.ipynb).
+For reference, the entire project is in [nbviewer](https://nbviewer.ipython.org/github/kgorman/notebooks/blob/master/Baltimore_Salaries.ipynb) or direcly in [Github](https://github.com/kgorman/notebooks/blob/master/Baltimore_Salaries.ipynb).
 
 The Rackspace Jupyter server has one prerequisite not already installed - the requests module. You can install python for the requests package right in Jupyter:
 
@@ -36,7 +36,7 @@ The Rackspace Jupyter server has one prerequisite not already installed - the re
 
 ### Python and Pandas
 
-Python is a widely popular language for data science. [Pandas](http://pandas.pydata.org) is the "Python Data Analysis Library" and facilitates working with datasets. Pandas is especially good at columnar style data and provides a host of simple methods to help visualize and organize data. In this case, we will be grouping and sorting data using Pandas.
+Python is a widely popular language for data science. [Pandas](https://pandas.pydata.org) is the "Python Data Analysis Library" and facilitates working with datasets. Pandas is especially good at columnar style data and provides a host of simple methods to help visualize and organize data. In this case, we will be grouping and sorting data using Pandas.
 
 The first step is to do some housekeeping and loading of libraries we will be using:
 
@@ -60,7 +60,7 @@ data = StringIO.StringIO(r.content)
 
 ```
 
-Now lets load the data into a dataframe. A dataframe is a 2-dimensional labeled [data structure]((http://pandas.pydata.org/pandas-docs/version/0.16.1/dsintro.html#dataframe)) in Pandas. It has a suite of nice methods for loading data into it. In this case, our source is a CSV file. In the previous step we convert the resulting string into of type FILE, which is required by the method as the input datatype.
+Now lets load the data into a dataframe. A dataframe is a 2-dimensional labeled [data structure]((https://pandas.pydata.org/pandas-docs/version/0.16.1/dsintro.html#dataframe)) in Pandas. It has a suite of nice methods for loading data into it. In this case, our source is a CSV file. In the previous step we convert the resulting string into of type FILE, which is required by the method as the input datatype.
 
 ```python
 

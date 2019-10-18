@@ -40,7 +40,7 @@ You can also attempt to know your audience at the outset and during the workshop
 
 Put everyone on the same page by starting out with some slides on the basics of your pre-requisites. At the very least it will set a common terminology for the rest of the workshop. Do "hands up" surveys of the audience by asking them what they know about the technologies already and adjust emphasis accordingly.
 
-One of the best ways to know your audience as the workshop progresses is the Sticky Notes technique. It's a great way for you to see how your audience is doing visually and for them to provide feedback. You can read more about it from Software Carpentry's ["What Are the Sticky Notes For?"](http://software-carpentry.org/workshops/operations.html#sign-in).
+One of the best ways to know your audience as the workshop progresses is the Sticky Notes technique. It's a great way for you to see how your audience is doing visually and for them to provide feedback. You can read more about it from Software Carpentry's ["What Are the Sticky Notes For?"](https://software-carpentry.org/workshops/operations.html#sign-in).
 
 ### <a name="share-your-content-first"></a>Share your content first
 
@@ -48,12 +48,12 @@ Given that your audience will have a wide variety of skill levels, provide the m
 
 My preferred method for sharing code and the presentation is to put everything in a single GitHub repository. It's important to keep everything in a single repo because the content of the presentation often depends heavily on the code. For the slides I use [reveal.js](https://github.com/hakimel/reveal.js/) and then use [GitHub Pages](https://pages.github.com/) to publish them. A couple of examples are:
 
-* [app-on-openstack](https://github.com/everett-toews/app-on-openstack) ([presentation](http://everett-toews.github.io/app-on-openstack/presentation/))
-* [a-restful-adventure](https://github.com/everett-toews/a-restful-adventure) ([presentation](http://everett-toews.github.io/a-restful-adventure/presentation/))
+* [app-on-openstack](https://github.com/everett-toews/app-on-openstack) ([presentation](https://everett-toews.github.io/app-on-openstack/presentation/))
+* [a-restful-adventure](https://github.com/everett-toews/a-restful-adventure) ([presentation](https://everett-toews.github.io/a-restful-adventure/presentation/))
 
 Provide a shortened URL to the presentation at the start of the workshop and also write it down on a whiteboard or somewhere for latecomers. _Bonus points_: Since it's a GitHub repo, encourage people to file issues during the workshop as another channel for feedback.
 
-_Caveat_: When you need the quicker people to definitely stop and wait for everyone else to catch up, make it explicit [like this](http://everett-toews.github.io/app-on-openstack/presentation/#/stop) and explain it.
+_Caveat_: When you need the quicker people to definitely stop and wait for everyone else to catch up, make it explicit [like this](https://everett-toews.github.io/app-on-openstack/presentation/#/stop) and explain it.
 
 ### <a name="start-from-a-clean-environment"></a>Start from a clean environment
 
@@ -66,7 +66,7 @@ Teaching developers a new technology often involves installing some software. Ty
 
 Instead start from a clean environment. We live in the age of cloud. Use it to your advantage. Have VMs in the cloud all ready to go for your attendees. You can have those VMs configured exactly how you need them to be and everyone is on the same page right from the start. Then they just ssh or do a Remote Desktop Connection to the VM and away you go.
 
-Naturally my preferred cloud is [Rackspace](http://www.rackspace.com/cloud). :) I can start [Cloud Servers](http://www.rackspace.com/cloud/servers) for everyone, create [sub-users with role based access control](https://support.rackspace.com/how-to/overview-role-based-access-control-rbac/) that they can use to create their own VMs, or encourage people to sign up for our [developer+ program](https://developer.rackspace.com/signup/).
+Naturally my preferred cloud is [Rackspace](https://www.rackspace.com/cloud). :) I can start [Cloud Servers](https://www.rackspace.com/cloud/servers) for everyone, create [sub-users with role based access control](https://support.rackspace.com/how-to/overview-role-based-access-control-rbac/) that they can use to create their own VMs, or encourage people to sign up for our [developer+ program](https://developer.rackspace.com/signup/).
 
 ### <a name="walk-through-sign-ups"></a>Walk-through sign ups
 
@@ -92,11 +92,11 @@ If your audience can't read/see your presentation, it's very frustrating. Make y
 
 1. Contact the conference organizers and find out the projector resolution and aspect ratio, and adjust your presentation accordingly.
 1. Know how to zoom text in and out with your browser.
-1. Know how to maximize (not full-screen) a window quickly. _Mac Tip_: I use [SizeUp](http://www.irradiatedsoftware.com/sizeup/) to easily maximize and put windows side-by-side.
+1. Know how to maximize (not full-screen) a window quickly. _Mac Tip_: I use [SizeUp](https://www.irradiatedsoftware.com/sizeup/) to easily maximize and put windows side-by-side.
 1. If you're working in a terminal that's displayed by the projector, people at the back of the room won't be able to see what's happening at the bottom of the screen, which is where everything happens. Move the prompt to the top of the screen often. _Mac Tip_: I use [iTerm2](https://www.iterm2.com/) and command+R to do this.
 1. Hide browser toolbars and extensions unnecessary for the workshop.
 1. Turn off anything that can distract the audience like chat notifications, calendar notifications, etc.
-1. Turn off your screen saver. _Mac Tip_: I use [Caffeine](http://lightheadsw.com/caffeine/) for this.
+1. Turn off your screen saver. _Mac Tip_: I use [Caffeine](https://lightheadsw.com/caffeine/) for this.
 
 ### <a name="get-help"></a>Get help
 

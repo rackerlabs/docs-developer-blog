@@ -25,11 +25,11 @@ I downloaded and installed [VirtualBox](https://www.virtualbox.org/) to host my 
 ## Step 2 - Install Linux
 
 
-I decided to install OpenStack from scratch, not using the [Rackspace Private Cloud Software](http://www.rackspace.com/cloud/private/) deployment tools that automate the installation of the Server, Hypervisor and OpenStack. I wanted to really understand the inner workings myself.
+I decided to install OpenStack from scratch, not using the [Rackspace Private Cloud Software](https://www.rackspace.com/cloud/private/) deployment tools that automate the installation of the Server, Hypervisor and OpenStack. I wanted to really understand the inner workings myself.
 
 After asking some of our Rackspace technical talent I decided to go with a Linux distribution called Ubuntu 12.04 LTS (Precise Pangolin). Ubuntu also documents the [Ubuntu Cloud Infrastructure](https://help.ubuntu.com/community/UbuntuCloudInfrastructure) built on OpenStack on its wiki.  Some other distributions you could use include Suse, Debian and Fedora.
 
-I downloaded Ubuntu Server from [here](http://www.ubuntu.com/download/server), and picked the 64-Bit version. I now had the ISO image for my VM downloaded locally to my laptop.
+I downloaded Ubuntu Server from [here](https://www.ubuntu.com/download/server), and picked the 64-Bit version. I now had the ISO image for my VM downloaded locally to my laptop.
 
 I created a VM in VirtualBox and assigned the VM 4 GB of RAM and gave it 8 GB of Disk space. After powering on the VM in VirtualBox for the first time it asked me for the media to install the server from. I just pointed it to the ISO image I downloaded and continued the installation.
 

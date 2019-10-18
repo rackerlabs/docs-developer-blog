@@ -8,7 +8,7 @@ published: true
 categories:
   - Private Cloud
   - Orchestration
-bio: "Miguel Grinberg is a software engineer with a background in web technologies and REST APIs. He is the author of the book \"Flask Web Development\" from O'Reilly Media, and has a blog at http://blog.miguelgrinberg.com, where he writes about a variety of topics including web development, robotics, photography and the occasional movie review. Miguel works as a Software Developer with the Rackspace Private Cloud team. He lives in Portland, Oregon with his wife, four kids, two dogs and a cat. Follow @miguelgrinberg on Twitter."
+bio: "Miguel Grinberg is a software engineer with a background in web technologies and REST APIs. He is the author of the book \"Flask Web Development\" from O'Reilly Media, and has a blog at https://blog.miguelgrinberg.com, where he writes about a variety of topics including web development, robotics, photography and the occasional movie review. Miguel works as a Software Developer with the Rackspace Private Cloud team. He lives in Portland, Oregon with his wife, four kids, two dogs and a cat. Follow @miguelgrinberg on Twitter."
 ---
 
 Welcome to the second part of my series on OpenStack orchestration with Heat.
@@ -20,8 +20,8 @@ the structure of the HOT (Heat Orchestration Template) syntax.
 In today's article, I'm going to elevate the complexity quite a bit, demonstrating
 some of the tricks you can use with Heat to perform deployments of single instance
 applications. As with the introductory examples, you are encouraged to try my
-examples on a [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/),
-[DevStack](http://devstack.org/) or any other OpenStack installation that
+examples on a [Rackspace Private Cloud](https://www.rackspace.com/cloud/private/),
+[DevStack](https://devstack.org/) or any other OpenStack installation that
 includes Heat.
 
 <!-- more -->
@@ -39,7 +39,7 @@ of OpenStack, but I expect they will also work on the Icehouse release.
 
 ### Deploying an application on first boot
 
-The [cloud-init](http://cloudinit.readthedocs.org/) package is the defacto
+The [cloud-init](https://cloudinit.readthedocs.org/) package is the defacto
 standard for initialization of cloud instances. It comes pre-installed on most
 official cloud images, including Ubuntu and Fedora, and it is even available on
 the Cirros images used for testing. Cloud-init runs during the initial boot of
@@ -304,7 +304,7 @@ to see how much of it you can understand on your own before you continue reading
                     access_log /var/log/nginx/flasky.access.log;
                     error_log /var/log/nginx/flasky.error.log;
                     location / {
-                        proxy_pass http://127.0.0.1:8000;
+                        proxy_pass https://127.0.0.1:8000;
                         proxy_redirect off;
                         proxy_set_header Host \$host;
                         proxy_set_header X-Real-IP \$remote_addr;
@@ -408,7 +408,7 @@ summary of the sequence of actions that are performed in it:
 - Because the script is running as the root user, all the files created by the
   application are changed to be owned by the `flasky` user.
 - The application is going to run on a local instance of the Gunicorn web server
-  listening on `http://127.0.0.1:8000`. Instead of running Gunicorn directly,
+  listening on `https://127.0.0.1:8000`. Instead of running Gunicorn directly,
   the script creates a supervisor configuration file, so that the process is
   automatically monitored and restarted if it dies, or if the instance is rebooted.
   The supervisor configuration also sets up log files for stdout and stderr of

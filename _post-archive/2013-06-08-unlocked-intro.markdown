@@ -13,7 +13,7 @@ categories:
 {% img right 2013-06-08-unlocked-intro/UnlockedHybridCloudLogo.jpg 250 %}
 
 This week, Rackspace embarks on a global journey across the globe called
-[Unlocked: The Hybrid Cloud](http://unlocked.io).  Unlocked is a free one-day
+[Unlocked: The Hybrid Cloud](https://unlocked.io).  Unlocked is a free one-day
 cloud workshop sponsored and hosted by Rackspace that we’ll hold in several
 major cities across the globe to help you determine which cloud environment –
 public, private or hybrid cloud – is the best fit for your application.
@@ -59,7 +59,7 @@ world, and we hope you’ll find value in the lessons we bring to you via our Un
 ### Agenda snippets
 
 1. Choosing the right datastore and polyglot persistence
-2. [The Five Pillars of Cloudiness](http://www.rackspace.com/blog/pillars-of-cloudiness-no-1-parallel-computing/)
+2. [The Five Pillars of Cloudiness](https://www.rackspace.com/blog/pillars-of-cloudiness-no-1-parallel-computing/)
 3. Why hybrid cloud is the next cloud
 4. Everything is code
 
@@ -72,7 +72,7 @@ These events are for developers, engineers and technical decision makers. They
 are small by design, and we want to encourage a collaborative environment and
 engaging discussion.
 
-The Rackspace team is in New York City all week for [Cloud Expo](http://www.cloudcomputingexpo.com/),
+The Rackspace team is in New York City all week for [Cloud Expo](https://www.cloudcomputingexpo.com/),
 so stop by the Rackspace booth to say hello and ask us any questions you may
 have about hybrid clouds. You can also play the Unlock the Cloud game for a
 chance to win some sweet prizes! If you don't have a Cloud Expo pass yet and

@@ -11,9 +11,9 @@ categories:
 ---
 {% img right 2013-07-21-rackspace-at-oscon/oscon2013.png 250 %}
 
-Portland is known for quite a few things, great food, street artists, and of course plenty of breweries. This week Portland will be home to [OSCON](http://oscon.com), a gathering of all things open source. Come to OSCON to learn about the latest open source technologies and how best to utilize them.
+Portland is known for quite a few things, great food, street artists, and of course plenty of breweries. This week Portland will be home to [OSCON](https://oscon.com), a gathering of all things open source. Come to OSCON to learn about the latest open source technologies and how best to utilize them.
 
-[Rackspace](http://www.rackspace.com) has been an advocate of open source technology for many years. We worked with NASA three years ago to create an open source cloud, [OpenStack](http://openstack.org), which has taken the world by storm.  The impact that OpenStack has had on the world is massive. Some well known companies including Best Buy, Comcast and Bloomberg are all using OpenStack due to its open nature and the community around it. These companies spoke at the [OpenStack Summit](https://www.openstack.org/summit/portland-2013/session-videos/presentation/keynote-openstack-as-a-platform-ecosystem).<!-- more -->
+[Rackspace](https://www.rackspace.com) has been an advocate of open source technology for many years. We worked with NASA three years ago to create an open source cloud, [OpenStack](https://openstack.org), which has taken the world by storm.  The impact that OpenStack has had on the world is massive. Some well known companies including Best Buy, Comcast and Bloomberg are all using OpenStack due to its open nature and the community around it. These companies spoke at the [OpenStack Summit](https://www.openstack.org/summit/portland-2013/session-videos/presentation/keynote-openstack-as-a-platform-ecosystem).<!-- more -->
 
 Rackspace has been active in the open source community, just in the last few months we've open sourced many projects, including
 
@@ -26,7 +26,7 @@ Come to the Rackspace booth in Hall D #507 to talk about how open source is bein
 
 ###Speaking Events###
 
-####Everett Toews: Monday 7:00PM Room D137 [jclouds:Control Multi-Cloud Infrastructure With Java](http://www.oscon.com/oscon2013/public/schedule/detail/31451)
+####Everett Toews: Monday 7:00PM Room D137 [jclouds:Control Multi-Cloud Infrastructure With Java](https://www.oscon.com/oscon2013/public/schedule/detail/31451)
 
 In this BoF Everett will introduce you to Apache jclouds and what it can do for you.
 
@@ -36,7 +36,7 @@ There is a great community behind this toolkit working together to provide a bet
 
 Once the introduction is finished, we can discuss any topics from novice to expert. Everett is a committer on jclouds and will do his best to answer any questions you might have!
 
-####Everett Toews: Wednesday 11:30AM Room E143 [Cloud Portability With Multi-Cloud Toolkits](http://www.oscon.com/oscon2013/public/schedule/detail/31432)
+####Everett Toews: Wednesday 11:30AM Room E143 [Cloud Portability With Multi-Cloud Toolkits](https://www.oscon.com/oscon2013/public/schedule/detail/31432)
 
 It’s a multi-cloud world but your code needs to run somewhere. However, the cloud you choose today may not be the cloud you need tomorrow. Changes in reliability, performance, cost, and privacy may drive you to research alternative public clouds, a private cloud, or a hybrid of the two.
 
@@ -52,7 +52,7 @@ We will discuss the first release of Blueflood in this BoF and show how develope
 ####Wayne Walls & Alex Brandt: Tuesday 9:00AM Room E142 - "Butter" Up Your Application!
 
 Learn how public, private and hybrid clouds can be leveraged to your advantage to free your application(s) from a one-size-fits-all cloud in favor of one that is a perfect fit.
-As an added bonus, during this session the Rackspace [Unlocked](http://unlocked.io) team will open-source a new cloud application named "Margarine." We will drill into the data design, the technologies used, the decision making process and how the Pillars of Cloudiness were applied to the entire application. Building applications on the Rackspace Cloud has never been easier and we look forward to showing you how we can give your applications a perfect home.
+As an added bonus, during this session the Rackspace [Unlocked](https://unlocked.io) team will open-source a new cloud application named "Margarine." We will drill into the data design, the technologies used, the decision making process and how the Pillars of Cloudiness were applied to the entire application. Building applications on the Rackspace Cloud has never been easier and we look forward to showing you how we can give your applications a perfect home.
 
 ####Niki Acosta: Wednesday 3:25PM & Thursday 1:40PM OpenStack Pavilion - Breaking Glass for Fun and Profit.
 

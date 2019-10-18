@@ -20,7 +20,7 @@ some big changes for the future of OpenStack.NET.
 
 ### CDN support
 
-[Rackspace CDN](http://www.rackspace.com/cloud/cdn-content-delivery-network/features)
+[Rackspace CDN](https://www.rackspace.com/cloud/cdn-content-delivery-network/features)
 allows you to add a CDN service to your existing website with a single API call.
 The service pulls content from your website and caches it on Akamai's global
 network. From there you can control caching rules, restrict access, and purge
@@ -71,12 +71,12 @@ Here is what you can expect from new services going forward:
 
  * **Async by Default** Synchronous extension methods will continue to be provided for those who need them.
  * **Clean Method Signatures** It should be much easier to understand what is required and not deal with a dozen optional parameters.
- * **Testable** The SDK now uses the standard HttpClient and with [Flurl it is very straightforward to fake API responses](http://tmenier.github.io/Flurl/testable-http/).
+ * **Testable** The SDK now uses the standard HttpClient and with [Flurl it is very straightforward to fake API responses](https://tmenier.github.io/Flurl/testable-http/).
 
 My final goal is that the SDK should be welcome wherever .NET is: Windows Desktop,
 iOS, Android, Windows Phone, Mac, and Linux. The SDK isn't quite there yet, but
 we'll be taking advantage of
-[Microsoft's new direction for .NET](http://www.hanselman.com/blog/AnnouncingNET2015NETAsOpenSourceNETOnMacAndLinuxAndVisualStudioCommunity.aspx),
+[Microsoft's new direction for .NET](https://www.hanselman.com/blog/AnnouncingNET2015NETAsOpenSourceNETOnMacAndLinuxAndVisualStudioCommunity.aspx),
 which has been in development for a while and will be released at the end of
 the month. I'm looking forward to building demo applications which showcase
 OpenStack.NET on as many platforms as possible.

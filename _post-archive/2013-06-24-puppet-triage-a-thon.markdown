@@ -19,6 +19,6 @@ If you are interested in contributing to [Puppet][1], the upcoming "Triage-a-Tho
 
 Onsite in Portland Puppet Labs will provide bagels, a delicious lunch, snacks and space in their office for you to work. Virtually, Puppet Labs will be running an IRC channel (#puppethack). The first 200 people who help for at least two hours will be sent a special edition Puppet Triage-a-Thon 2013 t-shirt. Want to be a part of it? First, take a look at [Puppet's Bug Triage Process][2], then [register for the event][3]!
 
-[1]: http://puppetlabs.com/
-[2]: http://docs.puppetlabs.com/community/puppet_projects_redmine_workflow.html
-[3]: http://triagepuppet2013.eventbrite.com/
+[1]: https://puppetlabs.com/
+[2]: https://docs.puppetlabs.com/community/puppet_projects_redmine_workflow.html
+[3]: https://triagepuppet2013.eventbrite.com/

@@ -2,7 +2,7 @@
 
 [![Build Status](https://build.developer.rackspace.com/rackerlabs/docs-developer-blog/badge?branch=master)](https://build.developer.rackspace.com/rackerlabs/docs-developer-blog/)
 
-This is the Rackspace Developer blog hosted at [https://developer.rackspace.com/blog/](https://developer.rackspace.com/blog/). It's powered by [Jekyll](http://jekyllrb.com/) and [deconst](http://deconst.devsupport.me/).
+This is the Rackspace Developer blog hosted at [https://developer.rackspace.com/blog/](https://developer.rackspace.com/blog/). It's powered by [Jekyll](https://jekyllrb.com/) and [deconst](https://deconst.devsupport.me/).
 
 ## Contributing
 

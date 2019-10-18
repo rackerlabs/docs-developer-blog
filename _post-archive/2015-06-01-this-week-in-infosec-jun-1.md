@@ -66,30 +66,30 @@ Now to find a [Ghostery][ghostery]-like plugin to block scary images...
 {% youtube _luhn7TLfWU %}
 
 
-[stego]: http://en.wikipedia.org/wiki/Steganography
+[stego]: https://en.wikipedia.org/wiki/Steganography
 [twitter]: https://twitter.com/ccneill
 
 [nsa]: https://www.eff.org/deeplinks/2015/05/section-215-expires-now
-[nsa_court]: http://www.npr.org/sections/thetwo-way/2015/05/07/404898259/federal-court-bulk-collection-of-phone-metadata-is-illegal
-[testing_software]: http://motherboard.vice.com/en_uk/read/how-is-critical-life-or-death-software-tested
+[nsa_court]: https://www.npr.org/sections/thetwo-way/2015/05/07/404898259/federal-court-bulk-collection-of-phone-metadata-is-illegal
+[testing_software]: https://motherboard.vice.com/en_uk/read/how-is-critical-life-or-death-software-tested
 [facebook_pgp]: https://www.facebook.com/notes/protecting-the-graph/securing-email-communications-from-facebook/1611941762379302?_rdr&_fb_noscript=1
 [keybase]: https://keybase.io/
 [keybase_profile]: https://keybase.io/cneill
 [grugq]: https://twitter.com/thegrugq
 [grugq_pgp]: https://gist.github.com/grugq/03167bed45e774551155
-[hola]: http://8ch.net/hola.html
+[hola]: https://8ch.net/hola.html
 [tor]: https://www.torproject.org/
-[locker]: http://pastebin.com/1WZGqrUH
-[locker_2]: http://www.bleepingcomputer.com/virus-removal/locker-ransomware-information
+[locker]: https://pastebin.com/1WZGqrUH
+[locker_2]: https://www.bleepingcomputer.com/virus-removal/locker-ransomware-information
 
-[docker]: http://www.banyanops.com/blog/analyzing-docker-hub/
+[docker]: https://www.banyanops.com/blog/analyzing-docker-hub/
 [collector]: https://github.com/banyanops/collector
 [docker_bench]: https://github.com/docker/docker-bench-security
 [docker_cis]: https://benchmarks.cisecurity.org/tools2/docker/CIS_Docker_1.6_Benchmark_v1.0.0.pdf
 [stegosploit1]: https://conference.hitb.org/hitbsecconf2015ams/wp-content/uploads/2015/02/D1T1-Saumil-Shah-Stegosploit-Hacking-with-Pictures.pdf
 [saumil]: https://twitter.com/therealsaumil
 [ghostery]: https://www.ghostery.com/en/
-[dan_talk]: http://www.slideshare.net/denimgroup/application-security-assessments-by-the-numbers-owaspappseceu20151
+[dan_talk]: https://www.slideshare.net/denimgroup/application-security-assessments-by-the-numbers-owaspappseceu20151
 [dan_twitter]: https://twitter.com/danielcornell
 
 [php_sqli]: https://paragonie.com/blog/2015/05/preventing-sql-injection-in-php-applications-easy-and-definitive-guide

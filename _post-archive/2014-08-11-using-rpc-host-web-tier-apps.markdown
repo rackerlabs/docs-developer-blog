@@ -10,9 +10,9 @@ categories:
   - private-cloud
 ---
 
-Last week, I presented a live webinar on [why web tier applications are a good fit for Rackspace Private Cloud](http://youtu.be/mknyC4tccBQ).
+Last week, I presented a live webinar on [why web tier applications are a good fit for Rackspace Private Cloud](https://youtu.be/mknyC4tccBQ).
 
-The following post, the third of several in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/), will be a summary of that live webinar. I will be covering why Rackspace Private Cloud is a great fit for your cloud ready web applications, why you may need to migrate your web application from a public cloud to a private cloud, discuss and provide a concept architecture of a cloudy web tier application, and discuss an overview of bursting into the Rackspace Public Cloud from your Rackspace Private Cloud.
+The following post, the third of several in the [RPC Insights series](https://www.rackspace.com/blog/welcome-to-rpc-insights/), will be a summary of that live webinar. I will be covering why Rackspace Private Cloud is a great fit for your cloud ready web applications, why you may need to migrate your web application from a public cloud to a private cloud, discuss and provide a concept architecture of a cloudy web tier application, and discuss an overview of bursting into the Rackspace Public Cloud from your Rackspace Private Cloud.
 
 <!-- more -->
 
@@ -37,7 +37,7 @@ Traditionally, the database tier has been a bit more difficult.
 
 Relational databases do not easily horizontally scale. As the web application grows there are going to be more and more reads and writes to the databases. The database tier can vertically scale only so far and there is going to be a point where horizontal scaling is required.
 
-If your application requires a relational database, tools such as [Galera](http://galeracluster.com/) can help make horizontal scaling easier. Otherwise, you may need to re-write your web application to use some sort of NoSQL database like [Cassandra](http://cassandra.apache.org/) or [MongoDB](http://www.mongodb.org/).
+If your application requires a relational database, tools such as [Galera](https://galeracluster.com/) can help make horizontal scaling easier. Otherwise, you may need to re-write your web application to use some sort of NoSQL database like [Cassandra](https://cassandra.apache.org/) or [MongoDB](https://www.mongodb.org/).
 
 The Narrative
 -------------
@@ -110,7 +110,7 @@ Bursting into the Rackspace Public Cloud
 
 So, lets continue with our narrative but fast forward about a year.
 
-You've been running your web application in the Rackspace Private Cloud successfully, but some of the factors above that required you to originally move from Rackspace Public Cloud to Rackspace Private Cloud have been removed and you can now leverage the Rackspace Public Cloud again. But, you don't want to just abandon the Rackspace Private Cloud. So, what you can do, if you host in a Rackspace data center, is utilize [RackConnect](http://www.rackspace.com/cloud/hybrid/rackconnect/) to use both the Rackspace Public and Private Cloud.
+You've been running your web application in the Rackspace Private Cloud successfully, but some of the factors above that required you to originally move from Rackspace Public Cloud to Rackspace Private Cloud have been removed and you can now leverage the Rackspace Public Cloud again. But, you don't want to just abandon the Rackspace Private Cloud. So, what you can do, if you host in a Rackspace data center, is utilize [RackConnect](https://www.rackspace.com/cloud/hybrid/rackconnect/) to use both the Rackspace Public and Private Cloud.
 
 RackConnect allows a customer's private and public Clouds to talk to each other. With this connectivity you begin to get into Hybrid Cloud territory.
 
@@ -168,7 +168,7 @@ When the load back down, below the alarm threshold, the OK notification is trigg
 
 ### Test
 
-To trigger a load test, you can use a tool like [ApacheBench](http://httpd.apache.org/docs/2.2/programs/ab.html).
+To trigger a load test, you can use a tool like [ApacheBench](https://httpd.apache.org/docs/2.2/programs/ab.html).
 
 {% img matte full 2014-08-11-using-rpc-host-web-tier-apps/apache-bench.png apache-bench %}
 
@@ -191,6 +191,6 @@ What's Next
 
 So, I have discussed why Rackspace Private Cloud is a great fit for your cloud ready web applications, why you may need to migrate your web application from a public cloud to a private cloud, discussed and provided a concept architecture of a cloudy web tier application, and discussed an overview of bursting into the Rackspace Public Cloud from your Rackspace Private Cloud.
 
-This concludes the third of several posts in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/).
+This concludes the third of several posts in the [RPC Insights series](https://www.rackspace.com/blog/welcome-to-rpc-insights/).
 
-Join us on August 20, 2014 at 10:00 AM CDT for a live webinar on [Using Rackspace Private Cloud to Support Your Software Development Lifecycle](http://go.rackspace.com/rpc-to-support-your-software-development-lifecycle.html).
+Join us on August 20, 2014 at 10:00 AM CDT for a live webinar on [Using Rackspace Private Cloud to Support Your Software Development Lifecycle](https://go.rackspace.com/rpc-to-support-your-software-development-lifecycle.html).

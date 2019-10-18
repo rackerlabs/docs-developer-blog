@@ -13,25 +13,25 @@ categories:
 
 {% img 2013-08-19-bookstore-for-ipython-notebooks/IPy_header.png 'IPython logo' 'IPython logo' %}
 
-If there is anything I love about the Python ecosystem, it's the scientific computing ecosystem. Standing on top of this stack for me is [IPython](http://ipython.org/), a robust tool for interactive computing. It has features like a simple navigable history, auto-completion, a brilliant [web based notebook](http://ipython.org/notebook.html) with inline plotting, an easy to use [parallel computing framework](http://ipython.org/ipython-doc/stable/parallel/parallel_intro.html), [magic](http://ipython.org/ipython-doc/stable/interactive/tutorial.html), and a well structured protocol that is being used to extend IPython for interactive computing with [other](https://github.com/minrk/iruby) [languages](http://nbviewer.ipython.org/4279371/node-kernel.ipynb) including [Julia](https://github.com/JuliaLang/IJulia.jl). If you haven't heard of IPython before, I recommend you watch [Fernando Perez's keynote talk on IPython](http://vimeo.com/63250251) from PyData Silicon Valley 2013.
+If there is anything I love about the Python ecosystem, it's the scientific computing ecosystem. Standing on top of this stack for me is [IPython](https://ipython.org/), a robust tool for interactive computing. It has features like a simple navigable history, auto-completion, a brilliant [web based notebook](https://ipython.org/notebook.html) with inline plotting, an easy to use [parallel computing framework](https://ipython.org/ipython-doc/stable/parallel/parallel_intro.html), [magic](https://ipython.org/ipython-doc/stable/interactive/tutorial.html), and a well structured protocol that is being used to extend IPython for interactive computing with [other](https://github.com/minrk/iruby) [languages](https://nbviewer.ipython.org/4279371/node-kernel.ipynb) including [Julia](https://github.com/JuliaLang/IJulia.jl). If you haven't heard of IPython before, I recommend you watch [Fernando Perez's keynote talk on IPython](https://vimeo.com/63250251) from PyData Silicon Valley 2013.
 
 <!-- more -->
 
-As mentioned above, IPython contains a web based notebook for interactive computing called the IPython notebook. If you've ever used Mathematica, you'll feel right at home. IPython notebooks provide an easy way to interactively work with your code and data, all while visualizing and prototyping to your heart's content. Output goes [well beyond simple text](http://ipython.org/ipython-doc/dev/config/integrating.html) and plots, by allowing you to define a `_repr_html_` method on objects that outputs HTML. Pandas, in particular, allows their DataFrames to render as clean HTML tables embedded right alongside the rest of the code:
+As mentioned above, IPython contains a web based notebook for interactive computing called the IPython notebook. If you've ever used Mathematica, you'll feel right at home. IPython notebooks provide an easy way to interactively work with your code and data, all while visualizing and prototyping to your heart's content. Output goes [well beyond simple text](https://ipython.org/ipython-doc/dev/config/integrating.html) and plots, by allowing you to define a `_repr_html_` method on objects that outputs HTML. Pandas, in particular, allows their DataFrames to render as clean HTML tables embedded right alongside the rest of the code:
 
-[{% img 2013-08-19-bookstore-for-ipython-notebooks/ipython_basemap.png 'Notebook example' 'Notebook example' %}](http://nbviewer.ipython.org/urls/bitbucket.org/hrojas/learn-pandas/raw/65203d891b5e20bb7c00628332694a612bcb54ee/notebooks/Basic_Basemap.ipynb)
+[{% img 2013-08-19-bookstore-for-ipython-notebooks/ipython_basemap.png 'Notebook example' 'Notebook example' %}](https://nbviewer.ipython.org/urls/bitbucket.org/hrojas/learn-pandas/raw/65203d891b5e20bb7c00628332694a612bcb54ee/notebooks/Basic_Basemap.ipynb)
 
-Each cell allows you to write Python, run a computation, view results, and plot data like a typical [Read-eval-print loop (REPL)](http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop). Unlike a typical REPL though, you can easily go back and edit your previous code. Cells can also be Markdown, headings, raw text and even display <span class="texhtml" style="font-family: 'CMU Serif', cmr10, LMRoman10-Regular, 'Times New Roman', 'Nimbus Roman No9 L', Times, serif;">L<span style="text-transform: uppercase; font-size: 70%; margin-left: -0.36em; vertical-align: 0.3em; line-height: 0; margin-right: -0.15em;">a</span>T<span style="text-transform: uppercase; margin-left: -0.1667em; vertical-align: -0.5ex; line-height: 0; margin-right: -0.125em;">e</span>X</span>. This allows you to [create a narrative alongside your code](http://nbviewer.ipython.org/urls/raw.github.com/jakevdp/jakevdp.github.com/master/downloads/notebooks/sparse-graph.ipynb), useful for teaching and presenting. The [example below](http://nbviewer.ipython.org/urls/raw.github.com/jakevdp/jakevdp.github.com/master/downloads/notebooks/sparse-graph.ipynb) comes from [Jake Vanderplas' Python Perambulations blog](http://jakevdp.github.io/blog/2012/10/14/scipy-sparse-graph-module-word-ladders/).
+Each cell allows you to write Python, run a computation, view results, and plot data like a typical [Read-eval-print loop (REPL)](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop). Unlike a typical REPL though, you can easily go back and edit your previous code. Cells can also be Markdown, headings, raw text and even display <span class="texhtml" style="font-family: 'CMU Serif', cmr10, LMRoman10-Regular, 'Times New Roman', 'Nimbus Roman No9 L', Times, serif;">L<span style="text-transform: uppercase; font-size: 70%; margin-left: -0.36em; vertical-align: 0.3em; line-height: 0; margin-right: -0.15em;">a</span>T<span style="text-transform: uppercase; margin-left: -0.1667em; vertical-align: -0.5ex; line-height: 0; margin-right: -0.125em;">e</span>X</span>. This allows you to [create a narrative alongside your code](https://nbviewer.ipython.org/urls/raw.github.com/jakevdp/jakevdp.github.com/master/downloads/notebooks/sparse-graph.ipynb), useful for teaching and presenting. The [example below](https://nbviewer.ipython.org/urls/raw.github.com/jakevdp/jakevdp.github.com/master/downloads/notebooks/sparse-graph.ipynb) comes from [Jake Vanderplas' Python Perambulations blog](https://jakevdp.github.io/blog/2012/10/14/scipy-sparse-graph-module-word-ladders/).
 
 {% img 2013-08-19-bookstore-for-ipython-notebooks/ipython_words.png 'IPython cells' 'IPython notebook cell example' %}
 
-The greatest feature of the notebook is the ease at which you can share notebooks with others. This allows them to run through your code (👍 for reproducibility), change it locally, and see results for themselves. By default the notebooks are stored in the same directory IPython was invoked from and have a file extension of `.ipynb`. The easiest way to share them has been to put the notebook file on the web, through a GitHub Gist or in a GitHub repo, then link to it through the [notebook viewer](http://nbviewer.ipython.org/).
+The greatest feature of the notebook is the ease at which you can share notebooks with others. This allows them to run through your code (👍 for reproducibility), change it locally, and see results for themselves. By default the notebooks are stored in the same directory IPython was invoked from and have a file extension of `.ipynb`. The easiest way to share them has been to put the notebook file on the web, through a GitHub Gist or in a GitHub repo, then link to it through the [notebook viewer](https://nbviewer.ipython.org/).
 
-There's another way to store and save these notebooks now, using OpenStack Swift or Rackspace CloudFiles: [Bookstore](http://github.com/rgbkrk/bookstore).
+There's another way to store and save these notebooks now, using OpenStack Swift or Rackspace CloudFiles: [Bookstore](https://github.com/rgbkrk/bookstore).
 
 # Bookstore
 
-[Bookstore](http://github.com/rgbkrk/bookstore) allows you to save your IPython notebooks to OpenStack Swift or CloudFiles, seamlessly, while interacting with the notebook. You can even CDN enable your notebooks so they can be downloaded or [viewed by others](http://nbviewer.ipython.org/).
+[Bookstore](https://github.com/rgbkrk/bookstore) allows you to save your IPython notebooks to OpenStack Swift or CloudFiles, seamlessly, while interacting with the notebook. You can even CDN enable your notebooks so they can be downloaded or [viewed by others](https://nbviewer.ipython.org/).
 
 Install bookstore via pip
 
@@ -84,9 +84,9 @@ Now launch the IPython notebook with the profile you configured (default used be
 ```bash
 $ ipython notebook
 2013-08-14 11:18:16.513 [NotebookApp] Using existing profile dir: u'/Users/kyle6475/.ipython/profile_default'
-2013-08-14 11:18:28.667 [NotebookApp] Using MathJax from CDN: http://cdn.mathjax.org/mathjax/latest/MathJax.js
+2013-08-14 11:18:28.667 [NotebookApp] Using MathJax from CDN: https://cdn.mathjax.org/mathjax/latest/MathJax.js
 2013-08-14 11:18:28.676 [NotebookApp] Serving rgbkrk's notebooks on Rackspace CloudFiles from container notebooks_demo in the DFW region.
-2013-08-14 11:18:28.676 [NotebookApp] The IPython Notebook is running at: http://127.0.0.1:4242/
+2013-08-14 11:18:28.676 [NotebookApp] The IPython Notebook is running at: https://127.0.0.1:4242/
 2013-08-14 11:18:28.676 [NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 ```
 
@@ -129,15 +129,15 @@ These links are the base links for the container. Put the UUID for a notebook af
 
 {% img 2013-08-19-bookstore-for-ipython-notebooks/notebook_url.png 'Notebook UUID in URL' 'Notebook UUID in URL' %}
 
-As an example, the URL for the container used above is http://504a2743e3ef413d3f50-f754606aafcd7bad1b04f6d0cd003745.r33.cf1.rackcdn.com. The notebook above can then be reached at
+As an example, the URL for the container used above is https://504a2743e3ef413d3f50-f754606aafcd7bad1b04f6d0cd003745.r33.cf1.rackcdn.com. The notebook above can then be reached at
 
-[http://504a2743e3ef413d3f50-f754606aafcd7bad1b04f6d0cd003745.r33.cf1.rackcdn.com/77ba6f19-de0e-469f-8bad-76d675222b31](http://nb.fict.io/77ba6f19-de0e-469f-8bad-76d675222b31)
+[https://504a2743e3ef413d3f50-f754606aafcd7bad1b04f6d0cd003745.r33.cf1.rackcdn.com/77ba6f19-de0e-469f-8bad-76d675222b31](https://nb.fict.io/77ba6f19-de0e-469f-8bad-76d675222b31)
 
 Couple this with a CNAME for the container (using the HTTP link) through Rackspace's DNS (or your own DNS)
 
 {% img 2013-08-19-bookstore-for-ipython-notebooks/add_cname.png 'Add' 'Add CNAME' %}
 
-To make simplified links like [http://nb.fict.io/77ba6f19-de0e-469f-8bad-76d675222b31](http://nb.fict.io/77ba6f19-de0e-469f-8bad-76d675222b31) and you'll have a shorter URL for [sharing through the nbviewer](http://nbviewer.ipython.org/url/nb.fict.io/77ba6f19-de0e-469f-8bad-76d675222b31).
+To make simplified links like [https://nb.fict.io/77ba6f19-de0e-469f-8bad-76d675222b31](https://nb.fict.io/77ba6f19-de0e-469f-8bad-76d675222b31) and you'll have a shorter URL for [sharing through the nbviewer](https://nbviewer.ipython.org/url/nb.fict.io/77ba6f19-de0e-469f-8bad-76d675222b31).
 
 ## Beneath the covers
 
@@ -153,4 +153,4 @@ Happy Computing!
 
 # About the Author
 
-Kyle Kelley is a Developer Support Engineer at Rackspace. You can follow him on twitter [@rgbkrk](http://twitter.com/rgbkrk).
+Kyle Kelley is a Developer Support Engineer at Rackspace. You can follow him on twitter [@rgbkrk](https://twitter.com/rgbkrk).

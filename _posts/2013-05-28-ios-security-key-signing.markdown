@@ -101,7 +101,7 @@ This file comes from Apple too. You can create and download one relatively easil
 First, that `CODE_SIGN_IDENTITY` string. Where did that come from? Here are the steps to get it:
 
 1. Sign up for a developer account on Apple's website.
-2. Follow this cookbook: <http://cookbook.gamesalad.com/tutorials/3/parts/12>
+2. Follow this cookbook: <https://cookbook.gamesalad.com/tutorials/3/parts/12>
 3. When you complete step No. 15, "On your local machine, double-click the downloaded .cer file to launch Keychain Access and install your certificate."
 4. After installing your certificate, the name displayed in the KeychainAccess is the same string you should give CODE_SIGN_IDENTITY. See screenshot keychainaccess.png
 5. Next, take the physical iOS device you have and plug it into the Mac
@@ -112,7 +112,7 @@ First, that `CODE_SIGN_IDENTITY` string. Where did that come from? Here are the 
 
 Next, that crazy `PROVISIONING_PROFILE` string. Where is that from?
 
-1. Login to <http://developer.apple.com>
+1. Login to <https://developer.apple.com>
 2. Click “iOS Provisioning Portal”
 3. Click "Provisioning"
 4. Click the "Development" tab
@@ -196,9 +196,9 @@ _A quick word about the Jenkins Xcode plugin and why it will not work for our pu
 _Tokunbo "Toks" George misspent his youth daringly hacking on Apple II computers and all manner of video game consoles. For the past decade he has channeled his skillz towards quality engineering helping companies move from manual drudgery to automated utopia. He now spends his time at Rackspace furiously investigating the darkest corners of mobile devices and testing tools. While you were reading this blog post, it is more than likely that Tokunbo was watching anime or playing [Dance Dance Revolution][7]._
 
 [1]: https://saucelabs.com/
-[2]: http://docs.seleniumhq.org/
-[3]: http://appium.io/
-[4]: http://stackoverflow.com/questions/6416121/keychain-wont-unlock-from-jenkins-script-unless-user-logged-in
+[2]: https://docs.seleniumhq.org/
+[3]: https://appium.io/
+[4]: https://stackoverflow.com/questions/6416121/keychain-wont-unlock-from-jenkins-script-unless-user-logged-in
 [5]: https://github.com/unprompted/fruitstrap
 [6]: https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin
 [7]: https://en.wikipedia.org/wiki/Dance_Dance_Revolution

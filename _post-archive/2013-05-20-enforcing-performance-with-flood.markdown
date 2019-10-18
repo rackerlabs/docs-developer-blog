@@ -92,7 +92,7 @@ stays up-to-date are crucial to producing useful output.
 
 {% img 2013-05-06-enforcing-performance-with-flood/flood-plot-output.png %}
 
-[1]: http://www.rackspace.com/email-hosting/
+[1]: https://www.rackspace.com/email-hosting/
 [2]: https://github.com/
 [3]: https://github.com/icgood/flood
 [4]: https://github.com/icgood/flood/blob/master/README.md

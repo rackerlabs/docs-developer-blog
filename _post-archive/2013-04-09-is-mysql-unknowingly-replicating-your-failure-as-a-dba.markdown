@@ -13,7 +13,7 @@ MySQL replication offers an opportunity to distribute your database to multiple 
 
 Rackspace Managed Cloud customers rely on us to provide insight into their configuration. It is important that we have an accurate assessment of slave status and the ability to provide notifications if there are errors. With the Rackspace Cloud Monitoring Agent, we can provide notification to the customer if the slave is in error status or if the slave lags behind the master.
 
-Using a plugin with the Rackspace Cloud Monitoring Agent is simple. Before proceeding, you must [install the agent](http://www.rackspace.com/knowledge_center/article/install-the-cloud-monitoring-agent). For our scenario, we wrote a Python script that will check the slave status and provide metrics back to the Cloud Monitoring environment. With the plugin working on the Cloud Server, add a new check and an alarm with the desired criteria. Here is a curl command to create the check:
+Using a plugin with the Rackspace Cloud Monitoring Agent is simple. Before proceeding, you must [install the agent](https://www.rackspace.com/knowledge_center/article/install-the-cloud-monitoring-agent). For our scenario, we wrote a Python script that will check the slave status and provide metrics back to the Cloud Monitoring environment. With the plugin working on the Cloud Server, add a new check and an alarm with the desired criteria. Here is a curl command to create the check:
 
 ```bash
 curl -i -X POST \
@@ -46,6 +46,6 @@ if (metric['SLAVE_STATUS'] == 'ONLINE' && metric['SECONDS_BEHIND_MASTER'] >= 300
 
 The above criteria will change the AlarmStatus if replication is offline or if the slave lags too far behind the master. If something goes wrong, you can expect a friendly email from our Cloud Monitoring product. Hopefully, you can avoid that awkward moment where you explain to your boss that your backup is six months old because you didn't bother to check your slave status.  
 
-For additional information about Rackspace Cloud Monitoring check out the [API Developer Guide](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/overview.html).
+For additional information about Rackspace Cloud Monitoring check out the [API Developer Guide](https://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/overview.html).
 
 The above plugin, along with additional contributed plugins, can be found on [GitHub](https://github.com/racker/rackspace-monitoring-agent-plugins-contrib).

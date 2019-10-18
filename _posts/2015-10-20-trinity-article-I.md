@@ -30,7 +30,7 @@ In this first article, we will walk through a high-level demonstration of the fo
 
 **Disclaimer**: The demonstration code in the corresponding [repository] (https://github.com/djrut/trinity) is for illustrative purposes only and may not be sufficiently robust for production use. Users should carefully inspect sample code before running in a production environment. Use at your own risk.
 
-**Disclosure**: The idea of a Makefile mechanism to automate container preparation, build, push etc. was inspired by [this](http://victorlin.me/posts/2014/11/26/running-docker-with-aws-elastic-beanstalk) excellent article by Victor Lin.
+**Disclosure**: The idea of a Makefile mechanism to automate container preparation, build, push etc. was inspired by [this](https://victorlin.me/posts/2014/11/26/running-docker-with-aws-elastic-beanstalk) excellent article by Victor Lin.
 
 ### II - Design Principles
 
@@ -175,7 +175,7 @@ Successfully built 532e52378fb9
 [2015-10-19 20:53:01] INFO  WEBrick::HTTPServer#start: pid=1 port=80
 ~~~
 
-You open a browser window and connect to the Docker host IP and port that is running the new application version (in this case, http://192.168.99.100/):
+You open a browser window and connect to the Docker host IP and port that is running the new application version (in this case, https://192.168.99.100/):
 
 ![Local](https://s3-us-west-2.amazonaws.com/dirigible-images/trinity-local.png)
 

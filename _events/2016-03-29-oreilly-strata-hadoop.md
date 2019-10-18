@@ -6,7 +6,7 @@ date: 2016-03-29
 location:
   name: San Jose, CA
   address: 150 W San Carlos St. San Jose, CA 95113
-website: http://conferences.oreilly.com/strata/hadoop-big-data-ca
+website: https://conferences.oreilly.com/strata/hadoop-big-data-ca
 attendees: []
 talks: []
 ---

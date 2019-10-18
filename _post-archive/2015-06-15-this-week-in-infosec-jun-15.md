@@ -45,12 +45,12 @@ If I have this regular expression:
 
 Rather than only matching strings like this, as would be the case with many other languages:
 
-    http://test.com
+    https://test.com
 
 Ruby will also match strings like this:
 
     javascript:alert(1);/*
-    http://test.com
+    https://test.com
     */
 
 Egor has a [great post from a few years ago][ruby_regex] about this issue. The Ruby on Rails security guide [calls out this issue][ruby_regex2] and suggests using "\A" and "\z", which will be treated as the beginning and end, respectively, of the whole string, rather than matching on one line in a multi-line string. The latest version of the gem (3.0.4) can be obtained [here][bson2].
@@ -65,40 +65,40 @@ Egor has a [great post from a few years ago][ruby_regex] about this issue. The R
 
 [twitter]: https://twitter.com/ccneill
 
-[fbi_encryption]: http://www.washingtonpost.com/blogs/the-switch/wp/2015/06/04/fbi-official-companies-should-help-us-prevent-encryption-above-all-else/
+[fbi_encryption]: https://www.washingtonpost.com/blogs/the-switch/wp/2015/06/04/fbi-official-companies-should-help-us-prevent-encryption-above-all-else/
 [encryption_backdoors]: https://blog.agilebits.com/2015/04/29/back-doors-are-bad-for-security-architecture/
 [cloudflare_golden_key]: https://keybase.io/blog/2014-10-08/the-horror-of-a-secure-golden-key
 [freak]: https://freakattack.com/
 [weakdh]: https://weakdh.org/
-[export_encryption]: http://en.wikipedia.org/wiki/Export_of_cryptography_from_the_United_States
-[opm_hack]: http://arstechnica.com/security/2015/06/why-the-biggest-government-hack-ever-got-past-opm-dhs-and-nsa/
-[irs]: http://www.washingtonpost.com/blogs/federal-eye/wp/2015/05/26/hackers-stole-personal-information-from-104000-taxpayers-irs-says/
-[kaspersky]: http://www.bbc.com/news/technology-33083050
+[export_encryption]: https://en.wikipedia.org/wiki/Export_of_cryptography_from_the_United_States
+[opm_hack]: https://arstechnica.com/security/2015/06/why-the-biggest-government-hack-ever-got-past-opm-dhs-and-nsa/
+[irs]: https://www.washingtonpost.com/blogs/federal-eye/wp/2015/05/26/hackers-stole-personal-information-from-104000-taxpayers-irs-says/
+[kaspersky]: https://www.bbc.com/news/technology-33083050
 [kaspersky2]: https://securelist.com/blog/research/70504/the-mystery-of-duqu-2-0-a-sophisticated-cyberespionage-actor-returns/
-[duqu]: http://en.wikipedia.org/wiki/Duqu
-[stuxnet]: http://en.wikipedia.org/wiki/Stuxnet
+[duqu]: https://en.wikipedia.org/wiki/Duqu
+[stuxnet]: https://en.wikipedia.org/wiki/Stuxnet
 [embargoes]: https://securityblog.redhat.com/2015/06/10/the-hidden-costs-of-embargoes/
 
 [stegosploit]: https://medium.com/@christianbundy/why-stegosploit-isn-t-an-exploit-189b0b5261eb
-[mobile_location]: http://blog.trustlook.com/2015/06/02/how-apps-tracking-your-location-without-asking-for-permission/
-[bssid]: http://en.wikipedia.org/wiki/Service_set_%28802.11_network%29#Basic_service_set_identification_.28BSSID.29
+[mobile_location]: https://blog.trustlook.com/2015/06/02/how-apps-tracking-your-location-without-asking-for-permission/
+[bssid]: https://en.wikipedia.org/wiki/Service_set_%28802.11_network%29#Basic_service_set_identification_.28BSSID.29
 [wigle]: https://wigle.net/
 
 [x86]: https://www.blackhat.com/us-15/briefings.html#the-memory-sinkhole-unleashing-an-x86-design-flaw-allowing-universal-privilege-escalation
 [mac_firmware]: https://reverse.put.as/2015/05/29/the-empire-strikes-back-apple-how-your-mac-firmware-security-is-completely-broken/
-[mac_firmware2]: http://events.ccc.de/congress/2014/Fahrplan/events/6129.html
-[mac_firmware3]: http://blog.cr4.sh/2015/02/exploiting-uefi-boot-script-table.html
+[mac_firmware2]: https://events.ccc.de/congress/2014/Fahrplan/events/6129.html
+[mac_firmware3]: https://blog.cr4.sh/2015/02/exploiting-uefi-boot-script-table.html
 [mac_firmware4]: https://www.defcon.org/html/defcon-23/dc-23-speakers.html#Kovah
-[bson]: http://sakurity.com/blog/2015/06/04/mongo_ruby_regexp.html
+[bson]: https://sakurity.com/blog/2015/06/04/mongo_ruby_regexp.html
 [jgibbs]: https://twitter.com/quizzicaljosh
 [egor]: https://twitter.com/homakov
-[ruby_regex]: http://homakov.blogspot.ru/2012/05/saferweb-injects-in-various-ruby.html
-[ruby_regex2]: http://guides.rubyonrails.org/security.html#regular-expressions
+[ruby_regex]: https://homakov.blogspot.ru/2012/05/saferweb-injects-in-various-ruby.html
+[ruby_regex2]: https://guides.rubyonrails.org/security.html#regular-expressions
 [bson2]: https://rubygems.org/gems/bson/versions/3.0.4
 
-[memex]: http://opencatalog.darpa.mil/MEMEX.html
-[memex2]: http://www.scientificamerican.com/article/human-traffickers-caught-on-hidden-internet/
+[memex]: https://opencatalog.darpa.mil/MEMEX.html
+[memex2]: https://www.scientificamerican.com/article/human-traffickers-caught-on-hidden-internet/
 [memex3]: https://github.com/TeamHG-Memex/Formasaurus
 [memex4]: https://github.com/scrapinghub/splash
 
-[whatiscode]: http://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/
+[whatiscode]: https://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/

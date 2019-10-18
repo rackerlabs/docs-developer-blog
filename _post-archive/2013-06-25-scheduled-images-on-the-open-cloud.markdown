@@ -53,6 +53,6 @@ use.
 The following links tell you pretty much everything you need to
 know to use it:
 
-*  [Rackspace Scheduled Images API Extension documentation](http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_extensions.html#scheduled_images)
+*  [Rackspace Scheduled Images API Extension documentation](https://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_extensions.html#scheduled_images)
 *  [Using the python-novaclient to manage scheduled images](https://support.rackspace.com/how-to/using-python-novaclient-to-manage-scheduled-images/)
 *  [The Scheduled Images FAQ](https://support.rackspace.com/how-to/scheduled-images-faq/)

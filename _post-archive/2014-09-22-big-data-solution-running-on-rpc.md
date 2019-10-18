@@ -16,9 +16,9 @@ bio: >
   thornelabs.net and can be followed on Twitter @jameswthorne.
 ---
 
-Two weeks ago, I presented a live webinar on [a big data solution running on top of Rackspace Private Cloud](http://youtu.be/V55gzeBxmwE).
+Two weeks ago, I presented a live webinar on [a big data solution running on top of Rackspace Private Cloud](https://youtu.be/V55gzeBxmwE).
 
-The following post, the fifth and last in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/), will be a summary of that live webinar. I will be discussing what big data is, why Rackspace Private Cloud is a good fit for running big data solutions, some tools associated with big data, and briefly showing you how to run your first Hadoop job.
+The following post, the fifth and last in the [RPC Insights series](https://www.rackspace.com/blog/welcome-to-rpc-insights/), will be a summary of that live webinar. I will be discussing what big data is, why Rackspace Private Cloud is a good fit for running big data solutions, some tools associated with big data, and briefly showing you how to run your first Hadoop job.
 
 <!-- more -->
 
@@ -29,11 +29,11 @@ What is Big Data?
 
 So, what is big data? Just like "cloud", you hear the term all the time.
 
-[Wikipedia](http://en.wikipedia.org/wiki/Big_data) provides a broad definition:
+[Wikipedia](https://en.wikipedia.org/wiki/Big_data) provides a broad definition:
 
 > Big data is an all-encompassing term for any collection of data sets so large and complex that it becomes difficult to process using on-hand data management tools or traditional data processing applications.
 
-[MongoDB](http://www.mongodb.com/big-data-explained) also provides a similar definition but is a bit more focused:
+[MongoDB](https://www.mongodb.com/big-data-explained) also provides a similar definition but is a bit more focused:
 
 > Big Data refers to technologies and initiatives that involve data that is too diverse, fast-changing or massive for conventional technologies, skills and infrastructure to address efficiently. Said differently, the volume, velocity or variety of data is too great.
 
@@ -42,11 +42,11 @@ It Isn't Just About Volume
 
 Keep in mind, even though the word "big" is in the term big data, it isn't always about the amount of data (otherwise referred to as volume). As mentioned in the MongoDB example, it is also about the __velocity__ and __variety__ of the data.
 
-According to [Jim Gallo](http://www.informationweek.com/software/information-management/is-your-data-big-enough-for-big-data/d/d-id/1109038?), national director of business analytics for ICC, an IT services provider based in Columbus, Ohio, "volume isn't everything. For organizations to accurately determine whether a big data platform is right for them, they must also study the variety and velocity of their data."
+According to [Jim Gallo](https://www.informationweek.com/software/information-management/is-your-data-big-enough-for-big-data/d/d-id/1109038?), national director of business analytics for ICC, an IT services provider based in Columbus, Ohio, "volume isn't everything. For organizations to accurately determine whether a big data platform is right for them, they must also study the variety and velocity of their data."
 
 You could very well just have a large volume of transactional and structured data that doesn’t really classify as big data or require big data tools to analyze.
 
-So, what are some big data examples? Once again, [MongoDB](http://www.mongodb.com/big-data-explained) provides several:
+So, what are some big data examples? Once again, [MongoDB](https://www.mongodb.com/big-data-explained) provides several:
 
 > For example, retailers can track user web clicks to identify behavioral trends that improve campaigns, pricing and stockage. Utilities can capture household energy usage levels to predict outages and to incent more efficient energy consumption. Governments and even Google can detect and track the emergence of disease outbreaks via social media signals. Oil and gas companies can take the output of sensors in their drilling equipment to make more efficient and safer drilling decisions. "Big Data" describes data sets so large and complex they are impractical to manage with traditional software tools.
 
@@ -105,7 +105,7 @@ There are too many big data tools to list and talk about, but I will briefly dis
 
 As for big data analysis tools, there is of course Hadoop. Whenever big data is discussed, Hadoop is not far from being mentioned. But, what is Hadoop?
 
-From [hadoop.apache.org](http://hadoop.apache.org):
+From [hadoop.apache.org](https://hadoop.apache.org):
 
 > The Apache Hadoop software library is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models. It is designed to scale up from single servers to thousands of machines, each offering local computation and storage.
 
@@ -113,7 +113,7 @@ Hadoop was designed with cloud environments and infrastructure in mind.
 
 Another useful tool is MapReduce, which is often also talked about when discussing Hadoop.
 
-From [Wikipedia](http://en.wikipedia.org/wiki/MapReduce):
+From [Wikipedia](https://en.wikipedia.org/wiki/MapReduce):
 
 > MapReduce is a programming model and an associated implementation for processing and generating large data sets with a parallel, distributed algorithm on a cluster.
 
@@ -123,9 +123,9 @@ Hadoop gives you the ability to run MapReduce jobs across a cluster so you can p
 
 As for some database backends, you have Cassandra and mongoDB.
 
-[Cassandra](http://cassandra.apache.org) is a highly scalable, eventually consistent, distributed, structured key-value store. It is one of the NoSQL databases. Hadoop has support for using Cassandra as a data storage mechanism.
+[Cassandra](https://cassandra.apache.org) is a highly scalable, eventually consistent, distributed, structured key-value store. It is one of the NoSQL databases. Hadoop has support for using Cassandra as a data storage mechanism.
 
-[MongoDB](http://www.mongodb.com), another NoSQL database, is a document-oriented database that uses JSON-like documents with dynamic schemas. It too has a connector that allows you to use it as a data storage mechanism in Hadoop.
+[MongoDB](https://www.mongodb.com), another NoSQL database, is a document-oriented database that uses JSON-like documents with dynamic schemas. It too has a connector that allows you to use it as a data storage mechanism in Hadoop.
 
 Demo
 ----
@@ -142,9 +142,9 @@ Alternatively, if you simply want to get a Hadoop cluster up and running quickly
 
 A very basic Hadoop environment is going to have three nodes: a gateway node, a name node, and a data node.
 
-The gateway node is going to be running services such as [pig](http://en.wikipedia.org/wiki/Pig_(programming_tool)) and [hive](http://en.wikipedia.org/wiki/Apache_Hive) and is your entry, or "gateway", into the Hadoop cluster.
+The gateway node is going to be running services such as [pig](https://en.wikipedia.org/wiki/Pig_(programming_tool)) and [hive](https://en.wikipedia.org/wiki/Apache_Hive) and is your entry, or "gateway", into the Hadoop cluster.
 
-The name node is going to be running services such as [yarn](http://hortonworks.com/hadoop/yarn/). It is responsible for keeping a directory tree of all files in the Hadoop file system, or in other words, it tracks where data is stored throughout the Hadoop cluster.
+The name node is going to be running services such as [yarn](https://hortonworks.com/hadoop/yarn/). It is responsible for keeping a directory tree of all files in the Hadoop file system, or in other words, it tracks where data is stored throughout the Hadoop cluster.
 
 The data node is also going to be running the yarn service. It is responsible for storing the actual data and processing that data when a MapReduce job is run. The MapReduce job is run on the data node because the processing should be performed as close to the data as possible.
 
@@ -164,9 +164,9 @@ A handful of directories will be returned. You can view your user's directory (i
 
 That user's directory is most likely empty. To process any data with Hadoop, the data needs to be in the Hadoop filesystem. So, download the following text version of "Ulysses by James Joyce" to the gateway node:
 
-    curl -O http://www.gutenberg.org/cache/epub/4300/pg4300.txt
+    curl -O https://www.gutenberg.org/cache/epub/4300/pg4300.txt
 
-If you want some other large files to tinker with, here is the text version of [The Notebooks of Leonardo Da Vinci — Complete by Leonardo da Vinci](http://www.gutenberg.org/cache/epub/5000/pg5000.txt).
+If you want some other large files to tinker with, here is the text version of [The Notebooks of Leonardo Da Vinci — Complete by Leonardo da Vinci](https://www.gutenberg.org/cache/epub/5000/pg5000.txt).
 
 Once the text file has been downloaded to the gateway node, upload it to your directory in the Hadoop file system:
 
@@ -176,13 +176,13 @@ Verify the file is there:
 
     hadoop fs -ls /user/jamesbond/ulysses-by-james-joyce.txt
 
-With the data you want to process in place, you now need MapReduce jobs to run against it. Hadoop comes with an example Java Jar file containing MapReduce jobs. Depending on how you installed Hadoop, you may or may not already have this file. If for some reason you do not or simply can't find it, it can be found by downloading the [compiled Hadoop tar file](http://mirrors.sonic.net/apache/hadoop/common/hadoop-2.4.0/hadoop-2.4.0.tar.gz) (in this example I am using Hadoop 2.4.0), un-taring it, and copying file __~/hadoop-2.4.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.4.0.jar__ to your home directory on the gateway node.
+With the data you want to process in place, you now need MapReduce jobs to run against it. Hadoop comes with an example Java Jar file containing MapReduce jobs. Depending on how you installed Hadoop, you may or may not already have this file. If for some reason you do not or simply can't find it, it can be found by downloading the [compiled Hadoop tar file](https://mirrors.sonic.net/apache/hadoop/common/hadoop-2.4.0/hadoop-2.4.0.tar.gz) (in this example I am using Hadoop 2.4.0), un-taring it, and copying file __~/hadoop-2.4.0/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.4.0.jar__ to your home directory on the gateway node.
 
 Once you have the example Java Jar file in place, you can run the __wordcount__ MapReduce job to count the number of times all words appears in the text file:
 
     hadoop jar hadoop-mapreduce-examples-2.4.0.jar wordcount /user/jamesbond/ulysses-by-james-joyce.txt /user/jamesbond/ulysses-output
 
-While the job is running, go to the [Hadoop docs](http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html#Example%3A+WordCount+v1.0) and click __Example: WordCount v1.0__ to understand what the MapReduce job is doing.
+While the job is running, go to the [Hadoop docs](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html#Example%3A+WordCount+v1.0) and click __Example: WordCount v1.0__ to understand what the MapReduce job is doing.
 
 Once the job completes, all of the output is in the directory you specified above (__/user/jamesbond/ulysses-output__ ). Within that directory is a file containing the final output of the MapReduce job. Download that file from the Hadoop file system and save it to the local file system on the gateway node:
 
@@ -190,7 +190,7 @@ Once the job completes, all of the output is in the directory you specified abov
 
 The output file is simply a text file, so use your favorite command line text editor to view it. When you open the text file, you will see one column containing all of the words in the file and a second column containing a count of the number of times that word appeared in the file.
 
-The example Java Jar file [contains many MapReduce jobs you can run](http://www.informit.com/articles/article.aspx?p=2190194&seqNum=3). For example, another job you can tinker with the is the __wordmedian__ job:
+The example Java Jar file [contains many MapReduce jobs you can run](https://www.informit.com/articles/article.aspx?p=2190194&seqNum=3). For example, another job you can tinker with the is the __wordmedian__ job:
 
     hadoop jar hadoop-mapreduce-examples-2.4.0.jar wordmedian /user/jamesbond/ulysses-by-james-joyce.txt /user/jamesbond/ulysses-output2
 
@@ -207,6 +207,6 @@ What's Next
 
 I have discussed what big data is, why Rackspace Private Cloud is a good fit for running big data solutions, some tools associated with big data, and briefly showed you how to run your first Hadoop job.
 
-This concludes the fifth and last blog post in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/).
+This concludes the fifth and last blog post in the [RPC Insights series](https://www.rackspace.com/blog/welcome-to-rpc-insights/).
 
 Thank you all for watching and reading.

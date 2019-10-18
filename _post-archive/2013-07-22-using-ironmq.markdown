@@ -10,14 +10,14 @@ categories:
 ---
 
 {% img right 2013-07-23-using-ironmq/ironmq.png 200 %}
-It’s an [established pattern](http://highscalability.com/blog/2012/12/17/11-uses-for-the-humble-presents-queue-er-message-queue.html)
+It’s an [established pattern](https://highscalability.com/blog/2012/12/17/11-uses-for-the-humble-presents-queue-er-message-queue.html)
 to use message queues when building scalable, extensible, and resilient systems,
 but a lot of developers are still unsure how to go about actually *implementing*
 message queues in their architectures. Worse, the number of queuing solutions
 makes it hard for developers to get a grasp on exactly what a queue is, what it
 does, and what each solution brings to the table.
 
-At [Iron.io](http://iron.io), we’re building [IronMQ](http://iron.io/platform/mq),
+At [Iron.io](https://iron.io), we’re building [IronMQ](https://iron.io/platform/mq),
 a queuing solution we’ve developed specifically to meet the specific needs of
 today’s cloud architectures. In this post, we wanted to detail how to use queues
 in your applications and highlight a couple of unique capabilities that IronMQ
@@ -131,7 +131,7 @@ acts on the data in your queue.
 
 In our worker, we just want to store some basic information based on the request.
 We’ll start simple and just count the number of requests. We’re storing our
-information in [Redis](http://redis.io) using [redis-py](https://github.com/andymccurdy/redis-py),
+information in [Redis](https://redis.io) using [redis-py](https://github.com/andymccurdy/redis-py),
 but you could store it in whatever storage system you like.
 
 	 from iron_mq import IronMQ
@@ -167,9 +167,9 @@ very low latencies.
 
 To test our application, we’re going to disable the middleware (commenting out
 the `QueueRequestMiddleware` in our `MIDDLEWARE_CLASSES`) and run the
-[siege](http://www.joedog.org/siege-home) benchmarking tool on the server:
+[siege](https://www.joedog.org/siege-home) benchmarking tool on the server:
 
-	 siege -b -t10S http://localhost:8000
+	 siege -b -t10S https://localhost:8000
 
 This assumes your app is running on localhost:8000. The URL we’re serving is
 just a static page that does nothing but spit out text using Django. We’re
@@ -283,7 +283,7 @@ Thanks to our design, the web server doesn’t change at all. Just the queue.
 
 Next we need to add some subscribers. Push queues just send HTTP POST requests
 to your subscribers with the message data in the body. We want to use the IronMQ
-[webhook URLs](http://dev.iron.io/mq/reference/api/#add_messages_to_a_queue_via_webhook)
+[webhook URLs](https://dev.iron.io/mq/reference/api/#add_messages_to_a_queue_via_webhook)
 to turn these POST requests into messages on new queues, effectively duplicating
 the messages across several queues.
 
@@ -379,7 +379,7 @@ to multiple queues.
 
 Want the code for the demo app? You can find it
 [on Github](https://github.com/iron-io/rackspace-django-demo/). Sign up for
-[IronMQ](http://www.iron.io/mq) and get millions of API requests free each month.
+[IronMQ](https://www.iron.io/mq) and get millions of API requests free each month.
 
 ### About the author
 

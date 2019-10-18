@@ -265,7 +265,7 @@ The `10gen.repo` file has the repository information.
     root@salt01:/srv/salt/marconi/base/mongodb/files# cat 10gen.repo
     [10gen]
     name=10gen Repository
-    baseurl=http://downloads-distro.mongodb.org/repo/redhat/os/x86_64
+    baseurl=https://downloads-distro.mongodb.org/repo/redhat/os/x86_64
     gpgcheck=0
     enabled=1
 
@@ -360,7 +360,7 @@ The second part of the "if" checks if a `mongodb_server` string is present in `g
 
 `grains` is the key for the dictionary that holds `roles` as key and `mongodb_server` is the first item in the list as a value.
 
-Salt data structures are all based on dictionaries and lists. It would be beneficial to understand these concepts to be able to get most out of Salt. More on Python [dictionary](http://www.tutorialspoint.com/python/python_dictionary.htm) and [lists](http://www.tutorialspoint.com/python/python_lists.htm).
+Salt data structures are all based on dictionaries and lists. It would be beneficial to understand these concepts to be able to get most out of Salt. More on Python [dictionary](https://www.tutorialspoint.com/python/python_dictionary.htm) and [lists](https://www.tutorialspoint.com/python/python_lists.htm).
 
 In the include statement we provided `mongodb` so `mongodb_server` SLS will just install MongoDB. To create replica set, we will have to be sure that MongoDB has already been installed. So, for now, we split this into two different tasks.
 
@@ -506,7 +506,7 @@ The `ismaster.py` file looks like this:
         counter += 1
         sleep(1)
 
-The above script connects to the local MongoDB instance, loops 30 times, checks if it is master, and sleeps a second in each loop. When master is set, it returns "changed=yes" which will be used by Salt to decide if there was a change. For more information you can check [salt.states.cmd](http://docs.saltstack.com/ref/states/all/salt.states.cmd.html).
+The above script connects to the local MongoDB instance, loops 30 times, checks if it is master, and sleeps a second in each loop. When master is set, it returns "changed=yes" which will be used by Salt to decide if there was a change. For more information you can check [salt.states.cmd](https://docs.saltstack.com/ref/states/all/salt.states.cmd.html).
 
 Finally `replica.sls` will look like this:
 

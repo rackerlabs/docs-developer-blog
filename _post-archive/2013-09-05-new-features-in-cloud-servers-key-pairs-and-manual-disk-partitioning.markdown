@@ -113,6 +113,6 @@ degree of control comes with that limitation.
 
 Here at Rackspace we're always happy to bring you new and useful features to make your experience in the cloud easier. If you have features or ideas that you would like to see feel free to suggest them to your Account Manager.
 
-[1]: http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Server_Personality-d1e2543.html
-[2]: http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ServersKeyPairs-d1e2545.html
-[3]: http://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_extensions.html#diskconfig_attribute
+[1]: https://docs.rackspace.com/servers/api/v2/cs-devguide/content/Server_Personality-d1e2543.html
+[2]: https://docs.rackspace.com/servers/api/v2/cs-devguide/content/ServersKeyPairs-d1e2545.html
+[3]: https://docs.rackspace.com/servers/api/v2/cs-devguide/content/ch_extensions.html#diskconfig_attribute

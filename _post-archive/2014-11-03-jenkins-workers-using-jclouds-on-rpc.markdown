@@ -24,7 +24,7 @@ This blog post will show you how to dynamically create Jenkins workers on demand
 
 <!-- more -->
 
-This is a follow up post to [Using Rackspace Private Cloud to Support Your Software Development Lifecycle](https://developer.rackspace.com/blog/using-rpc-software-dev-lifecycle/) by James Thorne in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/). In the original post you learned how to create a Jenkins master server. We will now extend that post by showing you how to create worker servers for that master.
+This is a follow up post to [Using Rackspace Private Cloud to Support Your Software Development Lifecycle](https://developer.rackspace.com/blog/using-rpc-software-dev-lifecycle/) by James Thorne in the [RPC Insights series](https://www.rackspace.com/blog/welcome-to-rpc-insights/). In the original post you learned how to create a Jenkins master server. We will now extend that post by showing you how to create worker servers for that master.
 
 ## Install the jclouds Plugin
 
@@ -53,7 +53,7 @@ Once installed you need to tell jclouds about your Rackspace Private Cloud.
 1. Fill in the following properties:
  1. Profile: RPC
  1. Provider Name: openstack-nova
- 1. End Point URL: http://my-rpc-identity-server.com:5000/v2.0/
+ 1. End Point URL: https://my-rpc-identity-server.com:5000/v2.0/
  1. Max. No. of Instances: 10
  1. Retention Time: 5
  1. Identity: my-tenant-name:my-user-name

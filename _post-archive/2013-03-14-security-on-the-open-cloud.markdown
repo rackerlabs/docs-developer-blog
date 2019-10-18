@@ -34,7 +34,7 @@ With your token, you can then create a user:
 	-d '{"user": {"username": "$USERNAME", "email":"email@domain.com", "enabled": true, "OS-KSADM:password":"$PASSWORD"}}' \
 	-H "Content-type: application/json" -H "X-Auth-Token: $TOKEN”
 
-More information on the Identity API is available in the [documentation](http://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Overview-d1e65.html).
+More information on the Identity API is available in the [documentation](https://docs.rackspace.com/auth/api/v2.0/auth-client-devguide/content/Overview-d1e65.html).
 
 ##Configuration and Patch Management
 
@@ -54,11 +54,11 @@ package "apache2" do
 end
 ```
 
-If you haven't moved to a fully automated infrastructure yet, we offer Rackspace [Managed Cloud](http://www.rackspace.com/cloud/managed_cloud/). With a Managed Service Level, we provide patching services and make sure your servers are always up to date, automagically. New vulnerabilities are being discovered all the time, so it is extremely important to make sure the servers you have online are up to date.
+If you haven't moved to a fully automated infrastructure yet, we offer Rackspace [Managed Cloud](https://www.rackspace.com/cloud/managed_cloud/). With a Managed Service Level, we provide patching services and make sure your servers are always up to date, automagically. New vulnerabilities are being discovered all the time, so it is extremely important to make sure the servers you have online are up to date.
 
 ##Endpoint and Network Protection
 
-Did you know you can have isolated servers with [Cloud Networks](http://devops.rackspace.com/protect-your-infrastructure-servers-with-bastion-hosts-and-isolated-cloud-networks.html)? You can also manage IPTables on individual instances with configuration management. Here is an example using Puppet's [Firewall Module](http://forge.puppetlabs.com/puppetlabs/firewall):
+Did you know you can have isolated servers with [Cloud Networks](https://devops.rackspace.com/protect-your-infrastructure-servers-with-bastion-hosts-and-isolated-cloud-networks.html)? You can also manage IPTables on individual instances with configuration management. Here is an example using Puppet's [Firewall Module](https://forge.puppetlabs.com/puppetlabs/firewall):
 
 ```ruby
 class my_fw::post {
@@ -80,7 +80,7 @@ Any public website is scanned by bots that are attempting to get access. Brute f
 
 ##Data Protection
 
-Did you know you can encrypt data with [Cloud Block Storage](https://support.rackspace.com/how-to/cloud-block-storage-overview/)? It's also important to use SSL when transmitting across the network. Again, you can also use an isolated network with Cloud Networks to further protect your sensitive data. You can even [link Cloud Networks and RackConnect togather](http://www.rackspace.com/knowledge_center/article/rackconnect-with-cloud-networks-faq) to take advantage of bare metal servers for certain applications.
+Did you know you can encrypt data with [Cloud Block Storage](https://support.rackspace.com/how-to/cloud-block-storage-overview/)? It's also important to use SSL when transmitting across the network. Again, you can also use an isolated network with Cloud Networks to further protect your sensitive data. You can even [link Cloud Networks and RackConnect togather](https://www.rackspace.com/knowledge_center/article/rackconnect-with-cloud-networks-faq) to take advantage of bare metal servers for certain applications.
 
 ##In Conclusion
 

@@ -23,7 +23,7 @@ The Hortonworks Sandbox provides:
 
 You can download the Sandbox from Hortonworks website:
 
-[http://hortonworks.com/products/hortonworks-sandbox/](http://hortonworks.com/products/hortonworks-sandbox/)
+[https://hortonworks.com/products/hortonworks-sandbox/](https://hortonworks.com/products/hortonworks-sandbox/)
 
 The Sandbox download is available for both VirtualBox and VMware Fusion/Player environments. Just follow the instruction to import the Sandbox into your environment.
 
@@ -85,4 +85,4 @@ jps
 3857 RunJar
 ```
 
-Go to the browser at http://instance_ip and your single node Hadoop cluster should be running. Just follow through the UI; it has demos, videos and step-by-step hands-on tutorials on Hadoop, Pig, Hive and HCatalog.
+Go to the browser at https://instance_ip and your single node Hadoop cluster should be running. Just follow through the UI; it has demos, videos and step-by-step hands-on tutorials on Hadoop, Pig, Hive and HCatalog.

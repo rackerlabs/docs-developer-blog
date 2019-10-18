@@ -115,7 +115,7 @@ c195ef3b-9195-4474-b6f7-16e5bd86acd0 CentOS 6.3                                 
 ...
 
 .LINK
-http://docs.rackspace.com/servers/api/v2/cs-devguide/content/Images-d1e4427.html
+https://docs.rackspace.com/servers/api/v2/cs-devguide/content/Images-d1e4427.html
 #>
 }
 ```
@@ -134,8 +134,8 @@ There are a few requirements to make sure that PowerClient runs smoothly for you
 
 **.NET & Windows Management Framework 3.0, respectively**
 
-* [Download .NET Here](http://www.microsoft.com/en-us/download/details.aspx?id=17851)
-* [Download WMF 3.0 Here](http://www.microsoft.com/en-us/download/details.aspx?id=34595)
+* [Download .NET Here](https://www.microsoft.com/en-us/download/details.aspx?id=17851)
+* [Download WMF 3.0 Here](https://www.microsoft.com/en-us/download/details.aspx?id=34595)
 	
 **Powershell Execution Policy**
 

@@ -11,7 +11,7 @@ categories:
 
 We needed to let users take files (possibly really big files) from their
 hard drive and push them straight to the Rackspace Cloud Files storage
-service [http://www.rackspace.com/cloud/files/][2].
+service [https://www.rackspace.com/cloud/files/][2].
 
 We don't want the upload traffic anywhere near our servers.
 
@@ -34,7 +34,7 @@ then do this stuff:
     $ cd ajax-put-rackspace
     $ python apr.py YOUR_RACKSPACE_USER_NAME YOUR_API_KEY
 
-Now open up [http://localhost:8765](http://localhost:8765) and you should see something like
+Now open up [https://localhost:8765](https://localhost:8765) and you should see something like
 the screenshot in before-upload.png
 
 {% img https://github.com/216software/ajax-put-rackspace/raw/master/before-upload.png %}
@@ -84,7 +84,7 @@ existing container:
 Next set some metadata so that the browser will allow cross-domain AJAX:
 
     >>> uploads_container.set_metadata({
-        'Access-Control-Allow-Origin': 'http://localhost:8765'})
+        'Access-Control-Allow-Origin': 'https://localhost:8765'})
 
 Replace localhost:8765 with your domain and replace http with https if
 that's how you serve your site.
@@ -138,7 +138,7 @@ upload something other than a PDF and try to download it with this
 extension, your operating system might get confused.
 
 The relevant rackspace documentation is
-here [http://docs.rackspace.com/files/api/v1/cf-devguide/content/TempURL_File_Name_Overrides-d1e213.html][4]
+here [https://docs.rackspace.com/files/api/v1/cf-devguide/content/TempURL_File_Name_Overrides-d1e213.html][4]
 
 The javascript part
 -------------------
@@ -177,7 +177,7 @@ Here's what the code does:
 
 * When the fr instance finishes reading all the data from inside the file, the onload callback fires.
 * Inside the onload callback, we use the good ol' jQuery
-[$.ajax method](http://api.jquery.com/jQuery.ajax) to send the data from the
+[$.ajax method](https://api.jquery.com/jQuery.ajax) to send the data from the
 file to rackspace. It took us a while to figure out that the .result attribute
 holds data read in from the file:
 
@@ -249,7 +249,7 @@ to rackspace later.
 
 ### Risks with this approach
 
-We're using the fantastic [gunicorn](http://gunicorn.org) WSGI server
+We're using the fantastic [gunicorn](https://gunicorn.org) WSGI server
 with regular plain-jane vanilla sync workers.
 
 Remember that with a synchronous worker, when a user makes a request,
@@ -305,13 +305,13 @@ Thank you to Matt Wilson and Rob Heinen for this awesome contribution.
 Matt and Rob run 216 Software, LLC, a custom software development
 company in beautiful Cleveland Heights, Ohio.
 
-Their website is [http://216software.com](http://216software.com) and they're always looking for
+Their website is [https://216software.com](https://216software.com) and they're always looking for
 interesting new projects.
 
 If you have awesome things you've done with Rackspace, and want to contribute - email
 [jesse.noller@rackspace.com](mailto:jesse.noller@rackspace.com).
 
 [1]: https://github.com/216software/ajax-put-rackspace
-[2]: http://www.rackspace.com/cloud/files/
+[2]: https://www.rackspace.com/cloud/files/
 [3]: https://github.com/rackspace/pyrax
-[4]: http://docs.rackspace.com/files/api/v1/cf-devguide/content/TempURL_File_Name_Overrides-d1e213.html
+[4]: https://docs.rackspace.com/files/api/v1/cf-devguide/content/TempURL_File_Name_Overrides-d1e213.html

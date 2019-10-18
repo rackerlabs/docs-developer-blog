@@ -9,13 +9,13 @@ categories:
   - OpenStack
 ---
 
-_[Major Hayden](http://www.linkedin.com/in/majorhayden) first wrote about Supernova in June on his personal [blog](http://rackerhacker.com/?s=supernova). This follow-up post addresses the changes since then, including secondary service provider coverage, new pypi packages and few more usage examples. You can find Major on [Twitter](https://twitter.com/rackerhacker) or hanging out in the #openstack IRC channel on Freenode._
+_[Major Hayden](https://www.linkedin.com/in/majorhayden) first wrote about Supernova in June on his personal [blog](https://rackerhacker.com/?s=supernova). This follow-up post addresses the changes since then, including secondary service provider coverage, new pypi packages and few more usage examples. You can find Major on [Twitter](https://twitter.com/rackerhacker) or hanging out in the #openstack IRC channel on Freenode._
 
-You have OpenStack Cloud Servers in Rackspace datacenters, you have a Rackspace OpenStack Private Cloud and you have some OpenStack HP Cloud servers all helping you run your business. You probably have a pile of credential files (often referred to as "novarc" files) on your servers, in Evernote or stored locally on your favorite laptop. In the an earlier [post](http://devops.rackspace.com/getting-started-using-python-novaclient-to-manage-cloud-servers.html), Hart discussed using [rackspace-novaclient](http://pypi.python.org/pypi/rackspace-novaclient/) to interface with the Rackspace open cloud. This was for a single environment, in a single datacenter. This will likely suffice for many smaller shops and start-ups, but as you grow and your needs get more complicated, you will have to start thinking about geographical redundancy, service provider redundancy, disaster recovery and many other needs that will require the use of more than one OpenStack-powered environment. The OpenStack API was developed fully in the open and has allowed full unadulterated access to its code. Anyone who wants to improve the community user experience can write tools to do just that.
+You have OpenStack Cloud Servers in Rackspace datacenters, you have a Rackspace OpenStack Private Cloud and you have some OpenStack HP Cloud servers all helping you run your business. You probably have a pile of credential files (often referred to as "novarc" files) on your servers, in Evernote or stored locally on your favorite laptop. In the an earlier [post](https://devops.rackspace.com/getting-started-using-python-novaclient-to-manage-cloud-servers.html), Hart discussed using [rackspace-novaclient](https://pypi.python.org/pypi/rackspace-novaclient/) to interface with the Rackspace open cloud. This was for a single environment, in a single datacenter. This will likely suffice for many smaller shops and start-ups, but as you grow and your needs get more complicated, you will have to start thinking about geographical redundancy, service provider redundancy, disaster recovery and many other needs that will require the use of more than one OpenStack-powered environment. The OpenStack API was developed fully in the open and has allowed full unadulterated access to its code. Anyone who wants to improve the community user experience can write tools to do just that.
 
 <!-- more -->
 
-One of those tools is _Supernova_. _Supernova_ is an OpenStack management tool authored by [Major Hayden](http://www.linkedin.com/in/majorhayden), a 6-year Rackspace veteran. This tool was born out of necessity. At Rackspace, we constantly work in development, staging and production environments in different locations around the world, and it became clear to us that we needed a more simple way to manage those environments. _Supernova_ will be a valuable tool if you regularly have the following problems:
+One of those tools is _Supernova_. _Supernova_ is an OpenStack management tool authored by [Major Hayden](https://www.linkedin.com/in/majorhayden), a 6-year Rackspace veteran. This tool was born out of necessity. At Rackspace, we constantly work in development, staging and production environments in different locations around the world, and it became clear to us that we needed a more simple way to manage those environments. _Supernova_ will be a valuable tool if you regularly have the following problems:
 
 
 
@@ -45,7 +45,7 @@ This post is being written on OSX 10.8.1 using Python 2.7.3
     
     [dubsquared@localshake ~]$ git clone git://github.com/rackerhacker/supernova.git
     [dubsquared@localshake ~]$ cd supernova
-    [dubsquared@localshake ~]$ sudo python <a href="http://setup.py/">setup.py</a> install
+    [dubsquared@localshake ~]$ sudo python <a href="https://setup.py/">setup.py</a> install
 
 
 **Supernova Configuration**
@@ -116,7 +116,7 @@ NOVA_URL=https://region-a.geo-1.identity.hpcloudsvc.com:35357/v2.0/
 NOVA_REGION_NAME=az-1.region-a.geo-1
 {% endcodeblock %}
 
-HP Cloud recently released a Python extension that makes it easier to authenticate to its services, [hpcloud-auth-openstack](http://pypi.python.org/pypi/hpcloud-auth-openstack/1.0). This uses the region name you specified to route your request to the right service endpoint. You can install this using [pip](http://pypi.python.org/pypi/pip) and then you have one less configuration line item you have to worry about.
+HP Cloud recently released a Python extension that makes it easier to authenticate to its services, [hpcloud-auth-openstack](https://pypi.python.org/pypi/hpcloud-auth-openstack/1.0). This uses the region name you specified to route your request to the right service endpoint. You can install this using [pip](https://pypi.python.org/pypi/pip) and then you have one less configuration line item you have to worry about.
 
 When you use _Supernova_, you'll refer to these environments as rax-dfw, rax-ord, and hp-az1. Every environment is specified by its configuration header name.
 
@@ -202,7 +202,7 @@ You can list all of your configured environments by using the `--list` argument.
 
 
 **Supernova and Keyrings**
-Due to security policies at certain companies or due to general paranoia, some users may not want API keys or passwords stored in a plain text _Supernova_ configuration file. Luckily, support is now available (via the [keyring](http://pypi.python.org/pypi/keyring/0.9.2) Python module) to store any configuration value within your operating system's keychain. This has been tested on the following platforms:
+Due to security policies at certain companies or due to general paranoia, some users may not want API keys or passwords stored in a plain text _Supernova_ configuration file. Luckily, support is now available (via the [keyring](https://pypi.python.org/pypi/keyring/0.9.2) Python module) to store any configuration value within your operating system's keychain. This has been tested on the following platforms:
 	
   * Mac: Keychain Access.app
 

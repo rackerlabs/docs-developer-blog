@@ -20,13 +20,13 @@ For our part, we’re offering free Rackspace cloud accounts for the teams throu
 
 Throughout the event, attendees will have time to hack and present their work to judges. There’s also a [jam-packed agenda][6] featuring a [host of speakers][7] talking on a number of key topics, including NodeJS, open source, cross-platform mobile development, app design, big data, APIs and more.
 
-Registration is free and you can apply now: <http://developer.yahoo.com/events/hack_usa_snv_2013/>. We’ll see you there.
+Registration is free and you can apply now: <https://developer.yahoo.com/events/hack_usa_snv_2013/>. We’ll see you there.
 
 
-  [1]: http://thenewkingmakers.com/
-  [2]: http://www.rackspace.com/blog/rackspace-developer-support-fanatical-support-for-your-code/
+  [1]: https://thenewkingmakers.com/
+  [2]: https://www.rackspace.com/blog/rackspace-developer-support-fanatical-support-for-your-code/
   [3]: https://developer.rackspace.com/blog/developer-love-welcome-to-the-rackspace-cloud-developer-discount.html
-  [4]: http://developer.yahoo.com/events/hack_usa_snv_2013/
-  [5]: http://www.openstack.org/
-  [6]: http://yahoohackusa2013.pbworks.com/w/page/69143893/Saturday%20Talk%20Agenda
-  [7]: http://yahoohackusa2013.pbworks.com/w/page/69185776/Talks%20Details
+  [4]: https://developer.yahoo.com/events/hack_usa_snv_2013/
+  [5]: https://www.openstack.org/
+  [6]: https://yahoohackusa2013.pbworks.com/w/page/69143893/Saturday%20Talk%20Agenda
+  [7]: https://yahoohackusa2013.pbworks.com/w/page/69185776/Talks%20Details

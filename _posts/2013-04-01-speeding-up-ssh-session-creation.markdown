@@ -56,6 +56,6 @@ Without `ControlPersist`, once the first SSH session you open is closed, all oth
 
 In contrast, with `ControlPersist` set, the master connection will remain open for the specified number of seconds after your last SSH session on that connection has exited. This is especially useful for tasks such as pushing to Github, which occur frequently but where any one session is short-lived.
 
-If you're interested in more details, you can view the full documentation on configuring the SSH client by running `man ssh_config` or view the [web-based man page](http://linux.die.net/man/5/ssh_config).
+If you're interested in more details, you can view the full documentation on configuring the SSH client by running `man ssh_config` or view the [web-based man page](https://linux.die.net/man/5/ssh_config).
 
 _This is a guest post written by Greg Brockman, an engineer at [Stripe](https://stripe.com/). Stripe makes it easy to start accepting credit cards on the web today._

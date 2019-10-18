@@ -19,7 +19,7 @@ electrical circuit in our detached garage.
 ## The Problem
 
 As Wikipedia explains, "A ground fault circuit interrupter
-([GFCI](http://simple.wikipedia.org/wiki/GFCI)) is a device that shuts off an
+([GFCI](https://simple.wikipedia.org/wiki/GFCI)) is a device that shuts off an
 electric circuit when it detects that current is flowing along an unintended
 path, possibly through water or through a person. It is used to reduce the risk
 of electric shock." Safety is always important. However, there is no

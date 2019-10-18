@@ -17,9 +17,9 @@ Indiegogo coupled the scalability of the cloud with physical database servers to
 
 You can read the Opscode blog post [here][5] or [read the case study][6].
 
-[1]: http://www.indiegogo.com/
-[2]: http://www.opscode.com/chef/
-[3]: http://www.rackspace.com/cloud/servers/
+[1]: https://www.indiegogo.com/
+[2]: https://www.opscode.com/chef/
+[3]: https://www.rackspace.com/cloud/servers/
 [4]: https://github.com/opscode/knife-rackspace
-[5]: http://www.opscode.com/blog/2013/05/28/indiegogo-crowd-funds-projects-around-the-world-wchef/
-[6]: http://www.opscode.com/customers/indiegogo/
+[5]: https://www.opscode.com/blog/2013/05/28/indiegogo-crowd-funds-projects-around-the-world-wchef/
+[6]: https://www.opscode.com/customers/indiegogo/

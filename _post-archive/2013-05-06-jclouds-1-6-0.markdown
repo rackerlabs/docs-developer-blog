@@ -18,7 +18,7 @@ jclouds 1.6.0 has been released! Since 1.5.0 I'm both proud and (antonymically) 
 * Cloud Load Balancers
 * Cloud DNS
 
-Here's how to [get started](http://docs.rackspace.com/sdks/guide/content/java.html) with Rackspace and jclouds 1.6.0. To get familiar with the new APIs check out the [examples](https://github.com/jclouds/jclouds-examples/tree/master/rackspace) for [Cloud Load Balancers](https://github.com/jclouds/jclouds-examples/tree/master/rackspace/src/main/java/org/jclouds/examples/rackspace/cloudloadbalancers) and [Cloud DNS](https://github.com/jclouds/jclouds-examples/tree/master/rackspace/src/main/java/org/jclouds/examples/rackspace/clouddns).<!-- more -->
+Here's how to [get started](https://docs.rackspace.com/sdks/guide/content/java.html) with Rackspace and jclouds 1.6.0. To get familiar with the new APIs check out the [examples](https://github.com/jclouds/jclouds-examples/tree/master/rackspace) for [Cloud Load Balancers](https://github.com/jclouds/jclouds-examples/tree/master/rackspace/src/main/java/org/jclouds/examples/rackspace/cloudloadbalancers) and [Cloud DNS](https://github.com/jclouds/jclouds-examples/tree/master/rackspace/src/main/java/org/jclouds/examples/rackspace/clouddns).<!-- more -->
 
 Rackspace has literally doubled-down on jclouds by adding another contributor, [Zack Shoylev](https://github.com/zack-shoylev/), to the open source project. Zack is currently arm pits deep in adding support for Cloud Databases.
 ##Denominate
@@ -28,7 +28,7 @@ I confess I was pretty excited to get my [first pull request](https://github.com
 ##The Apache Software Foundation
 jclouds 1.6.0 marks the last release of "jclouds". The next release will be as Apache jclouds!
 
-With a huge thanks to [Becca Wood](https://twitter.com/silkysun), jclouds entered the Apache incubator with an impressive [15 binding votes and 9 non-binding votes](http://mail-archives.apache.org/mod_mbox/incubator-general/201304.mbox/%3CD0D2C4BC-DA8A-46AB-92BA-EC2FBAFE4DEC%40gmail.com%3E). The fledgling incubator page can be found [here](http://incubator.apache.org/projects/jclouds.html). As you can see, there is a lot of work to do and such things take time. The first release of Apache jclouds won't happen until we've left the incubator and become a top-level project. We expect the process to take 2-4 months but are cautiously optimistic we'll be on the lower end of that range.
+With a huge thanks to [Becca Wood](https://twitter.com/silkysun), jclouds entered the Apache incubator with an impressive [15 binding votes and 9 non-binding votes](https://mail-archives.apache.org/mod_mbox/incubator-general/201304.mbox/%3CD0D2C4BC-DA8A-46AB-92BA-EC2FBAFE4DEC%40gmail.com%3E). The fledgling incubator page can be found [here](https://incubator.apache.org/projects/jclouds.html). As you can see, there is a lot of work to do and such things take time. The first release of Apache jclouds won't happen until we've left the incubator and become a top-level project. We expect the process to take 2-4 months but are cautiously optimistic we'll be on the lower end of that range.
 ##Coda
 It's going to be an interesting ride having front row seats to a project entering the ASF. There's excitement and some trepidation as we learn how to work best within Apache and their processes. At the end of it, I think this will be a huge step forward for the jclouds community.
 

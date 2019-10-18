@@ -26,7 +26,7 @@ As mentioned before Heat is a main line project part of OpenStack and composed o
 
 The template standard, HOT, is built around a standardized template definition called YAML.  Honestly, it is one of the easiest template formats to read and learn.  See the following link for more details around the HOT template specification and structure:
 
-[HOT Template Specification](http://docs.openstack.org/developer/heat/template_guide/hot_spec.html)
+[HOT Template Specification](https://docs.openstack.org/developer/heat/template_guide/hot_spec.html)
 
 Once a template is executed within your RPC environment, it is then defined as a stack.  Execution of that stack will provision the resources configured in the template and report on the status.  Please keep in mind that removing a stack will also remove the resources provisioned, such as instances created, unless you tell Heat to abandon that stack.
 
@@ -71,8 +71,8 @@ Also, please make sure to watch my Webinar on Heat to see three short demos of h
 
 **More information about the Heat CLI and API can be found below:**
 
-[Heat client documentation](http://docs.openstack.org/cli-reference/content/heatclient_commands.html)
-[API reference](http://developer.openstack.org/api-ref-orchestration-v1.html)
+[Heat client documentation](https://docs.openstack.org/cli-reference/content/heatclient_commands.html)
+[API reference](https://developer.openstack.org/api-ref-orchestration-v1.html)
 
 **Example Heat templates can be found on my GitHub repository:**
 [https://github.com/wbentley15/openstack-heat-templates.git](https://github.com/wbentley15/openstack-heat-templates.git)

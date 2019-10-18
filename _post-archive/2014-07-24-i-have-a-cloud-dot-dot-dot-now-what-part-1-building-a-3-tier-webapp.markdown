@@ -23,7 +23,7 @@ consume, organize and orchestrate real-world web stacks on the infrastructures p
 <!-- more -->
 
 ## Architecture
-For this first blog post, lets begin by seeing how we would architect your typical [3-tier webapp](http://en.wikipedia.org/wiki/Multitier_architecture#Web_development_usage). To set
+For this first blog post, lets begin by seeing how we would architect your typical [3-tier webapp](https://en.wikipedia.org/wiki/Multitier_architecture#Web_development_usage). To set
 the scene, we will be reviewing how to build the [Encoder project](https://github.com/metral/touchstone/tree/master/encoder), a webapp that that allows a
 user to submit a video file and convert it to the AVI, MKV, OGG and WEBM formats.
 
@@ -35,13 +35,13 @@ webapp:
 
 ## Enabling Orchestration
 With the architecture laid out, we now focus on how to coordinate & construct our stack. We can organize & orchestrate the provisioning of the
-cloud infrastructure through [Rackspace's Cloud Orchestration](http://www.rackspace.com/blog/cloud-orchestration-automating-deployments-of-full-stack-configurations/)
+cloud infrastructure through [Rackspace's Cloud Orchestration](https://www.rackspace.com/blog/cloud-orchestration-automating-deployments-of-full-stack-configurations/)
 aka the [Heat](https://wiki.openstack.org/wiki/Heat) project from OpenStack. By doing so, we can leverage capabilities which allow for a self-configuration of the web services, in a repeatable fashion, that also allows for expansion further down the road.
 
 Orchestration for our stack is described using the
-[YAML](http://en.wikipedia.org/wiki/YAML) format,
+[YAML](https://en.wikipedia.org/wiki/YAML) format,
 and as an example, we'll examine a snippet of the template used to create the Encoder's stack
-in the Rackspace Public Cloud. The full template can be found at [http://git.io/MEpetw](http://git.io/MEpetw).
+in the Rackspace Public Cloud. The full template can be found at [https://git.io/MEpetw](https://git.io/MEpetw).
 
 ```
 resources:
@@ -83,7 +83,7 @@ resources:
             "%branch%": { get_param: branch }
 ```
 
-As you can note, we are defining [Rackspace resource types](http://docs.rackspace.com/orchestration/api/v1/orchestration-devguide/content/GET_resource_type_list_v1__tenant_id__resource_types_Stack_Resources.html#GET_resource_type_list_v1__tenant_id__resource_types_Stack_Resources-Response)
+As you can note, we are defining [Rackspace resource types](https://docs.rackspace.com/orchestration/api/v1/orchestration-devguide/content/GET_resource_type_list_v1__tenant_id__resource_types_Stack_Resources.html#GET_resource_type_list_v1__tenant_id__resource_types_Stack_Resources-Response)
 for the frontend and webserver nodes made available via Orchestration.
 
 In addition to resource types, we can define properties such as the flavor
@@ -94,16 +94,16 @@ after the VM has been instantiated - this showcases the ability to create
 relationships with other components established in the template.
 
 Heat can do so much more, and I encourage you to spend some time in the
-[developer docs](http://docs.openstack.org/developer/heat/) to see the power
+[developer docs](https://docs.openstack.org/developer/heat/) to see the power
 that it can wield.
 
 ## Synopsis
 Given that our architecture, environment and tools are established, lets move on to the specifics of the encoder project. Again, we want to setup a webapp that encodes a provided video file into the following formats:
 
-  * [AVI](http://en.wikipedia.org/wiki/Audio_Video_Interleave)
-  * [MKV](http://en.wikipedia.org/wiki/Matroska)
-  * [OGG](http://en.wikipedia.org/wiki/Ogg)
-  * [WEBM](http://en.wikipedia.org/wiki/WebM)
+  * [AVI](https://en.wikipedia.org/wiki/Audio_Video_Interleave)
+  * [MKV](https://en.wikipedia.org/wiki/Matroska)
+  * [OGG](https://en.wikipedia.org/wiki/Ogg)
+  * [WEBM](https://en.wikipedia.org/wiki/WebM)
 
 ## Webapp Flow
   * When the user visits the webapp, they are presented with the ability to upload a video file
@@ -112,10 +112,10 @@ Given that our architecture, environment and tools are established, lets move on
   * Upon a successful upload, the webapp will create an encoding job request that will be entered into the MySQL database for tracking
   * The encoding job is the passed off to the Gearman Job Server for processing
   * Once the Gearman Job Server receives the job request, it will locate an available Gearman Job Worker to perform the encoding job
-  * The Gearman Job Worker then utilizes the [FFmpeg](http://www.ffmpeg.org/) encoding library to convert the user's video into the available formats
+  * The Gearman Job Worker then utilizes the [FFmpeg](https://www.ffmpeg.org/) encoding library to convert the user's video into the available formats
   * Once the video has been encoded into each format by the Gearman Job Worker, it will upload the encoding to Rackspace Cloud Files
   * All the while, the webapp will be providing a means to view the status of the encoding job as well as publicly accessible URL's of each encoding format as they become available for consumption
-  * Because video conversion is so exhaustive on the CPU, we want to create an email alert that notifies us when the load average on the Gearman Job Worker passes a certain threshold, as this is an indication that special attention is required. To do so, we incorporate [Monitoring as a Service](http://www.rackspace.com/blog/using-cloud-monitoring-on-your-rackspace-private-cloud/)
+  * Because video conversion is so exhaustive on the CPU, we want to create an email alert that notifies us when the load average on the Gearman Job Worker passes a certain threshold, as this is an indication that special attention is required. To do so, we incorporate [Monitoring as a Service](https://www.rackspace.com/blog/using-cloud-monitoring-on-your-rackspace-private-cloud/)
 
 ## Rackspace Cloud Services Used
   * Cloud Servers
@@ -125,7 +125,7 @@ Given that our architecture, environment and tools are established, lets move on
 
 ## Test Drive
 If you'd like to instantiate the Encoder job right now, you can do this from
-the [heat client](http://docs.rackspace.com/orchestration/api/v1/orchestration-getting-started/content/Install_Heat_Client.html) by issuing the following to run on the Rackspace Public Cloud or see the Demo section below to see how its intended to function:
+the [heat client](https://docs.rackspace.com/orchestration/api/v1/orchestration-getting-started/content/Install_Heat_Client.html) by issuing the following to run on the Rackspace Public Cloud or see the Demo section below to see how its intended to function:
 
 ```
 BRANCH=master ; EMAIL='<your-user>@<your-email-provider.com>' ; USE_SNET=true; \
@@ -166,5 +166,5 @@ project you'll be presented with an app that functions as such:
 ## About the Author
 Mike Metral is a Solution Architect at Rackspace in the Private Cloud R&D
 organization. Mike joined Rackspace in 2012 to help establish OpenStack become the open standard for cloud management.
-You can follow Mike on Twitter [@mikemetral](http://twitter.com/mikemetral) and Github as
-[metral](http://github.com/metral)
+You can follow Mike on Twitter [@mikemetral](https://twitter.com/mikemetral) and Github as
+[metral](https://github.com/metral)

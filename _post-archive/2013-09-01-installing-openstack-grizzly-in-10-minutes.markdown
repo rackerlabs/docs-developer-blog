@@ -9,33 +9,33 @@ categories:
   - OpenStack
 ---
 
-The [OpenStack](http://www.openstack.org/software/) provides a way to turn bare metal servers into a private cloud. It's been over a year since I published the first [Install OpenStack in 10 Minutes](http://www.stackgeek.com/guides/gettingstarted.html) guide and now, nearly 10K installs later, I'm pleased to announce the quickest and easiest way yet to get an OpenStack cluster running.
+The [OpenStack](https://www.openstack.org/software/) provides a way to turn bare metal servers into a private cloud. It's been over a year since I published the first [Install OpenStack in 10 Minutes](https://www.stackgeek.com/guides/gettingstarted.html) guide and now, nearly 10K installs later, I'm pleased to announce the quickest and easiest way yet to get an OpenStack cluster running.
 
-The scripts provided in this guide build a Chef server inside a [Vagrant box](http://vagrantup.com/), which ends up acting as a sort of 'raygun' to blast OpenStack onto the nodes.  Everyone knows [rayguns](https://www.google.com/search?q=raygun+beam&tbm=isch) are awesome, and so is the screencast:
+The scripts provided in this guide build a Chef server inside a [Vagrant box](https://vagrantup.com/), which ends up acting as a sort of 'raygun' to blast OpenStack onto the nodes.  Everyone knows [rayguns](https://www.google.com/search?q=raygun+beam&tbm=isch) are awesome, and so is the screencast:
 
-[![ScreenShot](https://raw.github.com/rackerlabs/vagrantstack/master/openstack_movie.png)](http://vimeo.com/73001135)
+[![ScreenShot](https://raw.github.com/rackerlabs/vagrantstack/master/openstack_movie.png)](https://vimeo.com/73001135)
 
 <!-- more -->
 
-Before we drop into the guide, I'd like to thank [Blue Chip Tek](http://bluechiptek.com) for providing hardware, advice and setup assistance, [Dell Computers](http://dell.com/) for donating the test hardware, and the awesome folks at [Rackspace](http://rackspace.com/) for writing and supporting the [Chef scripts](https://github.com/rcbops/chef-cookbooks) which are used for the bulk of the setup process.
+Before we drop into the guide, I'd like to thank [Blue Chip Tek](https://bluechiptek.com) for providing hardware, advice and setup assistance, [Dell Computers](https://dell.com/) for donating the test hardware, and the awesome folks at [Rackspace](https://rackspace.com/) for writing and supporting the [Chef scripts](https://github.com/rcbops/chef-cookbooks) which are used for the bulk of the setup process.
 
 ### Prerequisites for installation
 
 The new install scripts are [available for download](https://github.com/rackerlabs/vagrantstack) from Github.
 
-Before you start, make sure you have a minimum of one bare metal node running [Ubuntu Server 12.04](http://www.ubuntu.com/download/server).  If you are installing on more than one node, make sure all the nodes are on the [same private IP block](http://en.wikipedia.org/wiki/Private_network) and are able to talk to each other before proceeding.  All nodes will need Internet access via NAT provided by a DHCP server/router.
+Before you start, make sure you have a minimum of one bare metal node running [Ubuntu Server 12.04](https://www.ubuntu.com/download/server).  If you are installing on more than one node, make sure all the nodes are on the [same private IP block](https://en.wikipedia.org/wiki/Private_network) and are able to talk to each other before proceeding.  All nodes will need Internet access via NAT provided by a DHCP server/router.
 
-If you don't have Vagrant installed on your computer (desktop/laptop) yet, you'll need to download both [Vagrant](http://vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/):
+If you don't have Vagrant installed on your computer (desktop/laptop) yet, you'll need to download both [Vagrant](https://vagrantup.com/) and [VirtualBox](https://www.virtualbox.org/):
 
-* Install VirtualBox 4.2.16 for [Windows](http://download.virtualbox.org/virtualbox/4.2.16/VirtualBox-4.2.16-86992-Win.exe) or [OSX](http://download.virtualbox.org/virtualbox/4.2.16/VirtualBox-4.2.16-86992-OSX.dmg)
+* Install VirtualBox 4.2.16 for [Windows](https://download.virtualbox.org/virtualbox/4.2.16/VirtualBox-4.2.16-86992-Win.exe) or [OSX](https://download.virtualbox.org/virtualbox/4.2.16/VirtualBox-4.2.16-86992-OSX.dmg)
 
-* Install Vagrant 1.2.7 for [Windows](http://files.vagrantup.com/packages/7ec0ee1d00a916f80b109a298bab08e391945243/Vagrant_1.2.7.msi) or [OSX](http://files.vagrantup.com/packages/7ec0ee1d00a916f80b109a298bab08e391945243/Vagrant-1.2.7.dmg).
+* Install Vagrant 1.2.7 for [Windows](https://files.vagrantup.com/packages/7ec0ee1d00a916f80b109a298bab08e391945243/Vagrant_1.2.7.msi) or [OSX](https://files.vagrantup.com/packages/7ec0ee1d00a916f80b109a298bab08e391945243/Vagrant-1.2.7.dmg).
 
 Double click each package to run through the installation on your local machine.
 
 ### Download the install scripts
 
-Start a terminal on your local machine and make sure you have *git* installed.  If you don't, you can [download it here](http://git-scm.com/downloads).  Make and move yourself into a directory called *openstack*:
+Start a terminal on your local machine and make sure you have *git* installed.  If you don't, you can [download it here](https://git-scm.com/downloads).  Make and move yourself into a directory called *openstack*:
 
     mkdir openstack; cd openstack
 
@@ -75,7 +75,7 @@ Before you continue with the install, double check the network interface names o
 
 If your primary interface name is different than **eth0**, be sure to edit the *setuprc* file and change the **BRIDGE_INTERFACE** value to the correctly named interface.  Things will go horribly wrong later if you don't do this now!
 
-*Note: If you are using a Windows box, and [can't run bash scripts](http://www.cygwin.com/), you can move the*  **setuprc.example** *file  to*  **setuprc** *and edit as needed:*
+*Note: If you are using a Windows box, and [can't run bash scripts](https://www.cygwin.com/), you can move the*  **setuprc.example** *file  to*  **setuprc** *and edit as needed:*
 
     move setuprc.example setuprc
     notepad setuprc
@@ -148,11 +148,11 @@ The first node in your cluster will be configured as an all-in-one controller.  
 
 After the all-in-one node is provisioned, you should be able to log into the web UI for OpenStack.  Enter the IP address of the all-in-one node, which should be the **NODE_1_IP** variable in your Chef server environment:
 
-    http://10.0.1.73
+    https://10.0.1.73
 
 The default user for the web UI is **admin** and the default password is **secrete**.
 
-You can refer to the [video guide](http://vimeo.com/41807514) for getting started using the UI.
+You can refer to the [video guide](https://vimeo.com/41807514) for getting started using the UI.
 
 ### Create a floating IP pool
 

@@ -50,7 +50,7 @@ have compatible JDK and Maven versions.
 
 For this tutorial, we need the following installations:
 
-JDK: [jdk1.7.0_79.jdk](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)
+JDK: [jdk1.7.0_79.jdk](https://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)
 
 Maven: [apache-maven-3.3.3](https://maven.apache.org/download.cgi)
 
@@ -87,13 +87,13 @@ additions, the `settings.xml` should look like:
           <repositories>
             <repository>
               <id>repo.jenkins-ci.org</id>
-              <url>http://repo.jenkins-ci.org/public/</url>
+              <url>https://repo.jenkins-ci.org/public/</url>
             </repository>
           </repositories>
           <pluginRepositories>
             <pluginRepository>
               <id>repo.jenkins-ci.org</id>
-              <url>http://repo.jenkins-ci.org/public/</url>
+              <url>https://repo.jenkins-ci.org/public/</url>
             </pluginRepository>
           </pluginRepositories>
         </profile>
@@ -196,7 +196,7 @@ Use the following command to run the plugin:
     INFO: Jenkins is fully up and running
 
 When you see the preceding info message, type
-**http://localhost:8080/jenkins/pluginManager/installed** in your browser and notice that
+**https://localhost:8080/jenkins/pluginManager/installed** in your browser and notice that
 the plugin is now present in the installed plugin list. This is where the debugger,
 running in the background, performed its magic!
 

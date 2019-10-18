@@ -136,7 +136,7 @@ parameters that you must consider for instance-wide memory tuning.
 
 ![]({% asset_path 2019-01-18-database-performance-tuning/Picture10.png %})
 
-*Image source:* [http://ora-performance-tuning.blogspot.com/2014/02/automatic-shared-memory-management.html](http://ora-performance-tuning.blogspot.com/2014/02/automatic-shared-memory-management.html)
+*Image source:* [https://ora-performance-tuning.blogspot.com/2014/02/automatic-shared-memory-management.html](https://ora-performance-tuning.blogspot.com/2014/02/automatic-shared-memory-management.html)
 
 ### Commonly observed wait events
 

@@ -177,17 +177,17 @@ want, such as usage manuals or code samples. Sphinx documentation is built
 using their heavily extended [reStructuredText][12] markup, so anything you can
 concoct with this powerful syntax is possible.
 
-[1]: http://pythonhosted.org/an_example_pypi_project/sphinx.html#full-code-example
-[2]: http://readthedocs.org/
-[3]: http://sphinx-doc.org/
-[4]: http://sphinx-doc.org/latest/ext/autodoc.html
+[1]: https://pythonhosted.org/an_example_pypi_project/sphinx.html#full-code-example
+[2]: https://readthedocs.org/
+[3]: https://sphinx-doc.org/
+[4]: https://sphinx-doc.org/latest/ext/autodoc.html
 [5]: https://github.com/
 [6]: https://bitbucket.org/
-[7]: http://www.virtualenv.org/en/latest/
-[8]: http://sphinx-doc.org/latest/ext/intersphinx.html
-[9]: http://read-the-docs.readthedocs.org/en/latest/builds.html#packages-installed-in-the-build-environment
+[7]: https://www.virtualenv.org/en/latest/
+[8]: https://sphinx-doc.org/latest/ext/intersphinx.html
+[9]: https://read-the-docs.readthedocs.org/en/latest/builds.html#packages-installed-in-the-build-environment
 [10]: https://pypi.python.org/pypi
-[11]: http://www.pip-installer.org/en/latest/requirements.html#requirements-files
-[12]: http://sphinx-doc.org/rest.html
-[13]: http://google-styleguide.googlecode.com/svn/trunk/pyguide.html?showone=Comments#Comments
+[11]: https://www.pip-installer.org/en/latest/requirements.html#requirements-files
+[12]: https://sphinx-doc.org/rest.html
+[13]: https://google-styleguide.googlecode.com/svn/trunk/pyguide.html?showone=Comments#Comments
 

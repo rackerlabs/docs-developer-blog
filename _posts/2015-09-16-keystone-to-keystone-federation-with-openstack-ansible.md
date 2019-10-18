@@ -61,7 +61,7 @@ cloud when its local resources are all in use.
 
 The [openstack-ansible](https://github.com/openstack/openstack-ansible) project
 is an open source initiative from Rackspace that provides
-[Ansible](http://www.ansible.com/home) playbooks to deploy production-ready
+[Ansible](https://www.ansible.com/home) playbooks to deploy production-ready
 OpenStack private clouds of any size, directly from the official OpenStack
 repositories and without any vendor-specific additions. Note that this project
 was originally hosted on stackforge with the name os-ansible-deployment.
@@ -69,7 +69,7 @@ was originally hosted on stackforge with the name os-ansible-deployment.
 One of the strong selling points of this project, and one that distinguishes it
 from other OpenStack distributions, is that the OpenStack services are
 installed in individual LXC containers, so they are isolated from each other.
-Configuration options are given in [YAML](http://yaml.org/) files, which are
+Configuration options are given in [YAML](https://yaml.org/) files, which are
 simple, hierarchical text files that can be edited in your favorite text
 editor. The Ansible model simplifies the management of the OpenStack cluster,
 so that for example, adding a new compute node to an existing cloud just
@@ -242,8 +242,8 @@ The IdP configuration is shown below:
     keystone_idp:
       service_providers:
         - id: "{{ "{{ " }}keystone_sp_id{{ " }}" }}"
-          auth_url: http://{{ "{{ " }}keystone_sp_host{{ " }}" }}:5000/v3/OS-FEDERATION/identity_providers/{{ "{{ " }}keystone_idp_id{{ " }}" }}/protocols/saml2/auth
-          sp_url: http://{{ "{{ " }}keystone_sp_host{{ " }}" }}:5000/Shibboleth.sso/SAML2/ECP
+          auth_url: https://{{ "{{ " }}keystone_sp_host{{ " }}" }}:5000/v3/OS-FEDERATION/identity_providers/{{ "{{ " }}keystone_idp_id{{ " }}" }}/protocols/saml2/auth
+          sp_url: https://{{ "{{ " }}keystone_sp_host{{ " }}" }}:5000/Shibboleth.sso/SAML2/ECP
       idp_entity_id: "{{ "{{ " }}keystone_service_publicurl_v3{{ " }}" }}/OS-FEDERATION/saml2/idp"
       idp_sso_endpoint: "{{ "{{ " }}keystone_service_publicurl_v3{{ " }}" }}/OS-FEDERATION/saml2/sso"
       idp_metadata_path: /etc/keystone/saml2_idp_metadata.xml
@@ -320,8 +320,8 @@ the identity provider. Below you can see the SP configuration block:
       trusted_idp_list:
         - name: "{{ "{{ " }}keystone_idp_id{{ " }}" }}"
           entity_ids:
-             - 'http://{{ "{{ " }}keystone_idp_host{{ " }}" }}:5000/v3/OS-FEDERATION/saml2/idp'
-          metadata_uri: 'http://{{ "{{ " }}keystone_idp_host{{ " }}" }}:5000/v3/OS-FEDERATION/saml2/metadata'
+             - 'https://{{ "{{ " }}keystone_idp_host{{ " }}" }}:5000/v3/OS-FEDERATION/saml2/idp'
+          metadata_uri: 'https://{{ "{{ " }}keystone_idp_host{{ " }}" }}:5000/v3/OS-FEDERATION/saml2/metadata'
           metadata_file: 'metadata-keystone-{{ "{{ " }}keystone_idp_id{{ " }}" }}.xml'
           metadata_reload: 1800
           federated_identities:
@@ -403,7 +403,7 @@ users are mapped, ephemeral users are created to represent them.
 
 The rule definition language allows for rules much more complex than the one
 shown above. For more information about federation mappings, you can consult the
-[appropriate section of the Keystone documentation](http://docs.openstack.org/developer/keystone/mapping_combinations.html).
+[appropriate section of the Keystone documentation](https://docs.openstack.org/developer/keystone/mapping_combinations.html).
 
 To configure your second cloud as a SP, add the above configuration to your
 **/etc/openstack\_deploy/user\_variables.yml** file, and, like in the IdP case,
@@ -462,17 +462,17 @@ the IdP host, this is what you need to do:
     - Full catalog available in file catalog.json
     #----------------------------------------
     # Available endpoints:
-    OBJECT_STORE_URL=http://23.253.97.96:8080/v1/AUTH_cb60fc9c11df47f9b57b7dda4a34acd2
-    METERING_URL=http://23.253.97.96:8777
-    IMAGE_URL=http://23.253.97.96:9292
-    VOLUME_URL=http://23.253.97.96:8776/v1/cb60fc9c11df47f9b57b7dda4a34acd2
-    IDENTITY_URL=http://23.253.97.96:5000/v2.0
-    NETWORK_URL=http://23.253.97.96:9696
-    CLOUDFORMATION_URL=http://23.253.97.96:8000/v1
-    ORCHESTRATION_URL=http://23.253.97.96:8004/v1/cb60fc9c11df47f9b57b7dda4a34acd2
-    COMPUTEV21_URL=http://23.253.97.96:8774/v2.1
-    COMPUTE_URL=http://23.253.97.96:8774/v2/cb60fc9c11df47f9b57b7dda4a34acd2
-    VOLUMEV2_URL=http://23.253.97.96:8776/v2/cb60fc9c11df47f9b57b7dda4a34acd2
+    OBJECT_STORE_URL=https://23.253.97.96:8080/v1/AUTH_cb60fc9c11df47f9b57b7dda4a34acd2
+    METERING_URL=https://23.253.97.96:8777
+    IMAGE_URL=https://23.253.97.96:9292
+    VOLUME_URL=https://23.253.97.96:8776/v1/cb60fc9c11df47f9b57b7dda4a34acd2
+    IDENTITY_URL=https://23.253.97.96:5000/v2.0
+    NETWORK_URL=https://23.253.97.96:9696
+    CLOUDFORMATION_URL=https://23.253.97.96:8000/v1
+    ORCHESTRATION_URL=https://23.253.97.96:8004/v1/cb60fc9c11df47f9b57b7dda4a34acd2
+    COMPUTEV21_URL=https://23.253.97.96:8774/v2.1
+    COMPUTE_URL=https://23.253.97.96:8774/v2/cb60fc9c11df47f9b57b7dda4a34acd2
+    VOLUMEV2_URL=https://23.253.97.96:8776/v2/cb60fc9c11df47f9b57b7dda4a34acd2
     #----------------------------------------
     # OpenStack client setup:
     export OS_TOKEN=1f6606af8cda4b27b787819f2eb3f2d4
@@ -492,11 +492,11 @@ command line client automatically picks up, as suggested by the script:
 Then, for example, if you wanted to obtain a listing of all the images available
 to you in the SP cloud, you would use the image service endpoint as follows:
 
-    # openstack --os-endpoint=http://23.253.97.96:9292 image list
+    # openstack --os-endpoint=https://23.253.97.96:9292 image list
 
 To get a list of instances, the compute endpoint is used in a similar way:
 
-    # openstack --os-endpoint=http://23.253.97.96:8774/v2/cb60fc9c11df47f9b57b7dda4a34acd2 server list
+    # openstack --os-endpoint=https://23.253.97.96:8774/v2/cb60fc9c11df47f9b57b7dda4a34acd2 server list
 
 You are probably thinking that it is inconvenient to have to provide the
 service endpoint for each command, given that when accessing the local cloud

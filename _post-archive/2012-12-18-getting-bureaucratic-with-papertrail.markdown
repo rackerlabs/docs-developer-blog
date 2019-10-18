@@ -7,11 +7,11 @@ author: Hart Hoover
 categories:
   - Cloud Servers
 ---
-Imagine the situation: you're a Racker, and a customer calls. Their servers are up, but their application or site is offline. Time to shine! Unfortunately, they don't have any idea what is going on and they are frantic. The account has 20 servers listed and they are named after the characters in [The Hobbit](http://en.wikipedia.org/wiki/Characters_in_The_Hobbit).
+Imagine the situation: you're a Racker, and a customer calls. Their servers are up, but their application or site is offline. Time to shine! Unfortunately, they don't have any idea what is going on and they are frantic. The account has 20 servers listed and they are named after the characters in [The Hobbit](https://en.wikipedia.org/wiki/Characters_in_The_Hobbit).
 
-It's an emergency situation, and you are wandering into a dark room with a lighter as a flashlight. In the cloud, with the possibility of hundreds (or thousands) of servers, that dark room becomes [Cowboys Stadium](http://stadium.dallascowboys.com/).  Where do you start?
+It's an emergency situation, and you are wandering into a dark room with a lighter as a flashlight. In the cloud, with the possibility of hundreds (or thousands) of servers, that dark room becomes [Cowboys Stadium](https://stadium.dallascowboys.com/).  Where do you start?
 
-Hopefully the customer has good monitoring in place so you can pinpoint the failure to a single server or a group of servers. With [Papertrail](http://papertrailapp.com), it becomes easier to find issues present in your application, and more importantly, _take action_ on the issue in an automated way. Papertrail helps detect, resolve, and avoid infrastructure problems using log messages. You can aggregate and manage log messages from Cloud Servers, Managed Hosting, Hybrid Hosting, and other servers — both flat files and rsyslog.
+Hopefully the customer has good monitoring in place so you can pinpoint the failure to a single server or a group of servers. With [Papertrail](https://papertrailapp.com), it becomes easier to find issues present in your application, and more importantly, _take action_ on the issue in an automated way. Papertrail helps detect, resolve, and avoid infrastructure problems using log messages. You can aggregate and manage log messages from Cloud Servers, Managed Hosting, Hybrid Hosting, and other servers — both flat files and rsyslog.
 <!-- more -->
 ##Setting up Papertrail Manually
 Once you [sign up](https://papertrailapp.com/) for an account, Papertrail has pretty quick setup instructions:
@@ -27,7 +27,7 @@ The port may be different for your account. Be sure to check your settings! This
 * Restart syslog:
 `sudo /etc/init.d/rsyslog restart`
 
-Done! Papertrail will start getting your logs. That's great and all, but editing files by hand across hundreds of servers? _No, thank you._ I'd rather automate this with [Puppet](http://puppetlabs.com/puppet/what-is-puppet/). (Need help getting started with Puppet? Check out this [prior post](http://devops.rackspace.com/using-puppet-with-cloud-servers.html) for a refresher.)
+Done! Papertrail will start getting your logs. That's great and all, but editing files by hand across hundreds of servers? _No, thank you._ I'd rather automate this with [Puppet](https://puppetlabs.com/puppet/what-is-puppet/). (Need help getting started with Puppet? Check out this [prior post](https://devops.rackspace.com/using-puppet-with-cloud-servers.html) for a refresher.)
 
 ##Automating Papertrail setup using Puppet
 Luckily, there is a [Puppet module](https://github.com/Benjamin-Ds/puppet-module-papertrail) you can use to automate Papertrail setup (Thank you, Mr. Santos). It's just a matter of installing the module on your puppetmaster, configuring it for your needs, and making sure your puppet clients update with the new configuration. For this example, I'm using Ubuntu 12.10.
@@ -63,15 +63,15 @@ Time to put those logs to work. Log into your Papertrail dashboard and search fo
 
 Save the search and create an alert. Papertrail will ask you where the alert should be sent. You can pick from the following services:
 
-* [Boundary](http://boundary.com/): annotate a Boundary network traffic graph with the log message.
-* [Campfire](http://campfirenow.com/): send a chat message to a Campfire room. It contains the logs and a link.
+* [Boundary](https://boundary.com/): annotate a Boundary network traffic graph with the log message.
+* [Campfire](https://campfirenow.com/): send a chat message to a Campfire room. It contains the logs and a link.
 * Email: send an email to a set of addresses of your choosing.
-* [GeckoBoard](http://www.geckoboard.com/): update a custom "number" widget with the count of matches.
-* [HipChat](http://hipchat.com/): send a chat message to a HipChat room. It contains the logs and a link.
-* [Librato Metrics](http://metrics.librato.com/): graph the number of occurrences over time.
-* [PagerDuty](http://pagerduty.com/): invoke an alert escalation policy, such as generating text messages.
+* [GeckoBoard](https://www.geckoboard.com/): update a custom "number" widget with the count of matches.
+* [HipChat](https://hipchat.com/): send a chat message to a HipChat room. It contains the logs and a link.
+* [Librato Metrics](https://metrics.librato.com/): graph the number of occurrences over time.
+* [PagerDuty](https://pagerduty.com/): invoke an alert escalation policy, such as generating text messages.
 
-You can also send the alert to a [webhook](http://help.papertrailapp.com/kb/how-it-works/web-hooks) for custom alert handling.
+You can also send the alert to a [webhook](https://help.papertrailapp.com/kb/how-it-works/web-hooks) for custom alert handling.
 
 ##For more information
 If you're interested in adding Papertrail to your solution, there is a seven day free trial you can take advantage of to test it out. More details are available from Papertrail's [website](https://papertrailapp.com).

@@ -29,7 +29,7 @@ Swift is OpenStack's object storage service and is a fantastic platform for back
 cinder-backup
 -------------
 
-Cinder is comprised of many services including __cinder-backup__. It was specifically designed to easily backup your Cinder Volumes to another storage platform using backup drivers. One of those backup drivers is for Swift. Other backup drivers available in Cinder can be found [here](http://docs.openstack.org/juno/config-reference/content/section_backup-drivers.html).
+Cinder is comprised of many services including __cinder-backup__. It was specifically designed to easily backup your Cinder Volumes to another storage platform using backup drivers. One of those backup drivers is for Swift. Other backup drivers available in Cinder can be found [here](https://docs.openstack.org/juno/config-reference/content/section_backup-drivers.html).
 
 Instructions on how to setup an OpenStack environment with Cinder and Swift are out of the scope of this post. This post assumes you already have a functioning OpenStack Juno environment with Cinder and Swift.
 
@@ -41,8 +41,8 @@ You simply need to add the following configuration line to every __cinder.conf__
 
 Swift should already be available as a Keystone Endpoint in your OpenStack environment, which you can verify by running `keystone endpoint-list`, so Cinder will query that endpoint figure out how to communicate with it.
 
-Once those steps are completed, you can backup your Cinder Volumes using the `cinder backup-create` command. With a backup in place, you have the ability to restore from that backup using the `cinder backup-restore` command. Additional details for the `cinder backup-create` and `cinder backup-restore` commands can be found [here](http://docs.openstack.org/admin-guide-cloud/content/volume-backup-restore.html).
+Once those steps are completed, you can backup your Cinder Volumes using the `cinder backup-create` command. With a backup in place, you have the ability to restore from that backup using the `cinder backup-restore` command. Additional details for the `cinder backup-create` and `cinder backup-restore` commands can be found [here](https://docs.openstack.org/admin-guide-cloud/content/volume-backup-restore.html).
 
-Be aware, you can only restore a backup to the same Cinder environment it was backed up from. If you are backing up a Cinder Volume to then restore into a completely different OpenStack environment, you will need to export the Cinder Volume's metadata too. Additional details and how to do this can be found [here](http://docs.openstack.org/admin-guide-cloud/content/volume-backup-restore-export-import.html).
+Be aware, you can only restore a backup to the same Cinder environment it was backed up from. If you are backing up a Cinder Volume to then restore into a completely different OpenStack environment, you will need to export the Cinder Volume's metadata too. Additional details and how to do this can be found [here](https://docs.openstack.org/admin-guide-cloud/content/volume-backup-restore-export-import.html).
 
 In addition, if you have another Swift environment, you can leverage Swift's container sync functionality. This allows you to replicate the Swift container storing the Cinder Volume backups to a geographically separated site for disaster recovery purposes.

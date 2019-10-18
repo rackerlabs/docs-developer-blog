@@ -142,12 +142,12 @@ for the URL. The following list includes many of the most common URLs:
 </br>
 <ul>
 <li><b>Financial Management</b>: http(s)://servername:port/hfmofficeprovider/hfmofficeprovider.aspx</li>
-<li><b>Hyperion Enterprise</b>: http://servername:port/heofficeprovider/heofficeprovider.aspx</li>
+<li><b>Hyperion Enterprise</b>: https://servername:port/heofficeprovider/heofficeprovider.aspx</li>
 <li><b>Planning</b>: http(s)://servername:port/HyperionPlanning/SmartView</li>
 <li><b>Essbase</b>: http(s)://servername:port/aps/SmartView</li>
 <li><b>Reporting and Analysis</b>: http(s)://servername:port/raframework/browse/listxml</li>
-<li><b>Financial Close Management</b>: http://servername:port/fcc/servlets/smartview/fcmsvservlet</li>
-<li><b>Oracle Hyperion StrategicFinance</b>: http://servername:port/StrategicPlanning/SmartView</li>
+<li><b>Financial Close Management</b>: https://servername:port/fcc/servlets/smartview/fcmsvservlet</li>
+<li><b>Oracle Hyperion StrategicFinance</b>: https://servername:port/StrategicPlanning/SmartView</li>
 </ul>
 
     </li>

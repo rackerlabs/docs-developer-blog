@@ -9,9 +9,9 @@ categories:
   - SDK
   - node.js
 ---
-It’s been a few crazy weeks since I started at Rackspace, and while I’ve already been to San Antonio multiple times, as well as attending my first OpenStack Summit and meeting all of the awesome folks at the SF Rackspace office, I’ve spent the majority of my time getting up to speed on [pkgcloud](http://github.com/nodejitsu/pkgcloud).
+It’s been a few crazy weeks since I started at Rackspace, and while I’ve already been to San Antonio multiple times, as well as attending my first OpenStack Summit and meeting all of the awesome folks at the SF Rackspace office, I’ve spent the majority of my time getting up to speed on [pkgcloud](https://github.com/nodejitsu/pkgcloud).
 
-For the uninitiated, pkgcloud is a [multi-provider cloud provisioning library](http://blog.nodejitsu.com/introducing-pkgcloud) from [Nodejitsu](http://nodejitsu.com/) for [Node.js](http://nodejs.org/), with bindings for [Rackspace](http://docs.rackspace.com/), [Amazon](http://aws.amazon.com/developertools), [Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ff800682.aspx), [Openstack](http://docs.openstack.org/api/api-specs.html), and [Joyent](http://apidocs.joyent.com/sdcapidoc/cloudapi/) compute clouds. The objective is to define a standard interface for cloud assets, such that you don’t have to spend a significant amount of energy learning multiple APIs; you just focus on the integration.<!-- more -->
+For the uninitiated, pkgcloud is a [multi-provider cloud provisioning library](https://blog.nodejitsu.com/introducing-pkgcloud) from [Nodejitsu](https://nodejitsu.com/) for [Node.js](https://nodejs.org/), with bindings for [Rackspace](https://docs.rackspace.com/), [Amazon](https://aws.amazon.com/developertools), [Azure](https://msdn.microsoft.com/en-us/library/windowsazure/ff800682.aspx), [Openstack](https://docs.openstack.org/api/api-specs.html), and [Joyent](https://apidocs.joyent.com/sdcapidoc/cloudapi/) compute clouds. The objective is to define a standard interface for cloud assets, such that you don’t have to spend a significant amount of energy learning multiple APIs; you just focus on the integration.<!-- more -->
 
 For example:
 
@@ -40,7 +40,7 @@ My focus has been on getting the prerequisites out of the way in order to suppor
 
 1. Rackspace client completely based on OpenStack
 2. Support for Rackspace NextGen Cloud Servers
-3. Continued Support for Rackspace Cloud Files (implemented as an extension of an [OpenStack swift](http://docs.openstack.org/developer/swift/) client)
+3. Continued Support for Rackspace Cloud Files (implemented as an extension of an [OpenStack swift](https://docs.openstack.org/developer/swift/) client)
 4. Lots of samples, test cases, and documentation as appropriate
 
 I’d love to get feedback on the plan, but I wanted to put my thoughts down on paper so I know what I’m shooting for.

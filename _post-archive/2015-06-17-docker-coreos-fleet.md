@@ -237,9 +237,9 @@ could use all of them in an application scenario.
  * Test the sites on one of the container using the IP addresses and ports returned above. world.php connects to the world database on the db container and runs some queries.
 
   ```
-  curl http://162.242.255.73:18010/
-  curl http://162.242.255.73:18010/home.php
-  curl http://162.242.255.73:18010/world.php
+  curl https://162.242.255.73:18010/
+  curl https://162.242.255.73:18010/home.php
+  curl https://162.242.255.73:18010/world.php
   ```
 
 At this point, we have a database container running and a bunch of web containers running on different hosts. The communication between them has been established, and we have an working PHP app. An optional step which I have working, but skipped in this post was to run a service that watches these containers and adds them to a load balancer.  This is fairly trivial to do but would be specific to the load balancer service you are using.

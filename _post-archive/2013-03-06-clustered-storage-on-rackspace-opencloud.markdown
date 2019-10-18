@@ -16,19 +16,19 @@ Rackspace has rolled out quite a few new products in the past 6 months - most no
 
 If you are unfamiliar with Cloud Servers, Cloud Block Storage, or Cloud Networks, see the documentation provided below to become acquainted.
 
-  - [Cloud Servers](http://www.rackspace.com/cloud/servers/)
-  - [Cloud Block Storage(CBS)](http://www.rackspace.com/cloud/block-storage/)
+  - [Cloud Servers](https://www.rackspace.com/cloud/servers/)
+  - [Cloud Block Storage(CBS)](https://www.rackspace.com/cloud/block-storage/)
   - [Cloud Networks](https://support.rackspace.com/how-to/cloud-networks/)
 
-If you aren't familiar with the API or `python-novaclient`, see [Getting started on NextGen Cloud Servers](http://docs.rackspace.com/servers/api/v2/cs-gettingstarted/content/ch_gs_getting_started_with_nova.html). You can also do this tutorial from the web interface, but it will likely take three times as long.
+If you aren't familiar with the API or `python-novaclient`, see [Getting started on NextGen Cloud Servers](https://docs.rackspace.com/servers/api/v2/cs-gettingstarted/content/ch_gs_getting_started_with_nova.html). You can also do this tutorial from the web interface, but it will likely take three times as long.
 
-In this tutorial, we're going to start off by building two servers with an interface on each of them being connected to a "Cloud Network". This network is essentially a layer 2 domain created by using a protocol called Stateles Transport Tunneling [(STT)](http://tools.ietf.org/html/draft-davie-stt-01) between hypervisors. If you have ever heard of "software defined networking", this is it as real at it gets. As a customer, you get an interface on your instance that, for all you know, is connected to its own switch fabric with your own private VLAN.
+In this tutorial, we're going to start off by building two servers with an interface on each of them being connected to a "Cloud Network". This network is essentially a layer 2 domain created by using a protocol called Stateles Transport Tunneling [(STT)](https://tools.ietf.org/html/draft-davie-stt-01) between hypervisors. If you have ever heard of "software defined networking", this is it as real at it gets. As a customer, you get an interface on your instance that, for all you know, is connected to its own switch fabric with your own private VLAN.
 
 After creating the cloud network and putting two instances on it, we'll create and attach two Cloud Block Storage volumes - one to each server. These are Luns exported directly to hypervisors and attached to instances as block devices. The highlights of CBS are that they're mobile (you can attach/detach these volumes to various servers), customizable (it's now possible to have 100GB of storage on an instance with 512MB of RAM), and relatively inexpensive.
 
-After attaching these CBS volumes to their servers, we'll use DRBD to create a replicated storage volume. If you haven't used DRBD yet, you probably have a use-case so check out their project at [drbd.org](http://www.drbd.org/). Basically it is block-level replication between servers. This technology is useful for making nearly any technology redundant. Traditionally we only see DRBD over a dedicated physical ethernet interface or bond on physical servers, but this is the cloud and we have a different model.
+After attaching these CBS volumes to their servers, we'll use DRBD to create a replicated storage volume. If you haven't used DRBD yet, you probably have a use-case so check out their project at [drbd.org](https://www.drbd.org/). Basically it is block-level replication between servers. This technology is useful for making nearly any technology redundant. Traditionally we only see DRBD over a dedicated physical ethernet interface or bond on physical servers, but this is the cloud and we have a different model.
 
-We initially create a DRBD volume in a Primary/Secondary configuration, then move on to a dual-primary setup and use a distributed filesystem technology called [GFS2](http://en.wikipedia.org/wiki/GFS2). Through clever locking this will allow us to have both of our servers mount the DRBD volume at the same time with read/write access.
+We initially create a DRBD volume in a Primary/Secondary configuration, then move on to a dual-primary setup and use a distributed filesystem technology called [GFS2](https://en.wikipedia.org/wiki/GFS2). Through clever locking this will allow us to have both of our servers mount the DRBD volume at the same time with read/write access.
 
 After GFS2 we will look at building a highly scalable GlusterFS environment on CentOS, with 4 Gluster servers in distributed replica-2 configuration, and 2 web servers accessing a Gluster volume hosted on the 4-node cluster.
 
@@ -437,7 +437,7 @@ Configure some resources and a dummy stonith - we don't want stonith to do anyth
         cluster-infrastructure="cman" \
         no-quorum-policy="ignore"
 
-pacemaker configuration is a little beyond the scope of this post. If you have any questions about any of the above, I recommend [some clusterlabs documentation](http://clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/html-single/Clusters_from_Scratch/index.html)
+pacemaker configuration is a little beyond the scope of this post. If you have any questions about any of the above, I recommend [some clusterlabs documentation](https://clusterlabs.org/doc/en-US/Pacemaker/1.1-plugin/html-single/Clusters_from_Scratch/index.html)
 
 This may take a while for crm to actuall do its thing; verify that your `crm status` looks like this before moving on
 
@@ -586,7 +586,7 @@ Do some initial configuration - the following commands should be run on all the 
 
 After rebooting, install epel, update and install some necessary packages on all of the Gluster servers you created
 
-    # rpm -Uvh http://mirror.nexcess.net/epel/6/i386/epel-release-6-8.noarch.rpm
+    # rpm -Uvh https://mirror.nexcess.net/epel/6/i386/epel-release-6-8.noarch.rpm
     # yum update -y
     # yum install glusterfs-server lvm2
 
@@ -767,7 +767,7 @@ Once they're booted, do the same steps as above to get them updated and using pr
     # sed -i.orig 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/g' /etc/ssh/sshd_config
     # service sshd restart
     # yum update -y && reboot
-    # rpm -Uvh http://mirror.nexcess.net/epel/6/i386/epel-release-6-8.noarch.rpm
+    # rpm -Uvh https://mirror.nexcess.net/epel/6/i386/epel-release-6-8.noarch.rpm
     # yum update
     # yum install -y glusterfs-fuse nginx
     # cat << EOT >> /etc/hosts
@@ -783,7 +783,7 @@ Once they're booted, do the same steps as above to get them updated and using pr
     # service nginx restart
     # cp /usr/share/nginx/html/* /webData/
 
-Now go to the ips of one of the webheads and enjoy your new highly scalable web environment! For more information on GlusterFS see [their documentation](http://gluster.org/community/documentation/index.php/). For proper load balancing, see [Rackspace's Cloud Load Balancers offering](http://www.rackspace.com/cloud/load-balancing/). Otherwise you can always just use DNS.
+Now go to the ips of one of the webheads and enjoy your new highly scalable web environment! For more information on GlusterFS see [their documentation](https://gluster.org/community/documentation/index.php/). For proper load balancing, see [Rackspace's Cloud Load Balancers offering](https://www.rackspace.com/cloud/load-balancing/). Otherwise you can always just use DNS.
 
 #### Quick benchmarks
 
@@ -793,7 +793,7 @@ Here are the results from some benchmarks I took before destroying the environme
 
 Then from another server at rackspace (in DFW instead of ORD) I ran siege against the big file with not-totally-disappointing results
 
-    $ sudo siege -c30 http://g.niko.im/2mbR -i --time=30S
+    $ sudo siege -c30 https://g.niko.im/2mbR -i --time=30S
     ** SIEGE 2.70
     ** Preparing 30 concurrent users for battle.
     The server is now under siege...

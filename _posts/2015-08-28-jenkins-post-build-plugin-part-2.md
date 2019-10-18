@@ -35,7 +35,7 @@ Before we start, let's rename the `HelloWorldBuilder` class, its references and 
 `TestExamplePublisher`. Next, make the class `TestExamplePublisher` extend `hudson.tasks.Recorder`. This extension
 also requires overriding of the abstract method `getRequiredMonitorService()`. Make the method return
 `BuildStepMonitor.NONE`. More can be read on this method [here]
-(http://javadoc.jenkins-ci.org/hudson/tasks/BuildStep.html#getRequiredMonitorService()).
+(https://javadoc.jenkins-ci.org/hudson/tasks/BuildStep.html#getRequiredMonitorService()).
 
 Next, make the inner class `DescriptorImpl` extend `BuildStepDescriptor<Publisher>`. Notice the `@Extension`
 annotation before this class. This annotation lets Jenkins know that this is a plugin extension of the Jenkins core.
@@ -98,9 +98,9 @@ project page.
 To make a new page entry in Jenkins side-panel, you just need to create a class that implements
 `hudson.model.Action` interface. Let's create a new `TestExampleBuildAction` class that implements this. To
 create a new page, provide three entities to Jenkins through this interface. These are a [URL name]
-(http://javadoc.jenkins-ci.org/hudson/model/Action.html#getUrlName()) to access this page, a [display name]
-(http://javadoc.jenkins-ci.org/hudson/model/Action.html#getDisplayName()) and an [icon]
-(http://javadoc.jenkins-ci.org/hudson/model/Action.html#getIconFileName()) for the side-panel entry. Let's have the
+(https://javadoc.jenkins-ci.org/hudson/model/Action.html#getUrlName()) to access this page, a [display name]
+(https://javadoc.jenkins-ci.org/hudson/model/Action.html#getDisplayName()) and an [icon]
+(https://javadoc.jenkins-ci.org/hudson/model/Action.html#getIconFileName()) for the side-panel entry. Let's have the
 page located at 'testExampleBuild' (url name), with the display name 'Test Example Build Page', and provide an icon
 file located at the `src/main/webapp/img/<iconFileName>.png`. There are two ways to return the `getIconFileName()`
 string:

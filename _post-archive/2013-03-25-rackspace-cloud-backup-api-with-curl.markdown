@@ -7,13 +7,13 @@ author: Oz Akan
 categories: []
 ---
 
-> **WARNING:** this blog post contains information that is not up to date. Consult [this](http://docs.rackspace.com/rcbu/api/v1.0/rcbu-getting-started/content/createWorkWithBackups-d1e01.html) guide for authoritative and up to date information.
+> **WARNING:** this blog post contains information that is not up to date. Consult [this](https://docs.rackspace.com/rcbu/api/v1.0/rcbu-getting-started/content/createWorkWithBackups-d1e01.html) guide for authoritative and up to date information.
 
 Insurance can help to manage risks of relatively rare but expensive events that you will be responsible for covering. Still, insurance doesn't eliminate the risks of unlikely events from happening; instead it provides a mechanism to get out of that event with minimal loss.
  
 If you swap the word "insurance" with "backup" in the paragraph above it still makes sense. With insurance, you would like to make the smallest investment but still be covered for any possible event. Cloud Backup does just that - no tapes, no rotation, no physical requirements. Just a few calls and with little effort you are covered.
  
-Rackspace has a powerful, easy-to-use service called [Cloud Backup](http://www.rackspace.com/cloud/backup/) which can back up [Cloud Servers](http://www.rackspace.com/cloud/servers/) at file level. It supports encryption, compression and de-duplication, which are important for data security at rest and cost control. For more information, take a look at [Cloud Backup:FAQs](http://www.rackspace.com/knowledge_center/product-faq/cloud-backup)
+Rackspace has a powerful, easy-to-use service called [Cloud Backup](https://www.rackspace.com/cloud/backup/) which can back up [Cloud Servers](https://www.rackspace.com/cloud/servers/) at file level. It supports encryption, compression and de-duplication, which are important for data security at rest and cost control. For more information, take a look at [Cloud Backup:FAQs](https://www.rackspace.com/knowledge_center/product-faq/cloud-backup)
 
 <!-- more --> 
 
@@ -440,4 +440,4 @@ Using the Cloud Backup RESTful API, it is now easy to automate backup jobs while
  
 _If you have questions you can find me at [Twitter](https://twitter.com/ozgurakan) or at [Google Plus](https://plus.google.com/110684487860941982359/posts)_
  
-For more information on the Rackspace Cloud Backup API, refer to our [API documentation](http://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content/index.html).
+For more information on the Rackspace Cloud Backup API, refer to our [API documentation](https://docs.rackspace.com/rcbu/api/v1.0/rcbu-devguide/content/index.html).

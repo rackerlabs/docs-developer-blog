@@ -37,11 +37,11 @@ webapp:
 With the architecture laid out, we now focus on how to coordinate & construct our stack.
 
 If you followed [Part 1](https://developer.rackspace.com/blog/i-have-a-cloud-dot-dot-dot-now-what-part-1-building-a-3-tier-webapp/) of this series, you'll remember that we can organize & orchestrate the provisioning of the
-cloud infrastructure through [Rackspace's Cloud Orchestration](http://www.rackspace.com/blog/cloud-orchestration-automating-deployments-of-full-stack-configurations/)
+cloud infrastructure through [Rackspace's Cloud Orchestration](https://www.rackspace.com/blog/cloud-orchestration-automating-deployments-of-full-stack-configurations/)
 aka the [Heat](https://wiki.openstack.org/wiki/Heat) project from OpenStack.
 
 Lets examine a snippet of the template used to create the Logging stack, that differs from the Encoder stack,
-in the Rackspace Public Cloud. The full template can be found at [http://git.io/kdlx2g](http://git.io/kdlx2g).
+in the Rackspace Public Cloud. The full template can be found at [https://git.io/kdlx2g](https://git.io/kdlx2g).
 
 ```
 resources:
@@ -92,7 +92,7 @@ resources:
                         "%rsyslog_server_ip%": { get_attr: [rsyslog_server, privateIPv4] }
 ```
 
-As you can note, we are defining [Rackspace resource types](http://docs.rackspace.com/orchestration/api/v1/orchestration-devguide/content/GET_resource_type_list_v1__tenant_id__resource_types_Stack_Resources.html#GET_resource_type_list_v1__tenant_id__resource_types_Stack_Resources-Response)
+As you can note, we are defining [Rackspace resource types](https://docs.rackspace.com/orchestration/api/v1/orchestration-devguide/content/GET_resource_type_list_v1__tenant_id__resource_types_Stack_Resources.html#GET_resource_type_list_v1__tenant_id__resource_types_Stack_Resources-Response)
 for the rsyslog\_server and load\_balancer made available via Orchestration.
 
 A new set of resource types are being introduced in this stack: Rackspace::Cloud::LoadBalancer & OS::Heat::ResourceGroup.
@@ -125,7 +125,7 @@ visulization of the logs.
 
 ## Test Drive
 If you'd like to instantiate the Logging job right now, you can do this from
-the [heat client](http://docs.rackspace.com/orchestration/api/v1/orchestration-getting-started/content/Install_Heat_Client.html) by issuing the following to run on the Rackspace Public Cloud or see the Demo section below to see how its intended to function:
+the [heat client](https://docs.rackspace.com/orchestration/api/v1/orchestration-getting-started/content/Install_Heat_Client.html) by issuing the following to run on the Rackspace Public Cloud or see the Demo section below to see how its intended to function:
 
 ```
 heat stack-create logging \
@@ -159,16 +159,16 @@ i.e.
 
 By constantly refreshing the IP of the load balancer, you'll see it cycle
 through the different webapps as denoted by their respective hostnames.
-`http://<lb_public_ip>`
+`https://<lb_public_ip>`
 
 To view the ElasticSearch server, visit its address at port 9200. i.e.
 
-`http://<elk_public_ip>:9200`
+`https://<elk_public_ip>:9200`
 
 To view the Kibana dashboard, visit its address at port 8080 with the following
 path:
 
-`http://<elk_public_ip>:8000/index.html#/dashboard/file/logstash.json`
+`https://<elk_public_ip>:8000/index.html#/dashboard/file/logstash.json`
 
 ## Demo
 When you deploy the Logging project you'll be presented with an app that functions as such in both the webapp and Kibana dashboard:

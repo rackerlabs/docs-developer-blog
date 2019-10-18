@@ -113,7 +113,7 @@ docker-machine ip guestbook # note the Guestbook IP Address
 
 Disclaimer: This is not even close to the most secure configuration possible. This script is only intended to be more secure than the default configuration. No promises are made about this script preventing your server from getting owned or your bike getting stolen. The bad guys are still out to get you. And running this script does not excuse you from writing secure application code!
 
-Install [fail2ban]( http://www.fail2ban.org/) to prevent brute force login attempts on your server and setup a firewall with [ufw](https://help.ubuntu.com/community/UFW) to only allow the ports we need. Note that no output appears until the command is completely done so a bit of patience is required.
+Install [fail2ban]( https://www.fail2ban.org/) to prevent brute force login attempts on your server and setup a firewall with [ufw](https://help.ubuntu.com/community/UFW) to only allow the ports we need. Note that no output appears until the command is completely done so a bit of patience is required.
 
 ```bash
 docker-machine ssh guestbook "apt-get update"
@@ -176,7 +176,7 @@ Go back to your browser to the Guestbook IP Address and reload. Voila! Your chan
 
 What would you do next to take this one step further?
 
-Your data is the most important part of your application. You need to make sure it's safe. Start with a backup plan. You could roll your solution and have a cron job store database dumps in [Cloud Files](http://www.rackspace.com/cloud/files). Or you could go the easy route and use [Cloud Backup](http://www.rackspace.com/cloud/backup). Finally, you could go all out and create a highly available [Cloud Database](http://www.rackspace.com/cloud/databases) and change docker-compose.yml to use that instead.
+Your data is the most important part of your application. You need to make sure it's safe. Start with a backup plan. You could roll your solution and have a cron job store database dumps in [Cloud Files](https://www.rackspace.com/cloud/files). Or you could go the easy route and use [Cloud Backup](https://www.rackspace.com/cloud/backup). Finally, you could go all out and create a highly available [Cloud Database](https://www.rackspace.com/cloud/databases) and change docker-compose.yml to use that instead.
 
 ### Conclusion
 

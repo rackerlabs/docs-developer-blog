@@ -9,7 +9,7 @@ categories: []
 bio: "Paul Czarkowski is a Systems Engineer working at Rackspace \non the Solum Project.\n"
 ---
 ### Introduction
-Platform As A Service (PAAS) is an important topic right now. [Docker](http://docker.io)
+Platform As A Service (PAAS) is an important topic right now. [Docker](https://docker.io)
 and related technologies have created a surge in the number of people offering ways to provide application-centric infrastructure. The end-game of cloud is to allow developers using the cloud to care
 less about the actual infrastructure ( VMs, Load Balancers, Databases, etc) and more about
 the construction and functionality of their application.
@@ -20,7 +20,7 @@ PAAS is good step in that direction. Unfortunately, running a PAAS has been as h
 than running the underlying IAAS infrastructure itself. This is slowly changing as the innovators
 in the field are starting to push the complexity further away from the user by using smart tooling.
 
-One such innovator, [DEIS](http://deis.io), combines Docker and [CoreOS](https://coreos.com/), along with
+One such innovator, [DEIS](https://deis.io), combines Docker and [CoreOS](https://coreos.com/), along with
 associated systems, to simplify the process and reduce the operations overhead incurred by running it. DEIS is currently 
 pre 1.0 and still needs some work before anybody but the truly bleeding-edge users would be comfortable
 running production workloads on it; however it's perfect for building out development environments,
@@ -28,7 +28,7 @@ which lets developers test and demonstrate their work quickly and early in the d
 
 This ability to quickly spin up demonstration environments allows for fast feedback and very lean / agile
 development processes. Within minutes of adding a new feature, a developer can deploy and request feedback.
-You can see an excellent short demo of this on the [DEIS blog](http://deis.io/demo-deis-pull-in-action/).
+You can see an excellent short demo of this on the [DEIS blog](https://deis.io/demo-deis-pull-in-action/).
 
 ### Installing DEIS
 
@@ -44,7 +44,7 @@ relatively new Orchestration system, which is based on Openstack Heat. I quickly
 templating language used for quickly describing and building infrastructure. After a few hours of prototyping, I found myself 
 with a reliable way to create and destroy DEIS environments with a single command.
 
-Instructions for installing the Heat client, including setting up authentication credentials, can be found in [The Rackspace Orchestration documentation](http://docs.rackspace.com/orchestration/api/v1/orchestration-getting-started/content/Install_Heat_Client.html). 
+Instructions for installing the Heat client, including setting up authentication credentials, can be found in [The Rackspace Orchestration documentation](https://docs.rackspace.com/orchestration/api/v1/orchestration-getting-started/content/Install_Heat_Client.html). 
 
 The heat template that I came up with can be found [here](https://gist.github.com/paulczar/6f773bc1c98395f0a2d4).
 It takes several inputs, such as the etcd discovery url (unique for each install), the number of servers, the flavor of servers, and the version of Deis, to perform the installation ( master by default ). 
@@ -123,7 +123,7 @@ Pick one of your CoreOS hosts, and ssh to it via the Public IP. Then set up some
 $ ssh -i ~/deis_key core@104.130.16.176
 
 Welcome to Deis Powered by CoreOS
-core@deis ~ $ export FLEETCTL_ENDPOINT=http://10.176.135.127:4001
+core@deis ~ $ export FLEETCTL_ENDPOINT=https://10.176.135.127:4001
 core@deis ~ $ fleetctl list-machines
 MACHINE IP METADATA
 54979824... 104.130.16.174 -
@@ -170,7 +170,7 @@ export DEIS_DNS=$(heat output-show deis lb_public_ip | sed 's/"//g').xip.io && e
 Once installed, you should register your first user ( the admin user ) and upload a public key as shown here:
 
 ```sh
-deis register http://deis.$DEIS_DNS
+deis register https://deis.$DEIS_DNS
 username: admin
 password:
 password (confirm):
@@ -207,14 +207,14 @@ $ git push deis master
 ..
 remote:
 remote: -----> kabuki-gatepost deployed to Deis
-remote: http://kabuki-gatepost.dev.104.130.42.40.xip.io
-$ curl http://kabuki-gatepost.dev.104.130.42.40.xip.io
+remote: https://kabuki-gatepost.dev.104.130.42.40.xip.io
+$ curl https://kabuki-gatepost.dev.104.130.42.40.xip.io
 Welcome to Deis!
-See the documentation at http://docs.deis.io/ for more information.
+See the documentation at https://docs.deis.io/ for more information.
 ```
 
 At this point, you might want to disable new user registration and
-[manage users manually](http://docs.deis.io/en/latest/managing_deis/managing_users/) as follows:
+[manage users manually](https://docs.deis.io/en/latest/managing_deis/managing_users/) as follows:
 
 ```sh
 $ ssh -i ~/deis_key core@104.130.16.176 'etcdctl --peers=10.176.135.127:4001 set --ttl=0 /deis/controller/registrationEnabled 0'
@@ -222,4 +222,4 @@ $ ssh -i ~/deis_key core@104.130.16.176 'etcdctl --peers=10.176.135.127:4001 set
 
 ### What next?
 
-We've stood up a DEIS based PAAS running on the cloud. This is probably enough for an example or development environment, but you may want to look at [running an HA database](http://docs.deis.io/en/latest/managing_deis/ha_database/), or, at the very least, doing [periodic backups](http://docs.deis.io/en/latest/managing_deis/backing_up_data/) of your data containers.
+We've stood up a DEIS based PAAS running on the cloud. This is probably enough for an example or development environment, but you may want to look at [running an HA database](https://docs.deis.io/en/latest/managing_deis/ha_database/), or, at the very least, doing [periodic backups](https://docs.deis.io/en/latest/managing_deis/backing_up_data/) of your data containers.

@@ -8,7 +8,7 @@ published: true
 categories:
   - OpenStack
 ---
-[Kord Campbell](http://www.stackgeek.com/) ([@stackgeek](http://twitter.com/stackgeek))
+[Kord Campbell](https://www.stackgeek.com/) ([@stackgeek](https://twitter.com/stackgeek))
 recently interviewed some developers at our San Francisco office about why they
 like working with OpenStack. We liked it so much we wanted to share it with you.
 Enjoy!

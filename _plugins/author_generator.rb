@@ -1,12 +1,12 @@
 # encoding: utf-8
 #
 # Jekyll author page generator.
-# http://recursive-design.com/projects/jekyll-plugins/
+# https://recursive-design.com/projects/jekyll-plugins/
 #
 # Version: 0.1.4 (201101061053)
 #
-# Copyright (c) 2010 Dave Perrett, http://recursive-design.com/
-# Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php)
+# Copyright (c) 2010 Dave Perrett, https://recursive-design.com/
+# Licensed under the MIT license (https://www.opensource.org/licenses/mit-license.php)
 #
 # A generator that creates author pages for jekyll sites.
 #

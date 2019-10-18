@@ -40,7 +40,7 @@ Groovy is a dynamic language like Python but has a Java like language syntax.
 It also has seamless integration to existing Java classes and libraries making
 it easy to use with existing Java code.
 
-Apache [jclouds](http://jclouds.apache.org/) has become the defacto library of
+Apache [jclouds](https://jclouds.apache.org/) has become the defacto library of
 multicloud infrastructures for Java developers. (The Python equivalent being
 [libcloud](https://libcloud.readthedocs.org/en/latest/))
 
@@ -124,7 +124,7 @@ It helps to be looking
 at the source here so point your browser to [CreateVolumeAndAttach.java](https://github.com/jclouds/jclouds-examples/blob/master/rackspace/src/main/java/org/jclouds/examples/rackspace/cloudblockstorage/CreateVolumeAndAttach.java)
 
 Also, you'll need to grab your username and api_key. Instructions on how to do that are here:
-[http://jclouds.apache.org/guides/rackspace/](http://jclouds.apache.org/guides/rackspace/)
+[https://jclouds.apache.org/guides/rackspace/](https://jclouds.apache.org/guides/rackspace/)
 
 ```
 cvs = new CreateVolumeAndAttach("groovy","beaf5678fffeeedddccc")
@@ -198,7 +198,7 @@ volumeAttachment = cvs.volumeAttachmentApi.attachVolumeToServerAsDevice(volume.g
 ```
 
 At this point you should be able to see the volume attached to the server in the cloud control panel.
-First we'll create a groovy password generator [from stackoverflow.com](http://stackoverflow.com/questions/8138164/groovy-generate-random-string-from-given-character-set)
+First we'll create a groovy password generator [from stackoverflow.com](https://stackoverflow.com/questions/8138164/groovy-generate-random-string-from-given-character-set)
 
 Then we'll change the admin password to the secret password that we just generated.
 

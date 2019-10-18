@@ -10,7 +10,7 @@ categories:
 ---
 {% img right pillars/pillar.png 160 160 %}
 
-Wayne Walls posted a [great article](http://www.rackspace.com/blog/pillars-of-cloudiness-no-2-modular-design/)
+Wayne Walls posted a [great article](https://www.rackspace.com/blog/pillars-of-cloudiness-no-2-modular-design/)
 on the Rackspace Blog regarding the importance of modularity in cloud application
 design. Traditionally, when technical people talked about modular design they
 meant something like this:
@@ -35,7 +35,7 @@ This demonstrates a departure from only consuming an infrastructure service to
 consuming a mixture of IaaS and platform services. Why maintain your own storage
 platform when you can consume
 [Cloud Files via an API](https://developer.rackspace.com/docs/cloud-files/v1/getting-started/)?
-Why run your own email server when you can consume [Mailgun via an API](http://documentation.mailgun.net/)?
+Why run your own email server when you can consume [Mailgun via an API](https://documentation.mailgun.net/)?
 Compute is expensive: you should only use it for tasks that actually require compute power!
 
 Imagine scaling a payment system. You have to check for compliance. You have to
@@ -64,7 +64,7 @@ Stripe makes it easy to install the library you require:
 #### Add a form to your checkout page
 
 You need a form on your site to collect information from your customer. Because
-we're already using Python, let's use [Flask](http://flask.pocoo.org/).
+we're already using Python, let's use [Flask](https://flask.pocoo.org/).
 
 First, create a dictionary with Stripe’s tokens, publishable\_key and secret\_key,
 which are being pulled out of the current environmental variables. We’re not

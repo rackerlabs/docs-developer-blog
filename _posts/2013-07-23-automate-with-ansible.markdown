@@ -106,8 +106,8 @@ training video.
 
 Thanks and happy Ansibiling! I think that’s a word :)
 
-[1]: http://ansibleworks.com/
+[1]: https://ansibleworks.com/
 [2]: https://github.com/ansible/ansible-examples
-[3]: http://ansibleworks.com/docs/
+[3]: https://ansibleworks.com/docs/
 [4]: https://github.com/ansible/ansible
-[5]: http://www.ansibleworks.com/quickstart/
+[5]: https://www.ansibleworks.com/quickstart/

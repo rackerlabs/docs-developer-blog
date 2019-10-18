@@ -200,6 +200,6 @@ You can bet that’ll start to change your culture.
 [application and server monitoring service][3] that facilitates agile application
 support. Kyle writes and speaks about the intersection of marketing and technology.
 
-[1]: http://www.stackify.com/11-ways-to-tail-a-log-file-on-windows-unix/
+[1]: https://www.stackify.com/11-ways-to-tail-a-log-file-on-windows-unix/
 [2]: https://twitter.com/kyleclaypool
-[3]: http://www.stackify.com
+[3]: https://www.stackify.com

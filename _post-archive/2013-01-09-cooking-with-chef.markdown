@@ -11,7 +11,7 @@ categories:
 ---
 {% img right 2013-01-09-cooking-with-chef/chef_logo.png "Chef Logo" %}
 
-As I said in a [prior post](http://devops.rackspace.com/using-puppet-with-cloud-servers.html) on Puppet, many of our customers use configuration management packages to manage their cloud infrastructure. These packages include Opscode’s [Chef](http://www.opscode.com/chef/), [CFEngine](http://cfengine.com/), Red Hat’s [Spacewalk](http://spacewalk.redhat.com/), and Puppet Labs’ [Puppet](http://puppetlabs.com/puppet/what-is-puppet/). Here, I’ll dive into Chef to show you how easy it is to manage Cloud Servers using a configuration management solution. In this series I'll walk you through setting up Hosted Chef using Opscode's platform, deploying your first application to Rackspace with Chef, and more.
+As I said in a [prior post](https://devops.rackspace.com/using-puppet-with-cloud-servers.html) on Puppet, many of our customers use configuration management packages to manage their cloud infrastructure. These packages include Opscode’s [Chef](https://www.opscode.com/chef/), [CFEngine](https://cfengine.com/), Red Hat’s [Spacewalk](https://spacewalk.redhat.com/), and Puppet Labs’ [Puppet](https://puppetlabs.com/puppet/what-is-puppet/). Here, I’ll dive into Chef to show you how easy it is to manage Cloud Servers using a configuration management solution. In this series I'll walk you through setting up Hosted Chef using Opscode's platform, deploying your first application to Rackspace with Chef, and more.
 <!-- more -->
 ##¿Habla usted Chef?
 When using any new technology, it's important to know the terms associated with it so you can speak the language. Using Chef you will run into the following terms:
@@ -28,9 +28,9 @@ Here is a way to use these terms in describing a WordPress environment:
 >An Apache cookbook and a PHP cookbook are used to install Apache and PHP on nodes that fall into the "webserver" role in the "Production" environment. A MySQL cookbook is used to install MySQL on nodes that fall into the "database" role in my "Production" environment. The "Production" environment is a WordPress blog that has web nodes with Apache/PHP and database nodes with MySQL.
 
 ##Get started with Opscode
-You can host and manage your own Chef server, but Opscode offers a free trial for five nodes or less so it's perfect for our purposes. You can create an account for the free trial [here](http://www.opscode.com/hosted-chef/).
+You can host and manage your own Chef server, but Opscode offers a free trial for five nodes or less so it's perfect for our purposes. You can create an account for the free trial [here](https://www.opscode.com/hosted-chef/).
 
-Once your account is created, you will need to [set up your local machine as a management workstation](http://docs.opscode.com/install.html) to manage Chef. The Chef documentation is very detailed on the steps required, which differ depending on your local operating system. In the Opscode walkthrough, you will set up a chef repository that looks like this:
+Once your account is created, you will need to [set up your local machine as a management workstation](https://docs.opscode.com/install.html) to manage Chef. The Chef documentation is very detailed on the steps required, which differ depending on your local operating system. In the Opscode walkthrough, you will set up a chef repository that looks like this:
 
     chef-repo/
 		.chef/

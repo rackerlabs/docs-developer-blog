@@ -53,7 +53,7 @@ The same concept can be extended to a variety of other use cases. For e.g adding
 	search(:node, "chef_environment:_default")
 	search(:node, "role:webserver")
 
-Search is quite powerful and you can read more at [Chef Search](http://docs.opscode.com/essentials_search.html)
+Search is quite powerful and you can read more at [Chef Search](https://docs.opscode.com/essentials_search.html)
 
 This simple example demonstrates the power of infrastructure as code as you can take principles of programming and configuration management and apply it to system administration.  
 

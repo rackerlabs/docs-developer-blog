@@ -57,7 +57,7 @@ the following image to see the various topologies supported by GoldenGate.
 
 ![]({% asset_path 2018-08-16-oracle-goldengate-basics/Picture1.png %})
 
-**Image Source:** http://www.vitalsofttech.com/goldengate-replication-topologies/
+**Image Source:** https://www.vitalsofttech.com/goldengate-replication-topologies/
 
 ### GoldenGate logical architecture
 
@@ -66,7 +66,7 @@ architecture, which are described in this section:
 
 ![]({% asset_path 2018-08-16-oracle-goldengate-basics/Picture2.png %})
 
-**Image source**: http://www.vitalsofttech.com/wp-content/uploads/2013/06/GoldenGate-Replication.jpg
+**Image source**: https://www.vitalsofttech.com/wp-content/uploads/2013/06/GoldenGate-Replication.jpg
 
 #### Manager
 

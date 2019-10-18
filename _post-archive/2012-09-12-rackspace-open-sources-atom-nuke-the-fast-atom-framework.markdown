@@ -8,7 +8,7 @@ categories:
   - Cloud Servers
 ---
 
-_This story is contributed by [Chad Lung](http://www.linkedin.com/in/chadlung), a software engineer on the Rackspace Cloud Integration team. Chad is the lead maintainer of Atom Hopper project. Be sure to check out his personal blog at [http://www.giantflyingsaucer.com/blog/](http://www.giantflyingsaucer.com/blog/) and follow [@chadlung](https://twitter.com/chadlung) on Twitter._
+_This story is contributed by [Chad Lung](https://www.linkedin.com/in/chadlung), a software engineer on the Rackspace Cloud Integration team. Chad is the lead maintainer of Atom Hopper project. Be sure to check out his personal blog at [https://www.giantflyingsaucer.com/blog/](https://www.giantflyingsaucer.com/blog/) and follow [@chadlung](https://twitter.com/chadlung) on Twitter._
 
 What if you had a tremendous mountain of data, broken up and stored across thousands of servers, and your client wanted some specific portion of that data? You could assemble the whole mountain and send the whole thing to your client, leaving the client to pick out what's needed. But there are reasons you split it up in the first place: it’s too big to store in one place or to transfer without interruption. Additionally there are reasons you manage the data, including security and privacy, so this mountain moving might not be a good idea.
 
@@ -24,11 +24,11 @@ What you need is to easily create a bridge, integrating any number of data origi
 
 {% img center 2012-09-12-rackspace-open-sources-atom-nuke-the-fast-atom-framework/atom-nuke-inall-outall.png %}
 
-_With [Atom Nuke](http://atomnuke.org/), no matter where your data originates and who consumes the data, it could be this simple to think about._
+_With [Atom Nuke](https://atomnuke.org/), no matter where your data originates and who consumes the data, it could be this simple to think about._
 
 **Atom Nuke Simplifies Integration**
 
-We created [Atom Nuke](http://atomnuke.org/) to give ourselves two kinds of power related to the high volumes of data produced by our Atom feeds.
+We created [Atom Nuke](https://atomnuke.org/) to give ourselves two kinds of power related to the high volumes of data produced by our Atom feeds.
 
 * _fission_, making it easy to divide data in new ways
 * _fusion_, making it easy to combine data in new ways
@@ -40,8 +40,8 @@ _A six-way integration requires eighteen paths, connecting three data origins wi
 
 Atom Nuke is an open-source collection of utilities built on a simple, fast Atom implementation that aims for a footprint of minimal dependency. The Atom implementation has its own model and utilizes a SAX parser and a StAX writer.
 
-* [SAX](http://www.saxproject.org/) (Simple API for XML) makes it simple to read existing data
-* [StAX](http://stax.codehaus.org/) (Streaming API for XML) makes it simple to stream data to and from applications
+* [SAX](https://www.saxproject.org/) (Simple API for XML) makes it simple to read existing data
+* [StAX](https://stax.codehaus.org/) (Streaming API for XML) makes it simple to stream data to and from applications
 
 {% img center 2012-09-12-rackspace-open-sources-atom-nuke-the-fast-atom-framework/atom-nuke-easyway-nuke.png %}
 
@@ -53,9 +53,9 @@ We designed our Nuke implementation for immutability, maximum simplicity and mem
 
 Atom is a self-discoverable and generic syndication protocol. The Internet Engineering Task Force (IETF) describes Atom in several ratified Requests for Comments (RFCs):
 
-* the [Atom RFC](http://tools.ietf.org/html/rfc4287)
-* the [Atom Paging and Archiving RFC](http://tools.ietf.org/html/rfc5005)
-* the [Atom Publishing Protocol RFC](http://tools.ietf.org/html/rfc5023)
+* the [Atom RFC](https://tools.ietf.org/html/rfc4287)
+* the [Atom Paging and Archiving RFC](https://tools.ietf.org/html/rfc5005)
+* the [Atom Publishing Protocol RFC](https://tools.ietf.org/html/rfc5023)
 
 The unique properties of the Atom specification have made it popular as a protocol for generic event distribution, syndication and aggregation. Using Atom as a common interchange format, event publishers add their domain-specific events to an Atom publication endpoint. Downstream, subscribers are notified of events they've pre-identified as relevant, controlling what they consume from potentially-vast collections of published data.
 
@@ -63,13 +63,13 @@ The unique properties of the Atom specification have made it popular as a protoc
 
 Within Rackspace, the Cloud Integration team builds tools for all our software development teams to use. We need to provide high-quality tools but we also need them to be easy to use and work smoothly together so that we can encourage adoption throughout Rackspace.
 
-Using Atom Nuke, we collect data from the Atom feeds supplied by [Atom Hopper](http://atomhopper.org/), another of our open-source tools. We then take that Atom data and feed it into several systems, including those that perform analytics on [OpenStack](http://openstack.org/) deployments throughout our data centers. The analytics engine uses Nuke to collect the entire Atom feed data so it can be marshalled into a [Hadoop](http://hadoop.apache.org/) cluster. By combining our Atom Nuke and Atom Hopper tools, we've enabled complete portability of data: we can combine Atom events with data from other sources such as [Rabbit MQ](http://www.rabbitmq.com/) messages and [Flume](http://flume.apache.org/) logs without requiring consumers of that data to deal with the complexities of interacting with those dissimilar sources.
+Using Atom Nuke, we collect data from the Atom feeds supplied by [Atom Hopper](https://atomhopper.org/), another of our open-source tools. We then take that Atom data and feed it into several systems, including those that perform analytics on [OpenStack](https://openstack.org/) deployments throughout our data centers. The analytics engine uses Nuke to collect the entire Atom feed data so it can be marshalled into a [Hadoop](https://hadoop.apache.org/) cluster. By combining our Atom Nuke and Atom Hopper tools, we've enabled complete portability of data: we can combine Atom events with data from other sources such as [Rabbit MQ](https://www.rabbitmq.com/) messages and [Flume](https://flume.apache.org/) logs without requiring consumers of that data to deal with the complexities of interacting with those dissimilar sources.
 
 ##Nuke Makes Working with Atom Easy
 
 Atom Nuke excels as a an Atom feed crawler, since you can poll multiple feeds from multiple endpoints as well as define the polling intervals down to milliseconds. In addition, you can select events in response to specific triggers, such as when a specific Atom entry contains a subscribed category. However, Nuke is much more than a feed crawler, it can create its own Atom feeds if needed.
 
-We built Atom Nuke with [Java](http://java.com/) but we recently extended support to [Python](http://python.org/). Nuke is licensed under the [Apache 2 license](http://www.apache.org/licenses/LICENSE-2.0.html) and was created by [John Hopper](https://github.com/zinic), a software engineer on the Rackspace Cloud Integration team. We've created some tutorials to get developers [started with Nuke](http://www.giantflyingsaucer.com/blog/?cat=61).
+We built Atom Nuke with [Java](https://java.com/) but we recently extended support to [Python](https://python.org/). Nuke is licensed under the [Apache 2 license](https://www.apache.org/licenses/LICENSE-2.0.html) and was created by [John Hopper](https://github.com/zinic), a software engineer on the Rackspace Cloud Integration team. We've created some tutorials to get developers [started with Nuke](https://www.giantflyingsaucer.com/blog/?cat=61).
 
 ##Building with Boxes, Not Bricks
 
@@ -79,6 +79,6 @@ Writing about a different kind of atom in a world that was just beginning to und
 
 ---H.G. Wells, _The World Set Free_, 1914
 
-We're now at a similar point with the technology of our time. We have explored enabling technologies, such as Atom, and have begun fully using and building upon their capabilities, putting them to work in new ways to make new things possible. As we begin building with Atom Nuke, we're using Atom not as a brick, but as a treasure box, containing amazing possibilities for fission and fusion, dividing and combining data to make new applications possible. By making Atom Nuke and some of our other projects such as [Atom Hopper](http://atomhopper.org/) available as open source, we hope we are also creating treasure boxes filled with ideas and possibilities.
+We're now at a similar point with the technology of our time. We have explored enabling technologies, such as Atom, and have begun fully using and building upon their capabilities, putting them to work in new ways to make new things possible. As we begin building with Atom Nuke, we're using Atom not as a brick, but as a treasure box, containing amazing possibilities for fission and fusion, dividing and combining data to make new applications possible. By making Atom Nuke and some of our other projects such as [Atom Hopper](https://atomhopper.org/) available as open source, we hope we are also creating treasure boxes filled with ideas and possibilities.
 
-To learn more about Atom Nuke, visit our [project site](http://atomnuke.org/) and check out the [source code on GitHub](https://github.com/zinic/atom-nuke/).
+To learn more about Atom Nuke, visit our [project site](https://atomnuke.org/) and check out the [source code on GitHub](https://github.com/zinic/atom-nuke/).

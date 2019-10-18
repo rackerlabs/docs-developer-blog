@@ -12,7 +12,7 @@ categories:
 A Performance comparison: Apache vs NGINX and OpenStack Keystone
 ================================================================
 
-In a previous [article](https://developer.rackspace.com/blog/keystone_horizon_nginx_Ubuntu_1604),  I showed how to configure keystone to run behind NGINX instead of current recommended configuration using Apache. Since its inception, NGINX has enjoyed significant growth in the web server space. Netcraft monthly data web server market share for NGINX has grown significantly since its introduction. Data for May 2016 can be found at: http://news.netcraft.com/archives/2016/05/26/may-2016-web-server-survey.html
+In a previous [article](https://developer.rackspace.com/blog/keystone_horizon_nginx_Ubuntu_1604),  I showed how to configure keystone to run behind NGINX instead of current recommended configuration using Apache. Since its inception, NGINX has enjoyed significant growth in the web server space. Netcraft monthly data web server market share for NGINX has grown significantly since its introduction. Data for May 2016 can be found at: https://news.netcraft.com/archives/2016/05/26/may-2016-web-server-survey.html
 <!-- more -->
 
 From that data, it is clear that in the OpenStack, Linux based world there are two web server leaders and potential choices to run as an interface for Keystone. In making this choice, there are a number of factors to consider, including ease of set up, security, and server performance. 
@@ -29,23 +29,23 @@ Seige (https://www.joedog.org/siege-home/) was used to load test keystone.
 
 The Siege query repeatedly queryed Keystone for a list of projects using an http request including the token as a header in the request. Since only two projects had been created, the complete response fit within a single TCP packet. The test software (Siege) only needed to check the packet size and that there was a 200 response code in the packet. The token was obtained using curl and stored as a shell variable for reuse in each query. The command to obtain a token was: 
 
-    export OS_TOKEN=`curl -i -H "Content-Type: application/json" -d '{ "auth": { "identity": { "methods": ["password"], "password": { "user": { "name": "'"$OS_USERNAME"'", "domain": { "id": "default" }, "password": "'"$OS_PASSWORD"'" } } }, "scope": { "project": { "name": "'"$OS_TENANT_NAME"'", "domain": { "id": "default" } } } } }' http://10.0.1.3:5000/v3/auth/tokens|grep "X-Subject"|cut -d' ' -f2`
+    export OS_TOKEN=`curl -i -H "Content-Type: application/json" -d '{ "auth": { "identity": { "methods": ["password"], "password": { "user": { "name": "'"$OS_USERNAME"'", "domain": { "id": "default" }, "password": "'"$OS_PASSWORD"'" } } }, "scope": { "project": { "name": "'"$OS_TENANT_NAME"'", "domain": { "id": "default" } } } } }' https://10.0.1.3:5000/v3/auth/tokens|grep "X-Subject"|cut -d' ' -f2`
 
 I have found that a recently started Apache server takes a while to get all of its wsgi processes/threads started and connected to database, so I executed a short siege run to get everything going before I ran the test series.
 
 The warmup run was:
 
-    siege -c 200 -t60s -H "X-Auth-Token: $OS_TOKEN"  http://10.0.1.3:5000/v3/projects 
+    siege -c 200 -t60s -H "X-Auth-Token: $OS_TOKEN"  https://10.0.1.3:5000/v3/projects 
 
 This gets the Apache server loaded before doing the performance testing runs. As a side note, NGINX did not seem to need this preloading, but I did it on NGINX for consistency
 
 The performance tests were run in two parts, first, scale from 10 concurrent connections to 100 connections using the command:
 
-    for II in {10..100..10}; do siege -c $II -t120s -H "X-Auth-Token: $OS_TOKEN"  http://10.0.1.3:5000/v3/projects; sleep 30; done
+    for II in {10..100..10}; do siege -c $II -t120s -H "X-Auth-Token: $OS_TOKEN"  https://10.0.1.3:5000/v3/projects; sleep 30; done
 
 Next, obtain a new token and sweep from 100 concurrent connections to 1000 connections using this command:
 
-    for II in {100..1000..100}; do siege -c $II -t120s -H "X-Auth-Token: $OS_TOKEN"  http://10.0.1.3:5000/v3/projects; sleep 30; done
+    for II in {100..1000..100}; do siege -c $II -t120s -H "X-Auth-Token: $OS_TOKEN"  https://10.0.1.3:5000/v3/projects; sleep 30; done
 
 Apache2 was installed using the configuration that comes in the Keystone source code, running behind Apache using mod_wsgi. The OpenStack Keystone/Apache reference configuration uses 5 wsgi processes with 1 thread per process. The NGINX configuration from my blog article uses 10 uwsgi processes and 2 threads per process, which I used in my initial comparison. Although these potentially could give vastly different  levels of performance due to the number of additional processes available to NGINX, both NGINX and Apache came very close to each other's maximum number of transactions per second (see the graphs below). This is due to the fact that it the performance limiter is the keystone code and not the web-server code. To establish this, I used `top` to monitor the CPU load while running a load test. For Apache, the wsgi processes completely dominated as the top consumers of the CPU and uwsgi processes for NGINX. These processes are the ones running the Keystone code.
 

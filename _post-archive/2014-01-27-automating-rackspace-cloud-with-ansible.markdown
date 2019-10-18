@@ -17,7 +17,7 @@ categories:
 
 
 This is a guest post written by Michael DeHaan, CTO at
-[AnsibleWorks](http://ansible.com).
+[AnsibleWorks](https://ansible.com).
 AnsibleWorks provides IT orchestration solutions that simplify the way
 IT manages systems, applications, and infrastructure.
 
@@ -32,7 +32,7 @@ In conjunction with several folks at Rackspace, we now have a lot of quality
 modules (and more pull requests underwway) for adding in additional
 functionality -- both cloud provisioning, managing Rackspace Cloud load
 balancers, and creating new networks.  Those interested should check out
-the [Rackspace Cloud Guide](http://docs.ansible.com/guide_rax.html).
+the [Rackspace Cloud Guide](https://docs.ansible.com/guide_rax.html).
 
 What's nice about these modules is they not only bring up new instances --
 but allow them to be fully configured at the end of the process, and
@@ -58,5 +58,5 @@ there are no extra processes to babysit, or ports to open.
 In the coming months, look for even more improvements to the Rackspace Cloud modules!
 
 Check us out on github at
-[github.com/ansible/ansible](http://github.com/ansible/ansible) and you can
-also follow us on twitter at [@ansible](http://twitter.com/ansible).
+[github.com/ansible/ansible](https://github.com/ansible/ansible) and you can
+also follow us on twitter at [@ansible](https://twitter.com/ansible).

@@ -9,9 +9,9 @@ categories:
   - Cloud Files
 ---
 
-Rackspace cloud files which is based on [Openstack Swift](http://docs.openstack.org/developer/swift/)
+Rackspace cloud files which is based on [Openstack Swift](https://docs.openstack.org/developer/swift/)
 provides reliable & fast, object storage and you can read more about the product
-[here](http://www.rackspace.com/cloud/files/technology/).
+[here](https://www.rackspace.com/cloud/files/technology/).
 
 In Cloud Files, there is no built-in way to do aliases or multiple names to the
 same object. However, after some documentation trolling and speaking to some of
@@ -22,7 +22,7 @@ straightforward.
 
 Cloud Files offers large file (over 5G) support by allowing multiple segments
 to be uploaded and then a manifest that links the segments. This
-[blog post](http://www.rackspace.com/blog/rackspace-cloud-files-now-supporting-extremely-large-file-sizes/)
+[blog post](https://www.rackspace.com/blog/rackspace-cloud-files-now-supporting-extremely-large-file-sizes/)
 explains the concept well.
 
 We can leverage the same feature to achieve symlinking/aliasing. To begin with get an auth token:
@@ -76,10 +76,10 @@ Then create a link for analyze.txt:
 
 Test with curl
 
-	 curl http://54f0e726bcfd86d8ba66-784e69335b6098f55ce69a880b15667d.r49.cf3.rackcdn.com/analyse.txt
+	 curl https://54f0e726bcfd86d8ba66-784e69335b6098f55ce69a880b15667d.r49.cf3.rackcdn.com/analyse.txt
 	 Analys(z)e  This !! :)
 
-	 curl http://54f0e726bcfd86d8ba66-784e69335b6098f55ce69a880b15667d.r49.cf3.rackcdn.com/analyze.txt
+	 curl https://54f0e726bcfd86d8ba66-784e69335b6098f55ce69a880b15667d.r49.cf3.rackcdn.com/analyze.txt
 	 Analys(z)e  This !! :)
 
 We have effectively created a symlink to another object inside the cloud files container.

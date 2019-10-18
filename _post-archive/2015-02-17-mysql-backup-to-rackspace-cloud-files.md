@@ -63,4 +63,4 @@ Assuming you already have Ansible installed, you can execute the playbook:
 
 Once completed, you will be able to log into the Cloud Control Panel and, under the Cloud Files tab, find your backups within the container designated.
 
-You can find detailed reference material on the Rackspace Cloud Files under the Storage & Content Delivery Services heading here:  http://docs.rackspace.com/
+You can find detailed reference material on the Rackspace Cloud Files under the Storage & Content Delivery Services heading here:  https://docs.rackspace.com/

@@ -12,14 +12,14 @@ categories:
   - java
 ---
 
-Many of our customers use configuration management packages to manage their cloud infrastructure. These packages include Opscode's [Chef](http://www.opscode.com/chef/), [CFEngine](http://cfengine.com/), Red Hat's [Spacewalk](http://spacewalk.redhat.com/), and Puppet Labs' [Puppet](http://puppetlabs.com/puppet/what-is-puppet/). Here, I'll dive into Puppet to show you how easy it is to manage Cloud Servers using a configuration management solution. We're going to create two servers: a puppetmaster and a client server running puppet.
+Many of our customers use configuration management packages to manage their cloud infrastructure. These packages include Opscode's [Chef](https://www.opscode.com/chef/), [CFEngine](https://cfengine.com/), Red Hat's [Spacewalk](https://spacewalk.redhat.com/), and Puppet Labs' [Puppet](https://puppetlabs.com/puppet/what-is-puppet/). Here, I'll dive into Puppet to show you how easy it is to manage Cloud Servers using a configuration management solution. We're going to create two servers: a puppetmaster and a client server running puppet.
 
 <!-- more -->
 
 #### Create a puppetmaster and client
 
 
-First, we need to create the Cloud Servers that will serve as our puppetmaster and client. I'm using the [novaclient](http://devops.rackspace.com/getting-started-using-python-novaclient-to-manage-cloud-servers.html) to create Ubuntu 12.04 servers for this purpose:
+First, we need to create the Cloud Servers that will serve as our puppetmaster and client. I'm using the [novaclient](https://devops.rackspace.com/getting-started-using-python-novaclient-to-manage-cloud-servers.html) to create Ubuntu 12.04 servers for this purpose:
 
 
     nova boot --image 5cebb13a-f783-4f8c-8058-c4182c724ccd --flavor 3 --file /root/.ssh/authorized_keys=/Users/hart.hoover/.ssh/id_rsa.pub master
@@ -41,13 +41,13 @@ Now we are ready to configure puppet.
 You have several options for installing puppetmaster. You can use the package available in Ubuntu's repository or you can use Puppet Lab's apt repository. For this example, I will use the version from Puppet Lab's repository:
 
 ```bash
-wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb
+wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
 dpkg -i puppetlabs-release-precise.deb
 apt-get -y install puppetmaster
 service puppetmaster stop
 ```
 
-At this point, we need to configure the puppetmaster for use with our environment. One way to do this is by editing /etc/hosts, but that is tedious and goes against what we want to accomplish with configuration management. I will use a configuration option called [dns_alt_names](http://docs.puppetlabs.com/references/latest/configuration.html#dnsaltnames) to use my own domain.
+At this point, we need to configure the puppetmaster for use with our environment. One way to do this is by editing /etc/hosts, but that is tedious and goes against what we want to accomplish with configuration management. I will use a configuration option called [dns_alt_names](https://docs.puppetlabs.com/references/latest/configuration.html#dnsaltnames) to use my own domain.
 
 ```bash
 rm -rf /var/lib/puppet/ssl
@@ -61,7 +61,7 @@ Under the "[master]" header, add the following and restart the service:
     service puppetmaster start
 
 
-Make sure you set your puppetmaster DNS record to the server's [ServiceNet](http://www.rackspace.com/knowledge_center/frequently-asked-question/what-is-servicenet) address to avoid bandwidth charges.
+Make sure you set your puppetmaster DNS record to the server's [ServiceNet](https://www.rackspace.com/knowledge_center/frequently-asked-question/what-is-servicenet) address to avoid bandwidth charges.
 
 #### Setting up a client
 
@@ -69,7 +69,7 @@ Make sure you set your puppetmaster DNS record to the server's [ServiceNet](http
 SSH to the puppet client server and install the Puppet Labs repository and puppet:
 
 ```bash
-wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb
+wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
 dpkg -i puppetlabs-release-precise.deb
 apt-get -y install puppet
 service puppet stop
@@ -168,4 +168,4 @@ Puppet will read the site.pp from the puppetmaster and install MySQL. Success!
 #### Want to know more?
 
 
-For more information on Puppet, Puppet Labs has fantastic [documentation](http://docs.puppetlabs.com/). Manifests and modules are available on [Github](https://github.com/puppetlabs). <del>Stay tuned</del> [Click here](http://devops.rackspace.com/using-libcloud-and-puppet-to-bootstrap-cloud-servers.html) for a post on how to use Puppet to bootstrap new Cloud Servers.
+For more information on Puppet, Puppet Labs has fantastic [documentation](https://docs.puppetlabs.com/). Manifests and modules are available on [Github](https://github.com/puppetlabs). <del>Stay tuned</del> [Click here](https://devops.rackspace.com/using-libcloud-and-puppet-to-bootstrap-cloud-servers.html) for a post on how to use Puppet to bootstrap new Cloud Servers.

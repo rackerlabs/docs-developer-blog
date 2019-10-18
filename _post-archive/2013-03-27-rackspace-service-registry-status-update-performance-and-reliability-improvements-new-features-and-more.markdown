@@ -7,7 +7,7 @@ author: Tomaz Muraus
 categories:
   - General
 ---
-Back in November we announced the [Rackspace Service registry preview](http://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/).
+Back in November we announced the [Rackspace Service registry preview](https://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/).
 Since then we have been busy listening to user feedback, using that data along
 with other metrics and inputs to improve our service in different ways.
 
@@ -31,21 +31,21 @@ performed recently has been an upgrade from Cassandra 1.1 to Cassandra 1.2.
 When we initially started working on Rackspace Service registry, Cassandra 1.2
 hasn’t been stable yet and that is why we started with 1.1. We have primarily
 upgraded to 1.2 so we can, among other things, take an advantage of an
-optimized and more efficient [tombstone removal](http://www.datastax.com/dev/blog/tombstone-removal-improvement-in-1-2)
-and a great new feature called [virtual nodes](http://www.datastax.com/dev/blog/virtual-nodes-in-cassandra-1-2).
+optimized and more efficient [tombstone removal](https://www.datastax.com/dev/blog/tombstone-removal-improvement-in-1-2)
+and a great new feature called [virtual nodes](https://www.datastax.com/dev/blog/virtual-nodes-in-cassandra-1-2).
 
 {% img center 2013-03-27-rackspace-service-registry-status-update/vnodes.png %}
 <p style="text-align: center">Virtual nodes among other things make operations
 such as bootstrap faster and allow users to more easily run Cassandra on
-heterogeneous hardware. Picture taken from http://www.datastax.com.</p>
+heterogeneous hardware. Picture taken from https://www.datastax.com.</p>
 
 Prior to making the Cassandra 1.2 upgrade, we needed to make [some changes](https://github.com/racker/node-cassandra-client/pull/64)
 to the [open source Node.js Cassandra client](https://github.com/racker/node-cassandra-client)
 we are one of the main contributors to.
 The client now works with Cassandra 1.2 using a default Thrift transport in CQL
 2.0 compatibility mode. We currently have other priorities and no short-term
-plans for switching to [CQL 3.0](http://www.datastax.com/dev/blog/whats-new-in-cql-3-0)
-or the [new binary protocol](http://www.datastax.com/dev/blog/binary-protocol).
+plans for switching to [CQL 3.0](https://www.datastax.com/dev/blog/whats-new-in-cql-3-0)
+or the [new binary protocol](https://www.datastax.com/dev/blog/binary-protocol).
 This functionality is not available in the client yet. If you need this
 functionality yourself and you are willing to contribute it please free to do
 so. The Node.js Cassandra client is an open-source Apache 2.0 licensed project
@@ -53,13 +53,13 @@ and contributions of any kind (code, documentation, tests) are are appreciated
 and more than welcome.
 
 Another Apache Cassandra 1.2 feature we have recently started experimenting
-with is [PBS consistency predictions](http://www.bailis.org/blog/using-pbs-in-cassandra-1.2.0/).
+with is [PBS consistency predictions](https://www.bailis.org/blog/using-pbs-in-cassandra-1.2.0/).
 
 In a nutshell, PBS helps you to measure and figure out how eventual and how
 consistent is the eventual consistency. You can then use those measurements and
 predictions to determine the optimal consistency value which should be used for
 different Cassandra reads and writes. If you want to know more about PBS we
-encourage you to check [this page](http://pbs.cs.berkeley.edu/).
+encourage you to check [this page](https://pbs.cs.berkeley.edu/).
 
 We have only just begun, so we don’t have a lot of data and insights yet.
 When we do, we will make sure to share observations from our single-region
@@ -68,7 +68,7 @@ blog post.
 
 ### Configuration namespaces
 
-The [configuration storage](http://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/overview.html#what-is-rackspace-service-registry-configuration-storage)
+The [configuration storage](https://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/overview.html#what-is-rackspace-service-registry-configuration-storage)
 feature allows users to store arbitrary key/value pairs in our system and get
 notified when a value is updated or removed. This allows you to build more
 robust and responsive services which react to configuration changes faster.
@@ -163,7 +163,7 @@ updated all of our official client libraries so if you use one of those make
 sure to upgrade to the latest version (0.2.x for Node.js and Python client
 libraries and 2.0.x for Java client library).
 
-For more information, please see the [release notes page](http://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/release-notes.html#release-notes-v20-march-2013).
+For more information, please see the [release notes page](https://docs.rackspace.com/rsr/api/v1.0/sr-devguide/content/release-notes.html#release-notes-v20-march-2013).
 
 ### External bindings and API integration
 
@@ -182,12 +182,12 @@ improvements. A few of them are listed below.
 
 Node.js client library now exposes a higher level interface for working with
 the events feed called [EventsFeedPoller](https://github.com/racker/node-service-registry-client/blob/master/lib/events_feed_poller.js).
-In the background this class implements the [EventEmitter](http://nodejs.org/api/events.html#events_events)
+In the background this class implements the [EventEmitter](https://nodejs.org/api/events.html#events_events)
 interface and takes care of periodically polling the events feed and emitting
 an event when a new item has been detected in the event feed.
 
 If you are not familiar with the EventEmitter concept in Node.js you can read
-more about it [here](http://www.mshiltonj.com/blog/2011/10/04/nodejs-eventemitter-example-with-custom-events/).
+more about it [here](https://www.mshiltonj.com/blog/2011/10/04/nodejs-eventemitter-example-with-custom-events/).
 
 Here is a short example which demonstrates its usage:
 
@@ -232,10 +232,10 @@ If you don’t have access yet you can request it by filling out
 [this survey](https://surveys.rackspace.com/Survey.aspx?s=f3d6e51580ab4510a564487fafdafdfd).
 
 _This is a guest post from Tomaz Muraus. Tomaz is a Racker and a project
-lead for the [Rackspace Service registry](http://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/) product. He is also a project chair
-of [Apache Libcloud](http://libcloud.apache.org/), an open-source project
+lead for the [Rackspace Service registry](https://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/) product. He is also a project chair
+of [Apache Libcloud](https://libcloud.apache.org/), an open-source project
 which deals with cloud interoperability. Before working on Service Registry
-he worked on the [Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/)
+he worked on the [Cloud Monitoring](https://www.rackspace.com/cloud/monitoring/)
 product and before joining Rackspace, he worked at
 [Cloudkick](https://www.cloudkick.com/) helping customers manage and monitor
 their infrastructure. In his free time, he loves writing code, contributing

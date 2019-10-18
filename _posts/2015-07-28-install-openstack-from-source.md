@@ -194,14 +194,14 @@ Create the credentials files used by the openstack commands to authenticate to k
 
     cat >> openrc_admin << EOF
     export OS_SERVICE_TOKEN=SuperSecreteKeystoneToken
-    export OS_SERVICE_ENDPOINT=http://$MY_IP:35357/v2.0
+    export OS_SERVICE_ENDPOINT=https://$MY_IP:35357/v2.0
     EOF
 
     cat >> openrc << EOF
     export OS_USERNAME=admin
     export OS_PASSWORD=secrete
     export OS_TENANT_NAME=demo
-    export OS_AUTH_URL=http://$MY_IP:35357/v2.0
+    export OS_AUTH_URL=https://$MY_IP:35357/v2.0
     export OS_REGION_NAME=RegionOne
     EOF
 

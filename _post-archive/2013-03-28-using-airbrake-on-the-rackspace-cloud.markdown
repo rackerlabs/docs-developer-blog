@@ -17,9 +17,9 @@ Airbrake is an application that collects, de-dupes and notifies developers of er
 One of the best things about Airbrake is its ecosystem of “reporters” -  a range of open source notifiers that receive comprehensive crash reports on an application. There are notifier solutions for mainstream languages like [Ruby](https://github.com/airbrake/airbrake), [Java](https://github.com/airbrake/airbrake-java), [Php](https://github.com/airbrake/airbrake-php),[Node](https://github.com/felixge/node-airbrake) and [Javascript](https://github.com/airbrake/airbrake-js), and Airbrake is increasingly useful when trying to debug less common languages like [Erlang](https://github.com/kenpratt/erlbrake), [Scala](https://github.com/stackmob/stackmob-airbrake) or even [iOS](https://github.
 com/airbrake/airbrake-ios) and [Android](https://github.com/airbrake/airbrake-android) mobile apps.
 
-Having all errors consolidated in one place provides developers a comprehensive overview of complete application health. But it doesn't stop there. Airbrake’s API is flexible to use on backend services such as [resque](http://blog.airbrake.io/how-to/catching-resque-errors-with-airbrake/) and [sidekiq](https://github.com/mperham/sidekiq/wiki/Middleware#default-middleware), or other DevOps tools like [Chef](https://github.com/morgoth/airbrake_handler).
+Having all errors consolidated in one place provides developers a comprehensive overview of complete application health. But it doesn't stop there. Airbrake’s API is flexible to use on backend services such as [resque](https://blog.airbrake.io/how-to/catching-resque-errors-with-airbrake/) and [sidekiq](https://github.com/mperham/sidekiq/wiki/Middleware#default-middleware), or other DevOps tools like [Chef](https://github.com/morgoth/airbrake_handler).
 
-Airbrake setup depends on the language. Once a Gem, Package, Jar or Code is installed, an API key from [Airbrake](http://airbrake.io) is required. Most reporters have comprehensive tools for testing and setup.
+Airbrake setup depends on the language. Once a Gem, Package, Jar or Code is installed, an API key from [Airbrake](https://airbrake.io) is required. Most reporters have comprehensive tools for testing and setup.
 
 ##Fine tuning Airbrake for the Rackspace Open Cloud. 
 
@@ -96,7 +96,7 @@ Like an inbox is a constant reminder of pending messages and tasks, Airbrake can
 
 Getting to Airbrake Zero (or having all errors cleared) may be impossible for a large application, but now you'll have the insight to make DevOps even faster. So, go forth, “move fast and fix things.”
 
-Sign up for Airbrake at [http://airbrake.io](http://airbrake.io)!
+Sign up for Airbrake at [https://airbrake.io](https://airbrake.io)!
 
 {% img center 2013-03-28-using-airbrake/airbrake2.png %}
 

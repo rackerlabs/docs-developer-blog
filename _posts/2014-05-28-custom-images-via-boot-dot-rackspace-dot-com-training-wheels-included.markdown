@@ -11,12 +11,12 @@ categories:
 ---
 
 With the recent announcement of
-[Cloud Images](http://www.rackspace.com/cloud/images/), creating custom images
-for the [Rackspace Public Cloud](http://www.rackspace.com/cloud/servers)
+[Cloud Images](https://www.rackspace.com/cloud/images/), creating custom images
+for the [Rackspace Public Cloud](https://www.rackspace.com/cloud/servers)
 is now a functionality users have at their disposal.
 
 To simplify the custom image creation process, Rackspace released
-[boot.rackspace.com](http://boot.rackspace.com), a collection of iPXE scripts
+[boot.rackspace.com](https://boot.rackspace.com), a collection of iPXE scripts
 that allows you to rapidly network boot Operating Systems, Utilities and other
 tools very easily. It's especially useful for remote access environments when
 you don't want to utilize remote attached CD's in a Dell DRAC, HP iLO or some other
@@ -30,8 +30,8 @@ running a custom version of __Ubuntu 12.04__ via boot.rackspace.com.
 
 ### Assumptions
 
-* You have an existing [Public Cloud](http://mycloud.rackspace.com) account.
-* [python-novaclient](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os) is installed.
+* You have an existing [Public Cloud](https://mycloud.rackspace.com) account.
+* [python-novaclient](https://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os) is installed.
 
 ### Notes
 
@@ -53,7 +53,7 @@ nova boot --image=7c526505-bc72-4e3c-8d9a-e700c0acf299 --flavor=performance1-2 m
 
 __2. Connect to the boot.rackspace.com VM via the Console__
 
-* Log into [mycloud.rackspace.com](http://mycloud.rackspace.com)
+* Log into [mycloud.rackspace.com](https://mycloud.rackspace.com)
 * Once the VM is **Active**, click on the **Actions** available in the **Server
   Details**, and select **Connect Via Console**.
 
@@ -112,7 +112,7 @@ Now proceed to install XenServer Tools and the Nova Agent.
       for configuration via the xenstore
 
 ```
-curl -skS -L http://git.io/nUeUrA | sudo bash
+curl -skS -L https://git.io/nUeUrA | sudo bash
 ```
 
 * Nova Agent
@@ -123,7 +123,7 @@ curl -skS -L http://git.io/nUeUrA | sudo bash
       handle updates of itself.
 
 ```
-curl -skS -L http://git.io/_tdvZw | sudo bash
+curl -skS -L https://git.io/_tdvZw | sudo bash
 ```
 
 * Clear out the network interfaces
@@ -206,8 +206,8 @@ served as the Chief Architect of the Service Provider Program. Prior to joining
 Rackspace, Mike held senior technical roles at Sandia National Laboratories
 performing research and development in Cyber Security with regards to
 distributed systems, cloud and mobile computing. You can follow Mike on Twitter
-[@mikemetral](http://twitter.com/mikemetral) and Github as
-[metral](http://github.com/metral)
+[@mikemetral](https://twitter.com/mikemetral) and Github as
+[metral](https://github.com/metral)
 
 ### Reference Material / Official Documentation
 

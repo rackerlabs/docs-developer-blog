@@ -14,7 +14,7 @@ Imagine a MySQL database you need not install, configure, optimize, or update.
 One that you can instantiate on demand or scrap when you don't need it any
 more. Sounds great - in a nutshell, that is what you get with Cloud Databases.
 While you can access Cloud Databases using a bunch of different languages,
-here I will do it by using Java with [jclouds](http://jclouds.apache.org/start/what-is-jclouds/).
+here I will do it by using Java with [jclouds](https://jclouds.apache.org/start/what-is-jclouds/).
 
 <!-- more -->
 

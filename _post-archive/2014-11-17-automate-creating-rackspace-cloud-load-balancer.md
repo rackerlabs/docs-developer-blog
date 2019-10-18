@@ -24,7 +24,7 @@ Currently, my favorite automation tool is Ansible, so the following discussion u
 
 ####Rackspace Modules for Ansible
 
-The folks over at Ansible did a lot of forward thinking and decided to include numerous modules which integrate, out of the box, into Ansible.  The full list of modules can be found at:  [Ansible Modules](http://docs.ansible.com/modules_by_category.html)
+The folks over at Ansible did a lot of forward thinking and decided to include numerous modules which integrate, out of the box, into Ansible.  The full list of modules can be found at:  [Ansible Modules](https://docs.ansible.com/modules_by_category.html)
 
 The cloud-specific modules can be found under the category of Cloud Modules.  At that point, you can pick your provider of choice.  Of course, my favorite provider is Rackspace.
 
@@ -83,4 +83,4 @@ Assuming you already have Ansible install, you can execute the playbook:
 
 Once completed, you should find the newly created load balancer, the SSL certificate added to the load balancer, the SSL redirect enabled, and a corresponding DNS record within the Cloud Control Panel.
 
-You can find detailed reference material on the Rackspace Cloud Load Balancer and Cloud DNS under the Network Services heading here:  http://docs.rackspace.com/
+You can find detailed reference material on the Rackspace Cloud Load Balancer and Cloud DNS under the Network Services heading here:  https://docs.rackspace.com/

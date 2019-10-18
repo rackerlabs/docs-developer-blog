@@ -6,18 +6,18 @@ comments: false
 author: Josh Mattson
 published: true
 authorIsRacker: true
-authorAvatar: 'http://www.gravatar.com/avatar/791617263c70278859e1b26c15d13eab'
+authorAvatar: 'https://www.gravatar.com/avatar/791617263c70278859e1b26c15d13eab'
 categories:
     - DevOps
 ---
 
-[Rackspace Application Services](https://www.rackspace.com/en-us/digital/rackspace-application-services) provides application support and management to a wide variety of customers ranging in size from small environments with only a few application servers to customers that run thousands of Java Virtual Machines (or JVMs) across their environment.  To help facilitate this, we heavily rely on [Ansible](https://www.ansible.com/) to help us automate implementation, troubleshooting, and maintenance tasks.  While Ansible is quite powerful and easy to use, many organizations do not take full advantage of some of the features that it provides.  In this article, we'll be discussing how you can extend Jinja2 and Ansible's built-in [filter plugins](http://docs.ansible.com/ansible/latest/dev_guide/developing_plugins.html#filter-plugins) and how you can craft a completely new filter plugin to make specific tasks easier.
+[Rackspace Application Services](https://www.rackspace.com/en-us/digital/rackspace-application-services) provides application support and management to a wide variety of customers ranging in size from small environments with only a few application servers to customers that run thousands of Java Virtual Machines (or JVMs) across their environment.  To help facilitate this, we heavily rely on [Ansible](https://www.ansible.com/) to help us automate implementation, troubleshooting, and maintenance tasks.  While Ansible is quite powerful and easy to use, many organizations do not take full advantage of some of the features that it provides.  In this article, we'll be discussing how you can extend Jinja2 and Ansible's built-in [filter plugins](https://docs.ansible.com/ansible/latest/dev_guide/developing_plugins.html#filter-plugins) and how you can craft a completely new filter plugin to make specific tasks easier.
 
 <!-- more -->
 
 ### Filters basics
 
-Jinja2 comes with a [significant number](http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters) of filters that are, at their core, simply a way to transform data.  Ansible has also extended and expanded upon these filters to perform more common tasks related to systems orchestration and management.
+Jinja2 comes with a [significant number](https://jinja.pocoo.org/docs/2.10/templates/#builtin-filters) of filters that are, at their core, simply a way to transform data.  Ansible has also extended and expanded upon these filters to perform more common tasks related to systems orchestration and management.
 
 Let's look at a very simple example to illustrate the concept.  Suppose that we have a variable that can be inputted in to one of our playbooks, but this variable may contain leading or trailing whitespace which your playbook needs to account for – perhaps an API key or something that could easily run in to issues if incorrectly copy & pasted when executing the playbook.  We can use the built-in Jinja2 filter `trim` to address this in our template to very quickly strip out all extraneous whitespace:
 

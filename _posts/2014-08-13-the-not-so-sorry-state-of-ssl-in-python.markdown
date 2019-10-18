@@ -33,7 +33,7 @@ PyCon](https://hynek.me/talks/tls/).
 ### Current State and Requirements
 This situation is unacceptable, given that Python 2 is going to continue to see
 production usage for many years to come. As a result, we advocated strongly for
-[PEP 466](http://legacy.python.org/dev/peps/pep-0466/), which provides
+[PEP 466](https://legacy.python.org/dev/peps/pep-0466/), which provides
 permission to backport many of these improvements to Python 2.
 
 A few of the important features missing from Python 2 are:
@@ -94,7 +94,7 @@ A few of the issues we ran across were:
    a way that often wasn't possible to emulate in Python 2.
 4. The `ssl` module is deeply coupled to the `socket` module, and many of the
    internals of the `socket` module were changed in Python 3 to fully
-   participate in [PEP 3116](http://legacy.python.org/dev/peps/pep-3116/).
+   participate in [PEP 3116](https://legacy.python.org/dev/peps/pep-3116/).
 5. Most of the code for the `ssl` module is written in C, rather than in
    Python. C code is considerably more difficult to work with than Python code,
    while all of the Python-code differences were easy to work around, the C API

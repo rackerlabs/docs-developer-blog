@@ -58,5 +58,5 @@ For example to list servers in the IAD data center you would execute the followi
 
 ### About the Author
 
-Kyle Rames is a developer advocate for the Rackspace Cloud specializing in all things Ruby. You can follow him on twitter [@krames](http://twitter.com/krames) and on Github as [krames](https://github.com/krames).
+Kyle Rames is a developer advocate for the Rackspace Cloud specializing in all things Ruby. You can follow him on twitter [@krames](https://twitter.com/krames) and on Github as [krames](https://github.com/krames).
 

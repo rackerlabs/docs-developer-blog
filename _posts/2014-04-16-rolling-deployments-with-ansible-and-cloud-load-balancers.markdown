@@ -168,13 +168,13 @@ a great enabler for your team, ops, devs, product managers, etc.. will all
 benefit from the ability to deploy code at any time without interruption.
 
   [0]: https://developer.rackspace.com/blog/zero-downtime-deployments-with-pkgcloud-and-cloud-load-balancers.html
-  [1]: http://www.ansible.com
-  [2]: http://www.rackspace.com/cloud/load-balancing/
-  [3]: http://docs.ansible.com/rax_clb_module.html
-  [4]: http://docs.ansible.com/playbooks_variables.html#registered-variables
-  [5]: http://docs.ansible.com/debug_module.html
-  [6]: http://docs.ansible.com/fail_module.html
-  [7]: http://docs.ansible.com/add_host_module.html
-  [8]: http://docs.ansible.com/playbooks_delegation.html#rolling-update-batch-size
-  [9]: http://docs.ansible.com/rax_clb_nodes_module.html
-  [10]: http://docs.ansible.com/playbooks_loops.html#do-until-loops
+  [1]: https://www.ansible.com
+  [2]: https://www.rackspace.com/cloud/load-balancing/
+  [3]: https://docs.ansible.com/rax_clb_module.html
+  [4]: https://docs.ansible.com/playbooks_variables.html#registered-variables
+  [5]: https://docs.ansible.com/debug_module.html
+  [6]: https://docs.ansible.com/fail_module.html
+  [7]: https://docs.ansible.com/add_host_module.html
+  [8]: https://docs.ansible.com/playbooks_delegation.html#rolling-update-batch-size
+  [9]: https://docs.ansible.com/rax_clb_nodes_module.html
+  [10]: https://docs.ansible.com/playbooks_loops.html#do-until-loops

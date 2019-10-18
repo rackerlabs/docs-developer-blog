@@ -19,7 +19,7 @@ somewhat distinct purposes:
 2. Storage & Content Delivery for user-uploaded images (photos and user avatars)
 3. Storage for nightly database backups.
 
-I've [previously written](http://www.rackspace.com/blog/work-for-pie-cloud-files/)
+I've [previously written](https://www.rackspace.com/blog/work-for-pie-cloud-files/)
 a bit about how our web app deals with the first two cases, but in this article,
 I'll list of the tools that I personally use to work with Cloud Files.<!-- more -->
 
@@ -102,7 +102,7 @@ day:
 
 **Deploy static assets with a Fabric Task**
 
-  We're a Django shop, and I Use [Fabric](http://fabfile.org/) for a number
+  We're a Django shop, and I Use [Fabric](https://fabfile.org/) for a number
   of tasks, particularly to deploy individual django apps. My task to deploy
   static assets looks something like the following:
 
@@ -145,7 +145,7 @@ incindents decline dramatically. Of course, when troubles do pop up, I'm quite
 satisfied by the support that I recieve.
 
 I'm also fairly intrigued by the recent announcement that Rackspace will provide
-[support for your application code](http://www.rackspace.com/blog/rackspace-developer-support-fanatical-support-for-your-code/).
+[support for your application code](https://www.rackspace.com/blog/rackspace-developer-support-fanatical-support-for-your-code/).
 While I'm a bit curious just how this works (it seems you share relevant bits
 of code in a regular support ticket), I think it's a good step toward
 communicating that Rackspace services are developer-friendly.

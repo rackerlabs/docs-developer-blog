@@ -210,7 +210,7 @@ The following example demonstrates the installation:
 Upon successful installation of the agent, the WebLogic console URL is shown in
 the following example:
 
-    http://hostname:7001/console.
+    https://hostname:7001/console.
 
 Open the console by using the username `weblogic` and the password given during
 the installation in the `-ap` parameter.

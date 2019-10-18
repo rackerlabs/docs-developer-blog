@@ -11,16 +11,16 @@ categories:
 ---
 
 
-[Elasticsearch](http://www.elasticsearch.org/) is a powerful distributed
+[Elasticsearch](https://www.elasticsearch.org/) is a powerful distributed
 schema-less datastore and its main focus is indexing/search functionality. One
 benefit of Elasticsearch is simple cluster management via
-[multicast](http://en.wikipedia.org/wiki/Multicast), which is provided out of
+[multicast](https://en.wikipedia.org/wiki/Multicast), which is provided out of
 the box.
 
 Unfortunately, multicast is often blocked by cloud vendors due to security
 concerns of a mutli-tenancy network (imagine exposing your software to the rest
 of the cloud via multicast). This is where
-[Rackspace Cloud Networks](http://www.rackspace.com/knowledge_center/article/getting-started-with-cloud-networks)
+[Rackspace Cloud Networks](https://www.rackspace.com/knowledge_center/article/getting-started-with-cloud-networks)
 can help out. One of the primary goals of Cloud Networks is to allow personal
 L2 networks in a mutli-tenancy environment. This means we get multicast!
 

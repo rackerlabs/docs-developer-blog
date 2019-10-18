@@ -8,9 +8,9 @@ categories:
   - Cloud Networks
 ---
 
-Today’s [launch of Rackspace Cloud Networks](http://www.rackspace.com/blog/cloud-networks-the-next-chapter-in-the-open-cloud/),
+Today’s [launch of Rackspace Cloud Networks](https://www.rackspace.com/blog/cloud-networks-the-next-chapter-in-the-open-cloud/),
 marks the fourth product release by Rackspace that is powered by an
-[OpenStack](http://openstack.org) project. When Rackspace founded OpenStack with
+[OpenStack](https://openstack.org) project. When Rackspace founded OpenStack with
 NASA two years ago the vision was for a community of extremely talented
 engineers, architects, developers and industry professionals all coming together
 to build amazing technology. This year alone, Rackspace has launched the
@@ -53,23 +53,23 @@ piece of the networking stack that was missing -- the network information servic
 
 How was IP address management (IPAM) and address discovery going to work? Rackspace
 took the lead in writing the code for this deficiency, and created another
-OpenStack project codenamed “[Melange](http://wiki.openstack.org/Melange).”
+OpenStack project codenamed “[Melange](https://wiki.openstack.org/Melange).”
 Rackspace worked very closely with the Quantum community to tie these two projects
 together -- Quantum laid down the network piping and Melange handled the management
 of network information services.
 
 Over the past few years, there has been tremendous growth in the Quantum project
-headed up by [Dan Wendlandt](http://www.linkedin.com/pub/dan-wendlandt/7/a41/69a),
+headed up by [Dan Wendlandt](https://www.linkedin.com/pub/dan-wendlandt/7/a41/69a),
 Project Technical Lead (PTL). Quantum and Melange began to merge into one project,
 all under the Quantum project umbrella, enabling it to accelerate its goal of
 being promoted to OpenStack Core. As with all OpenStack projects, there is a
 promotion process that all projects follow en route to becoming an OpenStack
 Core project. With networking being a foundational building block for achieving
-the [mission](http://wiki.openstack.org/) of OpenStack, it was clear Quantum was
+the [mission](https://wiki.openstack.org/) of OpenStack, it was clear Quantum was
 going to be on the fast track to being promoted. During the Essex release cycle,
-Quantum was promoted to be an [incubation project](http://wiki.openstack.org/Governance/Approved/Incubation)
+Quantum was promoted to be an [incubation project](https://wiki.openstack.org/Governance/Approved/Incubation)
 with the intention of being promoted to core for the Folsom release. I'm happy
-to say that when [Folsom](http://www.openstack.org/software/folsom/) was released
+to say that when [Folsom](https://www.openstack.org/software/folsom/) was released
 Sept. 27, 2012, Quantum met all of the requirements and achieved all of the
 milestones necessary to officially be included as a core project.
 
@@ -100,8 +100,8 @@ existing network into our cloud.
 
 
 Let me demonstrate how to create and use Cloud Networks with the
-[rackspace-novaclient](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os)
-as I did with [Cloud Block Storage](http://devops.rackspace.com/cbs-api.html).
+[rackspace-novaclient](https://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os)
+as I did with [Cloud Block Storage](https://devops.rackspace.com/cbs-api.html).
 You can add networks and have new Cloud Servers use those networks.
 
 First, let's create a new network:
@@ -129,4 +129,4 @@ It is highly recommended that you keep the Service Network available as it
 enables your servers to talk to each other and other cloud products. More
 information on Cloud Networks can be found in our
 [How-to](https://support.rackspace.com/how-to/cloud-networks/)
-or in the [API documentation](http://docs.rackspace.com/servers/api/v2/cn-devguide/content/api_operations.html).
+or in the [API documentation](https://docs.rackspace.com/servers/api/v2/cn-devguide/content/api_operations.html).

@@ -14,7 +14,7 @@ ceiling of the Austin office. I interviewed her and asked her to share her
 story here, asking about her journey here, what events she likes best, and
 what advice she has. In her own words:
 
-{% img left http://justwriteclick.com/blog/wp-content/uploads/2013/11/glass-205x300.jpg %}
+{% img left https://justwriteclick.com/blog/wp-content/uploads/2013/11/glass-205x300.jpg %}
 
 <!-- more -->
 

@@ -120,7 +120,7 @@ To install a Cassandra database, perform the following steps:
 4. Set ``PATH`` and ``JAVA HOME`` in ``~/.bashrc`` file.
 5. Download Cassandra and unzip it by using the following command:
 
-        wget http://supergsego.com/Apache/cassandra/2.1.2/Apache-cassandra-2
+        wget https://supergsego.com/Apache/cassandra/2.1.2/Apache-cassandra-2
 
 To configure the Cassandra database, change following minimum parameters in
 ``/etc/cassandra/conf/cassandra.yaml`` file:

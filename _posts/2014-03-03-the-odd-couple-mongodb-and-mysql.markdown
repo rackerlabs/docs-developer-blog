@@ -29,7 +29,7 @@ There are five broad categories of datastores in today's world: column-family, d
 In more practical terms this means we might use Cypher, JSON, SQL or a number of other query languages to access our data from within the same application.
 Using these different datastores and their different languages is becoming more prominent as developers look for better tools to laser in solutions to their persistence needs.
 
-Sadalage and Fowler note the necessity of polyglot persistence in [NoSQL Distilled](http://books.google.com/books/about/NoSQL_Distilled.html?id=AyY1a6-k3PIC&hl=en) by saying:
+Sadalage and Fowler note the necessity of polyglot persistence in [NoSQL Distilled](https://books.google.com/books/about/NoSQL_Distilled.html?id=AyY1a6-k3PIC&hl=en) by saying:
 
 > Different databases are designed to solve different problems.
 > Using a single database engine for all of the requirements usually leads to non-performant solutions; storing transactional data, caching session information, traversing graph [sic] of customers and the products their friends bought are essentially different problems.
@@ -63,7 +63,7 @@ The depth of these documents is unlimited and fully inspectable with queries or 
 Usually a good representation of data for MongoDB can be arrived at by denormalizing data that would be appropriate for a relational database.
 Of course, the particular queries you want to make should guide this process.
 
-More information about the nuances of MongoDB can be found on [MongoDB's website](http://www.mongodb.org/).
+More information about the nuances of MongoDB can be found on [MongoDB's website](https://www.mongodb.org/).
 
 #### MySQL
 
@@ -79,7 +79,7 @@ In fact, these datastores continue to be favored as they solve the problem of mo
 #### CraigsList
 
 One well-known online business that employs both a MongoDB and MySQL datastore is CraigsList.
-Their side-by-side adoption of the two datastores is outlined in a [MongoDB Case Study](http://www.mongodb.com/customers/craigslist), but below is a thumbnail sketch.
+Their side-by-side adoption of the two datastores is outlined in a [MongoDB Case Study](https://www.mongodb.com/customers/craigslist), but below is a thumbnail sketch.
 
 Due to regulatory requirements, Craigslist has to retain digital records of its classifieds.
 With over a million new classifieds per day, that's a significant amount of data for CraigsList to retain.
@@ -134,7 +134,7 @@ We want to use the ``created_at`` and ``updated_at`` fields to decide when we're
 
 Let's pretend Craigslist's classifieds policy states that a classified will remain available on the website for two weeks.
 After this time, they want the classified to still be available but not necessarily active (in MySQL).
-To accomplish this we can use a combination of [SQLAlchemy](http://www.sqlalchemy.org/) and [pymongo](https://github.com/mongodb/mongo-python-driver):
+To accomplish this we can use a combination of [SQLAlchemy](https://www.sqlalchemy.org/) and [pymongo](https://github.com/mongodb/mongo-python-driver):
 
 First, we need to get the data out of our MySQL instance.
 We will utilize SQLAlchemy to accomplish this and have it introspect our schema (making this code far more re-usable for this purpose).
@@ -203,5 +203,5 @@ Maintaining one datastore already requires expertise (DBAs or admins with datast
 The business must decide if running multiple datastores is valuable.
 There are technologies that will help mitigate these challenges.
 
-In addition to automation techonolgies such as Chef and Salt, this challenge can be mitigated by taking advantage of service vendors such as [ObjectRocket](http://objectrocket.com), the managed MongoDB service by Rackspace.
+In addition to automation techonolgies such as Chef and Salt, this challenge can be mitigated by taking advantage of service vendors such as [ObjectRocket](https://objectrocket.com), the managed MongoDB service by Rackspace.
 Regardless of the increased complexity, if a problem would benefit from the use of multiple datastores, don't let assumptions stop you from exploring those solutions.

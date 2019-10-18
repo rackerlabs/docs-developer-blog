@@ -125,15 +125,15 @@ Any questions, comments or concerns? You can reach out to me ([Jesse Noller][1])
 
 
 [1]: https://developer.rackspace.com/blog/welcome-to-performance-cloud-servers-have-some-benchmarks.html
-[2]: http://www.docker.io/
+[2]: https://www.docker.io/
 [3]: https://www.docker.io/community/
 [4]: https://www.docker.io/learn_more/
-[5]: http://docs.docker.io/en/latest/
-[6]: http://blog.docker.io/2013/11/docker-project-community-stats/
+[5]: https://docs.docker.io/en/latest/
+[6]: https://blog.docker.io/2013/11/docker-project-community-stats/
 [7]: https://wiki.openstack.org/wiki/Docker
 [8]: https://pypi.python.org/pypi/rackspace-novaclient/
-[9]: http://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-raring
+[9]: https://docs.docker.io/en/latest/installation/ubuntulinux/#ubuntu-raring
 [10]: https://index.docker.io/
 [11]: https://github.com/kencochrane/django-docker
-[12]: http://kencochrane.net/
+[12]: https://kencochrane.net/
 [13]: https://developer.rackspace.com/devtrial/

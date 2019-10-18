@@ -20,7 +20,7 @@ The most simple definition I can provide as to what OpenStack is:  OpenStack is 
 #####The Three W’s - When, Who and Why
 Let's jump right in at the beginning, the birth of OpenStack.  The life of OpenStack started back in March 2010 when Rackspace decided to create an open source cloud platform.  At the time Rackspace was primarily focused on a fully distributed object storage product.  Coincidentally a few months earlier, NASA was approached by the US Government to create a platform to assist in the newly passed Open Government Initiative.  NASA soon called their project, Nebula. 
 
-After an email exchange, Rackspace and NASA decided to combine their efforts.  In October 2010 the OpenStack project officially started. Here is the link that provides a bit more context and high-level timeline in an interactive model - [OpenStack Timeline](http://www.tiki-toki.com/timeline/entry/138134/OpenStack-History/#vars!date=2010-03-30_01:52:57!).
+After an email exchange, Rackspace and NASA decided to combine their efforts.  In October 2010 the OpenStack project officially started. Here is the link that provides a bit more context and high-level timeline in an interactive model - [OpenStack Timeline](https://www.tiki-toki.com/timeline/entry/138134/OpenStack-History/#vars!date=2010-03-30_01:52:57!).
 
 ---
 #####The OpenStack Foundation
@@ -28,7 +28,7 @@ For the first two years, the OpenStack project was closely managed by Rackspace 
 
 The stats below prove that OpenStack is very much an active community platform with improvements happening daily, by the people who actually use and believe in the system.
 
-![OpenStack Community Stats](http://www.hitchnyc.com/content/images/2015/03/Slide06.jpg)
+![OpenStack Community Stats](https://www.hitchnyc.com/content/images/2015/03/Slide06.jpg)
 
 ---
 #####What Problem Does OpenStack Solve?
@@ -40,33 +40,33 @@ As we all know, virtualization, over time, became the preferred infrastructure c
 #####The Guts of OpenStack
 The diagram below outlines all the projects/services currently part of the OpenStack platform.
 
-![OpenStack Projects/Services](http://www.hitchnyc.com/content/images/2015/03/Slide11.jpg)
+![OpenStack Projects/Services](https://www.hitchnyc.com/content/images/2015/03/Slide11.jpg)
 
 ---
 #####OpenStack Project Timeline
 This timeline visually walks you through the OpenStack project progression, really driving home the point that, over time, the project added a rich feature set.  As mentioned during the webinar, it was not until around the Grizzly/Havana release that OpenStack was ready for primetime.  Fast forwarding to now, with OpenStack turning 5 years old this year, you can see the feature set has only gotten better.  Mainly with the introduction of Heat, Ceilometer and Trove, one could say OpenStack is now ready for Enterprise production workloads.
 
-![OpenStack Project Timeline](http://www.hitchnyc.com/content/images/2015/03/Slide12.jpg)
+![OpenStack Project Timeline](https://www.hitchnyc.com/content/images/2015/03/Slide12.jpg)
 
 ---
 #####OpenStack Is Ready for the Enterprise
 During OpenStack’s growth, its features have matured creating a stable reliable platform.  The number of features are too many to mention here in this blog.  Below are just a few of my favorite features, that in my mind makes it “Ready for the Enterprise”.
 
 ***OpenStack Features and Benefits***
-![OpenStack Features](http://www.hitchnyc.com/content/images/2015/03/Slide15.jpg)
+![OpenStack Features](https://www.hitchnyc.com/content/images/2015/03/Slide15.jpg)
 
 ***High Availability Options***
-![OpenStack HA](http://www.hitchnyc.com/content/images/2015/03/Slide16.jpg)
+![OpenStack HA](https://www.hitchnyc.com/content/images/2015/03/Slide16.jpg)
 
 ---
 #####Industry Focus on OpenStack
 Over the last year, OpenStack has gained the attention of many traditional IT vendors such as EMC, HP, Cisco and Red Hat.  This has led to some of the most important cloud acquisitions we have seen in years.  All of those acquisitions have one thing in common: OpenStack.
 
-This article says it all - [2014’s Most Significant Cloud Deals Have OpenStack At Heart](http://www.itworld.com/article/2836991/2014s-most-significant-cloud-deals-have-openstack-at-heart.html).
+This article says it all - [2014’s Most Significant Cloud Deals Have OpenStack At Heart](https://www.itworld.com/article/2836991/2014s-most-significant-cloud-deals-have-openstack-at-heart.html).
 
 ---
 #####Enterprise Use Cases
-On the openstack.org site there are many [user stories](http://www.openstack.org/user-stories/) you can download and read to help support OpenStack’s wide spread use.  The [Norte Dame](https://www.rackspace.com/blog/accelerating-science-with-openstack-at-notre-dame/) story was very interesting to me.  One of the newest and ground breaking user stories came from Walmart Labs, the eCommerce innovation and development group of Walmart.  I have provided some cliff notes below but, you can read the whole article [here](http://www.walmartlabs.com/2015/02/17/why-we-chose-openstack-for-walmart-global-ecommerce/?awesm=awe.sm_jM31y).  I strongly encourage taking the time out to read this article.
+On the openstack.org site there are many [user stories](https://www.openstack.org/user-stories/) you can download and read to help support OpenStack’s wide spread use.  The [Norte Dame](https://www.rackspace.com/blog/accelerating-science-with-openstack-at-notre-dame/) story was very interesting to me.  One of the newest and ground breaking user stories came from Walmart Labs, the eCommerce innovation and development group of Walmart.  I have provided some cliff notes below but, you can read the whole article [here](https://www.walmartlabs.com/2015/02/17/why-we-chose-openstack-for-walmart-global-ecommerce/?awesm=awe.sm_jM31y).  I strongly encourage taking the time out to read this article.
 
 **Walmart Labs have:**
 

@@ -8,7 +8,7 @@ published: true
 categories:
   - node.js
 ---
-While I was visiting the [Concurix team](http://www.concurix.com) getting a demo of
+While I was visiting the [Concurix team](https://www.concurix.com) getting a demo of
 some of the awesomeness they have for node.js profiling,
 [Bryce Baril](https://github.com/brycebaril) mentioned that he was a new
 [node-redis](https://github.com/mranney/node_redis) core-committer and how
@@ -25,7 +25,7 @@ I immediatley thought of using `redis-benchmark` to illustrate the difference
 between our (soon to be deprecated) standard flavors and our new performance
 flavors. Based on some reading on the redis-benchmark page, I decided to use
 the same critiera as the Redis Benchmarks page for
-[evaluating bare-metal and virtual machines](http://redis.io/topics/benchmarks).
+[evaluating bare-metal and virtual machines](https://redis.io/topics/benchmarks).
 
 <!-- more -->
 

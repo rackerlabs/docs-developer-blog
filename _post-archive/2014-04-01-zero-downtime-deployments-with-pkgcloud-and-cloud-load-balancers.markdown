@@ -236,7 +236,7 @@ I hope this example sets you on the path towards Zero-downtime deployments. When
 
 [0]: https://github.com/pkgcloud/pkgcloud
 [1]: https://www.google.com/search?q=zero+downtime+deployments
-[2]: http://docs.rackspace.com/loadbalancers/api/v1.0/clb-devguide/content/Nodes-d1e2173.html
-[3]: http://www.rackspace.com/cloud/load-balancing/
+[2]: https://docs.rackspace.com/loadbalancers/api/v1.0/clb-devguide/content/Nodes-d1e2173.html
+[3]: https://www.rackspace.com/cloud/load-balancing/
 
 

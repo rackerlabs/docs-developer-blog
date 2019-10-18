@@ -261,13 +261,13 @@ Cloud Servers and [OnMetal Compute][7] and you'll be one happy Chef.
 ### About the Author
 
 Hart Hoover is an Engineer with the [DevOps Automation Service][8] team at
-Rackspace. You can follow him on twitter [@hhoover](http://twitter.com/hhoover).
+Rackspace. You can follow him on twitter [@hhoover](https://twitter.com/hhoover).
 
-[1]: http://www.getchef.com/blog/2014/03/04/chef-metal-0-2-release/
-[2]: http://docs.opscode.com/chef/essentials_data_bags.html#encrypt-a-data-bag-item
+[1]: https://www.getchef.com/blog/2014/03/04/chef-metal-0-2-release/
+[2]: https://docs.opscode.com/chef/essentials_data_bags.html#encrypt-a-data-bag-item
 [3]: https://github.com/opscode/chef-metal-fog
-[4]: http://fog.io
-[5]: http://www.getchef.com/blog/2014/06/24/from-solo-to-zero-migrating-to-chef-client-local-mode/
+[4]: https://fog.io
+[5]: https://www.getchef.com/blog/2014/06/24/from-solo-to-zero-migrating-to-chef-client-local-mode/
 [6]: https://github.com/opscode/chef-metal
-[7]: http://www.rackspace.com/cloud/servers/onmetal/
-[8]: http://www.rackspace.com/devops/
+[7]: https://www.rackspace.com/cloud/servers/onmetal/
+[8]: https://www.rackspace.com/devops/

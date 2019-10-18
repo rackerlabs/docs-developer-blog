@@ -8,11 +8,11 @@ published: true
 categories:
   - nodejs
   - aws
-bio: 'Geoffrey Irving is a founder at the new interactive programming startup Eddy Systems (http://eddy.systems). Previously, he worked at Pixar, D. E. Shaw Research, Weta Digital, and Otherlab doing high performance computing, computational physics, and computer graphics. He has degrees in mathematics and computer science from Caltech and Stanford, and received film credits on Ratatouille, Wall-E, Up, and Tintin.'
+bio: 'Geoffrey Irving is a founder at the new interactive programming startup Eddy Systems (https://eddy.systems). Previously, he worked at Pixar, D. E. Shaw Research, Weta Digital, and Otherlab doing high performance computing, computational physics, and computer graphics. He has degrees in mathematics and computer science from Caltech and Stanford, and received film credits on Ratatouille, Wall-E, Up, and Tintin.'
 ---
 
 [Pentago](https://en.wikipedia.org/wiki/Pentago) is a board game designed by
-Tomas Flodén and developed and sold by [Mindtwister](http://mindtwisterusa.com).
+Tomas Flodén and developed and sold by [Mindtwister](https://mindtwisterusa.com).
 Like chess and go, pentago is a two player game with no hidden cards or chance.
 Unlike chess and go, pentago is small enough for a computer to play perfectly:
 with symmetries removed, there are a mere 3,009,081,623,421,558 (3e15) possible
@@ -21,9 +21,9 @@ positions.
 <!-- more -->
 
 Iterating over all these positions took a bit of work, and hundreds of thousands
-of processor-hours on a Cray at [NERSC](http://nersc.gov).
-The details of this computation are described on [arxiv](http://arxiv.org/abs/1404.0743)
-and [summarized here](http://perfect-pentago.net/details.html).  The result of this
+of processor-hours on a Cray at [NERSC](https://nersc.gov).
+The details of this computation are described on [arxiv](https://arxiv.org/abs/1404.0743)
+and [summarized here](https://perfect-pentago.net/details.html).  The result of this
 computation is an 3.7 terabyte database of all pentago positions with up to 18 stones.
 
 This database would be quite boring without a mechanism for exploring the data, playing through
@@ -37,11 +37,11 @@ hosting program.  Since the pentago project is all [open source](https://github.
 and [open data](https://github.com/girving/pentago#data), Rackspace donated enough free hosting
 to cover both storage and server costs.  Finding a home for both data and visualization was essential
 to the goals of the project: open data is meaningless without easy access.  The result can be
-explored at [http://perfect-pentago.net](http://perfect-pentago.net)
+explored at [https://perfect-pentago.net](https://perfect-pentago.net)
 
-The rest of this post describes my experience building this website, using [Node.js](http://nodejs.org),
-[Rackspace Cloud Files](http://www.rackspace.com/cloud/files), and
-[Cloud Servers](http://www.rackspace.com/cloud/servers).
+The rest of this post describes my experience building this website, using [Node.js](https://nodejs.org),
+[Rackspace Cloud Files](https://www.rackspace.com/cloud/files), and
+[Cloud Servers](https://www.rackspace.com/cloud/servers).
 
 ### Cloud files: storing the data
 
@@ -49,7 +49,7 @@ Step one was to move 3.7 TB of data from NERSC to Rackspace.  This was slightly 
 naively expected at first: the data consisted of a few dozen flat files, the largest of which was
 1.8 TB in size.  Rackspace's Cloud Files requires files larger than 5 GB to be chunked, divided into
 smaller pieces and them assembled into a unified whole via a
-[manifest](http://docs.rackspace.com/files/api/v1/cf-devguide/content/Static_Large_Object-d1e2226.html).
+[manifest](https://docs.rackspace.com/files/api/v1/cf-devguide/content/Static_Large_Object-d1e2226.html).
 Although Rackspace's [pyrax](https://github.com/rackspace/pyrax) python library can do this chunking
 automatically, at the time I used it pyrax had no features for restarting a partially completed upload
 or creating a manifest from a list of files.
@@ -64,7 +64,7 @@ the manifest via HTTP PUT.
 ### Client/server architecture: stateless + caching
 
 In the uploaded Cloud Files data, pentago positions with similar patterns of stones are organized into
-blocks.  Each block is compressed using [LZMA](http://tukaani.org/xz), and all blocks with the same
+blocks.  Each block is compressed using [LZMA](https://tukaani.org/xz), and all blocks with the same
 number of stones are packed into a single gigantic file (ignoring the chunking described above).
 Although client javascript could download these blocks directly, there are several problems with a
 pure client + Cloud Files setup:
@@ -127,7 +127,7 @@ poorly.
 Language-nerd aside: Although it's wonderful that Node makes this sort of layering easy, I can't help
 but be a bit sad that it's Node.js instead of Node.haskell.  Haskell code written using exactly the same
 programming paradigms would be a fraction of size and far more readable.  While Node forces the programmer
-into manual [continuation passing style](http://en.wikipedia.org/wiki/Continuation-passing_style), Haskell's
+into manual [continuation passing style](https://en.wikipedia.org/wiki/Continuation-passing_style), Haskell's
 syntactic sugar for monadic control flow lets you write normal looking straight line code
 which expands into continuation passing or other fanciness automatically.  Strong typing is also a big help
 as higher order programming (such as the layered caching discussed above) becomes more complex.  I'm only a
@@ -142,14 +142,14 @@ as immediate failures or unconditional deadlocks.  I've written plenty of concur
 works, with bugs triggering only occasionally as a consequence of race conditions or order dependencies.
 Since Node is single threaded, a large class of race conditions vanishes.  More subtly, any nonblocking
 operation in Node never completes until the next event loop clock tick, even if the answer would be available
-immediately ([more background here](http://howtonode.org/understanding-process-next-tick)).  As a consequence,
+immediately ([more background here](https://howtonode.org/understanding-process-next-tick)).  As a consequence,
 bugs which manifest only due to concurrently tend to show up immediately, even in rapid fire unit tests.
 The Node programming model tends to make broken code fail immediately; once it works, it has a good chance
 of actually being correct.
 
 My evidence for this is that once I got through my initial testing phase, the pentago server has been running
 without a hitch for 8 months
-[despite being slashdotted](http://tech.slashdot.org/story/14/01/23/1733250/pentago-is-a-first-player-win).
+[despite being slashdotted](https://tech.slashdot.org/story/14/01/23/1733250/pentago-is-a-first-player-win).
 The server is admittedly simple, but it does combine fully asynchronous programming, several layers of caching,
 and CPU and memory intensive computation (the 8 GB RAM server uses 7 worker threads each with a 1 GB buffer).
 
@@ -172,8 +172,8 @@ process than explicitly saving and restoring instance images.
 
 With all the complexity shielded away on the server, the client is easy.  Rackspace Cloud Files
 can serve static websites
-[directly from a container](http://www.rackspace.com/blog/rackspace-cloud-files-how-to-create-a-static-website).
-The pentago interface was done with [d3](http://d3js.org), including simple animations when quadrants are rotated.
+[directly from a container](https://www.rackspace.com/blog/rackspace-cloud-files-how-to-create-a-static-website).
+The pentago interface was done with [d3](https://d3js.org), including simple animations when quadrants are rotated.
 
 ### Conclusion
 

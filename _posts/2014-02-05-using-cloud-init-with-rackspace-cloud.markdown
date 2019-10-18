@@ -44,9 +44,9 @@ cloud-config configuration file. This is a YAML formatted file that must
 begin with '#cloud-config' and uses a cloud-init specific syntax. It's
 a powerful tool with many options and modules, so here is some further reading:
 
-[Example configuration file.](http://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/view/head:/doc/examples/cloud-config.txt)
+[Example configuration file.](https://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/view/head:/doc/examples/cloud-config.txt)
 
-[Specific examples using cloud-init. ](http://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/files/891/doc/examples)
+[Specific examples using cloud-init. ](https://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/files/891/doc/examples)
 
 
 # Wordpress and LAMP installation via cloud-init
@@ -69,7 +69,7 @@ Here is the full cloud config that we'll be using.
 
 	runcmd:
 
-     - wget http://wordpress.org/latest.tar.gz -P /tmp/
+     - wget https://wordpress.org/latest.tar.gz -P /tmp/
      - tar -zxf /tmp/latest.tar.gz -C /var/www/
      - mysql -e "create database wordpress; create user 'wpuser'@'localhost' identified by 'changemetoo'; grant all privileges on wordpress . \* to 'wpuser'@'localhost'; flush privileges;"
      - mysql -e "drop database test; drop user 'test'@'localhost'; flush privileges;"
@@ -108,7 +108,7 @@ line. This is where cloud-init will pull down Wordpress and setup MySQL for the
 Before we can use our configuration file we'll need to actually get it
 into the server, and we'll accomplish that by using a feature called
 config-drive. Additional information about config-drive can be read
-about in the [API docs](http://docs.rackspace.com/servers/api/v2/cs-devguide/content/config_drive_ext.html), but just know for the purpose
+about in the [API docs](https://docs.rackspace.com/servers/api/v2/cs-devguide/content/config_drive_ext.html), but just know for the purpose
 of this blog that it's a read only drive that is attached to your server
 on build and used by cloud-init as a data source for user supplied files.
 
@@ -128,7 +128,7 @@ public IP assigned to the newly created server.
 `$ supernova iad list`
 
 Navigate to the IP appended with '/wordpress' (for example
-'http://1.2.3.4/wordpress') and we should see the default Wordpress
+'https://1.2.3.4/wordpress') and we should see the default Wordpress
 installation page. It would be simple to extend the sample
 cloud-config to take care of this step for you but I leave that
 as an exercise for you. 
@@ -166,9 +166,9 @@ to format and mount them; many customers want to automate this at boot
 time so lets make cloud-init do that for us.
 
 For this example I'm going to take some examples from the Rackspace
-Knowledge Center on [formatting](http://www.rackspace.com/knowledge_center/article/preparing-data-disks-on-linux-performance-cloud-servers) your extra data disks, and the cloud-init
-documentation for the [‘fs_setup’](http://bazaar.launchpad.net//~cloud-init-dev/cloud-init/trunk/view/891/doc/examples/cloud-config-disk-setup.txt) and [‘mounts’](http://bazaar.launchpad.net//~cloud-init-dev/cloud-init/trunk/view/891/doc/examples/cloud-config-mount-points.txt) modules. This Performance2-120GB flavor has 4x300GB disks ; if using a
-different flavor, refer this [article](http://www.rackspace.com/knowledge_center/article/what-is-new-with-performance-cloud-servers) to learn more about how many disks are
+Knowledge Center on [formatting](https://www.rackspace.com/knowledge_center/article/preparing-data-disks-on-linux-performance-cloud-servers) your extra data disks, and the cloud-init
+documentation for the [‘fs_setup’](https://bazaar.launchpad.net//~cloud-init-dev/cloud-init/trunk/view/891/doc/examples/cloud-config-disk-setup.txt) and [‘mounts’](https://bazaar.launchpad.net//~cloud-init-dev/cloud-init/trunk/view/891/doc/examples/cloud-config-mount-points.txt) modules. This Performance2-120GB flavor has 4x300GB disks ; if using a
+different flavor, refer this [article](https://www.rackspace.com/knowledge_center/article/what-is-new-with-performance-cloud-servers) to learn more about how many disks are
 assigned to each flavor in the Performance class.
 
 

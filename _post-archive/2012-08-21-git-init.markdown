@@ -15,19 +15,19 @@ categories:
   - neutron
 ---
 
-Our cloud is [open](http://www.rackspace.com/cloud/openstack/). We believe our
-company should be too. One of our [Core Values](http://rackertalent.com/people/core-values/)
+Our cloud is [open](https://www.rackspace.com/cloud/openstack/). We believe our
+company should be too. One of our [Core Values](https://rackertalent.com/people/core-values/)
 at Rackspace is full disclosure and transparency, and we want to build a
 community for our developers that is open, transparent and helps them build
 amazing applications on the open cloud.
 
 <!-- more -->
 
-Today, we have [the Official Rackspace Blog](http://www.rackspace.com/blog/),
+Today, we have [the Official Rackspace Blog](https://www.rackspace.com/blog/),
 which covers Cloud Industry Insights, Product & Development and Partner & Customer
 Updates. For the latest information on all of the things that fall into these
 buckets, the Rackspace Blog is the go-to place. We also have
-[Racker Talent](http://rackertalent.com), the one-stop shop for insight into
+[Racker Talent](https://rackertalent.com), the one-stop shop for insight into
 Rackspace’s unique culture and career opportunities.
 
 Today, we add a third, and incredibly important, pillar to the Rackspace
@@ -45,12 +45,12 @@ architecture, and configuring applications to their full potential on our open
 cloud platform.
 
 Part of enabling developers and engineers to succeed on our
-[OpenStack](http://openstack.org) platform is the understanding that it’s not
+[OpenStack](https://openstack.org) platform is the understanding that it’s not
 just about the platform. It's also about providing a world-class Fanatical Experience
 that includes world-class products and a world-class platform experience.
 Rackspace has made major strides in strengthening its product suite with
 OpenStack and through the inclusion of many OpenStack projects into the Rackspace
-cloud [portfolio](http://www.rackspace.com/cloud/public/). The next step to
+cloud [portfolio](https://www.rackspace.com/cloud/public/). The next step to
 enabling success is to provide you with tools to compete and innovate.
 
 So welcome to the [Rackspace Developer Center](https://developer.rackspace.com/),

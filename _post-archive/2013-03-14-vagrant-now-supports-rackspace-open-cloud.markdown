@@ -6,7 +6,7 @@ comments: true
 author: Tomaz Muraus
 categories: []
 ---
-We are happy to announce support for Rackspace Open Cloud in [Vagrant 1.1](http://www.vagrantup.com/)!
+We are happy to announce support for Rackspace Open Cloud in [Vagrant 1.1](https://www.vagrantup.com/)!
 
 Vagrant is a Ruby-based tool for building and deploying virtualized development
 environments. Developers love it because it allows them to easily create and
@@ -17,12 +17,12 @@ machine and VirtualBox anymore. You can now also run your development machines
 on Rackspace Open Cloud.
 
 This allows you to utilize all of the
-[benefits of Rackspace Cloud](http://www.rackspace.com/cloud/servers/compare/)
+[benefits of Rackspace Cloud](https://www.rackspace.com/cloud/servers/compare/)
 such as instances  with up to 30 GB of memory, virtual machine snapshots,
 server resizing and more.
 
 For a full list of improvements and other changes in Vagrant 1.1, please see the
-[official announcement](http://www.hashicorp.com/blog/vagrant-1-1-and-vmware.html).
+[official announcement](https://www.hashicorp.com/blog/vagrant-1-1-and-vmware.html).
 
 <!-- more -->
 
@@ -31,7 +31,7 @@ For a full list of improvements and other changes in Vagrant 1.1, please see the
 We here at Rackspace are early adopters of Vagrant. Our first use dates back to
 summer 2010 and a company called Cloudkick. Cloudkick was a San Francisco
 based server management and monitoring startup that
-[Rackspace acquired in late 2010](http://www.rackspace.com/blog/newsarticles/rackspace-acquires-cloudkick-to-provide-powerful-server-management-tools-for-the-cloud-computing-era/).
+[Rackspace acquired in late 2010](https://www.rackspace.com/blog/newsarticles/rackspace-acquires-cloudkick-to-provide-powerful-server-management-tools-for-the-cloud-computing-era/).
 
 I was initially frustrated about how long it takes to set up a new development
 environment at Cloudkick. The whole process was painful, error prone, included
@@ -66,8 +66,8 @@ Kates work and immensely improve our Vagrant and Chef setup.
 To this date we are still very proud and happy users of Vagrant and many
 engineers couldn’t imagine life without it. Currently, it’s used by majority
 of the product development teams inside the San Francisco office (including
-[Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/) and
-[Service Registry](http://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/)).
+[Cloud Monitoring](https://www.rackspace.com/cloud/monitoring/) and
+[Service Registry](https://www.rackspace.com/blog/keep-track-of-your-services-and-applications-with-the-new-rackspace-service-registry/)).
 We are excited about the Vagrant’s future and Vagrant 1.1 which brings
 multiple provider support, including support for Rackspace Open Cloud provider.
 
@@ -134,13 +134,13 @@ Here are quick instructions which show you how to get up and started with
 Vagrant 1.1 and Rackspace Cloud provider. For more information and more
 detailed instructions please have a look at the project’s
 [README](https://github.com/mitchellh/vagrant-rackspace/blob/master/README.md)
-and [Vagrant's documentation](http://docs-v1.vagrantup.com/v1/docs/index.html).
+and [Vagrant's documentation](https://docs-v1.vagrantup.com/v1/docs/index.html).
 
 ### 1. Download and install Vagrant 1.1
 
 **NOTE: These instructions are out of date. Make sure you are using the latest version of Vagrant.**
 
-Go to <http://downloads.vagrantup.com/tags/v1.1.0>, find an installer for your
+Go to <https://downloads.vagrantup.com/tags/v1.1.0>, find an installer for your
 operating system, download it and run it.
 
 ### 2. Install vagrant-rackspace Vagrant plugin
@@ -167,7 +167,7 @@ In this Vagrantfile example we use a Cloud server with 512 MB of memory (flavor
 attribute), but you can specify an ID or a regular expression for a name of any
 other size supported by Rackspace Cloud. You can find a list of all the available
 sizes at
-[http://www.rackspace.com/cloud/servers/techdetails/](http://www.rackspace.com/cloud/servers/techdetails/).
+[https://www.rackspace.com/cloud/servers/techdetails/](https://www.rackspace.com/cloud/servers/techdetails/).
 
 ### 5. Start Vagrant instance on Rackspace Cloud
 
@@ -215,6 +215,6 @@ advantages of all the features of our cloud (server resizing, snaphots, etc.).
 
 We look forward to Vagrant development in the future and wish Mitchel the best
 with his
-[recently launched HashiCorp](http://www.hashicorp.com/blog/announcing-hashicorp.html).
+[recently launched HashiCorp](https://www.hashicorp.com/blog/announcing-hashicorp.html).
 
-_This is a guest post from Tomaz Muraus. Tomaz is a Racker and a project lead for the Rackspace Service Registry product. He is also a project chair of [Apache Libcloud](http://libcloud.apache.org/), an open-source project which deals with cloud interoperability. Before working on Service Registry he worked on the [Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/) product and before joining Rackspace, he worked at [Cloudkick](https://www.cloudkick.com/) helping customers manage and monitor their infrastructure. In his free time, he loves writing code, contributing to open-source projects, advocating for software freedom, going to the gym and cycling. Be sure to check out his GitHub [page](https://github.com/Kami)._
+_This is a guest post from Tomaz Muraus. Tomaz is a Racker and a project lead for the Rackspace Service Registry product. He is also a project chair of [Apache Libcloud](https://libcloud.apache.org/), an open-source project which deals with cloud interoperability. Before working on Service Registry he worked on the [Cloud Monitoring](https://www.rackspace.com/cloud/monitoring/) product and before joining Rackspace, he worked at [Cloudkick](https://www.cloudkick.com/) helping customers manage and monitor their infrastructure. In his free time, he loves writing code, contributing to open-source projects, advocating for software freedom, going to the gym and cycling. Be sure to check out his GitHub [page](https://github.com/Kami)._

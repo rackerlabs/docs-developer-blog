@@ -15,13 +15,13 @@ bio: |
   Shaunak on Twitter @shaunak and Github as ycombinator.
 ---
 
-Today we are proud to announce the [v1.11.0 release](https://github.com/rackspace/php-opencloud/releases/tag/v1.11.0) of php-opencloud. In the four months since our last minor release, we have added support for the [OpenStack Orchestration service](https://wiki.openstack.org/wiki/Heat), support for [booting a server from a volume](http://docs.openstack.org/user-guide/content/boot_from_volume.html), and several other improvements and bug fixes. Many of these improvements and bug fixes have come from community contributors, which makes this release just that much more special.
+Today we are proud to announce the [v1.11.0 release](https://github.com/rackspace/php-opencloud/releases/tag/v1.11.0) of php-opencloud. In the four months since our last minor release, we have added support for the [OpenStack Orchestration service](https://wiki.openstack.org/wiki/Heat), support for [booting a server from a volume](https://docs.openstack.org/user-guide/content/boot_from_volume.html), and several other improvements and bug fixes. Many of these improvements and bug fixes have come from community contributors, which makes this release just that much more special.
 
 <!-- more -->
 
 ## Orchestration
 
-This release adds support for the OpenStack Orchestration service (OpenStack project alias: Heat). OpenStack Orchestration is a service that will let you launch multiple composite cloud applications based on templates in the form of JSON or YAML files. At Rackspace, our implementation of it is known as [Cloud Orchestration](http://www.rackspace.com/cloud/orchestration/).
+This release adds support for the OpenStack Orchestration service (OpenStack project alias: Heat). OpenStack Orchestration is a service that will let you launch multiple composite cloud applications based on templates in the form of JSON or YAML files. At Rackspace, our implementation of it is known as [Cloud Orchestration](https://www.rackspace.com/cloud/orchestration/).
 
 ## Boot From Volume
 
@@ -29,7 +29,7 @@ Until now you could use php-opencloud to boot up OpenStack compute servers by sp
 
 ## Datastores and Configurations
 
-Now you can use php-opencloud to retrieve information about the various [datastores](http://docs.rackspace.com/cdb/api/v1.0/cdb-devguide/content/datastore_types_and_versions.html) supported by your OpenStack or Rackspace cloud. You can also create and manage [custom configurations](http://docs.rackspace.com/cdb/api/v1.0/cdb-devguide/content/configurations.html) for these datastores.
+Now you can use php-opencloud to retrieve information about the various [datastores](https://docs.rackspace.com/cdb/api/v1.0/cdb-devguide/content/datastore_types_and_versions.html) supported by your OpenStack or Rackspace cloud. You can also create and manage [custom configurations](https://docs.rackspace.com/cdb/api/v1.0/cdb-devguide/content/configurations.html) for these datastores.
 
 ## Other Improvements and Bug Fixes
 

@@ -18,7 +18,7 @@ OpenCenter is an intuitive and easy to use administration dashboard for defining
 
 Rackspace Private Cloud requires three host machines to run the various system controllers: OpenCenter Server, Chef Server and Nova Controller. We have made it easy to try out our platform by giving you the option to install the Private Cloud on a single physical node running two virtual machines. Installation instructions can be found in the [How To Rackspace Private Cloud articles](https://support.rackspace.com/how-to/rackspace-private-cloud-documentation/).
 
-![Private Cloud Architecture](http://ddf912383141a8d7bbe4-e053e711fc85de3290f121ef0f0e3a1f.r87.cf1.rackcdn.com/private-cloud-architecture.png)
+![Private Cloud Architecture](https://ddf912383141a8d7bbe4-e053e711fc85de3290f121ef0f0e3a1f.r87.cf1.rackcdn.com/private-cloud-architecture.png)
 
 The architecture is agent based. Existing Linux servers within your environment run an agent that reports back to the OpenCenter server. These servers then appear within the OpenCenter GUI, exposing the available commands and giving you centralized control of your environment.
 
@@ -36,4 +36,4 @@ High Availability is implemented when you create two Controller nodes in a Nova 
 
 Rackspace Private Cloud gives you the features and benefits to run a very robust, very reliable Private Cloud powered by OpenStack in your own data center, or managed within Rackspace’s highly available data centers. When you install Rackspace Private Cloud, you benefit from the power of OpenStack and Rackspace's long-standing expertise at running clouds at scale so that you have a Fanatical Experience. Through the innovative new management interface, OpenCenter, managing your Rackspace Private Cloud is simple; adding in resiliency of your OpenStack Controllers becomes child’s play; and adding nodes is as easy as dragging and dropping. With Rackspace’s commitment to choice of Linux platform, you are in full control of your own Private Cloud, which gives you all the features and benefits you expect from running OpenStack.
 
-_Kevin Jackson, the author of [OpenStack Cloud Computing Cookbook](http://www.barnesandnoble.com/w/openstack-cloud-computing-cookbook-kevin-jackson/1109250507), is part of the Rackspace Private Cloud Team and focuses on assisting Enterprises to deploy and manage their Private Cloud infrastructure. Kevin also spends his time conducting research and development with OpenStack, blogging and writing technical white papers._
+_Kevin Jackson, the author of [OpenStack Cloud Computing Cookbook](https://www.barnesandnoble.com/w/openstack-cloud-computing-cookbook-kevin-jackson/1109250507), is part of the Rackspace Private Cloud Team and focuses on assisting Enterprises to deploy and manage their Private Cloud infrastructure. Kevin also spends his time conducting research and development with OpenStack, blogging and writing technical white papers._

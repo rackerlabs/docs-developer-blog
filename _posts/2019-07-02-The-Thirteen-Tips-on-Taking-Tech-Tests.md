@@ -122,7 +122,7 @@ It is the same the other way around. Often the applicability or suitability of o
 
 And because the themes are often consistently applied, you can greatly speed up answering questions while retaining a fairly high accuracy. So be sure get a feeling for the currently active themes or tropes and their changes (and, yes, you could also call these paradigms and paradigm shifts, but doesn't start with a *T* now, does it?).
 
-![Tropes](http://66.media.tumblr.com/6e0102aed53c198892fe05b492d65693/tumblr_o5ocs1RUbw1rorxt1o1_500.jpg)
+![Tropes](https://66.media.tumblr.com/6e0102aed53c198892fe05b492d65693/tumblr_o5ocs1RUbw1rorxt1o1_500.jpg)
 
 ### Third-party tools
 

@@ -650,16 +650,16 @@ In the following article, we will start using pillar data and configure Marconi 
 Until then, if you have questions, you can find me at [Twitter][13] or at [Google+][14]. Comments on this page are welcome as well.
 
 [1]: https://developer.rackspace.com/blog/marconi-and-salt.html
-[2]: http://en.wikipedia.org/wiki/YAML
-[3]: http://docs.saltstack.com/topics/tutorials/pillar.html
-[4]: http://docs.saltstack.com/topics/targeting/grains.html
-[5]: http://docs.saltstack.com/ref/states/all/index.html
-[6]: http://docs.saltstack.com/ref/states/all/salt.states.pkg.html
-[7]: http://docs.saltstack.com/ref/modules/all/salt.modules.state.html
-[8]: http://docs.saltstack.com/ref/states/all/salt.states.service.html
-[9]: http://docs.saltstack.com/ref/states/layers.html
-[10]: http://docs.saltstack.com/ref/states/top.html
-[11]: http://docs.saltstack.com/ref/states/highstate.html
-[12]: http://docs.saltstack.com/topics/targeting/compound.html
+[2]: https://en.wikipedia.org/wiki/YAML
+[3]: https://docs.saltstack.com/topics/tutorials/pillar.html
+[4]: https://docs.saltstack.com/topics/targeting/grains.html
+[5]: https://docs.saltstack.com/ref/states/all/index.html
+[6]: https://docs.saltstack.com/ref/states/all/salt.states.pkg.html
+[7]: https://docs.saltstack.com/ref/modules/all/salt.modules.state.html
+[8]: https://docs.saltstack.com/ref/states/all/salt.states.service.html
+[9]: https://docs.saltstack.com/ref/states/layers.html
+[10]: https://docs.saltstack.com/ref/states/top.html
+[11]: https://docs.saltstack.com/ref/states/highstate.html
+[12]: https://docs.saltstack.com/topics/targeting/compound.html
 [13]: https://twitter.com/ozgurakan
 [14]: https://plus.google.com/110684487860941982359

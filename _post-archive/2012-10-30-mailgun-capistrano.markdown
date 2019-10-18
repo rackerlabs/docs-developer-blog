@@ -8,11 +8,11 @@ categories:
   - Mailgun
 ---
 
-The guys over at Mailgun just posted an overview of how to use Mailgun to power email notifications from your Capistrano recipes. We've got a lot of customers using Capistrano to automate their big web deployments, so we thought we'd share a summary. You can read the full post on the [Mailgun blog](http://blog.mailgun.com/using-mailgun-with-capistrano-recipes/).
+The guys over at Mailgun just posted an overview of how to use Mailgun to power email notifications from your Capistrano recipes. We've got a lot of customers using Capistrano to automate their big web deployments, so we thought we'd share a summary. You can read the full post on the [Mailgun blog](https://blog.mailgun.com/using-mailgun-with-capistrano-recipes/).
 
 <!-- more -->
 
-If you're using Capistrano, you can use this code, written by Spike Grobstein, Mailgun customer and Senior DevOps Engineer at [Ticket Evolution](http://ticketevolution.com/), to automatically send a notification after deployment ([here's the Github code](https://github.com/spikegrobstein/capistrano-mailgun)). Just add the following to your deploy.rb file:
+If you're using Capistrano, you can use this code, written by Spike Grobstein, Mailgun customer and Senior DevOps Engineer at [Ticket Evolution](https://ticketevolution.com/), to automatically send a notification after deployment ([here's the Github code](https://github.com/spikegrobstein/capistrano-mailgun)). Just add the following to your deploy.rb file:
 
 {% codeblock lang:ruby %}
 set :mailgun_api_key, 'key-12345678901234567890123456789012' # your mailgun API key

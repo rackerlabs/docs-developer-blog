@@ -199,5 +199,5 @@ involved in the this effort, please feel free to
 [send me an email](mailto:damien.johnson@rackspace.com?subject=WSGI%20Middleware%20On%20The%20JVM)
 and/or [check out the Repose project!](https://github.com/rackerlabs/repose)
 
-[repose]: http://www.OpenRepose.org/
+[repose]: https://www.OpenRepose.org/
 [fireside]: https://github.com/jythontools/fireside

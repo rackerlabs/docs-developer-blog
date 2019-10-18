@@ -18,7 +18,7 @@ Those of us who have ever had to stand in front of their Director/CTO/CIO and fi
 
 ---
 #####Why the Cloud? Why OpenStack?
-The foundation of your cake has to be rock solid, or else it will all fall down.  Therefore, it is fundamental to find statistical evidence around the topic.  I would imagine, in this day and time, it is not hard to show the value the cloud can have on an IT organization.  Just in case some are still on the fence, here are some stats from a recent report by RightScale published on [Forbes.com](http://www.forbes.com/sites/benkepes/2015/03/04/new-stats-from-the-state-of-cloud-report).
+The foundation of your cake has to be rock solid, or else it will all fall down.  Therefore, it is fundamental to find statistical evidence around the topic.  I would imagine, in this day and time, it is not hard to show the value the cloud can have on an IT organization.  Just in case some are still on the fence, here are some stats from a recent report by RightScale published on [Forbes.com](https://www.forbes.com/sites/benkepes/2015/03/04/new-stats-from-the-state-of-cloud-report).
 
 >93% of organizations surveyed are running applications or experimenting with infrastructure-as-a-service
 
@@ -43,7 +43,7 @@ Despite all this positive, the RightScale report still has some not-so-positive 
 
 Is something missing from the cloud? Are organizations just dipping their toe in to test the temperature?  I'm not 100% sure, but what is sure is that there is plenty of room for growth around cloud adoption.  Tools like OpenStack provide that additional value, which will help grow the overall cloud adoption.
 
-![OpenStack Saved IT](http://www.hitchnyc.com/content/images/2015/05/Slide07.jpg)
+![OpenStack Saved IT](https://www.hitchnyc.com/content/images/2015/05/Slide07.jpg)
 
 ---
 #####Tell OpenStack's Story and Evolution
@@ -81,9 +81,9 @@ Being transparent, it is an Open Source technology that is community driven…an
 #####OpenStack's Market Presence
 These stats prove that OpenStack is very much an ‘active’ community platform with improvements happening daily, by the people who actually use and believe in the system.
 
-![OpenStack Community Stats](http://www.hitchnyc.com/content/images/2015/05/Slide17.jpg)
+![OpenStack Community Stats](https://www.hitchnyc.com/content/images/2015/05/Slide17.jpg)
 
-![OpenStack Community](http://www.hitchnyc.com/content/images/2015/05/Slide18.jpg)
+![OpenStack Community](https://www.hitchnyc.com/content/images/2015/05/Slide18.jpg)
 
 Another point that really grabbed my attention was the over all IT industry focus on OpenStack this and last year.  Here are some of the recent announcements that all have one deep rooted thing in common, OpenStack:
 
@@ -123,6 +123,6 @@ Managed Cloud built on OpenStack - Support for OpenStack can come from Managed C
 #####Foundation Has Been Laid
 You have now been armed with all the ammo to go get your OpenStack cloud.  This last and final slide normally drives home the point flawlessly.
 
-![OpenStack Enterprise Use Cases](http://www.hitchnyc.com/content/images/2015/05/Slide24.jpg)
+![OpenStack Enterprise Use Cases](https://www.hitchnyc.com/content/images/2015/05/Slide24.jpg)
 
 It is very hard to deny any of the logos displayed here and challenge their success around technology decisions.  It is the IT equivalent of ‘dropping the mic’ on stage.  Boom!

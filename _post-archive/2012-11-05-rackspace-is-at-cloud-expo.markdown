@@ -7,7 +7,7 @@ categories:
   - General
 author: Hart Hoover
 ---
-Rackspace will be present at [Cloud Expo](http://cloudexpo2012west.sys-con.com/) in Santa Clara this week! If you’re a Rackspace customer we would love for you to stop by our booth and talk to us about how your company uses the [Open Cloud](http://rackspace.com/cloud). We also have several Rackers speaking during the conference:
+Rackspace will be present at [Cloud Expo](https://cloudexpo2012west.sys-con.com/) in Santa Clara this week! If you’re a Rackspace customer we would love for you to stop by our booth and talk to us about how your company uses the [Open Cloud](https://rackspace.com/cloud). We also have several Rackers speaking during the conference:
 
 <!-- more -->
 
@@ -38,4 +38,4 @@ In a little over two years, OpenStack has shattered adoption benchmarks set by p
 
 ###Registration
 
-If you are interested in attending Cloud Expo, you can register [here](http://www3.sys-con.com/cloud2012west/registernew.cfm). We hope to see you there!
+If you are interested in attending Cloud Expo, you can register [here](https://www3.sys-con.com/cloud2012west/registernew.cfm). We hope to see you there!

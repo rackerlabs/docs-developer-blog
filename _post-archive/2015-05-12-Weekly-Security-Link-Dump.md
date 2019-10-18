@@ -59,20 +59,20 @@ Hello! This is the first post in a series that will bring you new and interestin
 [twitter]: https://twitter.com/ccneill
 
 [lenovo]: https://www.unitedstatescourts.org/federal/cand/284981/1-0.html
-[lenovo2]: http://www.bbc.com/news/technology-32607618
-[tesla]: http://www.forbes.com/sites/thomasbrewster/2015/04/28/tesla-opening-car-to-hackers/
+[lenovo2]: https://www.bbc.com/news/technology-32607618
+[tesla]: https://www.forbes.com/sites/thomasbrewster/2015/04/28/tesla-opening-car-to-hackers/
 [https]: https://blog.mozilla.org/security/2015/04/30/deprecating-non-secure-http/
 [https2]: https://https.cio.gov/
 [backdoors]: https://blog.agilebits.com/2015/04/29/back-doors-are-bad-for-security-architecture/
 
-[boeing]: http://www.theregister.co.uk/2015/05/01/787_software_bug_can_shut_down_planes_generators/?mt=1430935171609
-[lock]: http://arstechnica.com/security/2015/05/lawyers-threaten-researcher-over-key-cloning-bug-in-high-security-lock/
+[boeing]: https://www.theregister.co.uk/2015/05/01/787_software_bug_can_shut_down_planes_generators/?mt=1430935171609
+[lock]: https://arstechnica.com/security/2015/05/lawyers-threaten-researcher-over-key-cloning-bug-in-high-security-lock/
 [nsa_speech]: https://firstlook.org/theintercept/2015/05/05/nsa-speech-recognition-snowden-searchable-text/
 
-[docker_vulns]: http://www.openwall.com/lists/oss-security/2015/05/07/10
+[docker_vulns]: https://www.openwall.com/lists/oss-security/2015/05/07/10
 [pacemaker]: https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2015-3459
-[backronym]: http://backronym.fail/
-[apt]: http://en.wikipedia.org/wiki/Advanced_persistent_threat
+[backronym]: https://backronym.fail/
+[apt]: https://en.wikipedia.org/wiki/Advanced_persistent_threat
 [mysslstrip]: https://github.com/duo-labs/mysslstrip
 [wordpress]: https://codex.wordpress.org/Version_4.2.2
 [wordpress2]: https://wordpress.org/news/2015/04/wordpress-4-2-1/

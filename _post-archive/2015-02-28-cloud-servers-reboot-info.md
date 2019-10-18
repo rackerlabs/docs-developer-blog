@@ -15,7 +15,7 @@ scheduled reboots and for specific maintenance periods.
 **Original Post**
 
 In the wake of
-[recently announced vulnerabilities](http://xenbits.xen.org/xsa/) to the
+[recently announced vulnerabilities](https://xenbits.xen.org/xsa/) to the
 Xen hypervisor that our Cloud Servers platform is built on top of, a reboot
 will be necessary in some instances on both our First Generation and Next
 Generation Cloud Servers. The details of our announcement are available in

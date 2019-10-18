@@ -55,19 +55,19 @@ As always, you can find me on Twitter [__@ccneill__][twitter] if you have any th
 
 [twitter]: https://twitter.com/ccneill
 
-[opm]: http://www.nytimes.com/2015/07/10/us/office-of-personnel-management-hackers-got-data-of-millions.html?_r=0
+[opm]: https://www.nytimes.com/2015/07/10/us/office-of-personnel-management-hackers-got-data-of-millions.html?_r=0
 [twiis_jun15]: https://developer.rackspace.com/blog/this-week-in-infosec-jun-15/
-[opm_resignation]: http://www.nytimes.com/2015/07/11/us/katherine-archuleta-director-of-office-of-personnel-management-resigns.html
-[opm_encryption]: http://arstechnica.com/security/2015/06/encryption-would-not-have-helped-at-opm-says-dhs-official/
-[serious]: http://www.troyhunt.com/2015/07/we-take-security-seriously-otherwise.html?m=1
+[opm_resignation]: https://www.nytimes.com/2015/07/11/us/katherine-archuleta-director-of-office-of-personnel-management-resigns.html
+[opm_encryption]: https://arstechnica.com/security/2015/06/encryption-would-not-have-helped-at-opm-says-dhs-official/
+[serious]: https://www.troyhunt.com/2015/07/we-take-security-seriously-otherwise.html?m=1
 [serious2]: https://www.lvh.io/posts/they-do-take-security-seriously.html
 [serious3]: https://news.ycombinator.com/item?id=9834099
-[hackingteam]: http://thehackernews.com/2015/07/Italian-hacking-team-software.html
-[hackingteam_flash]: http://thehackernews.com/2015/07/flash-zero-day-vulnerability.html
-[hackingteam_bgp]: http://blog.bofh.it/id_456
-[crypto_wars]: http://www.theregister.co.uk/2015/07/08/security_giants_publish_paper_destroying_government_encryption_plans/
-[crypto_wars_paper]: http://dspace.mit.edu/bitstream/handle/1721.1/97690/MIT-CSAIL-TR-2015-026.pdf?sequence=8
-[crypto_wars_cameron]: http://www.businessinsider.com/bruce-schneier-david-cameron-proposed-encryption-ban-destroy-the-internet-2015-7
+[hackingteam]: https://thehackernews.com/2015/07/Italian-hacking-team-software.html
+[hackingteam_flash]: https://thehackernews.com/2015/07/flash-zero-day-vulnerability.html
+[hackingteam_bgp]: https://blog.bofh.it/id_456
+[crypto_wars]: https://www.theregister.co.uk/2015/07/08/security_giants_publish_paper_destroying_government_encryption_plans/
+[crypto_wars_paper]: https://dspace.mit.edu/bitstream/handle/1721.1/97690/MIT-CSAIL-TR-2015-026.pdf?sequence=8
+[crypto_wars_cameron]: https://www.businessinsider.com/bruce-schneier-david-cameron-proposed-encryption-ban-destroy-the-internet-2015-7
 [crypto_wars_comey]: https://www.eff.org/deeplinks/2015/07/fbis-revival-crypto-wars-part-ii-continues-two-hearings-congress
 
 [badonions]: https://chloe.re/2015/06/20/a-month-with-badonions/
@@ -76,15 +76,15 @@ As always, you can find me on Twitter [__@ccneill__][twitter] if you have any th
 [openssl_post]: https://www.lvh.io/posts/todays-openssl-bug-for-techies-without-infosec-chops.html
 [openssl_advisory]: https://www.openssl.org/news/secadv_20150709.txt
 [django]: https://www.djangoproject.com/weblog/2015/jul/08/security-releases/
-[flash_0day]: http://arstechnica.com/security/2015/07/adobe-flash-exploit-that-was-leaked-by-hacking-team-goes-wild-patch-now/
-[flash_0day_chrome]: http://arstechnica.com/security/2015/07/hacking-teams-flash-0day-potent-enough-to-infect-actual-chrome-user/
+[flash_0day]: https://arstechnica.com/security/2015/07/adobe-flash-exploit-that-was-leaked-by-hacking-team-goes-wild-patch-now/
+[flash_0day_chrome]: https://arstechnica.com/security/2015/07/hacking-teams-flash-0day-potent-enough-to-infect-actual-chrome-user/
 [flash_0day_patches]: https://www.adobe.com/products/flashplayer/distribution3.html
 
 [enc_and_auth]: https://paragonie.com/blog/2015/05/using-encryption-and-authentication-correctly?resubmit=true
-[ssh_mfa]: http://sysconfig.org.uk/two-factor-authentication-with-ssh.html
+[ssh_mfa]: https://sysconfig.org.uk/two-factor-authentication-with-ssh.html
 
 [zxcvbn]: https://github.com/dropbox/zxcvbn
-[entropy]: http://security.stackexchange.com/questions/92726/how-secure-is-snowdens-margaretthatcheris110sexy-password
+[entropy]: https://security.stackexchange.com/questions/92726/how-secure-is-snowdens-margaretthatcheris110sexy-password
 [zxcvbn_demo]: https://dl.dropboxusercontent.com/u/209/zxcvbn/test/index.html
 [awesome_shell]: https://github.com/alebcay/awesome-shell
 [fzf]: https://github.com/junegunn/fzf

@@ -153,7 +153,7 @@ HammerDB and OATS/Oracle Database Replay have the following characteristics:
 
 -	HammerDB enables you to capture the load on the source system by using Oracle
 trace files. Then, they can be moved to the load test system and replayed on it.
--	Learn more about the [detailed process](http://www.hammerdb.com/hammerdb\_oracle\_trace\_replay.pdf).
+-	Learn more about the [detailed process](https://www.hammerdb.com/hammerdb\_oracle\_trace\_replay.pdf).
 -	OATS is a comprehensive, integrated testing solution that ensures the
 quality, scalability, and availability of your web applications, web services,
 packaged Oracle applications, and Oracle databases.
@@ -218,7 +218,7 @@ to analyze the workloads.
 [document](https://docs.oracle.com/cd/E25294_01/doc.920/e15484/oltchap6.htm#CEGEIEDF)
 to analyze the test results.
 
-- If you used the HammerDB tool, use this [document](http://www.hammerdb.com/document.html).
+- If you used the HammerDB tool, use this [document](https://www.hammerdb.com/document.html).
 
 - Based on your analysis of the metrics, you can decide whether to go live with
 your planned changes or to adjust your plan.

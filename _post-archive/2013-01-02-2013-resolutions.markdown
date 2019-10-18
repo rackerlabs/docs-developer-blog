@@ -12,11 +12,11 @@ It's a new year, and that means that many people are making resolutions to bette
 
 {% tweet https://twitter.com/missmayn/status/285929750436933634 align='center' %}
 
-One resolution I have seen a lot is people wanting to learn to write code in 2013, which is great. The world is getting more and more technical and the ability to write code is a skill that is highly sought after. (Did I mention [we're hiring](http://rackertalent.com)?)
+One resolution I have seen a lot is people wanting to learn to write code in 2013, which is great. The world is getting more and more technical and the ability to write code is a skill that is highly sought after. (Did I mention [we're hiring](https://rackertalent.com)?)
 
 <!-- more -->
 
-Speaking about the future of the job market, Marc Andreessen, the co-author of the Netscape browser and founder of VC firm Andreessen Horowitz, [recently said](http://usatoday30.usatoday.com/money/business/story/2012/09/13/jobs-fight-haves-vs-the-have-nots/57778406/1) "The spread of computers and the Internet will put jobs in two categories: people who tell computers what to do, and people who are told by computers what to do."
+Speaking about the future of the job market, Marc Andreessen, the co-author of the Netscape browser and founder of VC firm Andreessen Horowitz, [recently said](https://usatoday30.usatoday.com/money/business/story/2012/09/13/jobs-fight-haves-vs-the-have-nots/57778406/1) "The spread of computers and the Internet will put jobs in two categories: people who tell computers what to do, and people who are told by computers what to do."
 
 I believe that quote applies to the cloud as well. To paraphrase:
 
@@ -24,8 +24,8 @@ I believe that quote applies to the cloud as well. To paraphrase:
 
 When you write your application for a closed platform, you are essentially giving the cloud provider control over how you interact with your own application. What if they change their terms? What if they decide to discontinue your favorite cloud product? What if they raise their prices? What if performance starts to lag? You have no recourse. Take the change or shut down. A very popular streaming video service went down over the holidays and it was international news. Outages happen, but writing your application on a closed platform is not advantageous. They have chosen to write for a closed platform. They are not consumers of it. They are hostages to it.
 
-You are reading this on a Rackspace website, and Rackspace is a cloud provider. Full disclosure: if you are going to host your application somewhere, obviously I want it to be with us. That being said, our cloud is built on [OpenStack](http://www.openstack.org). You can write your application to use an OpenStack API and with very few changes run it on [Rackspace](http://www.rackspace.com/cloud/public/). Or [HP](https://www.hpcloud.com/). Or [Dell](http://content.dell.com/us/en/enterprise/by-need-it-productivity-data-center-change-response-openstack-cloud). Or [Piston](http://www.pistoncloud.com/). Or in a [private cloud](http://www.rackspace.com/cloud/private/). Or [other providers](http://www.openstack.org/foundation/companies/). If you decide a provider is not acting in your best interest you are free to move to another one that is better for you. If there is a feature you want in OpenStack you are free to [contribute to the code](http://wiki.openstack.org/HowToContribute) directly. Competition and Open Source make for rapid innovation:
+You are reading this on a Rackspace website, and Rackspace is a cloud provider. Full disclosure: if you are going to host your application somewhere, obviously I want it to be with us. That being said, our cloud is built on [OpenStack](https://www.openstack.org). You can write your application to use an OpenStack API and with very few changes run it on [Rackspace](https://www.rackspace.com/cloud/public/). Or [HP](https://www.hpcloud.com/). Or [Dell](https://content.dell.com/us/en/enterprise/by-need-it-productivity-data-center-change-response-openstack-cloud). Or [Piston](https://www.pistoncloud.com/). Or in a [private cloud](https://www.rackspace.com/cloud/private/). Or [other providers](https://www.openstack.org/foundation/companies/). If you decide a provider is not acting in your best interest you are free to move to another one that is better for you. If there is a feature you want in OpenStack you are free to [contribute to the code](https://wiki.openstack.org/HowToContribute) directly. Competition and Open Source make for rapid innovation:
 
 {% youtube dD80PDDn6gw %}
 
-That's the power of an open cloud. So in 2013, resolve to be open. Resolve to be free from closed platforms. Resolve to [get started](http://www.rackspace.com/cloud/) today.
+That's the power of an open cloud. So in 2013, resolve to be open. Resolve to be free from closed platforms. Resolve to [get started](https://www.rackspace.com/cloud/) today.

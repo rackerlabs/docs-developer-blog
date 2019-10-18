@@ -11,7 +11,7 @@ categories:
 
 _This is part 2 of a series of using continuous integration with the Rackspace Cloud, specifically with Git and Jenkins. This is not the way Rackspace does continuous integration, but you can use this to get started. Stay tuned for future posts on using Jenkins for continuous integration._
 
-In my last post, I described the [principles of continuous integration and how to install Jenkins on a Rackspace Cloud Server](http://devops.rackspace.com/continuous-integration-part-1.html). In this post, we will walk through securing your Jenkins installation as well as setting up a git repository with Jenkins.
+In my last post, I described the [principles of continuous integration and how to install Jenkins on a Rackspace Cloud Server](https://devops.rackspace.com/continuous-integration-part-1.html). In this post, we will walk through securing your Jenkins installation as well as setting up a git repository with Jenkins.
 
 <!-- more -->
 
@@ -62,7 +62,7 @@ To create a project, log back into Jenkins and click "New Job", then give your p
 
 {% img center 2012-09-24-continuous-integration-part-2/git-jenkins.jpg %}
 
-Next, scroll down to the "Build Triggers" section. You can use [crontab](http://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/)-like scheduling to poll your repository for changes, but since you're using Github I recommend you select "Build when a change is pushed to GitHub":
+Next, scroll down to the "Build Triggers" section. You can use [crontab](https://www.thegeekstuff.com/2009/06/15-practical-crontab-examples/)-like scheduling to poll your repository for changes, but since you're using Github I recommend you select "Build when a change is pushed to GitHub":
 
 {% img center 2012-09-24-continuous-integration-part-2/jenkins-build.jpg %}
 
@@ -72,4 +72,4 @@ You can then set a post-build action, such as emailing you the results. Click "S
 
 ### For more information
 
-Jenkins has [plugins](https://wiki.jenkins-ci.org/display/JENKINS/Plugins) for almost everything you need to start using Continuous Integration with your applications. The OpenStack project also uses continuous integration for application builds, which you can read about [here](http://ci.openstack.org/).
+Jenkins has [plugins](https://wiki.jenkins-ci.org/display/JENKINS/Plugins) for almost everything you need to start using Continuous Integration with your applications. The OpenStack project also uses continuous integration for application builds, which you can read about [here](https://ci.openstack.org/).

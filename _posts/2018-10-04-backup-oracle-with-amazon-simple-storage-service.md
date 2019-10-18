@@ -59,7 +59,7 @@ configuring a sample cloud backup.
 #### Sign up
 
 The first step in getting started with the OSB cloud module is to sign up for
-Amazon S3. This can be done by visiting the [Amazon S3 website](http://aws.amazon.com/s3 ),
+Amazon S3. This can be done by visiting the [Amazon S3 website](https://aws.amazon.com/s3 ),
 as shown in the following image:
 
 ![]({% asset_path 2018-10-04-backup-oracle-with-amazon-simple-storage-service/Picture2.png %})
@@ -82,7 +82,7 @@ To find your access key ID and secret access key:
 
 Register for an Oracle.com or Oracle Technology Network (OTN) account. You must
 have one of these accounts to install the OSB cloud module. New accounts can be
-created by visiting the [OTN website](http://otn.oracle.com).
+created by visiting the [OTN website](https://otn.oracle.com).
 
 #### Install the OSB cloud module
 
@@ -124,7 +124,7 @@ Verify the OSB parameter file by running the following code:
     [oracle@ip-10-0-1-135 dbs]$ ls -ltr osbwsPROD.ora
       -rw-r--r--. 1 oracle dba     145 Aug  5 07:00 osbwsPROD.ora
     [oracle@ip-10-0-1-135 dbs]$ cat osbwsPROD.ora
-      OSB_WS_HOST=http://s3.amazonaws.com
+      OSB_WS_HOST=https://s3.amazonaws.com
       OSB_WS_WALLET='location=file:/u01/app/PROD/db/tech_st/11.1.0/dbs/osbws_wallet CREDENTIAL_ALIAS=vickey07_aws'
     [oracle@ip-10-0-1-135 dbs]$ ls -ltr osbws_wallet
       total 4

@@ -7,11 +7,11 @@ author: Hart Hoover
 categories: []
 ---
 
-Today Rackspace [announces the general availability of Cloud Block Storage](http://www.rackspace.com/blog/cloud-block-storage/) which allows you to mount additional storage volumes to your Cloud Servers. In this post we will go through the technical meat of the product including the history of block storage in OpenStack, Cloud Block Storage architecture and API examples.
+Today Rackspace [announces the general availability of Cloud Block Storage](https://www.rackspace.com/blog/cloud-block-storage/) which allows you to mount additional storage volumes to your Cloud Servers. In this post we will go through the technical meat of the product including the history of block storage in OpenStack, Cloud Block Storage architecture and API examples.
 
 <!-- more -->
 
-<img style="visibility:hidden;width:0px;height:0px;" border=0 width=0 height=0 src="//c.gigcount.com/wildfire/IMP/CXNID=2000002.11NXC/bT*xJmx*PTEzNTIxMjkzODc1NzImcHQ9MTM1MjEyOTM5MDQ*OCZwPSZkPSZnPTImbz1jYjhiYzYzZGQwODM*NjBkOTVlYmJkM2Y*/MDcyODQzOCZvZj*w.gif" /><object name="kaltura_player_1352129386" id="kaltura_player_1352129386" type="application/x-shockwave-flash" allowScriptAccess="always" allowNetworking="all" allowFullScreen="true" height="396" width="704" data="http://www.kaltura.com/index.php/kwidget/wid/1_itmqe6m7/uiconf_id/7929611"><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="allowFullScreen" value="true" /><param name="bgcolor" value="#000000" /><param name="movie" value="http://www.kaltura.com/index.php/kwidget/wid/1_itmqe6m7/uiconf_id/7929611"/><param name="flashVars" value=""/><a href="http://corp.kaltura.com">video platform</a><a href="http://corp.kaltura.com/video_platform/video_management">video management</a><a href="http://corp.kaltura.com/solutions/video_solution">video solutions</a><a href="http://corp.kaltura.com/video_platform/video_publishing">video player</a></object>
+<img style="visibility:hidden;width:0px;height:0px;" border=0 width=0 height=0 src="//c.gigcount.com/wildfire/IMP/CXNID=2000002.11NXC/bT*xJmx*PTEzNTIxMjkzODc1NzImcHQ9MTM1MjEyOTM5MDQ*OCZwPSZkPSZnPTImbz1jYjhiYzYzZGQwODM*NjBkOTVlYmJkM2Y*/MDcyODQzOCZvZj*w.gif" /><object name="kaltura_player_1352129386" id="kaltura_player_1352129386" type="application/x-shockwave-flash" allowScriptAccess="always" allowNetworking="all" allowFullScreen="true" height="396" width="704" data="https://www.kaltura.com/index.php/kwidget/wid/1_itmqe6m7/uiconf_id/7929611"><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="allowFullScreen" value="true" /><param name="bgcolor" value="#000000" /><param name="movie" value="https://www.kaltura.com/index.php/kwidget/wid/1_itmqe6m7/uiconf_id/7929611"/><param name="flashVars" value=""/><a href="https://corp.kaltura.com">video platform</a><a href="https://corp.kaltura.com/video_platform/video_management">video management</a><a href="https://corp.kaltura.com/solutions/video_solution">video solutions</a><a href="https://corp.kaltura.com/video_platform/video_publishing">video player</a></object>
 
 ### What is the technology behind Cloud Block Storage?
 
@@ -24,11 +24,11 @@ One such feature is block storage. Appropriately named "nova-volume," the block 
 
 As with many "auxiliary" services in OpenStack Nova, when the project first started many key components lived in the Nova codebase: nova-network, nova-volume, and nova-objectstore were all part of Nova proper. This caused issues. It bloated the compute code and made it harder to contribute to Nova because there were many dependencies that had to be resolved with other services before the Nova code could be merged.
 
-At the Diablo Design Summit in Santa Clara, [Chuck Thier](http://www.linkedin.com/in/cthier) and his team at Rackspace proposed that nova-volume be spun off into its own OpenStack project. This, combined with a scalable storage backend, would eventually be the first pass at Lunr.
+At the Diablo Design Summit in Santa Clara, [Chuck Thier](https://www.linkedin.com/in/cthier) and his team at Rackspace proposed that nova-volume be spun off into its own OpenStack project. This, combined with a scalable storage backend, would eventually be the first pass at Lunr.
 
-[Blueprints](https://blueprints.launchpad.net/nova/+spec/integrate-block-storage) were drafted and the initial work was set to begin. At the time, re-factoring nova-volume to a standalone service was not a popular decision. Our team worked hard to make it happen and prove that it was feasible. We were mere days from revealing our first efforts to the rest of the OpenStack community when reality dawned on us -- our initial plans turned out to be a bit ambitious, and it turned out that our small team could not both foster a community around a volume service and build a scalable storage backend at the same time. It was then, with the blessing of [Vish Ishaya](http://www.linkedin.com/in/vishvananda), Nova project technical lead, and other community leadership that we decided it would be best to reconsider our approach, and focus instead on building the scalable storage backend, which is now called Lunr, while the Nova community continued work on nova-volume.
+[Blueprints](https://blueprints.launchpad.net/nova/+spec/integrate-block-storage) were drafted and the initial work was set to begin. At the time, re-factoring nova-volume to a standalone service was not a popular decision. Our team worked hard to make it happen and prove that it was feasible. We were mere days from revealing our first efforts to the rest of the OpenStack community when reality dawned on us -- our initial plans turned out to be a bit ambitious, and it turned out that our small team could not both foster a community around a volume service and build a scalable storage backend at the same time. It was then, with the blessing of [Vish Ishaya](https://www.linkedin.com/in/vishvananda), Nova project technical lead, and other community leadership that we decided it would be best to reconsider our approach, and focus instead on building the scalable storage backend, which is now called Lunr, while the Nova community continued work on nova-volume.
 
-Work on nova-volume picked up and rapidly progressed. By the Folsom Design Summit, Rackspace had a preview of Cloud Block Storage available. It utilized the nova-volume API service with our Lunr storage backend. Rackspace invited customers to test it out. It was at this same design summit that multiple members of the storage community came together to re-ignite the idea of re-factoring nova-volume to a standalone service. With that, [OpenStack Cinder](http://wiki.openstack.org/Cinder) was born. The community rallied and did a tremendous job getting OpenStack Cinder ready for the Folsom release of OpenStack.
+Work on nova-volume picked up and rapidly progressed. By the Folsom Design Summit, Rackspace had a preview of Cloud Block Storage available. It utilized the nova-volume API service with our Lunr storage backend. Rackspace invited customers to test it out. It was at this same design summit that multiple members of the storage community came together to re-ignite the idea of re-factoring nova-volume to a standalone service. With that, [OpenStack Cinder](https://wiki.openstack.org/Cinder) was born. The community rallied and did a tremendous job getting OpenStack Cinder ready for the Folsom release of OpenStack.
 
 With the amazing progress Cinder had made, we decided to take the opportunity to transfer from using nova-volume to Cinder. This has decoupled our API infrastructure from Nova, and has made for a much cleaner overall architecture. We have become very involved with the Cinder project, including at the recent Grizzly design summit, and we plan to contribute even more to the project in the future. There were many design sessions at the Grizzly Summit last week in San Diego that discussed items such as:
 
@@ -44,7 +44,7 @@ With the amazing progress Cinder had made, we decided to take the opportunity to
   * [new features](https://etherpad.openstack.org/grizzly-cinder-newfeatures)
 
 
-Today, Rackspace's [Cloud Block Storage](http://www.rackspace.com/cloud/public/blockstorage/) provides an open API utilizing OpenStack Cinder and our scalable storage platform, Lunr. We look forward to a bright future as we open more of the Lunr code base and help OpenStack Cinder become the platform for block storage in all clouds.
+Today, Rackspace's [Cloud Block Storage](https://www.rackspace.com/cloud/public/blockstorage/) provides an open API utilizing OpenStack Cinder and our scalable storage platform, Lunr. We look forward to a bright future as we open more of the Lunr code base and help OpenStack Cinder become the platform for block storage in all clouds.
 
 
 ### Architecture
@@ -56,7 +56,7 @@ Today, Rackspace's [Cloud Block Storage](http://www.rackspace.com/cloud/public/b
 ### API example
 
 
-You can use the control panel to [create Cloud Block Storage volumes](http://www.rackspace.com/knowledge_center/article/cbs-create-and-attach-a-volume), but that isn't as fun as using the API to programatically control storage. Here, I'll use the [rackspace-novaclient](http://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os) to demonstrate how to create block storage volumes and attach them to servers. First, I use the nova client to list the types of storage available:
+You can use the control panel to [create Cloud Block Storage volumes](https://www.rackspace.com/knowledge_center/article/cbs-create-and-attach-a-volume), but that isn't as fun as using the API to programatically control storage. Here, I'll use the [rackspace-novaclient](https://www.rackspace.com/knowledge_center/article/installing-python-novaclient-on-linux-and-mac-os) to demonstrate how to create block storage volumes and attach them to servers. First, I use the nova client to list the types of storage available:
 
     
     $ nova volume-type-list
@@ -80,7 +80,7 @@ Then I can attach the volume to a server:
     $ nova volume-attach <ID_OF_SERVER> <ID_OF_VOLUME> /dev/xvdd
 
 
-Cloud Block Storage is presented to the Cloud Server as an additional hard drive, [ready for formatting and mounting to your filesystem](http://www.rackspace.com/knowledge_center/article/cbs-prepare-your-volume). When you are ready to detach the volume, [unmount the device](http://www.rackspace.com/knowledge_center/article/cbs-detach-and-delete-volumes) on the server and then use the following command:
+Cloud Block Storage is presented to the Cloud Server as an additional hard drive, [ready for formatting and mounting to your filesystem](https://www.rackspace.com/knowledge_center/article/cbs-prepare-your-volume). When you are ready to detach the volume, [unmount the device](https://www.rackspace.com/knowledge_center/article/cbs-detach-and-delete-volumes) on the server and then use the following command:
 
     
     $ nova volume-detach <ID_OF_SERVER> <ID_OF_VOLUME>

@@ -32,11 +32,11 @@ In the end, NodeConf was community building at it’s finest, and is exactly wha
 [A list of Galleries from NodeConf 2013][6]
 
 -----
-_As the lead node.js Developer Advocate for the Developer Relations Group, Ken spends most of his time developing Rackspace's node.js plans and code contributions. A recently appointed core commiter on [pkgcloud](https://github.com/nodejitsu/pkgcloud), Ken joined Rackspace in March of 2013 after 2 years at Clipboard and almost 9 years at Microsoft. Follow Ken on twitter at <http://twitter.com/kenperkins>_
+_As the lead node.js Developer Advocate for the Developer Relations Group, Ken spends most of his time developing Rackspace's node.js plans and code contributions. A recently appointed core commiter on [pkgcloud](https://github.com/nodejitsu/pkgcloud), Ken joined Rackspace in March of 2013 after 2 years at Clipboard and almost 9 years at Microsoft. Follow Ken on twitter at <https://twitter.com/kenperkins>_
 
-[1]: http://www.nodeconf.com/
-[2]: http://www.walkercreekranch.org/
+[1]: https://www.nodeconf.com/
+[2]: https://www.walkercreekranch.org/
 [3]: https://github.com/mikeal/nodeconf2013/issues/22
 [4]: https://twitter.com/paulca
-[5]: http://en.wikipedia.org/wiki/The_Auld_Triangle
+[5]: https://en.wikipedia.org/wiki/The_Auld_Triangle
 [6]: https://github.com/mikeal/nodeconf2013/issues/20

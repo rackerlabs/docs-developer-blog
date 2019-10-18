@@ -36,7 +36,7 @@
 # Michał Ostrowski, <ostrowski.michal@gmail.com>
 # repo@github: https://github.com/espresse/jekyll_gravatar_filter
 #
-# blog: http://espresse.net
+# blog: https://espresse.net
 #
 require 'digest/md5'
 

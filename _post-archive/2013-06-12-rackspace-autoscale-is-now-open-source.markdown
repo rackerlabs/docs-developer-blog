@@ -52,10 +52,10 @@ want to put in your hands as soon as possible. We will be adding features and
 making the software generally easier to use and we will also accept pull requests!
 
 [1]: https://www.rackspace.com/cloud/monitoring/
-[2]: http://technicae.cogitat.io/2013/04/autoscale-and-orchestration-heat-of.html
-[3]: http://www.rackspace.com/blog/the-heat-is-on-for-autoscaling-at-openstack-summit-portland/
-[4]: http://technicae.cogitat.io/2013/04/openstack-developer-summit-heat-followup.html
+[2]: https://technicae.cogitat.io/2013/04/autoscale-and-orchestration-heat-of.html
+[3]: https://www.rackspace.com/blog/the-heat-is-on-for-autoscaling-at-openstack-summit-portland/
+[4]: https://technicae.cogitat.io/2013/04/openstack-developer-summit-heat-followup.html
 [5]: https://github.com/rackerlabs/otter
 [6]: https://rackspace-autoscale.readthedocs.org/en/latest/
 [7]: mailto:autoscale@rackspace.com
-[8]: http://www.rackspace.com/blog/autoscale-survey-tell-us-what-you-want/
+[8]: https://www.rackspace.com/blog/autoscale-survey-tell-us-what-you-want/

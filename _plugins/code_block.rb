@@ -1,5 +1,5 @@
 # Title: Simple Code Blocks for Jekyll
-# Author: Brandon Mathis http://brandonmathis.com
+# Author: Brandon Mathis https://brandonmathis.com
 # Description: Write codeblocks with semantic HTML5 <figure> and <figcaption> elements and optional syntax highlighting — all with a simple, intuitive interface.
 #
 # Syntax:
@@ -18,14 +18,14 @@
 #
 # Example:
 #
-# {% codeblock Got pain? painreleif.sh http://site.com/painreleief.sh Download it! %}
+# {% codeblock Got pain? painreleif.sh https://site.com/painreleief.sh Download it! %}
 # $ rm -rf ~/PAIN
 # {% endcodeblock %}
 #
 # Output:
 #
 # <figure class='code'>
-# <figcaption><span>Got pain? painrelief.sh</span> <a href="http://site.com/painrelief.sh">Download it!</a>
+# <figcaption><span>Got pain? painrelief.sh</span> <a href="https://site.com/painrelief.sh">Download it!</a>
 # <div class="highlight"><pre><code class="sh">
 # -- nicely escaped highlighted code --
 # </code></pre></div>

@@ -50,13 +50,13 @@ If you have any feedback about this week's links, the format of these posts, or 
 [smart_grid]: https://threatpost.com/weak-homegrown-crypto-dooms-open-smart-grid-protocol/112680
 [smart_grid2]: https://eprint.iacr.org/2015/428
 [smart_grid3]: https://threatpost.com/open-smart-grid-protocol-alliance-plans-to-fix-its-weak-crypto/112794
-[md5]: http://natmchugh.blogspot.com/2015/05/how-to-make-two-binaries-with-same-md5.html
+[md5]: https://natmchugh.blogspot.com/2015/05/how-to-make-two-binaries-with-same-md5.html
 [md5_2]: https://github.com/natmchugh/longEgg
-[robots]: http://thiébaud.fr/robots.txt.html
+[robots]: https://thiébaud.fr/robots.txt.html
 
-[rails]: http://bauland42.com/articles/a-week-with-a-rails-security-strategy/
-[secure_yourself]: http://viccuad.me/blog/secure-yourself-part-1-airgapped-computer-and-GPG-smartcards/
-[air_gap]: http://en.wikipedia.org/wiki/Air_gap_%28networking%29
+[rails]: https://bauland42.com/articles/a-week-with-a-rails-security-strategy/
+[secure_yourself]: https://viccuad.me/blog/secure-yourself-part-1-airgapped-computer-and-GPG-smartcards/
+[air_gap]: https://en.wikipedia.org/wiki/Air_gap_%28networking%29
 [yubikey]: https://www.yubico.com/products/yubikey-hardware/
 
 [lily]: https://www.lily.camera/

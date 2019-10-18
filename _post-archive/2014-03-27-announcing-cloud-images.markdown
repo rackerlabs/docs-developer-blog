@@ -22,7 +22,7 @@ Well, this product creates several opportunities for developers.
 
 Cloud Images is currently accessible via the API only, so there's an
 opportunity to create interfaces and tools to facilitate use of Cloud
-Images itself.  See the [Rackspace Cloud Images Developer Guide](http://docs.rackspace.com/images/api/v2/ci-devguide/content/index.html)
+Images itself.  See the [Rackspace Cloud Images Developer Guide](https://docs.rackspace.com/images/api/v2/ci-devguide/content/index.html)
 for more information.
 
 ### Image sharing
@@ -56,7 +56,7 @@ In other words, Cloud Images provides the infrastructure for some type
 of image marketplace, but doesn't put any constraints on how the
 marketplace should function.
 
-See the [Cloud Images API documentation](http://docs.rackspace.com/images/api/v2/ci-devguide/content/image-sharing.html) for a more detailed overview of
+See the [Cloud Images API documentation](https://docs.rackspace.com/images/api/v2/ci-devguide/content/image-sharing.html) for a more detailed overview of
 image sharing and the associated API calls.
 
 ### New image creation
@@ -74,19 +74,19 @@ the server, and then share that image.
 operating system that isn't included among the standard Rackspace
 public images, and then share that image.
 3. Build a completely new image offline (although it must be [properly
-prepared to boot in the Rackspace cloud](http://www.rackspace.com/knowledge_center/article/preparing-an-image-for-import-into-the-rackspace-open-cloud)), then use the image
+prepared to boot in the Rackspace cloud](https://www.rackspace.com/knowledge_center/article/preparing-an-image-for-import-into-the-rackspace-open-cloud)), then use the image
 import feature of Cloud Images to make it a bootable image, and then
 share that image.
 
 ### And more
 
-Check out our [Cloud Images FAQ](http://www.rackspace.com/knowledge_center/article/cloud-images-frequently-asked-questions) to get a more extensive overview
+Check out our [Cloud Images FAQ](https://www.rackspace.com/knowledge_center/article/cloud-images-frequently-asked-questions) to get a more extensive overview
 of the product and what it can do.
 
 ### References
 
-- Rackspace Cloud Images Developer Guide: http://docs.rackspace.com/images/api/v2/ci-devguide/content/index.html
-- Image Sharing Overview: http://docs.rackspace.com/images/api/v2/ci-devguide/content/image-sharing.html
+- Rackspace Cloud Images Developer Guide: https://docs.rackspace.com/images/api/v2/ci-devguide/content/index.html
+- Image Sharing Overview: https://docs.rackspace.com/images/api/v2/ci-devguide/content/image-sharing.html
 - boot.rackspace.com: https://developer.rackspace.com/blog/introducing-boot-dot-rackspace-dot-com.html
 - Preparing an Image for the Rackspace Cloud: https://support.rackspace.com/how-to/preparing-an-image-for-import-into-the-rackspace-opencloud/
 - Cloud Images FAQ: https://support.rackspace.com/how-to/cloud-images-faq/

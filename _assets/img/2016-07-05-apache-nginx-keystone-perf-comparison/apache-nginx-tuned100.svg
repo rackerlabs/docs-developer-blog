@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="160mm" height="90mm" viewBox="0 0 16000 9000" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke-width="28.222" stroke-linejoin="round" xml:space="preserve">
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "https://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="160mm" height="90mm" viewBox="0 0 16000 9000" version="1.1" xmlns="https://www.w3.org/2000/svg" stroke-width="28.222" stroke-linejoin="round" xml:space="preserve">
  <path fill="rgb(255,255,255)" stroke="none" d="M 7995,8999 L 0,8999 0,0 15990,0 15990,8999 7995,8999 Z"/>
  <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 7464,7192 L 2137,7192 2137,1475 12791,1475 12791,7192 7464,7192 Z"/>
  <path fill="none" stroke="rgb(179,179,179)" stroke-linejoin="round" d="M 12790,7191 L 2137,7191"/>

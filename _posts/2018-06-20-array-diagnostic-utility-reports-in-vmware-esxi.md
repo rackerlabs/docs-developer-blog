@@ -57,7 +57,7 @@ The following image shows the preceding steps:
 If `hpcucli` is not already installed on your server, download the `hpcucli`
 offline bundle and upload it to **tmp** (or any other directory) by using an ftp
 client tool like `winscp`. For example, download `hpacucli-9.40-12.0.vib` from
-[http://vibsdepot.hpe.com/hpq/feb2013/esxi-5x-vibs/hpacucli/](http://vibsdepot.hpe.com/hpq/feb2013/esxi-5x-vibs/hpacucli/)
+[https://vibsdepot.hpe.com/hpq/feb2013/esxi-5x-vibs/hpacucli/](https://vibsdepot.hpe.com/hpq/feb2013/esxi-5x-vibs/hpacucli/)
 to the **tmp** directory. To install it, run the following command:
 
     #esxcli software vib install –f –v /tmp/ hpacucli-9.40-12.0.vib

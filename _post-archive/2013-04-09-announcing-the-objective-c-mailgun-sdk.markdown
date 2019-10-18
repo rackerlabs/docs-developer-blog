@@ -8,18 +8,18 @@ published: true
 categories:
   - Mailgun
 ---
-One of my favorite services here at Rackspace is [Mailgun](http://mailgun.com),
+One of my favorite services here at Rackspace is [Mailgun](https://mailgun.com),
 a set of APIs that allow you to send email and manage mailing lists via a REST
 API. Coming back from a recent trip to San Antonio I decided that I would add an
 Objective-C interface to send email via Mailgun using my own iOS interface
 instead of using Apple's `MFMailComposeViewController`. This library is now
 [open sourced on Github](https://github.com/rackerlabs/objc-mailgun) and available
-via [Cocoapods](http://cocoapods.org).<!-- more -->
+via [Cocoapods](https://cocoapods.org).<!-- more -->
 
 ### Install the Mailgun SDK
 
 To install the Mailgun SDK, you can either use the fantastic
-[Cocoapods](http://cocoapods.org) or install directly from the source by adding
+[Cocoapods](https://cocoapods.org) or install directly from the source by adding
 the `Mailgun.(h|m)` and `MGMessage.(h|m)` to your Xcode project. If you choose
 to install manually you will also need to follow the instructions to install
 the [AFNetworking](https://github.com/AFNetworking/AFNetworking/wiki/Getting-Started-with-AFNetworking)
@@ -33,7 +33,7 @@ that these are the most common features an app developer would use but more
 features of the Mailgun API will be added in the future. Full Documentation for
 the library can be found in the
 [Docs directory on Github](https://github.com/rackerlabs/objc-mailgun/tree/master/Docs)
- or on [cocoadocs.org](http://cocoadocs.org).
+ or on [cocoadocs.org](https://cocoadocs.org).
 
 ### Send a message
 
@@ -72,9 +72,9 @@ the `UIImage` is added as an attachment to the message.
 
 Once your message is constructed, you can add recipients by using the
 `addRecipient:` method and add CC and BCC recipients by using `addCC:` and
-`addBCC:`. You can also add [tags](http://documentation.mailgun.net/user_manual.html#tagging),
+`addBCC:`. You can also add [tags](https://documentation.mailgun.net/user_manual.html#tagging),
 variables and a whole host of other features supported by the
-[Mailgun API](http://documentation.mailgun.net/user_manual.html#sending-messages).
+[Mailgun API](https://documentation.mailgun.net/user_manual.html#sending-messages).
 [Take a look at the header](https://github.com/rackerlabs/objc-mailgun/blob/master/Classes/MGMessage.h)
 of `MGMessage.h` to see everything that is supported.
 

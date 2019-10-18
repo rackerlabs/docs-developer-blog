@@ -13,8 +13,8 @@ categories:
 
 This is the third post in a series on Chef:
 
-* [Part one](http://devops.rackspace.com/cooking-with-chef.html): Introduction to Chef
-* [Part two](http://devops.rackspace.com/cooking-with-chef2.html): Cookbooks and Deploying with Knife
+* [Part one](https://devops.rackspace.com/cooking-with-chef.html): Introduction to Chef
+* [Part two](https://devops.rackspace.com/cooking-with-chef2.html): Cookbooks and Deploying with Knife
 
 In those posts I used Opscode's Hosted Chef platform. There are three options for running the Chef Server:
 
@@ -38,7 +38,7 @@ If you like your servers to be fully updated before you start work, you can upda
 
 Next, you need to install the Opscode repository and the GPG key:
 
-	echo "deb http://apt.opscode.com/ `lsb_release -cs`-0.10 main" | sudo tee /etc/apt/sources.list.d/opscode.list
+	echo "deb https://apt.opscode.com/ `lsb_release -cs`-0.10 main" | sudo tee /etc/apt/sources.list.d/opscode.list
 	
 	mkdir -p /etc/apt/trusted.gpg.d
 	gpg --keyserver keys.gnupg.net --recv-keys 83EF826A
@@ -51,8 +51,8 @@ Then update your repositories again and install the opscode-keyring package. Thi
 
 Installing Chef also installs several dependencies. You prompted for some configuration details:
 
-* URL for Chef - http://chef.example.com:4000
+* URL for Chef - https://chef.example.com:4000
 * A password for RabbitMQ
 * A password for the Web UI
 
-Congrats! You have a self-hosted Chef Server. I recommend following this up by [configuring `knife`](http://wiki.opscode.com/display/chef/Installing+Chef+Server+on+Debian+or+Ubuntu+using+Packages) to work with your new Chef server.
+Congrats! You have a self-hosted Chef Server. I recommend following this up by [configuring `knife`](https://wiki.opscode.com/display/chef/Installing+Chef+Server+on+Debian+or+Ubuntu+using+Packages) to work with your new Chef server.

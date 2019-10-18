@@ -32,8 +32,8 @@ Many groups focused on automation. [ChaosCowboy][4], for example, aimed to start
 Groups hacked in various technologies – django, python, flask, HTML 5, javascript and scala, just to name a few. We went through the more than 25 demos in record pace. Self-organized teams of developers, designers, sysadmins, writers and quality engineers all worked together fostering our maker culture.  As per tradition, we ended with a happy hour for the hackers, hosted by our very own sponsor and supporter, [Mark Interrante][6]. Cheers to a fun Friday at Rackspace and to cooking up ideas for the next one. 
 
 [1]: https://github.com/etsy/skyline
-[2]: http://codeascraft.com/2013/06/11/introducing-kale/
-[3]: http://amzn.com/0385512058
+[2]: https://codeascraft.com/2013/06/11/introducing-kale/
+[3]: https://amzn.com/0385512058
 [4]: https://github.com/rackerlabs/ChaosCowboy
 [5]: https://github.com/Netflix/SimianArmy
-[6]: http://www.rackspace.com/information/leadership/minterrante/
+[6]: https://www.rackspace.com/information/leadership/minterrante/

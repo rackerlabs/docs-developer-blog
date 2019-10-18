@@ -28,7 +28,7 @@ The harder the server works, the greater the performance margin is for Cloud Dat
 
 So, which should *you* choose?
 
-For lighter workloads and smaller database sizes, my suggestion would be to choose your platform based upon features instead of performance. With Cloud Databases, you don’t have to configure or patch the server. You have the convenience of a control panel interface, and three copies of the database are maintained automatically. This does not, however, protect you from accidentally dropping a table, so you should also perform a scheduled dump to disk from a Cloud Server client as illustrated here: <http://www.rackspace.com/knowledge_center/article/exporting-data>
+For lighter workloads and smaller database sizes, my suggestion would be to choose your platform based upon features instead of performance. With Cloud Databases, you don’t have to configure or patch the server. You have the convenience of a control panel interface, and three copies of the database are maintained automatically. This does not, however, protect you from accidentally dropping a table, so you should also perform a scheduled dump to disk from a Cloud Server client as illustrated here: <https://www.rackspace.com/knowledge_center/article/exporting-data>
 
 Cloud Databases also do not allow you to modify the MySQL configuration files or configure master /slave replication, so if you need to run backups on a replicated slave, you must choose a Cloud Server. For heavier workloads and where these limitations are not a factor, Cloud Databases would likely be a better choice.
 

@@ -47,7 +47,7 @@ directory. You can use your own directory of choice instead.
 **Test.xml** has the following contents:
 
     <?xml version = '1.0' encoding = 'UTF-8'?>
-    <UANotification xmlns="http://www.test.com/UANotification">
+    <UANotification xmlns="https://www.test.com/UANotification">
         <NotificationHeader>
         <Property name="ErrorMessage" value="User Data Invalid"/>
                 <Property name="SPSDocumentKey" value="11111111111"/>
@@ -61,7 +61,7 @@ directory. You can use your own directory of choice instead.
                 <Property name="XtencilNet" value="shFedsWrite"/>
                 <Property name="PreviousMaps" value="shFedsWrite]"/>
         </NotificationHeader>
-        <FINotification xmlns="http://www.test.com/fileIntegration">
+        <FINotification xmlns="https://www.test.com/fileIntegration">
                 <ServiceResult>
                         <DataError>
                                 <Message>Invalid data test 1</Message>
@@ -103,7 +103,7 @@ To read the text of the tag `Message` that is available under the parent tag
 
     SELECT EXTRACT (VALUE (a1),
                 '/DataError/Message/text()',
-                'xmlns="http://www.test.com/fileIntegration')
+                'xmlns="https://www.test.com/fileIntegration')
           msg
      FROM xml_tab,
        TABLE (
@@ -111,18 +111,18 @@ To read the text of the tag `Message` that is available under the parent tag
              EXTRACT (
                 xml_data,
                 '/UANotification/ns2:FINotification/ns2:ServiceResult/ns2:DataError',
-                'xmlns="http://www.test.com/UANotification" xmlns:ns2="http://www.test.com/fileIntegration"'))) a1
+                'xmlns="https://www.test.com/UANotification" xmlns:ns2="https://www.test.com/fileIntegration"'))) a1
     WHERE file_name = 'Test.xml';
 
 To read `property name` and its value, use the following SQL command:
 
     SELECT EXTRACTVALUE (VALUE (a1),
                      '/Property/@name',
-                     'xmlns="http://www.test.com/UANotification')
+                     'xmlns="https://www.test.com/UANotification')
           attribute,
        EXTRACTVALUE (VALUE (a1),
                      '/Property/@value',
-                     'xmlns="http://www.test.com/UANotification')
+                     'xmlns="https://www.test.com/UANotification')
           VALUE
      FROM xml_tab,
        TABLE (
@@ -130,7 +130,7 @@ To read `property name` and its value, use the following SQL command:
              EXTRACT (
                 xml_data,
                 '/UANotification/NotificationHeader/Property',
-                'xmlns="http://www.test.com/UANotification" xmlns:ns2="http://www.test.com/fileIntegration"'))) a1
+                'xmlns="https://www.test.com/UANotification" xmlns:ns2="https://www.test.com/fileIntegration"'))) a1
      WHERE file_name = 'Test.xml';
 
 ### Second approach: Directly parse the XML file without loading it into an XML table
@@ -140,17 +140,17 @@ table, then you might use the following SELECT statement:
 
     SELECT EXTRACTvalue (VALUE (a1),
                 '/Property/@name',
-                'xmlns="http://www.test.com/UANotification') attribute,
+                'xmlns="https://www.test.com/UANotification') attribute,
                  EXTRACTvalue (VALUE (a1),
                 '/Property/@value',
-                'xmlns="http://www.test.com/UANotification') value
+                'xmlns="https://www.test.com/UANotification') value
      FROM
        TABLE (
           XMLSEQUENCE (
              EXTRACT (
                 xmltype(BFILENAME ('XX_UTL_DIR', 'Test.xml'),NLS_CHARSET_ID ('AL32UTF8')),
                 '/UANotification/NotificationHeader/Property',
-                'xmlns="http://www.test.com/UANotification" xmlns:ns2="http://www.test.com/fileIntegration"'))) a1
+                'xmlns="https://www.test.com/UANotification" xmlns:ns2="https://www.test.com/fileIntegration"'))) a1
 
 ### Wrap up
 

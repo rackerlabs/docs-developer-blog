@@ -36,9 +36,9 @@ $ sudo yum install rubygems
   {% highlight sh %}
 $ gem install fog
   {% endhighlight %}
-  <p>If you're building an application, though, you'll want to manage dependencies with <a href="http://bundler.io/"><strong>bundler</strong></a>. Just add fog to your <strong>Gemfile</strong>:</p>
+  <p>If you're building an application, though, you'll want to manage dependencies with <a href="https://bundler.io/"><strong>bundler</strong></a>. Just add fog to your <strong>Gemfile</strong>:</p>
   {% highlight ruby %}
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 gem 'fog', '~>1.22.0'
   {% endhighlight %}
@@ -47,7 +47,7 @@ gem 'fog', '~>1.22.0'
 $ bundle install
   {% endhighlight %}
   <h2>Using fog</h2>
-  <p>To use any service within fog, authenticate by creating an instance of the appropriate <em>service</em> using your Rackspace username and API key and, when necessary, choosing an appropriate region. Once you have a service instance, fog allows you to manipulate <a href="http://api.rubyonrails.org/classes/ActiveRecord/Base.html">ActiveRecord-like</a> <em>collections</em> and <em>models</em> to interact with the API.</p>
+  <p>To use any service within fog, authenticate by creating an instance of the appropriate <em>service</em> using your Rackspace username and API key and, when necessary, choosing an appropriate region. Once you have a service instance, fog allows you to manipulate <a href="https://api.rubyonrails.org/classes/ActiveRecord/Base.html">ActiveRecord-like</a> <em>collections</em> and <em>models</em> to interact with the API.</p>
   {% highlight ruby %}
 require 'fog'
 

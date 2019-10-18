@@ -69,7 +69,7 @@ except pyrax.exc.AuthenticationFailed:
 
 This is possible in all modern day languages.  The only places where this cannot be done is things like Yaml files which are more static. Even with Yaml you could create a wrapper that read environment variable and generates the Yaml file. The key here would be to *make sure* that the Yaml file is your public repository otherwise it defeats the purpose.
 
-As a further protection you can use the OS level keyrings to store these environment variables. Linux has [Gnome Keyring](https://wiki.gnome.org/Projects/GnomeKeyring/KeyringIntro) , Mac OSX has an equivalent [KeyChain](https://developer.apple.com/library/mac/documentation/security/Conceptual/keychainServConcepts/01introduction/introduction.html) option and for Windows environments, you can use [Credentials Management Functions](http://msdn.microsoft.com/en-us/library/aa374731%28v=VS.85%29.aspx#credentials_management_functions) from within your code. The keyrings provide an additional level of security in protecting the information.
+As a further protection you can use the OS level keyrings to store these environment variables. Linux has [Gnome Keyring](https://wiki.gnome.org/Projects/GnomeKeyring/KeyringIntro) , Mac OSX has an equivalent [KeyChain](https://developer.apple.com/library/mac/documentation/security/Conceptual/keychainServConcepts/01introduction/introduction.html) option and for Windows environments, you can use [Credentials Management Functions](https://msdn.microsoft.com/en-us/library/aa374731%28v=VS.85%29.aspx#credentials_management_functions) from within your code. The keyrings provide an additional level of security in protecting the information.
 
 
   * **Stay private**
@@ -81,7 +81,7 @@ Use private Git Hub repositories or Bit Bucket and keep repos private. This is p
 
 git-crypt enables transparent encryption and decryption of files in a git repository. Files that you choose to protect are encrypted when committed, and decrypted when checked out. git-crypt lets you freely share a repository containing a mix of public and private content. See ([Git Crypt](https://www.agwa.name/projects/git-crypt/))
 
-git-crypt is not designed to encrypt an entire repository. Also note that git-crypt usese git's smudge and clean features (ref ([Git Attributes](http://git-scm.com/docs/gitattributes)), which was not the original intent of those features.  git-crypt does not itself provide any authentication. It assumes that either the master copy of your repository is stored securely, or that you are using git's existing facilities to ensure integrity (signed tags, remembering commit hashes, etc.). It maybe worth noting that git-crypt uses deterministic encryption which is something that should be taken into consideration.
+git-crypt is not designed to encrypt an entire repository. Also note that git-crypt usese git's smudge and clean features (ref ([Git Attributes](https://git-scm.com/docs/gitattributes)), which was not the original intent of those features.  git-crypt does not itself provide any authentication. It assumes that either the master copy of your repository is stored securely, or that you are using git's existing facilities to ensure integrity (signed tags, remembering commit hashes, etc.). It maybe worth noting that git-crypt uses deterministic encryption which is something that should be taken into consideration.
 
 
 ### Accidents happen

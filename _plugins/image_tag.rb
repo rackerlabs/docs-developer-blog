@@ -1,5 +1,5 @@
 # Title: Simple Image tag for Jekyll
-# Authors: Brandon Mathis http://brandonmathis.com
+# Authors: Brandon Mathis https://brandonmathis.com
 #          Felix Schäfer, Frederic Hemberger
 # Description: Easily output images with optional class names, width, height, title and alt attributes
 #
@@ -7,13 +7,13 @@
 #
 # Examples:
 # {% img ninja.png Ninja Attack! %}
-# {% img left half http://site.com/images/ninja.png Ninja Attack! %}
-# {% img left half http://site.com/images/ninja.png 150 150 "Ninja Attack!" "Ninja in attack posture" %}
+# {% img left half https://site.com/images/ninja.png Ninja Attack! %}
+# {% img left half https://site.com/images/ninja.png 150 150 "Ninja Attack!" "Ninja in attack posture" %}
 #
 # Output:
 # <img src="/images/ninja.png">
-# <img class="left half" src="http://site.com/images/ninja.png" title="Ninja Attack!" alt="Ninja Attack!">
-# <img class="left half" src="http://site.com/images/ninja.png" width="150" height="150" title="Ninja Attack!" alt="Ninja in attack posture">
+# <img class="left half" src="https://site.com/images/ninja.png" title="Ninja Attack!" alt="Ninja Attack!">
+# <img class="left half" src="https://site.com/images/ninja.png" width="150" height="150" title="Ninja Attack!" alt="Ninja in attack posture">
 #
 
 module Jekyll

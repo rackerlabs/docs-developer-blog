@@ -18,11 +18,11 @@ On 22 January, [Apache Libcloud](https://libcloud.apache.org/index.html) project
 
 # History
 
-The Libcloud project began in 2009 at Cloudkick, who were later acquired by Rackspace, leading to the [Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/) product. After joining the Apache Incubator in late 2009, Libcloud graduated to a top-level Apache project in May 2011.
+The Libcloud project began in 2009 at Cloudkick, who were later acquired by Rackspace, leading to the [Cloud Monitoring](https://www.rackspace.com/cloud/monitoring/) product. After joining the Apache Incubator in late 2009, Libcloud graduated to a top-level Apache project in May 2011.
 
 The May 2011 release of Libcloud 0.5 saw the additions of object storage and load balancer abstractions, to compliment the original compute-only releases. Libcloud 0.6 brought DNS abstractions to the package just a few months later. Documentation saw a visual and content overhaul in July 2013, with the move to [ReadTheDocs.org](https://libcloud.readthedocs.org/en/latest/).
 
-Python 3 has been supported since the 0.7.1 release in December 2011, and [PyPy](http://pypy.org/) became supported in 0.9.
+Python 3 has been supported since the 0.7.1 release in December 2011, and [PyPy](https://pypy.org/) became supported in 0.9.
 
 If you've been following the project, you might notice the website has undergone a makeover. The refresh makes use of Jekyll and Bootstrap, and offers a more modern view of the project, including its own blog, which includes [a post](https://libcloud.apache.org/blog/2014/01/23/welcome-to-the-new-website.html) on how the new site came to be.
 
@@ -44,13 +44,13 @@ Libcloud is available on PyPI as [apache-libcloud](https://pypi.python.org/pypi/
 
     pip install apache-libcloud
 
-Downloads are also available on the [Libcloud site](http://libcloud.apache.org/downloads.html).
+Downloads are also available on the [Libcloud site](https://libcloud.apache.org/downloads.html).
 
 # Adding an SSH Key
 
 Before you dig in and spin up servers on your provider, you'll want a secure way of accessing them. Most providers offer an API to setup SSH key pairing, including OpenStack and the Rackspace Cloud. As of the 0.14 release, key management is a part of the base *compute* APIs, instead of its previous life as a set of extension APIs.
 
-If you don't already have an SSH key, there are many guides available around the web - [here's one](http://www.debian-administration.org/articles/530). Libcloud can even [create one for you](https://libcloud.readthedocs.org/en/latest/compute/key_pair_management.html#creating-a-new-key-pair). Here's how you import an existing key:
+If you don't already have an SSH key, there are many guides available around the web - [here's one](https://www.debian-administration.org/articles/530). Libcloud can even [create one for you](https://libcloud.readthedocs.org/en/latest/compute/key_pair_management.html#creating-a-new-key-pair). Here's how you import an existing key:
 
     from libcloud.compute.types import Provider
     from libcloud.compute.providers import get_driver

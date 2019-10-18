@@ -20,7 +20,7 @@ In [Part I](https://developer.rackspace.com/blog/trinity-article-I/) of this ser
 
 **Disclaimer**: The demonstration code in the corresponding [repository] (https://github.com/djrut/trinity) is for illustrative purposes only and may not be sufficiently robust for production use. Users should carefully inspect sample code before running in a production environment. Use at your own risk.
 
-**Disclosure**: The idea of a Makefile mechanism to automate container preparation, build, push etc. was inspired by [this](http://victorlin.me/posts/2014/11/26/running-docker-with-aws-elastic-beanstalk) excellent article by Victor Lin.
+**Disclosure**: The idea of a Makefile mechanism to automate container preparation, build, push etc. was inspired by [this](https://victorlin.me/posts/2014/11/26/running-docker-with-aws-elastic-beanstalk) excellent article by Victor Lin.
 
 ### II - Workflow
 
@@ -313,7 +313,7 @@ commit:
 	@git commit --amend --no-edit
 ~~~
 
-After a successful push, we can safely update the Docker configuration file that ElasticBeanstalk uses. In the single-container example for this article, this file is called [Dockerrun.aws.json](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_image.html). Here is what ours looks like:
+After a successful push, we can safely update the Docker configuration file that ElasticBeanstalk uses. In the single-container example for this article, this file is called [Dockerrun.aws.json](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_image.html). Here is what ours looks like:
 
 ~~~
 {
@@ -331,7 +331,7 @@ After a successful push, we can safely update the Docker configuration file that
 }
 ~~~
 
-The AWS docs [here](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_image.html) give a full description of this configuration, which I will not duplicate here; however, some things to note are:
+The AWS docs [here](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_image.html) give a full description of this configuration, which I will not duplicate here; however, some things to note are:
 
 - `"AWSEBDockerrunVersion": "1"` -> Version for single container deployments. Multi-container deployments will use a different format in Version 2.
 - `"Name": "djrut/trinity:v1.1-20-g6b54b6e"` -> This is our container name!

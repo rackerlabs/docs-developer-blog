@@ -108,7 +108,7 @@ adminclient:
 
 2. Enter the following command to connect to the Service Manager deployment source:
 
-        adminclient> connect http://<host>:<port> deployment <deploment> as <security user> password <password>
+        adminclient> connect https://<host>:<port> deployment <deploment> as <security user> password <password>
 
 3. Enter the following command to create the Parallel Replicat process:
 

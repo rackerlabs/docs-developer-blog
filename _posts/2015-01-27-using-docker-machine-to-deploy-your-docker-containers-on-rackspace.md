@@ -11,7 +11,7 @@ categories:
 ---
 
 ## Background
-Docker announced [Docker Machine](http://blog.docker.com/2014/12/announcing-docker-machine-swarm-and-compose-for-orchestrating-distributed-apps/) in December 2014. This clever new software eliminates the need to create virtual machines and install Docker before starting Docker containers on them. It handles the provisioning and install process for you behind the scenes. You can learn more about Docker Machines at its [GitHub project page](https://github.com/docker/machine).
+Docker announced [Docker Machine](https://blog.docker.com/2014/12/announcing-docker-machine-swarm-and-compose-for-orchestrating-distributed-apps/) in December 2014. This clever new software eliminates the need to create virtual machines and install Docker before starting Docker containers on them. It handles the provisioning and install process for you behind the scenes. You can learn more about Docker Machines at its [GitHub project page](https://github.com/docker/machine).
 
 Let's take a quick look at how we can get some of this awesomeness!
 

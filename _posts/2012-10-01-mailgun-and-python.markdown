@@ -9,9 +9,9 @@ categories:
   - Mailgun
 ---
 
-In case you didn't hear, Rackspace recently [acquired Mailgun](http://techcrunch.com/2012/08/28/rackspace-acquires-y-combinator-startup-mailgun-an-api-that-abstracts-creating-email-inboxes-for-apps-and-web-sites/), a YCombinator startup that makes it really easy to integrate email into your application.  Mailgun does the simple things like sending password confirmations and shipping notifications, but it also makes it A LOT easier to build some really good stuff.
+In case you didn't hear, Rackspace recently [acquired Mailgun](https://techcrunch.com/2012/08/28/rackspace-acquires-y-combinator-startup-mailgun-an-api-that-abstracts-creating-email-inboxes-for-apps-and-web-sites/), a YCombinator startup that makes it really easy to integrate email into your application.  Mailgun does the simple things like sending password confirmations and shipping notifications, but it also makes it A LOT easier to build some really good stuff.
 
-Figuring out how to make email work with the cloud is one of the biggest questions that we get at Rackspace, so we're publishing some code samples that show you how to build some really cool things with Mailgun. Mailgun has a [free plan](http://mailgun.com/pricing) that will let you try all these things and send up to 200 emails per day for free. Then they've got plans starting at only $20 a month.  So, onto the cool stuff!
+Figuring out how to make email work with the cloud is one of the biggest questions that we get at Rackspace, so we're publishing some code samples that show you how to build some really cool things with Mailgun. Mailgun has a [free plan](https://mailgun.com/pricing) that will let you try all these things and send up to 200 emails per day for free. Then they've got plans starting at only $20 a month.  So, onto the cool stuff!
 
 <!-- more -->
 
@@ -20,7 +20,7 @@ Figuring out how to make email work with the cloud is one of the biggest questio
 
 Have you ever gotten an email from a social application to notify you of a comment on a thread you're watching, then you had to login to the app to reply?  That is totally unnecessary.
 
-Here's how to integrate email communications into your app seamlessly. Some of the code in this example is written in Python for a Django app, but the same thing is possible in your favorite language (check out the [Mailgun user manual](http://documentation.mailgun.net/user_manual.html#um-routes) for full documentation on parsing and posting emails to your app using Mailgun).
+Here's how to integrate email communications into your app seamlessly. Some of the code in this example is written in Python for a Django app, but the same thing is possible in your favorite language (check out the [Mailgun user manual](https://documentation.mailgun.net/user_manual.html#um-routes) for full documentation on parsing and posting emails to your app using Mailgun).
 
 First, you need to decide if you want to filter the emails coming into your app so you only do something for certain incoming emails. Maybe it’s only one kind of email that you want to do something with, like emails asking for support, or emails from a particular person or domain. You can match based on things like recipient or any field in the MIME header of the email.  Here are some examples:
 
@@ -58,7 +58,7 @@ After matching, you need to decide what you want to do. Maybe you don't want to
 <td>Description</td>
 </tr>
 <tr>
-<td>forward(“http://myapp/post”)</td>
+<td>forward(“https://myapp/post”)</td>
 <td>Parses the message and forwards it to a given URL.</td>
 </tr>
 <tr>
@@ -76,12 +76,12 @@ These actions are where the really cool things start to happen. When you forward
 	
   * Fully parsed: Mailgun will parse the message, process attachments and attempt to separate quoted parts from the actual message. This is the preferred option.
 
-  * Raw MIME: message is posted as-is. In this case you are responsible for parsing MIME. To receive raw MIME messages, the destination URL must end with mime (e.g. http://myhost/post_mime)
+  * Raw MIME: message is posted as-is. In this case you are responsible for parsing MIME. To receive raw MIME messages, the destination URL must end with mime (e.g. https://myhost/post_mime)
 
 
 You can then take these difference parts of the parsed message and update your app with the data. The Python code below shows an example of what you would need to do in your Django app to handle the incoming messages:
 
-{% codeblock lang:python %}# Handler for HTTP POST to http://myhost.com/messages for the route defined above
+{% codeblock lang:python %}# Handler for HTTP POST to https://myhost.com/messages for the route defined above
 def on_incoming_message(request):
 if request.method == 'POST':
 sender    = request.POST.get('sender')
@@ -101,4 +101,4 @@ file = request.FILES[key]
 # Mailgun wants to see 2xx, otherwise it will make another attempt in 5 minutes
 return HttpResponse('OK'){% endcodeblock %}
 
-Mailgun routes are very powerful. For example, you can use regular expression captures and refer to captured values in your destination. With routes, you can also create email addresses (even on the fly) for every user or object or ID in your app to enable very granular behavior. To learn more about Routes, check out the [Routes](http://documentation.mailgun.net/user_manual.html#um-routes) section of the [User Manual](http://documentation.mailgun.net/user_manual.html#user-manual) or contact Mailgun [support](https://mailgun.net/support). The Mailgunners also wrote a [blog post](http://blog.mailgun.net/post/12482374892/handle-incoming-emails-like-a-pro-mailgun-api-2-0) on routes a while ago that has some good additional information. Over the next few weeks we’ll post additional how-tos and sample code, so let us know if there is anything you're wondering how to do!
+Mailgun routes are very powerful. For example, you can use regular expression captures and refer to captured values in your destination. With routes, you can also create email addresses (even on the fly) for every user or object or ID in your app to enable very granular behavior. To learn more about Routes, check out the [Routes](https://documentation.mailgun.net/user_manual.html#um-routes) section of the [User Manual](https://documentation.mailgun.net/user_manual.html#user-manual) or contact Mailgun [support](https://mailgun.net/support). The Mailgunners also wrote a [blog post](https://blog.mailgun.net/post/12482374892/handle-incoming-emails-like-a-pro-mailgun-api-2-0) on routes a while ago that has some good additional information. Over the next few weeks we’ll post additional how-tos and sample code, so let us know if there is anything you're wondering how to do!

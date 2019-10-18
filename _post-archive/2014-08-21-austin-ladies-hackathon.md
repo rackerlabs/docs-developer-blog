@@ -14,7 +14,7 @@ Austin Ladies Hackathon
 
 This weekend was a blast, hacking with all women at Rackspace, and wow were the projects impressive. Here's how it went.
 
-Friday night we gathered at a restaurant, the Flying Saucer, to meet each other and start to form teams. I’d guessimate that 20 of the 30 participants showed up. I helped out by facilitating discussions for people to find teams, and I spent a lot of the night talking to complete newcomers about what a hackathon is like, what to expect, and especially how to learn at one. We also recruited for the upcoming NoSQL Mobile App Challenge (http://rackspacemobile.challengepost.com/).
+Friday night we gathered at a restaurant, the Flying Saucer, to meet each other and start to form teams. I’d guessimate that 20 of the 30 participants showed up. I helped out by facilitating discussions for people to find teams, and I spent a lot of the night talking to complete newcomers about what a hackathon is like, what to expect, and especially how to learn at one. We also recruited for the upcoming NoSQL Mobile App Challenge (https://rackspacemobile.challengepost.com/).
 
 <!-- more -->
 
@@ -30,7 +30,7 @@ Sunday the teams came back to code for about another three hours prior to presen
 
 Our judges were Austin site leader Bill Blackstone, new Racker and Austin Pyladies founder Sara Safavi, and Chief Scientist at Artemis Capital, Katrina Riehl. They had their work cut out for them as these teams made completely demo-able apps and great presentations. With each presentation, I thought, well, that one’s going to win. Every team shone. There wasn’t much of a competitive vibe, but we did end up with these placings and prizes provided by Ebay and NumFocus:
 
-1. Texas Women’s Clinic Finder web app – Shows a map with color-coded pointers for women’s health offerings at http://twcf.webflow.com/.
+1. Texas Women’s Clinic Finder web app – Shows a map with color-coded pointers for women’s health offerings at https://twcf.webflow.com/.
 
 2. Water Your Wallet: Kivy mobile app — enter a Texas city, then enter a plant name and number of plants you have in your garden or landscape, and get the cost of watering it.
 

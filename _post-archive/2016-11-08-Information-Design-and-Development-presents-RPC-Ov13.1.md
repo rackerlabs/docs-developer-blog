@@ -27,11 +27,11 @@ and the third-party cloud upstream platforms that Rackspace supports, including
 Most recently, we worked with the Rackspace Private Cloud Powered By
 OpenStack (RPCO) offering team and delivered the 13.1 release, which reflects
 the upstream
-[Mitaka](http://docs.openstack.org/developer/openstack-ansible/mitaka/) release
+[Mitaka](https://docs.openstack.org/developer/openstack-ansible/mitaka/) release
 of OpenStack-Ansible.
 
 RPCO is the Rackspace-productized version of upstream
-[OpenStack-Ansible](http://docs.openstack.org/developer/openstack-ansible/).
+[OpenStack-Ansible](https://docs.openstack.org/developer/openstack-ansible/).
 RPCO uses OpenStack-Ansible to deploy the private cloud, and also includes several
 Rackspace-specific Ansible playbooks that can assist with deploying monitoring,
 logging, support-specific tooling, and database backups.

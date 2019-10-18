@@ -37,7 +37,7 @@ that file in your bashrc.  It should look something like this:
     export OS_USERNAME=admin
     export OS_PASSWORD=secrete
     export OS_TENANT_NAME=admin
-    export OS_AUTH_URL=http://162.242.171.36:5000/v2.0
+    export OS_AUTH_URL=https://162.242.171.36:5000/v2.0
     export OS_AUTH_STRATEGY=keystone export OS_NO_CACHE=1
 
     # LEGACY NOVA ENVS
@@ -79,7 +79,7 @@ will be discussed further below.
 
 First, let's download an image.  We'll use Ubuntu 12.04 for this example.
 
-    wget http://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.img
+    wget https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.img
 
 First, we'll look at existing images with _glance image-list_.
 
@@ -229,7 +229,7 @@ To test authentication, you can either log in via Horizon, use any of the CLI
 tools (setting the appropriate flags and/or environment variables for your
 tenant, username, and password), or you can use curl as follows:
 
-    curl -d '{"auth":{"passwordCredentials":{"username": "dev", "password": "devpass"}}}' -H "Content-type: application/json" http://localhost:35357/v2.0/tokens 2>/dev/null|python -mjson.tool
+    curl -d '{"auth":{"passwordCredentials":{"username": "dev", "password": "devpass"}}}' -H "Content-type: application/json" https://localhost:35357/v2.0/tokens 2>/dev/null|python -mjson.tool
 
 If authentication is successful, you should see some JSON data including auth
 token information.

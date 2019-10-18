@@ -9,8 +9,8 @@ categories:
   - Cloud Monitoring
 ---
 
-[Cloud Monitoring](http://www.rackspace.com/cloud/monitoring/)
-now supports [PagerDuty](http://www.pagerduty.com)
+[Cloud Monitoring](https://www.rackspace.com/cloud/monitoring/)
+now supports [PagerDuty](https://www.pagerduty.com)
 integration! With this new notification type, alarm notifications can
 automatically create new incidents and resolve them once Cloud Monitoring
 detects things are okay.
@@ -22,7 +22,7 @@ doesn't support creating notifications and notification plans,
 [raxmon](https://github.com/racker/rackspace-monitoring-cli) is
 one of the easier ways to set up PagerDuty notifications. If you haven't used raxmon
 before, there is a great guide for setting things up
-[here](http://devops.rackspace.com/using-raxmon-to-configure-rackspace-cloud-monitoring.html).
+[here](https://devops.rackspace.com/using-raxmon-to-configure-rackspace-cloud-monitoring.html).
 
 In order to do this, we just have to go through the following steps:
 
@@ -30,7 +30,7 @@ In order to do this, we just have to go through the following steps:
 2. Create the new PagerDuty notification.
 3. Create or update a Cloud Monitoring notification plan.
 4. Update an alarm to use your new notification plan.
-5. Do a [happy dance](http://i.imgur.com/aqQK8IE.gif).
+5. Do a [happy dance](https://i.imgur.com/aqQK8IE.gif).
 
 If you'd like to dive right into things, there is a [tl;dr](#tldr) at
 the bottom of the page.
@@ -45,7 +45,7 @@ PagerDuty service to use with Cloud Monitoring.
    the "Service key," which you need when you create your notification.
 
 Next, you need to create the Cloud Monitoring
-[notification](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/service-notifications.html) to
+[notification](https://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/service-notifications.html) to
 attach to a notification plan with the service key you've obtained from
 PagerDuty. To do this with raxmon, do the following:
 
@@ -54,7 +54,7 @@ PagerDuty. To do this with raxmon, do the following:
 
 After you do this, raxmon returns a new ID for the notification that
 looks similar to `nt23k123`. Keep this ID handy for the next step of creating a
-[notification plan](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/service-notification-plans.html).
+[notification plan](https://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/service-notification-plans.html).
 
 To view a detailed list of your existing notification plans, you can use the following
 raxmon command:
@@ -108,7 +108,7 @@ labels. If you would like more information about the alarms, you can use
 the `--details` flag.
 
 Your final step to take advantage of the new PagerDuty integration is
-to [update your alarms](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/service-alarms.html#service-alarms-update)
+to [update your alarms](https://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/service-alarms.html#service-alarms-update)
 to use your newly-created notification plan. Use
 the ID that your call to `raxmon-notification-plan-create` returned and
 the alarm ID you've picked out, and run the following command:
@@ -119,10 +119,10 @@ the alarm ID you've picked out, and run the following command:
 After doing this you are all set! Cloud Monitoring now
 automatically triggers and resolves incidents through PagerDuty.
 
-For more information visit the [Cloud Monitoring API documentation](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/overview.html).
+For more information visit the [Cloud Monitoring API documentation](https://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/overview.html).
 If you have any questions or feedback, feel free to email the
 [Cloud Monitoring team](mailto:monitoring@rackspace.com) or
-join #rackspace on [irc.freenode.net](http://webchat.freenode.net?channels=rackspace).
+join #rackspace on [irc.freenode.net](https://webchat.freenode.net?channels=rackspace).
 
 <a name="tldr">**tl;dr**</a>
 

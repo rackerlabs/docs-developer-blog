@@ -8,7 +8,7 @@ published: true
 categories:
   - Cloud Servers
 ---
-ObjectRocket, the industrial strength MongoDB database-as-a-service company that Rackspace acquired in February, is now available in our Chicago data center. This means that you can now use ObjectRocket as part of your Rackspace deployments. You can read about the new data center here and a recent performance benchmark study that we did [here](http://devops.rackspace.com/benchmarking-hosted-mongodb-services.html).
+ObjectRocket, the industrial strength MongoDB database-as-a-service company that Rackspace acquired in February, is now available in our Chicago data center. This means that you can now use ObjectRocket as part of your Rackspace deployments. You can read about the new data center here and a recent performance benchmark study that we did [here](https://devops.rackspace.com/benchmarking-hosted-mongodb-services.html).
 
 Now that you can use a lightning fast (and automatically scalable and redundant) MongoDB-as-a-service right next to the rest of the app infrastructure, we thought it would be helpful to post a tutorial about how to connect MongoDB to your application running on the Rackspace Cloud using ObjectRocket.<!-- more -->
 
@@ -16,7 +16,7 @@ Now that you can use a lightning fast (and automatically scalable and redundant)
 
 ###Signup
 
-The first thing you'll need to do is [signup for an ObjectRocket plan](http://www.objectrocket.com/pricing). Plans start at as little as $29 per month for a 1GB shard and there's a 30-day free trial, so you can try it out without any risk. Please note that bandwidth charges will incur for communications between Cloud Servers and ObjectRocket.
+The first thing you'll need to do is [signup for an ObjectRocket plan](https://www.objectrocket.com/pricing). Plans start at as little as $29 per month for a 1GB shard and there's a 30-day free trial, so you can try it out without any risk. Please note that bandwidth charges will incur for communications between Cloud Servers and ObjectRocket.
 
 ###Billing
 
@@ -55,7 +55,7 @@ And when we run the command, we get a confirmation that the database was success
 
 ##Security
 
-We’re security conscious, so you need to be too! Before connecting you need to add an ACL (Access Control List). An ACL allows access from an outside network into the ObjectRocket system. It's based on an [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) type IP address mask. ObjectRocket makes it easy to manage your ACL lists. Head to the [instances page](https://app.objectrocket.com/instances) then click on the instance you would like to add an ACL to. Select the ACL tab and the add ACL button. ACLs are granted to an instance, so they allow access to every database in that instance. Enter the IP address of your client and a brief description.
+We’re security conscious, so you need to be too! Before connecting you need to add an ACL (Access Control List). An ACL allows access from an outside network into the ObjectRocket system. It's based on an [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) type IP address mask. ObjectRocket makes it easy to manage your ACL lists. Head to the [instances page](https://app.objectrocket.com/instances) then click on the instance you would like to add an ACL to. Select the ACL tab and the add ACL button. ACLs are granted to an instance, so they allow access to every database in that instance. Enter the IP address of your client and a brief description.
 
 Congrats you’re ready to go!
 
@@ -110,6 +110,6 @@ pprint.pprint(user)
 db.accounts.remove({"_id": pymongo.objectid.ObjectId(user['_id'])})
 ```
 
-You can find this example and a simple Node.js example [here](http://docs.objectrocket.com/native).
+You can find this example and a simple Node.js example [here](https://docs.objectrocket.com/native).
  
-That’s it. Now you can use MongoDB as part of your Rackspace infrastructure. You can learn more about ObjectRocket at our [website](http://www.objectrocket.com) and in our [docs](http://docs.objectrocket.com), or drop a line to <support@objectrocket.com>. We’re happy to chat.
+That’s it. Now you can use MongoDB as part of your Rackspace infrastructure. You can learn more about ObjectRocket at our [website](https://www.objectrocket.com) and in our [docs](https://docs.objectrocket.com), or drop a line to <support@objectrocket.com>. We’re happy to chat.

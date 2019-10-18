@@ -34,7 +34,7 @@ Here are a few facts about Ansible that is useful to know:
    * Has built in modules that work with various cloud providers (including Rackspace) and that do many administrative tasks
    * If you run into an issue and/or potential bug, do not be shy…report it to them via GitHub…you will be shocked in how quickly they respond
 
-You can find more information about Ansible on their [Intro](http://docs.ansible.com/intro.html) and [Best Practices](http://docs.ansible.com/playbooks_best_practices.html) page.
+You can find more information about Ansible on their [Intro](https://docs.ansible.com/intro.html) and [Best Practices](https://docs.ansible.com/playbooks_best_practices.html) page.
 </br>
 ####How do you get started?
 Since all the OpenStack deployment and environment configuration playbooks are already created, you need to start by provisioning your environment.
@@ -50,7 +50,7 @@ Since all the OpenStack deployment and environment configuration playbooks are a
 
 Personally, I have found a few creative ways of doing this locally on my workstation.  For this article, we use the 100% Open Source approach by using **VirtualBox**, **Vagrant** and of course **Ansible**.
 
-Follow the steps below to install Rackspace Private Cloud v9.0.  Keep in mind the full installation guide can be found at: http://docs.rackspace.com/rpc/api/v9/bk-rpc-installation/content/rpc-common-front.html
+Follow the steps below to install Rackspace Private Cloud v9.0.  Keep in mind the full installation guide can be found at: https://docs.rackspace.com/rpc/api/v9/bk-rpc-installation/content/rpc-common-front.html
 
 </br>
 ####Step 0: Prerequisites
@@ -58,7 +58,7 @@ Follow the steps below to install Rackspace Private Cloud v9.0.  Keep in mind th
 
    * The machine where RPC is being deployed must have internet connectivity
    * Machine with at least 8GB RAM, processors with hardware virtualization capability
-   * Git, [Virtualbox](https://www.virtualbox.org/manual/ch02.html), [Vagrant](https://docs.vagrantup.com/v2/installation/index.html) and [Ansible](http://docs.ansible.com/intro_installation.html) installed
+   * Git, [Virtualbox](https://www.virtualbox.org/manual/ch02.html), [Vagrant](https://docs.vagrantup.com/v2/installation/index.html) and [Ansible](https://docs.ansible.com/intro_installation.html) installed
 
 ####Step 1: Provision Target Environment
 
@@ -125,7 +125,7 @@ Now, from your browser, connect to the deployment node (default IP address for t
 
 ---
 ####Issues and Trouble Spots
-The first clear message I want to deliver is this: if you run into deployment issues please make sure to ask for help and/or report the bug.  This can be done via our GitHub page for Rackspace Private Cloud: http://rcbops.github.io/ansible-lxc-rpc/
+The first clear message I want to deliver is this: if you run into deployment issues please make sure to ask for help and/or report the bug.  This can be done via our GitHub page for Rackspace Private Cloud: https://rcbops.github.io/ansible-lxc-rpc/
 
 </br>
 #####Playbooks continuously fail:

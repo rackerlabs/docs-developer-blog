@@ -138,6 +138,6 @@ that it’s a lot of work and not where you want to spending your valuable time.
 Check us out at [JumpCloud][jumpcloud] for this and many of your other DevOps needs.
 
 
-[passwd_vs_pubkey]:http://security.stackexchange.com/questions/3887/is-using-a-public-key-for-logging-in-to-ssh-any-better-than-saving-a-password
+[passwd_vs_pubkey]:https://security.stackexchange.com/questions/3887/is-using-a-public-key-for-logging-in-to-ssh-any-better-than-saving-a-password
 [setup_keys]:https://help.github.com/articles/generating-ssh-keys
-[jumpcloud]:http://www.jumpcloud.com
+[jumpcloud]:https://www.jumpcloud.com

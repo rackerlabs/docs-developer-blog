@@ -109,7 +109,7 @@ At a busy time:
     dm-5              0.00     0.00  0.00  0.00     0.00     0.00     0.00     0.00    0.00   0.00   0.00
     dm-6              0.00     0.00  0.00  0.00     0.00     0.00     0.00     0.00    0.00   0.00   0.00
 
-*Images Source*: [http://www.dbas-oracle.com/2013/05/How-to-Analyze-or-Read-OS-Watcher-Output-in-three-easy-steps-With-Example.html](http://www.dbas-oracle.com/2013/05/How-to-Analyze-or-Read-OS-Watcher-Output-in-three-easy-steps-With-Example.html)
+*Images Source*: [https://www.dbas-oracle.com/2013/05/How-to-Analyze-or-Read-OS-Watcher-Output-in-three-easy-steps-With-Example.html](https://www.dbas-oracle.com/2013/05/How-to-Analyze-or-Read-OS-Watcher-Output-in-three-easy-steps-With-Example.html)
 
 The snapshot from midnight shows good performance, and the one from 7:32 AM shows
 poor performance. Note the following indications of poor performance in the
@@ -331,7 +331,7 @@ Use the Feedback tab to make any comments or ask questions.
 
 ### Reference source:
 
-[How to Analyze or Read OSWatcher Output in Three Easy Steps with Example](http://www.dbas-oracle.com/2013/05/How-to-Analyze-or-Read-OS-Watcher-Output-in-three-easy-steps-With-Example.html)
+[How to Analyze or Read OSWatcher Output in Three Easy Steps with Example](https://www.dbas-oracle.com/2013/05/How-to-Analyze-or-Read-OS-Watcher-Output-in-three-easy-steps-With-Example.html)
 
 ### Optimize your environment with expert administration, management, and configuration
 

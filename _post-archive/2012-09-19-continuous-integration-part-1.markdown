@@ -16,7 +16,7 @@ Continuous integration when used in software development is the practice of freq
 
 <!-- more -->
 
-A major proponent of continuous integration is [Martin Fowler](http://en.wikipedia.org/wiki/Martin_Fowler), who came up with 10 key principles:
+A major proponent of continuous integration is [Martin Fowler](https://en.wikipedia.org/wiki/Martin_Fowler), who came up with 10 key principles:
 
 	
   * Maintain a code repository
@@ -49,7 +49,7 @@ A major proponent of continuous integration is [Martin Fowler](http://en.wikiped
   * Automate deployment
 
 
-There are [several applications](http://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software) out there that follow these principles and make continuous integration easy. The application I will focus on is [Jenkins](http://jenkins-ci.org/). From its website, Jenkins is an application that monitors executions of repeated jobs, such as building software or jobs run by cron. Basically, Jenkins does two things:
+There are [several applications](https://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software) out there that follow these principles and make continuous integration easy. The application I will focus on is [Jenkins](https://jenkins-ci.org/). From its website, Jenkins is an application that monitors executions of repeated jobs, such as building software or jobs run by cron. Basically, Jenkins does two things:
 
 	
   * Building/testing software projects continuously
@@ -58,7 +58,7 @@ There are [several applications](http://en.wikipedia.org/wiki/Comparison_of_cont
   * Monitoring execution of external jobs
 
 
-Using a [Rackspace Cloud Server](http://www.rackspace.com/cloud/public/servers/) running Jenkins and a git repository I can test builds of my software to make sure I didn't overlook anything when committing code.
+Using a [Rackspace Cloud Server](https://www.rackspace.com/cloud/public/servers/) running Jenkins and a git repository I can test builds of my software to make sure I didn't overlook anything when committing code.
 
 
 ### Create a server and install Jenkins
@@ -79,10 +79,10 @@ Once it boots up with my SSH key, I log in, update everything and reboot (this s
 Now we have an up-to-date Ubuntu 12.04 server. Time to install Jenkins. Ubuntu has a package available in its repository, but I want the latest and greatest. To get the latest available version you need to configure your server to use the Jenkins repository:
 
     
-    $ wget -q -O - http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key | sudo apt-key add -
-    $ echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list
+    $ wget -q -O - https://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key | sudo apt-key add -
+    $ echo deb https://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list
     $ apt-get update
     $ apt-get -y install jenkins
 
 
-Jenkins is now running on port 8080. Stay tuned for part two of this series, which will showcase the process of securing Jenkins and configuring it with a git repository. If you want more information on companies using Jenkins for continuous integration, Intuit describes their process [here](http://www.drdobbs.com/tools/building-quickbooks-how-intuit-manages-1/240003694?pgno=1).
+Jenkins is now running on port 8080. Stay tuned for part two of this series, which will showcase the process of securing Jenkins and configuring it with a git repository. If you want more information on companies using Jenkins for continuous integration, Intuit describes their process [here](https://www.drdobbs.com/tools/building-quickbooks-how-intuit-manages-1/240003694?pgno=1).

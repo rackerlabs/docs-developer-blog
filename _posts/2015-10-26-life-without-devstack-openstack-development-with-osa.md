@@ -60,7 +60,7 @@ What is openstack-ansible (OSA)?
 
 The [openstack-ansible](https://github.com/openstack/openstack-ansible) project
 is a Rackspace open source initiative that uses the power of
-[Ansible](http://www.ansible.com/) to deploy OpenStack. You may have
+[Ansible](https://www.ansible.com/) to deploy OpenStack. You may have
 heard of this project with the name *os-ansible-deployment* on StackForge
 before it moved to the OpenStack big tent.
 
@@ -124,7 +124,7 @@ project comes with a script that does that for you:
     # scripts/bootstrap-aio.sh
 
 After the above command runs, the directory */etc/openstack_deploy* will be
-populated with several configuration files in [YAML](http://yaml.org/) format.
+populated with several configuration files in [YAML](https://yaml.org/) format.
 Of particular interest is file *user_secrets.yml*, which contains all the
 passwords that will be used in your installation. These passwords are randomly
 generated, so they are hard to remember. I typically edit the admin password,
@@ -397,6 +397,6 @@ federation.
 If you are interested in using OSA, I also encourage you to do a little bit of
 searching, as that will lead you to more articles and blog posts (such as
 [this one](https://developer.rackspace.com/blog/reviewing-patches-with-os-ansible-deployment/)
-or [this other one](http://mechanicalcat.net/richard/log/OpenStack)), in which
+or [this other one](https://mechanicalcat.net/richard/log/OpenStack)), in which
 other OpenStack contributors explain how they incorporated OSA into their own
 workflows.

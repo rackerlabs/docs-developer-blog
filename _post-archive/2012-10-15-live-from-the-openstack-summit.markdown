@@ -8,7 +8,7 @@ categories:
   - OpenStack
 ---
 
-We are live from the Fall 2012 [OpenStack Summit](http://www.openstack.org/summit/). Follow along as we liveblog the opening keynote!
+We are live from the Fall 2012 [OpenStack Summit](https://www.openstack.org/summit/). Follow along as we liveblog the opening keynote!
 
 <!-- more -->
 
@@ -24,7 +24,7 @@ Hart: “Thanks to all the sponsors who make this possible” – Rackspace, HP,
 
 Hart: Mark back onstage, dropping the party schedule for each evening. Again, check the schedule for times, tickets, locations.
 
-Hart: You can find the schedule here: [http://openstacksummitfall2012.sched.org/](http://openstacksummitfall2012.sched.org/)
+Hart: You can find the schedule here: [https://openstacksummitfall2012.sched.org/](https://openstacksummitfall2012.sched.org/)
 
 
 

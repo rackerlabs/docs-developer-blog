@@ -12,7 +12,7 @@ categories:
   - java
 ---
 
-Greetings, friends! Today I want to touch on a "fairly" new programming language, Node.js. In this case, "fairly new" means it was created in 2009. [Ryan Dahl](https://twitter.com/ryah) created Node.js because he desired the ability to make web sites with push capabilities like those seen in popular web applications like Gmail. So what is Node.js, exactly? Node.js is a framework for building networked applications in JavaScript outside of the browser. It leverages [V8](http://code.google.com/p/v8/), the super fast JavaScript engine by Google. JavaScript is a great fit for writing servers due to its event-driven nature. You not only benefit from the speed of V8, but most of the time, the Node.js/JavaScript paradigms make you write code that is fast by design.
+Greetings, friends! Today I want to touch on a "fairly" new programming language, Node.js. In this case, "fairly new" means it was created in 2009. [Ryan Dahl](https://twitter.com/ryah) created Node.js because he desired the ability to make web sites with push capabilities like those seen in popular web applications like Gmail. So what is Node.js, exactly? Node.js is a framework for building networked applications in JavaScript outside of the browser. It leverages [V8](https://code.google.com/p/v8/), the super fast JavaScript engine by Google. JavaScript is a great fit for writing servers due to its event-driven nature. You not only benefit from the speed of V8, but most of the time, the Node.js/JavaScript paradigms make you write code that is fast by design.
 
 <!-- more -->
 
@@ -35,7 +35,7 @@ As with any programming language there are pros and cons, so node.js is not goin
 
 In this tutorial we will complete the Node.js "HelloWorld" exercise. I will use a CentOS 6.3 Cloud Server in the Rackspace DFW datacenter for this post.
 
-For simplicity, let's start from scratch. For your convenience, if you have [rackspace-novaclient](http://devops.rackspace.com/getting-started-using-python-novaclient-to-manage-cloud-servers.html) or [supernova](https://github.com/rackerhacker/supernova) installed, use one of the following commands to boot a CentOS 6.3 Cloud Server:
+For simplicity, let's start from scratch. For your convenience, if you have [rackspace-novaclient](https://devops.rackspace.com/getting-started-using-python-novaclient-to-manage-cloud-servers.html) or [supernova](https://github.com/rackerhacker/supernova) installed, use one of the following commands to boot a CentOS 6.3 Cloud Server:
 
 
     [dubsquared@localshake ~]$ nova boot --image c195ef3b-9195-4474-b6f7-16e5bd86acd0 --flavor 2 mastershake
@@ -72,7 +72,7 @@ When the download and installation are complete, create a directory for node. He
 
 
     [dubsquared@mastershake ~]$ mkdir /node && cd /node
-    [dubsquared@mastershake ~]$ wget http://nodejs.org/dist/v0.8.8/node-v0.8.8.tar.gz
+    [dubsquared@mastershake ~]$ wget https://nodejs.org/dist/v0.8.8/node-v0.8.8.tar.gz
     [dubsquared@mastershake ~]$ tar -zxvf node-v0.8.8.tar.gz && cd node-v0.8.8/
 
 
@@ -94,7 +94,7 @@ http.createServer(function (req, res) {
 res.writeHead(200, {'Content-Type': 'text/plain'});
 res.end('Hello World!\n');
 }).listen(8124, "$PUBLIC_IP_HERE");
-console.log('Server running at http://$PUBLIC_IP_HERE:8124/');
+console.log('Server running at https://$PUBLIC_IP_HERE:8124/');
 {% endcodeblock %}
 
 You can get your public IP address using "ifconfig eth0" or by checking in the Rackspace Cloud Control Panel
@@ -103,14 +103,14 @@ With helloworld.js configured, we are now ready to fire up the server. You can e
 
 
     [dubsquared@mastershake ~]# node helloworld.js
-    "Server running at http://$PUBLIC_IP_HERE:8124/"
+    "Server running at https://$PUBLIC_IP_HERE:8124/"
 
 
 If you wanted to start your program in the background, you would append an ampersand (&) to the end of the command above. For this example, we'll go ahead and background the process by pressing CTRL-Z, then entering "bg" into the terminal:
 
 
     [dubsquared@mastershake ~]$ node helloworld.js
-    Server running at http://$PUBLIC_IP_HERE:8124/
+    Server running at https://$PUBLIC_IP_HERE:8124/
     ^Z
     [1]+  Stopped                 node helloworld.js
     [dubsquared@mastershake ~]$ bg

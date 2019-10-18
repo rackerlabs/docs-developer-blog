@@ -97,8 +97,8 @@ technical writer and customer projects manager within system development in his
 own company. Erik co-founded mobile startup EHAND in the early 2000-nds and later
 moved on to work as technology advisor and partner at the investment company that
 seeded Load Impact. Since 2010, Erik manages Torgesta Technology. Read more about
-Erik on his blog at <http://erik.torgesta.com> or on Twitter [@eriktorsner][3].
+Erik on his blog at <https://erik.torgesta.com> or on Twitter [@eriktorsner][3].
 
-[1]: http://www.google.com/url?q=http%3A%2F%2Floadimpact.com%2F&sa=D&sntz=1&usg=AFQjCNHRodldaO8TULdq3M5vAyQFaXxKSA
-[2]: http://developer.loadimpact.com/
-[3]: http://twitter.com/eriktorsner
+[1]: https://www.google.com/url?q=http%3A%2F%2Floadimpact.com%2F&sa=D&sntz=1&usg=AFQjCNHRodldaO8TULdq3M5vAyQFaXxKSA
+[2]: https://developer.loadimpact.com/
+[3]: https://twitter.com/eriktorsner

@@ -45,7 +45,7 @@ Obtaining and maintaining a strong UAT environment is not without its challenges
 
 * **Understanding and selling the ROI of UAT to stakeholders** : Objectifying the value by considering the costs and resources of failed releases and potential customer impact goes a long way in winning over stakeholders.
 
-* **Ad hoc code additions versus centralized deployment** : Development teams should check their code in a centralized code repository for deployment to UAT, preferably by a tool such as [Team Development for Sitecore (TDS)] (http://www.teamdevelopmentforsitecore.com) or [Octopus Deploy] (https://octopus.com).
+* **Ad hoc code additions versus centralized deployment** : Development teams should check their code in a centralized code repository for deployment to UAT, preferably by a tool such as [Team Development for Sitecore (TDS)] (https://www.teamdevelopmentforsitecore.com) or [Octopus Deploy] (https://octopus.com).
 
 * **Out of sync content** : Rather than create content in UAT, a pull down of the Master database from Production over the UAT Master database allows content to stay up to date. More on the techniques and tools for this activity are offered later this article.
 
@@ -75,7 +75,7 @@ Successful UAT is part infrastructure, part governance. Creating a repeatable an
 
 ## Example UAT Environment and Refresh Process
 
-The following example offers a sample UAT environment that highlights the data connections and flows across a multi-region Sitecore Farm that mirrors a Production environment in its architecture. Notice that content is refreshed via the Production Master database over the UAT Master database (we will explore options to perform this momentarily). This assumes connections to external APIs that are dedicated to UAT and that it is using Sitecore xDB functionality with [ObjectRocket](http://objectrocket.com/) as the MongoDB backend.
+The following example offers a sample UAT environment that highlights the data connections and flows across a multi-region Sitecore Farm that mirrors a Production environment in its architecture. Notice that content is refreshed via the Production Master database over the UAT Master database (we will explore options to perform this momentarily). This assumes connections to external APIs that are dedicated to UAT and that it is using Sitecore xDB functionality with [ObjectRocket](https://objectrocket.com/) as the MongoDB backend.
 
 ![Example UAT Architecture]({% asset_path 2016-05-12-The-Benefits-and-Architecture-of-a-Sitecore-UAT-Environment/ExampleUATArchitecture.png %})
 
@@ -84,7 +84,7 @@ The process for refreshing the UAT environment is as follows:
 1. Deploy the code that has successfully passed through Unit, Integration, and System testing to the UAT environment. Centralized deployment via a tool such as Team Development for Sitecore (TDS) or Octopus Deploy is best practice versus multiple sources committing code.
 
 2. Refresh the content in the UAT Master database with the content in the Production Master database. The goal of this refresh is to ensure that you have the content necessary to test functionality. It does not need to remain in constant sync with Production but should be kept reasonably up to date, possibly on a nightly schedule. A few methods to achieve a content refresh are as follows:
-    * **[RAZL (Recommended)] (http://www.razl.net):** Cost effective tool to compare and merge Sitecore databases, inclusive of scheduling
+    * **[RAZL (Recommended)] (https://www.razl.net):** Cost effective tool to compare and merge Sitecore databases, inclusive of scheduling
     * **[SQL Backup and Restore](https://msdn.microsoft.com/en-us/library/ms190436.aspx):** A full backup and restore will overwrite the user accounts and permissions in UAT with Production, so you need to change the UAT Master database to the correct users and permissions settings post restore
     * **Custom SQL Script or Data Copy (Not Recommended)**
 

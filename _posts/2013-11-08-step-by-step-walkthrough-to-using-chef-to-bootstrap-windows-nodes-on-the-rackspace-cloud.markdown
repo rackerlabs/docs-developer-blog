@@ -48,7 +48,7 @@ you. Having said that, let's get cracking.
 ### Prerequisites
 
 You will obviously need a Rackspace Cloud Account for this. If you haven't
-got one yet, go sign up for it [here](http://developer.rackspace.com/devtrial/),
+got one yet, go sign up for it [here](https://developer.rackspace.com/devtrial/),
 which includes a 300$ developer discount.
 
 Once you have an account, log into the Control Panel, spin up a Cloud Server

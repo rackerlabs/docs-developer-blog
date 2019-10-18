@@ -87,13 +87,13 @@ If you would like to dive deeper and see how to configure various aspects of
 Neutron Networking, I encourage you to read the following posts by fellow
 Racker James Denton:
 
-[Neutron Networking: The Building Blocks of an OpenStack Cloud](http://developer.rackspace.com/blog/neutron-networking-the-building-blocks-of-an-openstack-cloud.html)
+[Neutron Networking: The Building Blocks of an OpenStack Cloud](https://developer.rackspace.com/blog/neutron-networking-the-building-blocks-of-an-openstack-cloud.html)
 
-[Neutron Networking: Simple Flat Network](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html)
+[Neutron Networking: Simple Flat Network](https://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html)
 
-[Neutron Networking: VLAN Provider Networks](http://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html)
+[Neutron Networking: VLAN Provider Networks](https://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html)
 
-[Neutron Networking: Neutron Routers and the L3 Agent](http://developer.rackspace.com/blog/neutron-networking-l3-agent.html)
+[Neutron Networking: Neutron Routers and the L3 Agent](https://developer.rackspace.com/blog/neutron-networking-l3-agent.html)
 
 For questions and/or comments, feel free to get in touch with me [@jameswthorne](http://twitter.com/jameswthorne).
 

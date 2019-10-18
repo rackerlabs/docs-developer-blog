@@ -142,7 +142,7 @@ Click the following links for more information about the
 
 
   [1]: http://en.wikipedia.org/wiki/The_Elements_of_Style
-  [2]: http://developer.rackspace.com/
+  [2]: https://developer.rackspace.com/
   [3]: https://github.com/openstacknetsdk/openstack.net/wiki/Getting-Started-With-The-OpenStack-NET-SDK
   [4]: http://en.wikipedia.org/wiki/Three-letter_acronym
   [5]: http://en.wikipedia.org/wiki/Don%27t_repeat_yourself

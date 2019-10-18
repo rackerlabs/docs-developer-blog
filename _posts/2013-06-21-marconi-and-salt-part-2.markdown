@@ -649,7 +649,7 @@ In this article, we went over a few primary Salt terms like environments, grains
 In the following article, we will start using pillar data and configure Marconi specific services like MongoDB servers with replica sets and web servers running uWSGI.
 Until then, if you have questions, you can find me at [Twitter][13] or at [Google+][14]. Comments on this page are welcome as well.
 
-[1]: http://developer.rackspace.com/blog/marconi-and-salt.html
+[1]: https://developer.rackspace.com/blog/marconi-and-salt.html
 [2]: http://en.wikipedia.org/wiki/YAML
 [3]: http://docs.saltstack.com/topics/tutorials/pillar.html
 [4]: http://docs.saltstack.com/topics/targeting/grains.html

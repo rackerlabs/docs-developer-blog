@@ -5,4 +5,4 @@
 
 [google]: http://www.google.com  "Google"
 [rackspace]: http://www.rackspace.com "Rackspace"
-[devsite]: http://developer.rackspace.com "Rackspace Developer Portal"
+[devsite]: https://developer.rackspace.com "Rackspace Developer Portal"

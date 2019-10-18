@@ -20,7 +20,7 @@ The event is free. If you’ve got questions, or want #Hack4Good to come to a ci
 
  #Hack4Good is exciting because it gives us an opportunity to flex our developer muscles while building things to improve the world. We’re excited to collaborate with developers throughout the globe to make a difference for humanity.
 
-[1]: http://developer.rackspace.com/blog/developer-love-welcome-to-the-rackspace-cloud-developer-discount.html
+[1]: https://developer.rackspace.com/blog/developer-love-welcome-to-the-rackspace-cloud-developer-discount.html
 [2]: http://www.rackspace.com/blog/rackspace-developer-support-fanatical-support-for-your-code/
 [3]: http://hack4good.io
 [4]: https://geekli.st/about

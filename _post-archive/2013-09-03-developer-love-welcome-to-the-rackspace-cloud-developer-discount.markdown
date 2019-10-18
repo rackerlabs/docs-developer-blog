@@ -55,13 +55,13 @@ on Github and share it with the world. Remember - we
 
 
 [1]: http://www.openstack.org/
-[2]: http://developer.rackspace.com/#home-sdks
+[2]: https://developer.rackspace.com/#home-sdks
 [3]: https://github.com/rackspace/vagrant-rackspace
 [4]: http://rackspace.github.io/rumm/
 [5]: https://github.com/rackerlabs
 [6]: https://github.com/rackspace
 [7]: mailto:sdk-support@rackspace.com
-[8]: http://developer.rackspace.com/devtrial/
+[8]: https://developer.rackspace.com/devtrial/
 [9]: http://saltstack.com/community.html
 [10]: https://github.com/ansible/ansible
 [11]: http://www.docker.io/

@@ -22,7 +22,7 @@ AnsibleWorks provides IT orchestration solutions that simplify the way
 IT manages systems, applications, and infrastructure.
 
 A while back I wrote about
-[Ansible](http://developer.rackspace.com/blog/automate-with-ansible.html)
+[Ansible](https://developer.rackspace.com/blog/automate-with-ansible.html)
 as a way to simply automate IT infrastructure, and showed how to achieve
 some interesting zero-downtime rolling update capabilities.
 

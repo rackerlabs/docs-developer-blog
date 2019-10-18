@@ -23,7 +23,7 @@ OpenStack Grizzly.
 
 _A new post covering the Chef Environment file for Rackspace Private Cloud v4.2.x,
  including the highly available bits, can be found
- [here](http://developer.rackspace.com/blog/understanding-the-chef-environment-file-in-rackspace-private-cloud-v4-dot-2-x-powered-by-openstack-havana.html)._
+ [here](https://developer.rackspace.com/blog/understanding-the-chef-environment-file-in-rackspace-private-cloud-v4-dot-2-x-powered-by-openstack-havana.html)._
 
 <!-- more -->
 

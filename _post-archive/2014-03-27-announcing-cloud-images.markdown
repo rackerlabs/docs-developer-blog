@@ -70,7 +70,7 @@ There are a few different ways to do this depending on your interests.
 public images, configure it with software (properly licensed, of
 course ... you have to handle that part yourself), create an image of
 the server, and then share that image.
-3. Use [boot.rackspace.com](http://developer.rackspace.com/blog/introducing-boot-dot-rackspace-dot-com.html) to create an image containing an
+3. Use [boot.rackspace.com](https://developer.rackspace.com/blog/introducing-boot-dot-rackspace-dot-com.html) to create an image containing an
 operating system that isn't included among the standard Rackspace
 public images, and then share that image.
 3. Build a completely new image offline (although it must be [properly
@@ -87,6 +87,6 @@ of the product and what it can do.
 
 - Rackspace Cloud Images Developer Guide: http://docs.rackspace.com/images/api/v2/ci-devguide/content/index.html
 - Image Sharing Overview: http://docs.rackspace.com/images/api/v2/ci-devguide/content/image-sharing.html
-- boot.rackspace.com: http://developer.rackspace.com/blog/introducing-boot-dot-rackspace-dot-com.html
+- boot.rackspace.com: https://developer.rackspace.com/blog/introducing-boot-dot-rackspace-dot-com.html
 - Preparing an Image for the Rackspace Cloud: https://support.rackspace.com/how-to/preparing-an-image-for-import-into-the-rackspace-opencloud/
 - Cloud Images FAQ: https://support.rackspace.com/how-to/cloud-images-faq/

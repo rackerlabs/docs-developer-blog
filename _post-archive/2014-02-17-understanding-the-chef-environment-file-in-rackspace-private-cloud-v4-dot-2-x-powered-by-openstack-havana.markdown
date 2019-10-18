@@ -12,7 +12,7 @@ categories:
   - DevOps
 ---
 
-In a [previous post](http://developer.rackspace.com/blog/understanding-the-chef-environment-file-in-rackspace-private-cloud.html)
+In a [previous post](https://developer.rackspace.com/blog/understanding-the-chef-environment-file-in-rackspace-private-cloud.html)
 I went through two typical Chef Environment files specific to Rackspace Private
 Cloud v4.1.x powered by OpenStack Grizzly with nova-network and Quantum Networking.
 However, with Rackspace Private Cloud v4.2.x powered by OpenStack Havana some

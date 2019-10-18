@@ -124,7 +124,7 @@ So many IOPS. So Docker. Wow.
 Any questions, comments or concerns? You can reach out to me ([Jesse Noller][1]) on [Twitter][2], ping [@Rackspace](https://twitter.com/Rackspace) on Twitter, or even reach out to [help@rackspace.com](mailto:help@rackspace.com).
 
 
-[1]: http://developer.rackspace.com/blog/welcome-to-performance-cloud-servers-have-some-benchmarks.html
+[1]: https://developer.rackspace.com/blog/welcome-to-performance-cloud-servers-have-some-benchmarks.html
 [2]: http://www.docker.io/
 [3]: https://www.docker.io/community/
 [4]: https://www.docker.io/learn_more/
@@ -136,4 +136,4 @@ Any questions, comments or concerns? You can reach out to me ([Jesse Noller][1])
 [10]: https://index.docker.io/
 [11]: https://github.com/kencochrane/django-docker
 [12]: http://kencochrane.net/
-[13]: http://developer.rackspace.com/devtrial/
+[13]: https://developer.rackspace.com/devtrial/

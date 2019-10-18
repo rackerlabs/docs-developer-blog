@@ -9,7 +9,7 @@ categories:
   - Automation
 ---
 
-One of the challenges that someone maintaining a group of webservers is faced with is keeping the vhost configuration in sync accross all machines. Much like maitaining [hosts files](http://developer.rackspace.com/blog/chef-creating-dynamic-host-files.html) this can be solved with configuration management. There are ofcourse the usual caveats, changes made outwith of the configruation management will either be overwritern, or not syncronised between hosts, so it's imperative that those "quick changes" are actually done via the configuration management system!
+One of the challenges that someone maintaining a group of webservers is faced with is keeping the vhost configuration in sync accross all machines. Much like maitaining [hosts files](https://developer.rackspace.com/blog/chef-creating-dynamic-host-files.html) this can be solved with configuration management. There are ofcourse the usual caveats, changes made outwith of the configruation management will either be overwritern, or not syncronised between hosts, so it's imperative that those "quick changes" are actually done via the configuration management system!
 
 If we look at the main webserver platforms in use today and look at the various CM systems, we're going to see a huge number of examples for Apache, similar for nginx, but IIS is rather thin on the ground. Lets change this!
 

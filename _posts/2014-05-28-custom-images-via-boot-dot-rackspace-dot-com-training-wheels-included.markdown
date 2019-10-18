@@ -211,7 +211,7 @@ distributed systems, cloud and mobile computing. You can follow Mike on Twitter
 
 ### Reference Material / Official Documentation
 
-* [Developing With Cloud Images for Fun and Profit](http://developer.rackspace.com/blog/announcing-cloud-images.html)
-* [Introducing boot.rackspace.com](http://developer.rackspace.com/blog/introducing-boot-dot-rackspace-dot-com.html)
+* [Developing With Cloud Images for Fun and Profit](https://developer.rackspace.com/blog/announcing-cloud-images.html)
+* [Introducing boot.rackspace.com](https://developer.rackspace.com/blog/introducing-boot-dot-rackspace-dot-com.html)
 * [Source for boot.rackspace.com](https://github.com/rackerlabs/boot.rackspace.com)
 * [Wiki for boot.rackspace.com](https://github.com/rackerlabs/boot.rackspace.com/wiki)

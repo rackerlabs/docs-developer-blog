@@ -13,7 +13,7 @@ categories:
 
 In this multi-part blog series I intend to dive into the various components of the OpenStack Neutron project and provide working examples of networking configurations for clouds built with [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) powered by [OpenStack](http://www.openstack.org) on Ubuntu 12.04 LTS.
 
-In the previous installment, [Neutron Networking: VLAN Provider Networks](http://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html), I provided guidance on configuring networks in Neutron using VLAN tagging. In this fourth installment, I'll describe how to combine flat or VLAN provider networks with GRE-based tenant networks using the L3 agent and Neutron routers.<!-- more -->
+In the previous installment, [Neutron Networking: VLAN Provider Networks](https://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html), I provided guidance on configuring networks in Neutron using VLAN tagging. In this fourth installment, I'll describe how to combine flat or VLAN provider networks with GRE-based tenant networks using the L3 agent and Neutron routers.<!-- more -->
 
 ### Getting started and prerequisites
 
@@ -21,9 +21,9 @@ Beginning with v4.2, Rackspace Private Cloud is powered by OpenStack Havana. Thi
 
 In the last two installments I covered the concept of provider networks, or networks that are tied to the physical infrastructure. I highly recommend giving them a read if you haven't already done so, as this walkthough depends on a working provider network configuration.
 
-[Neutron Networking: Simple Flat Network](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html)
+[Neutron Networking: Simple Flat Network](https://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html)
 
-[Neutron Networking: VLAN Provider Networks](http://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html)
+[Neutron Networking: VLAN Provider Networks](https://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html)
 
 ### Neutron L3 agent: What is it and how does it work?
 
@@ -83,8 +83,8 @@ A port is associated with the instance indicated by the "device_id" field of the
 
 For this installment, a Cisco ASA 5510 will once again serve as the lead gateway device. In fact, I’ll be building upon the configuration already in place from the flat and/or VLAN networking demonstration in the previous installments:
 
-- [Simple Flat Network](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html)
-- [VLAN Provider Networks](http://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html)
+- [Simple Flat Network](https://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html)
+- [VLAN Provider Networks](https://developer.rackspace.com/blog/neutron-networking-vlan-provider-networks.html)
 
 10.240.0.0/24 will continue to serve as the management network for hosts. A single VLAN network will be created to demonstrate the ability to use either a flat or VLAN network.
 

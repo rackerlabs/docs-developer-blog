@@ -12,7 +12,7 @@ categories:
 
 Software Defined Networks in the Havana release of Openstack – Part 2
 
-In the [first article](http://developer.rackspace.com/blog/software-defined-networks-in-the-havana-release-of-openstack.html)
+In the [first article](https://developer.rackspace.com/blog/software-defined-networks-in-the-havana-release-of-openstack.html)
 in this series, we looked at a simple OpenStack setup with one controller node,
 one compute node, and one network node. Two tenants had been created with two
 simple networks. In this article we will turn our attention to the network paths

@@ -64,7 +64,7 @@ customized needs.
 We are seeking early access users to start using and providing feedback for
 this solution as soon as possible. Please [signup](https://rackspace.qualtrics.com/SE/?SID=SV_cCIsIhNHEyymFZb)
 to get on our early access list for Heat. If you're interested in signing up to
-give it a test run, check out our [developer discount](http://developer.rackspace.com/devtrial/)!
+give it a test run, check out our [developer discount](https://developer.rackspace.com/devtrial/)!
 
 More information about Heat:
 

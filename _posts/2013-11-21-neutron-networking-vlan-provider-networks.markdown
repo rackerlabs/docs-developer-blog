@@ -13,7 +13,7 @@ categories:
 
 In this multi-part blog series I intend to dive into the various components of the OpenStack Neutron project, and to also provide working examples of networking configurations for clouds built with [Rackspace Private Cloud](http://www.rackspace.com/cloud/private/) powered by [OpenStack](http://www.openstack.org) on Ubuntu 12.04 LTS.
 
-In the previous installment, [Neutron Networking: Simple Flat Network](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html), I demonstrated an easy method of providing connectivity to instances using an untagged flat network. In this third installment, I’ll describe how to build multiple provider networks using 802.1q vlan tagging.<!-- more -->
+In the previous installment, [Neutron Networking: Simple Flat Network](https://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html), I demonstrated an easy method of providing connectivity to instances using an untagged flat network. In this third installment, I’ll describe how to build multiple provider networks using 802.1q vlan tagging.<!-- more -->
 
 ### Getting started: VLAN vs flat design
 
@@ -35,13 +35,13 @@ At a basic level on a Cisco switch there are two types of switchports: access po
 
 ### VLAN Tagging: How does this apply to Neutron?
 
-In the [previous installment](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html) I discussed flat networks and their lack of vlan tagging.  All hosts in the environment were connected to access ports in the same vlan, thereby allowing hosts and instances to communicate with one another on the same network. VLANs allow us to not only separate host and instance traffic, but to also create multiple networks for instances similar to the DMZ and INSIDE scenarios above.
+In the [previous installment](https://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html) I discussed flat networks and their lack of vlan tagging.  All hosts in the environment were connected to access ports in the same vlan, thereby allowing hosts and instances to communicate with one another on the same network. VLANs allow us to not only separate host and instance traffic, but to also create multiple networks for instances similar to the DMZ and INSIDE scenarios above.
 
 Neutron allows users to create multiple provider or tenant networks using vlan IDs that correspond to real vlans in the data center. A single OVS bridge can be utilized by multiple provider and tenant networks using different vlan IDs, allowing instances to communicate with other instances across the environment, and also with dedicated servers, firewalls, load balancers and other networking gear on the same Layer 2 vlan.
 
 ### Networking: Layout
 
-For this installment, a Cisco ASA 5510 will once again serve as the lead gateway device. In fact, I’ll be building upon the configuration already in place from the flat networking demonstration in the [previous installment](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html). 10.240.0.0/24 will continue to serve as the management network for hosts and the flat provider network, and two new provider networks will be created:
+For this installment, a Cisco ASA 5510 will once again serve as the lead gateway device. In fact, I’ll be building upon the configuration already in place from the flat networking demonstration in the [previous installment](https://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html). 10.240.0.0/24 will continue to serve as the management network for hosts and the flat provider network, and two new provider networks will be created:
 
 - *VLAN 100 - MGMT - 10.240.0.0/24 (Existing)*
 - **VLAN 200 – DMZ – 192.168.100.0/24 (NEW)**
@@ -116,7 +116,7 @@ end
 
 ### Networking: Configuration of servers
 
-If you followed the [previous installment](http://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html) and successfully configured a bridge in OVS and a flat provider network, the proper server network configuration should already be in place. If you haven’t, there’s a good chance your servers have their IP configured directly on eth0. To utilize Neutron, the hosts must have a network bridge configured. This can be accomplished one of two ways:
+If you followed the [previous installment](https://developer.rackspace.com/blog/neutron-networking-simple-flat-network.html) and successfully configured a bridge in OVS and a flat provider network, the proper server network configuration should already be in place. If you haven’t, there’s a good chance your servers have their IP configured directly on eth0. To utilize Neutron, the hosts must have a network bridge configured. This can be accomplished one of two ways:
 
 - Utilize a single interface for both management of the hosts and the network bridge
 - Utilize one interface for management of the hosts, and another for the network bridge(s)

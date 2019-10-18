@@ -50,7 +50,7 @@ Many people left after that, but for those of us who remained, things were not o
 
 I’ve been to 10 PyCon US conferences, and while PyCon AU 2013 was much smaller in overall size, it matched its US counterpart in terms of spirit, content, and sense of community. Next year it moves to Brisbane, and I would certainly love to be able to return.
 
-[1]: http://developer.rackspace.com/blog/openstack-miniconf-at-pycon-au-2013.html
+[1]: https://developer.rackspace.com/blog/openstack-miniconf-at-pycon-au-2013.html
 [2]: http://pyvideo.org/category/38/pycon-au-2013
 [3]: http://www.flickr.com/photos/parisba/9213433853/in/set-72157634490541945
 [4]: http://nant.com.au/

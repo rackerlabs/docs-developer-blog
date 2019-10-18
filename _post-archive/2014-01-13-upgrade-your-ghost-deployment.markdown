@@ -8,7 +8,7 @@ published: true
 categories: []
 ---
 
-Back in October of 2013 I wrote about how to [launch Ghost with Rackspace Deployment](http://developer.rackspace.com/blog/launch-ghost-with-rackspace-deployments.html). Today, Ghost [announced](http://blog.ghost.org/ghost-0-4/) the release of thier latest version - 0.4.0. Now that Ghost has gone through a few updates, it is a good time to go over the process of updating your Ghost deployment. <!-- more -->
+Back in October of 2013 I wrote about how to [launch Ghost with Rackspace Deployment](https://developer.rackspace.com/blog/launch-ghost-with-rackspace-deployments.html). Today, Ghost [announced](http://blog.ghost.org/ghost-0-4/) the release of thier latest version - 0.4.0. Now that Ghost has gone through a few updates, it is a good time to go over the process of updating your Ghost deployment. <!-- more -->
 
 # It's Dangerous to Go Alone! Take This.
 

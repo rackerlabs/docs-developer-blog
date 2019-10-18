@@ -13,7 +13,7 @@ categories:
 
 In this multi-part walkthrough series, I intend to dive into the various components of the OpenStack Neutron project, and to also provide working examples of multiple networking configurations for clouds built with Rackspace Private Cloud powered by OpenStack on Ubuntu 12.04 LTS. When possible, I’ll provide configuration file examples for those following along on an install from source.
 
-In the previous installment, [Neutron Networking: The Building Blocks of an OpenStack Cloud](http://developer.rackspace.com/blog/neutron-networking-the-building-blocks-of-an-openstack-cloud.html), I laid the foundation of the Neutron networking model that included terminology, concepts, and a brief description of services and capabilities. In this second installment, I’ll describe how to build a simple flat network consisting of a few servers and limited networking gear. Future installments will include VLAN-based provider and tenant networks, GRE-based tenant networks, Open vSwitch troubleshooting, and more.<!-- more -->
+In the previous installment, [Neutron Networking: The Building Blocks of an OpenStack Cloud](https://developer.rackspace.com/blog/neutron-networking-the-building-blocks-of-an-openstack-cloud.html), I laid the foundation of the Neutron networking model that included terminology, concepts, and a brief description of services and capabilities. In this second installment, I’ll describe how to build a simple flat network consisting of a few servers and limited networking gear. Future installments will include VLAN-based provider and tenant networks, GRE-based tenant networks, Open vSwitch troubleshooting, and more.<!-- more -->
 
 _New to OpenStack? Rackspace offers a complete open-source package, [Rackspace Private Cloud Software](http://www.rackspace.com/cloud/private/), that you're welcome to use at no cost. Download and follow along._
 
@@ -91,7 +91,7 @@ exit 0
 
 ### Networking: Open vSwitch configuration
 
-Briefly mentioned in the previous installment, [Neutron Networking: The Building Blocks of an OpenStack Cloud](http://developer.rackspace.com/blog/neutron-networking-the-building-blocks-of-an-openstack-cloud.html), was Open vSwitch – the virtual switching infrastructure utilized by Neutron. Creating the bridge in Open vSwitch is a requirement for proper management of traffic.
+Briefly mentioned in the previous installment, [Neutron Networking: The Building Blocks of an OpenStack Cloud](https://developer.rackspace.com/blog/neutron-networking-the-building-blocks-of-an-openstack-cloud.html), was Open vSwitch – the virtual switching infrastructure utilized by Neutron. Creating the bridge in Open vSwitch is a requirement for proper management of traffic.
 
 The following will create a bridge called ‘br-eth0’ and place physical interface eth0 inside:
 

@@ -167,7 +167,7 @@ can start the move to a zero downtime deployment capability. This capability is
 a great enabler for your team, ops, devs, product managers, etc.. will all
 benefit from the ability to deploy code at any time without interruption.
 
-  [0]: http://developer.rackspace.com/blog/zero-downtime-deployments-with-pkgcloud-and-cloud-load-balancers.html
+  [0]: https://developer.rackspace.com/blog/zero-downtime-deployments-with-pkgcloud-and-cloud-load-balancers.html
   [1]: http://www.ansible.com
   [2]: http://www.rackspace.com/cloud/load-balancing/
   [3]: http://docs.ansible.com/rax_clb_module.html

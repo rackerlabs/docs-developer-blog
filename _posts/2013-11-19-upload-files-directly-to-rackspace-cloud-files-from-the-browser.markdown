@@ -24,7 +24,7 @@ Run the example
 ---------------
 
 If you don't have a Rackspace account, you're not going to be able to
-run this example, so [go make one](http://developer.rackspace.com/devtrial/).
+run this example, so [go make one](https://developer.rackspace.com/devtrial/).
 
 Also, my script depends on the Pyrax
 [https://github.com/rackspace/pyrax][3] package, so install that, and

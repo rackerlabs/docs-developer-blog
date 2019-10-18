@@ -25,7 +25,7 @@ Registration is free and you can apply now: <http://developer.yahoo.com/events/h
 
   [1]: http://thenewkingmakers.com/
   [2]: http://www.rackspace.com/blog/rackspace-developer-support-fanatical-support-for-your-code/
-  [3]: http://developer.rackspace.com/blog/developer-love-welcome-to-the-rackspace-cloud-developer-discount.html
+  [3]: https://developer.rackspace.com/blog/developer-love-welcome-to-the-rackspace-cloud-developer-discount.html
   [4]: http://developer.yahoo.com/events/hack_usa_snv_2013/
   [5]: http://www.openstack.org/
   [6]: http://yahoohackusa2013.pbworks.com/w/page/69143893/Saturday%20Talk%20Agenda

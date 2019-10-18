@@ -8,7 +8,7 @@ published: true
 categories:
   - OpenStack
 ---
-In the [second article](http://developer.rackspace.com/blog/marconi-and-salt-part-2.html), we configured three environments: a `base` environment will have very generic formulas, which we would like to apply to all servers we will ever create with Salt. A `marconi-base` environment will have formulas that are identical in all Marconi environments. For example, the way we will install MongoDB isn't different in a production environment than a development environment so we will place MongoDB formulas in a `marconi-base` environment. There is a little trick here, that I mentioned in the previous article; we will never use a `marconi-base` environment but will use it in an overlay setup with the third environment, `marconi-preview-ord`. Let's go over the folder structure to make this a little more clear.<!-- more -->
+In the [second article](https://developer.rackspace.com/blog/marconi-and-salt-part-2.html), we configured three environments: a `base` environment will have very generic formulas, which we would like to apply to all servers we will ever create with Salt. A `marconi-base` environment will have formulas that are identical in all Marconi environments. For example, the way we will install MongoDB isn't different in a production environment than a development environment so we will place MongoDB formulas in a `marconi-base` environment. There is a little trick here, that I mentioned in the previous article; we will never use a `marconi-base` environment but will use it in an overlay setup with the third environment, `marconi-preview-ord`. Let's go over the folder structure to make this a little more clear.<!-- more -->
 
 First, let's check two folders for two Marconi environments.
 

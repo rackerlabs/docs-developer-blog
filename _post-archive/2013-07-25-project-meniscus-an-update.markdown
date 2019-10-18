@@ -11,7 +11,7 @@ categories:
 ---
 
 It’s been a while since my
-[last post](http://developer.rackspace.com/blog/introducing-project-meniscus-the-python-event-cloud-logging-service.html)
+[last post](https://developer.rackspace.com/blog/introducing-project-meniscus-the-python-event-cloud-logging-service.html)
 on [Project Meniscus](http://projectmeniscus.org), which is an open-source,
 [Apache 2 Licensed](http://www.apache.org/licenses/LICENSE-2.0.html),
 cloud-scale logging service that collects logging data from cloud servers and

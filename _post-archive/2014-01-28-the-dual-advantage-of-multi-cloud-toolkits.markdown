@@ -97,4 +97,4 @@ At Rackspace, we believe so strongly in our cloud that we don't feel the need to
 lock-in developers. We want to earn your loyalty by delivering consistent
 performance and an excellent developer experience. Don’t get locked into a cloud
 provider because the cost of switching is too high.
-[Choose a multi-cloud toolkit](http://developer.rackspace.com/).
+[Choose a multi-cloud toolkit](https://developer.rackspace.com/).

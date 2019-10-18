@@ -105,7 +105,7 @@ Create Neutron Networks
 
 Each OpenStack Instance you spin up must be attached to at least one network. There are two types of Neutron Networks in OpenStack: Neutron __Tenant__ Networks and Neutron __Provider__ Networks.
 
-A whole book could be written describing exactly what each type of network is and does, but in summary, a Neutron Tenant Network is a software defined network that exists solely within the OpenStack environment and a Neutron Provider Network is a network that always maps to a physical network (flat or VLAN) that is terminated on a physical networking device such as a firewall, load balancer, or router. To learn more, I encourage you to read through [this post](http://developer.rackspace.com/blog/beginning-to-understand-neutron-provider-and-tenant-networks-in-openstack.html).
+A whole book could be written describing exactly what each type of network is and does, but in summary, a Neutron Tenant Network is a software defined network that exists solely within the OpenStack environment and a Neutron Provider Network is a network that always maps to a physical network (flat or VLAN) that is terminated on a physical networking device such as a firewall, load balancer, or router. To learn more, I encourage you to read through [this post](https://developer.rackspace.com/blog/beginning-to-understand-neutron-provider-and-tenant-networks-in-openstack.html).
 
 ### Create a Neutron Tenant Network
 

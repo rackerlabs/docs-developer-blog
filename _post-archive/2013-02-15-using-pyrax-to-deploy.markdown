@@ -14,7 +14,7 @@ Initially, when Hart [migrated to Octopress from WordPress](http://devops.racksp
 <!-- more -->
 ##Why Switch?
 
-Swiftly was and still is great, but it uses version 1.0 of the API. We wanted to move to v2.0, and we wanted to use the [Official Rackspace SDKs](http://developer.rackspace.com). I decided to use the Python SDK, [pyrax](https://github.com/rackspace/pyrax), to deploy using the v2.0 API.
+Swiftly was and still is great, but it uses version 1.0 of the API. We wanted to move to v2.0, and we wanted to use the [Official Rackspace SDKs](https://developer.rackspace.com). I decided to use the Python SDK, [pyrax](https://github.com/rackspace/pyrax), to deploy using the v2.0 API.
 
 ##Before and After
 The Jenkins server still watches our GitHub repository for changes, only now uses a script I wrote that takes advantage of pyrax's container sync capability. Here are the Jenkins builds, before and after:

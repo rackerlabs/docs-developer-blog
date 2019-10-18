@@ -25,7 +25,7 @@ Alright. So we've rolled out two new flavor classes of servers: Performance 1 an
 
 {% img 2013-11-04-welcome-to-performance-cloud-servers/image2013-10-16_16_0_21.png 800 %}
 
-Both flavor groups will eventually phase out our current Cloud Server offering. These are completely RAID 10 SSD backed, Intel(R) Xeon(R) E5-2670 2.60GHz based systems (up to 32 vCPUs!) with 10GE networking (every host receives 40Gbps of network capacity - that alone accounts for huge gains when using [Cloud Block Storage](http://developer.rackspace.com/blog/happy-birthday-cloud-block-storage.html)). In the chart above, you can see how many vCPUs you get with each image, and I can tell you - they fly.
+Both flavor groups will eventually phase out our current Cloud Server offering. These are completely RAID 10 SSD backed, Intel(R) Xeon(R) E5-2670 2.60GHz based systems (up to 32 vCPUs!) with 10GE networking (every host receives 40Gbps of network capacity - that alone accounts for huge gains when using [Cloud Block Storage](https://developer.rackspace.com/blog/happy-birthday-cloud-block-storage.html)). In the chart above, you can see how many vCPUs you get with each image, and I can tell you - they fly.
 
 > "As an application developer, nothing's better than a data layer that doesn't slow down my app" - [Jacob Kaplan-Moss](http://jacobian.org/)
 
@@ -45,7 +45,7 @@ The *Performance 1* flavor class has a shared (oversubscribed) CPU and network w
 
 We eliminated the lowest end flavor (512) and will start with the competitively priced the 1GB flavor, while drastically increasing its performance from the previous 1 GB offering (we have charts!). This means that the price per month for a 1GB instance is now $29.20/Month ($0.04/Hr). All together?  The performance you get for the new prices across all of the Performance Cloud Server flavors is amazingly competitive and a great improvement to the Rackspace portfolio.
 
-Oh - and the $29.20/Month 1GB server... It's fits easily into the 50$/month [developer discount](http://developer.rackspace.com/devtrial/) (just saying).
+Oh - and the $29.20/Month 1GB server... It's fits easily into the 50$/month [developer discount](https://developer.rackspace.com/devtrial/) (just saying).
 
 #### Performance 2 Flavor Class
 
@@ -66,7 +66,7 @@ As you can see, the new flavors are labeled by name - not ID. These match the na
 nova boot perf1GB --flavor performance1-1 --image 62df001e-87ee-407c-b042-6f4e13f5d7e1 --poll
 ```
 
-This will spin up a 1GB Ubuntu 13.04 system for you. Use "**nova show**" once it's complete to get the public facing IP address - oh, and save the root/admin password if you're not using the "**--key-name**" SSH key system. All of the new flavors work with all of our [tools and SDKs](http://developer.rackspace.com), and of course - **you can use the [developer discount](http://developer.rackspace.com/devtrial/) to try them out**!
+This will spin up a 1GB Ubuntu 13.04 system for you. Use "**nova show**" once it's complete to get the public facing IP address - oh, and save the root/admin password if you're not using the "**--key-name**" SSH key system. All of the new flavors work with all of our [tools and SDKs](https://developer.rackspace.com), and of course - **you can use the [developer discount](https://developer.rackspace.com/devtrial/) to try them out**!
 
 ### You promised us benchmarks!
 
@@ -241,11 +241,11 @@ Things on the wish list:
 
 Actually, since we're on that topic - if you have corrections, or additions, or suggestions for us to add to all of this, please file an issue on the [GitHub repository](https://github.com/rackerlabs/performance_cloud_benchmarks) - all raw results, plotting scripts, etc is sitting right there, though my in progress fabric script to run them all didn't make the print deadline.
 
-If you see something wrong? Let us know. All of these new flavors are fully operational with our complete range of [tools and SDKs](http://developer.rackspace.com). You can reach out to me ([Jesse Noller][1]) on [Twitter][2], [email the developer support team](mailto:sdk-support@rackspace.com), ping [@Rackspace](https://twitter.com/Rackspace) on Twitter, or even reach out to [help@rackspace.com](mailto:help@rackspace.com). Special thanks to the entire Rackspace team for making this possible, a special shout-out to [Brian Curtin](https://twitter.com/brian_curtin) for helping me get all the data put together into some semblance of sanity! Thanks to [plot.ly](http://plot.ly) for making graphing data simple and awesome!
+If you see something wrong? Let us know. All of these new flavors are fully operational with our complete range of [tools and SDKs](https://developer.rackspace.com). You can reach out to me ([Jesse Noller][1]) on [Twitter][2], [email the developer support team](mailto:sdk-support@rackspace.com), ping [@Rackspace](https://twitter.com/Rackspace) on Twitter, or even reach out to [help@rackspace.com](mailto:help@rackspace.com). Special thanks to the entire Rackspace team for making this possible, a special shout-out to [Brian Curtin](https://twitter.com/brian_curtin) for helping me get all the data put together into some semblance of sanity! Thanks to [plot.ly](http://plot.ly) for making graphing data simple and awesome!
 
-I'm really looking forward to seeing what these new Performance Cloud Servers, a revitalized [Cloud Block Storage](http://developer.rackspace.com/blog/happy-birthday-cloud-block-storage.html), [OpenStack Heat](http://developer.rackspace.com/blog/openstack-heat-orchestration-coming-to-rackspace.html) orchestration, and [Cloud Queues](http://www.rackspace.com/blog/cloud-queues-available-now-to-all-cloud-customers/) will empower you, developers & hackers to dream up and build.
+I'm really looking forward to seeing what these new Performance Cloud Servers, a revitalized [Cloud Block Storage](https://developer.rackspace.com/blog/happy-birthday-cloud-block-storage.html), [OpenStack Heat](https://developer.rackspace.com/blog/openstack-heat-orchestration-coming-to-rackspace.html) orchestration, and [Cloud Queues](http://www.rackspace.com/blog/cloud-queues-available-now-to-all-cloud-customers/) will empower you, developers & hackers to dream up and build.
 
-Remember - want to test drive? Go ahead and use the [developer discount](http://developer.rackspace.com/devtrial/) - we're here to build amazing things, on open technology and with an open community for you. I couldn't be more proud!
+Remember - want to test drive? Go ahead and use the [developer discount](https://developer.rackspace.com/devtrial/) - we're here to build amazing things, on open technology and with an open community for you. I couldn't be more proud!
 
 {% img center 2013-11-04-welcome-to-performance-cloud-servers/simba.gif 400 %}
 

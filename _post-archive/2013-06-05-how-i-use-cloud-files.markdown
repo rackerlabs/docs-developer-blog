@@ -151,7 +151,7 @@ of code in a regular support ticket), I think it's a good step toward
 communicating that Rackspace services are developer-friendly.
 
 This also seems to be evident by the recent launch of the
-[Rackspace Developer Center](http://developer.rackspace.com). This portal
+[Rackspace Developer Center](https://developer.rackspace.com). This portal
 makes it much easier to find the existing documentation for various services.
 It's obviously a new effort, and like most early projects, it still needs a bit
 of polish. Luckily, it's also an

@@ -61,7 +61,7 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     mercenary (0.3.5)
-    mini_magick (4.2.1)
+    mini_magick (4.9.5)
     multi_json (1.11.0)
     parslet (1.5.0)
       blankslate (~> 2.0)

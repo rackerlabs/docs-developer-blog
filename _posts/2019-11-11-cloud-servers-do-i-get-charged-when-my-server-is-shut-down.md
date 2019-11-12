@@ -8,12 +8,12 @@ published: true
 authorisRacker: true
 catagories: Cloud Servers
 metaTitle: “Cloud Servers: Am I charged when my server is shut down?”
-metaDescription: ".”
+metaDescription: "Sometimes the easiest, and cheapest, solution is to let the public cloud server go. This post explores options and and considerations for shutting down or deleting a server.”
 ogTitle: “Cloud Servers: Am I charged when my server is shut down?”
-ogDescription: "."
+ogDescription: "Sometimes the easiest, and cheapest, solution is to let the public cloud server go. This post explores options and and considerations for shutting down or deleting a server."
 ---
 
-Sometimes the easiest, and cheapest, solution is to let the public cloud server go.
+Sometimes the easiest, and cheapest, solution is to let the public cloud server go. This post explores options and and considerations for shutting down or deleting a server.
 
 <!-- more -->
 

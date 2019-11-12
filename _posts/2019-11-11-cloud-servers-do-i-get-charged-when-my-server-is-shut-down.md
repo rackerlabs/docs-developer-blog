@@ -1,6 +1,6 @@
 ---
 layout: post
-title: “Cloud Servers: Am I charged when my server is shut down?”
+title: "Cloud Servers: Am I charged when my server is shut down?"
 date: 2019-11-13 00:00
 comments: true
 author: Shaun Crumpler

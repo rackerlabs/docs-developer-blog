@@ -6,6 +6,7 @@ comments: true
 author: Shaun Crumpler
 published: true
 authorisRacker: true
+authorAvatar: 'https://secure.gravatar.com/avatar/c26423ec960c158dbdbcbee1f61ea7b5'
 catagories: Cloud Servers
 metaTitle: “Cloud Servers: Am I charged when my server is shut down?”
 metaDescription: "Sometimes the easiest, and cheapest, solution is to let the public cloud server go. This post explores options and and considerations for shutting down or deleting a server.”

@@ -7,7 +7,7 @@ author: Jeff Richards
 published: true
 authorIsRacker: true
 categories:
-  - Saleforce
+  - Salesforce
 metaTitle: "How can your organization use Salesforce to its full capacity?"
 metaDescription: "With so many incredible features and powerful tools, it can be hard to unlock the full potential of a customer success platform like Salesforce."
 ogTitle: "How can your organization use Salesforce to its full capacity?"

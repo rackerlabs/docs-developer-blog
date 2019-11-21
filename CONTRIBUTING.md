@@ -123,6 +123,7 @@ Available categories include the following:
 - OSAD
 - Private Cloud
 - Python
+- Salesforce
 - SDK
 - Security
 

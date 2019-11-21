@@ -8,7 +8,7 @@ published: true
 authorIsRacker: true
 authorAvatar: 'https://en.gravatar.com/userimage/150944252/dee042ceb59361e378fa53fde9694600'
 categories:
-  - General
+  - Salesforce
 metaTitle: "How to use Journey Builder at B2B companies"
 metaDescription: "This blog explains how you can use Journey Builder to streamline the customer experience and internal processes at your B2B company."
 ogDescription: "This blog explains how you can use Journey Builder to streamline the customer experience and internal processes at your B2B company."

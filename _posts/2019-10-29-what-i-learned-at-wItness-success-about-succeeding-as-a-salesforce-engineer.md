@@ -8,7 +8,7 @@ published: true
 authorIsRacker: true
 authorAvatar: 'https://en.gravatar.com/userimage/150944252/dee042ceb59361e378fa53fde9694600'
 categories:
-  - General
+  - Salesforce
 metaTitle: "What I learned at WITness Success about succeeding as a Salesforce engineer"
 metaDescription: ""
 ogTitle: "What I learned at WITness Success about succeeding as a Salesforce engineer"

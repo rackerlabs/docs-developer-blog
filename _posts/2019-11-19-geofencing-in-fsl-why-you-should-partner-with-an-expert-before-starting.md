@@ -5,9 +5,9 @@ date: 2019-11-19 00:00
 comments: true
 author: Kortney Cervantes
 published: true
-authorisRacker: true
+authorIsRacker: true
 categories:
-  - General
+  - Salesforce
 metaTitle: "Geofencing in FSL: why you should partner with an expert before starting"
 metaDescription: "This article reviews geofencing or geolocation&mdash;a capability within FSL. We discuss the definition of geofencing, as well as how and when you should expect to phase it into your FSL implementation."
 ogTitle: "Geofencing in FSL: why you should partner with an expert before starting"

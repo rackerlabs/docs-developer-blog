@@ -7,7 +7,7 @@ author: Janice Krpan
 published: true
 authorIsRacker: true
 categories:
-  - General
+  - Salesforce
 metaTitle: "Three ways Salesforce can streamline your financial services company"
 metaDescription: "In this post, I dive into three points that show how Salesforce can help take your financial services company to the next level."
 ogTitle: "Three ways Salesforce can streamline your financial services company"

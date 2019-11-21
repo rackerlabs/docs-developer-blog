@@ -7,7 +7,7 @@ author: Janna Cenko
 published: true
 authorIsRacker: true
 categories:
-  - General
+  - Salesforce
 metaTitle: "Five benefits of moving to Salesforce Lightning"
 metaDescription: "This blog outlines five benefits of transitioning from Salesforce Classic to Salesforce Lightning."
 ogDescription: "This blog outlines five benefits of transitioning from Salesforce Classic to Salesforce Lightning."

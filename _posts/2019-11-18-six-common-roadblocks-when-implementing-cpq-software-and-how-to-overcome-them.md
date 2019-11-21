@@ -5,9 +5,9 @@ date: 2019-11-18 00:00
 comments: true
 author: Rob Hawthorn
 published: true
-authorisRacker: true
+authorIsRacker: true
 categories:
-  - General
+  - Salesforce
 metaTitle: "Six common roadblocks when implementing CPQ software and how to overcome them"
 metaDescription: "Significant growth also comes with increased complexity&mdash;if your Configure, Price, Quote (CPQ) process isn’t growing with you, your pain points soon become evident."
 ogTitle: "Six common roadblocks when implementing CPQ software and how to overcome them""

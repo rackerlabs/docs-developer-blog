@@ -7,7 +7,7 @@ author: Sharita Hanley
 published: true
 authorIsRacker: true
 categories:
-  - General
+  - Salesforce
 metaTitle: "How Salesforce Community Cloud helps you serve your customers, employees, and partners"
 metaDescription: "How Salesforce Community Cloud helps you serve your customers, employees, and partners"
 ogTitle: "How Salesforce Community Cloud helps you serve your customers, employees, and partners"

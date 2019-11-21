@@ -7,7 +7,7 @@ author: Rob Rogers
 published: true
 authorIsRacker: true
 categories:
-  - General
+  - Salesforce
 metaTitle: "Three ways Salesforce Health Cloud can improve patient experience"
 metaDescription: "This blog discusses three ways that SalesForce Health Cloud can help improve patient experience within the health care industry."
 ogDescription: "This blog discusses three ways that SalesForce Health Cloud can help improve patient experience within the health care industry."

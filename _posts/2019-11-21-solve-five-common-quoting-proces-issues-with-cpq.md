@@ -5,9 +5,9 @@ date: 2019-11-21 00:00
 comments: true
 author: Rob Hawthorne
 published: true
-authorisRacker: true
+authorIsRacker: true
 categories:
-  - General
+  - Salesforce
 metaTitle: "Solve five common quoting process issues with CPQ"
 metaDescription: "This post covers five of the most rampant quoting process issues we’ve seen and some solutions, along with a look at how CPQ can help mitigate these problems."
 ogTitle: "Solve five common quoting process issues with CPQ"

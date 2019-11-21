@@ -7,7 +7,7 @@ author: Mitchell McLaughlin
 published: true
 authorIsRacker: true
 categories:
-  - General
+  - Salesforce
 metaTitle: "Einstein Analytics or Classic Reports&mdash;five questions to ask yourself"
 metaDescription: "Do you need Einstein Analytics instead of classic reporting? Five questions to ask yourself."
 ogTitle: "Einstein Analytics or Classic Reports&mdash;five questions to ask yourself"

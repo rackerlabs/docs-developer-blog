@@ -7,7 +7,7 @@ author: Karisa Booth
 published: true
 authorIsRacker: true
 categories:
-  - General
+  - Salesforce
 metaTitle: "What is Interaction Studio, and how does it drive transformative business value?"
 metaDescription: "Interaction Studio launched in 2018 as an innovative Marketing Cloud feature that allows your company to engage with customers at every stage along the path from lead to loyalty."
 ogTitle: "What is Interaction Studio, and how does it drive transformative business value?"

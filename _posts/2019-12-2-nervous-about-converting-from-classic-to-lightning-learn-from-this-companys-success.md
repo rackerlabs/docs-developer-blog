@@ -7,7 +7,7 @@ author: Nikki Carter
 published: true
 authorIsRacker: true
 authorAvator: 'https://1.gravatar.com/avatar/3177b82ffcbe59f1f3e6e155d3c94e7a'
-bio: 'Nikki Carter is a Content Strategist on the Digital Marketing Services Team at RelationEdge. She has extensive experience creating and editing content and marketing assets for a variety of verticals, including healthcare, technology, and wellness. Nikki is passionate about freedom, telling the truth, and supporting other women/non-binary folks of color.'
+bio: 'Nikki Carter is a Content Strategist on the Digital Marketing Services Team at Rackspace. She has extensive experience creating and editing content and marketing assets for a variety of verticals, including healthcare, technology, and wellness. Nikki is passionate about freedom, telling the truth, and supporting other women/non-binary folks of color.'
 categories:
   - Salesforce
 metaTitle: "Nervous about converting from Classic to Lightning? Learn from this company’s success"

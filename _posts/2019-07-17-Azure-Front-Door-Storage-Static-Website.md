@@ -7,6 +7,7 @@ author: Jimmy Rudley
 published: true
 authorIsRacker: true
 authorAvatar: 'https://en.gravatar.com/userimage/151177997/5bed7e07ee47533cbd34b951d463bcb7.jpg'
+bio: “Jimmy Rudley is an Azure Architect at Rackspace and an active member of the Azure community. He focuses on solving large and complex architecture and automation problems within Azure."
 categories:
     - Azure
 metaTitle: "Static storage website with Azure Front Door"

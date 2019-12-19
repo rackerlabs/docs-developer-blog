@@ -5,6 +5,7 @@ date: 2016-10-27 10:22
 comments: false
 author: Jimmy Rudley
 authorAvatar: 'https://en.gravatar.com/userimage/151177997/5bed7e07ee47533cbd34b951d463bcb7.jpg'
+bio: “Jimmy Rudley is an Azure Architect at Rackspace and an active member of the Azure community. He focuses on solving large and complex architecture and automation problems within Azure."
 published: true
 categories:
     - DevOps

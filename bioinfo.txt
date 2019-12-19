@@ -106,7 +106,7 @@ bio: n/a
 
 Rudley, Jimmy 
 authorAvatar: 'https://en.gravatar.com/userimage/151177997/5bed7e07ee47533cbd34b951d463bcb7.jpg'
-bio: n/a
+bio: “Jimmy Rudley is an Azure Architect at Rackspace and an active member of the Azure community. He focuses on solving large and complex architecture and automation problems within Azure."
 
 Sharma, Hemant
 authorAvatar: 'https://s.gravatar.com/avatar/62a512ada4789514ddecc061e501be64'

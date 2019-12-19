@@ -6,6 +6,7 @@ comments: true
 author: Hemant Sharma
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/62a512ada4789514ddecc061e501be64'
 categories:
   - Oracle
   - database

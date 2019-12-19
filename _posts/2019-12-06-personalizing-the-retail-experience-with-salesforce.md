@@ -17,9 +17,9 @@ ogDescription: "In this blog, we look at the importance of creating a personaliz
 
 Customer experience is critical in retail for building engagement and generating revenue. Offering personalized interactions&mdash;from advising customers based on their preferences to following up with them after they have made their purchases&mdash;can provide transformative business value, particularly during the biggest shopping season of the year.
 
-![]({% asset_path 2019-12-6-personalizing-the-retail-experience-with-salesforce/picture1.png %})
-
 <!-- more -->
+
+![]({% asset_path 2019-12-6-personalizing-the-retail-experience-with-salesforce/picture1.png %})
 
 [Fifty-six percent of marketers](https://www.marketingcharts.com/brand-related-82815) cited retail personalization as the most exciting trend of the year. That means your marketing team is probably also considering how to integrate personalization into your business strategy.
 

@@ -3,7 +3,7 @@ layout: post
 title: "Introduction to Couchbase-the engagement database"
 date: 2018-10-19 00:00
 comments: true
-author: Satykam Mishra
+author: Satyakam Mishra
 published: true
 authorIsRacker: true
 categories:

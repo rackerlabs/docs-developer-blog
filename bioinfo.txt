@@ -46,7 +46,7 @@ Gates, Jason
 authorAvatar: 'https://s.gravatar.com/avatar/ff2ec8ee582b2e949109b7fd353734f2'
 bio: n/a
 
-Hawthorne, Rob 
+Hawthorn, Rob 
 authorAvatar: 'https://s.gravatar.com/avatar/c44cfe09d207a9f1529d2280dec8583a'
 bio: n/a
 

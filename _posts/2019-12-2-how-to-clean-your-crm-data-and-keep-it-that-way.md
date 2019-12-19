@@ -6,6 +6,7 @@ comments: true
 author: Jordan Friedman
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/f2f71a634ccd1e79ea3b3b317f8b4161'
 categories:
   - Salesforce
 metaTitle: "How to clean your CRM data and keep it that way"

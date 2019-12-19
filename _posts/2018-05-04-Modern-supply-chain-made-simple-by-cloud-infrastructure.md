@@ -6,6 +6,7 @@ comments: false
 author: Manoj Mishra
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/9498305cda9dc4fe9d8f5873b09ff1e2’
 categories:
     - General
 ---

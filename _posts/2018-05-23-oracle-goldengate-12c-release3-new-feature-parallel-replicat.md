@@ -3,9 +3,10 @@ layout: post
 title: "Oracle GoldenGate 12c release 3 - New feature Parallel Replicat"
 date: 2018-05-23 00:00
 comments: false
-author: Ravi Sharma
+author: Ravi Kant Sharma
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/c7776b42759c729500163fc6588221ac’
 categories:
   - Oracle
   - database

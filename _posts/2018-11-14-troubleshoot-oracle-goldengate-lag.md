@@ -3,9 +3,10 @@ layout: post
 title: "Troubleshoot Oracle GoldenGate lag"
 date: 2018-11-14 00:00
 comments: false
-author: Ravi Sharma
+author: Ravi Kant Sharma
 authorIsRacker: true
 published: true
+authorAvatar: 'https://s.gravatar.com/avatar/c7776b42759c729500163fc6588221ac’
 categories:
   - Oracle
 ---

@@ -6,6 +6,7 @@ comments: true
 author: Janice Krpan
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/7662b14a4b4ce42f1a0775b2a93634c4'
 categories:
   - Salesforce
 metaTitle: "Three ways Salesforce can streamline your financial services company"

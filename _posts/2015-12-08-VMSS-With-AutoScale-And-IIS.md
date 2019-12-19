@@ -5,6 +5,7 @@ date: '2015-12-04 10:45'
 comments: false
 author: Jimmy Rudley
 published: true
+authorAvatar: 'https://en.gravatar.com/userimage/151177997/5bed7e07ee47533cbd34b951d463bcb7.jpg'
 categories:
     - Azure
 ---

@@ -6,6 +6,7 @@ comments: true
 author: Rob Hawthorne
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/c44cfe09d207a9f1529d2280dec8583a'
 categories:
   - Salesforce
 metaTitle: "Solve five common quoting process issues with CPQ"

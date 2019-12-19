@@ -3,9 +3,10 @@ layout: post
 title: "Oracle GoldenGate microservices architecture"
 date: 2019-07-03 00:00
 comments: true
-author: Ravi Sharma
+author: Ravi Kant Sharma
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/c7776b42759c729500163fc6588221ac’
 categories:
   - Oracle
   - database

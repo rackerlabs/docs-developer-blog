@@ -5,6 +5,7 @@ date: 2016-11-09 10:22
 comments: false
 author: Jimmy Rudley
 published: true
+authorAvatar: 'https://en.gravatar.com/userimage/151177997/5bed7e07ee47533cbd34b951d463bcb7.jpg'
 categories:
     - DevOps
     - Azure

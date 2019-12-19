@@ -6,6 +6,8 @@ comments: true
 author: Karisa Booth
 published: true
 authorIsRacker: true
+authorAvatar: 'http://0.gravatar.com/avatar/c5a8a633797f4b8c85b5b5bad605cd18'
+bio: "Karisa is an experienced Cloud Architect with a demonstrated history of working in the information technology and services industry. She is skilled in working with a variety of verticals including Nonprofit Organizations, Higher Education, Retail, and HLS; providing Technical Evaluations, Program Execution, Customer Relationship Management (CRM), Event Management, and Marketing/Tech. Karisa is passionate about cloud technology and marketing, and combining these to create unique solutions for clients."
 categories:
   - Salesforce
 metaTitle: "What is Interaction Studio, and how does it drive transformative business value?"

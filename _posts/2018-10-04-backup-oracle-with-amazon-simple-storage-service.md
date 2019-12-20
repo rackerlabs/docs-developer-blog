@@ -6,6 +6,7 @@ comments: true
 author: Vivek Verma
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/c9c74dd30299675961e5160a4fbb05fe'
 categories:
   - Oracle
   - database
@@ -16,7 +17,6 @@ This blog post reviews how to use Amazon Simple Storage Service (S3), as storage
 for an Oracle&reg; Database backup. Amazon Web Services (AWS) was the first cloud
 vendor that Oracle partnered with to enable database backup in the cloud. S3 is
 the main storage offering of AWS.
-
 
 <!-- more -->
 
@@ -32,7 +32,6 @@ worldwide.
 The following image illustrates the S3 concept:
 
 ![]({% asset_path 2018-10-04-backup-oracle-with-amazon-simple-storage-service/Picture1.png %})
-
 
 ### Oracle Secure Backup cloud module
 
@@ -59,12 +58,12 @@ configuring a sample cloud backup.
 #### Sign up
 
 The first step in getting started with the OSB cloud module is to sign up for
-Amazon S3. This can be done by visiting the [Amazon S3 website](http://aws.amazon.com/s3 ),
+Amazon S3. You can do this by visiting the [Amazon S3 website](http://aws.amazon.com/s3 ),
 as shown in the following image:
 
 ![]({% asset_path 2018-10-04-backup-oracle-with-amazon-simple-storage-service/Picture2.png %})
 
-After registration, users are provided with a pair of access identifiers called
+After registration, users get a pair of access identifiers called
 the **Access key ID** and the **Secret Access key**, as shown in the following
 image:
 

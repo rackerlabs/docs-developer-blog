@@ -6,6 +6,7 @@ comments: true
 author: Amit Kumar Bhatnagar
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/ea77be7be4ebf7aed353087f677104be'
 categories:
   - database
   - architecture
@@ -31,7 +32,7 @@ provides lower latency for users while guaranteeing that any regional outage
 does not impact the entire database system.
 
 Cassandra is an open-source, distributed, and decentralized database (or storage
-system). It is used for managing very large amounts of structured data spread
+system). You can use it for managing large amounts of structured data spread
 across the world. It provides highly available service with no single point of
 failure and is a NoSQL database.
 

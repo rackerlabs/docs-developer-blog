@@ -2,6 +2,10 @@ Anand, Vikrant
 authorAvatar: 'https://s.gravatar.com/avatar/98991c72835ea03135094fb2a1b6e3c0’
 bio: n/a
 
+Bhatnagar, Amit Kumar 
+authorAvatar: 'https://s.gravatar.com/avatar/ea77be7be4ebf7aed353087f677104be'
+bio: n/a
+
 Belke, Emily 
 authorAvatar: 'https://s.gravatar.com/avatar/4a7de5d7772b14826cca8496c410ba88'
 bio: n/a
@@ -131,6 +135,10 @@ bio: "Walter Stubbs is a Microsoft Certified Solutions Associate, and one of the
 Toews, Everett 
 authorAvatar: 'https://www.gravatar.com/avatar/c1a75adb52f40016a480cee292527895'
 bio: “Everett Toews a Developer Advocate at Rackspace making the cloud easy to use for developers and operators. Sometimes dev, sometimes ops, and sometimes advocate. He's interested in composing systems using APIs, SDKs, CLIs, and Docker. He likes to teach what he learns along the way.”
+
+Verma, Vivek 
+authorAvatar: 'https://s.gravatar.com/avatar/c9c74dd30299675961e5160a4fbb05fe'
+bio: n/a
 
 Whitehead, Chris 
 authorAvatar: 'https://s.gravatar.com/avatar/286b19b54ad30b4f0d25a4ac679744a8'

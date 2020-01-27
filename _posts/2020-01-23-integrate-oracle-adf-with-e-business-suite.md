@@ -40,7 +40,7 @@ can use parts of the framework in combination with the other technologies.
 Throughout this guide, applications that contain any ADF technologies are
 generally referred to as ADF applications. Web applications that incorporate
 ADF technologies throughout the business service, model, controller, and view
-layers are referred to as Fusion web applications.”
+layers are referred to as Fusion web applications.
 
 
 ### SWPA
@@ -59,7 +59,7 @@ powers Rapid Planning and Fusion applications&mdash;part of the Fusion Middle Wa
 (FMW) tech stac. This does not use standard Oracle Forms tech stack that
 has been the standard for the last 15+ years.
 
-> It depends on your WebLogic tech stack and ADF rendering of the forms.”
+> It depends on your WebLogic tech stack and ADF rendering of the forms.
 
 
 ### Integrate ADF with SWPA

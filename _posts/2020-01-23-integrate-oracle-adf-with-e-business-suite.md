@@ -47,19 +47,19 @@ layers are referred to as Fusion web applications.”
 
 Oracle describes SPWA in [FAQ For 12.2.5 - SPWA - Supply Planning Work Area](https://support.oracle.com/knowledge/More%20Applications%20and%20Technologies/2049195_1.html) in the following way:
 
->The Supply Planning Work Area (SPWA) is a component of the Oracle Advanced
+> The Supply Planning Work Area (SPWA) is a component of the Oracle Advanced
 Supply Chain Planning (ASCP).
 
->12.2.5 VCP introduces a new form for users that is an alternative to the
+> 12.2.5 VCP introduces a new form for users that is an alternative to the
 planner workbench. The standard Planner Workbench is still available and will
 not be removed from the applications.
 
->This form uses the same ADF (Application Development Framework) tech stack that
+> This form uses the same ADF (Application Development Framework) tech stack that
 powers Rapid Planning and Fusion applications&mdash;part of the Fusion Middle Ware
 (FMW) tech stac. This does not use standard Oracle Forms tech stack that
 has been the standard for the last 15+ years.
 
->It depends on your WebLogic tech stack and ADF rendering of the forms.”
+> It depends on your WebLogic tech stack and ADF rendering of the forms.”
 
 
 ### Integrate ADF with SWPA

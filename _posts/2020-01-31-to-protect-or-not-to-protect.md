@@ -35,7 +35,7 @@ shoppers trying to get through a single residential door at opening time, also
 known in marketing terms as a "Doorbusters" event.
 
 These attacks create conditions in which the system denies legitimate users
-access to resource, both your's and your customers'. The bad actors are not
+access to resources, both your's and your customers'. The bad actors are not
 trying to break into a protected environment to steal or destroy your data. They
 just want to disrupt services and cause as much chaos for the legitimate uses of
 the resources as possible by generating a massive number of phony requests from

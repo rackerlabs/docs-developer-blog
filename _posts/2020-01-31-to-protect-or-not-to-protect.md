@@ -6,6 +6,8 @@ comments: true
 author: Roman Lara
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/e9ef88c66315a7f955c4352a7ad2182a'
+bio: "Roman Lara is a Senior Engineer on the Rackspace specialized DDoS Response Team and has been a Racker in various roles since 2009. He is responsible for driving the design, build, and maintenance of Rackspace DDoS Mitigation infrastructure and services. Roman is a high-energy, hands-on leader whose knowledge and experience of threat trends helps develop and create powerful mitigation strategies through Fanatical Support."
 categories:
     - Security
 metaTitle: "To protect or not to protect"
@@ -26,19 +28,19 @@ driving your new car off the dealership lot without insurance.
 
 ### What is DDoS?
 
-Hackers use DDoS attacks to attempt to make an online service unusable by
+Attackers use DDoS attacks to attempt to make an online service unusable by
 overwhelming it with a large volume of traffic from multiple sources. Here's
 another analogy to describe a DDoS attack: Consider a huge crowd of Black Friday
 shoppers trying to get through a single residential door at opening time, also
 known in marketing terms as a "Doorbusters" event.
 
 These attacks create conditions in which the system denies legitimate users
-access to your and your customer's resources. The bad actors are not trying to
-break into a protected environment to steal or destroy your data. They just want
-to disrupt services and cause as much chaos for the legitimate uses of the
-resources as possible by generating a massive number of phony requests from a
-large number of computers worldwide that flood a target server. As a result, the
-target server spends all its resources serving requests and becomes virtually
+access to resource, both your's and your customers'. The bad actors are not
+trying to break into a protected environment to steal or destroy your data. They
+just want to disrupt services and cause as much chaos for the legitimate uses of
+the resources as possible by generating a massive number of phony requests from
+a large number of computers worldwide that flood a target server. As a result,
+the target server spends all its resources serving requests and becomes virtually
 unavailable to users who actually need it.
 
 ### Stateful days of DDoS
@@ -65,7 +67,7 @@ users from establishing connections.
 Other attacks, such as amplification attacks, can significantly increase the
 volume of traffic by exploiting protocols with very high amplification factors.
 The amplification factor is the ratio between the size of the request and the
-response generated. For example, hackers can use an open Memcached service to
+response generated. For example, attackers can use an open Memcached service to
 flood a victim by an amplification factor of up to 51,000 times the request size,
 as shown in the following table:
 
@@ -102,3 +104,24 @@ scrubbing centers built to handle the volume of attack traffic from a DDoS attac
 
 Bottom line: Use all the security tools at your disposal to defend against DDoS
 and other bandwidth-onslaught attacks.
+
+### Why use Rackspace for DDoS mitigation services?
+
+Rackspace delivers industry-leading SLAs and services. Our customers count on
+us to keep their systems safe and running 24x7x365. Our experts and
+anomaly-detection technologies are on-premises with your network equipment, so
+we can be the first to detect any anomalous traffic to your network. Rackspace
+DDoS Mitigation Services provide fast mitigation times because there’s no need
+to configure routing connections or DNS hosting changes. Our goal is to keep
+your infrastructure safe and your business online during a DDoS attack by
+offloading malicious traffic processing to our DDoS mitigation hardware.
+
+DDoS Mitigation Services can help you keep your network safe from distributed
+denial-of-service attacks.
+
+DDoS mitigation is available as a subscription service for proactive protection
+to identify malicious traffic with the first hostile packet, or as an on-demand
+service that can be activated if a security event is underway. Both services
+include expert setup and custom tuning of your IP-based DDoS protection.
+On-demand customers have the option to upgrade to the subscription service after
+30 days with no additional setup fee.

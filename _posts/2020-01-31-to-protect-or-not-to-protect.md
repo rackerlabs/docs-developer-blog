@@ -71,7 +71,7 @@ response generated. For example, attackers can use an open Memcached service to
 flood a victim by an amplification factor of up to 51,000 times the request size,
 as shown in the following table:
 
-![resources]({% asset_path 2020-01-29-Azure-SQL-VM-Resource-Provider/1.png %})
+![]({% asset_path 2020-01-31-to-protect-or-not-to-protect/Picture1.png %})
 
 *Image source*:[https://www.us-cert.gov/ncas/alerts/TA14-017A](https://www.us-cert.gov/ncas/alerts/TA14-017A)
 

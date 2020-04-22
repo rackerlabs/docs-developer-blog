@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Install Oracle APEX and Configure ORDS"
+title: "Install and configure Oracle APEX and ORDS"
 date: 2020-04-23 00:01
 comments: true
 author: Manoj Singh
@@ -19,17 +19,17 @@ release and change management, project management, and IT infrastructure."
 categories:
     - Oracle
     - database
-metaTitle: "Install Oracle APEX and Configure ORDS"
+metaTitle: "Install and configure Oracle APEX and ORDS"
 metaDescription: "This post describes Oracle&reg; Application Express (APEX) and Oracle REST Data
 Services (ORDS), including the steps to install APEX and configure ORDS."
-ogTitle: "Install Oracle APEX and Configure ORDS"
+ogTitle: "Install and configure Oracle APEX and ORDS"
 ogDescription: "This post describes Oracle&reg; Application Express (APEX) and Oracle REST Data
 Services (ORDS), including the steps to install APEX and configure ORDS."
 ---
 
 This post describes Oracle&reg; Application Express (APEX) and Oracle REST Data
-Services (ORDS), including the steps to install APEX and configure ORDS.
-Typically, database administrators carry out both of the tasks.
+Services (ORDS), including the steps to install APEX and install and configure
+ORDS. Typically, database administrators (DBAs) carry out both of these tasks.
 
 <!-- more -->
 
@@ -47,26 +47,27 @@ to develop REST APIs for Oracle Database. You can deploy ORDS on web and
 application servers, including WebLogic&reg;, Tomcat&reg;, and Glassfish&reg;,
 as shown in the following image:
 
-![]({% asset_path 2020-04-23-install-oracle-apex-and-configure-ords/Picture1.png %})
+![]({% asset_path 2020-04-23-install-and-configure-oracle-apex-and-ords/Picture1.png %})
 
 *Image source*: [https://www.oracle.com/technetwork/developer-tools/apex/application-express/apex-arch-1876607.png](https://www.oracle.com/technetwork/developer-tools/apex/application-express/apex-arch-1876607.png)
 
 ### Install and configure
 
-You can install APEX and ORDS by using the following methods:
+You can install and configure APEX and ORDS by using the following methods:
 
-- Install APEX and configure ORDS.
+- Install APEX and ORDS and configure ORDS.
 - Install APEX and configure a web listener: embedded PL/SQL gateway.
 - Install APEX and configure the legacy web listener: Oracle HTTP Server.
 
 For this post, I chose the first option, which Oracle recommends:  Install APEX
-and configure ORDS.
+and ORDS and configure ORDS.
 
 ####  Install APEX
 
 **Note:** You must install APEX on the database server node.
 
-Install Apex Binary and Create Tablespace and Schema by using the following steps:
+Install the Apex executable and create the tablespace and schema by using the
+following steps:
 
 1. Download and unzip the APEX software to **/u01/app/oradi/Apex**.
 
@@ -91,9 +92,9 @@ Install Apex Binary and Create Tablespace and Schema by using the following step
 
 Use the following steps to install and configure ORDS:
 
-1. Download the latest release of Oracle REST Data services to **/u01/app/oradi/ORDS**.
+1. Download the latest release of ORDS to **/u01/app/oradi/ORDS**.
 
-2. Unzip the downloaded zip file into the directory of your choice.
+2. Unzip the downloaded file into the directory of your choice.
 
 3. Copy the images directory, **/u01/app/oradi/Apex/apex/images**, from the
    APEX software zip file to the location where you plan to install ORDS.
@@ -107,10 +108,11 @@ Use the following steps to install and configure ORDS:
         -rw-r--r-- 1 oradi oinstall 63211594 Nov 27 20:14 ords-19.2.0.199.1647.zip
 
 4. Oracle recommends that you use the latest version of Java is for ORDS.
-   Download JDK - 8 from the patch **p30437878_180231_LINUX.zip** and unzip it.
+   Download JDK version 8 from the patch file, **p30437878_180231_LINUX.zip**,
+   and unzip the file.
 
 5. Take a backup of the existing **jdk** folder and copy **jdk1.8.0_231** to
-   **ORACLE_HOME/**
+   **ORACLE_HOME/**.
 
         [oradi@diatmlckidb01 clone]$ cd /u01/app/oradi/DMLCKI/db/tech_st/11.2.0/
         [oradi@diatmlckidb01 11.2.0]$ mv jdk jdk_old
@@ -124,7 +126,7 @@ Use the following steps to install and configure ORDS:
         Java(TM) SE Runtime Environment (build 1.8.0_231-b33)
         Java HotSpot(TM) Server VM (build 25.231-b33, mixed mode)
 
-6. Execute the following command to complete the setup.
+6. Execute the following command to complete the setup and configuration:
 
         [oradi@diatmlckidb01 ORDS]$ java -Dorg.eclipse.jetty.server.Request.maxFormContentSize=3000000 -jar ords.war
         This Oracle REST Data Services instance has not yet been configured.
@@ -169,15 +171,14 @@ from your web browser.
 
 ### Conclusion
 
-APEX, Oracle's tool for database and web application development, replaced the
+APEX, the Oracle tool for database and web application development, replaced the
 legacy Oracle forms applications. Oracle APEX is a better choice because it
-quickly builds applications at low cost, enabling DBAs to address the
-requirements of the customers.
+quickly builds applications at a low cost and enables DBAs to address the
+requirements of your customers.
 
-Oracle REST Data Services (ORDS) gives your database access directly through a
-simple HTTP or HTTPS request, which is an easy way to modify your data for an
-existing application. Software developers must call a web service to interact
-with the database.
+ORDS gives you direct access to your database access through a HTTP or HTTPS
+request, so you can easily modify your data for an existing application. Software
+developers just call a web service to interact with the database.
 
 Use the Feedback tab to make any comments or ask questions. You can also
 [chat now](https://www.rackspace.com/#chat) to start the conversation.

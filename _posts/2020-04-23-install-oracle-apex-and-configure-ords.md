@@ -47,7 +47,7 @@ to develop REST APIs for Oracle Database. You can deploy ORDS on web and
 application servers, including WebLogic&reg;, Tomcat&reg;, and Glassfish&reg;,
 as shown in the following image:
 
-![]({% asset_path 2020-04-23-install-oracle-apex-and configure-ords/Picture1.png %})
+![]({% asset_path 2020-04-23-install-oracle-apex-and-configure-ords/Picture1.png %})
 
 *Image source*: [https://www.oracle.com/technetwork/developer-tools/apex/application-express/apex-arch-1876607.png](https://www.oracle.com/technetwork/developer-tools/apex/application-express/apex-arch-1876607.png)
 

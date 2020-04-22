@@ -2,6 +2,9 @@ Abhinav, Kumar
 authorAvatar: n/a
 bio: n/a
 
+Ahmed, Ilham
+authorAvatar: ''
+bio: n/a
 
 Ahmed, Sabeehah
 authorAvatar: 'https://s.gravatar.com/avatar/e0a659be1385d03db4ca9eed09b1826d'
@@ -85,6 +88,10 @@ authorAvatar: 'https://gravatar.com/avatar/1817fa128828e2dbdd87e8e713a0cac0'
 bio: "As a Racker, I am having a good experience as Oracle APPS DBA and
 exploring new technology."
 
+Colbert, Charlotte
+authorAvatar: ''
+bio: n/a
+
 Cortez, Teresa
 authorAvatar: 'https://secure.gravatar.com/avatar/889f88c8dacf485d4c00f7c6fcfd51f8'
 bio: "Teresa Cortez is a Product Manager working with Dynamics 365 from Microsoft.
@@ -151,6 +158,22 @@ Fusion Middleware, Oracle SOA Suite administration and integration with Oracle
 Applications, Oracle Demantra administration and integration with Oracle ASCP,
 Oracle Cloud Infrastructure, and Oracle DBaaS administration."
 
+Engle, Joe
+authorAvatar: ''
+bio: n/a
+
+Evans, Chris
+authorAvatar: ''
+bio: "Chris Evans is a Senior Cybersecurity Architect with a desire for securing
+environments. In his current role at Rackspace, he architects the managed
+security operations, ensuring Rackspace’s customers are secured now and prepared
+for the future. Chris has more than 13 years’ experience dealing with IT,
+network engineering, security operations, security architecture, and management
+of technical teams and capabilities. Chris spent 10 years in the military,
+defending networks from Advanced Persistent Threats, and has managed security
+operations teams across all levels. You can follow Chris on LinkedIn at
+linkedin.com/in/Christopher-a-evans."
+
 Friedman, Jordan
 authorAvatar: 'https://s.gravatar.com/avatar/f2f71a634ccd1e79ea3b3b317f8b4161'
 bio: n/a
@@ -171,6 +194,10 @@ Administrator since I began my career and worked for top IT companies. I have
 14 years of IT experience and currently work for Rackspace as a Senior Oracle
 Apps DBA. I am passionate about electronic gadgets, travelling, exploring, and
 tasting delicious food."
+
+Greguska, Kari
+authorAvatar: ''
+bio: n/a
 
 Gupta, Nihar
 authorAvatar: n/a
@@ -247,8 +274,9 @@ Powered by VMware. Dan spends his time improving products and services through
 his passion and evangelization of automation and open source software."
 
 Krawczynski, David
-authorAvatar: n/a
-bio: n/a
+authorAvatar: 'https://s.gravatar.com/avatar/99399c9f2a456f6f1be216d6ddde8b11'
+bio: "Finding a balance for family, old cars, and IT while living by my mantra
+that 'luck is equal parts strength and spirit'!"
 
 Krpan, Janice
 authorAvatar: 'https://s.gravatar.com/avatar/7662b14a4b4ce42f1a0775b2a93634c4'
@@ -267,6 +295,11 @@ authorAvatar: 'https://s.gravatar.com/avatar/fa095e4b2e5de083e30a714448e71451'
 bio: "Accomplished Database Consultant with years of in-depth knowledge and
 experience in building and administering business solutions based on Oracle and
 NoSQL (MongoDB, Couchbase and Cassandra) database engines and technologies."
+
+Kumar, Manish
+authorAvatar: 'https://s.gravatar.com/avatar/7f73ff8ddbc33505beb7a14033611a06'
+bio: "I've been a Racker for three years and have 14+ years of Oracle DBA
+experience. Currently, I work on Oracle, MongoDB, and other NoSQL databases."
 
 Lara, Roman
 authorAvatar: 'https://s.gravatar.com/avatar/e9ef88c66315a7f955c4352a7ad2182a'
@@ -346,7 +379,6 @@ authorAvatar: 'https://s.gravatar.com/avatar/c3a915969820000d5dc4fc4f04ad8276'
 bio: "I enjoy working as Oracle Apps DBA with more than 12 years of experience
 in various Oracle technologies."
 
-
 Ross, John
 authorAvatar: 'https://s.gravatar.com/avatar/1e38fb66f5cebe18724102a37f3e1caf'
 bio: "John Ross is a Senior Product Manager at Rackspace for SAP Solutions and
@@ -354,6 +386,10 @@ Services. He has more than 20 years of experience in technology working with a
 wide variety of customers across multiple industries. John is based in Orlando,
 Florida. Follow him on Twitter at **@johnrossjr**."
 
+Rozen, Maxim
+Tharmarajah, Nilojan
+authorAvatar: ''
+bio: n/a
 
 Rudley, Jimmy
 authorAvatar: 'https://en.gravatar.com/userimage/151177997/5bed7e07ee47533cbd34b951d463bcb7.jpg'
@@ -378,6 +414,27 @@ Singh, Kanwerjeet
 authorAvatar: 'https://s.gravatar.com/avatar/f73f72ee82679fc3d9e52f277a83e410'
 bio: "Hey, I’m Kanwer: Oracle DBA and always looking to explore new database technologies."
 
+Singh, Manoj
+authorAvatar: 'https://media-exp1.licdn.com/dms/image/C5103AQE6tfHUm-whiw/profile-displayphoto-shrink_200_200/0?e=1593043200&v=beta&t=OPNBn8Pl4CYK6aqbqvXaTWs7n5TXPAglIB__-P4CuFk'
+bio: "I have over ten years of  IT experience in Apps DBA, Core DBA, Cloud DBA,
+Database Architect, and middleware as a IT Consultant. I'm also experienced in
+cloud architecture analysis, migration planning, and migration execution. My
+proven effectiveness in building good client interaction and partnering with
+senior business leaders serve me well, as do my excellent facilitation skills
+in conducting walkthroughs, brainstorming sessions, and core team meetings. I'm
+an OCI-certified cloud DBA with expertise in Oracle Database 9i, 10g, 11g,12c
+and Oracle E-Business Suite 11i ,R12&R12.2. I also have extensive experience in
+release and change management, project management, and IT infrastructure."
+
+Smith, Andy
+authorAvatar: n/a
+bio: "Andy Smith has been with Rackspace since 2018 and is currently the Senior
+Product Manager for Rackspace’s Managed VMware Cloud on AWS solutions. Andy
+brings more than 20 years’ experience working in IT and for IT solutions
+companies, and has spent the last decade helping customers deploy and get the
+most out of private and hybrid cloud solutions. When not working, Andy enjoys
+hiking, skiing, and playing and watching hockey."
+
 Srivastava, Deepanker
 authorAvatar: 'https://s.gravatar.com/avatar/305aead3fa98ed419b5b47b2f6c9b780'
 bio: n/a
@@ -393,6 +450,15 @@ the Lead Email Technicians in Cloud Office. Walter joined Rackspace in 2018 and
 has been supporting the Office 365 environment from day one. His passion for
 helping others combined with his knowledge of Office 365 helps him provide a
 Fanatical Experience for Rackspace customers everyday."
+
+Tharmarajah, Nilojan
+authorAvatar: 'https://s.gravatar.com/avatar/685794a71af4ba6a72bb679304669e9a'
+bio: "I am a Specialist Solutions Architect at Rackspace.nIn my younger days, I achieved a degree in
+Information Systems from City University, London, United Kingdom. I have close to 15 years of technical
+IT experience in various industries from maintaining data centers for multiple companies to deploying
+cloud infrastructure for a global media company. With my experience, I now help companies from a variety
+of industries to solution their environment in the cloud and be a sounding board to advise customers on
+their technical challenges."
 
 Toews, Everett
 authorAvatar: 'https://www.gravatar.com/avatar/c1a75adb52f40016a480cee292527895'
@@ -421,6 +487,32 @@ the most advanced weapons system in the Navy at that time."
 Wilensky, Jeff
 authorAvatar: 'https://s.gravatar.com/avatar/017eaa68c10c8d1b95aacf7d34557a28'
 bio: n/a
+
+Winfrey, Lorenzo
+authorAvatar: 'https://s.gravatar.com/avatar/4946b45863e87d1a876eeb2873af2593'
+bio: "As Product Manager for Rackspace’s Government Solutions (RGS), Lorenzo D.
+Winfrey is responsible for multiple areas including product vision and strategy,
+roadmap development, and branding for the RGS portfolio. Lorenzo’s leadership
+objective is to ensure all our solutions have a customer focus and are built
+to the highest quality while aggressively pursuing integration of new value added
+technology. Prior to joining Rackspace in April 2019, Lorenzo was Chief of
+Architecture and Standards for the Defense Intelligence Agency (DIA) where he
+managed a portfolio of over $50 million in annual operating budget. Lorenzo’s
+extensive career in information technology includes leading DIA’s AWS Cloud
+Broker Team, managing the operations of the Microsoft System Center Configuration
+Manager enterprise solution, and pioneering the development and deployment of
+the agency’s first cloud native, web based application to track near real time
+cloud spend, utilization and schedule. While serving at DIA, Lorenzo was awarded
+the Award for Exceptional Civilian Service, the agency's highest civilian award,
+which recognizes excellence, initiative and outstanding contributions over a
+period of several years. Lorenzo brings to Rackspace a compelling combination
+of technical expertise and strategic leadership experience. He firmly believes
+that leadership is a discipline that should be studied and practiced. Lorenzo
+has become known for sharing his reading lists with all who will listen. He
+enjoys creating content, reading and the occasional video game. Hailing from
+Augusta, Georgia, Lorenzo now lives in Waldorf, Maryland with his family. He
+holds a Bachelor’s of Science from Claflin University. Lorenzo is based in the
+company’s Reston, Virginia office."
 
 Xin, Michael
 authorAvatar: 'https://s.gravatar.com/avatar/5c2bae8f6f4c9669249888f5b8e1f5b0'

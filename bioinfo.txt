@@ -303,6 +303,12 @@ bio: "Accomplished Database Consultant with years of in-depth knowledge and
 experience in building and administering business solutions based on Oracle and
 NoSQL (MongoDB, Couchbase and Cassandra) database engines and technologies."
 
+Kumar, Gourav
+authorAvatar: 'https://s.gravatar.com/avatar/ea51707a4a182959177d9b8244835571'
+bio: "An Azure professional, blog writer, and community contributor with soft
+corner of PowerShell. I'm learning Terraform and building my road to be on top.
+For more, solve this: (65,122,117,114,101,77,97,110,\" \",\"\|\",\" \",71,111,117,114,97,118| ForEach-Object {[char]$_})-join\"\""
+
 Kumar, Manish
 authorAvatar: 'https://s.gravatar.com/avatar/7f73ff8ddbc33505beb7a14033611a06'
 bio: "I've been a Racker for three years and have 14+ years of Oracle DBA

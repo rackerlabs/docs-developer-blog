@@ -8,8 +8,7 @@ published: true
 authorIsRacker: true
 authorAvatar: 'https://s.gravatar.com/avatar/ea51707a4a182959177d9b8244835571'
 bio: "An Azure professional, blog writer, and community contributor with soft
-corner of PowerShell. I'm learning Terraform and building my road to be on top.
-For more, solve this: (65,122,117,114,101,77,97,110,\" \",\"\|\",\" \",71,111,117,114,97,118| ForEach-Object {[char]$_})-join\"\""
+corner of PowerShell. I'm learning Terraform and building my road to be on top."
 canonical: https://blog.topqore.com/monitor-azure-backup-with-log-analytics/
 categories:
     - Azure

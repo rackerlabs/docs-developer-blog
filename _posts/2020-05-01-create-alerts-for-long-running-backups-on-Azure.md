@@ -7,8 +7,6 @@ author: Gourav Kumar
 published: true
 authorIsRacker: true
 authorAvatar: 'https://s.gravatar.com/avatar/ea51707a4a182959177d9b8244835571'
-bio: "An Azure professional, blog writer, and community contributor with soft
-corner of PowerShell. I'm learning Terraform and building my road to be on top."
 canonical: https://blog.topqore.com/monitor-azure-backup-with-log-analytics/
 categories:
     - Azure

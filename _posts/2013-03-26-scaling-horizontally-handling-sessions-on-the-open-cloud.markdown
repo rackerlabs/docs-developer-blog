@@ -9,7 +9,6 @@ categories:
   - Cloud Servers
 ---
 
-{% img right pillars/pillar.png 160 160 %}
 Wayne Walls wrote a great article on the Rackspace Blog around
 [horizontal scaling](http://www.rackspace.com/blog/pillars-of-cloudiness-no-3-scaling-horizontally/),
 a pillar of cloud application design. When designing applications in the cloud,

@@ -173,6 +173,7 @@ needed.
 Configure other alert requirements, such as alert name, action group (email
 recipient), webhooks, and other conditions.
 
+
 ### Conclusion
 
 That’s all there is to it. This post shows you how to configure an alert on

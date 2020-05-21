@@ -55,7 +55,7 @@ The APP\_MULTI package enables you to perform the following actions:
 
 ### APP\_MULTI package events
 
-The APP\_MULTI package uses the following events on a form to trigger actions:
+The APP\_MULTI package responds to the following events on a form:
 
 - **KEY-CLRFRM**: (form-level) Validates the record before it clears the form.
   Use example: `APP_MULTI.EVENT('KEY-CLRFRM');`
@@ -107,9 +107,9 @@ block or at the top-level of a form), the system notifies you of the record
 selection and deselection. The trigger fires after every individual or bulk
 record selection or deselection.
 
-#### Trigger components
+#### Trigger variables
 
-Triggers have the following components:
+You can use the following variables in the triggers:
 
 - The **GLOBAL.APPCORE\_MULTI\_BLOCK** global: has the name of the data block
   that is affected by record selection or deselection.
@@ -126,7 +126,7 @@ Triggers have the following components:
 - The **APP\_MULTI.LOOPING** package variable: has either TRUE or FALSE values,
   depending on whether you called **MULTI\_RECORD\_ACTION** within a loop.
 
-### Retrieve data selected on form
+### Retrieve data selected on a form
 
 For each data block, the APP\_MULTI package has a record group with the
 record numbers of the currently selected records.
@@ -144,7 +144,9 @@ Here's an example scenario. Given that you have the following:
 - on a discrete jobs form
 - with a field, **WIP_ENTITY_ID**
 
-You can print the IDs of the selected jobs by using the following PL/SQL code:
+For example, given a discrete jobs form, block **W\_JOBS**, and a field,
+**WIP\_ENTITY\_ID**, you can print the IDs of the selected jobs by using the
+following PL/SQL code:
 
     DECLARE
      record_number_column    groupcolumn;

@@ -138,12 +138,6 @@ You can perform the following tasks by providing the name of the data block:
 
 - Use the **APP\_MULTI.GET\_GROUP\_COUNT** to get the number of selected records.
 
-Here's an example scenario. Given that you have the following:
-
-- a data block, **W_JOBS**
-- on a discrete jobs form
-- with a field, **WIP_ENTITY_ID**
-
 For example, given a discrete jobs form, block **W\_JOBS**, and a field,
 **WIP\_ENTITY\_ID**, you can print the IDs of the selected jobs by using the
 following PL/SQL code:

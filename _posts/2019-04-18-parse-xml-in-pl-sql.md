@@ -6,11 +6,6 @@ comments: true
 author: Amit Garg
 published: true
 authorIsRacker: true
-authorAvatar: 'https://s.gravatar.com/avatar/0994f16ae51d6814da574bd5f1b3fb8e'
-bio: "I am working as a senior system analyst in the IT sector. I like reading
-and travelling. I always like to work independently, and I believe that to live
-a happy life, there must be balance between work and family life. Also, I believe
-that we should share our knowledge so that it can be helpful for others."
 categories:
     - Oracle
     - Database

@@ -186,11 +186,8 @@ authorAvatar: 'https://s.gravatar.com/avatar/f2f71a634ccd1e79ea3b3b317f8b4161'
 bio: n/a
 
 Garg, Amit
-authorAvatar: 'https://s.gravatar.com/avatar/0994f16ae51d6814da574bd5f1b3fb8e'
-bio: "I am working as a senior system analyst in the IT sector. I like reading
-and travelling. I always like to work independently, and I believe that to live
-a happy life, there must be balance between work and family life. Also, I believe
-that we should share our knowledge so that it can be helpful for others."
+authorAvatar: n/a
+bio: n/a
 
 Garratt, Nick
 authorAvatar: 'https://s.gravatar.com/avatar/749cf70eafe03795015019c1047be85f'
@@ -299,6 +296,13 @@ bio: n/a
 Kukreja, Sharad
 authorAvatar: 'https://s.gravatar.com/avatar/3533f66c2c0826e45a3cf9b8c64ef617'
 bio: n/a
+
+Kumar, Amit
+authorAvatar: 'https://s.gravatar.com/avatar/0994f16ae51d6814da574bd5f1b3fb8e'
+bio: "I am working as a senior system analyst in the IT sector. I like reading
+and travelling. I always like to work independently, and I believe that to live
+a happy life, there must be balance between work and family life. Also, I believe
+that we should share our knowledge so that it can be helpful for others."
 
 Kumar, Anil
 authorAvatar: 'https://s.gravatar.com/avatar/3f1352f21438061d35ff20470433f3da'

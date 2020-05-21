@@ -3,7 +3,7 @@ layout: post
 title: "Use the Oracle Forms APP_MULTI package"
 date: 2020-05-22 00:01
 comments: true
-author: Amit Garg
+author: Amit Kumar
 published: true
 authorIsRacker: true
 authorAvatar: 'https://s.gravatar.com/avatar/0994f16ae51d6814da574bd5f1b3fb8e'

@@ -32,21 +32,20 @@ another study has shown that Amazon could lose up to one percent of its sales
 because of a tenth of a second delay (100 ms).
 
 We know that bandwidth is cheap and will continue to grow, but there is a
-fundamental limitation in what we can do about latency. Information cannot
-travel faster than the speed of light.
-So unless we can figure out how to travel faster than the speed of light,
-build tunnels through the earth, or move to a smaller planet, we are
-faced with the following challenge of minimizing the number
+fundamental limitation with what we can do about latency. Information cannot
+travel faster than the speed of light. So, unless we can figure out how to
+travel faster than the speed of light, build tunnels through the earth, or move
+to a smaller planet, we are faced with the challenge of minimizing the number
 of round-trip times (RTTs) required to establish a connection&mdash;hopefully
 without sacrificing security.
 
 And this is exactly where QUIC comes in.
 
-
 ### What is QUIC
 
-Quick UDP Internet Connection (QUIC) was originally introduced
-by Google in 2014 to provide a next-generation multiplexed transport that conforms to the IETF standards: 
+Google originally introduced the Quick UDP Internet Connection (QUIC) protocol
+in 2014 to provide a next-generation multiplexed transport that conforms to the 
+Internet Engineering Task Force (IETF) standards: 
 ([Draft version 28 at the time of the writing](https://tools.ietf.org/html/draft-ietf-quic-transport-28)).
 
 QUIC is a new transport protocol designed from the ground up to improve
@@ -72,11 +71,10 @@ five percent of today’s Internet traffic runs on QUIC
 
 ### Where does QUIC fit?
 
-Let’s understand now where the protocol fits in the OSI layer. QUIC is a
-cross-layer protocol that rides on top of UDP. It steals of all the good things
-from the TCP (congestion control and loss recovery), TLS
-(cryptography and handshake), and all of the control aspects of HTTP/2
-(multi-streaming) to become its own protocol.
+Let’s understand now where the QUIC protocol fits in the Open Systems Interconnection (OSI) layer. 
+QUIC is a cross-layer protocol that rides on top of UDP. It becomes its own protocol by stealing of
+all the good things from TCP (congestion control and loss recovery), TLS (cryptography and handshake),
+and all of the control aspects of HTTP/2 (multi-streaming).
 
 ![QUIC protocol]({% asset_path 2020-06-24-quick-a-game-changer/quic-protocol.png %})
 
@@ -94,10 +92,10 @@ handshakes. The initial connection takes a single round-trip, and the
 subsequent connection (or session resumption) to the same origin requires
 no additional RTT.
 
-- **Security**: QUIC is an encrypted transport which means packets are always
+- **Security**: QUIC is an encrypted transport, which means packets are always
 authenticated and encrypted. This encryption prevents modification and limits
 protocol ossification by middleboxes. Comparable to TLS, QUIC uses only
-the most secure cipher suites that TLS 1.3 supports (complied with the
+the most secure cipher suites that TLS 1.3 supports (complying with
 perfect forward secrecy).
 
 - **Optimization (Multiplexing)**: Applications commonly multiplex units of data
@@ -128,19 +126,18 @@ signaling in acknowledgements (ACKs) for accurate RTT measurements.
 The main challenge encountered with QUIC is the middleboxes out there on the
 Internet. Middleboxes have somehow become key checkpoints in the
 Internet architecture. Firewalls tend to block anything unfamiliar for
-security reasons, and Network Address Translators (NATs) rewrite the transport
-header, making both incapable of allowing traffic from new transports, such as QUIC,
-without explicit support. Any packet content not protected by end-to-end security,
-such as the TCP packet over which the organization implementing the protocol has no
-control, gets blocked by the firewall. This is one of the reasons the QUIC protocol
-was developed on top of UDP. UDP and TCP are built into the kernel space, which is
-difficult to change and very slow to update.
+security reasons, and NATs rewrite the transport header, making both incapable of
+allowing traffic from new transports, such as QUIC, without explicit support. The
+firewall blocks any packet content not protected by end-to-end security, such as
+the TCP packet over which the organization implementing the protocol has no control.
+This is one of the reasons Google developed the QUIC protocol on top of UDP. UDP and
+TCP are built into the kernel space, which is difficult to change and very slow to update.
 
 ### Conclusion
 
-Google has come up with a new initiative to make the web faster and more
-reliable. For several years, Google has been investing heavily in the 
-webspace. First, it deployed one of the biggest CDN global cache networks to get
+Google has come up with a new initiative to make the web faster and more reliable. For
+several years, Google has been investing heavily in the webspace. First, it deployed one
+of the biggest content delivery network (CDN) global cache networks to get
 closer to its users. Then, it developed one of the most widely
 used browsers, Google Chrome, to be even closer to the user. Finally, it
 reshaped the transport protocol by opening QUIC to the open-source community.
@@ -149,7 +146,7 @@ Even though the protocol is not yet standardized, we see a growing interest
 by some big players like Cloudflare&reg; and Akamai&reg;, which have already added
 support for QUIC in their edge network.
 
-The QUIC protocol has made serious advancements in the last few years and has
+The QUIC protocol has made serious advances in the last few years and has
 inspired some new or still-in-draft technologies such as the following ones:
 
 - TLS 1.3
@@ -157,7 +154,7 @@ inspired some new or still-in-draft technologies such as the following ones:
 - SNI
 - HTTP/3 (the upcoming version of HTTP that runs over QUIC)
 
-After going through the features and benefits of the protocol, there is no
+After going through the features and benefits of the protocol, you can't
 doubt that QUIC is a faster and more secure transport layer protocol, which
 is definitely designed for the needs of the modern Internet. Stay tuned for
 the official announcement from the IETF.

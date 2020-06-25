@@ -23,7 +23,7 @@ improves the refreshable clone feature from the 12c release 2 by adding a quick
 switchover or failover facility. You can also create a snapshot carousel to clone
 or replicate pluggable databases (PDBs) in a multitenant environment.
 
-<! --more-- >
+<!-- more -->
 
 For production environments, use a snapshot carousel with the refreshable clone
 PDB feature to make database administration (DBA) activities easy, such as

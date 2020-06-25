@@ -24,7 +24,7 @@ by using Hashicorp® Terraform® with the help of Visual Studio® Code (VS Code)
 You can easily create multiple virtual machines (VMs) on Azure® by using
 Hashicorp® Terraform® with the help of Visual Studio® Code (VS Code).
 
-<! --more-- >
+<!-- more -->
 
 ### Overview
 
@@ -176,11 +176,9 @@ If you don't have the `az` CLI on your machine, you can
    You can save the plan output for later use by adding the `-out` flag in the
    command.
 
-7. Execute the Terraform code to deploy:
+7. Execute the Terraform code to deploy and type yes at the confirmation check:
 
         terraform apply
-
-   Type yes at the confirmation check.
 
    Alternately, use `-auto-approve` to skip manual confirmation:
 

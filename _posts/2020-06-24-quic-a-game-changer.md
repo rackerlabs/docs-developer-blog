@@ -41,7 +41,7 @@ without sacrificing security.
 
 And this is exactly where QUIC comes in.
 
-### What is QUIC
+### What is QUIC?
 
 Google originally introduced the Quick UDP Internet Connection (QUIC) protocol
 in 2014 to provide a next-generation multiplexed transport that conforms to the 
@@ -78,7 +78,7 @@ and all of the control aspects of HTTP/2 (multi-streaming).
 
 ![QUIC protocol]({% asset_path 2020-06-24-quick-a-game-changer/quic-protocol.png %})
 
-### Benefits
+### What are the benefits of QUIC?
 
 QUIC addresses some of the challenges encountered by modern web applications on
 desktop or mobile devices. You can learn more about QUIC on the 
@@ -121,7 +121,7 @@ algorithm to use, such as CUBIC. It also improves loss recovery by using
 unique packet numbers to avoid retransmission ambiguity and by using explicit
 signaling in acknowledgements (ACKs) for accurate RTT measurements.
 
-### Challenges
+### What are the challenges with QUIC?
 
 The main challenge encountered with QUIC is the middleboxes out there on the
 Internet. Middleboxes have somehow become key checkpoints in the

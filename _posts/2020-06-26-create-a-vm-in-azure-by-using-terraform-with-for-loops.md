@@ -169,18 +169,21 @@ If you don't have the `az` CLI on your machine, you can
 
         terraform init
 
-6. Run the Terraform plan to check what we are going to build:
+6. Run the Terraform plan to check what we are going to build and save the
+   plan output for later use by adding the `-out` flag in the command:
 
         terraform plan
 
-   You can save the plan output for later use by adding the `-out` flag in the
-   command.
+        or
 
-7. Execute the Terraform code to deploy and type yes at the confirmation check:
+        terraform plan -out
+
+7. Execute the Terraform code to deploy and type yes at the confirmation check
+   or use `-auto-approve` to skip manual confirmation:
 
         terraform apply
 
-   Alternately, use `-auto-approve` to skip manual confirmation:
+        or
 
         terraform apply -auto-apply
 

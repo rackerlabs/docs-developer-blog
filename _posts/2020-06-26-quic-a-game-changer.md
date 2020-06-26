@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "QUIC: A game changer"
-date: 2020-06-24 00:01
+date: 2020-06-26 00:01
 comments: true
 author: Mustapha Benmbarek
 published: true

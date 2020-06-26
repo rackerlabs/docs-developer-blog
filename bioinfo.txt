@@ -395,6 +395,15 @@ Mattson, Josh
 authorAvatar: 'http://www.gravatar.com/avatar/791617263c70278859e1b26c15d13eab'
 bio: n/a
 
+McLaughlin, Mitchell
+authorAvatar: authorAvatar: 'https://media-exp1.licdn.com/dms/image/C5603AQH5r2hzui051w/profile-displayphoto-shrink_100_100/0?e=1596672000&v=beta&t=ar809F1WbFhkJXAvxbf12x6Dh0PmTaGgyeQqgKrATWA'
+bio: "Mitchell is proficient in Salesforce CRM development, administration, and
+analysis with 5+ years of experience implementing and developing complex solutions
+for enterprise clients. Mitchell is an 8x Salesforce certified developer and
+Analytics Champions group member specifically focused on Sales Cloud and Einstein
+Analytics. His background in Full Stack and .NET development also makes him an
+ideal candidate to help with Salesforce Integrations."
+
 Messerli, Antony
 authorAvatar: 'https://www.gravatar.com/avatar/53b5341ace963caa36117f64a3353185'
 bio: "Antony Messerli is a Principal Engineer at Rackspace who heads up the
@@ -431,6 +440,11 @@ bio: n/a
 Pandey, Amit kumar
 authorAvatar: 'https://s.gravatar.com/avatar/c6bddf3d409b0e1975d01962a7317e2b'
 bio: n/a
+
+Patel, Tejashkumar
+authorAvatar: 'https://s.gravatar.com/avatar/93f8a2afa4b179946cc23ac18a0ff8a5'
+bio: "I am a Database Administrator with more than a decade of experience in
+various RDBMS, Bigdata and NoSQL database technologies, and the cloud platform."
 
 Peterson, Taylor
 authorAvatar: ''
@@ -495,9 +509,9 @@ Currently, I work on Oracle, MongoDB, and other NoSQL database technologies."
 
 Sharma, Hemant
 authorAvatar: 'https://s.gravatar.com/avatar/62a512ada4789514ddecc061e501be64'
-bio: "I am a Sr. Database Administrator with many years of experience as DBA in
-the IT industry. I share my knowledge about latest database technologies via my
-blog in a simple and effective way."
+bio: "I am a Sr. Database Administrator with many years of experience as a DBA
+in the IT industry. I share my knowledge about the latest database technologies
+via my blog in a simple and effective way."
 
 Sharma, Ravi kant
 authorAvatar: 'http://0.gravatar.com/avatar/c7776b42759c729500163fc6588221ac'

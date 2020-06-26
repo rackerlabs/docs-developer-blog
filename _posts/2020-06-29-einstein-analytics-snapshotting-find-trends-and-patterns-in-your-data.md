@@ -53,39 +53,48 @@ Analytics application. To install this tool from EA, perform the following steps
 
 ![]({% asset_path 2020-06-29-einstein-analytics-snapshotting-find-trends-and-patterns-in-your-data/Picture1.png %})
 
-2. Choose **Start From Template**.
+<ol start=2>
+    <li>Choose <b>Start From Template</b>.</li>
+</ol>
 
 ![]({% asset_path 2020-06-29-einstein-analytics-snapshotting-find-trends-and-patterns-in-your-data/Picture2.png %})
 
-3. Search for **Snapshot Analytics**.
+<ol start=3>
+    <li>Search for <b>Snapshot Analytics</b>.</li>
+</ol>
 
 ![]({% asset_path 2020-06-29-einstein-analytics-snapshotting-find-trends-and-patterns-in-your-data/Picture3.png %})
 
-4. Select **personalize using Salesforce objects** and choose the object you
-   want to capture in your snapshotting dataset.
+<ol start=4>
+    <li>Select <b>personalize using Salesforce objects</b> and choose the object you
+   want to capture in your snapshotting dataset.</li>
+</ol>
 
 ![]({% asset_path 2020-06-29-einstein-analytics-snapshotting-find-trends-and-patterns-in-your-data/Picture4.png %})
 
-5. The next page prompts you to choose the fields to include in the snapshotting
-   dataset. For *Opportunity* capturing, you could select:
+<ol start=5>
+    <li>The next page prompts you to choose the fields to include in the snapshotting
+   dataset. For <em>Opportunity</em> capturing, you could select:
+     <ul>
+      <li>Opportunity name</li>
+      <li>Stage</li>
+      <li>Forecast Category</li>
+      <li>Close Date</li>
+      <li>Amount</li>
+    </ul>
+   </li>
+</ol>
 
-- Opportunity name
-
-- Stage
-
-- Forecast Category
-
-- Close Date
-
-- Amount
-
-6. The next prompt asks how often to run the snapshot. Thirty days is usually an
-   excellent window to avoid storage limits.
+<ol start=6>
+    <li>The next prompt asks how often to run the snapshot. Thirty days is usually an
+   excellent window to avoid storage limits.</li>
+</ol>
 
 Congratulations! At this point, the app should have created a new dataflow,
 dataset, and dashboard. The dataset is extremely powerful because you can create
 custom dashboards to compare the previous and current state of many data metrics
-and trends in your data. The app comes with a dashboard, **Snapshot Trend**.
+and trends in your data. The app comes with a dashboard, **Snapshot Trend**, as
+shown in the following image:
 
 ![]({% asset_path 2020-06-29-einstein-analytics-snapshotting-find-trends-and-patterns-in-your-data/Picture5.png %})
 
@@ -131,7 +140,8 @@ of this same snapshot date used for a dropdown filter.
 ![]({% asset_path 2020-06-29-einstein-analytics-snapshotting-find-trends-and-patterns-in-your-data/Picture10.png %})
 
 After you complete the dataflow work, you can hit save and schedule the dataflow
-to run as often as you'd like to snapshot the data.
+to run as often as you'd like to snapshot the data, as shown in the following
+images:
 
 ![]({% asset_path 2020-06-29-einstein-analytics-snapshotting-find-trends-and-patterns-in-your-data/Picture11.png %})
 

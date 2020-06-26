@@ -44,14 +44,14 @@ And this is exactly where QUIC comes in.
 ### What is QUIC?
 
 Google originally introduced the Quick UDP Internet Connection (QUIC) protocol
-in 2014 to provide a next-generation multiplexed transport that conforms to the 
-Internet Engineering Task Force (IETF) standards: 
+in 2014 to provide a next-generation multiplexed transport that conforms to the
+Internet Engineering Task Force (IETF) standards:
 ([Draft version 28 at the time of the writing](https://tools.ietf.org/html/draft-ietf-quic-transport-28)).
 
 QUIC is a new transport protocol designed from the ground up to improve
 performance for HTTPS traffic and to enable rapid deployment and continued
 evolution of transport mechanisms. QUIC, implemented on top of User Datagram Protocol (UDP),
-replaces most of the traditional HTTPS stack: 
+replaces most of the traditional HTTPS stack:
 
 - HTTP/2
 - Transport Layer Security (TLS)
@@ -71,17 +71,17 @@ five percent of today’s Internet traffic runs on QUIC
 
 ### Where does QUIC fit?
 
-Let’s understand now where the QUIC protocol fits in the Open Systems Interconnection (OSI) layer. 
+Let’s understand now where the QUIC protocol fits in the Open Systems Interconnection (OSI) layer.
 QUIC is a cross-layer protocol that rides on top of UDP. It becomes its own protocol by stealing of
 all the good things from TCP (congestion control and loss recovery), TLS (cryptography and handshake),
 and all of the control aspects of HTTP/2 (multi-streaming).
 
-![QUIC protocol]({% asset_path 2020-06-24-quick-a-game-changer/quic-protocol.png %})
+![QUIC protocol]({% asset_path 2020-06-26-quick-a-game-changer/quic-protocol.png %})
 
 ### What are the benefits of QUIC?
 
 QUIC addresses some of the challenges encountered by modern web applications on
-desktop or mobile devices. You can learn more about QUIC on the 
+desktop or mobile devices. You can learn more about QUIC on the
 [IETF working group website](https://tools.ietf.org/html/draft-ietf-quic-transport-28),
 but the following list has some of the key features of QUIC:
 

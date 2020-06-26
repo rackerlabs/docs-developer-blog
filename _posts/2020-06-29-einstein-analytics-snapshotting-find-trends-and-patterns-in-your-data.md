@@ -160,9 +160,9 @@ Here are a few use cases:
 
 4. Monitor active Salesforce users.
 
-You can set up snapshotting quickly in EA initially. You can then use its vast
-functionality to create many useful dashboards, which can be a great help to all
-types of businesses in the Salesforce clouds and platforms.
+You can set up snapshotting quickly in EA. You can then use its vast functionality
+to create many useful dashboards, which can be a great help to all types of
+businesses in the Salesforce clouds and platforms.
 
 <a class="cta red" id="cta" href="https://www.rackspace.com/salesforce">Learn more about Salesforce Customer Relationship Management (CRM).</a>
 

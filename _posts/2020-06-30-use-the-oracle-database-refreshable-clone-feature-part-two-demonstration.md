@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Use the Oracle Database refreshable clone feature&reg;Part Two: Demonstration"
+title: "Use the Oracle Database refreshable clone feature&mdash;Part Two: Demonstration"
 date: 2020-06-30 00:01
 comments: true
 author: Tejaskumar Patel
@@ -146,7 +146,7 @@ query to check the current open_mode of the database.
 You might see the following error if you did not close the database instance
 for refresh:
 
-`ORA-65025: Pluggable database is not closed on all instances`
+    ORA-65025: Pluggable database is not closed on all instances
 
 ![]({% asset_path 2020-06-30-use-the-oracle-database-refreshable-clone-feature-part-two-demonstration/Picture5.png %})
 

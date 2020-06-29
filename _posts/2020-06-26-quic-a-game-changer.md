@@ -154,8 +154,8 @@ inspired some new or still-in-draft technologies such as the following ones:
 - SNI
 - HTTP/3 (the upcoming version of HTTP that runs over QUIC)
 
-After going through the features and benefits of the protocol, you can't
-doubt that QUIC is a faster and more secure transport layer protocol, which
+After going through the features and benefits of the protocol, you hopefully agree
+that QUIC is a faster and more secure transport layer protocol, which
 is definitely designed for the needs of the modern Internet. Stay tuned for
 the official announcement from the IETF.
 

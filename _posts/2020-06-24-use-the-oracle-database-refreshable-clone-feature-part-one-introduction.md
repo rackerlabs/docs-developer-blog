@@ -1,18 +1,21 @@
 ---
 layout: post
-title: "Use the Oracle Database refreshable clone feature: Part One&mdash;Introduction"
+title: "Use the Oracle Database refreshable clone feature: Part One: Introduction"
 date: 2020-06-24 00:01
 comments: true
 author: Tejaskumar Patel
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/93f8a2afa4b179946cc23ac18a0ff8a5'
+bio: "I am a Database Administrator with more than a decade of experience in
+various RDBMS, Bigdata and NoSQL database technologies, and the cloud platform."
 categories:
     - Oracle
     - database
-metaTitle: "Use the Oracle Database refreshable clone feature: Part One&mdash;Introduction"
+metaTitle: "Use the Oracle Database refreshable clone feature: Part One: Introduction"
 metaDescription: "This post describes the practical use of refreshable clones
 with manual and automatic switchover cases."
-ogTitle: "Use the Oracle Database refreshable clone feature: Part One&mdash;Introduction"
+ogTitle: "Use the Oracle Database refreshable clone feature: Part One: Introduction"
 ogDescription: "This post describes the practical use of refreshable clones with
 manual and automatic switchover cases."
 ---
@@ -216,7 +219,8 @@ the switchovers from the point of view of Recovery Time Objectives (RTOs, time
 to resume operations) and Recovery Point Objectives (RPOs, such as achieving
 minimal data loss).
 
-Part Two of the series demonstrates the refreshable clone feature.
+[Part Two of the series](https://developer.rackspace.com/blog/use-the-oracle-database-refreshable-clone-feature-part-two-demonstration/)
+demonstrates the refreshable clone feature.
 
 Use the Feedback tab to make any comments or ask questions. You can also
 [chat now](https://www.rackspace.com/#chat) to start the conversation.

@@ -444,7 +444,7 @@ bio: n/a
 Patel, Tejashkumar
 authorAvatar: 'https://s.gravatar.com/avatar/93f8a2afa4b179946cc23ac18a0ff8a5'
 bio: "I am a Database Administrator with more than a decade of experience in
-various RDBMS, Bigdata and NoSQL database technologies, and the cloud platform."
+various RDBMSs, Big Data and NoSQL database technologies, and the cloud platform."
 
 Peterson, Taylor
 authorAvatar: ''

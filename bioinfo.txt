@@ -65,7 +65,7 @@ authorAvatar: 'https://s.gravatar.com/avatar/4a7de5d7772b14826cca8496c410ba88'
 bio: n/a
 
 Benmbarek, Mustapha
-authorAvatar: n/a
+authorAvatar: 'https://s.gravatar.com/avatar/0299204313e4fc8d8c722748fa21a6b2?s=80'
 bio: Mustapha works with startups and companies of any size to support their
 innovation. In his role as Solutions Architect at Rackspace, he leverages his
 experience to help people bring their ideas to life, providing guidance and

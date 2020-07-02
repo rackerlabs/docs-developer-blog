@@ -19,6 +19,7 @@ non-profit organization. In her free time, Teresa enjoys camping (or better
 yet&mdash;glamping) at the beach or the sand dunes with her family."
 categories:
     - Security
+    - General
 metaTitle: "Microsoft 365 readiness assessment"
 metaDescription: "Can you confidently say your collaboration platform and data are secure?"
 ogTitle: "Microsoft 365 readiness assessment"
@@ -37,7 +38,7 @@ connected platform.
 
 Microsoft 365&reg; offers a secure platform with various solutions such as
 productivity tools (like Excel®, Word®, Teams®, and Outlook®) and security
-enhancement options like Threat Protection and Data Loss Prevention. As a
+enhancement options like *threat protection* and *data loss prevention*. As a
 Microsoft partner since 2001 and a five-time Microsoft Hosting Partner of the
 Year, Rackspace Technology has developed a Microsoft 365 Readiness Assessment to
 advise you on the tools and options Microsoft 365 can provide your business
@@ -54,11 +55,12 @@ and internal policies. It's critical to understand how to configure Microsoft
 enforce business rules.
 
 Different businesses have different priorities. One company might have more
-substantial mobile device protection requirements and consider tools such as
-Intune® or conditional access policies based on location. Another organization
-needs to develop better policies around data loss prevention and block emails
-from being sent with social security numbers. Our Microsoft 365 Readiness
-Assessment enables us to gain a better understanding of your business priorities.
+substantial mobile-device-protection requirements and want to consider tools
+such as Intune® or conditional access policies based on location. Another
+organization might need to develop better policies around data loss prevention
+and block users from sending emails with social security numbers. Our Microsoft
+365 Readiness Assessment enables us to gain a better understanding of your
+business priorities.
 
 ### Key assessment features
 
@@ -78,10 +80,10 @@ conditional access policies and advanced authentication capabilities.
 configuration and migration options. For example, we help define a migration
 path and the appropriate configuration for Microsoft Exchange&reg;.
 
-- **Teams readiness**: We can configure the Microsoft Teams® collaboration tool,
-which works with SharePoint® and has video and chat capabilities, to encourage
-productive collaboration. Because it is so flexible, this readiness effort
-focuses on security, compliance, and the tool's governance objectives.
+- **Teams readiness**: To encourage productive collaboration, we can configure
+the collaboration tool, Teams, which works with SharePoint® and has video and chat
+capabilities. The tool's flexibility enables us to focus this readiness effort
+on security, compliance, and governance objectives.
 
 - **File sharing and collaboration readiness**: As with Microsoft Teams,
 OneDrive® and SharePoint are collaborative cloud tools that enhance productivity
@@ -91,16 +93,16 @@ resources.
 
 ### Next Steps
 
-Microsoft has long been an enabler of the remote worker and work-from-home
-scenarios, building products and solutions that allow workers to remain productive
-no matter where they are located. But how do you take advantage of these great
-tools efficiently and effectively? We are here to advise you. Our architects
-focus on the following elements:
+Microsoft has long enabled remote workers and work-from-home scenarios, building
+products and solutions that allow workers to remain productive no matter where
+they are located. But how do you take advantage of these great tools efficiently
+and effectively? We are here to advise you. Our architects focus on the following
+elements:
 
 - The Microsoft Cloud platform
 - Cloud productivity
 - Collaboration and content
-- Enterprise Mobility Management
+- Enterprise mobility management
 - Communications
 - Messaging
 

@@ -7,7 +7,7 @@ author: Sam Myoung
 published: true
 authorIsRacker: true
 authorAvatar: ''
-bio: "."
+bio: "Sam Myoung is a product manager with over 11 years of experiences in the IT industry with an emphasis on data analytics."
 categories:
     - database
 metaTitle: "MLOps Foundations powered by Rackspace Technology’s Model Factory Framework"

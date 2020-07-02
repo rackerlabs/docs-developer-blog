@@ -6,7 +6,7 @@ comments: true
 author: Sam Myoung
 published: true
 authorIsRacker: true
-authorAvatar:   'https://s.gravatar.com/avatar/7632808463e741b328ea3ce18f80b935'
+authorAvatar: 'https://s.gravatar.com/avatar/7632808463e741b328ea3ce18f80b935'
 bio:  "Sam Myoung is a product manager with over 11 years of experiences in the IT
 industry with an emphasis on data analytics."
 categories:

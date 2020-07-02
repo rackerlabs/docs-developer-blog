@@ -21,11 +21,11 @@ of data’s predictive power. However, 60 percent of ML models never make it to 
 the intended results because of inadequate considerations of the shift in people, processes, and platforms needed
 to operate in a responsive, agile technology environment effectively. The new Rackspace ML Operations
 Foundations offering (MLOps), powered by the Rackspace Technology Model Factory Framework, can help you innovate your
-data landscape, even if you don't have all the technical expertise to efficiently move ML models into production.
+data landscape, even if you don't have all the technical expertise to move ML models into production efficiently.
 
 <!-- more -->
 
-The Rackspace Technology built our Model Factory Framework with open source tools that enable rapid development,
+Rackspace Technology built our Model Factory Framework with open source tools that enable rapid development,
 training, scoring, and deployment of models. We can tailor the MLOps solution to specific workflows and business
 needs through customization around the Model Factory Framework. Rackspace leverages the innovative capabilities of
 the cloud to help customers build new revenue streams, increase efficiency, and deliver incredible experiences.
@@ -47,12 +47,12 @@ when deploying to different environments, ensuring that model performance in dev
 **Tools for diagnostics, performance monitoring, and addressing model drift:**  Provides tools for data science teams to address
 model drift, model performance for debugging and troubleshooting, and pipeline management.
 
-**Model explainability for governance and regulatory compliance:** Track models, data, and parameters so you can
+**Model explainability for governance and regulatory compliance:** Track models, data, and parameters to
 show auditors that you employed the proper protocols.
 
 **Platform for collaboration:** Combines DevOps tools and processes with ML workflows. Teams
 can work closely together to develop complex models and pipelines and manage model progression through the
-different stages of development to production, with respective versions, annotations, and history.
+different development stages to production, with respective versions, annotations, and history.
 
 **Accelerated ROI:** Expedite the use of models in production and realize the benefits of
 an automated cloud-based ML lifecycle management solution with a pay-for-what-you-use

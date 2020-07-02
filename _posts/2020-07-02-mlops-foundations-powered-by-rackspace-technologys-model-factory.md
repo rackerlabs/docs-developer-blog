@@ -19,15 +19,15 @@ revenue streams, increase efficiency, and deliver incredible experiences"
 ---
 
 It is becoming more and more important for businesses to use Machine Learning (ML) models to take advantage
-of data’s predictive power, yet 60% of ML models never make it to production. Many of these models fail to deliver
+of data’s predictive power. However, 60% of ML models never make it to production. These models often fail to deliver
 the intended results because of inadequate considerations of the shift in people, processes, and platforms needed
 to effectively operate in a responsive, agile technology environment. Rackspace’s new Machine Learning Operations
 Foundations offering (MLOps), powered by Rackspace Technology Model Factory Framework, can help you innovate your
-data landscape, even if you lack some of the technical expertise to efficiently move Machine Learning models into production.
+data landscape, even if you don't have all the technical expertise to efficiently move Machine Learning models into production.
 
 <!-- more -->
 
-The Rackspace Technology Model Factory Framework is built using open source tools that enables rapid development,
+The Rackspace Technology Model Factory Framework is built with open source tools that enables rapid development,
 training, scoring, and deployment of models. The MLOps Solution can be tailored to specific workflows and business
 needs through customization around the Model Factory Framework. Rackspace leverages the innovative capabilities of
 the cloud to help customers build new revenue streams, increase efficiency, and deliver incredible experiences.
@@ -39,7 +39,7 @@ data science, machine learning, and operations to help turn your data into a too
 **Standardized model development environment for your data science teams:** Allows your data science and
 engineering teams to develop models with support for any machine learning framework.
 
-**Automated model deployment across development, Q/A, and production environments:** Leverages hyperscale
+**Automated model deployment across development, Q/A, and production environments:** Leverages hyper-scale
 cloud automation to quickly take models from development to deployment, while addressing the production-ready
 requirements of high availability, scalability, reliability and cost-management.
 

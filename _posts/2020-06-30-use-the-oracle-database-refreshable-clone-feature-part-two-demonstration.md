@@ -3,7 +3,7 @@ layout: post
 title: "Use the Oracle Database refreshable clone feature&mdash;Part Two: Demonstration"
 date: 2020-06-30 00:01
 comments: true
-author: Tejaskumar Patel
+author: Tejashkumar Patel
 published: true
 authorIsRacker: true
 authorAvatar: 'https://s.gravatar.com/avatar/93f8a2afa4b179946cc23ac18a0ff8a5'
@@ -103,7 +103,7 @@ For the refreshable clone environment, take the following actions.
 
 ![]({% asset_path 2020-06-30-use-the-oracle-database-refreshable-clone-feature-part-two-demonstration/Picture1.png %})
 
-2) Import the data from the **EXPDP** dumps that you took by using the `impdb`
+2) Import the data from the **EXPDP** dumps that you took by using the `impdp`
    utility or importing an HR schema into **PURCH\_PDB**. For this example,
    import an HR schema by running the following script on the database:
 

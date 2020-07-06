@@ -3,7 +3,7 @@ layout: post
 title: "Use the Oracle Database refreshable clone feature&mdash;Part One: Introduction"
 date: 2020-06-24 00:01
 comments: true
-author: Tejaskumar Patel
+author: Tejashkumar Patel
 published: true
 authorIsRacker: true
 authorAvatar: 'https://s.gravatar.com/avatar/93f8a2afa4b179946cc23ac18a0ff8a5'

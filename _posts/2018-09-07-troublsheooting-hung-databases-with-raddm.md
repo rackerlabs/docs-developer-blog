@@ -6,15 +6,28 @@ comments: true
 author: Tejashkumar Patel
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/93f8a2afa4b179946cc23ac18a0ff8a5'
+bio: "I am a Database Administrator with more than a decade of experience in
+various RDBMSs, Big Data and NoSQL database technologies, and the cloud platform."
 categories:
   - Oracle
   - database
+metaTitle: "Troubleshooting hung Oracle databases and sessions with Real-Time ADDM"
+metaDescription: "This post shares knowledge about practical use of Real-Time
+ADDM to identify and survive an emergency due to any type of database health
+problems, such as 100% session, process utilization, or exceeding the predefined
+critical limits setup for input/output (I/O), memory, or interconnect limits."
+ogTitle: "Troubleshooting hung Oracle databases and sessions with Real-Time ADDM"
+ogDescription: "This post shares knowledge about practical use of Real-Time ADDM
+to identify and survive an emergency due to any type of database health problems,
+such as 100% session, process utilization, or exceeding the predefined critical
+limits setup for input/output (I/O), memory, or interconnect limits."
 ---
 
 Oracle&reg; Enterprise Manager (OEM) 12c and 13c includes many performance
 analysis tools, including a support tool, called OEM Real-Time Automatic Database
 Diagnostic Monitor (Real-Time ADDM), for the Oracle DBA to use for
-troubleshooting or tuning real-time, ongoing performance issues. This blog shares
+troubleshooting or tuning real-time, ongoing performance issues. This post shares
 knowledge about practical use of Real-Time ADDM to identify and
 survive an emergency due to any type of database health problems, such as 100%
 session, process utilization, or exceeding the predefined critical limits setup

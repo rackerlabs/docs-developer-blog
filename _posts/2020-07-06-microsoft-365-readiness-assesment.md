@@ -64,7 +64,7 @@ business priorities.
 
 ### Key assessment features
 
-The assessment includes the following key features:
+The assessment includes the following important features:
 
 - **Customer success workshop**: To gain a better understanding of your business
 and priorities, we gather information about your vision, goals, pain points, and

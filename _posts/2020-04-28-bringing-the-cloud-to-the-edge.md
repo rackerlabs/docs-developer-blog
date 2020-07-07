@@ -6,6 +6,7 @@ comments: true
 author: Mustapha Benmbarek
 published: true
 authorIsRacker: true
+authorAvatar: 'https://s.gravatar.com/avatar/0299204313e4fc8d8c722748fa21a6b2?s=80'
 bio: "Mustapha works with startups and companies of any size to support their
 innovation. In his role as Solutions Architect at Rackspace, he leverages his
 experience to help people bring their ideas to life, providing guidance and

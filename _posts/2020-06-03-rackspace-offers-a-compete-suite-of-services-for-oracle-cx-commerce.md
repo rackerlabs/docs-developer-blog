@@ -4,6 +4,7 @@ title: "Rackspace offers a complete suite of services for Oracle CX Commerce"
 date: 2020-06-03 00:01
 comments: true
 author: Charlotte Colbert
+authorAvatar: 'https://ca.slack-edge.com/T07TWTBTP-U0DLJC8ES-600c79e3c0b5-512'
 bio: "I am a 13+year Racker and am currently a Product Manager V for the Rackspace Application Services (RAS)
 Digital experience portfolio."
 published: true

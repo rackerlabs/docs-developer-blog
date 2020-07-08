@@ -190,7 +190,7 @@ You can configure SAP HANA system replication by using the following tools:
 
 Perform the following steps to configure replication by using SAP HANA studio:
 
-#### 1. Enable system replication
+#### Step one: Enable system replication
 
 1. Start the primary system.
 
@@ -199,17 +199,17 @@ Perform the following steps to configure replication by using SAP HANA studio:
 3. Enable system replication on the primary system by using the following steps
    in SAP HANA studio:
 
-   a. In the **Systems** view, right-click the primary system and choose
-   **Configuration and Monitoring -> Configure System Replication**.
+     a. In the **Systems** view, right-click the primary system and choose
+     **Configuration and Monitoring -> Configure System Replication**.
 
-   b. The **Configure System Replication** dialog opens
-   and selects the **Enable System Replication** option by default. Click **Next**.
+     b. The **Configure System Replication** dialog opens
+     and selects the **Enable System Replication** option by default. Click **Next**.
 
-   c. Enter the logical name used to represent the primary system and click **Next**.
+     c. Enter the logical name used to represent the primary system and click **Next**.
 
-   d. Review the configured information and choose **Finish**.
+     d. Review the configured information and choose **Finish**.
 
-   e. To stop the secondary system, right-click on the secondary system and choose **Configuration and Monitoring -> Stop System**.
+     e. To stop the secondary system, right-click on the secondary system and choose **Configuration and Monitoring -> Stop System**.
 
 4. To prepare the secondary system for authentication, copy the system PKI SSFS
    **.key** and the **.dat** file from the primary system to the secondary system.
@@ -218,20 +218,20 @@ Perform the following steps to configure replication by using SAP HANA studio:
 5. Use the following steps to register the secondary system with the primary
    system in SAP HANA Studio:
 
-   a. To stop the secondary system if it is still running, right-click the
-   secondary system and choose **Configuration and Monitoring ->Stop System**.
+     a. To stop the secondary system if it is still running, right-click the
+     secondary system and choose **Configuration and Monitoring ->Stop System**.
 
-   b. In the **Systems** view, right-click the secondary system and choose
-   **Configuration and Monitoring -> Configure System Replication**.
+     b. In the **Systems** view, right-click the secondary system and choose
+     **Configuration and Monitoring -> Configure System Replication**.
 
-   c. In the **Configure System Replication** dialog, choose
-   **Register Secondary System** and click **Next**.
+     c. In the **Configure System Replication** dialog, choose
+     **Register Secondary System** and click **Next**.
 
-   d. Enter the system information and the logical name for the secondary system.
+     d. Enter the system information and the logical name for the secondary system.
 
-   e. Specify the log replication mode and operation mode.
+     e. Specify the log replication mode and operation mode.
 
-   f. Review the configured information and click **Finish**.
+     f. Review the configured information and click **Finish**.
 
 6. The secondary system requests an initial full data replica from the primary system.
 
@@ -239,30 +239,30 @@ The system replication is enabled and the secondary system is registered with a
 primary system now
 
 
-#### 2. Disable system replication
+#### Step two:  Disable system replication
 
 1. Use the following steps to unregister the secondary system in SAP HANA studio:
 
-   a. In the **Systems** view, right-click the primary system and choose
-   **Configuration and Monitoring -> Configure System Replication**.
+     a. In the **Systems** view, right-click the primary system and choose
+     **Configuration and Monitoring -> Configure System Replication**.
 
-   b. In the **Configure System Replication dialog**, choose
-   **Unregister secondary system** and click **Next**.
+     b. In the **Configure System Replication dialog**, choose
+     **Unregister secondary system** and click **Next**.
 
-   c. Enter the required system information and click **Next**.
+     c. Enter the required system information and click **Next**.
 
-   d. Review the configured information and click **Finish**.
+     d. Review the configured information and click **Finish**.
 
 2. Use the following steps to disable replication system on the primary system:
 
-   a. In the **Systems** view, right-click the primary system and choose
-   **Configuration and Monitoring -> Configure System Replication**.
+     a. In the **Systems** view, right-click the primary system and choose
+     **Configuration and Monitoring -> Configure System Replication**.
 
-   b. Choose **Disable system replication** and click **Next**.
+     b. Choose **Disable system replication** and click **Next**.
 
-   c. Review the configured information and click **Finish**.
+     c. Review the configured information and click **Finish**.
 
-#### 3. Takeover the secondary system
+#### Step three: Takeover the secondary system
 
 The takeover process switches your active system from the current primary system
 to the secondary system. If you perform a takeover as part of a planned downtime,
@@ -272,37 +272,37 @@ performing a takeover to the secondary system.
 1. Perform a takeover in the secondary system at data center **B** by using the
    following steps in SAP HANA studio:
 
-   a. In the **Systems** view, right-click the secondary system and choose
-   **Configuration and Monitoring -> Configure System Replication**.
+     a. In the **Systems** view, right-click the secondary system and choose
+     **Configuration and Monitoring -> Configure System Replication**.
 
-   b. Choose **Perform Takeover** from the actions list.
+     b. Choose **Perform Takeover** from the actions list.
 
-   c. Enter the required system information and click **Next**.
+     c. Enter the required system information and click **Next**.
 
-   d. Review the information and click **Finish**.
+     d. Review the information and click **Finish**.
 
 2. At this point, the Secondary system becomes the production system. If the
    system is running, it leaves the recovery mode and becomes fully operational,
    replaying the latest transaction logs and accepting queries. If the system is
    offline, start it, and it will take over production operations.
 
-#### 4. Failback to the original primary system
+#### Step four: Failback to the original primary system
 
 1. To failback, you must attach your former primary system as the new secondary
    system to the current primary system by using the following steps in SAP HANA
    studio:
 
-   a. In the **Systems** view, right-click the primary system and choose
-   **Configuration and Monitoring -> Configure System Replication**.
+     a. In the **Systems** view, right-click the primary system and choose
+     **Configuration and Monitoring -> Configure System Replication**.
 
-   b. In the **Configure System Replication** dialog, choose
-   **Register Secondary System** and click **Next**.
+     b. In the **Configure System Replication** dialog, choose
+     **Register Secondary System** and click **Next**.
 
-   c. Enter the system information and the logical name for the system.
+     c. Enter the system information and the logical name for the system.
 
-   d. Specify log replication mode and operation mode as required.
+     d. Specify log replication mode and operation mode as required.
 
-   e. Review the configured information and click **Finish**.
+     e. Review the configured information and click **Finish**.
 
 2. The former primary system is now registered as the secondary system with the
    current primary system, formerly the secondary system. Because the system

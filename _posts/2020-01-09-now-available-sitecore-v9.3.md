@@ -6,6 +6,7 @@ comments: true
 author: Charlotte Colbert
 authorIsRacker: true
 published: true
+authorAvatar: 'https://ca.slack-edge.com/T07TWTBTP-U0DLJC8ES-600c79e3c0b5-512'
 bio: "I am a 13+year Racker and am currently a Product Manager V for the RAS Digital experience portfolio."
 categories:
     - Azure

@@ -133,7 +133,7 @@ bio: "As a Racker, I am having a good experience as Oracle APPS DBA and
 exploring new technology."
 
 Colbert, Charlotte
-authorAvatar: ''
+authorAvatar: 'https://ca.slack-edge.com/T07TWTBTP-U0DLJC8ES-600c79e3c0b5-512'
 bio: "I am a 13+year Racker and am currently a Product Manager V for the RAS
 Digital experience portfolio."
 

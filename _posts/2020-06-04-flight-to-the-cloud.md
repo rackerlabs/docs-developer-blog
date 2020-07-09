@@ -120,17 +120,17 @@ innovation and creativity into the applications and services they host.
 
 The cloud has the following benefits:
 
--**Flexibility**: Undoubtedly, the cloud is flexible with options like on-demand
+- **Flexibility**: Undoubtedly, the cloud is flexible with options like on-demand
 and pay-as-you-go. For example, before the advent of the cloud, expansion to a
 different continent was a huge expense because of IT needs. Today, it is just a
 click away. We can change the region and start working in another region instantly.
 
--**Availability**:  Cloud providers are available in multiple locations worldwide,
+- **Availability**:  Cloud providers are available in multiple locations worldwide,
 but some businesses don't have the budget for a cross-continent DR solution. With
 the help of the cloud, even a small-scale organization can plan for global DR
 solutions.
 
--**Consistency**:  The cloud consistently offers reliability and readily
+- **Consistency**:  The cloud consistently offers reliability and readily
 available data. Overall, the cloud is more consistent than traditional data
 centers.
 

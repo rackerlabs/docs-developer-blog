@@ -1,7 +1,7 @@
 ---
 layout: post
 title: PostgreSQL + WAL-E + Cloudfiles = Awesome
-date: '2014-01-6 12:00'
+date: '2014-01-06 12:00'
 comments: true
 author: Alex Gaynor
 published: true

@@ -192,6 +192,8 @@ Perform the following steps to configure replication by using SAP HANA studio:
 
 #### Step one: Enable system replication
 
+<br/>
+
 1. Start the primary system.
 
 2. Perform an initial data backup or storage snapshot on the primary system.
@@ -241,6 +243,8 @@ primary system now
 
 #### Step two:  Disable system replication
 
+<br/>
+
 1. Use the following steps to unregister the secondary system in SAP HANA studio:
 
      a. In the **Systems** view, right-click the primary system and choose
@@ -263,6 +267,8 @@ primary system now
      c. Review the configured information and click **Finish**.
 
 #### Step three: Takeover the secondary system
+
+<br/>
 
 The takeover process switches your active system from the current primary system
 to the secondary system. If you perform a takeover as part of a planned downtime,
@@ -287,6 +293,8 @@ performing a takeover to the secondary system.
    offline, start it, and it will take over production operations.
 
 #### Step four: Failback to the original primary system
+
+<br/>
 
 1. To failback, you must attach your former primary system as the new secondary
    system to the current primary system by using the following steps in SAP HANA

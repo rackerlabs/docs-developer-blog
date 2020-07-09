@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Nervous about converting from Classic to Lightning? Learn from this company’s success"
-date: 2019-12-2 00:00
+date: 2019-12-02 00:00
 comments: true
 author: Nikki Carter
 published: true

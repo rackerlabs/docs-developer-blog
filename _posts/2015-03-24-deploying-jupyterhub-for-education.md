@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Deploying JupyterHub for Education
-date: '2015-03-24 23:59'
+date: '2015-03-24 21:00'
 comments: true
 author: Jessica Hamrick
 published: true

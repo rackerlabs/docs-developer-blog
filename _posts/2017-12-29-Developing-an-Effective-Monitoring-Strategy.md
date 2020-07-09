@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Developing an effective monitoring strategy"
-date: 2018-1-2 00:00
+date: 2017-12-29 00:00
 comments: false
 author: Josh Mattson
 published: true

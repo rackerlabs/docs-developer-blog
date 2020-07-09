@@ -589,6 +589,12 @@ bio: "I'm a consultant working on Oracle E-Business Suite and related products.
 As an Amazon Cloud Solutions Architect Associate, I am passionate about the
 Cloud Platform. Python and Chef are works in progress."
 
+Vinodh, Chakrala
+authorAvatar: 'https://s.gravatar.com/avatar/72046bfed0f329b284a8992ea3fc920b'
+bio: "I'm a SAP BASIS administrator with 5 years of experience. I have deep
+expertise in implementation, migration, installation, and upgrades of SAP systems.
+My key skills include SAP HANA administration and Error Correction Code (ECC)."
+
 Whitehead, Chris
 authorAvatar: 'https://s.gravatar.com/avatar/286b19b54ad30b4f0d25a4ac679744a8'
 bio: n/a

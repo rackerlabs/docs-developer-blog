@@ -16,7 +16,7 @@ ogTitle: "Configure the Azure Diagnostic Extension for Storing Linux Log Files"
 ogDescription: "Configure the Azure Diagnostic Extension for Storing Linux Log Files"
 ---
 
-A colleague of mine was trying to figure out a cheap and simple way for to store log files from their application and have the functionality to search through it. First thing that comes to mind is using Azure monitor to read the logs, but another option that most people forget is the Azure Linux Diagnostic Extension. This extension can collect metrics from the VM, read log events from syslog, customize data metrics that are collected, collect specific log files that can be stored in a storage table and send metrics and log events to EventHub endpoints. The Azure portal can let the end user configure all the above settings except collecting specific log files. Let me show you the steps required and the gotcha that sent me into a troubleshooting mission.
+A colleague of mine was trying to figure out a cheap and simple way to store log files from their application and have the functionality to search through it. First thing that comes to mind is using Azure monitor to read the logs, but another option that most people forget is the Azure Linux Diagnostic Extension. This extension can collect metrics from the VM, read log events from syslog, customize data metrics that are collected, collect specific log files that can be stored in a storage table and send metrics and log events to EventHub endpoints. The Azure portal can let the end user configure all the above settings except collecting specific log files. Let me show you the steps required and the gotcha that sent me into a troubleshooting mission.
 
 <!-- more -->
 

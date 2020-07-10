@@ -64,7 +64,7 @@ curl "http://$(($vm | ConvertFrom-Json).publicIpAddress)"
 ```
 At this point, you would expect the diagnostic agent to tail the log entries and create an Azure storage table that we configured in the JSON files. After waiting 15 minutes, nothing happened. I reviewed the log directory at ***/var/log/azure/Microsoft.Azure.Diagnostics.LinuxDiagnostic/***, but everything was showing good. I saw the log file path I set and everything successfully start. After poking around, I found this path ***/var/opt/microsoft/omsagent/LAD/log/omsagent.log*** and noticed ****#2020-07-10 21:20:44 +0000 [error]: Permission denied @ rb_sysopen - /var/log/nginx/access.log***
 
-I opened a support case to Microsoft as I thought the Agent ran under root, but it looks like you need to chmod the log file to give additional permissions. 
+I opened a support case to Microsoft as I thought the Agent ran under root, but it looks like you need to chmod the log file to give additional permissions. In my support case, Microsoft mentioned they will be adding more documentation around this step.
 ```
 az vm run-command invoke -g $rgName -n $vmName --command-id RunShellScript --scripts "sudo chmod o+r /var/log/nginx/access.log"
 ```

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Rackspace Technology offers expert services for New Relic"
+title: "Rackspace Technology offers Expert Services for New Relic"
 date: 2020-07-13 00:01
 comments: true
 author: Charlotte Colbert
@@ -42,13 +42,13 @@ your technology stack to get to the root cause of problems and optimize system
 performance.
 
 Rackspace currently offers New Relic tools and implementation services as a part
-of the RAS Digital Experience Application Operations solution. This new offering
-is a fully managed services solution for your applications.
+of the RAS Digital Experience Application Operations solution. If you want or
+need fully managed services, this offer is ideal.
 
 With Rackspace  Expert Services for New Relic, you can get a one-time engagement
 to implement and customize New Relic to use the tools and analytics to help
-drive their businesses.  Choose this option if you neither need nor want fully
-managed services, or you do not host with Rackspace.
+drive their businesses. Choose this option to take advantaged of advanced
+customization options, whether or not you host with Rackspace Technology.
 
 Rackspace Expert Services for New Relic provides you with expertise and guidance
 so you can receive the maximum benefit from New Relic tools and gain insights

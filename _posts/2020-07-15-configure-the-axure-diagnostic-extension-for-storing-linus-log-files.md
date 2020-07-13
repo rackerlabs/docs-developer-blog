@@ -49,7 +49,7 @@ az vm open-port --port 80 --resource-group $rgName --name $vmName
 az storage account create -n $stgName -g $rgName -l $location --sku Standard_LRS
 ```
 
-To configure what log file to store in an Azure table, you need to push two JSON files need pushed to the VM. Download the **PrivateConfig.json** and **PublicSettings.json** from my repo [here](https://github.com/jrudley/azurelinuxfilelog). Open up the **Public Settings.json** file and add your storage account name and ResourceID of the VM that you created. To quickly get the VM ResourceID, run the following command:
+To configure what log file to store in an Azure table, you need to push two JSON files to the VM. Download the **PrivateConfig.json** and **PublicSettings.json** from my repo [here](https://github.com/jrudley/azurelinuxfilelog). Open up the **Public Settings.json** file and add your storage account name and ResourceID of the VM that you created. To quickly get the VM ResourceID, run the following command:
 
 ```
 ($vm | ConvertFrom-Json).id

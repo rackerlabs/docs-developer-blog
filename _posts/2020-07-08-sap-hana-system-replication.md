@@ -5,9 +5,12 @@ date: 2020-07-08 00:01
 comments: true
 author: Chakrala Vinodh
 authorAvatar: 'https://s.gravatar.com/avatar/72046bfed0f329b284a8992ea3fc920b'
-bio: "I'm a SAP BASIS administrator with 5 years of experience. I have deep
-expertise in implementation, migration, installation, and upgrades of SAP systems.
-My key skills include SAP HANA administration and Error Correction Code (ECC)."
+bio: "I am a SAP BASIS administrator. I have hands-on experience with SAP&reg;
+end-to-end implementations, migrations, installations, and upgrades on different
+databases (such as HANA&reg;, Oracle&reg;, MSSQL&reg;, Sybase&reg;, DB2&reg;,
+and Max DB) and operating system platforms (including Windows&reg; and Linux&reg;).
+I also have expertise on SAP components such as S4 HANA, ECC, BW, Solution
+Manager, PO, Fiori, SAP Cloud connector, Web Dispatcher, and BOBJ."
 published: true
 authorIsRacker: true
 categories:

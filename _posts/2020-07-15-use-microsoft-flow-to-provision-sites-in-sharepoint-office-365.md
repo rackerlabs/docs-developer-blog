@@ -12,8 +12,7 @@ development and administration in various flavors of SharePoint including
 SharePoint On-Prem versions and cloud-based technologies like Azure and
 SharePoint O365."
 categories:
-    - Oracle
-    - database
+    - General
 metaTitle: "Use Microsoft Flow to provision sites in Sharepoint Office 365"
 metaDescription: "A cloud-based solution, Microsoft&reg; (MS) Flow effectively
 automates and simplifies business processes by creating automated workflows with
@@ -30,7 +29,7 @@ simplifies business processes by creating automated workflows with MS Flow.
 <!-- more -->
 
 This post describes how to create a fully automated bulk solution to provision
-a sub-site in SharePoint&reg; Office 365@reg; (SPO) for any site creation
+a sub-site in SharePoint&reg; Office 365&reg; (SPO) for any site creation
 requests that come through a custom list. You can achieve this goal by using a
 scheduled MS Flow workflow and the REST API features.
 

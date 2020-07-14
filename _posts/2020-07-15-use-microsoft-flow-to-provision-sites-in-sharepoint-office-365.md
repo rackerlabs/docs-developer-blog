@@ -58,7 +58,7 @@ Steps to build the solution:
 Create a custom SharePoint list, **Site Creation Request**, with the first eight
 columns in **Figure 1**.
 
-![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in sharepoint-office-365/Picture1.png %})
+![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in-sharepoint-office-365/Picture1.png %})
 
 **Figure 1** : Set of columns
 
@@ -76,7 +76,7 @@ format:
 - **Teams**: `STS#3`
 - **Communication Site**: `SITEPAGEPUBLISHING#0`
 
-![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in sharepoint-office-365/Picture2.png %})
+![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in-sharepoint-office-365/Picture2.png %})
 
 **Figure 2** : Add an item to *site creation request* list
 
@@ -89,7 +89,7 @@ Use the following steps to create and schedule an MS Flow workflow:
 Build a scheduled flow, as shown in **Figure 3**, pass all the parameters, and
 click **Create**.
 
-![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in sharepoint-office-365/Picture3.png %})
+![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in-sharepoint-office-365/Picture3.png %})
 
 **Figure 3**: Create the scheduled workflow
 
@@ -99,7 +99,7 @@ In the next screen, after the recurrence step, add two **Initialize Variable**
 actions for the **List Name** and **IsUniquePermission** variables, as shown in
 **Figure 4**.
 
-![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in sharepoint-office-365/Picture4.png %})
+![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in-sharepoint-office-365/Picture4.png %})
 
 **Figure 4**: Add the *initialize* variable action
 
@@ -111,7 +111,7 @@ to No**, as shown in **Figure  5**.
 
 **Note**: The **Filter Query** parameter receives only **OData Query**.
 
-![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in sharepoint-office-365/Picture5.png %})
+![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in-sharepoint-office-365/Picture5.png %})
 
 **Figure 5**: Add the *get items* action
 
@@ -120,7 +120,7 @@ to No**, as shown in **Figure  5**.
 Add the **Apply to each** action and select the value from the previous
 **Get Items** action, as shown in **Figure 6**.
 
-![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in sharepoint-office-365/Picture6.png %})
+![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in-sharepoint-office-365/Picture6.png %})
 
 **Figure 6**: Add the **Apply to each** action
 
@@ -133,7 +133,7 @@ following command, as shown in **Figure 7**.
 
     split(item()['SiteTemplate']?['Value'],'-')
 
-![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in sharepoint-office-365/Picture7.png %})
+![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in-sharepoint-office-365/Picture7.png %})
 
 **Figure 7**: Add the **Apply to each** action
 
@@ -172,7 +172,7 @@ The body parameter details include the following elements:
 
 - **UseUniquePermissions**:  Maps to the column **IsUniquePermission**.
 
-![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in sharepoint-office-365/Picture8.png %})
+![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in-sharepoint-office-365/Picture8.png %})
 
 **Figure 8**: Add the HTTP request to provision the site
 
@@ -198,7 +198,7 @@ The details of the map request follow:
 **Note**: The highlighted value in **Figure 9** is the static name of the
 **Site Creation** list.
 
-![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in sharepoint-office-365/Picture9.png %})
+![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in-sharepoint-office-365/Picture9.png %})
 
 **Figure 9**: Add the HTTP request to update an item
 
@@ -206,7 +206,7 @@ The details of the map request follow:
 
 Complete the **Apply to each** action, as shown in **Figure 10**.
 
-![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in sharepoint-office-365/Picture10.png %})
+![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in-sharepoint-office-365/Picture10.png %})
 
 **Figure 10**: **Apply to each** block
 
@@ -214,7 +214,7 @@ Complete the **Apply to each** action, as shown in **Figure 10**.
 
 Complete the scheduled workflow, as shown in **Figure 11**.
 
-![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in sharepoint-office-365/Picture11.png %})
+![]({% asset_path 2020-07-15-use-microsoft-flow-to-provision-sites-in-sharepoint-office-365/Picture11.png %})
 
 **Figure 11**: Complete the workflow for site creation
 

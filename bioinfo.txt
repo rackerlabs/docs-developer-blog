@@ -285,6 +285,15 @@ authorAvatar: 'https://secure.gravatar.com/avatar/9b15aeb3fffbd8eb9f6040435c24cc
 bio: "I've been a Racker for nine years and have 10+ years of Oracle DBA experience.
 Currently, I work on Oracle, MongoDB, and other NoSQL databases."
 
+Hackney, Aaron
+authorAvatar: 'https://s.gravatar.com/avatar/df523dfa8824b1c0046596f3ab981a9c'
+bio: "Aaron Hackney is a Principal Architect passionately focused on next-generation
+firewall, application delivery, network security, and cybersecurity at Rackspace.
+Aaron holds a B.S. from Illinois State University, an M.S. in Computer Science
+from the University of Illinois, and is a San Antonio LSA Class 38 alum. You can
+follow him at @hacksbrain512 on Twitter, and he blogs at https://hacksbrain.com
+on cybersecurity, beer, travel, and photography."
+
 Hawthorn, Rob
 authorAvatar: 'https://s.gravatar.com/avatar/c44cfe09d207a9f1529d2280dec8583a'
 bio: n/a
@@ -653,6 +662,25 @@ VMware QE team and QE Security team. Michael is passionate about quality and
 security for Rackspace products. Michael has years of experience in application
 security, security SDLC, test automation, cloud computing, agile development
 and CI/CD."
+
+Zettler, Wayne
+authorAvatar: 'https://ca.slack-edge.com/T07TWTBTP-U010VPCKG3D-ebaa348e7951-512'
+bio: "I like to consider myself a hybrid technologist with over 20 years of
+combined experience in leadership roles, engineering deployment roles, pre-sales
+solutions architect roles, and quota-carrying B2B sales consulting roles. I am
+happiest when I'm working directly with clients to transform their organizations
+using AWS as the catalyst for change. My passion lies in driving cloud-based
+project design through business-drivers analysis, resulting in well-architected
+AWS information technology solutions. I pride myself on being capable of having
+extremely granular technical conversations with an organization's top engineers,
+while still being able to relate the information to non-technical C-suite executive
+team members. My diverse work experience allows me to view client transformation
+engagements through multiple different lenses. I've been the person to sell the
+solutions, I've been the person to design the solutions, and once upon a time,
+I was even the person to deliver the solutions. Like all solutions architects
+worth their weight in salt, my focus is on extracting the foundational business
+requirements at the core of all cloud migration initiatives and translating those
+needs into an architectural design, leveraging AWS cloud infrastructure."
 
 Zullo, Chris
 authorAvatar: 'https://s.gravatar.com/avatar/475ef03557ebebc76180795000996012'

@@ -46,17 +46,15 @@ multiple-clouds, Rackspace data centers, or corporate data centers with a single
 point of control and visibility control panel to see real-time stats. It also
 enables you to manage and apply unified security policies.
 
-You can access your security appliances through the CDO portal. To make sure
-your connection to the CDO portal is secure, self-configure and manage Multi-Factor
-Authentication (MFA) with Duo&reg; or configure access for Single-Sign-On (SSO).
-
-**Note:** This function is part of the Duo portal, not the CDO portal.
+The combination of TLS encryption and Multi-Factor Authentication (MFA) through
+Cisco Duo® provide secure access to your security appliances through the CDO portal.
+You can also configure access for Single-Sign-On (SSO).
 
 Today’s modern workflows require both the convenience of an intuitive GUI for
 point-in-time changes and more modern continuous integration/continuous delivery
 (CI/CD) approaches to security. Through the CDO application programmer interface
-(API), you have the flexibility to work your security instances into your strengths,
-opportunities, aspirations, results (SOAR) processes and SecOps and DevOps
+(API), you have the flexibility to work your security instances into your security
+orchestration, automation, and response (SOAR) processes and SecOps and DevOps
 workflows.
 
 ### Features

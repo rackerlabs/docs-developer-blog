@@ -285,6 +285,15 @@ authorAvatar: 'https://secure.gravatar.com/avatar/9b15aeb3fffbd8eb9f6040435c24cc
 bio: "I've been a Racker for nine years and have 10+ years of Oracle DBA experience.
 Currently, I work on Oracle, MongoDB, and other NoSQL databases."
 
+Hackney, Aaron
+authorAvatar: 'https://s.gravatar.com/avatar/df523dfa8824b1c0046596f3ab981a9c'
+bio: "Aaron Hackney is a Principal Architect passionately focused on next-generation
+firewall, application delivery, network security, and cybersecurity at Rackspace.
+Aaron holds a B.S. from Illinois State University, an M.S. in Computer Science
+from the University of Illinois, and is a San Antonio LSA Class 38 alum. You can
+follow him at @hacksbrain512 on Twitter, and he blogs at https://hacksbrain.com
+on cybersecurity, beer, travel, and photography."
+
 Hawthorn, Rob
 authorAvatar: 'https://s.gravatar.com/avatar/c44cfe09d207a9f1529d2280dec8583a'
 bio: n/a
@@ -653,6 +662,10 @@ VMware QE team and QE Security team. Michael is passionate about quality and
 security for Rackspace products. Michael has years of experience in application
 security, security SDLC, test automation, cloud computing, agile development
 and CI/CD."
+
+Zettler, Wayne
+authorAvatar: 'https://s.gravatar.com/avatar/'
+bio: ""
 
 Zullo, Chris
 authorAvatar: 'https://s.gravatar.com/avatar/475ef03557ebebc76180795000996012'

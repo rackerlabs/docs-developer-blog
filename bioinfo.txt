@@ -664,8 +664,23 @@ security, security SDLC, test automation, cloud computing, agile development
 and CI/CD."
 
 Zettler, Wayne
-authorAvatar: 'https://s.gravatar.com/avatar/'
-bio: ""
+authorAvatar: 'https://ca.slack-edge.com/T07TWTBTP-U010VPCKG3D-ebaa348e7951-512'
+bio: "I like to consider myself a hybrid technologist with over 20 years of
+combined experience in leadership roles, engineering deployment roles, pre-sales
+solutions architect roles, and quota-carrying B2B sales consulting roles. I am
+happiest when I'm working directly with clients to transform their organizations
+using AWS as the catalyst for change. My passion lies in driving cloud-based
+project design through business-drivers analysis, resulting in well-architected
+AWS information technology solutions. I pride myself on being capable of having
+extremely granular technical conversations with an organization's top engineers,
+while still being able to relate the information to non-technical C-suite executive
+team members. My diverse work experience allows me to view client transformation
+engagements through multiple different lenses. I've been the person to sell the
+solutions, I've been the person to design the solutions, and once upon a time,
+I was even the person to deliver the solutions. Like all solutions architects
+worth their weight in salt, my focus is on extracting the foundational business
+requirements at the core of all cloud migration initiatives and translating those
+needs into an architectural design, leveraging AWS cloud infrastructure."
 
 Zullo, Chris
 authorAvatar: 'https://s.gravatar.com/avatar/475ef03557ebebc76180795000996012'
